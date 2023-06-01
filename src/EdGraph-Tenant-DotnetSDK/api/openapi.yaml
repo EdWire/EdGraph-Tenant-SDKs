@@ -1,0 +1,4683 @@
+openapi: 3.0.1
+info:
+  description: Tenant Api - v1.0
+  title: Tenant Api
+  version: v1.0
+servers:
+- url: https://api.edgraph.com/tenant
+security:
+- oauth2:
+  - https://api.edgraph.com/tenant
+paths:
+  /tenants/{tenantId}/applications/{applicationId}:
+    get:
+      operationId: GetTenantApplicationProfileByIdAsync
+      parameters:
+      - description: ""
+        explode: false
+        in: path
+        name: tenantId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: ""
+        explode: false
+        in: path
+        name: applicationId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: X-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApplicationApi.Application.V2.ApplicationProfileResponse'
+          description: Tenant's application returned
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
+          description: Tenant's application not found
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
+          description: Tenant has missing/invalid values
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
+          description: Missing the required permissions to access to this tenant/resource
+        "500":
+          description: Oops! Can't retrieve your tenant's application right now
+      summary: Retrieves a specific application associated to a tenant using its primary
+        key
+      tags:
+      - Applications
+  /tenants/{tenantId}/applications:
+    get:
+      operationId: GetTenantApplicationsAsync
+      parameters:
+      - description: ""
+        explode: false
+        in: path
+        name: tenantId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: ""
+        explode: true
+        in: query
+        name: pageIndex
+        required: false
+        schema:
+          default: 0
+          format: int32
+          type: integer
+        style: form
+      - description: ""
+        explode: true
+        in: query
+        name: pageSize
+        required: false
+        schema:
+          default: 10
+          format: int32
+          type: integer
+        style: form
+      - description: ""
+        explode: true
+        in: query
+        name: orderBy
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: ""
+        explode: true
+        in: query
+        name: filter
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: X-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApplicationApi.Application.V2.ApplicationListResponse'
+          description: List of tenant applications returned
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
+          description: Tenant has missing/invalid values
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
+          description: Missing the required permissions to access to this tenant/resource
+        "500":
+          description: Oops! Can't retrieve the list of tenant applications right
+            now
+      summary: Retrieves a list of applications that belong to the current tenant.
+      tags:
+      - Applications
+  /tenants/{tenantId}/applicationtiles:
+    get:
+      operationId: GetTenantApplicationTilesAsync
+      parameters:
+      - description: ""
+        explode: false
+        in: path
+        name: tenantId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: ""
+        explode: true
+        in: query
+        name: pageIndex
+        required: false
+        schema:
+          default: 0
+          format: int32
+          type: integer
+        style: form
+      - description: ""
+        explode: true
+        in: query
+        name: pageSize
+        required: false
+        schema:
+          default: 100
+          format: int32
+          type: integer
+        style: form
+      - description: ""
+        explode: true
+        in: query
+        name: orderBy
+        required: false
+        schema:
+          default: applicationName ASC
+          type: string
+        style: form
+      - description: ""
+        explode: true
+        in: query
+        name: filter
+        required: false
+        schema:
+          default: ""
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: X-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EdGraph.Platform.HttpAggregators.Tenant.Api.Controllers.v1.ViewModels.Responses.ApplicationTilesResponseWithUserApplicationLicense'
+          description: List of tenant application tiles returned
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
+          description: Tenant has missing/invalid values
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
+          description: Missing the required permissions to access to this tenant/resource
+        "500":
+          description: Oops! Can't retrieve the list of tenant application tiles right
+            now
+      summary: Retrieves a list of tenant application tiles
+      tags:
+      - Applications
+  /tenants/{tenantId}/identity/apiclients/{clientId}/regeneratesecret:
+    post:
+      operationId: RegenerateTenantApiClientSecret
+      parameters:
+      - description: ""
+        explode: false
+        in: path
+        name: tenantId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: ""
+        explode: false
+        in: path
+        name: clientId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: X-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json-patch+json:
+            schema:
+              $ref: '#/components/schemas/IdentityApi.ApiClient.V1.RegenerateApiClientSecretRequest'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/IdentityApi.ApiClient.V1.RegenerateApiClientSecretRequest'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/IdentityApi.ApiClient.V1.RegenerateApiClientSecretRequest'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/IdentityApi.ApiClient.V1.RegenerateApiClientSecretRequest'
+        description: ""
+      responses:
+        "202":
+          description: Tenant's OpenId client secret created/updated
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
+          description: Tenant's OpenId client secret has missing/invalid values
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
+          description: Missing the required permissions to access to this tenant/resource
+        "500":
+          description: Oops! Can't create/update your tenant's OpenId client secret
+            right now
+      summary: Creates a tenant's OpenId client secret matching the primary key
+      tags:
+      - Identity - API Clients
+  /tenants/{tenantId}/identity/apiclients/{clientId}:
+    delete:
+      operationId: DeleteTenantApiClient
+      parameters:
+      - description: ""
+        explode: false
+        in: path
+        name: tenantId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: ""
+        explode: false
+        in: path
+        name: clientId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: X-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "202":
+          description: Tenant's OpenId client deleted
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
+          description: Tenant's OpenId client has missing/invalid values
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
+          description: Missing the required permissions to access to this tenant/resource
+        "500":
+          description: Oops! Can't delete your tenant's OpenId client right now
+      summary: Delete a tenant's OpenId api client matching the primary key
+      tags:
+      - Identity - API Clients
+    get:
+      operationId: GetTenantApiClientProfileById
+      parameters:
+      - description: ""
+        explode: false
+        in: path
+        name: tenantId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: ""
+        explode: false
+        in: path
+        name: clientId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: X-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IdentityApi.ApiClient.V1.ApiClientProfileResponse'
+          description: Tenant OpenId api client returned
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
+          description: Tenant OpenId api client not found
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
+          description: Tenant has missing/invalid values
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
+          description: Missing the required permissions to access to this tenant/resource
+        "500":
+          description: Oops! Can't retrieve your tenant application's OpenId api client
+            right now
+      summary: Retrieves the OpenId api client associated to this tenant
+      tags:
+      - Identity - API Clients
+    put:
+      operationId: UpdateTenantApiClient
+      parameters:
+      - description: ""
+        explode: false
+        in: path
+        name: tenantId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: ""
+        explode: false
+        in: path
+        name: clientId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: X-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json-patch+json:
+            schema:
+              $ref: '#/components/schemas/IdentityApi.ApiClient.V1.UpdateApiClientRequest'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/IdentityApi.ApiClient.V1.UpdateApiClientRequest'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/IdentityApi.ApiClient.V1.UpdateApiClientRequest'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/IdentityApi.ApiClient.V1.UpdateApiClientRequest'
+        description: ""
+      responses:
+        "202":
+          description: Tenant's OpenId client created/updated
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
+          description: Tenant's OpenId client has missing/invalid values
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
+          description: Missing the required permissions to access to this tenant/resource
+        "500":
+          description: Oops! Can't create/update your tenant's OpenId client right
+            now
+      summary: Updates a tenant's OpenId api client matching the primary key
+      tags:
+      - Identity - API Clients
+  /tenants/{tenantId}/identity/apiclients:
+    get:
+      operationId: GetAllTenantApiClients
+      parameters:
+      - description: ""
+        explode: false
+        in: path
+        name: tenantId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: ""
+        explode: true
+        in: query
+        name: pageSize
+        required: false
+        schema:
+          default: 10
+          format: int32
+          type: integer
+        style: form
+      - description: ""
+        explode: true
+        in: query
+        name: pageIndex
+        required: false
+        schema:
+          default: 0
+          format: int32
+          type: integer
+        style: form
+      - description: ""
+        explode: true
+        in: query
+        name: orderBy
+        required: false
+        schema:
+          default: ""
+          type: string
+        style: form
+      - description: ""
+        explode: true
+        in: query
+        name: filter
+        required: false
+        schema:
+          default: ""
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: X-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IdentityApi.ApiClient.V1.ApiClientPaginatedItemsResponsePaginatedItemsViewModel'
+          description: List of tenant OpenId api client returned
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
+          description: Not Found
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
+          description: Tenant has missing/invalid values
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
+          description: Missing the required permissions to access to this tenant/resource
+        "500":
+          description: Oops! Can't retrieve your list of tenant application's OpenId
+            api client right now
+      summary: Retrieves  a list of OpenId api clients associated to this tenant
+      tags:
+      - Identity - API Clients
+    post:
+      operationId: CreateTenantApiClient
+      parameters:
+      - description: ""
+        explode: false
+        in: path
+        name: tenantId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: X-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json-patch+json:
+            schema:
+              $ref: '#/components/schemas/IdentityApi.ApiClient.V1.CreateApiClientRequest'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/IdentityApi.ApiClient.V1.CreateApiClientRequest'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/IdentityApi.ApiClient.V1.CreateApiClientRequest'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/IdentityApi.ApiClient.V1.CreateApiClientRequest'
+        description: ""
+      responses:
+        "202":
+          description: Tenant's OpenId client created
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
+          description: Tenant's OpenId client has missing/invalid values
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
+          description: Missing the required permissions to access to this tenant/resource
+        "500":
+          description: Oops! Can't create your tenant's OpenId client right now
+      summary: Creates a new tenant OpenId api client
+      tags:
+      - Identity - API Clients
+  /tenants/{tenantId}/invitations/{invitationId}:
+    delete:
+      operationId: DeleteTenantInvitation
+      parameters:
+      - description: ""
+        explode: false
+        in: path
+        name: tenantId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: ""
+        explode: false
+        in: path
+        name: invitationId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: X-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "204":
+          description: Tenant invitation deleted
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
+          description: Tenant has missing/invalid values
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
+          description: Missing the required permissions to access to this tenant/resource
+        "500":
+          description: Oops! Can't delete your tenant invitation right now
+      summary: Delete a tenant invitation matching the primary key
+      tags:
+      - Invitations
+    get:
+      operationId: GetTenantInvitationById
+      parameters:
+      - description: ""
+        explode: false
+        in: path
+        name: tenantId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: ""
+        explode: false
+        in: path
+        name: invitationId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: X-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IdentityApi.Invitation.V1.InvitationResponse'
+          description: Tenant invitation returned
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
+          description: Tenant invitation not found
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
+          description: Tenant has missing/invalid values
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
+          description: Missing the required permissions to access to this tenant/resource
+        "500":
+          description: Oops! Can't retrieve your tenant invitation right now
+      summary: Retrieves a specific tenant invitation using its primary key
+      tags:
+      - Invitations
+  /tenants/{tenantId}/invitations:
+    get:
+      operationId: GetAllTenantInvitations
+      parameters:
+      - description: ""
+        explode: false
+        in: path
+        name: tenantId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: ""
+        explode: true
+        in: query
+        name: pageSize
+        required: false
+        schema:
+          default: 10
+          format: int32
+          type: integer
+        style: form
+      - description: ""
+        explode: true
+        in: query
+        name: pageIndex
+        required: false
+        schema:
+          default: 0
+          format: int32
+          type: integer
+        style: form
+      - description: ""
+        explode: true
+        in: query
+        name: orderBy
+        required: false
+        schema:
+          default: ""
+          type: string
+        style: form
+      - description: ""
+        explode: true
+        in: query
+        name: filter
+        required: false
+        schema:
+          default: ""
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: X-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IdentityApi.Invitation.V1.InvitationListResponsePaginatedItemsViewModel'
+          description: List of tenant invitations returned
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
+          description: Tenant has missing/invalid values
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
+          description: Missing the required permissions to access to this tenant/resource
+        "500":
+          description: Oops! Can't retrieve the list of tenant invitations right now
+      summary: Retrieves a list of tenant invitations
+      tags:
+      - Invitations
+    post:
+      operationId: SendTenantInvitation
+      parameters:
+      - description: ""
+        explode: false
+        in: path
+        name: tenantId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: X-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json-patch+json:
+            schema:
+              $ref: '#/components/schemas/IdentityApi.Invitation.V1.SendInvitationRequest'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/IdentityApi.Invitation.V1.SendInvitationRequest'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/IdentityApi.Invitation.V1.SendInvitationRequest'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/IdentityApi.Invitation.V1.SendInvitationRequest'
+        description: ""
+      responses:
+        "202":
+          description: Invitation sent
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
+          description: invitation has missing/invalid values
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
+          description: Missing the required permissions to access to this tenant/resource
+        "500":
+          description: Oops! Can't send your invitation right now
+      summary: Send an invitation
+      tags:
+      - Invitations
+  /tenants/{tenantId}/subscriptions/{subscriptionId}/update:
+    post:
+      operationId: UpdateTenantSubscription
+      parameters:
+      - description: ""
+        explode: false
+        in: path
+        name: tenantId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: ""
+        explode: false
+        in: path
+        name: subscriptionId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: X-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json-patch+json:
+            schema:
+              $ref: '#/components/schemas/TenantApi.Tenant.V1.UpdateSubscriptionRequest'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TenantApi.Tenant.V1.UpdateSubscriptionRequest'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/TenantApi.Tenant.V1.UpdateSubscriptionRequest'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/TenantApi.Tenant.V1.UpdateSubscriptionRequest'
+        description: ""
+      responses:
+        "202":
+          description: Tenant Subscription updated
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
+          description: Tenant Subscription has missing/invalid values
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
+          description: Missing the required permissions to access to this tenant/resource
+        "500":
+          description: Oops! Can't update your Tenant Subscription right now
+      summary: Updates a Tenant Subscription matching the primary key
+      tags:
+      - Subscriptions
+  /tenants/{tenantId}/subscriptions/{subscriptionId}:
+    get:
+      operationId: GetTenantSubscriptionProfileById
+      parameters:
+      - description: ""
+        explode: false
+        in: path
+        name: tenantId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: ""
+        explode: false
+        in: path
+        name: subscriptionId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: X-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EdGraph.HttpAggregators.Tenant.Api.Controllers.v1.ViewModels.Responses.SubscriptionProfileResponseDto'
+          description: Tenant Subscription returned
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
+          description: Tenant Subscription not found
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
+          description: Tenant has missing/invalid values
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
+          description: Missing the required permissions to access to this tenant/resource
+        "500":
+          description: Oops! Can't retrieve your Tenant Subscription right now
+      summary: Retrieves a specific Tenant Subscription using its primary key
+      tags:
+      - Subscriptions
+  /tenants/{tenantId}/subscriptions/applications:
+    get:
+      operationId: GetAllTenantSubscriptionApplications
+      parameters:
+      - description: ""
+        explode: false
+        in: path
+        name: tenantId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: ""
+        explode: true
+        in: query
+        name: pageIndex
+        required: false
+        schema:
+          default: 0
+          format: int32
+          type: integer
+        style: form
+      - description: ""
+        explode: true
+        in: query
+        name: pageSize
+        required: false
+        schema:
+          default: 10
+          format: int32
+          type: integer
+        style: form
+      - description: ""
+        explode: true
+        in: query
+        name: orderBy
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: X-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApplicationApi.Application.V2.PaginatedItemsResponse'
+          description: List of applications
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
+          description: Tenant has missing/invalid values
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
+          description: Missing the required permissions to access to this tenant/resource
+        "500":
+          description: Oops! Can't retrieve the resource right now
+      summary: Retrieves a list of applications available for subscription.
+      tags:
+      - Subscriptions
+  /tenants/{tenantId}/subscriptions/create:
+    post:
+      operationId: CreateTenantSubscription
+      parameters:
+      - description: ""
+        explode: false
+        in: path
+        name: tenantId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: X-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json-patch+json:
+            schema:
+              $ref: '#/components/schemas/TenantApi.Tenant.V1.CreateSubscriptionRequest'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TenantApi.Tenant.V1.CreateSubscriptionRequest'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/TenantApi.Tenant.V1.CreateSubscriptionRequest'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/TenantApi.Tenant.V1.CreateSubscriptionRequest'
+        description: ""
+      responses:
+        "202":
+          description: Tenant Subscription created
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
+          description: Tenant Subscription has missing/invalid values
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
+          description: Missing the required permissions to access to this tenant/resource
+        "500":
+          description: Oops! Can't create your Tenant Subscription right now
+      summary: Creates a new Tenant Subscription
+      tags:
+      - Subscriptions
+  /tenants/{tenantId}/subscriptions:
+    get:
+      operationId: GetAllTenantSubscriptions
+      parameters:
+      - description: ""
+        explode: false
+        in: path
+        name: tenantId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: ""
+        explode: true
+        in: query
+        name: pageSize
+        required: false
+        schema:
+          default: 10
+          format: int32
+          type: integer
+        style: form
+      - description: ""
+        explode: true
+        in: query
+        name: pageIndex
+        required: false
+        schema:
+          default: 0
+          format: int32
+          type: integer
+        style: form
+      - description: ""
+        explode: true
+        in: query
+        name: orderBy
+        required: false
+        schema:
+          default: ""
+          type: string
+        style: form
+      - description: ""
+        explode: true
+        in: query
+        name: filter
+        required: false
+        schema:
+          default: ""
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: X-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EdGraph.HttpAggregators.Tenant.Api.Controllers.v1.ViewModels.Responses.SubscriptionListResponseDtoPaginatedItemsViewModel'
+          description: List of Tenant Subscriptions returned
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
+          description: Tenant has missing/invalid values
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
+          description: Missing the required permissions to access to this tenant/resource
+        "500":
+          description: Oops! Can't retrieve the list of Tenant Subscriptions right
+            now
+      summary: Retrieves a list of Tenant Subscriptions
+      tags:
+      - Subscriptions
+  /tenants/{tenantId}:
+    get:
+      operationId: GetTenantById
+      parameters:
+      - description: ""
+        explode: false
+        in: path
+        name: tenantId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: X-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TenantApi.Tenant.V1.TenantProfileResponse'
+          description: Tenant returned
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
+          description: Tenant not found
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
+          description: Tenant has missing/invalid values
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
+          description: Missing the required permissions to access to this tenant/resource
+        "500":
+          description: Oops! Can't retrieve your tenant right now
+      summary: Retrieves a specific tenant using its primary key
+      tags:
+      - Tenants
+    post:
+      operationId: UpdateTenant
+      parameters:
+      - description: ""
+        explode: false
+        in: path
+        name: tenantId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: X-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json-patch+json:
+            schema:
+              $ref: '#/components/schemas/TenantApi.Tenant.V1.UpdateTenantRequest'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TenantApi.Tenant.V1.UpdateTenantRequest'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/TenantApi.Tenant.V1.UpdateTenantRequest'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/TenantApi.Tenant.V1.UpdateTenantRequest'
+        description: ""
+      responses:
+        "202":
+          description: Update tenant request accepted
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
+          description: Update Tenant request has missing/invalid values
+        "500":
+          description: Oops! Can't update your tenant right now
+      summary: Update a new tenant with only new IdentityProviders
+      tags:
+      - Tenants
+  /tenants/{tenantId}/users/{userId}/licenses/assignlicensebulk:
+    post:
+      operationId: AssignLicenseTenantUserBulk
+      parameters:
+      - description: ""
+        explode: false
+        in: path
+        name: tenantId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: ""
+        explode: false
+        in: path
+        name: userId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: X-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json-patch+json:
+            schema:
+              $ref: '#/components/schemas/IdentityApi.User.V1.AssignLicenseBulkRequest'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/IdentityApi.User.V1.AssignLicenseBulkRequest'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/IdentityApi.User.V1.AssignLicenseBulkRequest'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/IdentityApi.User.V1.AssignLicenseBulkRequest'
+        description: ""
+      responses:
+        "202":
+          description: Tenant user assigned a license
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
+          description: Tenant user has missing/invalid values
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
+          description: Missing the required permissions to access to this tenant/resource
+        "500":
+          description: Oops! Can't assigned a license to your tenant user right now
+      summary: Assigns a license to a tenant user matching the primary key
+      tags:
+      - Users - Licenses
+  /tenants/{tenantId}/users/{userId}/licenses/assignlicense:
+    post:
+      operationId: AssignLicenseTenantUser
+      parameters:
+      - description: ""
+        explode: false
+        in: path
+        name: tenantId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: ""
+        explode: false
+        in: path
+        name: userId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: X-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json-patch+json:
+            schema:
+              $ref: '#/components/schemas/IdentityApi.User.V1.AssignLicenseRequest'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/IdentityApi.User.V1.AssignLicenseRequest'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/IdentityApi.User.V1.AssignLicenseRequest'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/IdentityApi.User.V1.AssignLicenseRequest'
+        description: ""
+      responses:
+        "202":
+          description: Tenant user assigned a license
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
+          description: Tenant user has missing/invalid values
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
+          description: Missing the required permissions to access to this tenant/resource
+        "500":
+          description: Oops! Can't assigned a license to your tenant user right now
+      summary: Assigns a license to a tenant user matching the primary key
+      tags:
+      - Users - Licenses
+  /tenants/{tenantId}/users/{userId}/licenses/revokelicensebulk:
+    post:
+      operationId: RevokeLicenseTenantUserBulk
+      parameters:
+      - description: ""
+        explode: false
+        in: path
+        name: tenantId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: ""
+        explode: false
+        in: path
+        name: userId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: X-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json-patch+json:
+            schema:
+              $ref: '#/components/schemas/IdentityApi.User.V1.RevokeLicenseBulkRequest'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/IdentityApi.User.V1.RevokeLicenseBulkRequest'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/IdentityApi.User.V1.RevokeLicenseBulkRequest'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/IdentityApi.User.V1.RevokeLicenseBulkRequest'
+        description: ""
+      responses:
+        "202":
+          description: Tenant user revokes a license
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
+          description: Tenant user has missing/invalid values
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
+          description: Missing the required permissions to access to this tenant/resource
+        "500":
+          description: Oops! Can't revoke a license to your tenant user right now
+      summary: Revokes a license to a tenant user matching the primary key
+      tags:
+      - Users - Licenses
+  /tenants/{tenantId}/users/{userId}/licenses/revokelicense:
+    post:
+      operationId: RevokeLicenseTenantUser
+      parameters:
+      - description: ""
+        explode: false
+        in: path
+        name: tenantId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: ""
+        explode: false
+        in: path
+        name: userId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: X-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json-patch+json:
+            schema:
+              $ref: '#/components/schemas/IdentityApi.User.V1.RevokeLicenseRequest'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/IdentityApi.User.V1.RevokeLicenseRequest'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/IdentityApi.User.V1.RevokeLicenseRequest'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/IdentityApi.User.V1.RevokeLicenseRequest'
+        description: ""
+      responses:
+        "202":
+          description: Tenant user revokes a license
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
+          description: Tenant user has missing/invalid values
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
+          description: Missing the required permissions to access to this tenant/resource
+        "500":
+          description: Oops! Can't revoke a license to your tenant user right now
+      summary: Revokes a license to a tenant user matching the primary key
+      tags:
+      - Users - Licenses
+  /tenants/{tenantId}/users/{userId}/licenses:
+    get:
+      operationId: GetAllTenantUserApplicationLicenses
+      parameters:
+      - description: ""
+        explode: false
+        in: path
+        name: tenantId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: ""
+        explode: false
+        in: path
+        name: userId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: ""
+        explode: true
+        in: query
+        name: pageSize
+        required: false
+        schema:
+          default: 10
+          format: int32
+          type: integer
+        style: form
+      - description: ""
+        explode: true
+        in: query
+        name: pageIndex
+        required: false
+        schema:
+          default: 0
+          format: int32
+          type: integer
+        style: form
+      - description: ""
+        explode: true
+        in: query
+        name: orderBy
+        required: false
+        schema:
+          default: ""
+          type: string
+        style: form
+      - description: ""
+        explode: true
+        in: query
+        name: filter
+        required: false
+        schema:
+          default: ""
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: X-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EdGraph.Platform.HttpAggregators.Tenant.Api.Controllers.v1.ViewModels.Responses.UserLicensePaginatedItemsViewModel'
+          description: List of tenant users licenses returned
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
+          description: Tenant has missing/invalid values
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
+          description: Missing the required permissions to access to this tenant/resource
+        "500":
+          description: Oops! Can't retrieve the list of tenant users licenses right
+            now
+      summary: Retrieves a list of tenant users licenses
+      tags:
+      - Users - Licenses
+  /tenants/{tenantId}/users/{userId}/activate:
+    post:
+      operationId: ActivateTenantUser
+      parameters:
+      - description: ""
+        explode: false
+        in: path
+        name: tenantId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: ""
+        explode: false
+        in: path
+        name: userId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: X-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json-patch+json:
+            schema:
+              $ref: '#/components/schemas/IdentityApi.User.V1.ActivateUserRequest'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/IdentityApi.User.V1.ActivateUserRequest'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/IdentityApi.User.V1.ActivateUserRequest'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/IdentityApi.User.V1.ActivateUserRequest'
+        description: ""
+      responses:
+        "202":
+          description: Tenant user activated
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
+          description: Tenant user has missing/invalid values
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
+          description: Missing the required permissions to access to this tenant/resource
+        "500":
+          description: Oops! Can't activate your Tenant user right now
+      summary: Activate a Tenant user matching the primary key
+      tags:
+      - Users
+  /tenants/{tenantId}/users/{userId}/deactivate:
+    post:
+      operationId: DeactivateTenantUser
+      parameters:
+      - description: ""
+        explode: false
+        in: path
+        name: tenantId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: ""
+        explode: false
+        in: path
+        name: userId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: X-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json-patch+json:
+            schema:
+              $ref: '#/components/schemas/IdentityApi.User.V1.DeactivateUserRequest'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/IdentityApi.User.V1.DeactivateUserRequest'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/IdentityApi.User.V1.DeactivateUserRequest'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/IdentityApi.User.V1.DeactivateUserRequest'
+        description: ""
+      responses:
+        "202":
+          description: Tenant user deactivated
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
+          description: Tenant user has missing/invalid values
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
+          description: Missing the required permissions to access to this tenant/resource
+        "500":
+          description: Oops! Can't deactivate your Tenant user right now
+      summary: Deactivate a Tenant user matching the primary key
+      tags:
+      - Users
+  /tenants/{tenantId}/users/{userId}/resetpassword:
+    put:
+      operationId: ResetPasswordTenantUser
+      parameters:
+      - description: ""
+        explode: false
+        in: path
+        name: tenantId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: ""
+        explode: false
+        in: path
+        name: userId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: X-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json-patch+json:
+            schema:
+              $ref: '#/components/schemas/IdentityApi.User.V1.ResetPasswordRequest'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/IdentityApi.User.V1.ResetPasswordRequest'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/IdentityApi.User.V1.ResetPasswordRequest'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/IdentityApi.User.V1.ResetPasswordRequest'
+        description: ""
+      responses:
+        "202":
+          description: Tenant user password updated
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
+          description: Tenant user password request has missing/invalid values
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
+          description: Missing the required permissions to access to this tenant/resource
+        "500":
+          description: Oops! Can't reset your tenant user password right now
+      summary: Reset a tenant user password
+      tags:
+      - Users
+  /tenants/{tenantId}/users/{userId}:
+    delete:
+      operationId: DeleteTenantUser
+      parameters:
+      - description: ""
+        explode: false
+        in: path
+        name: tenantId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: ""
+        explode: false
+        in: path
+        name: userId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: X-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "204":
+          description: Tenant user deleted
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
+          description: Tenant has missing/invalid values
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
+          description: Missing the required permissions to access to this tenant/resource
+        "500":
+          description: Oops! Can't delete your tenant user right now
+      summary: Delete a tenant user matching the primary key
+      tags:
+      - Users
+    get:
+      operationId: GetTenantUserProfileById
+      parameters:
+      - description: ""
+        explode: false
+        in: path
+        name: tenantId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: ""
+        explode: false
+        in: path
+        name: userId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: X-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EdGraph.Platform.HttpAggregators.Tenant.Api.Controllers.v1.ViewModels.Responses.UserProfileResponseWithApplicationLicense'
+          description: Tenant user returned
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
+          description: Tenant user not found
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
+          description: Tenant has missing/invalid values
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
+          description: Missing the required permissions to access to this tenant/resource
+        "500":
+          description: Oops! Can't retrieve your tenant user right now
+      summary: Retrieves a specific tenant user using its primary key
+      tags:
+      - Users
+    put:
+      operationId: UpdateTenantUser
+      parameters:
+      - description: ""
+        explode: false
+        in: path
+        name: tenantId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: ""
+        explode: false
+        in: path
+        name: userId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: X-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json-patch+json:
+            schema:
+              $ref: '#/components/schemas/IdentityApi.User.V1.UpdateUserRequest'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/IdentityApi.User.V1.UpdateUserRequest'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/IdentityApi.User.V1.UpdateUserRequest'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/IdentityApi.User.V1.UpdateUserRequest'
+        description: ""
+      responses:
+        "202":
+          description: Tenant user created/updated
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
+          description: Tenant user has missing/invalid values
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
+          description: Missing the required permissions to access to this tenant/resource
+        "500":
+          description: Oops! Can't create/update your tenant user right now
+      summary: Creates or Updates a tenant user matching the primary key
+      tags:
+      - Users
+  /tenants/{tenantId}/users/addlocaluser:
+    post:
+      operationId: CreateTenantLocalUser
+      parameters:
+      - description: ""
+        explode: false
+        in: path
+        name: tenantId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: X-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json-patch+json:
+            schema:
+              $ref: '#/components/schemas/IdentityApi.User.V1.CreateLocalUserRequest'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/IdentityApi.User.V1.CreateLocalUserRequest'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/IdentityApi.User.V1.CreateLocalUserRequest'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/IdentityApi.User.V1.CreateLocalUserRequest'
+        description: ""
+      responses:
+        "202":
+          description: Tenant local user created
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
+          description: Tenant local user has missing/invalid values
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
+          description: Missing the required permissions to access to this tenant/resource
+        "500":
+          description: Oops! Can't create your tenant local user right now
+      summary: Creates a new tenant local user
+      tags:
+      - Users
+  /tenants/{tenantId}/users:
+    get:
+      operationId: GetAllTenantUsers
+      parameters:
+      - description: ""
+        explode: false
+        in: path
+        name: tenantId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: ""
+        explode: true
+        in: query
+        name: pageSize
+        required: false
+        schema:
+          default: 10
+          format: int32
+          type: integer
+        style: form
+      - description: ""
+        explode: true
+        in: query
+        name: pageIndex
+        required: false
+        schema:
+          default: 0
+          format: int32
+          type: integer
+        style: form
+      - description: ""
+        explode: true
+        in: query
+        name: orderBy
+        required: false
+        schema:
+          default: ""
+          type: string
+        style: form
+      - description: ""
+        explode: true
+        in: query
+        name: filter
+        required: false
+        schema:
+          default: ""
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: X-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EdGraph.Platform.HttpAggregators.Tenant.Api.Controllers.v1.ViewModels.Responses.UserListResponseWithApplicationLicensePaginatedItemsViewModel'
+          description: List of tenant users returned
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
+          description: Tenant has missing/invalid values
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
+          description: Missing the required permissions to access to this tenant/resource
+        "500":
+          description: Oops! Can't retrieve the list of tenant users right now
+      summary: Retrieves a list of tenant users
+      tags:
+      - Users
+components:
+  schemas:
+    ApplicationApi.Application.V2.ApplicationListResponse:
+      additionalProperties: false
+      example:
+        lastModifiedDateTime: lastModifiedDateTime
+        roles:
+        - isDefault: true
+          roleName: roleName
+        - isDefault: true
+          roleName: roleName
+        lastModifiedBy: lastModifiedBy
+        groups: groups
+        createdDateTime: createdDateTime
+        version: version
+        tags: tags
+        applicationStatus: null
+        createdBy: createdBy
+        subscriptionType: subscriptionType
+        tenantId: tenantId
+        applicationId: applicationId
+        applicationName: applicationName
+      properties:
+        tenantId:
+          nullable: true
+          type: string
+        applicationId:
+          nullable: true
+          type: string
+        applicationName:
+          nullable: true
+          type: string
+        version:
+          nullable: true
+          type: string
+        tags:
+          nullable: true
+          type: string
+        groups:
+          nullable: true
+          type: string
+        applicationStatus:
+          $ref: '#/components/schemas/ApplicationApi.Application.V2.ApplicationStatus'
+        roles:
+          items:
+            $ref: '#/components/schemas/ApplicationApi.Application.V2.Role'
+          nullable: true
+          readOnly: true
+          type: array
+        createdBy:
+          nullable: true
+          type: string
+        createdDateTime:
+          nullable: true
+          type: string
+        lastModifiedBy:
+          nullable: true
+          type: string
+        lastModifiedDateTime:
+          nullable: true
+          type: string
+        subscriptionType:
+          nullable: true
+          type: string
+      type: object
+    ApplicationApi.Application.V2.ApplicationProfileResponse:
+      additionalProperties: false
+      example:
+        applicationType: null
+        lastModifiedDateTime: lastModifiedDateTime
+        clientId: clientId
+        tooltipText: tooltipText
+        roles:
+        - isDefault: true
+          roleName: roleName
+        - isDefault: true
+          roleName: roleName
+        lastModifiedBy: lastModifiedBy
+        groups: groups
+        createdDateTime: createdDateTime
+        version: version
+        tags: tags
+        applicationStatus: null
+        applicationDescription: applicationDescription
+        createdBy: createdBy
+        subscriptionType: subscriptionType
+        tenantId: tenantId
+        applicationUri: applicationUri
+        applicationId: applicationId
+        applicationName: applicationName
+        openInNewWindow: true
+      properties:
+        tenantId:
+          nullable: true
+          type: string
+        applicationId:
+          nullable: true
+          type: string
+        applicationType:
+          $ref: '#/components/schemas/ApplicationApi.Application.V2.ApplicationType'
+        applicationName:
+          nullable: true
+          type: string
+        applicationUri:
+          nullable: true
+          type: string
+        version:
+          nullable: true
+          type: string
+        tooltipText:
+          nullable: true
+          type: string
+        applicationDescription:
+          nullable: true
+          type: string
+        tags:
+          nullable: true
+          type: string
+        groups:
+          nullable: true
+          type: string
+        applicationStatus:
+          $ref: '#/components/schemas/ApplicationApi.Application.V2.ApplicationStatus'
+        openInNewWindow:
+          type: boolean
+        roles:
+          items:
+            $ref: '#/components/schemas/ApplicationApi.Application.V2.Role'
+          nullable: true
+          readOnly: true
+          type: array
+        createdBy:
+          nullable: true
+          type: string
+        createdDateTime:
+          nullable: true
+          type: string
+        lastModifiedBy:
+          nullable: true
+          type: string
+        lastModifiedDateTime:
+          nullable: true
+          type: string
+        clientId:
+          nullable: true
+          type: string
+        subscriptionType:
+          nullable: true
+          type: string
+      type: object
+    ApplicationApi.Application.V2.ApplicationStatus:
+      enum:
+      - Unknown
+      - Draft
+      - Published
+      type: string
+    ApplicationApi.Application.V2.ApplicationType:
+      enum:
+      - Unknown
+      - SSO
+      - Link
+      type: string
+    ApplicationApi.Application.V2.PaginatedItemsResponse:
+      additionalProperties: false
+      example:
+        data:
+        - lastModifiedDateTime: lastModifiedDateTime
+          roles:
+          - isDefault: true
+            roleName: roleName
+          - isDefault: true
+            roleName: roleName
+          lastModifiedBy: lastModifiedBy
+          groups: groups
+          createdDateTime: createdDateTime
+          version: version
+          tags: tags
+          applicationStatus: null
+          createdBy: createdBy
+          subscriptionType: subscriptionType
+          tenantId: tenantId
+          applicationId: applicationId
+          applicationName: applicationName
+        - lastModifiedDateTime: lastModifiedDateTime
+          roles:
+          - isDefault: true
+            roleName: roleName
+          - isDefault: true
+            roleName: roleName
+          lastModifiedBy: lastModifiedBy
+          groups: groups
+          createdDateTime: createdDateTime
+          version: version
+          tags: tags
+          applicationStatus: null
+          createdBy: createdBy
+          subscriptionType: subscriptionType
+          tenantId: tenantId
+          applicationId: applicationId
+          applicationName: applicationName
+        pageIndex: 0
+        count: 1
+        pageSize: 6
+      properties:
+        pageIndex:
+          format: int32
+          type: integer
+        pageSize:
+          format: int32
+          type: integer
+        count:
+          format: int64
+          type: integer
+        data:
+          items:
+            $ref: '#/components/schemas/ApplicationApi.Application.V2.ApplicationListResponse'
+          nullable: true
+          readOnly: true
+          type: array
+      type: object
+    ApplicationApi.Application.V2.Role:
+      additionalProperties: false
+      example:
+        isDefault: true
+        roleName: roleName
+      properties:
+        roleName:
+          nullable: true
+          type: string
+        isDefault:
+          type: boolean
+      type: object
+    EdGraph.HttpAggregators.Tenant.Api.Controllers.v1.ViewModels.Responses.Role:
+      additionalProperties: false
+      example:
+        isDefault: true
+        roleName: roleName
+      properties:
+        roleName:
+          nullable: true
+          type: string
+        isDefault:
+          type: boolean
+      type: object
+    EdGraph.HttpAggregators.Tenant.Api.Controllers.v1.ViewModels.Responses.SubscriptionListResponseDto:
+      additionalProperties: false
+      example:
+        gracePeriod: 5
+        actualEndDateTime: actualEndDateTime
+        assignedLicenses: 2
+        lastModifiedDateTime: lastModifiedDateTime
+        lastModifiedBy: lastModifiedBy
+        createdDateTime: createdDateTime
+        endDateTime: endDateTime
+        numberOfLicenses: 5
+        licenseType: null
+        autoAssign: true
+        startDateTime: startDateTime
+        createdBy: createdBy
+        tenantId: tenantId
+        subscriptionStatus: null
+        subscriptionId: subscriptionId
+        applicationId: applicationId
+        lastMaxAssignedLicensesDateTime: lastMaxAssignedLicensesDateTime
+        maxAssignedLicenses: 7
+        applicationName: applicationName
+        applicationRoles:
+        - isDefault: true
+          roleName: roleName
+        - isDefault: true
+          roleName: roleName
+      properties:
+        tenantId:
+          nullable: true
+          type: string
+        subscriptionId:
+          nullable: true
+          type: string
+        applicationId:
+          nullable: true
+          type: string
+        applicationName:
+          nullable: true
+          type: string
+        applicationRoles:
+          items:
+            $ref: '#/components/schemas/EdGraph.HttpAggregators.Tenant.Api.Controllers.v1.ViewModels.Responses.Role'
+          nullable: true
+          type: array
+        startDateTime:
+          nullable: true
+          type: string
+        endDateTime:
+          nullable: true
+          type: string
+        actualEndDateTime:
+          nullable: true
+          type: string
+        gracePeriod:
+          format: int32
+          type: integer
+        numberOfLicenses:
+          format: int32
+          type: integer
+        assignedLicenses:
+          format: int32
+          type: integer
+        maxAssignedLicenses:
+          format: int32
+          type: integer
+        lastMaxAssignedLicensesDateTime:
+          nullable: true
+          type: string
+        licenseType:
+          $ref: '#/components/schemas/TenantApi.Tenant.V1.LicenseType'
+        subscriptionStatus:
+          $ref: '#/components/schemas/TenantApi.Tenant.V1.SubscriptionStatus'
+        autoAssign:
+          type: boolean
+        createdBy:
+          nullable: true
+          type: string
+        createdDateTime:
+          nullable: true
+          type: string
+        lastModifiedBy:
+          nullable: true
+          type: string
+        lastModifiedDateTime:
+          nullable: true
+          type: string
+      type: object
+    EdGraph.HttpAggregators.Tenant.Api.Controllers.v1.ViewModels.Responses.SubscriptionListResponseDtoPaginatedItemsViewModel:
+      additionalProperties: false
+      example:
+        data:
+        - gracePeriod: 5
+          actualEndDateTime: actualEndDateTime
+          assignedLicenses: 2
+          lastModifiedDateTime: lastModifiedDateTime
+          lastModifiedBy: lastModifiedBy
+          createdDateTime: createdDateTime
+          endDateTime: endDateTime
+          numberOfLicenses: 5
+          licenseType: null
+          autoAssign: true
+          startDateTime: startDateTime
+          createdBy: createdBy
+          tenantId: tenantId
+          subscriptionStatus: null
+          subscriptionId: subscriptionId
+          applicationId: applicationId
+          lastMaxAssignedLicensesDateTime: lastMaxAssignedLicensesDateTime
+          maxAssignedLicenses: 7
+          applicationName: applicationName
+          applicationRoles:
+          - isDefault: true
+            roleName: roleName
+          - isDefault: true
+            roleName: roleName
+        - gracePeriod: 5
+          actualEndDateTime: actualEndDateTime
+          assignedLicenses: 2
+          lastModifiedDateTime: lastModifiedDateTime
+          lastModifiedBy: lastModifiedBy
+          createdDateTime: createdDateTime
+          endDateTime: endDateTime
+          numberOfLicenses: 5
+          licenseType: null
+          autoAssign: true
+          startDateTime: startDateTime
+          createdBy: createdBy
+          tenantId: tenantId
+          subscriptionStatus: null
+          subscriptionId: subscriptionId
+          applicationId: applicationId
+          lastMaxAssignedLicensesDateTime: lastMaxAssignedLicensesDateTime
+          maxAssignedLicenses: 7
+          applicationName: applicationName
+          applicationRoles:
+          - isDefault: true
+            roleName: roleName
+          - isDefault: true
+            roleName: roleName
+        pageIndex: 0
+        count: 1
+        pageSize: 6
+      properties:
+        pageIndex:
+          format: int32
+          type: integer
+        pageSize:
+          format: int32
+          type: integer
+        count:
+          format: int64
+          type: integer
+        data:
+          items:
+            $ref: '#/components/schemas/EdGraph.HttpAggregators.Tenant.Api.Controllers.v1.ViewModels.Responses.SubscriptionListResponseDto'
+          nullable: true
+          type: array
+      type: object
+    EdGraph.HttpAggregators.Tenant.Api.Controllers.v1.ViewModels.Responses.SubscriptionProfileResponseDto:
+      additionalProperties: false
+      example:
+        gracePeriod: 0
+        actualEndDateTime: actualEndDateTime
+        assignedLicenses: 1
+        lastModifiedDateTime: lastModifiedDateTime
+        lastModifiedBy: lastModifiedBy
+        createdDateTime: createdDateTime
+        endDateTime: endDateTime
+        numberOfLicenses: 6
+        licenseType: null
+        autoAssign: true
+        startDateTime: startDateTime
+        createdBy: createdBy
+        tenantId: tenantId
+        subscriptionStatus: null
+        subscriptionId: subscriptionId
+        applicationId: applicationId
+        lastMaxAssignedLicensesDateTime: lastMaxAssignedLicensesDateTime
+        maxAssignedLicenses: 5
+        applicationName: applicationName
+      properties:
+        tenantId:
+          nullable: true
+          type: string
+        subscriptionId:
+          nullable: true
+          type: string
+        applicationId:
+          nullable: true
+          type: string
+        applicationName:
+          nullable: true
+          type: string
+        startDateTime:
+          nullable: true
+          type: string
+        endDateTime:
+          nullable: true
+          type: string
+        actualEndDateTime:
+          nullable: true
+          type: string
+        gracePeriod:
+          format: int32
+          type: integer
+        numberOfLicenses:
+          format: int32
+          type: integer
+        assignedLicenses:
+          format: int32
+          type: integer
+        maxAssignedLicenses:
+          format: int32
+          type: integer
+        lastMaxAssignedLicensesDateTime:
+          nullable: true
+          type: string
+        licenseType:
+          $ref: '#/components/schemas/TenantApi.Tenant.V1.LicenseType'
+        subscriptionStatus:
+          $ref: '#/components/schemas/TenantApi.Tenant.V1.SubscriptionStatus'
+        autoAssign:
+          type: boolean
+        createdBy:
+          nullable: true
+          type: string
+        createdDateTime:
+          nullable: true
+          type: string
+        lastModifiedBy:
+          nullable: true
+          type: string
+        lastModifiedDateTime:
+          nullable: true
+          type: string
+      type: object
+    EdGraph.Platform.HttpAggregators.Tenant.Api.Controllers.v1.ViewModels.Responses.ApplicationRole:
+      additionalProperties: false
+      example:
+        role: role
+        isAssigned: true
+      properties:
+        role:
+          description: The role associated with the application
+          nullable: true
+          type: string
+        isAssigned:
+          description: Indicates if the user is assigned license for this application
+          type: boolean
+      type: object
+    ? EdGraph.Platform.HttpAggregators.Tenant.Api.Controllers.v1.ViewModels.Responses.ApplicationTileResponseWithUserApplicationLicense
+    : additionalProperties: false
+      example:
+        tenantSubscriptionStartDateTime: tenantSubscriptionStartDateTime
+        isUserLicensed: true
+        showInAppLauncher: true
+        tooltipText: tooltipText
+        lightBackgroundTileUrl: lightBackgroundTileUrl
+        showInQuickLauncher: true
+        lightIconUrl: lightIconUrl
+        darkIconUrl: darkIconUrl
+        subscriptionTenantId: subscriptionTenantId
+        tenantSubscriptionEndDateTime: tenantSubscriptionEndDateTime
+        groups: groups
+        version: version
+        tags: tags
+        darkBackgroundTileUrl: darkBackgroundTileUrl
+        lightOverlayTileUrl: lightOverlayTileUrl
+        isTenantSubscribed: true
+        applicationUri: applicationUri
+        applicationTenantId: applicationTenantId
+        applicationId: applicationId
+        tenantSubscriptionId: tenantSubscriptionId
+        tenantSubscriptionActualEndDateTime: tenantSubscriptionActualEndDateTime
+        applicationName: applicationName
+        darkOverlayTileUrl: darkOverlayTileUrl
+        openInNewWindow: true
+      properties:
+        applicationTenantId:
+          description: The Tenant this application belongs to
+          nullable: true
+          type: string
+        applicationId:
+          nullable: true
+          type: string
+        applicationName:
+          nullable: true
+          type: string
+        applicationUri:
+          nullable: true
+          type: string
+        version:
+          nullable: true
+          type: string
+        tooltipText:
+          nullable: true
+          type: string
+        tags:
+          nullable: true
+          type: string
+        groups:
+          nullable: true
+          type: string
+        lightIconUrl:
+          nullable: true
+          type: string
+        darkIconUrl:
+          nullable: true
+          type: string
+        lightBackgroundTileUrl:
+          nullable: true
+          type: string
+        darkBackgroundTileUrl:
+          nullable: true
+          type: string
+        lightOverlayTileUrl:
+          nullable: true
+          type: string
+        darkOverlayTileUrl:
+          nullable: true
+          type: string
+        showInAppLauncher:
+          type: boolean
+        showInQuickLauncher:
+          type: boolean
+        openInNewWindow:
+          type: boolean
+        isTenantSubscribed:
+          type: boolean
+        subscriptionTenantId:
+          description: The Tenant Id the subscription belongs to
+          nullable: true
+          type: string
+        tenantSubscriptionId:
+          description: The Tenant subscription Id
+          nullable: true
+          type: string
+        tenantSubscriptionStartDateTime:
+          description: The Tenant subscription start date
+          nullable: true
+          type: string
+        tenantSubscriptionEndDateTime:
+          description: The Tenant subscription end date
+          nullable: true
+          type: string
+        tenantSubscriptionActualEndDateTime:
+          description: The Tenant subscription end date
+          nullable: true
+          type: string
+        isUserLicensed:
+          type: boolean
+      type: object
+    ? EdGraph.Platform.HttpAggregators.Tenant.Api.Controllers.v1.ViewModels.Responses.ApplicationTilesResponseWithUserApplicationLicense
+    : additionalProperties: false
+      example:
+        data:
+        - tenantSubscriptionStartDateTime: tenantSubscriptionStartDateTime
+          isUserLicensed: true
+          showInAppLauncher: true
+          tooltipText: tooltipText
+          lightBackgroundTileUrl: lightBackgroundTileUrl
+          showInQuickLauncher: true
+          lightIconUrl: lightIconUrl
+          darkIconUrl: darkIconUrl
+          subscriptionTenantId: subscriptionTenantId
+          tenantSubscriptionEndDateTime: tenantSubscriptionEndDateTime
+          groups: groups
+          version: version
+          tags: tags
+          darkBackgroundTileUrl: darkBackgroundTileUrl
+          lightOverlayTileUrl: lightOverlayTileUrl
+          isTenantSubscribed: true
+          applicationUri: applicationUri
+          applicationTenantId: applicationTenantId
+          applicationId: applicationId
+          tenantSubscriptionId: tenantSubscriptionId
+          tenantSubscriptionActualEndDateTime: tenantSubscriptionActualEndDateTime
+          applicationName: applicationName
+          darkOverlayTileUrl: darkOverlayTileUrl
+          openInNewWindow: true
+        - tenantSubscriptionStartDateTime: tenantSubscriptionStartDateTime
+          isUserLicensed: true
+          showInAppLauncher: true
+          tooltipText: tooltipText
+          lightBackgroundTileUrl: lightBackgroundTileUrl
+          showInQuickLauncher: true
+          lightIconUrl: lightIconUrl
+          darkIconUrl: darkIconUrl
+          subscriptionTenantId: subscriptionTenantId
+          tenantSubscriptionEndDateTime: tenantSubscriptionEndDateTime
+          groups: groups
+          version: version
+          tags: tags
+          darkBackgroundTileUrl: darkBackgroundTileUrl
+          lightOverlayTileUrl: lightOverlayTileUrl
+          isTenantSubscribed: true
+          applicationUri: applicationUri
+          applicationTenantId: applicationTenantId
+          applicationId: applicationId
+          tenantSubscriptionId: tenantSubscriptionId
+          tenantSubscriptionActualEndDateTime: tenantSubscriptionActualEndDateTime
+          applicationName: applicationName
+          darkOverlayTileUrl: darkOverlayTileUrl
+          openInNewWindow: true
+      properties:
+        data:
+          items:
+            $ref: '#/components/schemas/EdGraph.Platform.HttpAggregators.Tenant.Api.Controllers.v1.ViewModels.Responses.ApplicationTileResponseWithUserApplicationLicense'
+          nullable: true
+          type: array
+      type: object
+    EdGraph.Platform.HttpAggregators.Tenant.Api.Controllers.v1.ViewModels.Responses.TenantStatus:
+      enum:
+      - Unknown
+      - Active
+      - Inactive
+      type: string
+    EdGraph.Platform.HttpAggregators.Tenant.Api.Controllers.v1.ViewModels.Responses.UserLicense:
+      additionalProperties: false
+      example:
+        tenantSubscriptionStartDateTime: tenantSubscriptionStartDateTime
+        isUserLicensed: true
+        applicationRole:
+        - role: role
+          isAssigned: true
+        - role: role
+          isAssigned: true
+        assignedLicenses: 5
+        subscriptionTenantId: subscriptionTenantId
+        tenantSubscriptionEndDateTime: tenantSubscriptionEndDateTime
+        numberOfLicenses: 5
+        isTenantSubscribed: true
+        tenantSubscriptionId: tenantSubscriptionId
+        tenantSubscriptionActualEndDateTime: tenantSubscriptionActualEndDateTime
+        applicationTenantId: applicationTenantId
+        applicationId: applicationId
+        applicationName: applicationName
+      properties:
+        subscriptionTenantId:
+          description: The Tenant Id the subscription belongs to
+          nullable: true
+          type: string
+        isTenantSubscribed:
+          description: The Tenant has a subscription license for this application
+          type: boolean
+        tenantSubscriptionId:
+          description: The Tenant subscription Id
+          nullable: true
+          type: string
+        tenantSubscriptionStartDateTime:
+          description: The Tenant subscription start date
+          nullable: true
+          type: string
+        tenantSubscriptionEndDateTime:
+          description: The Tenant subscription end date
+          nullable: true
+          type: string
+        tenantSubscriptionActualEndDateTime:
+          description: The Tenant subscription end date
+          nullable: true
+          type: string
+        numberOfLicenses:
+          description: The Tenant's number of licenses
+          format: int32
+          type: integer
+        assignedLicenses:
+          description: The Tenant's assigned of licenses
+          format: int32
+          type: integer
+        isUserLicensed:
+          description: The user is assigned license for this application
+          type: boolean
+        applicationTenantId:
+          description: The Tenant this application belongs to
+          nullable: true
+          type: string
+        applicationId:
+          description: The application Id of the application for license
+          nullable: true
+          type: string
+        applicationName:
+          description: The application Name of the application for license
+          nullable: true
+          type: string
+        applicationRole:
+          description: Application role for this user.
+          items:
+            $ref: '#/components/schemas/EdGraph.Platform.HttpAggregators.Tenant.Api.Controllers.v1.ViewModels.Responses.ApplicationRole'
+          nullable: true
+          type: array
+      type: object
+    EdGraph.Platform.HttpAggregators.Tenant.Api.Controllers.v1.ViewModels.Responses.UserLicensePaginatedItemsViewModel:
+      additionalProperties: false
+      example:
+        data:
+        - tenantSubscriptionStartDateTime: tenantSubscriptionStartDateTime
+          isUserLicensed: true
+          applicationRole:
+          - role: role
+            isAssigned: true
+          - role: role
+            isAssigned: true
+          assignedLicenses: 5
+          subscriptionTenantId: subscriptionTenantId
+          tenantSubscriptionEndDateTime: tenantSubscriptionEndDateTime
+          numberOfLicenses: 5
+          isTenantSubscribed: true
+          tenantSubscriptionId: tenantSubscriptionId
+          tenantSubscriptionActualEndDateTime: tenantSubscriptionActualEndDateTime
+          applicationTenantId: applicationTenantId
+          applicationId: applicationId
+          applicationName: applicationName
+        - tenantSubscriptionStartDateTime: tenantSubscriptionStartDateTime
+          isUserLicensed: true
+          applicationRole:
+          - role: role
+            isAssigned: true
+          - role: role
+            isAssigned: true
+          assignedLicenses: 5
+          subscriptionTenantId: subscriptionTenantId
+          tenantSubscriptionEndDateTime: tenantSubscriptionEndDateTime
+          numberOfLicenses: 5
+          isTenantSubscribed: true
+          tenantSubscriptionId: tenantSubscriptionId
+          tenantSubscriptionActualEndDateTime: tenantSubscriptionActualEndDateTime
+          applicationTenantId: applicationTenantId
+          applicationId: applicationId
+          applicationName: applicationName
+        pageIndex: 0
+        count: 1
+        pageSize: 6
+      properties:
+        pageIndex:
+          format: int32
+          type: integer
+        pageSize:
+          format: int32
+          type: integer
+        count:
+          format: int64
+          type: integer
+        data:
+          items:
+            $ref: '#/components/schemas/EdGraph.Platform.HttpAggregators.Tenant.Api.Controllers.v1.ViewModels.Responses.UserLicense'
+          nullable: true
+          type: array
+      type: object
+    EdGraph.Platform.HttpAggregators.Tenant.Api.Controllers.v1.ViewModels.Responses.UserListResponseWithApplicationLicense:
+      additionalProperties: false
+      example:
+        firstName: firstName
+        lastName: lastName
+        tenants:
+        - roles:
+          - roles
+          - roles
+          tenantId: tenantId
+          status: null
+        - roles:
+          - roles
+          - roles
+          tenantId: tenantId
+          status: null
+        licenses:
+        - tenantSubscriptionStartDateTime: tenantSubscriptionStartDateTime
+          isUserLicensed: true
+          applicationRole:
+          - role: role
+            isAssigned: true
+          - role: role
+            isAssigned: true
+          assignedLicenses: 5
+          subscriptionTenantId: subscriptionTenantId
+          tenantSubscriptionEndDateTime: tenantSubscriptionEndDateTime
+          numberOfLicenses: 5
+          isTenantSubscribed: true
+          tenantSubscriptionId: tenantSubscriptionId
+          tenantSubscriptionActualEndDateTime: tenantSubscriptionActualEndDateTime
+          applicationTenantId: applicationTenantId
+          applicationId: applicationId
+          applicationName: applicationName
+        - tenantSubscriptionStartDateTime: tenantSubscriptionStartDateTime
+          isUserLicensed: true
+          applicationRole:
+          - role: role
+            isAssigned: true
+          - role: role
+            isAssigned: true
+          assignedLicenses: 5
+          subscriptionTenantId: subscriptionTenantId
+          tenantSubscriptionEndDateTime: tenantSubscriptionEndDateTime
+          numberOfLicenses: 5
+          isTenantSubscribed: true
+          tenantSubscriptionId: tenantSubscriptionId
+          tenantSubscriptionActualEndDateTime: tenantSubscriptionActualEndDateTime
+          applicationTenantId: applicationTenantId
+          applicationId: applicationId
+          applicationName: applicationName
+        lastModifiedDateTime: lastModifiedDateTime
+        createdBy: createdBy
+        lastModifiedBy: lastModifiedBy
+        createdDateTime: createdDateTime
+        userName: userName
+        userId: userId
+        tenantCount: 5
+        email: email
+      properties:
+        userId:
+          nullable: true
+          type: string
+        userName:
+          nullable: true
+          type: string
+        email:
+          nullable: true
+          type: string
+        firstName:
+          nullable: true
+          type: string
+        lastName:
+          nullable: true
+          type: string
+        tenantCount:
+          format: int32
+          type: integer
+        tenants:
+          items:
+            $ref: '#/components/schemas/EdGraph.Platform.HttpAggregators.Tenant.Api.Controllers.v1.ViewModels.Responses.UserTenant'
+          nullable: true
+          type: array
+        licenses:
+          items:
+            $ref: '#/components/schemas/EdGraph.Platform.HttpAggregators.Tenant.Api.Controllers.v1.ViewModels.Responses.UserLicense'
+          nullable: true
+          type: array
+        createdBy:
+          nullable: true
+          type: string
+        createdDateTime:
+          nullable: true
+          type: string
+        lastModifiedBy:
+          nullable: true
+          type: string
+        lastModifiedDateTime:
+          nullable: true
+          type: string
+      type: object
+    ? EdGraph.Platform.HttpAggregators.Tenant.Api.Controllers.v1.ViewModels.Responses.UserListResponseWithApplicationLicensePaginatedItemsViewModel
+    : additionalProperties: false
+      example:
+        data:
+        - firstName: firstName
+          lastName: lastName
+          tenants:
+          - roles:
+            - roles
+            - roles
+            tenantId: tenantId
+            status: null
+          - roles:
+            - roles
+            - roles
+            tenantId: tenantId
+            status: null
+          licenses:
+          - tenantSubscriptionStartDateTime: tenantSubscriptionStartDateTime
+            isUserLicensed: true
+            applicationRole:
+            - role: role
+              isAssigned: true
+            - role: role
+              isAssigned: true
+            assignedLicenses: 5
+            subscriptionTenantId: subscriptionTenantId
+            tenantSubscriptionEndDateTime: tenantSubscriptionEndDateTime
+            numberOfLicenses: 5
+            isTenantSubscribed: true
+            tenantSubscriptionId: tenantSubscriptionId
+            tenantSubscriptionActualEndDateTime: tenantSubscriptionActualEndDateTime
+            applicationTenantId: applicationTenantId
+            applicationId: applicationId
+            applicationName: applicationName
+          - tenantSubscriptionStartDateTime: tenantSubscriptionStartDateTime
+            isUserLicensed: true
+            applicationRole:
+            - role: role
+              isAssigned: true
+            - role: role
+              isAssigned: true
+            assignedLicenses: 5
+            subscriptionTenantId: subscriptionTenantId
+            tenantSubscriptionEndDateTime: tenantSubscriptionEndDateTime
+            numberOfLicenses: 5
+            isTenantSubscribed: true
+            tenantSubscriptionId: tenantSubscriptionId
+            tenantSubscriptionActualEndDateTime: tenantSubscriptionActualEndDateTime
+            applicationTenantId: applicationTenantId
+            applicationId: applicationId
+            applicationName: applicationName
+          lastModifiedDateTime: lastModifiedDateTime
+          createdBy: createdBy
+          lastModifiedBy: lastModifiedBy
+          createdDateTime: createdDateTime
+          userName: userName
+          userId: userId
+          tenantCount: 5
+          email: email
+        - firstName: firstName
+          lastName: lastName
+          tenants:
+          - roles:
+            - roles
+            - roles
+            tenantId: tenantId
+            status: null
+          - roles:
+            - roles
+            - roles
+            tenantId: tenantId
+            status: null
+          licenses:
+          - tenantSubscriptionStartDateTime: tenantSubscriptionStartDateTime
+            isUserLicensed: true
+            applicationRole:
+            - role: role
+              isAssigned: true
+            - role: role
+              isAssigned: true
+            assignedLicenses: 5
+            subscriptionTenantId: subscriptionTenantId
+            tenantSubscriptionEndDateTime: tenantSubscriptionEndDateTime
+            numberOfLicenses: 5
+            isTenantSubscribed: true
+            tenantSubscriptionId: tenantSubscriptionId
+            tenantSubscriptionActualEndDateTime: tenantSubscriptionActualEndDateTime
+            applicationTenantId: applicationTenantId
+            applicationId: applicationId
+            applicationName: applicationName
+          - tenantSubscriptionStartDateTime: tenantSubscriptionStartDateTime
+            isUserLicensed: true
+            applicationRole:
+            - role: role
+              isAssigned: true
+            - role: role
+              isAssigned: true
+            assignedLicenses: 5
+            subscriptionTenantId: subscriptionTenantId
+            tenantSubscriptionEndDateTime: tenantSubscriptionEndDateTime
+            numberOfLicenses: 5
+            isTenantSubscribed: true
+            tenantSubscriptionId: tenantSubscriptionId
+            tenantSubscriptionActualEndDateTime: tenantSubscriptionActualEndDateTime
+            applicationTenantId: applicationTenantId
+            applicationId: applicationId
+            applicationName: applicationName
+          lastModifiedDateTime: lastModifiedDateTime
+          createdBy: createdBy
+          lastModifiedBy: lastModifiedBy
+          createdDateTime: createdDateTime
+          userName: userName
+          userId: userId
+          tenantCount: 5
+          email: email
+        pageIndex: 0
+        count: 1
+        pageSize: 6
+      properties:
+        pageIndex:
+          format: int32
+          type: integer
+        pageSize:
+          format: int32
+          type: integer
+        count:
+          format: int64
+          type: integer
+        data:
+          items:
+            $ref: '#/components/schemas/EdGraph.Platform.HttpAggregators.Tenant.Api.Controllers.v1.ViewModels.Responses.UserListResponseWithApplicationLicense'
+          nullable: true
+          type: array
+      type: object
+    EdGraph.Platform.HttpAggregators.Tenant.Api.Controllers.v1.ViewModels.Responses.UserProfilePreference:
+      additionalProperties: false
+      example:
+        code: code
+        value: value
+      properties:
+        code:
+          nullable: true
+          type: string
+        value:
+          nullable: true
+          type: string
+      type: object
+    EdGraph.Platform.HttpAggregators.Tenant.Api.Controllers.v1.ViewModels.Responses.UserProfileResponseWithApplicationLicense:
+      additionalProperties: false
+      example:
+        lastName: lastName
+        tenants:
+        - roles:
+          - roles
+          - roles
+          tenantId: tenantId
+          status: null
+        - roles:
+          - roles
+          - roles
+          tenantId: tenantId
+          status: null
+        preferences:
+        - code: code
+          value: value
+        - code: code
+          value: value
+        lastModifiedDateTime: lastModifiedDateTime
+        lockoutEnabled: lockoutEnabled
+        lastModifiedBy: lastModifiedBy
+        browserDebugEnabled: true
+        createdDateTime: createdDateTime
+        userName: userName
+        userId: userId
+        firstName: firstName
+        licenses:
+        - tenantSubscriptionStartDateTime: tenantSubscriptionStartDateTime
+          isUserLicensed: true
+          applicationRole:
+          - role: role
+            isAssigned: true
+          - role: role
+            isAssigned: true
+          assignedLicenses: 5
+          subscriptionTenantId: subscriptionTenantId
+          tenantSubscriptionEndDateTime: tenantSubscriptionEndDateTime
+          numberOfLicenses: 5
+          isTenantSubscribed: true
+          tenantSubscriptionId: tenantSubscriptionId
+          tenantSubscriptionActualEndDateTime: tenantSubscriptionActualEndDateTime
+          applicationTenantId: applicationTenantId
+          applicationId: applicationId
+          applicationName: applicationName
+        - tenantSubscriptionStartDateTime: tenantSubscriptionStartDateTime
+          isUserLicensed: true
+          applicationRole:
+          - role: role
+            isAssigned: true
+          - role: role
+            isAssigned: true
+          assignedLicenses: 5
+          subscriptionTenantId: subscriptionTenantId
+          tenantSubscriptionEndDateTime: tenantSubscriptionEndDateTime
+          numberOfLicenses: 5
+          isTenantSubscribed: true
+          tenantSubscriptionId: tenantSubscriptionId
+          tenantSubscriptionActualEndDateTime: tenantSubscriptionActualEndDateTime
+          applicationTenantId: applicationTenantId
+          applicationId: applicationId
+          applicationName: applicationName
+        phoneNumber: phoneNumber
+        createdBy: createdBy
+        email: email
+      properties:
+        userId:
+          nullable: true
+          type: string
+        userName:
+          nullable: true
+          type: string
+        email:
+          nullable: true
+          type: string
+        firstName:
+          nullable: true
+          type: string
+        lastName:
+          nullable: true
+          type: string
+        phoneNumber:
+          nullable: true
+          type: string
+        lockoutEnabled:
+          nullable: true
+          type: string
+        tenants:
+          items:
+            $ref: '#/components/schemas/EdGraph.Platform.HttpAggregators.Tenant.Api.Controllers.v1.ViewModels.Responses.UserTenant'
+          nullable: true
+          type: array
+        preferences:
+          items:
+            $ref: '#/components/schemas/EdGraph.Platform.HttpAggregators.Tenant.Api.Controllers.v1.ViewModels.Responses.UserProfilePreference'
+          nullable: true
+          type: array
+        browserDebugEnabled:
+          type: boolean
+        licenses:
+          items:
+            $ref: '#/components/schemas/EdGraph.Platform.HttpAggregators.Tenant.Api.Controllers.v1.ViewModels.Responses.UserLicense'
+          nullable: true
+          type: array
+        createdBy:
+          nullable: true
+          type: string
+        createdDateTime:
+          nullable: true
+          type: string
+        lastModifiedBy:
+          nullable: true
+          type: string
+        lastModifiedDateTime:
+          nullable: true
+          type: string
+      type: object
+    EdGraph.Platform.HttpAggregators.Tenant.Api.Controllers.v1.ViewModels.Responses.UserTenant:
+      additionalProperties: false
+      example:
+        roles:
+        - roles
+        - roles
+        tenantId: tenantId
+        status: null
+      properties:
+        tenantId:
+          nullable: true
+          type: string
+        status:
+          $ref: '#/components/schemas/EdGraph.Platform.HttpAggregators.Tenant.Api.Controllers.v1.ViewModels.Responses.TenantStatus'
+        roles:
+          items:
+            type: string
+          nullable: true
+          type: array
+      type: object
+    IdentityApi.ApiClient.V1.AccessTokenType:
+      enum:
+      - Jwt
+      - Reference
+      type: string
+    IdentityApi.ApiClient.V1.ApiClaim:
+      additionalProperties: false
+      properties:
+        applicationId:
+          nullable: true
+          type: string
+        subscriptionId:
+          nullable: true
+          type: string
+        value:
+          items:
+            type: string
+          nullable: true
+          readOnly: true
+          type: array
+      type: object
+    IdentityApi.ApiClient.V1.ApiClientListResponse:
+      additionalProperties: false
+      example:
+        clientUri: clientUri
+        clientId: clientId
+        lastModifiedDateTime: lastModifiedDateTime
+        clientName: clientName
+        createdBy: createdBy
+        lastModifiedBy: lastModifiedBy
+        tenantId: tenantId
+        createdDateTime: createdDateTime
+        enabled: true
+      properties:
+        tenantId:
+          nullable: true
+          type: string
+        clientId:
+          nullable: true
+          type: string
+        clientName:
+          nullable: true
+          type: string
+        clientUri:
+          nullable: true
+          type: string
+        enabled:
+          type: boolean
+        createdBy:
+          nullable: true
+          type: string
+        createdDateTime:
+          nullable: true
+          type: string
+        lastModifiedBy:
+          nullable: true
+          type: string
+        lastModifiedDateTime:
+          nullable: true
+          type: string
+      type: object
+    IdentityApi.ApiClient.V1.ApiClientPaginatedItemsResponse:
+      additionalProperties: false
+      example:
+        data:
+        - clientUri: clientUri
+          clientId: clientId
+          lastModifiedDateTime: lastModifiedDateTime
+          clientName: clientName
+          createdBy: createdBy
+          lastModifiedBy: lastModifiedBy
+          tenantId: tenantId
+          createdDateTime: createdDateTime
+          enabled: true
+        - clientUri: clientUri
+          clientId: clientId
+          lastModifiedDateTime: lastModifiedDateTime
+          clientName: clientName
+          createdBy: createdBy
+          lastModifiedBy: lastModifiedBy
+          tenantId: tenantId
+          createdDateTime: createdDateTime
+          enabled: true
+        pageIndex: 5
+        count: 2
+        pageSize: 5
+      properties:
+        pageIndex:
+          format: int32
+          type: integer
+        pageSize:
+          format: int32
+          type: integer
+        count:
+          format: int64
+          type: integer
+        data:
+          items:
+            $ref: '#/components/schemas/IdentityApi.ApiClient.V1.ApiClientListResponse'
+          nullable: true
+          readOnly: true
+          type: array
+      type: object
+    IdentityApi.ApiClient.V1.ApiClientPaginatedItemsResponsePaginatedItemsViewModel:
+      additionalProperties: false
+      example:
+        data:
+        - data:
+          - clientUri: clientUri
+            clientId: clientId
+            lastModifiedDateTime: lastModifiedDateTime
+            clientName: clientName
+            createdBy: createdBy
+            lastModifiedBy: lastModifiedBy
+            tenantId: tenantId
+            createdDateTime: createdDateTime
+            enabled: true
+          - clientUri: clientUri
+            clientId: clientId
+            lastModifiedDateTime: lastModifiedDateTime
+            clientName: clientName
+            createdBy: createdBy
+            lastModifiedBy: lastModifiedBy
+            tenantId: tenantId
+            createdDateTime: createdDateTime
+            enabled: true
+          pageIndex: 5
+          count: 2
+          pageSize: 5
+        - data:
+          - clientUri: clientUri
+            clientId: clientId
+            lastModifiedDateTime: lastModifiedDateTime
+            clientName: clientName
+            createdBy: createdBy
+            lastModifiedBy: lastModifiedBy
+            tenantId: tenantId
+            createdDateTime: createdDateTime
+            enabled: true
+          - clientUri: clientUri
+            clientId: clientId
+            lastModifiedDateTime: lastModifiedDateTime
+            clientName: clientName
+            createdBy: createdBy
+            lastModifiedBy: lastModifiedBy
+            tenantId: tenantId
+            createdDateTime: createdDateTime
+            enabled: true
+          pageIndex: 5
+          count: 2
+          pageSize: 5
+        pageIndex: 0
+        count: 1
+        pageSize: 6
+      properties:
+        pageIndex:
+          format: int32
+          type: integer
+        pageSize:
+          format: int32
+          type: integer
+        count:
+          format: int64
+          type: integer
+        data:
+          items:
+            $ref: '#/components/schemas/IdentityApi.ApiClient.V1.ApiClientPaginatedItemsResponse'
+          nullable: true
+          type: array
+      type: object
+    IdentityApi.ApiClient.V1.ApiClientProfileResponse:
+      additionalProperties: false
+      example:
+        lastModifiedDateTime: lastModifiedDateTime
+        clientName: clientName
+        identityTokenLifetime: 0
+        identityProviderRestrictions:
+        - identityProviderRestrictions
+        - identityProviderRestrictions
+        description: description
+        updateAccessTokenClaimsOnRefresh: true
+        createdDateTime: createdDateTime
+        accessTokenType: null
+        enableLocalLogin: true
+        enabled: true
+        alwaysIncludeUserClaimsInIdToken: true
+        allowedGrantTypes:
+        - allowedGrantTypes
+        - allowedGrantTypes
+        authorizationCodeLifetime: 1
+        slidingRefreshTokenLifetime: 5
+        tokenUsage: null
+        postLogoutRedirectUris:
+        - postLogoutRedirectUris
+        - postLogoutRedirectUris
+        accessTokenLifetime: 6
+        clientUri: clientUri
+        allowAccessTokensViaBrowser: true
+        refreshTokenExpiration: null
+        allowOfflineAccess: true
+        clientId: clientId
+        lastModifiedBy: lastModifiedBy
+        absoluteRefreshTokenLifetime: 5
+        logoUri: logoUri
+        redirectUris:
+        - redirectUris
+        - redirectUris
+        allowedScopes:
+        - allowedScopes
+        - allowedScopes
+        requireClientSecret: true
+        allowedCorsOrigins:
+        - allowedCorsOrigins
+        - allowedCorsOrigins
+        createdBy: createdBy
+        requireConsent: true
+        tenantId: tenantId
+        claims:
+        - type: type
+          value: value
+        - type: type
+          value: value
+        requirePkce: true
+      properties:
+        tenantId:
+          nullable: true
+          type: string
+        clientId:
+          nullable: true
+          type: string
+        clientName:
+          nullable: true
+          type: string
+        description:
+          nullable: true
+          type: string
+        clientUri:
+          nullable: true
+          type: string
+        logoUri:
+          nullable: true
+          type: string
+        enabled:
+          type: boolean
+        accessTokenType:
+          $ref: '#/components/schemas/IdentityApi.ApiClient.V1.AccessTokenType'
+        tokenUsage:
+          $ref: '#/components/schemas/IdentityApi.ApiClient.V1.TokenUsage'
+        refreshTokenExpiration:
+          $ref: '#/components/schemas/IdentityApi.ApiClient.V1.TokenExpiration'
+        enableLocalLogin:
+          type: boolean
+        allowOfflineAccess:
+          type: boolean
+        allowAccessTokensViaBrowser:
+          type: boolean
+        updateAccessTokenClaimsOnRefresh:
+          type: boolean
+        alwaysIncludeUserClaimsInIdToken:
+          type: boolean
+        identityTokenLifetime:
+          format: int32
+          type: integer
+        accessTokenLifetime:
+          format: int32
+          type: integer
+        authorizationCodeLifetime:
+          format: int32
+          type: integer
+        absoluteRefreshTokenLifetime:
+          format: int32
+          type: integer
+        slidingRefreshTokenLifetime:
+          format: int32
+          type: integer
+        requireClientSecret:
+          type: boolean
+        requireConsent:
+          type: boolean
+        allowedScopes:
+          items:
+            type: string
+          nullable: true
+          readOnly: true
+          type: array
+        allowedCorsOrigins:
+          items:
+            type: string
+          nullable: true
+          readOnly: true
+          type: array
+        allowedGrantTypes:
+          items:
+            type: string
+          nullable: true
+          readOnly: true
+          type: array
+        identityProviderRestrictions:
+          items:
+            type: string
+          nullable: true
+          readOnly: true
+          type: array
+        redirectUris:
+          items:
+            type: string
+          nullable: true
+          readOnly: true
+          type: array
+        postLogoutRedirectUris:
+          items:
+            type: string
+          nullable: true
+          readOnly: true
+          type: array
+        claims:
+          items:
+            $ref: '#/components/schemas/IdentityApi.ApiClient.V1.Claim'
+          nullable: true
+          readOnly: true
+          type: array
+        requirePkce:
+          type: boolean
+        createdBy:
+          nullable: true
+          type: string
+        createdDateTime:
+          nullable: true
+          type: string
+        lastModifiedBy:
+          nullable: true
+          type: string
+        lastModifiedDateTime:
+          nullable: true
+          type: string
+      type: object
+    IdentityApi.ApiClient.V1.Claim:
+      additionalProperties: false
+      example:
+        type: type
+        value: value
+      properties:
+        type:
+          nullable: true
+          type: string
+        value:
+          nullable: true
+          type: string
+      type: object
+    IdentityApi.ApiClient.V1.CreateApiClientRequest:
+      additionalProperties: false
+      properties:
+        tenantId:
+          nullable: true
+          type: string
+        clientName:
+          nullable: true
+          type: string
+        enabled:
+          type: boolean
+        apiClaims:
+          items:
+            $ref: '#/components/schemas/IdentityApi.ApiClient.V1.ApiClaim'
+          nullable: true
+          readOnly: true
+          type: array
+        secretExpirationDateTime:
+          nullable: true
+          type: string
+      type: object
+    IdentityApi.ApiClient.V1.RegenerateApiClientSecretRequest:
+      additionalProperties: false
+      properties:
+        tenantId:
+          nullable: true
+          type: string
+        clientId:
+          nullable: true
+          type: string
+        secretExpirationDateTime:
+          nullable: true
+          type: string
+      type: object
+    IdentityApi.ApiClient.V1.TokenExpiration:
+      enum:
+      - Sliding
+      - Absolute
+      type: string
+    IdentityApi.ApiClient.V1.TokenUsage:
+      enum:
+      - ReUse
+      - OneTimeOnly
+      type: string
+    IdentityApi.ApiClient.V1.UpdateApiClientRequest:
+      additionalProperties: false
+      properties:
+        tenantId:
+          nullable: true
+          type: string
+        clientId:
+          nullable: true
+          type: string
+        clientName:
+          nullable: true
+          type: string
+        enabled:
+          type: boolean
+        apiClaims:
+          items:
+            $ref: '#/components/schemas/IdentityApi.ApiClient.V1.ApiClaim'
+          nullable: true
+          readOnly: true
+          type: array
+      type: object
+    IdentityApi.Invitation.V1.AssignLicenseRequest:
+      additionalProperties: false
+      example:
+        roles:
+        - roles
+        - roles
+        tenantId: tenantId
+        subscriptionId: subscriptionId
+        applicationId: applicationId
+        userId: userId
+      properties:
+        tenantId:
+          nullable: true
+          type: string
+        subscriptionId:
+          nullable: true
+          type: string
+        applicationId:
+          nullable: true
+          type: string
+        userId:
+          nullable: true
+          type: string
+        roles:
+          items:
+            type: string
+          nullable: true
+          readOnly: true
+          type: array
+      type: object
+    IdentityApi.Invitation.V1.InvitationListResponse:
+      additionalProperties: false
+      example:
+        assignLicenseRequests:
+        - roles:
+          - roles
+          - roles
+          tenantId: tenantId
+          subscriptionId: subscriptionId
+          applicationId: applicationId
+          userId: userId
+        - roles:
+          - roles
+          - roles
+          tenantId: tenantId
+          subscriptionId: subscriptionId
+          applicationId: applicationId
+          userId: userId
+        firstName: firstName
+        lastName: lastName
+        invitationSentDateTime: invitationSentDateTime
+        role: role
+        tenantId: tenantId
+        invitationId: invitationId
+        invitationToken: invitationToken
+        invitationStatus: null
+        email: email
+      properties:
+        tenantId:
+          nullable: true
+          type: string
+        invitationId:
+          nullable: true
+          type: string
+        firstName:
+          nullable: true
+          type: string
+        lastName:
+          nullable: true
+          type: string
+        email:
+          nullable: true
+          type: string
+        role:
+          nullable: true
+          type: string
+        invitationToken:
+          nullable: true
+          type: string
+        invitationStatus:
+          $ref: '#/components/schemas/IdentityApi.Invitation.V1.InvitationStatus'
+        invitationSentDateTime:
+          nullable: true
+          type: string
+        assignLicenseRequests:
+          items:
+            $ref: '#/components/schemas/IdentityApi.Invitation.V1.AssignLicenseRequest'
+          nullable: true
+          readOnly: true
+          type: array
+      type: object
+    IdentityApi.Invitation.V1.InvitationListResponsePaginatedItemsViewModel:
+      additionalProperties: false
+      example:
+        data:
+        - assignLicenseRequests:
+          - roles:
+            - roles
+            - roles
+            tenantId: tenantId
+            subscriptionId: subscriptionId
+            applicationId: applicationId
+            userId: userId
+          - roles:
+            - roles
+            - roles
+            tenantId: tenantId
+            subscriptionId: subscriptionId
+            applicationId: applicationId
+            userId: userId
+          firstName: firstName
+          lastName: lastName
+          invitationSentDateTime: invitationSentDateTime
+          role: role
+          tenantId: tenantId
+          invitationId: invitationId
+          invitationToken: invitationToken
+          invitationStatus: null
+          email: email
+        - assignLicenseRequests:
+          - roles:
+            - roles
+            - roles
+            tenantId: tenantId
+            subscriptionId: subscriptionId
+            applicationId: applicationId
+            userId: userId
+          - roles:
+            - roles
+            - roles
+            tenantId: tenantId
+            subscriptionId: subscriptionId
+            applicationId: applicationId
+            userId: userId
+          firstName: firstName
+          lastName: lastName
+          invitationSentDateTime: invitationSentDateTime
+          role: role
+          tenantId: tenantId
+          invitationId: invitationId
+          invitationToken: invitationToken
+          invitationStatus: null
+          email: email
+        pageIndex: 0
+        count: 1
+        pageSize: 6
+      properties:
+        pageIndex:
+          format: int32
+          type: integer
+        pageSize:
+          format: int32
+          type: integer
+        count:
+          format: int64
+          type: integer
+        data:
+          items:
+            $ref: '#/components/schemas/IdentityApi.Invitation.V1.InvitationListResponse'
+          nullable: true
+          type: array
+      type: object
+    IdentityApi.Invitation.V1.InvitationResponse:
+      additionalProperties: false
+      example:
+        assignLicenseRequests:
+        - roles:
+          - roles
+          - roles
+          tenantId: tenantId
+          subscriptionId: subscriptionId
+          applicationId: applicationId
+          userId: userId
+        - roles:
+          - roles
+          - roles
+          tenantId: tenantId
+          subscriptionId: subscriptionId
+          applicationId: applicationId
+          userId: userId
+        firstName: firstName
+        lastName: lastName
+        invitationSentDateTime: invitationSentDateTime
+        role: role
+        tenantId: tenantId
+        invitationId: invitationId
+        invitationToken: invitationToken
+        invitationStatus: null
+        email: email
+      properties:
+        tenantId:
+          nullable: true
+          type: string
+        invitationId:
+          nullable: true
+          type: string
+        firstName:
+          nullable: true
+          type: string
+        lastName:
+          nullable: true
+          type: string
+        email:
+          nullable: true
+          type: string
+        role:
+          nullable: true
+          type: string
+        invitationToken:
+          nullable: true
+          type: string
+        invitationStatus:
+          $ref: '#/components/schemas/IdentityApi.Invitation.V1.InvitationStatus'
+        invitationSentDateTime:
+          nullable: true
+          type: string
+        assignLicenseRequests:
+          items:
+            $ref: '#/components/schemas/IdentityApi.Invitation.V1.AssignLicenseRequest'
+          nullable: true
+          readOnly: true
+          type: array
+      type: object
+    IdentityApi.Invitation.V1.InvitationStatus:
+      enum:
+      - Unknown
+      - Sent
+      - Accepted
+      type: string
+    IdentityApi.Invitation.V1.SendInvitationRequest:
+      additionalProperties: false
+      properties:
+        tenantId:
+          nullable: true
+          type: string
+        email:
+          nullable: true
+          type: string
+        firstName:
+          nullable: true
+          type: string
+        lastName:
+          nullable: true
+          type: string
+        role:
+          nullable: true
+          type: string
+        assignLicenseRequests:
+          items:
+            $ref: '#/components/schemas/IdentityApi.Invitation.V1.AssignLicenseRequest'
+          nullable: true
+          readOnly: true
+          type: array
+      type: object
+    IdentityApi.User.V1.ActivateUserRequest:
+      additionalProperties: false
+      properties:
+        tenantId:
+          nullable: true
+          type: string
+        userId:
+          nullable: true
+          type: string
+      type: object
+    IdentityApi.User.V1.AssignLicenseBulkRequest:
+      additionalProperties: false
+      properties:
+        tenantId:
+          nullable: true
+          type: string
+        userId:
+          nullable: true
+          type: string
+        assignLicenseRequests:
+          items:
+            $ref: '#/components/schemas/IdentityApi.User.V1.AssignLicenseRequest'
+          nullable: true
+          readOnly: true
+          type: array
+      type: object
+    IdentityApi.User.V1.AssignLicenseRequest:
+      additionalProperties: false
+      properties:
+        tenantId:
+          nullable: true
+          type: string
+        subscriptionId:
+          nullable: true
+          type: string
+        applicationId:
+          nullable: true
+          type: string
+        userId:
+          nullable: true
+          type: string
+        roles:
+          items:
+            type: string
+          nullable: true
+          readOnly: true
+          type: array
+      type: object
+    IdentityApi.User.V1.CreateLocalUserRequest:
+      additionalProperties: false
+      properties:
+        tenantId:
+          nullable: true
+          type: string
+        userName:
+          nullable: true
+          type: string
+        email:
+          nullable: true
+          type: string
+        firstName:
+          nullable: true
+          type: string
+        lastName:
+          nullable: true
+          type: string
+        role:
+          nullable: true
+          type: string
+        phoneNumber:
+          nullable: true
+          type: string
+        lockoutEnabled:
+          type: boolean
+        password:
+          nullable: true
+          type: string
+        autoGeneratedPassword:
+          type: boolean
+        twoFactorEnabled:
+          type: boolean
+      type: object
+    IdentityApi.User.V1.DeactivateUserRequest:
+      additionalProperties: false
+      properties:
+        tenantId:
+          nullable: true
+          type: string
+        userId:
+          nullable: true
+          type: string
+      type: object
+    IdentityApi.User.V1.ResetPasswordRequest:
+      additionalProperties: false
+      properties:
+        tenantId:
+          nullable: true
+          type: string
+        userId:
+          nullable: true
+          type: string
+        password:
+          nullable: true
+          type: string
+        autoGeneratedPassword:
+          type: boolean
+      type: object
+    IdentityApi.User.V1.RevokeLicenseBulkRequest:
+      additionalProperties: false
+      properties:
+        tenantId:
+          nullable: true
+          type: string
+        userId:
+          nullable: true
+          type: string
+        revokeLicenseRequests:
+          items:
+            $ref: '#/components/schemas/IdentityApi.User.V1.RevokeLicenseRequest'
+          nullable: true
+          readOnly: true
+          type: array
+      type: object
+    IdentityApi.User.V1.RevokeLicenseRequest:
+      additionalProperties: false
+      properties:
+        tenantId:
+          nullable: true
+          type: string
+        subscriptionId:
+          nullable: true
+          type: string
+        applicationId:
+          nullable: true
+          type: string
+        userId:
+          nullable: true
+          type: string
+      type: object
+    IdentityApi.User.V1.UpdateUserRequest:
+      additionalProperties: false
+      properties:
+        tenantId:
+          nullable: true
+          type: string
+        userId:
+          nullable: true
+          type: string
+        email:
+          nullable: true
+          type: string
+        firstName:
+          nullable: true
+          type: string
+        lastName:
+          nullable: true
+          type: string
+        role:
+          nullable: true
+          type: string
+        phoneNumber:
+          nullable: true
+          type: string
+        lockoutEnabled:
+          type: boolean
+      type: object
+    Microsoft.AspNetCore.Mvc.ProblemDetails:
+      additionalProperties: {}
+      properties:
+        type:
+          nullable: true
+          type: string
+        title:
+          nullable: true
+          type: string
+        status:
+          format: int32
+          nullable: true
+          type: integer
+        detail:
+          nullable: true
+          type: string
+        instance:
+          nullable: true
+          type: string
+      type: object
+    TenantApi.Tenant.V1.CreateSubscriptionRequest:
+      additionalProperties: false
+      properties:
+        tenantId:
+          nullable: true
+          type: string
+        subscriptionId:
+          nullable: true
+          type: string
+        applicationId:
+          nullable: true
+          type: string
+        startDateTime:
+          nullable: true
+          type: string
+        endDateTime:
+          nullable: true
+          type: string
+        gracePeriod:
+          format: int32
+          type: integer
+        numberOfLicenses:
+          format: int32
+          type: integer
+        assignedLicenses:
+          format: int32
+          type: integer
+        licenseType:
+          $ref: '#/components/schemas/TenantApi.Tenant.V1.LicenseType'
+        subscriptionStatus:
+          $ref: '#/components/schemas/TenantApi.Tenant.V1.SubscriptionStatus'
+        autoAssign:
+          type: boolean
+      type: object
+    TenantApi.Tenant.V1.LicenseType:
+      enum:
+      - Unknown
+      - Full
+      - Trial
+      type: string
+    TenantApi.Tenant.V1.SubscriptionProfileResponse:
+      additionalProperties: false
+      example:
+        gracePeriod: 0
+        actualEndDateTime: actualEndDateTime
+        assignedLicenses: 1
+        lastModifiedDateTime: lastModifiedDateTime
+        lastModifiedBy: lastModifiedBy
+        createdDateTime: createdDateTime
+        endDateTime: endDateTime
+        numberOfLicenses: 6
+        licenseType: null
+        autoAssign: true
+        startDateTime: startDateTime
+        createdBy: createdBy
+        tenantId: tenantId
+        subscriptionStatus: null
+        subscriptionId: subscriptionId
+        applicationId: applicationId
+        lastMaxAssignedLicensesDateTime: lastMaxAssignedLicensesDateTime
+        maxAssignedLicenses: 5
+      properties:
+        tenantId:
+          nullable: true
+          type: string
+        subscriptionId:
+          nullable: true
+          type: string
+        applicationId:
+          nullable: true
+          type: string
+        startDateTime:
+          nullable: true
+          type: string
+        endDateTime:
+          nullable: true
+          type: string
+        actualEndDateTime:
+          nullable: true
+          type: string
+        gracePeriod:
+          format: int32
+          type: integer
+        numberOfLicenses:
+          format: int32
+          type: integer
+        assignedLicenses:
+          format: int32
+          type: integer
+        maxAssignedLicenses:
+          format: int32
+          type: integer
+        lastMaxAssignedLicensesDateTime:
+          nullable: true
+          type: string
+        licenseType:
+          $ref: '#/components/schemas/TenantApi.Tenant.V1.LicenseType'
+        subscriptionStatus:
+          $ref: '#/components/schemas/TenantApi.Tenant.V1.SubscriptionStatus'
+        autoAssign:
+          type: boolean
+        createdBy:
+          nullable: true
+          type: string
+        createdDateTime:
+          nullable: true
+          type: string
+        lastModifiedBy:
+          nullable: true
+          type: string
+        lastModifiedDateTime:
+          nullable: true
+          type: string
+      type: object
+    TenantApi.Tenant.V1.SubscriptionStatus:
+      enum:
+      - Unknown
+      - Active
+      - Inactive
+      - Pending
+      - Rejected
+      type: string
+    TenantApi.Tenant.V1.TenantIdentityProviders:
+      enum:
+      - Local
+      - Aad
+      - Google
+      - Adfs
+      type: string
+    TenantApi.Tenant.V1.TenantProfileResponse:
+      additionalProperties: false
+      example:
+        tenantType: null
+        tenantStatus: null
+        subscriptionsMigrated: true
+        subscriptions:
+        - gracePeriod: 0
+          actualEndDateTime: actualEndDateTime
+          assignedLicenses: 1
+          lastModifiedDateTime: lastModifiedDateTime
+          lastModifiedBy: lastModifiedBy
+          createdDateTime: createdDateTime
+          endDateTime: endDateTime
+          numberOfLicenses: 6
+          licenseType: null
+          autoAssign: true
+          startDateTime: startDateTime
+          createdBy: createdBy
+          tenantId: tenantId
+          subscriptionStatus: null
+          subscriptionId: subscriptionId
+          applicationId: applicationId
+          lastMaxAssignedLicensesDateTime: lastMaxAssignedLicensesDateTime
+          maxAssignedLicenses: 5
+        - gracePeriod: 0
+          actualEndDateTime: actualEndDateTime
+          assignedLicenses: 1
+          lastModifiedDateTime: lastModifiedDateTime
+          lastModifiedBy: lastModifiedBy
+          createdDateTime: createdDateTime
+          endDateTime: endDateTime
+          numberOfLicenses: 6
+          licenseType: null
+          autoAssign: true
+          startDateTime: startDateTime
+          createdBy: createdBy
+          tenantId: tenantId
+          subscriptionStatus: null
+          subscriptionId: subscriptionId
+          applicationId: applicationId
+          lastMaxAssignedLicensesDateTime: lastMaxAssignedLicensesDateTime
+          maxAssignedLicenses: 5
+        identityProviders:
+        - null
+        - null
+        lastModifiedDateTime: lastModifiedDateTime
+        organizationName: organizationName
+        lastModifiedBy: lastModifiedBy
+        domains:
+        - domains
+        - domains
+        createdDateTime: createdDateTime
+        isDemo: true
+        enforceMfa: true
+        createdBy: createdBy
+        organizationIdentifier: organizationIdentifier
+        tenantId: tenantId
+        state: state
+      properties:
+        tenantId:
+          nullable: true
+          type: string
+        tenantType:
+          $ref: '#/components/schemas/TenantApi.Tenant.V1.TenantType'
+        organizationIdentifier:
+          nullable: true
+          type: string
+        organizationName:
+          nullable: true
+          type: string
+        state:
+          nullable: true
+          type: string
+        tenantStatus:
+          $ref: '#/components/schemas/TenantApi.Tenant.V1.TenantStatus'
+        isDemo:
+          type: boolean
+        enforceMfa:
+          type: boolean
+        subscriptionsMigrated:
+          type: boolean
+        subscriptions:
+          items:
+            $ref: '#/components/schemas/TenantApi.Tenant.V1.SubscriptionProfileResponse'
+          nullable: true
+          readOnly: true
+          type: array
+        domains:
+          items:
+            type: string
+          nullable: true
+          readOnly: true
+          type: array
+        createdBy:
+          nullable: true
+          type: string
+        createdDateTime:
+          nullable: true
+          type: string
+        lastModifiedBy:
+          nullable: true
+          type: string
+        lastModifiedDateTime:
+          nullable: true
+          type: string
+        identityProviders:
+          items:
+            $ref: '#/components/schemas/TenantApi.Tenant.V1.TenantIdentityProviders'
+          nullable: true
+          readOnly: true
+          type: array
+      type: object
+    TenantApi.Tenant.V1.TenantStatus:
+      enum:
+      - Unknown
+      - Active
+      - Inactive
+      type: string
+    TenantApi.Tenant.V1.TenantType:
+      enum:
+      - Unknown
+      - Internal
+      - State
+      - Collaborative
+      - District
+      - Partner
+      - Teacher
+      - Student
+      type: string
+    TenantApi.Tenant.V1.UpdateSubscriptionRequest:
+      additionalProperties: false
+      properties:
+        tenantId:
+          nullable: true
+          type: string
+        subscriptionId:
+          nullable: true
+          type: string
+        startDateTime:
+          nullable: true
+          type: string
+        endDateTime:
+          nullable: true
+          type: string
+        gracePeriod:
+          format: int32
+          type: integer
+        numberOfLicenses:
+          format: int32
+          type: integer
+        assignedLicenses:
+          format: int32
+          type: integer
+        licenseType:
+          $ref: '#/components/schemas/TenantApi.Tenant.V1.LicenseType'
+        autoAssign:
+          description: SubscriptionStatus SubscriptionStatus = 10;
+          type: boolean
+      type: object
+    TenantApi.Tenant.V1.UpdateTenantRequest:
+      additionalProperties: false
+      properties:
+        tenantId:
+          nullable: true
+          type: string
+        tenantType:
+          $ref: '#/components/schemas/TenantApi.Tenant.V1.TenantType'
+        organizationIdentifier:
+          nullable: true
+          type: string
+        organizationName:
+          nullable: true
+          type: string
+        state:
+          nullable: true
+          type: string
+        isDemo:
+          type: boolean
+        enforceMfa:
+          type: boolean
+        tenantStatus:
+          $ref: '#/components/schemas/TenantApi.Tenant.V1.TenantStatus'
+        domains:
+          items:
+            type: string
+          nullable: true
+          readOnly: true
+          type: array
+        identityProviders:
+          items:
+            $ref: '#/components/schemas/TenantApi.Tenant.V1.TenantIdentityProviders'
+          nullable: true
+          readOnly: true
+          type: array
+      type: object
+  securitySchemes:
+    oauth2:
+      description: Use bearer token generated from an OpenId server
+      flows:
+        clientCredentials:
+          scopes:
+            https://api.edgraph.com/tenant: EdGraph Platform - Tenant Api
+          tokenUrl: https://login.edgraph.com/connect/token
+      type: oauth2
+
