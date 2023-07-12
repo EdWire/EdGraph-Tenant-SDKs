@@ -9,9 +9,9 @@ security:
 - oauth2:
   - https://api.edgraph.com/tenant
 paths:
-  /tenants/{tenantId}/applications/{applicationId}:
-    get:
-      operationId: GetTenantApplicationProfileByIdAsync
+  /tenants/{tenantId}/apiclients/{clientId}/regeneratesecret:
+    put:
+      operationId: RegenerateTenantApiClientSecretAsync
       parameters:
       - description: ""
         explode: false
@@ -24,7 +24,97 @@ paths:
       - description: ""
         explode: false
         in: path
-        name: applicationId
+        name: clientId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: X-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json-patch+json:
+            schema:
+              $ref: '#/components/schemas/IdentityApi.ApiClient.V1.RegenerateApiClientSecretRequest'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/IdentityApi.ApiClient.V1.RegenerateApiClientSecretRequest'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/IdentityApi.ApiClient.V1.RegenerateApiClientSecretRequest'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/IdentityApi.ApiClient.V1.RegenerateApiClientSecretRequest'
+        description: ""
+      responses:
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EdGraph.Common.Errors.Core.ProblemDetails'
+          description: Unauthorized. The request requires authentication. The OAuth
+            bearer token was either not provided or is invalid. The operation may
+            succeed once authentication has been successfully completed.
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EdGraph.Common.Errors.Core.ProblemDetails'
+          description: Forbidden. The request cannot be completed in the current authorization
+            context. Contact your administrator if you believe this operation should
+            be allowed.
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EdGraph.Common.Errors.Core.ProblemDetails'
+          description: An unhandled error occurred on the server.See the response
+            body for details.
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IdentityApi.ApiClient.V1.ApiClientSecretRegeneratedResponse'
+          description: The requested resource was successfully retrieved.
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ValidationProblemDetails'
+          description: Bad Request. The request was invalid and cannot be completed.
+            See the response body for specific validation errors. This will typically
+            be an issue with the query parameters or the request body values.
+      summary: Regenerates an OpenId API Client's secret
+      tags:
+      - API Clients
+  /tenants/{tenantId}/apiclients/{clientId}:
+    delete:
+      operationId: DeleteTenantApiClientAsync
+      parameters:
+      - description: ""
+        explode: false
+        in: path
+        name: tenantId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: ""
+        explode: false
+        in: path
+        name: clientId
         required: true
         schema:
           type: string
@@ -44,44 +134,587 @@ paths:
           type: string
         style: simple
       responses:
-        "200":
+        "401":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ApplicationApi.Application.V2.ApplicationProfileResponse'
-          description: Tenant's application returned
-        "404":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
-          description: Tenant's application not found
-        "400":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
-          description: Tenant has missing/invalid values
+                $ref: '#/components/schemas/EdGraph.Common.Errors.Core.ProblemDetails'
+          description: Unauthorized. The request requires authentication. The OAuth
+            bearer token was either not provided or is invalid. The operation may
+            succeed once authentication has been successfully completed.
         "403":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
-          description: Missing the required permissions to access to this tenant/resource
+                $ref: '#/components/schemas/EdGraph.Common.Errors.Core.ProblemDetails'
+          description: Forbidden. The request cannot be completed in the current authorization
+            context. Contact your administrator if you believe this operation should
+            be allowed.
         "500":
-          description: Oops! Can't retrieve your tenant's application right now
-      summary: Retrieves a specific application associated to a tenant using its primary
-        key
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EdGraph.Common.Errors.Core.ProblemDetails'
+          description: An unhandled error occurred on the server.See the response
+            body for details.
+        "204":
+          description: The resource was successfully deleted.
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ValidationProblemDetails'
+          description: Bad Request. The request was invalid and cannot be completed.
+            See the response body for specific validation errors. This will typically
+            be an issue with the query parameters or the request body values.
+      summary: Deletes an OpenId API Client
       tags:
-      - Applications
-  /tenants/{tenantId}/applications:
+      - API Clients
     get:
-      operationId: GetTenantApplicationsAsync
+      operationId: GetTenantApiClientByIdAsync
       parameters:
       - description: ""
         explode: false
         in: path
         name: tenantId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: ""
+        explode: false
+        in: path
+        name: clientId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: X-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EdGraph.Common.Errors.Core.ProblemDetails'
+          description: Unauthorized. The request requires authentication. The OAuth
+            bearer token was either not provided or is invalid. The operation may
+            succeed once authentication has been successfully completed.
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EdGraph.Common.Errors.Core.ProblemDetails'
+          description: Forbidden. The request cannot be completed in the current authorization
+            context. Contact your administrator if you believe this operation should
+            be allowed.
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EdGraph.Common.Errors.Core.ProblemDetails'
+          description: An unhandled error occurred on the server.See the response
+            body for details.
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IdentityApi.ApiClient.V1.ApiClientProfileResponse'
+          description: The requested resource was successfully retrieved.
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ValidationProblemDetails'
+          description: Bad Request. The request was invalid and cannot be completed.
+            See the response body for specific validation errors. This will typically
+            be an issue with the query parameters or the request body values.
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EdGraph.Common.Errors.Core.ProblemDetails'
+          description: The resource could not be found.
+      summary: Retrieves an OpenId API Client
+      tags:
+      - API Clients
+    put:
+      operationId: UpdateTenantApiClientAsync
+      parameters:
+      - description: ""
+        explode: false
+        in: path
+        name: tenantId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: ""
+        explode: false
+        in: path
+        name: clientId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: X-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json-patch+json:
+            schema:
+              $ref: '#/components/schemas/IdentityApi.ApiClient.V1.UpdateApiClientRequest'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/IdentityApi.ApiClient.V1.UpdateApiClientRequest'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/IdentityApi.ApiClient.V1.UpdateApiClientRequest'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/IdentityApi.ApiClient.V1.UpdateApiClientRequest'
+        description: ""
+      responses:
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EdGraph.Common.Errors.Core.ProblemDetails'
+          description: Unauthorized. The request requires authentication. The OAuth
+            bearer token was either not provided or is invalid. The operation may
+            succeed once authentication has been successfully completed.
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EdGraph.Common.Errors.Core.ProblemDetails'
+          description: Forbidden. The request cannot be completed in the current authorization
+            context. Contact your administrator if you believe this operation should
+            be allowed.
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EdGraph.Common.Errors.Core.ProblemDetails'
+          description: An unhandled error occurred on the server.See the response
+            body for details.
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IdentityApi.ApiClient.V1.ApiClientUpdatedResponse'
+          description: The requested resource was successfully retrieved.
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ValidationProblemDetails'
+          description: Bad Request. The request was invalid and cannot be completed.
+            See the response body for specific validation errors. This will typically
+            be an issue with the query parameters or the request body values.
+      summary: Updates an OpenId API Client
+      tags:
+      - API Clients
+  /tenants/{tenantId}/apiclients:
+    get:
+      operationId: GetAllTenantApiClientsAsync
+      parameters:
+      - description: ""
+        explode: false
+        in: path
+        name: tenantId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: ""
+        explode: true
+        in: query
+        name: pageSize
+        required: false
+        schema:
+          default: 10
+          format: int32
+          type: integer
+        style: form
+      - description: ""
+        explode: true
+        in: query
+        name: pageIndex
+        required: false
+        schema:
+          default: 0
+          format: int32
+          type: integer
+        style: form
+      - description: ""
+        explode: true
+        in: query
+        name: orderBy
+        required: false
+        schema:
+          default: ""
+          type: string
+        style: form
+      - description: ""
+        explode: true
+        in: query
+        name: filter
+        required: false
+        schema:
+          default: ""
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: X-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EdGraph.Common.Errors.Core.ProblemDetails'
+          description: Unauthorized. The request requires authentication. The OAuth
+            bearer token was either not provided or is invalid. The operation may
+            succeed once authentication has been successfully completed.
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EdGraph.Common.Errors.Core.ProblemDetails'
+          description: Forbidden. The request cannot be completed in the current authorization
+            context. Contact your administrator if you believe this operation should
+            be allowed.
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EdGraph.Common.Errors.Core.ProblemDetails'
+          description: An unhandled error occurred on the server.See the response
+            body for details.
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IdentityApi.ApiClient.V1.ApiClientPaginatedItemsResponsePaginatedItemsViewModel'
+          description: The requested resource was successfully retrieved.
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ValidationProblemDetails'
+          description: Bad Request. The request was invalid and cannot be completed.
+            See the response body for specific validation errors. This will typically
+            be an issue with the query parameters or the request body values.
+      summary: Retrieves a list of OpenId API Clients associated to this tenant
+      tags:
+      - API Clients
+    post:
+      operationId: CreateTenantApiClientAsync
+      parameters:
+      - description: ""
+        explode: false
+        in: path
+        name: tenantId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: X-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json-patch+json:
+            schema:
+              $ref: '#/components/schemas/IdentityApi.ApiClient.V1.CreateApiClientRequest'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/IdentityApi.ApiClient.V1.CreateApiClientRequest'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/IdentityApi.ApiClient.V1.CreateApiClientRequest'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/IdentityApi.ApiClient.V1.CreateApiClientRequest'
+        description: ""
+      responses:
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EdGraph.Common.Errors.Core.ProblemDetails'
+          description: Unauthorized. The request requires authentication. The OAuth
+            bearer token was either not provided or is invalid. The operation may
+            succeed once authentication has been successfully completed.
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EdGraph.Common.Errors.Core.ProblemDetails'
+          description: Forbidden. The request cannot be completed in the current authorization
+            context. Contact your administrator if you believe this operation should
+            be allowed.
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EdGraph.Common.Errors.Core.ProblemDetails'
+          description: An unhandled error occurred on the server.See the response
+            body for details.
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IdentityApi.ApiClient.V1.ApiClientCreatedResponse'
+          description: The resource was created. The location of the resource is available
+            in the Location header of the response.
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ValidationProblemDetails'
+          description: Bad Request. The request was invalid and cannot be completed.
+            See the response body for specific validation errors. This will typically
+            be an issue with the query parameters or the request body values.
+      summary: Creates a new OpenId API Client
+      tags:
+      - API Clients
+  /tenants/{tenantId}/clients/{clientId}/settings:
+    get:
+      operationId: GetClientSettingsAsync
+      parameters:
+      - description: ""
+        explode: false
+        in: path
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - description: ""
+        explode: false
+        in: path
+        name: clientId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: X-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EdGraph.Common.Errors.Core.ProblemDetails'
+          description: Unauthorized. The request requires authentication. The OAuth
+            bearer token was either not provided or is invalid. The operation may
+            succeed once authentication has been successfully completed.
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EdGraph.Common.Errors.Core.ProblemDetails'
+          description: Forbidden. The request cannot be completed in the current authorization
+            context. Contact your administrator if you believe this operation should
+            be allowed.
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EdGraph.Common.Errors.Core.ProblemDetails'
+          description: An unhandled error occurred on the server.See the response
+            body for details.
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TenantApi.Tenant.V1.GetAppSettingsResponse'
+          description: The requested resource was successfully retrieved.
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ValidationProblemDetails'
+          description: Bad Request. The request was invalid and cannot be completed.
+            See the response body for specific validation errors. This will typically
+            be an issue with the query parameters or the request body values.
+      summary: Retrieves a list of a Tenant's ClientSettings.
+      tags:
+      - Applications / Settings
+    post:
+      operationId: SetClientSettingsAsync
+      parameters:
+      - description: ""
+        explode: false
+        in: path
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - description: ""
+        explode: false
+        in: path
+        name: clientId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: X-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json-patch+json:
+            schema:
+              $ref: '#/components/schemas/TenantApi.Tenant.V1.SetAppSettingsRequest'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TenantApi.Tenant.V1.SetAppSettingsRequest'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/TenantApi.Tenant.V1.SetAppSettingsRequest'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/TenantApi.Tenant.V1.SetAppSettingsRequest'
+        description: ""
+      responses:
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EdGraph.Common.Errors.Core.ProblemDetails'
+          description: Unauthorized. The request requires authentication. The OAuth
+            bearer token was either not provided or is invalid. The operation may
+            succeed once authentication has been successfully completed.
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EdGraph.Common.Errors.Core.ProblemDetails'
+          description: Forbidden. The request cannot be completed in the current authorization
+            context. Contact your administrator if you believe this operation should
+            be allowed.
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EdGraph.Common.Errors.Core.ProblemDetails'
+          description: An unhandled error occurred on the server.See the response
+            body for details.
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TenantApi.Tenant.V1.SetAppSettingsResponse'
+          description: The requested resource was successfully retrieved.
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ValidationProblemDetails'
+          description: Bad Request. The request was invalid and cannot be completed.
+            See the response body for specific validation errors. This will typically
+            be an issue with the query parameters or the request body values.
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EdGraph.Common.Errors.Core.ProblemDetails'
+          description: The resource could not be found.
+      summary: Creates/updates a Tenant's ClientSettings.
+      tags:
+      - Applications / Settings
+  /tenants/{tenantId}/clients/{clientId}/settingstypes:
+    get:
+      operationId: GetClientSettingsTypesAsync
+      parameters:
+      - description: ""
+        explode: false
+        in: path
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - description: ""
+        explode: false
+        in: path
+        name: clientId
         required: true
         schema:
           type: string
@@ -112,6 +745,7 @@ paths:
         name: orderBy
         required: false
         schema:
+          default: ""
           type: string
         style: form
       - description: ""
@@ -120,6 +754,7 @@ paths:
         name: filter
         required: false
         schema:
+          default: ""
           type: string
         style: form
       - explode: true
@@ -137,30 +772,46 @@ paths:
           type: string
         style: simple
       responses:
-        "200":
+        "401":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ApplicationApi.Application.V2.ApplicationListResponse'
-          description: List of tenant applications returned
-        "400":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
-          description: Tenant has missing/invalid values
+                $ref: '#/components/schemas/EdGraph.Common.Errors.Core.ProblemDetails'
+          description: Unauthorized. The request requires authentication. The OAuth
+            bearer token was either not provided or is invalid. The operation may
+            succeed once authentication has been successfully completed.
         "403":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
-          description: Missing the required permissions to access to this tenant/resource
+                $ref: '#/components/schemas/EdGraph.Common.Errors.Core.ProblemDetails'
+          description: Forbidden. The request cannot be completed in the current authorization
+            context. Contact your administrator if you believe this operation should
+            be allowed.
         "500":
-          description: Oops! Can't retrieve the list of tenant applications right
-            now
-      summary: Retrieves a list of applications that belong to the current tenant.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EdGraph.Common.Errors.Core.ProblemDetails'
+          description: An unhandled error occurred on the server.See the response
+            body for details.
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IdentityApi.ClientSettingsType.V1.GetClientSettingsTypesResponse'
+          description: The requested resource was successfully retrieved.
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ValidationProblemDetails'
+          description: Bad Request. The request was invalid and cannot be completed.
+            See the response body for specific validation errors. This will typically
+            be an issue with the query parameters or the request body values.
+      summary: Retrieves a list of ClientSettingsTypes.
       tags:
-      - Applications
+      - Applications / Settings
   /tenants/{tenantId}/applicationtiles:
     get:
       operationId: GetTenantApplicationTilesAsync
@@ -226,156 +877,50 @@ paths:
           type: string
         style: simple
       responses:
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EdGraph.Common.Errors.Core.ProblemDetails'
+          description: Unauthorized. The request requires authentication. The OAuth
+            bearer token was either not provided or is invalid. The operation may
+            succeed once authentication has been successfully completed.
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EdGraph.Common.Errors.Core.ProblemDetails'
+          description: Forbidden. The request cannot be completed in the current authorization
+            context. Contact your administrator if you believe this operation should
+            be allowed.
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EdGraph.Common.Errors.Core.ProblemDetails'
+          description: An unhandled error occurred on the server.See the response
+            body for details.
         "200":
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/EdGraph.Platform.HttpAggregators.Tenant.Api.Controllers.v1.ViewModels.Responses.ApplicationTilesResponseWithUserApplicationLicense'
-          description: List of tenant application tiles returned
+          description: The requested resource was successfully retrieved.
         "400":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
-          description: Tenant has missing/invalid values
-        "403":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
-          description: Missing the required permissions to access to this tenant/resource
-        "500":
-          description: Oops! Can't retrieve the list of tenant application tiles right
-            now
-      summary: Retrieves a list of tenant application tiles
+                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ValidationProblemDetails'
+          description: Bad Request. The request was invalid and cannot be completed.
+            See the response body for specific validation errors. This will typically
+            be an issue with the query parameters or the request body values.
+      summary: Retrieves a list of applications licensed to the user that is currently
+        logged in the context of this tenant
       tags:
-      - Applications
-  /tenants/{tenantId}/identity/apiclients/{clientId}/regeneratesecret:
-    post:
-      operationId: RegenerateTenantApiClientSecret
-      parameters:
-      - description: ""
-        explode: false
-        in: path
-        name: tenantId
-        required: true
-        schema:
-          type: string
-        style: simple
-      - description: ""
-        explode: false
-        in: path
-        name: clientId
-        required: true
-        schema:
-          type: string
-        style: simple
-      - explode: true
-        in: query
-        name: api-version
-        required: false
-        schema:
-          type: string
-        style: form
-      - explode: false
-        in: header
-        name: X-version
-        required: false
-        schema:
-          type: string
-        style: simple
-      requestBody:
-        content:
-          application/json-patch+json:
-            schema:
-              $ref: '#/components/schemas/IdentityApi.ApiClient.V1.RegenerateApiClientSecretRequest'
-          application/json:
-            schema:
-              $ref: '#/components/schemas/IdentityApi.ApiClient.V1.RegenerateApiClientSecretRequest'
-          text/json:
-            schema:
-              $ref: '#/components/schemas/IdentityApi.ApiClient.V1.RegenerateApiClientSecretRequest'
-          application/*+json:
-            schema:
-              $ref: '#/components/schemas/IdentityApi.ApiClient.V1.RegenerateApiClientSecretRequest'
-        description: ""
-      responses:
-        "202":
-          description: Tenant's OpenId client secret created/updated
-        "400":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
-          description: Tenant's OpenId client secret has missing/invalid values
-        "403":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
-          description: Missing the required permissions to access to this tenant/resource
-        "500":
-          description: Oops! Can't create/update your tenant's OpenId client secret
-            right now
-      summary: Creates a tenant's OpenId client secret matching the primary key
-      tags:
-      - Identity - API Clients
-  /tenants/{tenantId}/identity/apiclients/{clientId}:
-    delete:
-      operationId: DeleteTenantApiClient
-      parameters:
-      - description: ""
-        explode: false
-        in: path
-        name: tenantId
-        required: true
-        schema:
-          type: string
-        style: simple
-      - description: ""
-        explode: false
-        in: path
-        name: clientId
-        required: true
-        schema:
-          type: string
-        style: simple
-      - explode: true
-        in: query
-        name: api-version
-        required: false
-        schema:
-          type: string
-        style: form
-      - explode: false
-        in: header
-        name: X-version
-        required: false
-        schema:
-          type: string
-        style: simple
-      responses:
-        "202":
-          description: Tenant's OpenId client deleted
-        "400":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
-          description: Tenant's OpenId client has missing/invalid values
-        "403":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
-          description: Missing the required permissions to access to this tenant/resource
-        "500":
-          description: Oops! Can't delete your tenant's OpenId client right now
-      summary: Delete a tenant's OpenId api client matching the primary key
-      tags:
-      - Identity - API Clients
+      - Applications / Tiles
+  /tenants/{tenantId}/applications/{applicationId}:
     get:
-      operationId: GetTenantApiClientProfileById
+      operationId: GetTenantApplicationProfileByIdAsync
       parameters:
       - description: ""
         explode: false
@@ -388,7 +933,7 @@ paths:
       - description: ""
         explode: false
         in: path
-        name: clientId
+        name: applicationId
         required: true
         schema:
           type: string
@@ -408,108 +953,55 @@ paths:
           type: string
         style: simple
       responses:
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EdGraph.Common.Errors.Core.ProblemDetails'
+          description: Unauthorized. The request requires authentication. The OAuth
+            bearer token was either not provided or is invalid. The operation may
+            succeed once authentication has been successfully completed.
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EdGraph.Common.Errors.Core.ProblemDetails'
+          description: Forbidden. The request cannot be completed in the current authorization
+            context. Contact your administrator if you believe this operation should
+            be allowed.
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EdGraph.Common.Errors.Core.ProblemDetails'
+          description: An unhandled error occurred on the server.See the response
+            body for details.
         "200":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/IdentityApi.ApiClient.V1.ApiClientProfileResponse'
-          description: Tenant OpenId api client returned
+                $ref: '#/components/schemas/ApplicationApi.Application.V2.ApplicationProfileResponse'
+          description: The requested resource was successfully retrieved.
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ValidationProblemDetails'
+          description: Bad Request. The request was invalid and cannot be completed.
+            See the response body for specific validation errors. This will typically
+            be an issue with the query parameters or the request body values.
         "404":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
-          description: Tenant OpenId api client not found
-        "400":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
-          description: Tenant has missing/invalid values
-        "403":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
-          description: Missing the required permissions to access to this tenant/resource
-        "500":
-          description: Oops! Can't retrieve your tenant application's OpenId api client
-            right now
-      summary: Retrieves the OpenId api client associated to this tenant
+                $ref: '#/components/schemas/EdGraph.Common.Errors.Core.ProblemDetails'
+          description: The resource could not be found.
+      summary: Retrieves an application
       tags:
-      - Identity - API Clients
-    put:
-      operationId: UpdateTenantApiClient
-      parameters:
-      - description: ""
-        explode: false
-        in: path
-        name: tenantId
-        required: true
-        schema:
-          type: string
-        style: simple
-      - description: ""
-        explode: false
-        in: path
-        name: clientId
-        required: true
-        schema:
-          type: string
-        style: simple
-      - explode: true
-        in: query
-        name: api-version
-        required: false
-        schema:
-          type: string
-        style: form
-      - explode: false
-        in: header
-        name: X-version
-        required: false
-        schema:
-          type: string
-        style: simple
-      requestBody:
-        content:
-          application/json-patch+json:
-            schema:
-              $ref: '#/components/schemas/IdentityApi.ApiClient.V1.UpdateApiClientRequest'
-          application/json:
-            schema:
-              $ref: '#/components/schemas/IdentityApi.ApiClient.V1.UpdateApiClientRequest'
-          text/json:
-            schema:
-              $ref: '#/components/schemas/IdentityApi.ApiClient.V1.UpdateApiClientRequest'
-          application/*+json:
-            schema:
-              $ref: '#/components/schemas/IdentityApi.ApiClient.V1.UpdateApiClientRequest'
-        description: ""
-      responses:
-        "202":
-          description: Tenant's OpenId client created/updated
-        "400":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
-          description: Tenant's OpenId client has missing/invalid values
-        "403":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
-          description: Missing the required permissions to access to this tenant/resource
-        "500":
-          description: Oops! Can't create/update your tenant's OpenId client right
-            now
-      summary: Updates a tenant's OpenId api client matching the primary key
-      tags:
-      - Identity - API Clients
-  /tenants/{tenantId}/identity/apiclients:
+      - Applications
+  /tenants/{tenantId}/applications:
     get:
-      operationId: GetAllTenantApiClients
+      operationId: GetTenantApplicationsAsync
       parameters:
       - description: ""
         explode: false
@@ -519,16 +1011,6 @@ paths:
         schema:
           type: string
         style: simple
-      - description: ""
-        explode: true
-        in: query
-        name: pageSize
-        required: false
-        schema:
-          default: 10
-          format: int32
-          type: integer
-        style: form
       - description: ""
         explode: true
         in: query
@@ -542,10 +1024,19 @@ paths:
       - description: ""
         explode: true
         in: query
+        name: pageSize
+        required: false
+        schema:
+          default: 10
+          format: int32
+          type: integer
+        style: form
+      - description: ""
+        explode: true
+        in: query
         name: orderBy
         required: false
         schema:
-          default: ""
           type: string
         style: form
       - description: ""
@@ -554,7 +1045,6 @@ paths:
         name: filter
         required: false
         schema:
-          default: ""
           type: string
         style: form
       - explode: true
@@ -572,99 +1062,49 @@ paths:
           type: string
         style: simple
       responses:
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EdGraph.Common.Errors.Core.ProblemDetails'
+          description: Unauthorized. The request requires authentication. The OAuth
+            bearer token was either not provided or is invalid. The operation may
+            succeed once authentication has been successfully completed.
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EdGraph.Common.Errors.Core.ProblemDetails'
+          description: Forbidden. The request cannot be completed in the current authorization
+            context. Contact your administrator if you believe this operation should
+            be allowed.
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EdGraph.Common.Errors.Core.ProblemDetails'
+          description: An unhandled error occurred on the server.See the response
+            body for details.
         "200":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/IdentityApi.ApiClient.V1.ApiClientPaginatedItemsResponsePaginatedItemsViewModel'
-          description: List of tenant OpenId api client returned
-        "404":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
-          description: Not Found
+                $ref: '#/components/schemas/ApplicationApi.Application.V2.ApplicationListResponse'
+          description: The requested resource was successfully retrieved.
         "400":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
-          description: Tenant has missing/invalid values
-        "403":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
-          description: Missing the required permissions to access to this tenant/resource
-        "500":
-          description: Oops! Can't retrieve your list of tenant application's OpenId
-            api client right now
-      summary: Retrieves  a list of OpenId api clients associated to this tenant
+                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ValidationProblemDetails'
+          description: Bad Request. The request was invalid and cannot be completed.
+            See the response body for specific validation errors. This will typically
+            be an issue with the query parameters or the request body values.
+      summary: Retrieves a list of applications associated to this tenant
       tags:
-      - Identity - API Clients
-    post:
-      operationId: CreateTenantApiClient
-      parameters:
-      - description: ""
-        explode: false
-        in: path
-        name: tenantId
-        required: true
-        schema:
-          type: string
-        style: simple
-      - explode: true
-        in: query
-        name: api-version
-        required: false
-        schema:
-          type: string
-        style: form
-      - explode: false
-        in: header
-        name: X-version
-        required: false
-        schema:
-          type: string
-        style: simple
-      requestBody:
-        content:
-          application/json-patch+json:
-            schema:
-              $ref: '#/components/schemas/IdentityApi.ApiClient.V1.CreateApiClientRequest'
-          application/json:
-            schema:
-              $ref: '#/components/schemas/IdentityApi.ApiClient.V1.CreateApiClientRequest'
-          text/json:
-            schema:
-              $ref: '#/components/schemas/IdentityApi.ApiClient.V1.CreateApiClientRequest'
-          application/*+json:
-            schema:
-              $ref: '#/components/schemas/IdentityApi.ApiClient.V1.CreateApiClientRequest'
-        description: ""
-      responses:
-        "202":
-          description: Tenant's OpenId client created
-        "400":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
-          description: Tenant's OpenId client has missing/invalid values
-        "403":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
-          description: Missing the required permissions to access to this tenant/resource
-        "500":
-          description: Oops! Can't create your tenant's OpenId client right now
-      summary: Creates a new tenant OpenId api client
-      tags:
-      - Identity - API Clients
+      - Applications
   /tenants/{tenantId}/invitations/{invitationId}:
     delete:
-      operationId: DeleteTenantInvitation
+      operationId: DeleteTenantInvitationAsync
       parameters:
       - description: ""
         explode: false
@@ -697,27 +1137,44 @@ paths:
           type: string
         style: simple
       responses:
-        "204":
-          description: Tenant invitation deleted
-        "400":
+        "401":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
-          description: Tenant has missing/invalid values
+                $ref: '#/components/schemas/EdGraph.Common.Errors.Core.ProblemDetails'
+          description: Unauthorized. The request requires authentication. The OAuth
+            bearer token was either not provided or is invalid. The operation may
+            succeed once authentication has been successfully completed.
         "403":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
-          description: Missing the required permissions to access to this tenant/resource
+                $ref: '#/components/schemas/EdGraph.Common.Errors.Core.ProblemDetails'
+          description: Forbidden. The request cannot be completed in the current authorization
+            context. Contact your administrator if you believe this operation should
+            be allowed.
         "500":
-          description: Oops! Can't delete your tenant invitation right now
-      summary: Delete a tenant invitation matching the primary key
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EdGraph.Common.Errors.Core.ProblemDetails'
+          description: An unhandled error occurred on the server.See the response
+            body for details.
+        "204":
+          description: The resource was successfully deleted.
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ValidationProblemDetails'
+          description: Bad Request. The request was invalid and cannot be completed.
+            See the response body for specific validation errors. This will typically
+            be an issue with the query parameters or the request body values.
+      summary: Deletes an invitation
       tags:
       - Invitations
     get:
-      operationId: GetTenantInvitationById
+      operationId: GetTenantInvitationByIdAsync
       parameters:
       - description: ""
         explode: false
@@ -750,38 +1207,55 @@ paths:
           type: string
         style: simple
       responses:
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EdGraph.Common.Errors.Core.ProblemDetails'
+          description: Unauthorized. The request requires authentication. The OAuth
+            bearer token was either not provided or is invalid. The operation may
+            succeed once authentication has been successfully completed.
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EdGraph.Common.Errors.Core.ProblemDetails'
+          description: Forbidden. The request cannot be completed in the current authorization
+            context. Contact your administrator if you believe this operation should
+            be allowed.
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EdGraph.Common.Errors.Core.ProblemDetails'
+          description: An unhandled error occurred on the server.See the response
+            body for details.
         "200":
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/IdentityApi.Invitation.V1.InvitationResponse'
-          description: Tenant invitation returned
-        "404":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
-          description: Tenant invitation not found
+          description: The requested resource was successfully retrieved.
         "400":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
-          description: Tenant has missing/invalid values
-        "403":
+                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ValidationProblemDetails'
+          description: Bad Request. The request was invalid and cannot be completed.
+            See the response body for specific validation errors. This will typically
+            be an issue with the query parameters or the request body values.
+        "404":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
-          description: Missing the required permissions to access to this tenant/resource
-        "500":
-          description: Oops! Can't retrieve your tenant invitation right now
-      summary: Retrieves a specific tenant invitation using its primary key
+                $ref: '#/components/schemas/EdGraph.Common.Errors.Core.ProblemDetails'
+          description: The resource could not be found.
+      summary: Retrieves a specific invitation
       tags:
       - Invitations
   /tenants/{tenantId}/invitations:
     get:
-      operationId: GetAllTenantInvitations
+      operationId: GetAllTenantInvitationsAsync
       parameters:
       - description: ""
         explode: false
@@ -844,31 +1318,48 @@ paths:
           type: string
         style: simple
       responses:
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EdGraph.Common.Errors.Core.ProblemDetails'
+          description: Unauthorized. The request requires authentication. The OAuth
+            bearer token was either not provided or is invalid. The operation may
+            succeed once authentication has been successfully completed.
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EdGraph.Common.Errors.Core.ProblemDetails'
+          description: Forbidden. The request cannot be completed in the current authorization
+            context. Contact your administrator if you believe this operation should
+            be allowed.
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EdGraph.Common.Errors.Core.ProblemDetails'
+          description: An unhandled error occurred on the server.See the response
+            body for details.
         "200":
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/IdentityApi.Invitation.V1.InvitationListResponsePaginatedItemsViewModel'
-          description: List of tenant invitations returned
+          description: The requested resource was successfully retrieved.
         "400":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
-          description: Tenant has missing/invalid values
-        "403":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
-          description: Missing the required permissions to access to this tenant/resource
-        "500":
-          description: Oops! Can't retrieve the list of tenant invitations right now
-      summary: Retrieves a list of tenant invitations
+                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ValidationProblemDetails'
+          description: Bad Request. The request was invalid and cannot be completed.
+            See the response body for specific validation errors. This will typically
+            be an issue with the query parameters or the request body values.
+      summary: Retrieves a list of invitations associated to this tenant
       tags:
       - Invitations
     post:
-      operationId: SendTenantInvitation
+      operationId: SendTenantInvitationAsync
       parameters:
       - description: ""
         explode: false
@@ -908,28 +1399,50 @@ paths:
               $ref: '#/components/schemas/IdentityApi.Invitation.V1.SendInvitationRequest'
         description: ""
       responses:
-        "202":
-          description: Invitation sent
-        "400":
+        "401":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
-          description: invitation has missing/invalid values
+                $ref: '#/components/schemas/EdGraph.Common.Errors.Core.ProblemDetails'
+          description: Unauthorized. The request requires authentication. The OAuth
+            bearer token was either not provided or is invalid. The operation may
+            succeed once authentication has been successfully completed.
         "403":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
-          description: Missing the required permissions to access to this tenant/resource
+                $ref: '#/components/schemas/EdGraph.Common.Errors.Core.ProblemDetails'
+          description: Forbidden. The request cannot be completed in the current authorization
+            context. Contact your administrator if you believe this operation should
+            be allowed.
         "500":
-          description: Oops! Can't send your invitation right now
-      summary: Send an invitation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EdGraph.Common.Errors.Core.ProblemDetails'
+          description: An unhandled error occurred on the server.See the response
+            body for details.
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IdentityApi.Invitation.V1.InvitationSentResponse'
+          description: The resource was created. The location of the resource is available
+            in the Location header of the response.
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ValidationProblemDetails'
+          description: Bad Request. The request was invalid and cannot be completed.
+            See the response body for specific validation errors. This will typically
+            be an issue with the query parameters or the request body values.
+      summary: Creates and sends an invitation to a user
       tags:
       - Invitations
-  /tenants/{tenantId}/subscriptions/{subscriptionId}/update:
-    post:
-      operationId: UpdateTenantSubscription
+  /tenants/{tenantId}/onboardingsteps/{stepNumber}:
+    put:
+      operationId: UpdateOnboardingStepAsync
       parameters:
       - description: ""
         explode: false
@@ -942,7 +1455,96 @@ paths:
       - description: ""
         explode: false
         in: path
-        name: subscriptionId
+        name: stepNumber
+        required: true
+        schema:
+          format: int32
+          type: integer
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: X-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json-patch+json:
+            schema:
+              $ref: '#/components/schemas/TenantApi.Tenant.V1.UpdateOnboardingStepRequest'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TenantApi.Tenant.V1.UpdateOnboardingStepRequest'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/TenantApi.Tenant.V1.UpdateOnboardingStepRequest'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/TenantApi.Tenant.V1.UpdateOnboardingStepRequest'
+        description: ""
+      responses:
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EdGraph.Common.Errors.Core.ProblemDetails'
+          description: Unauthorized. The request requires authentication. The OAuth
+            bearer token was either not provided or is invalid. The operation may
+            succeed once authentication has been successfully completed.
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EdGraph.Common.Errors.Core.ProblemDetails'
+          description: Forbidden. The request cannot be completed in the current authorization
+            context. Contact your administrator if you believe this operation should
+            be allowed.
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EdGraph.Common.Errors.Core.ProblemDetails'
+          description: An unhandled error occurred on the server.See the response
+            body for details.
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TenantApi.Tenant.V1.TenantUpdatedResponse'
+          description: The requested resource was successfully retrieved.
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ValidationProblemDetails'
+          description: Bad Request. The request was invalid and cannot be completed.
+            See the response body for specific validation errors. This will typically
+            be an issue with the query parameters or the request body values.
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EdGraph.Common.Errors.Core.ProblemDetails'
+          description: The resource could not be found.
+      summary: Updates the status of an Onboarding Step.
+      tags:
+      - OnboardingSteps
+  /tenants/{tenantId}/onboardingsteps:
+    post:
+      operationId: CreateOnboardingStepAsync
+      parameters:
+      - description: ""
+        explode: false
+        in: path
+        name: tenantId
         required: true
         schema:
           type: string
@@ -965,40 +1567,458 @@ paths:
         content:
           application/json-patch+json:
             schema:
-              $ref: '#/components/schemas/TenantApi.Tenant.V1.UpdateSubscriptionRequest'
+              $ref: '#/components/schemas/TenantApi.Tenant.V1.CreateOnboardingStepRequest'
           application/json:
             schema:
-              $ref: '#/components/schemas/TenantApi.Tenant.V1.UpdateSubscriptionRequest'
+              $ref: '#/components/schemas/TenantApi.Tenant.V1.CreateOnboardingStepRequest'
           text/json:
             schema:
-              $ref: '#/components/schemas/TenantApi.Tenant.V1.UpdateSubscriptionRequest'
+              $ref: '#/components/schemas/TenantApi.Tenant.V1.CreateOnboardingStepRequest'
           application/*+json:
             schema:
-              $ref: '#/components/schemas/TenantApi.Tenant.V1.UpdateSubscriptionRequest'
+              $ref: '#/components/schemas/TenantApi.Tenant.V1.CreateOnboardingStepRequest'
         description: ""
       responses:
-        "202":
-          description: Tenant Subscription updated
-        "400":
+        "401":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
-          description: Tenant Subscription has missing/invalid values
+                $ref: '#/components/schemas/EdGraph.Common.Errors.Core.ProblemDetails'
+          description: Unauthorized. The request requires authentication. The OAuth
+            bearer token was either not provided or is invalid. The operation may
+            succeed once authentication has been successfully completed.
         "403":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
-          description: Missing the required permissions to access to this tenant/resource
+                $ref: '#/components/schemas/EdGraph.Common.Errors.Core.ProblemDetails'
+          description: Forbidden. The request cannot be completed in the current authorization
+            context. Contact your administrator if you believe this operation should
+            be allowed.
         "500":
-          description: Oops! Can't update your Tenant Subscription right now
-      summary: Updates a Tenant Subscription matching the primary key
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EdGraph.Common.Errors.Core.ProblemDetails'
+          description: An unhandled error occurred on the server.See the response
+            body for details.
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TenantApi.Tenant.V1.TenantUpdatedResponse'
+          description: The requested resource was successfully retrieved.
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ValidationProblemDetails'
+          description: Bad Request. The request was invalid and cannot be completed.
+            See the response body for specific validation errors. This will typically
+            be an issue with the query parameters or the request body values.
+      summary: Creates an Onboarding Step.
       tags:
-      - Subscriptions
+      - OnboardingSteps
+  /tenants/{tenantId}/organizations/{organizationIdentifier}:
+    delete:
+      operationId: DeleteOrganizationAsync
+      parameters:
+      - description: ""
+        explode: false
+        in: path
+        name: tenantId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: ""
+        explode: false
+        in: path
+        name: organizationIdentifier
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: X-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EdGraph.Common.Errors.Core.ProblemDetails'
+          description: Unauthorized. The request requires authentication. The OAuth
+            bearer token was either not provided or is invalid. The operation may
+            succeed once authentication has been successfully completed.
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EdGraph.Common.Errors.Core.ProblemDetails'
+          description: Forbidden. The request cannot be completed in the current authorization
+            context. Contact your administrator if you believe this operation should
+            be allowed.
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EdGraph.Common.Errors.Core.ProblemDetails'
+          description: An unhandled error occurred on the server.See the response
+            body for details.
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TenantApi.Tenant.V1.OrganizationDeletedResponse'
+          description: The requested resource was successfully retrieved.
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ValidationProblemDetails'
+          description: Bad Request. The request was invalid and cannot be completed.
+            See the response body for specific validation errors. This will typically
+            be an issue with the query parameters or the request body values.
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EdGraph.Common.Errors.Core.ProblemDetails'
+          description: The resource could not be found.
+      summary: Deletes an Organization.
+      tags:
+      - Organizations
+    get:
+      operationId: GetOrganizationByIdAsync
+      parameters:
+      - description: ""
+        explode: false
+        in: path
+        name: tenantId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: ""
+        explode: false
+        in: path
+        name: organizationIdentifier
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: X-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EdGraph.Common.Errors.Core.ProblemDetails'
+          description: Unauthorized. The request requires authentication. The OAuth
+            bearer token was either not provided or is invalid. The operation may
+            succeed once authentication has been successfully completed.
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EdGraph.Common.Errors.Core.ProblemDetails'
+          description: Forbidden. The request cannot be completed in the current authorization
+            context. Contact your administrator if you believe this operation should
+            be allowed.
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EdGraph.Common.Errors.Core.ProblemDetails'
+          description: An unhandled error occurred on the server.See the response
+            body for details.
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TenantApi.Tenant.V1.Organization'
+          description: The requested resource was successfully retrieved.
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EdGraph.Common.Errors.Core.ProblemDetails'
+          description: The resource could not be found.
+      summary: Retrieves an Organization by ID.
+      tags:
+      - Organizations
+    put:
+      operationId: UpdateOrganizationAsync
+      parameters:
+      - description: ""
+        explode: false
+        in: path
+        name: tenantId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: ""
+        explode: false
+        in: path
+        name: organizationIdentifier
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: X-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json-patch+json:
+            schema:
+              $ref: '#/components/schemas/TenantApi.Tenant.V1.UpdateOrganizationRequest'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TenantApi.Tenant.V1.UpdateOrganizationRequest'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/TenantApi.Tenant.V1.UpdateOrganizationRequest'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/TenantApi.Tenant.V1.UpdateOrganizationRequest'
+        description: ""
+      responses:
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EdGraph.Common.Errors.Core.ProblemDetails'
+          description: Unauthorized. The request requires authentication. The OAuth
+            bearer token was either not provided or is invalid. The operation may
+            succeed once authentication has been successfully completed.
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EdGraph.Common.Errors.Core.ProblemDetails'
+          description: Forbidden. The request cannot be completed in the current authorization
+            context. Contact your administrator if you believe this operation should
+            be allowed.
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EdGraph.Common.Errors.Core.ProblemDetails'
+          description: An unhandled error occurred on the server.See the response
+            body for details.
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TenantApi.Tenant.V1.OrganizationUpdatedResponse'
+          description: The requested resource was successfully retrieved.
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ValidationProblemDetails'
+          description: Bad Request. The request was invalid and cannot be completed.
+            See the response body for specific validation errors. This will typically
+            be an issue with the query parameters or the request body values.
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EdGraph.Common.Errors.Core.ProblemDetails'
+          description: The resource could not be found.
+      summary: Updates an Organization.
+      tags:
+      - Organizations
+  /tenants/{tenantId}/organizations:
+    get:
+      operationId: GetOrganizationsAsync
+      parameters:
+      - description: ""
+        explode: false
+        in: path
+        name: tenantId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: X-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EdGraph.Common.Errors.Core.ProblemDetails'
+          description: Unauthorized. The request requires authentication. The OAuth
+            bearer token was either not provided or is invalid. The operation may
+            succeed once authentication has been successfully completed.
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EdGraph.Common.Errors.Core.ProblemDetails'
+          description: Forbidden. The request cannot be completed in the current authorization
+            context. Contact your administrator if you believe this operation should
+            be allowed.
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EdGraph.Common.Errors.Core.ProblemDetails'
+          description: An unhandled error occurred on the server.See the response
+            body for details.
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TenantApi.Tenant.V1.GetOrganizationsResponse'
+          description: The requested resource was successfully retrieved.
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ValidationProblemDetails'
+          description: Bad Request. The request was invalid and cannot be completed.
+            See the response body for specific validation errors. This will typically
+            be an issue with the query parameters or the request body values.
+      summary: Retrieves a list of Organizations.
+      tags:
+      - Organizations
+    post:
+      operationId: CreateOrganizationAsync
+      parameters:
+      - description: ""
+        explode: false
+        in: path
+        name: tenantId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: X-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json-patch+json:
+            schema:
+              $ref: '#/components/schemas/TenantApi.Tenant.V1.CreateOrganizationRequest'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TenantApi.Tenant.V1.CreateOrganizationRequest'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/TenantApi.Tenant.V1.CreateOrganizationRequest'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/TenantApi.Tenant.V1.CreateOrganizationRequest'
+        description: ""
+      responses:
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EdGraph.Common.Errors.Core.ProblemDetails'
+          description: Unauthorized. The request requires authentication. The OAuth
+            bearer token was either not provided or is invalid. The operation may
+            succeed once authentication has been successfully completed.
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EdGraph.Common.Errors.Core.ProblemDetails'
+          description: Forbidden. The request cannot be completed in the current authorization
+            context. Contact your administrator if you believe this operation should
+            be allowed.
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EdGraph.Common.Errors.Core.ProblemDetails'
+          description: An unhandled error occurred on the server.See the response
+            body for details.
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TenantApi.Tenant.V1.OrganizationCreatedResponse'
+          description: The resource was created. The location of the resource is available
+            in the Location header of the response.
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ValidationProblemDetails'
+          description: Bad Request. The request was invalid and cannot be completed.
+            See the response body for specific validation errors. This will typically
+            be an issue with the query parameters or the request body values.
+      summary: Creates an Organization.
+      tags:
+      - Organizations
   /tenants/{tenantId}/subscriptions/{subscriptionId}:
     get:
-      operationId: GetTenantSubscriptionProfileById
+      operationId: GetTenantSubscriptionProfileByIdAsync
       parameters:
       - description: ""
         explode: false
@@ -1031,33 +2051,139 @@ paths:
           type: string
         style: simple
       responses:
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EdGraph.Common.Errors.Core.ProblemDetails'
+          description: Unauthorized. The request requires authentication. The OAuth
+            bearer token was either not provided or is invalid. The operation may
+            succeed once authentication has been successfully completed.
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EdGraph.Common.Errors.Core.ProblemDetails'
+          description: Forbidden. The request cannot be completed in the current authorization
+            context. Contact your administrator if you believe this operation should
+            be allowed.
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EdGraph.Common.Errors.Core.ProblemDetails'
+          description: An unhandled error occurred on the server.See the response
+            body for details.
         "200":
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/EdGraph.HttpAggregators.Tenant.Api.Controllers.v1.ViewModels.Responses.SubscriptionProfileResponseDto'
-          description: Tenant Subscription returned
-        "404":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
-          description: Tenant Subscription not found
+          description: The requested resource was successfully retrieved.
         "400":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
-          description: Tenant has missing/invalid values
+                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ValidationProblemDetails'
+          description: Bad Request. The request was invalid and cannot be completed.
+            See the response body for specific validation errors. This will typically
+            be an issue with the query parameters or the request body values.
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EdGraph.Common.Errors.Core.ProblemDetails'
+          description: The resource could not be found.
+      summary: Retrieves a subscription
+      tags:
+      - Subscriptions
+    put:
+      operationId: UpdateTenantSubscriptionAsync
+      parameters:
+      - description: ""
+        explode: false
+        in: path
+        name: tenantId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: ""
+        explode: false
+        in: path
+        name: subscriptionId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: X-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json-patch+json:
+            schema:
+              $ref: '#/components/schemas/TenantApi.Tenant.V1.UpdateSubscriptionRequest'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TenantApi.Tenant.V1.UpdateSubscriptionRequest'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/TenantApi.Tenant.V1.UpdateSubscriptionRequest'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/TenantApi.Tenant.V1.UpdateSubscriptionRequest'
+        description: ""
+      responses:
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EdGraph.Common.Errors.Core.ProblemDetails'
+          description: Unauthorized. The request requires authentication. The OAuth
+            bearer token was either not provided or is invalid. The operation may
+            succeed once authentication has been successfully completed.
         "403":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
-          description: Missing the required permissions to access to this tenant/resource
+                $ref: '#/components/schemas/EdGraph.Common.Errors.Core.ProblemDetails'
+          description: Forbidden. The request cannot be completed in the current authorization
+            context. Contact your administrator if you believe this operation should
+            be allowed.
         "500":
-          description: Oops! Can't retrieve your Tenant Subscription right now
-      summary: Retrieves a specific Tenant Subscription using its primary key
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EdGraph.Common.Errors.Core.ProblemDetails'
+          description: An unhandled error occurred on the server.See the response
+            body for details.
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TenantApi.Tenant.V1.SubscriptionUpdatedResponse'
+          description: The requested resource was successfully retrieved.
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ValidationProblemDetails'
+          description: Bad Request. The request was invalid and cannot be completed.
+            See the response body for specific validation errors. This will typically
+            be an issue with the query parameters or the request body values.
+      summary: Updates a subscription
       tags:
       - Subscriptions
   /tenants/{tenantId}/subscriptions/applications:
@@ -1115,93 +2241,49 @@ paths:
           type: string
         style: simple
       responses:
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EdGraph.Common.Errors.Core.ProblemDetails'
+          description: Unauthorized. The request requires authentication. The OAuth
+            bearer token was either not provided or is invalid. The operation may
+            succeed once authentication has been successfully completed.
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EdGraph.Common.Errors.Core.ProblemDetails'
+          description: Forbidden. The request cannot be completed in the current authorization
+            context. Contact your administrator if you believe this operation should
+            be allowed.
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EdGraph.Common.Errors.Core.ProblemDetails'
+          description: An unhandled error occurred on the server.See the response
+            body for details.
         "200":
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/ApplicationApi.Application.V2.PaginatedItemsResponse'
-          description: List of applications
+          description: The requested resource was successfully retrieved.
         "400":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
-          description: Tenant has missing/invalid values
-        "403":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
-          description: Missing the required permissions to access to this tenant/resource
-        "500":
-          description: Oops! Can't retrieve the resource right now
+                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ValidationProblemDetails'
+          description: Bad Request. The request was invalid and cannot be completed.
+            See the response body for specific validation errors. This will typically
+            be an issue with the query parameters or the request body values.
       summary: Retrieves a list of applications available for subscription.
-      tags:
-      - Subscriptions
-  /tenants/{tenantId}/subscriptions/create:
-    post:
-      operationId: CreateTenantSubscription
-      parameters:
-      - description: ""
-        explode: false
-        in: path
-        name: tenantId
-        required: true
-        schema:
-          type: string
-        style: simple
-      - explode: true
-        in: query
-        name: api-version
-        required: false
-        schema:
-          type: string
-        style: form
-      - explode: false
-        in: header
-        name: X-version
-        required: false
-        schema:
-          type: string
-        style: simple
-      requestBody:
-        content:
-          application/json-patch+json:
-            schema:
-              $ref: '#/components/schemas/TenantApi.Tenant.V1.CreateSubscriptionRequest'
-          application/json:
-            schema:
-              $ref: '#/components/schemas/TenantApi.Tenant.V1.CreateSubscriptionRequest'
-          text/json:
-            schema:
-              $ref: '#/components/schemas/TenantApi.Tenant.V1.CreateSubscriptionRequest'
-          application/*+json:
-            schema:
-              $ref: '#/components/schemas/TenantApi.Tenant.V1.CreateSubscriptionRequest'
-        description: ""
-      responses:
-        "202":
-          description: Tenant Subscription created
-        "400":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
-          description: Tenant Subscription has missing/invalid values
-        "403":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
-          description: Missing the required permissions to access to this tenant/resource
-        "500":
-          description: Oops! Can't create your Tenant Subscription right now
-      summary: Creates a new Tenant Subscription
       tags:
       - Subscriptions
   /tenants/{tenantId}/subscriptions:
     get:
-      operationId: GetAllTenantSubscriptions
+      operationId: GetAllTenantSubscriptionsAsync
       parameters:
       - description: ""
         explode: false
@@ -1264,33 +2346,131 @@ paths:
           type: string
         style: simple
       responses:
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EdGraph.Common.Errors.Core.ProblemDetails'
+          description: Unauthorized. The request requires authentication. The OAuth
+            bearer token was either not provided or is invalid. The operation may
+            succeed once authentication has been successfully completed.
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EdGraph.Common.Errors.Core.ProblemDetails'
+          description: Forbidden. The request cannot be completed in the current authorization
+            context. Contact your administrator if you believe this operation should
+            be allowed.
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EdGraph.Common.Errors.Core.ProblemDetails'
+          description: An unhandled error occurred on the server.See the response
+            body for details.
         "200":
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/EdGraph.HttpAggregators.Tenant.Api.Controllers.v1.ViewModels.Responses.SubscriptionListResponseDtoPaginatedItemsViewModel'
-          description: List of Tenant Subscriptions returned
+          description: The requested resource was successfully retrieved.
         "400":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
-          description: Tenant has missing/invalid values
+                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ValidationProblemDetails'
+          description: Bad Request. The request was invalid and cannot be completed.
+            See the response body for specific validation errors. This will typically
+            be an issue with the query parameters or the request body values.
+      summary: Retrieves a list of subscriptions associated to this tenant
+      tags:
+      - Subscriptions
+    post:
+      operationId: CreateTenantSubscriptionAsync
+      parameters:
+      - description: ""
+        explode: false
+        in: path
+        name: tenantId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: X-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json-patch+json:
+            schema:
+              $ref: '#/components/schemas/TenantApi.Tenant.V1.CreateSubscriptionRequest'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TenantApi.Tenant.V1.CreateSubscriptionRequest'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/TenantApi.Tenant.V1.CreateSubscriptionRequest'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/TenantApi.Tenant.V1.CreateSubscriptionRequest'
+        description: ""
+      responses:
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EdGraph.Common.Errors.Core.ProblemDetails'
+          description: Unauthorized. The request requires authentication. The OAuth
+            bearer token was either not provided or is invalid. The operation may
+            succeed once authentication has been successfully completed.
         "403":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
-          description: Missing the required permissions to access to this tenant/resource
+                $ref: '#/components/schemas/EdGraph.Common.Errors.Core.ProblemDetails'
+          description: Forbidden. The request cannot be completed in the current authorization
+            context. Contact your administrator if you believe this operation should
+            be allowed.
         "500":
-          description: Oops! Can't retrieve the list of Tenant Subscriptions right
-            now
-      summary: Retrieves a list of Tenant Subscriptions
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EdGraph.Common.Errors.Core.ProblemDetails'
+          description: An unhandled error occurred on the server.See the response
+            body for details.
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TenantApi.Tenant.V1.SubscriptionCreatedResponse'
+          description: The resource was created. The location of the resource is available
+            in the Location header of the response.
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ValidationProblemDetails'
+          description: Bad Request. The request was invalid and cannot be completed.
+            See the response body for specific validation errors. This will typically
+            be an issue with the query parameters or the request body values.
+      summary: Creates a new subscription
       tags:
       - Subscriptions
   /tenants/{tenantId}:
     get:
-      operationId: GetTenantById
+      operationId: GetTenantByIdAsync
       parameters:
       - description: ""
         explode: false
@@ -1315,37 +2495,48 @@ paths:
           type: string
         style: simple
       responses:
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EdGraph.Common.Errors.Core.ProblemDetails'
+          description: Unauthorized. The request requires authentication. The OAuth
+            bearer token was either not provided or is invalid. The operation may
+            succeed once authentication has been successfully completed.
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EdGraph.Common.Errors.Core.ProblemDetails'
+          description: Forbidden. The request cannot be completed in the current authorization
+            context. Contact your administrator if you believe this operation should
+            be allowed.
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EdGraph.Common.Errors.Core.ProblemDetails'
+          description: An unhandled error occurred on the server.See the response
+            body for details.
         "200":
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/TenantApi.Tenant.V1.TenantProfileResponse'
-          description: Tenant returned
+          description: The requested resource was successfully retrieved.
         "404":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
-          description: Tenant not found
-        "400":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
-          description: Tenant has missing/invalid values
-        "403":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
-          description: Missing the required permissions to access to this tenant/resource
-        "500":
-          description: Oops! Can't retrieve your tenant right now
-      summary: Retrieves a specific tenant using its primary key
+                $ref: '#/components/schemas/EdGraph.Common.Errors.Core.ProblemDetails'
+          description: The resource could not be found.
+      summary: Retrieves the profile of a specific tenant
       tags:
       - Tenants
-    post:
-      operationId: UpdateTenant
+    put:
+      description: "Note: Only the tenant's Identity Providers can be updated at this\
+        \ time"
+      operationId: UpdateTenantAsync
       parameters:
       - description: ""
         explode: false
@@ -1385,22 +2576,49 @@ paths:
               $ref: '#/components/schemas/TenantApi.Tenant.V1.UpdateTenantRequest'
         description: ""
       responses:
-        "202":
-          description: Update tenant request accepted
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EdGraph.Common.Errors.Core.ProblemDetails'
+          description: Unauthorized. The request requires authentication. The OAuth
+            bearer token was either not provided or is invalid. The operation may
+            succeed once authentication has been successfully completed.
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EdGraph.Common.Errors.Core.ProblemDetails'
+          description: Forbidden. The request cannot be completed in the current authorization
+            context. Contact your administrator if you believe this operation should
+            be allowed.
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EdGraph.Common.Errors.Core.ProblemDetails'
+          description: An unhandled error occurred on the server.See the response
+            body for details.
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TenantApi.Tenant.V1.TenantUpdatedResponse'
+          description: The requested resource was successfully retrieved.
         "400":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
-          description: Update Tenant request has missing/invalid values
-        "500":
-          description: Oops! Can't update your tenant right now
-      summary: Update a new tenant with only new IdentityProviders
+                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ValidationProblemDetails'
+          description: Bad Request. The request was invalid and cannot be completed.
+            See the response body for specific validation errors. This will typically
+            be an issue with the query parameters or the request body values.
+      summary: Updates a tenant's profile
       tags:
       - Tenants
-  /tenants/{tenantId}/users/{userId}/licenses/assignlicensebulk:
-    post:
-      operationId: AssignLicenseTenantUserBulk
+  /tenants/{tenantId}/users/{userId}/licenses/assignbulk:
+    put:
+      operationId: AssignLicenseTenantUserBulkAsync
       parameters:
       - description: ""
         explode: false
@@ -1448,28 +2666,50 @@ paths:
               $ref: '#/components/schemas/IdentityApi.User.V1.AssignLicenseBulkRequest'
         description: ""
       responses:
-        "202":
-          description: Tenant user assigned a license
-        "400":
+        "401":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
-          description: Tenant user has missing/invalid values
+                $ref: '#/components/schemas/EdGraph.Common.Errors.Core.ProblemDetails'
+          description: Unauthorized. The request requires authentication. The OAuth
+            bearer token was either not provided or is invalid. The operation may
+            succeed once authentication has been successfully completed.
         "403":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
-          description: Missing the required permissions to access to this tenant/resource
+                $ref: '#/components/schemas/EdGraph.Common.Errors.Core.ProblemDetails'
+          description: Forbidden. The request cannot be completed in the current authorization
+            context. Contact your administrator if you believe this operation should
+            be allowed.
         "500":
-          description: Oops! Can't assigned a license to your tenant user right now
-      summary: Assigns a license to a tenant user matching the primary key
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EdGraph.Common.Errors.Core.ProblemDetails'
+          description: An unhandled error occurred on the server.See the response
+            body for details.
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IdentityApi.User.V1.LicenseAssignedBulkResponse'
+          description: The requested resource was successfully retrieved.
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ValidationProblemDetails'
+          description: Bad Request. The request was invalid and cannot be completed.
+            See the response body for specific validation errors. This will typically
+            be an issue with the query parameters or the request body values.
+      summary: Assigns one or more licenses to a user in the context of a specific
+        tenant
       tags:
       - Users - Licenses
-  /tenants/{tenantId}/users/{userId}/licenses/assignlicense:
-    post:
-      operationId: AssignLicenseTenantUser
+  /tenants/{tenantId}/users/{userId}/licenses/assign:
+    put:
+      operationId: AssignLicenseTenantUserAsync
       parameters:
       - description: ""
         explode: false
@@ -1517,28 +2757,49 @@ paths:
               $ref: '#/components/schemas/IdentityApi.User.V1.AssignLicenseRequest'
         description: ""
       responses:
-        "202":
-          description: Tenant user assigned a license
-        "400":
+        "401":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
-          description: Tenant user has missing/invalid values
+                $ref: '#/components/schemas/EdGraph.Common.Errors.Core.ProblemDetails'
+          description: Unauthorized. The request requires authentication. The OAuth
+            bearer token was either not provided or is invalid. The operation may
+            succeed once authentication has been successfully completed.
         "403":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
-          description: Missing the required permissions to access to this tenant/resource
+                $ref: '#/components/schemas/EdGraph.Common.Errors.Core.ProblemDetails'
+          description: Forbidden. The request cannot be completed in the current authorization
+            context. Contact your administrator if you believe this operation should
+            be allowed.
         "500":
-          description: Oops! Can't assigned a license to your tenant user right now
-      summary: Assigns a license to a tenant user matching the primary key
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EdGraph.Common.Errors.Core.ProblemDetails'
+          description: An unhandled error occurred on the server.See the response
+            body for details.
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IdentityApi.User.V1.LicenseAssignedResponse'
+          description: The requested resource was successfully retrieved.
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ValidationProblemDetails'
+          description: Bad Request. The request was invalid and cannot be completed.
+            See the response body for specific validation errors. This will typically
+            be an issue with the query parameters or the request body values.
+      summary: Assigns a license to a user in the context of a specific tenant
       tags:
       - Users - Licenses
-  /tenants/{tenantId}/users/{userId}/licenses/revokelicensebulk:
-    post:
-      operationId: RevokeLicenseTenantUserBulk
+  /tenants/{tenantId}/users/{userId}/licenses/revokebulk:
+    put:
+      operationId: RevokeLicenseTenantUserBulkAsync
       parameters:
       - description: ""
         explode: false
@@ -1586,28 +2847,50 @@ paths:
               $ref: '#/components/schemas/IdentityApi.User.V1.RevokeLicenseBulkRequest'
         description: ""
       responses:
-        "202":
-          description: Tenant user revokes a license
-        "400":
+        "401":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
-          description: Tenant user has missing/invalid values
+                $ref: '#/components/schemas/EdGraph.Common.Errors.Core.ProblemDetails'
+          description: Unauthorized. The request requires authentication. The OAuth
+            bearer token was either not provided or is invalid. The operation may
+            succeed once authentication has been successfully completed.
         "403":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
-          description: Missing the required permissions to access to this tenant/resource
+                $ref: '#/components/schemas/EdGraph.Common.Errors.Core.ProblemDetails'
+          description: Forbidden. The request cannot be completed in the current authorization
+            context. Contact your administrator if you believe this operation should
+            be allowed.
         "500":
-          description: Oops! Can't revoke a license to your tenant user right now
-      summary: Revokes a license to a tenant user matching the primary key
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EdGraph.Common.Errors.Core.ProblemDetails'
+          description: An unhandled error occurred on the server.See the response
+            body for details.
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IdentityApi.User.V1.LicenseRevokedBulkResponse'
+          description: The requested resource was successfully retrieved.
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ValidationProblemDetails'
+          description: Bad Request. The request was invalid and cannot be completed.
+            See the response body for specific validation errors. This will typically
+            be an issue with the query parameters or the request body values.
+      summary: Revokes one or more licenses from a user in the context of a specific
+        tenant
       tags:
       - Users - Licenses
-  /tenants/{tenantId}/users/{userId}/licenses/revokelicense:
-    post:
-      operationId: RevokeLicenseTenantUser
+  /tenants/{tenantId}/users/{userId}/licenses/revoke:
+    put:
+      operationId: RevokeLicenseTenantUserAsync
       parameters:
       - description: ""
         explode: false
@@ -1655,28 +2938,49 @@ paths:
               $ref: '#/components/schemas/IdentityApi.User.V1.RevokeLicenseRequest'
         description: ""
       responses:
-        "202":
-          description: Tenant user revokes a license
-        "400":
+        "401":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
-          description: Tenant user has missing/invalid values
+                $ref: '#/components/schemas/EdGraph.Common.Errors.Core.ProblemDetails'
+          description: Unauthorized. The request requires authentication. The OAuth
+            bearer token was either not provided or is invalid. The operation may
+            succeed once authentication has been successfully completed.
         "403":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
-          description: Missing the required permissions to access to this tenant/resource
+                $ref: '#/components/schemas/EdGraph.Common.Errors.Core.ProblemDetails'
+          description: Forbidden. The request cannot be completed in the current authorization
+            context. Contact your administrator if you believe this operation should
+            be allowed.
         "500":
-          description: Oops! Can't revoke a license to your tenant user right now
-      summary: Revokes a license to a tenant user matching the primary key
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EdGraph.Common.Errors.Core.ProblemDetails'
+          description: An unhandled error occurred on the server.See the response
+            body for details.
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IdentityApi.User.V1.LicenseRevokedResponse'
+          description: The requested resource was successfully retrieved.
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ValidationProblemDetails'
+          description: Bad Request. The request was invalid and cannot be completed.
+            See the response body for specific validation errors. This will typically
+            be an issue with the query parameters or the request body values.
+      summary: Revokes a license from a user in the context of a specific tenant
       tags:
       - Users - Licenses
   /tenants/{tenantId}/users/{userId}/licenses:
     get:
-      operationId: GetAllTenantUserApplicationLicenses
+      operationId: GetAllTenantUserApplicationLicensesAsync
       parameters:
       - description: ""
         explode: false
@@ -1747,33 +3051,49 @@ paths:
           type: string
         style: simple
       responses:
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EdGraph.Common.Errors.Core.ProblemDetails'
+          description: Unauthorized. The request requires authentication. The OAuth
+            bearer token was either not provided or is invalid. The operation may
+            succeed once authentication has been successfully completed.
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EdGraph.Common.Errors.Core.ProblemDetails'
+          description: Forbidden. The request cannot be completed in the current authorization
+            context. Contact your administrator if you believe this operation should
+            be allowed.
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EdGraph.Common.Errors.Core.ProblemDetails'
+          description: An unhandled error occurred on the server.See the response
+            body for details.
         "200":
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/EdGraph.Platform.HttpAggregators.Tenant.Api.Controllers.v1.ViewModels.Responses.UserLicensePaginatedItemsViewModel'
-          description: List of tenant users licenses returned
+          description: The requested resource was successfully retrieved.
         "400":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
-          description: Tenant has missing/invalid values
-        "403":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
-          description: Missing the required permissions to access to this tenant/resource
-        "500":
-          description: Oops! Can't retrieve the list of tenant users licenses right
-            now
-      summary: Retrieves a list of tenant users licenses
+                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ValidationProblemDetails'
+          description: Bad Request. The request was invalid and cannot be completed.
+            See the response body for specific validation errors. This will typically
+            be an issue with the query parameters or the request body values.
+      summary: Retrieves a list of user licenses in the context of a specific tenant
       tags:
       - Users - Licenses
   /tenants/{tenantId}/users/{userId}/activate:
-    post:
-      operationId: ActivateTenantUser
+    put:
+      operationId: ActivateTenantUserAsync
       parameters:
       - description: ""
         explode: false
@@ -1821,28 +3141,49 @@ paths:
               $ref: '#/components/schemas/IdentityApi.User.V1.ActivateUserRequest'
         description: ""
       responses:
-        "202":
-          description: Tenant user activated
-        "400":
+        "401":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
-          description: Tenant user has missing/invalid values
+                $ref: '#/components/schemas/EdGraph.Common.Errors.Core.ProblemDetails'
+          description: Unauthorized. The request requires authentication. The OAuth
+            bearer token was either not provided or is invalid. The operation may
+            succeed once authentication has been successfully completed.
         "403":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
-          description: Missing the required permissions to access to this tenant/resource
+                $ref: '#/components/schemas/EdGraph.Common.Errors.Core.ProblemDetails'
+          description: Forbidden. The request cannot be completed in the current authorization
+            context. Contact your administrator if you believe this operation should
+            be allowed.
         "500":
-          description: Oops! Can't activate your Tenant user right now
-      summary: Activate a Tenant user matching the primary key
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EdGraph.Common.Errors.Core.ProblemDetails'
+          description: An unhandled error occurred on the server.See the response
+            body for details.
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IdentityApi.User.V1.UserActivatedResponse'
+          description: The requested resource was successfully retrieved.
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ValidationProblemDetails'
+          description: Bad Request. The request was invalid and cannot be completed.
+            See the response body for specific validation errors. This will typically
+            be an issue with the query parameters or the request body values.
+      summary: Activates a user
       tags:
       - Users
   /tenants/{tenantId}/users/{userId}/deactivate:
-    post:
-      operationId: DeactivateTenantUser
+    put:
+      operationId: DeactivateTenantUserAsync
       parameters:
       - description: ""
         explode: false
@@ -1890,28 +3231,51 @@ paths:
               $ref: '#/components/schemas/IdentityApi.User.V1.DeactivateUserRequest'
         description: ""
       responses:
-        "202":
-          description: Tenant user deactivated
-        "400":
+        "401":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
-          description: Tenant user has missing/invalid values
+                $ref: '#/components/schemas/EdGraph.Common.Errors.Core.ProblemDetails'
+          description: Unauthorized. The request requires authentication. The OAuth
+            bearer token was either not provided or is invalid. The operation may
+            succeed once authentication has been successfully completed.
         "403":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
-          description: Missing the required permissions to access to this tenant/resource
+                $ref: '#/components/schemas/EdGraph.Common.Errors.Core.ProblemDetails'
+          description: Forbidden. The request cannot be completed in the current authorization
+            context. Contact your administrator if you believe this operation should
+            be allowed.
         "500":
-          description: Oops! Can't deactivate your Tenant user right now
-      summary: Deactivate a Tenant user matching the primary key
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EdGraph.Common.Errors.Core.ProblemDetails'
+          description: An unhandled error occurred on the server.See the response
+            body for details.
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IdentityApi.User.V1.UserDeactivatedResponse'
+          description: The requested resource was successfully retrieved.
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ValidationProblemDetails'
+          description: Bad Request. The request was invalid and cannot be completed.
+            See the response body for specific validation errors. This will typically
+            be an issue with the query parameters or the request body values.
+      summary: Deactivates a user
       tags:
       - Users
   /tenants/{tenantId}/users/{userId}/resetpassword:
     put:
-      operationId: ResetPasswordTenantUser
+      description: "Note: This is only applicable to user created in the local identity\
+        \ provider."
+      operationId: ResetPasswordTenantUserAsync
       parameters:
       - description: ""
         explode: false
@@ -1959,28 +3323,49 @@ paths:
               $ref: '#/components/schemas/IdentityApi.User.V1.ResetPasswordRequest'
         description: ""
       responses:
-        "202":
-          description: Tenant user password updated
-        "400":
+        "401":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
-          description: Tenant user password request has missing/invalid values
+                $ref: '#/components/schemas/EdGraph.Common.Errors.Core.ProblemDetails'
+          description: Unauthorized. The request requires authentication. The OAuth
+            bearer token was either not provided or is invalid. The operation may
+            succeed once authentication has been successfully completed.
         "403":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
-          description: Missing the required permissions to access to this tenant/resource
+                $ref: '#/components/schemas/EdGraph.Common.Errors.Core.ProblemDetails'
+          description: Forbidden. The request cannot be completed in the current authorization
+            context. Contact your administrator if you believe this operation should
+            be allowed.
         "500":
-          description: Oops! Can't reset your tenant user password right now
-      summary: Reset a tenant user password
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EdGraph.Common.Errors.Core.ProblemDetails'
+          description: An unhandled error occurred on the server.See the response
+            body for details.
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IdentityApi.User.V1.PasswordResettedResponse'
+          description: The requested resource was successfully retrieved.
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ValidationProblemDetails'
+          description: Bad Request. The request was invalid and cannot be completed.
+            See the response body for specific validation errors. This will typically
+            be an issue with the query parameters or the request body values.
+      summary: Resets a user's password
       tags:
       - Users
   /tenants/{tenantId}/users/{userId}:
     delete:
-      operationId: DeleteTenantUser
+      operationId: DeleteTenantUserAsync
       parameters:
       - description: ""
         explode: false
@@ -2013,27 +3398,44 @@ paths:
           type: string
         style: simple
       responses:
-        "204":
-          description: Tenant user deleted
-        "400":
+        "401":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
-          description: Tenant has missing/invalid values
+                $ref: '#/components/schemas/EdGraph.Common.Errors.Core.ProblemDetails'
+          description: Unauthorized. The request requires authentication. The OAuth
+            bearer token was either not provided or is invalid. The operation may
+            succeed once authentication has been successfully completed.
         "403":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
-          description: Missing the required permissions to access to this tenant/resource
+                $ref: '#/components/schemas/EdGraph.Common.Errors.Core.ProblemDetails'
+          description: Forbidden. The request cannot be completed in the current authorization
+            context. Contact your administrator if you believe this operation should
+            be allowed.
         "500":
-          description: Oops! Can't delete your tenant user right now
-      summary: Delete a tenant user matching the primary key
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EdGraph.Common.Errors.Core.ProblemDetails'
+          description: An unhandled error occurred on the server.See the response
+            body for details.
+        "204":
+          description: The resource was successfully deleted.
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ValidationProblemDetails'
+          description: Bad Request. The request was invalid and cannot be completed.
+            See the response body for specific validation errors. This will typically
+            be an issue with the query parameters or the request body values.
+      summary: Deletes a user
       tags:
       - Users
     get:
-      operationId: GetTenantUserProfileById
+      operationId: GetTenantUserProfileByIdAsync
       parameters:
       - description: ""
         explode: false
@@ -2066,37 +3468,54 @@ paths:
           type: string
         style: simple
       responses:
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EdGraph.Common.Errors.Core.ProblemDetails'
+          description: Unauthorized. The request requires authentication. The OAuth
+            bearer token was either not provided or is invalid. The operation may
+            succeed once authentication has been successfully completed.
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EdGraph.Common.Errors.Core.ProblemDetails'
+          description: Forbidden. The request cannot be completed in the current authorization
+            context. Contact your administrator if you believe this operation should
+            be allowed.
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EdGraph.Common.Errors.Core.ProblemDetails'
+          description: An unhandled error occurred on the server.See the response
+            body for details.
         "200":
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/EdGraph.Platform.HttpAggregators.Tenant.Api.Controllers.v1.ViewModels.Responses.UserProfileResponseWithApplicationLicense'
-          description: Tenant user returned
-        "404":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
-          description: Tenant user not found
+          description: The requested resource was successfully retrieved.
         "400":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
-          description: Tenant has missing/invalid values
-        "403":
+                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ValidationProblemDetails'
+          description: Bad Request. The request was invalid and cannot be completed.
+            See the response body for specific validation errors. This will typically
+            be an issue with the query parameters or the request body values.
+        "404":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
-          description: Missing the required permissions to access to this tenant/resource
-        "500":
-          description: Oops! Can't retrieve your tenant user right now
-      summary: Retrieves a specific tenant user using its primary key
+                $ref: '#/components/schemas/EdGraph.Common.Errors.Core.ProblemDetails'
+          description: The resource could not be found.
+      summary: Retrieves a user
       tags:
       - Users
     put:
-      operationId: UpdateTenantUser
+      operationId: UpdateTenantUserAsync
       parameters:
       - description: ""
         explode: false
@@ -2144,89 +3563,49 @@ paths:
               $ref: '#/components/schemas/IdentityApi.User.V1.UpdateUserRequest'
         description: ""
       responses:
-        "202":
-          description: Tenant user created/updated
-        "400":
+        "401":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
-          description: Tenant user has missing/invalid values
+                $ref: '#/components/schemas/EdGraph.Common.Errors.Core.ProblemDetails'
+          description: Unauthorized. The request requires authentication. The OAuth
+            bearer token was either not provided or is invalid. The operation may
+            succeed once authentication has been successfully completed.
         "403":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
-          description: Missing the required permissions to access to this tenant/resource
+                $ref: '#/components/schemas/EdGraph.Common.Errors.Core.ProblemDetails'
+          description: Forbidden. The request cannot be completed in the current authorization
+            context. Contact your administrator if you believe this operation should
+            be allowed.
         "500":
-          description: Oops! Can't create/update your tenant user right now
-      summary: Creates or Updates a tenant user matching the primary key
-      tags:
-      - Users
-  /tenants/{tenantId}/users/addlocaluser:
-    post:
-      operationId: CreateTenantLocalUser
-      parameters:
-      - description: ""
-        explode: false
-        in: path
-        name: tenantId
-        required: true
-        schema:
-          type: string
-        style: simple
-      - explode: true
-        in: query
-        name: api-version
-        required: false
-        schema:
-          type: string
-        style: form
-      - explode: false
-        in: header
-        name: X-version
-        required: false
-        schema:
-          type: string
-        style: simple
-      requestBody:
-        content:
-          application/json-patch+json:
-            schema:
-              $ref: '#/components/schemas/IdentityApi.User.V1.CreateLocalUserRequest'
-          application/json:
-            schema:
-              $ref: '#/components/schemas/IdentityApi.User.V1.CreateLocalUserRequest'
-          text/json:
-            schema:
-              $ref: '#/components/schemas/IdentityApi.User.V1.CreateLocalUserRequest'
-          application/*+json:
-            schema:
-              $ref: '#/components/schemas/IdentityApi.User.V1.CreateLocalUserRequest'
-        description: ""
-      responses:
-        "202":
-          description: Tenant local user created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EdGraph.Common.Errors.Core.ProblemDetails'
+          description: An unhandled error occurred on the server.See the response
+            body for details.
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IdentityApi.User.V1.UserUpdatedResponse'
+          description: The requested resource was successfully retrieved.
         "400":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
-          description: Tenant local user has missing/invalid values
-        "403":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
-          description: Missing the required permissions to access to this tenant/resource
-        "500":
-          description: Oops! Can't create your tenant local user right now
-      summary: Creates a new tenant local user
+                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ValidationProblemDetails'
+          description: Bad Request. The request was invalid and cannot be completed.
+            See the response body for specific validation errors. This will typically
+            be an issue with the query parameters or the request body values.
+      summary: Creates or updates a user
       tags:
       - Users
   /tenants/{tenantId}/users:
     get:
-      operationId: GetAllTenantUsers
+      operationId: GetAllTenantUsersAsync
       parameters:
       - description: ""
         explode: false
@@ -2289,34 +3668,625 @@ paths:
           type: string
         style: simple
       responses:
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EdGraph.Common.Errors.Core.ProblemDetails'
+          description: Unauthorized. The request requires authentication. The OAuth
+            bearer token was either not provided or is invalid. The operation may
+            succeed once authentication has been successfully completed.
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EdGraph.Common.Errors.Core.ProblemDetails'
+          description: Forbidden. The request cannot be completed in the current authorization
+            context. Contact your administrator if you believe this operation should
+            be allowed.
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EdGraph.Common.Errors.Core.ProblemDetails'
+          description: An unhandled error occurred on the server.See the response
+            body for details.
         "200":
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/EdGraph.Platform.HttpAggregators.Tenant.Api.Controllers.v1.ViewModels.Responses.UserListResponseWithApplicationLicensePaginatedItemsViewModel'
-          description: List of tenant users returned
+          description: The requested resource was successfully retrieved.
         "400":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
-          description: Tenant has missing/invalid values
+                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ValidationProblemDetails'
+          description: Bad Request. The request was invalid and cannot be completed.
+            See the response body for specific validation errors. This will typically
+            be an issue with the query parameters or the request body values.
+      summary: Retrieves a list of users associated to this tenant
+      tags:
+      - Users
+    post:
+      description: "Note: This is only used to create a user in the local identity\
+        \ provider, i.e. this cannot be used to create a user in an external identity\
+        \ providers such as Microsoft or Google."
+      operationId: CreateTenantLocalUserAsync
+      parameters:
+      - description: ""
+        explode: false
+        in: path
+        name: tenantId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: X-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json-patch+json:
+            schema:
+              $ref: '#/components/schemas/IdentityApi.User.V1.CreateLocalUserRequest'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/IdentityApi.User.V1.CreateLocalUserRequest'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/IdentityApi.User.V1.CreateLocalUserRequest'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/IdentityApi.User.V1.CreateLocalUserRequest'
+        description: ""
+      responses:
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EdGraph.Common.Errors.Core.ProblemDetails'
+          description: Unauthorized. The request requires authentication. The OAuth
+            bearer token was either not provided or is invalid. The operation may
+            succeed once authentication has been successfully completed.
         "403":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
-          description: Missing the required permissions to access to this tenant/resource
+                $ref: '#/components/schemas/EdGraph.Common.Errors.Core.ProblemDetails'
+          description: Forbidden. The request cannot be completed in the current authorization
+            context. Contact your administrator if you believe this operation should
+            be allowed.
         "500":
-          description: Oops! Can't retrieve the list of tenant users right now
-      summary: Retrieves a list of tenant users
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EdGraph.Common.Errors.Core.ProblemDetails'
+          description: An unhandled error occurred on the server.See the response
+            body for details.
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IdentityApi.User.V1.LocalUserCreatedResponse'
+          description: The resource was created. The location of the resource is available
+            in the Location header of the response.
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ValidationProblemDetails'
+          description: Bad Request. The request was invalid and cannot be completed.
+            See the response body for specific validation errors. This will typically
+            be an issue with the query parameters or the request body values.
+      summary: Creates a user in the local identity provider
       tags:
       - Users
+  /tenants/{tenantId}/webhooks/{webhookId}:
+    delete:
+      operationId: DeleteWebhookAsync
+      parameters:
+      - description: ""
+        explode: false
+        in: path
+        name: tenantId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: ""
+        explode: false
+        in: path
+        name: webhookId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: X-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EdGraph.Common.Errors.Core.ProblemDetails'
+          description: Unauthorized. The request requires authentication. The OAuth
+            bearer token was either not provided or is invalid. The operation may
+            succeed once authentication has been successfully completed.
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EdGraph.Common.Errors.Core.ProblemDetails'
+          description: Forbidden. The request cannot be completed in the current authorization
+            context. Contact your administrator if you believe this operation should
+            be allowed.
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EdGraph.Common.Errors.Core.ProblemDetails'
+          description: An unhandled error occurred on the server.See the response
+            body for details.
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TenantApi.Webhook.V1.WebhookIdResponse'
+          description: The requested resource was successfully retrieved.
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ValidationProblemDetails'
+          description: Bad Request. The request was invalid and cannot be completed.
+            See the response body for specific validation errors. This will typically
+            be an issue with the query parameters or the request body values.
+      summary: Removes a webhook.
+      tags:
+      - Webhooks
+    get:
+      operationId: GetWebhookByIdAsync
+      parameters:
+      - description: ""
+        explode: false
+        in: path
+        name: tenantId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: ""
+        explode: false
+        in: path
+        name: webhookId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: X-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EdGraph.Common.Errors.Core.ProblemDetails'
+          description: Unauthorized. The request requires authentication. The OAuth
+            bearer token was either not provided or is invalid. The operation may
+            succeed once authentication has been successfully completed.
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EdGraph.Common.Errors.Core.ProblemDetails'
+          description: Forbidden. The request cannot be completed in the current authorization
+            context. Contact your administrator if you believe this operation should
+            be allowed.
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EdGraph.Common.Errors.Core.ProblemDetails'
+          description: An unhandled error occurred on the server.See the response
+            body for details.
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TenantApi.Webhook.V1.WebhookResponse'
+          description: The requested resource was successfully retrieved.
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ValidationProblemDetails'
+          description: Bad Request. The request was invalid and cannot be completed.
+            See the response body for specific validation errors. This will typically
+            be an issue with the query parameters or the request body values.
+      summary: Retrieves a webhook by ID.
+      tags:
+      - Webhooks
+    put:
+      operationId: UpdateWebhookAsync
+      parameters:
+      - description: ""
+        explode: false
+        in: path
+        name: tenantId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: ""
+        explode: false
+        in: path
+        name: webhookId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: X-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json-patch+json:
+            schema:
+              $ref: '#/components/schemas/TenantApi.Webhook.V1.UpdateWebhookRequest'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TenantApi.Webhook.V1.UpdateWebhookRequest'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/TenantApi.Webhook.V1.UpdateWebhookRequest'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/TenantApi.Webhook.V1.UpdateWebhookRequest'
+        description: ""
+      responses:
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EdGraph.Common.Errors.Core.ProblemDetails'
+          description: Unauthorized. The request requires authentication. The OAuth
+            bearer token was either not provided or is invalid. The operation may
+            succeed once authentication has been successfully completed.
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EdGraph.Common.Errors.Core.ProblemDetails'
+          description: Forbidden. The request cannot be completed in the current authorization
+            context. Contact your administrator if you believe this operation should
+            be allowed.
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EdGraph.Common.Errors.Core.ProblemDetails'
+          description: An unhandled error occurred on the server.See the response
+            body for details.
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TenantApi.Webhook.V1.WebhookIdResponse'
+          description: The requested resource was successfully retrieved.
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ValidationProblemDetails'
+          description: Bad Request. The request was invalid and cannot be completed.
+            See the response body for specific validation errors. This will typically
+            be an issue with the query parameters or the request body values.
+      summary: Updates a webhook
+      tags:
+      - Webhooks
+  /tenants/{tenantId}/webhooks/events:
+    get:
+      operationId: GetAllWebhookSubscriptionsAsync
+      parameters:
+      - explode: false
+        in: path
+        name: tenantId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: X-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EdGraph.Common.Errors.Core.ProblemDetails'
+          description: Unauthorized. The request requires authentication. The OAuth
+            bearer token was either not provided or is invalid. The operation may
+            succeed once authentication has been successfully completed.
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EdGraph.Common.Errors.Core.ProblemDetails'
+          description: Forbidden. The request cannot be completed in the current authorization
+            context. Contact your administrator if you believe this operation should
+            be allowed.
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EdGraph.Common.Errors.Core.ProblemDetails'
+          description: An unhandled error occurred on the server.See the response
+            body for details.
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TenantApi.Webhook.V1.WebhookEventsResponse'
+          description: Success
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ValidationProblemDetails'
+          description: Bad Request
+      tags:
+      - Webhooks
+  /tenants/{tenantId}/webhooks:
+    get:
+      operationId: GetAllWebhooksAsync
+      parameters:
+      - description: ""
+        explode: false
+        in: path
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - description: ""
+        explode: true
+        in: query
+        name: pageSize
+        required: false
+        schema:
+          default: 10
+          format: int32
+          type: integer
+        style: form
+      - description: ""
+        explode: true
+        in: query
+        name: pageIndex
+        required: false
+        schema:
+          default: 0
+          format: int32
+          type: integer
+        style: form
+      - description: ""
+        explode: true
+        in: query
+        name: orderBy
+        required: false
+        schema:
+          default: ""
+          type: string
+        style: form
+      - description: ""
+        explode: true
+        in: query
+        name: filter
+        required: false
+        schema:
+          default: ""
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: X-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EdGraph.Common.Errors.Core.ProblemDetails'
+          description: Unauthorized. The request requires authentication. The OAuth
+            bearer token was either not provided or is invalid. The operation may
+            succeed once authentication has been successfully completed.
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EdGraph.Common.Errors.Core.ProblemDetails'
+          description: Forbidden. The request cannot be completed in the current authorization
+            context. Contact your administrator if you believe this operation should
+            be allowed.
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EdGraph.Common.Errors.Core.ProblemDetails'
+          description: An unhandled error occurred on the server.See the response
+            body for details.
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TenantApi.Webhook.V1.PaginatedItemsResponse'
+          description: The requested resource was successfully retrieved.
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ValidationProblemDetails'
+          description: Bad Request. The request was invalid and cannot be completed.
+            See the response body for specific validation errors. This will typically
+            be an issue with the query parameters or the request body values.
+      summary: Retrieves a list of webhooks.
+      tags:
+      - Webhooks
+    post:
+      operationId: CreateWebhookAsync
+      parameters:
+      - description: ""
+        explode: false
+        in: path
+        name: tenantId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: X-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json-patch+json:
+            schema:
+              $ref: '#/components/schemas/TenantApi.Webhook.V1.CreateWebhookRequest'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TenantApi.Webhook.V1.CreateWebhookRequest'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/TenantApi.Webhook.V1.CreateWebhookRequest'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/TenantApi.Webhook.V1.CreateWebhookRequest'
+        description: ""
+      responses:
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EdGraph.Common.Errors.Core.ProblemDetails'
+          description: Unauthorized. The request requires authentication. The OAuth
+            bearer token was either not provided or is invalid. The operation may
+            succeed once authentication has been successfully completed.
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EdGraph.Common.Errors.Core.ProblemDetails'
+          description: Forbidden. The request cannot be completed in the current authorization
+            context. Contact your administrator if you believe this operation should
+            be allowed.
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EdGraph.Common.Errors.Core.ProblemDetails'
+          description: An unhandled error occurred on the server.See the response
+            body for details.
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TenantApi.Webhook.V1.WebhookIdResponse'
+          description: The requested resource was successfully retrieved.
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ValidationProblemDetails'
+          description: Bad Request. The request was invalid and cannot be completed.
+            See the response body for specific validation errors. This will typically
+            be an issue with the query parameters or the request body values.
+      summary: Creates a new Webhook
+      tags:
+      - Webhooks
 components:
   schemas:
     ApplicationApi.Application.V2.ApplicationListResponse:
       additionalProperties: false
       example:
+        documentationUrl: documentationUrl
         lastModifiedDateTime: lastModifiedDateTime
         roles:
         - isDefault: true
@@ -2374,6 +4344,9 @@ components:
           nullable: true
           type: string
         subscriptionType:
+          nullable: true
+          type: string
+        documentationUrl:
           nullable: true
           type: string
       type: object
@@ -2478,7 +4451,8 @@ components:
       additionalProperties: false
       example:
         data:
-        - lastModifiedDateTime: lastModifiedDateTime
+        - documentationUrl: documentationUrl
+          lastModifiedDateTime: lastModifiedDateTime
           roles:
           - isDefault: true
             roleName: roleName
@@ -2495,7 +4469,8 @@ components:
           tenantId: tenantId
           applicationId: applicationId
           applicationName: applicationName
-        - lastModifiedDateTime: lastModifiedDateTime
+        - documentationUrl: documentationUrl
+          lastModifiedDateTime: lastModifiedDateTime
           roles:
           - isDefault: true
             roleName: roleName
@@ -2543,6 +4518,31 @@ components:
           type: string
         isDefault:
           type: boolean
+      type: object
+    EdGraph.Common.Errors.Core.ProblemDetails:
+      additionalProperties: false
+      properties:
+        type:
+          nullable: true
+          type: string
+        status:
+          format: int32
+          type: integer
+        title:
+          nullable: true
+          type: string
+        details:
+          nullable: true
+          type: string
+        instance:
+          nullable: true
+          type: string
+        extensions:
+          additionalProperties:
+            nullable: true
+          nullable: true
+          readOnly: true
+          type: object
       type: object
     EdGraph.HttpAggregators.Tenant.Api.Controllers.v1.ViewModels.Responses.Role:
       additionalProperties: false
@@ -2810,28 +4810,30 @@ components:
     ? EdGraph.Platform.HttpAggregators.Tenant.Api.Controllers.v1.ViewModels.Responses.ApplicationTileResponseWithUserApplicationLicense
     : additionalProperties: false
       example:
-        tenantSubscriptionStartDateTime: tenantSubscriptionStartDateTime
+        documentationUrl: documentationUrl
         isUserLicensed: true
-        showInAppLauncher: true
-        tooltipText: tooltipText
-        lightBackgroundTileUrl: lightBackgroundTileUrl
         showInQuickLauncher: true
         lightIconUrl: lightIconUrl
         darkIconUrl: darkIconUrl
         subscriptionTenantId: subscriptionTenantId
+        lightOverlayTileUrl: lightOverlayTileUrl
+        tenantSubscriptionActualEndDateTime: tenantSubscriptionActualEndDateTime
+        applicationName: applicationName
+        tenantSubscriptionStartDateTime: tenantSubscriptionStartDateTime
+        showInAppLauncher: true
+        tooltipText: tooltipText
+        lightBackgroundTileUrl: lightBackgroundTileUrl
         tenantSubscriptionEndDateTime: tenantSubscriptionEndDateTime
         groups: groups
         version: version
         tags: tags
         darkBackgroundTileUrl: darkBackgroundTileUrl
-        lightOverlayTileUrl: lightOverlayTileUrl
+        applicationDescription: applicationDescription
         isTenantSubscribed: true
         applicationUri: applicationUri
         applicationTenantId: applicationTenantId
         applicationId: applicationId
         tenantSubscriptionId: tenantSubscriptionId
-        tenantSubscriptionActualEndDateTime: tenantSubscriptionActualEndDateTime
-        applicationName: applicationName
         darkOverlayTileUrl: darkOverlayTileUrl
         openInNewWindow: true
       properties:
@@ -2843,6 +4845,12 @@ components:
           nullable: true
           type: string
         applicationName:
+          nullable: true
+          type: string
+        applicationDescription:
+          nullable: true
+          type: string
+        documentationUrl:
           nullable: true
           type: string
         applicationUri:
@@ -2913,52 +4921,56 @@ components:
     : additionalProperties: false
       example:
         data:
-        - tenantSubscriptionStartDateTime: tenantSubscriptionStartDateTime
+        - documentationUrl: documentationUrl
           isUserLicensed: true
-          showInAppLauncher: true
-          tooltipText: tooltipText
-          lightBackgroundTileUrl: lightBackgroundTileUrl
           showInQuickLauncher: true
           lightIconUrl: lightIconUrl
           darkIconUrl: darkIconUrl
           subscriptionTenantId: subscriptionTenantId
+          lightOverlayTileUrl: lightOverlayTileUrl
+          tenantSubscriptionActualEndDateTime: tenantSubscriptionActualEndDateTime
+          applicationName: applicationName
+          tenantSubscriptionStartDateTime: tenantSubscriptionStartDateTime
+          showInAppLauncher: true
+          tooltipText: tooltipText
+          lightBackgroundTileUrl: lightBackgroundTileUrl
           tenantSubscriptionEndDateTime: tenantSubscriptionEndDateTime
           groups: groups
           version: version
           tags: tags
           darkBackgroundTileUrl: darkBackgroundTileUrl
-          lightOverlayTileUrl: lightOverlayTileUrl
+          applicationDescription: applicationDescription
           isTenantSubscribed: true
           applicationUri: applicationUri
           applicationTenantId: applicationTenantId
           applicationId: applicationId
           tenantSubscriptionId: tenantSubscriptionId
-          tenantSubscriptionActualEndDateTime: tenantSubscriptionActualEndDateTime
-          applicationName: applicationName
           darkOverlayTileUrl: darkOverlayTileUrl
           openInNewWindow: true
-        - tenantSubscriptionStartDateTime: tenantSubscriptionStartDateTime
+        - documentationUrl: documentationUrl
           isUserLicensed: true
-          showInAppLauncher: true
-          tooltipText: tooltipText
-          lightBackgroundTileUrl: lightBackgroundTileUrl
           showInQuickLauncher: true
           lightIconUrl: lightIconUrl
           darkIconUrl: darkIconUrl
           subscriptionTenantId: subscriptionTenantId
+          lightOverlayTileUrl: lightOverlayTileUrl
+          tenantSubscriptionActualEndDateTime: tenantSubscriptionActualEndDateTime
+          applicationName: applicationName
+          tenantSubscriptionStartDateTime: tenantSubscriptionStartDateTime
+          showInAppLauncher: true
+          tooltipText: tooltipText
+          lightBackgroundTileUrl: lightBackgroundTileUrl
           tenantSubscriptionEndDateTime: tenantSubscriptionEndDateTime
           groups: groups
           version: version
           tags: tags
           darkBackgroundTileUrl: darkBackgroundTileUrl
-          lightOverlayTileUrl: lightOverlayTileUrl
+          applicationDescription: applicationDescription
           isTenantSubscribed: true
           applicationUri: applicationUri
           applicationTenantId: applicationTenantId
           applicationId: applicationId
           tenantSubscriptionId: tenantSubscriptionId
-          tenantSubscriptionActualEndDateTime: tenantSubscriptionActualEndDateTime
-          applicationName: applicationName
           darkOverlayTileUrl: darkOverlayTileUrl
           openInNewWindow: true
       properties:
@@ -3513,6 +5525,23 @@ components:
           readOnly: true
           type: array
       type: object
+    IdentityApi.ApiClient.V1.ApiClientCreatedResponse:
+      additionalProperties: false
+      example:
+        clientId: clientId
+        secretValue: secretValue
+        tenantId: tenantId
+      properties:
+        tenantId:
+          nullable: true
+          type: string
+        clientId:
+          nullable: true
+          type: string
+        secretValue:
+          nullable: true
+          type: string
+      type: object
     IdentityApi.ApiClient.V1.ApiClientListResponse:
       additionalProperties: false
       example:
@@ -3828,6 +5857,36 @@ components:
           nullable: true
           type: string
       type: object
+    IdentityApi.ApiClient.V1.ApiClientSecretRegeneratedResponse:
+      additionalProperties: false
+      example:
+        clientId: clientId
+        secretValue: secretValue
+        tenantId: tenantId
+      properties:
+        tenantId:
+          nullable: true
+          type: string
+        clientId:
+          nullable: true
+          type: string
+        secretValue:
+          nullable: true
+          type: string
+      type: object
+    IdentityApi.ApiClient.V1.ApiClientUpdatedResponse:
+      additionalProperties: false
+      example:
+        clientId: clientId
+        tenantId: tenantId
+      properties:
+        tenantId:
+          nullable: true
+          type: string
+        clientId:
+          nullable: true
+          type: string
+      type: object
     IdentityApi.ApiClient.V1.Claim:
       additionalProperties: false
       example:
@@ -3902,6 +5961,140 @@ components:
         apiClaims:
           items:
             $ref: '#/components/schemas/IdentityApi.ApiClient.V1.ApiClaim'
+          nullable: true
+          readOnly: true
+          type: array
+      type: object
+    IdentityApi.ClientSettingsType.V1.ClientSettingsTypeResponse:
+      additionalProperties: false
+      example:
+        clientId: clientId
+        code: code
+        lastModifiedDateTime: lastModifiedDateTime
+        hidden: true
+        defaultValue: defaultValue
+        maxValue: 2
+        dataType: dataType
+        lastModifiedBy: lastModifiedBy
+        createdDateTime: createdDateTime
+        label: label
+        minValue: 5
+        createdBy: createdBy
+        inputType: inputType
+        id: id
+        htmlElement: htmlElement
+        maxLength: 7
+        order: 5
+      properties:
+        id:
+          nullable: true
+          type: string
+        clientId:
+          nullable: true
+          type: string
+        code:
+          nullable: true
+          type: string
+        dataType:
+          nullable: true
+          type: string
+        order:
+          format: int32
+          type: integer
+        hidden:
+          type: boolean
+        htmlElement:
+          description: Html attributes
+          nullable: true
+          type: string
+        label:
+          nullable: true
+          type: string
+        inputType:
+          nullable: true
+          type: string
+        defaultValue:
+          nullable: true
+          type: string
+        minValue:
+          format: int32
+          nullable: true
+          type: integer
+        maxValue:
+          format: int32
+          nullable: true
+          type: integer
+        maxLength:
+          format: int32
+          nullable: true
+          type: integer
+        createdBy:
+          nullable: true
+          type: string
+        createdDateTime:
+          nullable: true
+          type: string
+        lastModifiedBy:
+          nullable: true
+          type: string
+        lastModifiedDateTime:
+          nullable: true
+          type: string
+      type: object
+    IdentityApi.ClientSettingsType.V1.GetClientSettingsTypesResponse:
+      additionalProperties: false
+      example:
+        data:
+        - clientId: clientId
+          code: code
+          lastModifiedDateTime: lastModifiedDateTime
+          hidden: true
+          defaultValue: defaultValue
+          maxValue: 2
+          dataType: dataType
+          lastModifiedBy: lastModifiedBy
+          createdDateTime: createdDateTime
+          label: label
+          minValue: 5
+          createdBy: createdBy
+          inputType: inputType
+          id: id
+          htmlElement: htmlElement
+          maxLength: 7
+          order: 5
+        - clientId: clientId
+          code: code
+          lastModifiedDateTime: lastModifiedDateTime
+          hidden: true
+          defaultValue: defaultValue
+          maxValue: 2
+          dataType: dataType
+          lastModifiedBy: lastModifiedBy
+          createdDateTime: createdDateTime
+          label: label
+          minValue: 5
+          createdBy: createdBy
+          inputType: inputType
+          id: id
+          htmlElement: htmlElement
+          maxLength: 7
+          order: 5
+        pageIndex: 0
+        count: 1
+        pageSize: 6
+      properties:
+        pageIndex:
+          format: int32
+          type: integer
+        pageSize:
+          format: int32
+          type: integer
+        count:
+          format: int64
+          type: integer
+        data:
+          items:
+            $ref: '#/components/schemas/IdentityApi.ClientSettingsType.V1.ClientSettingsTypeResponse'
           nullable: true
           readOnly: true
           type: array
@@ -4129,6 +6322,19 @@ components:
           readOnly: true
           type: array
       type: object
+    IdentityApi.Invitation.V1.InvitationSentResponse:
+      additionalProperties: false
+      example:
+        tenantId: tenantId
+        invitationId: invitationId
+      properties:
+        tenantId:
+          nullable: true
+          type: string
+        invitationId:
+          nullable: true
+          type: string
+      type: object
     IdentityApi.Invitation.V1.InvitationStatus:
       enum:
       - Unknown
@@ -4241,6 +6447,12 @@ components:
           type: boolean
         twoFactorEnabled:
           type: boolean
+        assignLicenseRequests:
+          items:
+            $ref: '#/components/schemas/IdentityApi.User.V1.AssignLicenseRequest'
+          nullable: true
+          readOnly: true
+          type: array
       type: object
     IdentityApi.User.V1.DeactivateUserRequest:
       additionalProperties: false
@@ -4251,6 +6463,111 @@ components:
         userId:
           nullable: true
           type: string
+      type: object
+    IdentityApi.User.V1.LicenseAssignedBulkResponse:
+      additionalProperties: false
+      example:
+        tenantId: tenantId
+        userId: userId
+      properties:
+        tenantId:
+          nullable: true
+          type: string
+        userId:
+          nullable: true
+          type: string
+      type: object
+    IdentityApi.User.V1.LicenseAssignedResponse:
+      additionalProperties: false
+      example:
+        tenantId: tenantId
+        subscriptionId: subscriptionId
+        applicationId: applicationId
+        userId: userId
+      properties:
+        tenantId:
+          nullable: true
+          type: string
+        subscriptionId:
+          nullable: true
+          type: string
+        applicationId:
+          nullable: true
+          type: string
+        userId:
+          nullable: true
+          type: string
+      type: object
+    IdentityApi.User.V1.LicenseRevokedBulkResponse:
+      additionalProperties: false
+      example:
+        tenantId: tenantId
+        userId: userId
+      properties:
+        tenantId:
+          nullable: true
+          type: string
+        userId:
+          nullable: true
+          type: string
+      type: object
+    IdentityApi.User.V1.LicenseRevokedResponse:
+      additionalProperties: false
+      example:
+        tenantId: tenantId
+        subscriptionId: subscriptionId
+        applicationId: applicationId
+        userId: userId
+      properties:
+        tenantId:
+          nullable: true
+          type: string
+        subscriptionId:
+          nullable: true
+          type: string
+        applicationId:
+          nullable: true
+          type: string
+        userId:
+          nullable: true
+          type: string
+      type: object
+    IdentityApi.User.V1.LocalUserCreatedResponse:
+      additionalProperties: false
+      example:
+        password: password
+        tenantId: tenantId
+        userId: userId
+      properties:
+        tenantId:
+          nullable: true
+          type: string
+        userId:
+          nullable: true
+          type: string
+        password:
+          nullable: true
+          type: string
+      type: object
+    IdentityApi.User.V1.PasswordResettedResponse:
+      additionalProperties: false
+      example:
+        password: password
+        tenantId: tenantId
+        userId: userId
+        autoGeneratedPassword: true
+      properties:
+        tenantId:
+          nullable: true
+          type: string
+        userId:
+          nullable: true
+          type: string
+        password:
+          nullable: true
+          type: string
+        autoGeneratedPassword:
+          type: boolean
       type: object
     IdentityApi.User.V1.ResetPasswordRequest:
       additionalProperties: false
@@ -4326,9 +6643,55 @@ components:
         lockoutEnabled:
           type: boolean
       type: object
-    Microsoft.AspNetCore.Mvc.ProblemDetails:
+    IdentityApi.User.V1.UserActivatedResponse:
+      additionalProperties: false
+      example:
+        tenantId: tenantId
+        userId: userId
+      properties:
+        tenantId:
+          nullable: true
+          type: string
+        userId:
+          nullable: true
+          type: string
+      type: object
+    IdentityApi.User.V1.UserDeactivatedResponse:
+      additionalProperties: false
+      example:
+        tenantId: tenantId
+        userId: userId
+      properties:
+        tenantId:
+          nullable: true
+          type: string
+        userId:
+          nullable: true
+          type: string
+      type: object
+    IdentityApi.User.V1.UserUpdatedResponse:
+      additionalProperties: false
+      example:
+        tenantId: tenantId
+        userId: userId
+      properties:
+        tenantId:
+          nullable: true
+          type: string
+        userId:
+          nullable: true
+          type: string
+      type: object
+    Microsoft.AspNetCore.Mvc.ValidationProblemDetails:
       additionalProperties: {}
       properties:
+        errors:
+          additionalProperties:
+            items:
+              type: string
+            type: array
+          nullable: true
+          type: object
         type:
           nullable: true
           type: string
@@ -4345,6 +6708,43 @@ components:
         instance:
           nullable: true
           type: string
+      type: object
+    TenantApi.Tenant.V1.CreateOnboardingStepRequest:
+      additionalProperties: false
+      properties:
+        tenantId:
+          nullable: true
+          type: string
+        number:
+          format: int32
+          type: integer
+        description:
+          nullable: true
+          type: string
+        status:
+          nullable: true
+          type: string
+      type: object
+    TenantApi.Tenant.V1.CreateOrganizationRequest:
+      additionalProperties: false
+      properties:
+        tenantId:
+          nullable: true
+          type: string
+        identifierType:
+          nullable: true
+          type: string
+        identifierValue:
+          nullable: true
+          type: string
+        discriminator:
+          nullable: true
+          type: string
+        source:
+          nullable: true
+          type: string
+        includeInJwt:
+          type: boolean
       type: object
     TenantApi.Tenant.V1.CreateSubscriptionRequest:
       additionalProperties: false
@@ -4380,12 +6780,242 @@ components:
         autoAssign:
           type: boolean
       type: object
+    TenantApi.Tenant.V1.GetAppSettingsResponse:
+      additionalProperties: false
+      example:
+        data:
+        - clientId: clientId
+          code: code
+          data: data
+          dataType: dataType
+        - clientId: clientId
+          code: code
+          data: data
+          dataType: dataType
+      properties:
+        data:
+          items:
+            $ref: '#/components/schemas/TenantApi.Tenant.V1.TenantAppSettings'
+          nullable: true
+          readOnly: true
+          type: array
+      type: object
+    TenantApi.Tenant.V1.GetOrganizationsResponse:
+      additionalProperties: false
+      example:
+        organizations:
+        - identifierValue: identifierValue
+          identifierType: identifierType
+          source: source
+          includeInJwt: true
+          discriminator: discriminator
+        - identifierValue: identifierValue
+          identifierType: identifierType
+          source: source
+          includeInJwt: true
+          discriminator: discriminator
+      properties:
+        organizations:
+          items:
+            $ref: '#/components/schemas/TenantApi.Tenant.V1.Organization'
+          nullable: true
+          readOnly: true
+          type: array
+      type: object
     TenantApi.Tenant.V1.LicenseType:
       enum:
       - Unknown
       - Full
       - Trial
       type: string
+    TenantApi.Tenant.V1.Onboarding:
+      additionalProperties: false
+      example:
+        completedAt: completedAt
+        totalSteps: 2
+        startedAt: startedAt
+        progressPercentage: 5.637377
+        lastCompletedStep: 7
+        steps:
+        - number: 9
+          completedAt: completedAt
+          description: description
+          startedAt: startedAt
+          status: status
+        - number: 9
+          completedAt: completedAt
+          description: description
+          startedAt: startedAt
+          status: status
+        status: status
+      properties:
+        status:
+          nullable: true
+          type: string
+        progressPercentage:
+          format: float
+          type: number
+        totalSteps:
+          format: int32
+          type: integer
+        lastCompletedStep:
+          format: int32
+          nullable: true
+          type: integer
+        startedAt:
+          nullable: true
+          type: string
+        completedAt:
+          nullable: true
+          type: string
+        steps:
+          items:
+            $ref: '#/components/schemas/TenantApi.Tenant.V1.OnboardingStep'
+          nullable: true
+          readOnly: true
+          type: array
+      type: object
+    TenantApi.Tenant.V1.OnboardingStep:
+      additionalProperties: false
+      example:
+        number: 9
+        completedAt: completedAt
+        description: description
+        startedAt: startedAt
+        status: status
+      properties:
+        number:
+          format: int32
+          type: integer
+        description:
+          nullable: true
+          type: string
+        status:
+          nullable: true
+          type: string
+        startedAt:
+          nullable: true
+          type: string
+        completedAt:
+          nullable: true
+          type: string
+      type: object
+    TenantApi.Tenant.V1.Organization:
+      additionalProperties: false
+      example:
+        identifierValue: identifierValue
+        identifierType: identifierType
+        source: source
+        includeInJwt: true
+        discriminator: discriminator
+      properties:
+        identifierType:
+          nullable: true
+          type: string
+        identifierValue:
+          nullable: true
+          type: string
+        discriminator:
+          nullable: true
+          type: string
+        source:
+          nullable: true
+          type: string
+        includeInJwt:
+          type: boolean
+      type: object
+    TenantApi.Tenant.V1.OrganizationCreatedResponse:
+      additionalProperties: false
+      example:
+        identifierValue: identifierValue
+        tenantId: tenantId
+      properties:
+        tenantId:
+          nullable: true
+          type: string
+        identifierValue:
+          nullable: true
+          type: string
+      type: object
+    TenantApi.Tenant.V1.OrganizationDeletedResponse:
+      additionalProperties: false
+      example:
+        identifierValue: identifierValue
+        tenantId: tenantId
+      properties:
+        tenantId:
+          nullable: true
+          type: string
+        identifierValue:
+          nullable: true
+          type: string
+      type: object
+    TenantApi.Tenant.V1.OrganizationUpdatedResponse:
+      additionalProperties: false
+      example:
+        identifierValue: identifierValue
+        tenantId: tenantId
+      properties:
+        tenantId:
+          nullable: true
+          type: string
+        identifierValue:
+          nullable: true
+          type: string
+      type: object
+    TenantApi.Tenant.V1.SetAppSettingsRequest:
+      additionalProperties: false
+      properties:
+        tenantId:
+          nullable: true
+          type: string
+        clientId:
+          nullable: true
+          type: string
+        code:
+          nullable: true
+          type: string
+        data:
+          nullable: true
+          type: string
+        dataType:
+          nullable: true
+          type: string
+      type: object
+    TenantApi.Tenant.V1.SetAppSettingsResponse:
+      additionalProperties: false
+      example:
+        clientId: clientId
+        code: code
+        tenantId: tenantId
+      properties:
+        tenantId:
+          nullable: true
+          type: string
+        clientId:
+          nullable: true
+          type: string
+        code:
+          nullable: true
+          type: string
+      type: object
+    TenantApi.Tenant.V1.SubscriptionCreatedResponse:
+      additionalProperties: false
+      example:
+        tenantId: tenantId
+        subscriptionId: subscriptionId
+        applicationId: applicationId
+      properties:
+        tenantId:
+          nullable: true
+          type: string
+        subscriptionId:
+          nullable: true
+          type: string
+        applicationId:
+          nullable: true
+          type: string
+      type: object
     TenantApi.Tenant.V1.SubscriptionProfileResponse:
       additionalProperties: false
       example:
@@ -4468,6 +7098,40 @@ components:
       - Pending
       - Rejected
       type: string
+    TenantApi.Tenant.V1.SubscriptionUpdatedResponse:
+      additionalProperties: false
+      example:
+        tenantId: tenantId
+        subscriptionId: subscriptionId
+      properties:
+        tenantId:
+          nullable: true
+          type: string
+        subscriptionId:
+          nullable: true
+          type: string
+      type: object
+    TenantApi.Tenant.V1.TenantAppSettings:
+      additionalProperties: false
+      example:
+        clientId: clientId
+        code: code
+        data: data
+        dataType: dataType
+      properties:
+        clientId:
+          nullable: true
+          type: string
+        code:
+          nullable: true
+          type: string
+        data:
+          nullable: true
+          type: string
+        dataType:
+          nullable: true
+          type: string
+      type: object
     TenantApi.Tenant.V1.TenantIdentityProviders:
       enum:
       - Local
@@ -4533,6 +7197,35 @@ components:
         createdBy: createdBy
         organizationIdentifier: organizationIdentifier
         tenantId: tenantId
+        organizations:
+        - identifierValue: identifierValue
+          identifierType: identifierType
+          source: source
+          includeInJwt: true
+          discriminator: discriminator
+        - identifierValue: identifierValue
+          identifierType: identifierType
+          source: source
+          includeInJwt: true
+          discriminator: discriminator
+        onboarding:
+          completedAt: completedAt
+          totalSteps: 2
+          startedAt: startedAt
+          progressPercentage: 5.637377
+          lastCompletedStep: 7
+          steps:
+          - number: 9
+            completedAt: completedAt
+            description: description
+            startedAt: startedAt
+            status: status
+          - number: 9
+            completedAt: completedAt
+            description: description
+            startedAt: startedAt
+            status: status
+          status: status
         state: state
       properties:
         tenantId:
@@ -4587,6 +7280,14 @@ components:
           nullable: true
           readOnly: true
           type: array
+        onboarding:
+          $ref: '#/components/schemas/TenantApi.Tenant.V1.Onboarding'
+        organizations:
+          items:
+            $ref: '#/components/schemas/TenantApi.Tenant.V1.Organization'
+          nullable: true
+          readOnly: true
+          type: array
       type: object
     TenantApi.Tenant.V1.TenantStatus:
       enum:
@@ -4605,6 +7306,46 @@ components:
       - Teacher
       - Student
       type: string
+    TenantApi.Tenant.V1.TenantUpdatedResponse:
+      additionalProperties: false
+      example:
+        tenantId: tenantId
+      properties:
+        tenantId:
+          nullable: true
+          type: string
+      type: object
+    TenantApi.Tenant.V1.UpdateOnboardingStepRequest:
+      additionalProperties: false
+      properties:
+        tenantId:
+          nullable: true
+          type: string
+        number:
+          format: int32
+          type: integer
+        status:
+          nullable: true
+          type: string
+      type: object
+    TenantApi.Tenant.V1.UpdateOrganizationRequest:
+      additionalProperties: false
+      properties:
+        tenantId:
+          nullable: true
+          type: string
+        identifierValue:
+          nullable: true
+          type: string
+        discriminator:
+          nullable: true
+          type: string
+        source:
+          nullable: true
+          type: string
+        includeInJwt:
+          type: boolean
+      type: object
     TenantApi.Tenant.V1.UpdateSubscriptionRequest:
       additionalProperties: false
       properties:
@@ -4670,6 +7411,270 @@ components:
           nullable: true
           readOnly: true
           type: array
+      type: object
+    TenantApi.Webhook.V1.CreateWebhookRequest:
+      additionalProperties: false
+      properties:
+        tenantId:
+          nullable: true
+          type: string
+        name:
+          nullable: true
+          type: string
+        url:
+          nullable: true
+          type: string
+        secretHeader:
+          nullable: true
+          type: string
+        secretValue:
+          nullable: true
+          type: string
+        contentType:
+          nullable: true
+          type: string
+        eventSubscriptions:
+          items:
+            $ref: '#/components/schemas/TenantApi.Webhook.V1.WebhookSubscriberResponse'
+          nullable: true
+          readOnly: true
+          type: array
+      type: object
+    TenantApi.Webhook.V1.PaginatedItemsResponse:
+      additionalProperties: false
+      example:
+        data:
+        - updatedBy: updatedBy
+          secretValue: secretValue
+          url: url
+          createdAt: createdAt
+          isDeleted: true
+          createdBy: createdBy
+          secretHeader: secretHeader
+          tenantId: tenantId
+          name: name
+          id: id
+          contentType: contentType
+          eventSubscriptions:
+          - groupName: groupName
+            eventSchema: eventSchema
+            eventVersion: eventVersion
+            scope: scope
+            eventName: eventName
+          - groupName: groupName
+            eventSchema: eventSchema
+            eventVersion: eventVersion
+            scope: scope
+            eventName: eventName
+          updatedAt: updatedAt
+          status: status
+        - updatedBy: updatedBy
+          secretValue: secretValue
+          url: url
+          createdAt: createdAt
+          isDeleted: true
+          createdBy: createdBy
+          secretHeader: secretHeader
+          tenantId: tenantId
+          name: name
+          id: id
+          contentType: contentType
+          eventSubscriptions:
+          - groupName: groupName
+            eventSchema: eventSchema
+            eventVersion: eventVersion
+            scope: scope
+            eventName: eventName
+          - groupName: groupName
+            eventSchema: eventSchema
+            eventVersion: eventVersion
+            scope: scope
+            eventName: eventName
+          updatedAt: updatedAt
+          status: status
+        pageIndex: 0
+        count: 1
+        pageSize: 6
+      properties:
+        pageIndex:
+          format: int32
+          type: integer
+        pageSize:
+          format: int32
+          type: integer
+        count:
+          format: int64
+          type: integer
+        data:
+          items:
+            $ref: '#/components/schemas/TenantApi.Webhook.V1.WebhookResponse'
+          nullable: true
+          readOnly: true
+          type: array
+      type: object
+    TenantApi.Webhook.V1.UpdateWebhookRequest:
+      additionalProperties: false
+      properties:
+        id:
+          nullable: true
+          type: string
+        tenantId:
+          nullable: true
+          type: string
+        name:
+          nullable: true
+          type: string
+        url:
+          nullable: true
+          type: string
+        secretHeader:
+          nullable: true
+          type: string
+        secretValue:
+          nullable: true
+          type: string
+        contentType:
+          nullable: true
+          type: string
+        status:
+          nullable: true
+          type: string
+        eventSubscriptions:
+          items:
+            $ref: '#/components/schemas/TenantApi.Webhook.V1.WebhookSubscriberResponse'
+          nullable: true
+          readOnly: true
+          type: array
+      type: object
+    TenantApi.Webhook.V1.WebhookEventsResponse:
+      additionalProperties: false
+      example:
+        eventSubscriptions:
+        - groupName: groupName
+          eventSchema: eventSchema
+          eventVersion: eventVersion
+          scope: scope
+          eventName: eventName
+        - groupName: groupName
+          eventSchema: eventSchema
+          eventVersion: eventVersion
+          scope: scope
+          eventName: eventName
+      properties:
+        eventSubscriptions:
+          items:
+            $ref: '#/components/schemas/TenantApi.Webhook.V1.WebhookSubscriberResponse'
+          nullable: true
+          readOnly: true
+          type: array
+      type: object
+    TenantApi.Webhook.V1.WebhookIdResponse:
+      additionalProperties: false
+      example:
+        id: id
+      properties:
+        id:
+          nullable: true
+          type: string
+      type: object
+    TenantApi.Webhook.V1.WebhookResponse:
+      additionalProperties: false
+      example:
+        updatedBy: updatedBy
+        secretValue: secretValue
+        url: url
+        createdAt: createdAt
+        isDeleted: true
+        createdBy: createdBy
+        secretHeader: secretHeader
+        tenantId: tenantId
+        name: name
+        id: id
+        contentType: contentType
+        eventSubscriptions:
+        - groupName: groupName
+          eventSchema: eventSchema
+          eventVersion: eventVersion
+          scope: scope
+          eventName: eventName
+        - groupName: groupName
+          eventSchema: eventSchema
+          eventVersion: eventVersion
+          scope: scope
+          eventName: eventName
+        updatedAt: updatedAt
+        status: status
+      properties:
+        id:
+          nullable: true
+          type: string
+        tenantId:
+          nullable: true
+          type: string
+        createdAt:
+          nullable: true
+          type: string
+        createdBy:
+          nullable: true
+          type: string
+        updatedAt:
+          nullable: true
+          type: string
+        updatedBy:
+          nullable: true
+          type: string
+        isDeleted:
+          type: boolean
+        name:
+          nullable: true
+          type: string
+        url:
+          nullable: true
+          type: string
+        secretHeader:
+          nullable: true
+          type: string
+        secretValue:
+          nullable: true
+          type: string
+        contentType:
+          nullable: true
+          type: string
+        status:
+          nullable: true
+          type: string
+        eventSubscriptions:
+          items:
+            $ref: '#/components/schemas/TenantApi.Webhook.V1.WebhookSubscriberResponse'
+          nullable: true
+          readOnly: true
+          type: array
+      type: object
+    TenantApi.Webhook.V1.WebhookSubscriberResponse:
+      additionalProperties: false
+      description: Webhook Subscribers
+      example:
+        groupName: groupName
+        eventSchema: eventSchema
+        eventVersion: eventVersion
+        scope: scope
+        eventName: eventName
+      properties:
+        eventName:
+          nullable: true
+          type: string
+        eventVersion:
+          nullable: true
+          type: string
+        eventSchema:
+          nullable: true
+          type: string
+        groupName:
+          nullable: true
+          type: string
+        scope:
+          nullable: true
+          type: string
       type: object
   securitySchemes:
     oauth2:

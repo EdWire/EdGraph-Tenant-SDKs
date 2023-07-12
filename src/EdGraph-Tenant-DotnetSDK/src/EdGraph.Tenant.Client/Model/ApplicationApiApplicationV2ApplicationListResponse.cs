@@ -52,7 +52,8 @@ namespace EdGraph.Tenant.Client.Model
         /// <param name="lastModifiedBy">lastModifiedBy.</param>
         /// <param name="lastModifiedDateTime">lastModifiedDateTime.</param>
         /// <param name="subscriptionType">subscriptionType.</param>
-        public ApplicationApiApplicationV2ApplicationListResponse(string tenantId = default(string), string applicationId = default(string), string applicationName = default(string), string version = default(string), string tags = default(string), string groups = default(string), ApplicationApiApplicationV2ApplicationStatus? applicationStatus = default(ApplicationApiApplicationV2ApplicationStatus?), string createdBy = default(string), string createdDateTime = default(string), string lastModifiedBy = default(string), string lastModifiedDateTime = default(string), string subscriptionType = default(string))
+        /// <param name="documentationUrl">documentationUrl.</param>
+        public ApplicationApiApplicationV2ApplicationListResponse(string tenantId = default(string), string applicationId = default(string), string applicationName = default(string), string version = default(string), string tags = default(string), string groups = default(string), ApplicationApiApplicationV2ApplicationStatus? applicationStatus = default(ApplicationApiApplicationV2ApplicationStatus?), string createdBy = default(string), string createdDateTime = default(string), string lastModifiedBy = default(string), string lastModifiedDateTime = default(string), string subscriptionType = default(string), string documentationUrl = default(string))
         {
             this.TenantId = tenantId;
             this.ApplicationId = applicationId;
@@ -66,6 +67,7 @@ namespace EdGraph.Tenant.Client.Model
             this.LastModifiedBy = lastModifiedBy;
             this.LastModifiedDateTime = lastModifiedDateTime;
             this.SubscriptionType = subscriptionType;
+            this.DocumentationUrl = documentationUrl;
         }
 
         /// <summary>
@@ -149,6 +151,12 @@ namespace EdGraph.Tenant.Client.Model
         public string SubscriptionType { get; set; }
 
         /// <summary>
+        /// Gets or Sets DocumentationUrl
+        /// </summary>
+        [DataMember(Name = "documentationUrl", EmitDefaultValue = true)]
+        public string DocumentationUrl { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -169,6 +177,7 @@ namespace EdGraph.Tenant.Client.Model
             sb.Append("  LastModifiedBy: ").Append(LastModifiedBy).Append("\n");
             sb.Append("  LastModifiedDateTime: ").Append(LastModifiedDateTime).Append("\n");
             sb.Append("  SubscriptionType: ").Append(SubscriptionType).Append("\n");
+            sb.Append("  DocumentationUrl: ").Append(DocumentationUrl).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -268,6 +277,11 @@ namespace EdGraph.Tenant.Client.Model
                     this.SubscriptionType == input.SubscriptionType ||
                     (this.SubscriptionType != null &&
                     this.SubscriptionType.Equals(input.SubscriptionType))
+                ) && 
+                (
+                    this.DocumentationUrl == input.DocumentationUrl ||
+                    (this.DocumentationUrl != null &&
+                    this.DocumentationUrl.Equals(input.DocumentationUrl))
                 );
         }
 
@@ -328,6 +342,10 @@ namespace EdGraph.Tenant.Client.Model
                 if (this.SubscriptionType != null)
                 {
                     hashCode = (hashCode * 59) + this.SubscriptionType.GetHashCode();
+                }
+                if (this.DocumentationUrl != null)
+                {
+                    hashCode = (hashCode * 59) + this.DocumentationUrl.GetHashCode();
                 }
                 return hashCode;
             }

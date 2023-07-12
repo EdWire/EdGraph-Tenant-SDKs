@@ -55,10 +55,10 @@ namespace EdGraph.Tenant.Client.Test.Api
         }
 
         /// <summary>
-        /// Test ActivateTenantUser
+        /// Test ActivateTenantUserAsync
         /// </summary>
         [Fact]
-        public void ActivateTenantUserTest()
+        public void ActivateTenantUserAsyncTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
             //string tenantId = null;
@@ -66,28 +66,30 @@ namespace EdGraph.Tenant.Client.Test.Api
             //string? apiVersion = null;
             //string? xVersion = null;
             //IdentityApiUserV1ActivateUserRequest? identityApiUserV1ActivateUserRequest = null;
-            //instance.ActivateTenantUser(tenantId, userId, apiVersion, xVersion, identityApiUserV1ActivateUserRequest);
+            //var response = instance.ActivateTenantUserAsync(tenantId, userId, apiVersion, xVersion, identityApiUserV1ActivateUserRequest);
+            //Assert.IsType<IdentityApiUserV1UserActivatedResponse>(response);
         }
 
         /// <summary>
-        /// Test CreateTenantLocalUser
+        /// Test CreateTenantLocalUserAsync
         /// </summary>
         [Fact]
-        public void CreateTenantLocalUserTest()
+        public void CreateTenantLocalUserAsyncTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
             //string tenantId = null;
             //string? apiVersion = null;
             //string? xVersion = null;
             //IdentityApiUserV1CreateLocalUserRequest? identityApiUserV1CreateLocalUserRequest = null;
-            //instance.CreateTenantLocalUser(tenantId, apiVersion, xVersion, identityApiUserV1CreateLocalUserRequest);
+            //var response = instance.CreateTenantLocalUserAsync(tenantId, apiVersion, xVersion, identityApiUserV1CreateLocalUserRequest);
+            //Assert.IsType<IdentityApiUserV1LocalUserCreatedResponse>(response);
         }
 
         /// <summary>
-        /// Test DeactivateTenantUser
+        /// Test DeactivateTenantUserAsync
         /// </summary>
         [Fact]
-        public void DeactivateTenantUserTest()
+        public void DeactivateTenantUserAsyncTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
             //string tenantId = null;
@@ -95,28 +97,29 @@ namespace EdGraph.Tenant.Client.Test.Api
             //string? apiVersion = null;
             //string? xVersion = null;
             //IdentityApiUserV1DeactivateUserRequest? identityApiUserV1DeactivateUserRequest = null;
-            //instance.DeactivateTenantUser(tenantId, userId, apiVersion, xVersion, identityApiUserV1DeactivateUserRequest);
+            //var response = instance.DeactivateTenantUserAsync(tenantId, userId, apiVersion, xVersion, identityApiUserV1DeactivateUserRequest);
+            //Assert.IsType<IdentityApiUserV1UserDeactivatedResponse>(response);
         }
 
         /// <summary>
-        /// Test DeleteTenantUser
+        /// Test DeleteTenantUserAsync
         /// </summary>
         [Fact]
-        public void DeleteTenantUserTest()
+        public void DeleteTenantUserAsyncTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
             //string tenantId = null;
             //string userId = null;
             //string? apiVersion = null;
             //string? xVersion = null;
-            //instance.DeleteTenantUser(tenantId, userId, apiVersion, xVersion);
+            //instance.DeleteTenantUserAsync(tenantId, userId, apiVersion, xVersion);
         }
 
         /// <summary>
-        /// Test GetAllTenantUsers
+        /// Test GetAllTenantUsersAsync
         /// </summary>
         [Fact]
-        public void GetAllTenantUsersTest()
+        public void GetAllTenantUsersAsyncTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
             //string tenantId = null;
@@ -126,30 +129,30 @@ namespace EdGraph.Tenant.Client.Test.Api
             //string? filter = null;
             //string? apiVersion = null;
             //string? xVersion = null;
-            //var response = instance.GetAllTenantUsers(tenantId, pageSize, pageIndex, orderBy, filter, apiVersion, xVersion);
+            //var response = instance.GetAllTenantUsersAsync(tenantId, pageSize, pageIndex, orderBy, filter, apiVersion, xVersion);
             //Assert.IsType<EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesUserListResponseWithApplicationLicensePaginatedItemsViewModel>(response);
         }
 
         /// <summary>
-        /// Test GetTenantUserProfileById
+        /// Test GetTenantUserProfileByIdAsync
         /// </summary>
         [Fact]
-        public void GetTenantUserProfileByIdTest()
+        public void GetTenantUserProfileByIdAsyncTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
             //string tenantId = null;
             //string userId = null;
             //string? apiVersion = null;
             //string? xVersion = null;
-            //var response = instance.GetTenantUserProfileById(tenantId, userId, apiVersion, xVersion);
+            //var response = instance.GetTenantUserProfileByIdAsync(tenantId, userId, apiVersion, xVersion);
             //Assert.IsType<EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesUserProfileResponseWithApplicationLicense>(response);
         }
 
         /// <summary>
-        /// Test ResetPasswordTenantUser
+        /// Test ResetPasswordTenantUserAsync
         /// </summary>
         [Fact]
-        public void ResetPasswordTenantUserTest()
+        public void ResetPasswordTenantUserAsyncTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
             //string tenantId = null;
@@ -157,14 +160,15 @@ namespace EdGraph.Tenant.Client.Test.Api
             //string? apiVersion = null;
             //string? xVersion = null;
             //IdentityApiUserV1ResetPasswordRequest? identityApiUserV1ResetPasswordRequest = null;
-            //instance.ResetPasswordTenantUser(tenantId, userId, apiVersion, xVersion, identityApiUserV1ResetPasswordRequest);
+            //var response = instance.ResetPasswordTenantUserAsync(tenantId, userId, apiVersion, xVersion, identityApiUserV1ResetPasswordRequest);
+            //Assert.IsType<IdentityApiUserV1PasswordResettedResponse>(response);
         }
 
         /// <summary>
-        /// Test UpdateTenantUser
+        /// Test UpdateTenantUserAsync
         /// </summary>
         [Fact]
-        public void UpdateTenantUserTest()
+        public void UpdateTenantUserAsyncTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
             //string tenantId = null;
@@ -172,7 +176,8 @@ namespace EdGraph.Tenant.Client.Test.Api
             //string? apiVersion = null;
             //string? xVersion = null;
             //IdentityApiUserV1UpdateUserRequest? identityApiUserV1UpdateUserRequest = null;
-            //instance.UpdateTenantUser(tenantId, userId, apiVersion, xVersion, identityApiUserV1UpdateUserRequest);
+            //var response = instance.UpdateTenantUserAsync(tenantId, userId, apiVersion, xVersion, identityApiUserV1UpdateUserRequest);
+            //Assert.IsType<IdentityApiUserV1UserUpdatedResponse>(response);
         }
     }
 }

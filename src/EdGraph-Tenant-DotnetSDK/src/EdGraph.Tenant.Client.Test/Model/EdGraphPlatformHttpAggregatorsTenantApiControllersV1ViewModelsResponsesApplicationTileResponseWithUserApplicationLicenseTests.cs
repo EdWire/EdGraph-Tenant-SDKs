@@ -80,6 +80,22 @@ namespace EdGraph.Tenant.Client.Test.Model
             // TODO unit test for the property 'ApplicationName'
         }
         /// <summary>
+        /// Test the property 'ApplicationDescription'
+        /// </summary>
+        [Fact]
+        public void ApplicationDescriptionTest()
+        {
+            // TODO unit test for the property 'ApplicationDescription'
+        }
+        /// <summary>
+        /// Test the property 'DocumentationUrl'
+        /// </summary>
+        [Fact]
+        public void DocumentationUrlTest()
+        {
+            // TODO unit test for the property 'DocumentationUrl'
+        }
+        /// <summary>
         /// Test the property 'ApplicationUri'
         /// </summary>
         [Fact]

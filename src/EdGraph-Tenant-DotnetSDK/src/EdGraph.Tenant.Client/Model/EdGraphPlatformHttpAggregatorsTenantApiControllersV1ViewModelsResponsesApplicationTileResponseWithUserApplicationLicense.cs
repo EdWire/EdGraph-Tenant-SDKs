@@ -37,6 +37,8 @@ namespace EdGraph.Tenant.Client.Model
         /// <param name="applicationTenantId">The Tenant this application belongs to.</param>
         /// <param name="applicationId">applicationId.</param>
         /// <param name="applicationName">applicationName.</param>
+        /// <param name="applicationDescription">applicationDescription.</param>
+        /// <param name="documentationUrl">documentationUrl.</param>
         /// <param name="applicationUri">applicationUri.</param>
         /// <param name="version">version.</param>
         /// <param name="tooltipText">tooltipText.</param>
@@ -58,11 +60,13 @@ namespace EdGraph.Tenant.Client.Model
         /// <param name="tenantSubscriptionEndDateTime">The Tenant subscription end date.</param>
         /// <param name="tenantSubscriptionActualEndDateTime">The Tenant subscription end date.</param>
         /// <param name="isUserLicensed">isUserLicensed.</param>
-        public EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesApplicationTileResponseWithUserApplicationLicense(string applicationTenantId = default(string), string applicationId = default(string), string applicationName = default(string), string applicationUri = default(string), string version = default(string), string tooltipText = default(string), string tags = default(string), string groups = default(string), string lightIconUrl = default(string), string darkIconUrl = default(string), string lightBackgroundTileUrl = default(string), string darkBackgroundTileUrl = default(string), string lightOverlayTileUrl = default(string), string darkOverlayTileUrl = default(string), bool showInAppLauncher = default(bool), bool showInQuickLauncher = default(bool), bool openInNewWindow = default(bool), bool isTenantSubscribed = default(bool), string subscriptionTenantId = default(string), string tenantSubscriptionId = default(string), string tenantSubscriptionStartDateTime = default(string), string tenantSubscriptionEndDateTime = default(string), string tenantSubscriptionActualEndDateTime = default(string), bool isUserLicensed = default(bool))
+        public EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesApplicationTileResponseWithUserApplicationLicense(string applicationTenantId = default(string), string applicationId = default(string), string applicationName = default(string), string applicationDescription = default(string), string documentationUrl = default(string), string applicationUri = default(string), string version = default(string), string tooltipText = default(string), string tags = default(string), string groups = default(string), string lightIconUrl = default(string), string darkIconUrl = default(string), string lightBackgroundTileUrl = default(string), string darkBackgroundTileUrl = default(string), string lightOverlayTileUrl = default(string), string darkOverlayTileUrl = default(string), bool showInAppLauncher = default(bool), bool showInQuickLauncher = default(bool), bool openInNewWindow = default(bool), bool isTenantSubscribed = default(bool), string subscriptionTenantId = default(string), string tenantSubscriptionId = default(string), string tenantSubscriptionStartDateTime = default(string), string tenantSubscriptionEndDateTime = default(string), string tenantSubscriptionActualEndDateTime = default(string), bool isUserLicensed = default(bool))
         {
             this.ApplicationTenantId = applicationTenantId;
             this.ApplicationId = applicationId;
             this.ApplicationName = applicationName;
+            this.ApplicationDescription = applicationDescription;
+            this.DocumentationUrl = documentationUrl;
             this.ApplicationUri = applicationUri;
             this._Version = version;
             this.TooltipText = tooltipText;
@@ -104,6 +108,18 @@ namespace EdGraph.Tenant.Client.Model
         /// </summary>
         [DataMember(Name = "applicationName", EmitDefaultValue = true)]
         public string ApplicationName { get; set; }
+
+        /// <summary>
+        /// Gets or Sets ApplicationDescription
+        /// </summary>
+        [DataMember(Name = "applicationDescription", EmitDefaultValue = true)]
+        public string ApplicationDescription { get; set; }
+
+        /// <summary>
+        /// Gets or Sets DocumentationUrl
+        /// </summary>
+        [DataMember(Name = "documentationUrl", EmitDefaultValue = true)]
+        public string DocumentationUrl { get; set; }
 
         /// <summary>
         /// Gets or Sets ApplicationUri
@@ -247,6 +263,8 @@ namespace EdGraph.Tenant.Client.Model
             sb.Append("  ApplicationTenantId: ").Append(ApplicationTenantId).Append("\n");
             sb.Append("  ApplicationId: ").Append(ApplicationId).Append("\n");
             sb.Append("  ApplicationName: ").Append(ApplicationName).Append("\n");
+            sb.Append("  ApplicationDescription: ").Append(ApplicationDescription).Append("\n");
+            sb.Append("  DocumentationUrl: ").Append(DocumentationUrl).Append("\n");
             sb.Append("  ApplicationUri: ").Append(ApplicationUri).Append("\n");
             sb.Append("  _Version: ").Append(_Version).Append("\n");
             sb.Append("  TooltipText: ").Append(TooltipText).Append("\n");
@@ -317,6 +335,16 @@ namespace EdGraph.Tenant.Client.Model
                     this.ApplicationName == input.ApplicationName ||
                     (this.ApplicationName != null &&
                     this.ApplicationName.Equals(input.ApplicationName))
+                ) && 
+                (
+                    this.ApplicationDescription == input.ApplicationDescription ||
+                    (this.ApplicationDescription != null &&
+                    this.ApplicationDescription.Equals(input.ApplicationDescription))
+                ) && 
+                (
+                    this.DocumentationUrl == input.DocumentationUrl ||
+                    (this.DocumentationUrl != null &&
+                    this.DocumentationUrl.Equals(input.DocumentationUrl))
                 ) && 
                 (
                     this.ApplicationUri == input.ApplicationUri ||
@@ -440,6 +468,14 @@ namespace EdGraph.Tenant.Client.Model
                 if (this.ApplicationName != null)
                 {
                     hashCode = (hashCode * 59) + this.ApplicationName.GetHashCode();
+                }
+                if (this.ApplicationDescription != null)
+                {
+                    hashCode = (hashCode * 59) + this.ApplicationDescription.GetHashCode();
+                }
+                if (this.DocumentationUrl != null)
+                {
+                    hashCode = (hashCode * 59) + this.DocumentationUrl.GetHashCode();
                 }
                 if (this.ApplicationUri != null)
                 {

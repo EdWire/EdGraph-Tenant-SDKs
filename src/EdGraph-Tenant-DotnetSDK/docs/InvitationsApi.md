@@ -4,16 +4,16 @@ All URIs are relative to *https://api.edgraph.com/tenant*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
-| [**DeleteTenantInvitation**](InvitationsApi.md#deletetenantinvitation) | **DELETE** /tenants/{tenantId}/invitations/{invitationId} | Delete a tenant invitation matching the primary key |
-| [**GetAllTenantInvitations**](InvitationsApi.md#getalltenantinvitations) | **GET** /tenants/{tenantId}/invitations | Retrieves a list of tenant invitations |
-| [**GetTenantInvitationById**](InvitationsApi.md#gettenantinvitationbyid) | **GET** /tenants/{tenantId}/invitations/{invitationId} | Retrieves a specific tenant invitation using its primary key |
-| [**SendTenantInvitation**](InvitationsApi.md#sendtenantinvitation) | **POST** /tenants/{tenantId}/invitations | Send an invitation |
+| [**DeleteTenantInvitationAsync**](InvitationsApi.md#deletetenantinvitationasync) | **DELETE** /tenants/{tenantId}/invitations/{invitationId} | Deletes an invitation |
+| [**GetAllTenantInvitationsAsync**](InvitationsApi.md#getalltenantinvitationsasync) | **GET** /tenants/{tenantId}/invitations | Retrieves a list of invitations associated to this tenant |
+| [**GetTenantInvitationByIdAsync**](InvitationsApi.md#gettenantinvitationbyidasync) | **GET** /tenants/{tenantId}/invitations/{invitationId} | Retrieves a specific invitation |
+| [**SendTenantInvitationAsync**](InvitationsApi.md#sendtenantinvitationasync) | **POST** /tenants/{tenantId}/invitations | Creates and sends an invitation to a user |
 
-<a id="deletetenantinvitation"></a>
-# **DeleteTenantInvitation**
-> void DeleteTenantInvitation (string tenantId, string invitationId, string? apiVersion = null, string? xVersion = null)
+<a id="deletetenantinvitationasync"></a>
+# **DeleteTenantInvitationAsync**
+> void DeleteTenantInvitationAsync (string tenantId, string invitationId, string? apiVersion = null, string? xVersion = null)
 
-Delete a tenant invitation matching the primary key
+Deletes an invitation
 
 ### Example
 ```csharp
@@ -25,7 +25,7 @@ using EdGraph.Tenant.Client.Model;
 
 namespace Example
 {
-    public class DeleteTenantInvitationExample
+    public class DeleteTenantInvitationAsyncExample
     {
         public static void Main()
         {
@@ -42,12 +42,12 @@ namespace Example
 
             try
             {
-                // Delete a tenant invitation matching the primary key
-                apiInstance.DeleteTenantInvitation(tenantId, invitationId, apiVersion, xVersion);
+                // Deletes an invitation
+                apiInstance.DeleteTenantInvitationAsync(tenantId, invitationId, apiVersion, xVersion);
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling InvitationsApi.DeleteTenantInvitation: " + e.Message);
+                Debug.Print("Exception when calling InvitationsApi.DeleteTenantInvitationAsync: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -56,18 +56,18 @@ namespace Example
 }
 ```
 
-#### Using the DeleteTenantInvitationWithHttpInfo variant
+#### Using the DeleteTenantInvitationAsyncWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
 ```csharp
 try
 {
-    // Delete a tenant invitation matching the primary key
-    apiInstance.DeleteTenantInvitationWithHttpInfo(tenantId, invitationId, apiVersion, xVersion);
+    // Deletes an invitation
+    apiInstance.DeleteTenantInvitationAsyncWithHttpInfo(tenantId, invitationId, apiVersion, xVersion);
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling InvitationsApi.DeleteTenantInvitationWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling InvitationsApi.DeleteTenantInvitationAsyncWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -99,18 +99,19 @@ void (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **204** | Tenant invitation deleted |  -  |
-| **400** | Tenant has missing/invalid values |  -  |
-| **403** | Missing the required permissions to access to this tenant/resource |  -  |
-| **500** | Oops! Can&#39;t delete your tenant invitation right now |  -  |
+| **401** | Unauthorized. The request requires authentication. The OAuth bearer token was either not provided or is invalid. The operation may succeed once authentication has been successfully completed. |  -  |
+| **403** | Forbidden. The request cannot be completed in the current authorization context. Contact your administrator if you believe this operation should be allowed. |  -  |
+| **500** | An unhandled error occurred on the server.See the response body for details. |  -  |
+| **204** | The resource was successfully deleted. |  -  |
+| **400** | Bad Request. The request was invalid and cannot be completed. See the response body for specific validation errors. This will typically be an issue with the query parameters or the request body values. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a id="getalltenantinvitations"></a>
-# **GetAllTenantInvitations**
-> IdentityApiInvitationV1InvitationListResponsePaginatedItemsViewModel GetAllTenantInvitations (string tenantId, int? pageSize = null, int? pageIndex = null, string? orderBy = null, string? filter = null, string? apiVersion = null, string? xVersion = null)
+<a id="getalltenantinvitationsasync"></a>
+# **GetAllTenantInvitationsAsync**
+> IdentityApiInvitationV1InvitationListResponsePaginatedItemsViewModel GetAllTenantInvitationsAsync (string tenantId, int? pageSize = null, int? pageIndex = null, string? orderBy = null, string? filter = null, string? apiVersion = null, string? xVersion = null)
 
-Retrieves a list of tenant invitations
+Retrieves a list of invitations associated to this tenant
 
 ### Example
 ```csharp
@@ -122,7 +123,7 @@ using EdGraph.Tenant.Client.Model;
 
 namespace Example
 {
-    public class GetAllTenantInvitationsExample
+    public class GetAllTenantInvitationsAsyncExample
     {
         public static void Main()
         {
@@ -142,13 +143,13 @@ namespace Example
 
             try
             {
-                // Retrieves a list of tenant invitations
-                IdentityApiInvitationV1InvitationListResponsePaginatedItemsViewModel result = apiInstance.GetAllTenantInvitations(tenantId, pageSize, pageIndex, orderBy, filter, apiVersion, xVersion);
+                // Retrieves a list of invitations associated to this tenant
+                IdentityApiInvitationV1InvitationListResponsePaginatedItemsViewModel result = apiInstance.GetAllTenantInvitationsAsync(tenantId, pageSize, pageIndex, orderBy, filter, apiVersion, xVersion);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling InvitationsApi.GetAllTenantInvitations: " + e.Message);
+                Debug.Print("Exception when calling InvitationsApi.GetAllTenantInvitationsAsync: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -157,21 +158,21 @@ namespace Example
 }
 ```
 
-#### Using the GetAllTenantInvitationsWithHttpInfo variant
+#### Using the GetAllTenantInvitationsAsyncWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
 ```csharp
 try
 {
-    // Retrieves a list of tenant invitations
-    ApiResponse<IdentityApiInvitationV1InvitationListResponsePaginatedItemsViewModel> response = apiInstance.GetAllTenantInvitationsWithHttpInfo(tenantId, pageSize, pageIndex, orderBy, filter, apiVersion, xVersion);
+    // Retrieves a list of invitations associated to this tenant
+    ApiResponse<IdentityApiInvitationV1InvitationListResponsePaginatedItemsViewModel> response = apiInstance.GetAllTenantInvitationsAsyncWithHttpInfo(tenantId, pageSize, pageIndex, orderBy, filter, apiVersion, xVersion);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling InvitationsApi.GetAllTenantInvitationsWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling InvitationsApi.GetAllTenantInvitationsAsyncWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -206,18 +207,19 @@ catch (ApiException e)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | List of tenant invitations returned |  -  |
-| **400** | Tenant has missing/invalid values |  -  |
-| **403** | Missing the required permissions to access to this tenant/resource |  -  |
-| **500** | Oops! Can&#39;t retrieve the list of tenant invitations right now |  -  |
+| **401** | Unauthorized. The request requires authentication. The OAuth bearer token was either not provided or is invalid. The operation may succeed once authentication has been successfully completed. |  -  |
+| **403** | Forbidden. The request cannot be completed in the current authorization context. Contact your administrator if you believe this operation should be allowed. |  -  |
+| **500** | An unhandled error occurred on the server.See the response body for details. |  -  |
+| **200** | The requested resource was successfully retrieved. |  -  |
+| **400** | Bad Request. The request was invalid and cannot be completed. See the response body for specific validation errors. This will typically be an issue with the query parameters or the request body values. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a id="gettenantinvitationbyid"></a>
-# **GetTenantInvitationById**
-> IdentityApiInvitationV1InvitationResponse GetTenantInvitationById (string tenantId, string invitationId, string? apiVersion = null, string? xVersion = null)
+<a id="gettenantinvitationbyidasync"></a>
+# **GetTenantInvitationByIdAsync**
+> IdentityApiInvitationV1InvitationResponse GetTenantInvitationByIdAsync (string tenantId, string invitationId, string? apiVersion = null, string? xVersion = null)
 
-Retrieves a specific tenant invitation using its primary key
+Retrieves a specific invitation
 
 ### Example
 ```csharp
@@ -229,7 +231,7 @@ using EdGraph.Tenant.Client.Model;
 
 namespace Example
 {
-    public class GetTenantInvitationByIdExample
+    public class GetTenantInvitationByIdAsyncExample
     {
         public static void Main()
         {
@@ -246,13 +248,13 @@ namespace Example
 
             try
             {
-                // Retrieves a specific tenant invitation using its primary key
-                IdentityApiInvitationV1InvitationResponse result = apiInstance.GetTenantInvitationById(tenantId, invitationId, apiVersion, xVersion);
+                // Retrieves a specific invitation
+                IdentityApiInvitationV1InvitationResponse result = apiInstance.GetTenantInvitationByIdAsync(tenantId, invitationId, apiVersion, xVersion);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling InvitationsApi.GetTenantInvitationById: " + e.Message);
+                Debug.Print("Exception when calling InvitationsApi.GetTenantInvitationByIdAsync: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -261,21 +263,21 @@ namespace Example
 }
 ```
 
-#### Using the GetTenantInvitationByIdWithHttpInfo variant
+#### Using the GetTenantInvitationByIdAsyncWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
 ```csharp
 try
 {
-    // Retrieves a specific tenant invitation using its primary key
-    ApiResponse<IdentityApiInvitationV1InvitationResponse> response = apiInstance.GetTenantInvitationByIdWithHttpInfo(tenantId, invitationId, apiVersion, xVersion);
+    // Retrieves a specific invitation
+    ApiResponse<IdentityApiInvitationV1InvitationResponse> response = apiInstance.GetTenantInvitationByIdAsyncWithHttpInfo(tenantId, invitationId, apiVersion, xVersion);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling InvitationsApi.GetTenantInvitationByIdWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling InvitationsApi.GetTenantInvitationByIdAsyncWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -307,19 +309,20 @@ catch (ApiException e)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Tenant invitation returned |  -  |
-| **404** | Tenant invitation not found |  -  |
-| **400** | Tenant has missing/invalid values |  -  |
-| **403** | Missing the required permissions to access to this tenant/resource |  -  |
-| **500** | Oops! Can&#39;t retrieve your tenant invitation right now |  -  |
+| **401** | Unauthorized. The request requires authentication. The OAuth bearer token was either not provided or is invalid. The operation may succeed once authentication has been successfully completed. |  -  |
+| **403** | Forbidden. The request cannot be completed in the current authorization context. Contact your administrator if you believe this operation should be allowed. |  -  |
+| **500** | An unhandled error occurred on the server.See the response body for details. |  -  |
+| **200** | The requested resource was successfully retrieved. |  -  |
+| **400** | Bad Request. The request was invalid and cannot be completed. See the response body for specific validation errors. This will typically be an issue with the query parameters or the request body values. |  -  |
+| **404** | The resource could not be found. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a id="sendtenantinvitation"></a>
-# **SendTenantInvitation**
-> void SendTenantInvitation (string tenantId, string? apiVersion = null, string? xVersion = null, IdentityApiInvitationV1SendInvitationRequest? identityApiInvitationV1SendInvitationRequest = null)
+<a id="sendtenantinvitationasync"></a>
+# **SendTenantInvitationAsync**
+> IdentityApiInvitationV1InvitationSentResponse SendTenantInvitationAsync (string tenantId, string? apiVersion = null, string? xVersion = null, IdentityApiInvitationV1SendInvitationRequest? identityApiInvitationV1SendInvitationRequest = null)
 
-Send an invitation
+Creates and sends an invitation to a user
 
 ### Example
 ```csharp
@@ -331,7 +334,7 @@ using EdGraph.Tenant.Client.Model;
 
 namespace Example
 {
-    public class SendTenantInvitationExample
+    public class SendTenantInvitationAsyncExample
     {
         public static void Main()
         {
@@ -348,12 +351,13 @@ namespace Example
 
             try
             {
-                // Send an invitation
-                apiInstance.SendTenantInvitation(tenantId, apiVersion, xVersion, identityApiInvitationV1SendInvitationRequest);
+                // Creates and sends an invitation to a user
+                IdentityApiInvitationV1InvitationSentResponse result = apiInstance.SendTenantInvitationAsync(tenantId, apiVersion, xVersion, identityApiInvitationV1SendInvitationRequest);
+                Debug.WriteLine(result);
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling InvitationsApi.SendTenantInvitation: " + e.Message);
+                Debug.Print("Exception when calling InvitationsApi.SendTenantInvitationAsync: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -362,18 +366,21 @@ namespace Example
 }
 ```
 
-#### Using the SendTenantInvitationWithHttpInfo variant
+#### Using the SendTenantInvitationAsyncWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
 ```csharp
 try
 {
-    // Send an invitation
-    apiInstance.SendTenantInvitationWithHttpInfo(tenantId, apiVersion, xVersion, identityApiInvitationV1SendInvitationRequest);
+    // Creates and sends an invitation to a user
+    ApiResponse<IdentityApiInvitationV1InvitationSentResponse> response = apiInstance.SendTenantInvitationAsyncWithHttpInfo(tenantId, apiVersion, xVersion, identityApiInvitationV1SendInvitationRequest);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling InvitationsApi.SendTenantInvitationWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling InvitationsApi.SendTenantInvitationAsyncWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -390,7 +397,7 @@ catch (ApiException e)
 
 ### Return type
 
-void (empty response body)
+[**IdentityApiInvitationV1InvitationSentResponse**](IdentityApiInvitationV1InvitationSentResponse.md)
 
 ### Authorization
 
@@ -405,10 +412,11 @@ void (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **202** | Invitation sent |  -  |
-| **400** | invitation has missing/invalid values |  -  |
-| **403** | Missing the required permissions to access to this tenant/resource |  -  |
-| **500** | Oops! Can&#39;t send your invitation right now |  -  |
+| **401** | Unauthorized. The request requires authentication. The OAuth bearer token was either not provided or is invalid. The operation may succeed once authentication has been successfully completed. |  -  |
+| **403** | Forbidden. The request cannot be completed in the current authorization context. Contact your administrator if you believe this operation should be allowed. |  -  |
+| **500** | An unhandled error occurred on the server.See the response body for details. |  -  |
+| **201** | The resource was created. The location of the resource is available in the Location header of the response. |  -  |
+| **400** | Bad Request. The request was invalid and cannot be completed. See the response body for specific validation errors. This will typically be an issue with the query parameters or the request body values. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

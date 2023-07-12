@@ -59,7 +59,8 @@ namespace EdGraph.Tenant.Client.Model
         /// <param name="createdDateTime">createdDateTime.</param>
         /// <param name="lastModifiedBy">lastModifiedBy.</param>
         /// <param name="lastModifiedDateTime">lastModifiedDateTime.</param>
-        public TenantApiTenantV1TenantProfileResponse(string tenantId = default(string), TenantApiTenantV1TenantType? tenantType = default(TenantApiTenantV1TenantType?), string organizationIdentifier = default(string), string organizationName = default(string), string state = default(string), TenantApiTenantV1TenantStatus? tenantStatus = default(TenantApiTenantV1TenantStatus?), bool isDemo = default(bool), bool enforceMfa = default(bool), bool subscriptionsMigrated = default(bool), string createdBy = default(string), string createdDateTime = default(string), string lastModifiedBy = default(string), string lastModifiedDateTime = default(string))
+        /// <param name="onboarding">onboarding.</param>
+        public TenantApiTenantV1TenantProfileResponse(string tenantId = default(string), TenantApiTenantV1TenantType? tenantType = default(TenantApiTenantV1TenantType?), string organizationIdentifier = default(string), string organizationName = default(string), string state = default(string), TenantApiTenantV1TenantStatus? tenantStatus = default(TenantApiTenantV1TenantStatus?), bool isDemo = default(bool), bool enforceMfa = default(bool), bool subscriptionsMigrated = default(bool), string createdBy = default(string), string createdDateTime = default(string), string lastModifiedBy = default(string), string lastModifiedDateTime = default(string), TenantApiTenantV1Onboarding onboarding = default(TenantApiTenantV1Onboarding))
         {
             this.TenantId = tenantId;
             this.TenantType = tenantType;
@@ -74,6 +75,7 @@ namespace EdGraph.Tenant.Client.Model
             this.CreatedDateTime = createdDateTime;
             this.LastModifiedBy = lastModifiedBy;
             this.LastModifiedDateTime = lastModifiedDateTime;
+            this.Onboarding = onboarding;
         }
 
         /// <summary>
@@ -185,6 +187,26 @@ namespace EdGraph.Tenant.Client.Model
             return false;
         }
         /// <summary>
+        /// Gets or Sets Onboarding
+        /// </summary>
+        [DataMember(Name = "onboarding", EmitDefaultValue = false)]
+        public TenantApiTenantV1Onboarding Onboarding { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Organizations
+        /// </summary>
+        [DataMember(Name = "organizations", EmitDefaultValue = true)]
+        public List<TenantApiTenantV1Organization> Organizations { get; private set; }
+
+        /// <summary>
+        /// Returns false as Organizations should not be serialized given that it's read-only.
+        /// </summary>
+        /// <returns>false (boolean)</returns>
+        public bool ShouldSerializeOrganizations()
+        {
+            return false;
+        }
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -208,6 +230,8 @@ namespace EdGraph.Tenant.Client.Model
             sb.Append("  LastModifiedBy: ").Append(LastModifiedBy).Append("\n");
             sb.Append("  LastModifiedDateTime: ").Append(LastModifiedDateTime).Append("\n");
             sb.Append("  IdentityProviders: ").Append(IdentityProviders).Append("\n");
+            sb.Append("  Onboarding: ").Append(Onboarding).Append("\n");
+            sb.Append("  Organizations: ").Append(Organizations).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -320,6 +344,17 @@ namespace EdGraph.Tenant.Client.Model
                     this.IdentityProviders != null &&
                     input.IdentityProviders != null &&
                     this.IdentityProviders.SequenceEqual(input.IdentityProviders)
+                ) && 
+                (
+                    this.Onboarding == input.Onboarding ||
+                    (this.Onboarding != null &&
+                    this.Onboarding.Equals(input.Onboarding))
+                ) && 
+                (
+                    this.Organizations == input.Organizations ||
+                    this.Organizations != null &&
+                    input.Organizations != null &&
+                    this.Organizations.SequenceEqual(input.Organizations)
                 );
         }
 
@@ -380,6 +415,14 @@ namespace EdGraph.Tenant.Client.Model
                 if (this.IdentityProviders != null)
                 {
                     hashCode = (hashCode * 59) + this.IdentityProviders.GetHashCode();
+                }
+                if (this.Onboarding != null)
+                {
+                    hashCode = (hashCode * 59) + this.Onboarding.GetHashCode();
+                }
+                if (this.Organizations != null)
+                {
+                    hashCode = (hashCode * 59) + this.Organizations.GetHashCode();
                 }
                 return hashCode;
             }

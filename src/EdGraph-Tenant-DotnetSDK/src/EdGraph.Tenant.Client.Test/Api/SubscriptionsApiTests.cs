@@ -55,17 +55,18 @@ namespace EdGraph.Tenant.Client.Test.Api
         }
 
         /// <summary>
-        /// Test CreateTenantSubscription
+        /// Test CreateTenantSubscriptionAsync
         /// </summary>
         [Fact]
-        public void CreateTenantSubscriptionTest()
+        public void CreateTenantSubscriptionAsyncTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
             //string tenantId = null;
             //string? apiVersion = null;
             //string? xVersion = null;
             //TenantApiTenantV1CreateSubscriptionRequest? tenantApiTenantV1CreateSubscriptionRequest = null;
-            //instance.CreateTenantSubscription(tenantId, apiVersion, xVersion, tenantApiTenantV1CreateSubscriptionRequest);
+            //var response = instance.CreateTenantSubscriptionAsync(tenantId, apiVersion, xVersion, tenantApiTenantV1CreateSubscriptionRequest);
+            //Assert.IsType<TenantApiTenantV1SubscriptionCreatedResponse>(response);
         }
 
         /// <summary>
@@ -86,10 +87,10 @@ namespace EdGraph.Tenant.Client.Test.Api
         }
 
         /// <summary>
-        /// Test GetAllTenantSubscriptions
+        /// Test GetAllTenantSubscriptionsAsync
         /// </summary>
         [Fact]
-        public void GetAllTenantSubscriptionsTest()
+        public void GetAllTenantSubscriptionsAsyncTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
             //string tenantId = null;
@@ -99,30 +100,30 @@ namespace EdGraph.Tenant.Client.Test.Api
             //string? filter = null;
             //string? apiVersion = null;
             //string? xVersion = null;
-            //var response = instance.GetAllTenantSubscriptions(tenantId, pageSize, pageIndex, orderBy, filter, apiVersion, xVersion);
+            //var response = instance.GetAllTenantSubscriptionsAsync(tenantId, pageSize, pageIndex, orderBy, filter, apiVersion, xVersion);
             //Assert.IsType<EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesSubscriptionListResponseDtoPaginatedItemsViewModel>(response);
         }
 
         /// <summary>
-        /// Test GetTenantSubscriptionProfileById
+        /// Test GetTenantSubscriptionProfileByIdAsync
         /// </summary>
         [Fact]
-        public void GetTenantSubscriptionProfileByIdTest()
+        public void GetTenantSubscriptionProfileByIdAsyncTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
             //string tenantId = null;
             //string subscriptionId = null;
             //string? apiVersion = null;
             //string? xVersion = null;
-            //var response = instance.GetTenantSubscriptionProfileById(tenantId, subscriptionId, apiVersion, xVersion);
+            //var response = instance.GetTenantSubscriptionProfileByIdAsync(tenantId, subscriptionId, apiVersion, xVersion);
             //Assert.IsType<EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesSubscriptionProfileResponseDto>(response);
         }
 
         /// <summary>
-        /// Test UpdateTenantSubscription
+        /// Test UpdateTenantSubscriptionAsync
         /// </summary>
         [Fact]
-        public void UpdateTenantSubscriptionTest()
+        public void UpdateTenantSubscriptionAsyncTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
             //string tenantId = null;
@@ -130,7 +131,8 @@ namespace EdGraph.Tenant.Client.Test.Api
             //string? apiVersion = null;
             //string? xVersion = null;
             //TenantApiTenantV1UpdateSubscriptionRequest? tenantApiTenantV1UpdateSubscriptionRequest = null;
-            //instance.UpdateTenantSubscription(tenantId, subscriptionId, apiVersion, xVersion, tenantApiTenantV1UpdateSubscriptionRequest);
+            //var response = instance.UpdateTenantSubscriptionAsync(tenantId, subscriptionId, apiVersion, xVersion, tenantApiTenantV1UpdateSubscriptionRequest);
+            //Assert.IsType<TenantApiTenantV1SubscriptionUpdatedResponse>(response);
         }
     }
 }

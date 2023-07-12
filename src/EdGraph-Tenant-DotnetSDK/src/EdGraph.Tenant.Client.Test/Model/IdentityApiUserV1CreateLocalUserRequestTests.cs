@@ -143,6 +143,14 @@ namespace EdGraph.Tenant.Client.Test.Model
         {
             // TODO unit test for the property 'TwoFactorEnabled'
         }
+        /// <summary>
+        /// Test the property 'AssignLicenseRequests'
+        /// </summary>
+        [Fact]
+        public void AssignLicenseRequestsTest()
+        {
+            // TODO unit test for the property 'AssignLicenseRequests'
+        }
 
     }
 

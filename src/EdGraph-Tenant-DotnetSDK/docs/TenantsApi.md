@@ -4,14 +4,14 @@ All URIs are relative to *https://api.edgraph.com/tenant*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
-| [**GetTenantById**](TenantsApi.md#gettenantbyid) | **GET** /tenants/{tenantId} | Retrieves a specific tenant using its primary key |
-| [**UpdateTenant**](TenantsApi.md#updatetenant) | **POST** /tenants/{tenantId} | Update a new tenant with only new IdentityProviders |
+| [**GetTenantByIdAsync**](TenantsApi.md#gettenantbyidasync) | **GET** /tenants/{tenantId} | Retrieves the profile of a specific tenant |
+| [**UpdateTenantAsync**](TenantsApi.md#updatetenantasync) | **PUT** /tenants/{tenantId} | Updates a tenant&#39;s profile |
 
-<a id="gettenantbyid"></a>
-# **GetTenantById**
-> TenantApiTenantV1TenantProfileResponse GetTenantById (string tenantId, string? apiVersion = null, string? xVersion = null)
+<a id="gettenantbyidasync"></a>
+# **GetTenantByIdAsync**
+> TenantApiTenantV1TenantProfileResponse GetTenantByIdAsync (string tenantId, string? apiVersion = null, string? xVersion = null)
 
-Retrieves a specific tenant using its primary key
+Retrieves the profile of a specific tenant
 
 ### Example
 ```csharp
@@ -23,7 +23,7 @@ using EdGraph.Tenant.Client.Model;
 
 namespace Example
 {
-    public class GetTenantByIdExample
+    public class GetTenantByIdAsyncExample
     {
         public static void Main()
         {
@@ -39,13 +39,13 @@ namespace Example
 
             try
             {
-                // Retrieves a specific tenant using its primary key
-                TenantApiTenantV1TenantProfileResponse result = apiInstance.GetTenantById(tenantId, apiVersion, xVersion);
+                // Retrieves the profile of a specific tenant
+                TenantApiTenantV1TenantProfileResponse result = apiInstance.GetTenantByIdAsync(tenantId, apiVersion, xVersion);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling TenantsApi.GetTenantById: " + e.Message);
+                Debug.Print("Exception when calling TenantsApi.GetTenantByIdAsync: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -54,21 +54,21 @@ namespace Example
 }
 ```
 
-#### Using the GetTenantByIdWithHttpInfo variant
+#### Using the GetTenantByIdAsyncWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
 ```csharp
 try
 {
-    // Retrieves a specific tenant using its primary key
-    ApiResponse<TenantApiTenantV1TenantProfileResponse> response = apiInstance.GetTenantByIdWithHttpInfo(tenantId, apiVersion, xVersion);
+    // Retrieves the profile of a specific tenant
+    ApiResponse<TenantApiTenantV1TenantProfileResponse> response = apiInstance.GetTenantByIdAsyncWithHttpInfo(tenantId, apiVersion, xVersion);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling TenantsApi.GetTenantByIdWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling TenantsApi.GetTenantByIdAsyncWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -99,19 +99,21 @@ catch (ApiException e)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Tenant returned |  -  |
-| **404** | Tenant not found |  -  |
-| **400** | Tenant has missing/invalid values |  -  |
-| **403** | Missing the required permissions to access to this tenant/resource |  -  |
-| **500** | Oops! Can&#39;t retrieve your tenant right now |  -  |
+| **401** | Unauthorized. The request requires authentication. The OAuth bearer token was either not provided or is invalid. The operation may succeed once authentication has been successfully completed. |  -  |
+| **403** | Forbidden. The request cannot be completed in the current authorization context. Contact your administrator if you believe this operation should be allowed. |  -  |
+| **500** | An unhandled error occurred on the server.See the response body for details. |  -  |
+| **200** | The requested resource was successfully retrieved. |  -  |
+| **404** | The resource could not be found. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a id="updatetenant"></a>
-# **UpdateTenant**
-> void UpdateTenant (string tenantId, string? apiVersion = null, string? xVersion = null, TenantApiTenantV1UpdateTenantRequest? tenantApiTenantV1UpdateTenantRequest = null)
+<a id="updatetenantasync"></a>
+# **UpdateTenantAsync**
+> TenantApiTenantV1TenantUpdatedResponse UpdateTenantAsync (string tenantId, string? apiVersion = null, string? xVersion = null, TenantApiTenantV1UpdateTenantRequest? tenantApiTenantV1UpdateTenantRequest = null)
 
-Update a new tenant with only new IdentityProviders
+Updates a tenant's profile
+
+Note: Only the tenant's Identity Providers can be updated at this time
 
 ### Example
 ```csharp
@@ -123,7 +125,7 @@ using EdGraph.Tenant.Client.Model;
 
 namespace Example
 {
-    public class UpdateTenantExample
+    public class UpdateTenantAsyncExample
     {
         public static void Main()
         {
@@ -140,12 +142,13 @@ namespace Example
 
             try
             {
-                // Update a new tenant with only new IdentityProviders
-                apiInstance.UpdateTenant(tenantId, apiVersion, xVersion, tenantApiTenantV1UpdateTenantRequest);
+                // Updates a tenant's profile
+                TenantApiTenantV1TenantUpdatedResponse result = apiInstance.UpdateTenantAsync(tenantId, apiVersion, xVersion, tenantApiTenantV1UpdateTenantRequest);
+                Debug.WriteLine(result);
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling TenantsApi.UpdateTenant: " + e.Message);
+                Debug.Print("Exception when calling TenantsApi.UpdateTenantAsync: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -154,18 +157,21 @@ namespace Example
 }
 ```
 
-#### Using the UpdateTenantWithHttpInfo variant
+#### Using the UpdateTenantAsyncWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
 ```csharp
 try
 {
-    // Update a new tenant with only new IdentityProviders
-    apiInstance.UpdateTenantWithHttpInfo(tenantId, apiVersion, xVersion, tenantApiTenantV1UpdateTenantRequest);
+    // Updates a tenant's profile
+    ApiResponse<TenantApiTenantV1TenantUpdatedResponse> response = apiInstance.UpdateTenantAsyncWithHttpInfo(tenantId, apiVersion, xVersion, tenantApiTenantV1UpdateTenantRequest);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling TenantsApi.UpdateTenantWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling TenantsApi.UpdateTenantAsyncWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -182,7 +188,7 @@ catch (ApiException e)
 
 ### Return type
 
-void (empty response body)
+[**TenantApiTenantV1TenantUpdatedResponse**](TenantApiTenantV1TenantUpdatedResponse.md)
 
 ### Authorization
 
@@ -197,9 +203,11 @@ void (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **202** | Update tenant request accepted |  -  |
-| **400** | Update Tenant request has missing/invalid values |  -  |
-| **500** | Oops! Can&#39;t update your tenant right now |  -  |
+| **401** | Unauthorized. The request requires authentication. The OAuth bearer token was either not provided or is invalid. The operation may succeed once authentication has been successfully completed. |  -  |
+| **403** | Forbidden. The request cannot be completed in the current authorization context. Contact your administrator if you believe this operation should be allowed. |  -  |
+| **500** | An unhandled error occurred on the server.See the response body for details. |  -  |
+| **200** | The requested resource was successfully retrieved. |  -  |
+| **400** | Bad Request. The request was invalid and cannot be completed. See the response body for specific validation errors. This will typically be an issue with the query parameters or the request body values. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

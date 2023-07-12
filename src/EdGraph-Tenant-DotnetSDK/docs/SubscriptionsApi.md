@@ -4,17 +4,17 @@ All URIs are relative to *https://api.edgraph.com/tenant*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
-| [**CreateTenantSubscription**](SubscriptionsApi.md#createtenantsubscription) | **POST** /tenants/{tenantId}/subscriptions/create | Creates a new Tenant Subscription |
+| [**CreateTenantSubscriptionAsync**](SubscriptionsApi.md#createtenantsubscriptionasync) | **POST** /tenants/{tenantId}/subscriptions | Creates a new subscription |
 | [**GetAllTenantSubscriptionApplications**](SubscriptionsApi.md#getalltenantsubscriptionapplications) | **GET** /tenants/{tenantId}/subscriptions/applications | Retrieves a list of applications available for subscription. |
-| [**GetAllTenantSubscriptions**](SubscriptionsApi.md#getalltenantsubscriptions) | **GET** /tenants/{tenantId}/subscriptions | Retrieves a list of Tenant Subscriptions |
-| [**GetTenantSubscriptionProfileById**](SubscriptionsApi.md#gettenantsubscriptionprofilebyid) | **GET** /tenants/{tenantId}/subscriptions/{subscriptionId} | Retrieves a specific Tenant Subscription using its primary key |
-| [**UpdateTenantSubscription**](SubscriptionsApi.md#updatetenantsubscription) | **POST** /tenants/{tenantId}/subscriptions/{subscriptionId}/update | Updates a Tenant Subscription matching the primary key |
+| [**GetAllTenantSubscriptionsAsync**](SubscriptionsApi.md#getalltenantsubscriptionsasync) | **GET** /tenants/{tenantId}/subscriptions | Retrieves a list of subscriptions associated to this tenant |
+| [**GetTenantSubscriptionProfileByIdAsync**](SubscriptionsApi.md#gettenantsubscriptionprofilebyidasync) | **GET** /tenants/{tenantId}/subscriptions/{subscriptionId} | Retrieves a subscription |
+| [**UpdateTenantSubscriptionAsync**](SubscriptionsApi.md#updatetenantsubscriptionasync) | **PUT** /tenants/{tenantId}/subscriptions/{subscriptionId} | Updates a subscription |
 
-<a id="createtenantsubscription"></a>
-# **CreateTenantSubscription**
-> void CreateTenantSubscription (string tenantId, string? apiVersion = null, string? xVersion = null, TenantApiTenantV1CreateSubscriptionRequest? tenantApiTenantV1CreateSubscriptionRequest = null)
+<a id="createtenantsubscriptionasync"></a>
+# **CreateTenantSubscriptionAsync**
+> TenantApiTenantV1SubscriptionCreatedResponse CreateTenantSubscriptionAsync (string tenantId, string? apiVersion = null, string? xVersion = null, TenantApiTenantV1CreateSubscriptionRequest? tenantApiTenantV1CreateSubscriptionRequest = null)
 
-Creates a new Tenant Subscription
+Creates a new subscription
 
 ### Example
 ```csharp
@@ -26,7 +26,7 @@ using EdGraph.Tenant.Client.Model;
 
 namespace Example
 {
-    public class CreateTenantSubscriptionExample
+    public class CreateTenantSubscriptionAsyncExample
     {
         public static void Main()
         {
@@ -43,12 +43,13 @@ namespace Example
 
             try
             {
-                // Creates a new Tenant Subscription
-                apiInstance.CreateTenantSubscription(tenantId, apiVersion, xVersion, tenantApiTenantV1CreateSubscriptionRequest);
+                // Creates a new subscription
+                TenantApiTenantV1SubscriptionCreatedResponse result = apiInstance.CreateTenantSubscriptionAsync(tenantId, apiVersion, xVersion, tenantApiTenantV1CreateSubscriptionRequest);
+                Debug.WriteLine(result);
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling SubscriptionsApi.CreateTenantSubscription: " + e.Message);
+                Debug.Print("Exception when calling SubscriptionsApi.CreateTenantSubscriptionAsync: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -57,18 +58,21 @@ namespace Example
 }
 ```
 
-#### Using the CreateTenantSubscriptionWithHttpInfo variant
+#### Using the CreateTenantSubscriptionAsyncWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
 ```csharp
 try
 {
-    // Creates a new Tenant Subscription
-    apiInstance.CreateTenantSubscriptionWithHttpInfo(tenantId, apiVersion, xVersion, tenantApiTenantV1CreateSubscriptionRequest);
+    // Creates a new subscription
+    ApiResponse<TenantApiTenantV1SubscriptionCreatedResponse> response = apiInstance.CreateTenantSubscriptionAsyncWithHttpInfo(tenantId, apiVersion, xVersion, tenantApiTenantV1CreateSubscriptionRequest);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling SubscriptionsApi.CreateTenantSubscriptionWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling SubscriptionsApi.CreateTenantSubscriptionAsyncWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -85,7 +89,7 @@ catch (ApiException e)
 
 ### Return type
 
-void (empty response body)
+[**TenantApiTenantV1SubscriptionCreatedResponse**](TenantApiTenantV1SubscriptionCreatedResponse.md)
 
 ### Authorization
 
@@ -100,10 +104,11 @@ void (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **202** | Tenant Subscription created |  -  |
-| **400** | Tenant Subscription has missing/invalid values |  -  |
-| **403** | Missing the required permissions to access to this tenant/resource |  -  |
-| **500** | Oops! Can&#39;t create your Tenant Subscription right now |  -  |
+| **401** | Unauthorized. The request requires authentication. The OAuth bearer token was either not provided or is invalid. The operation may succeed once authentication has been successfully completed. |  -  |
+| **403** | Forbidden. The request cannot be completed in the current authorization context. Contact your administrator if you believe this operation should be allowed. |  -  |
+| **500** | An unhandled error occurred on the server.See the response body for details. |  -  |
+| **201** | The resource was created. The location of the resource is available in the Location header of the response. |  -  |
+| **400** | Bad Request. The request was invalid and cannot be completed. See the response body for specific validation errors. This will typically be an issue with the query parameters or the request body values. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -205,18 +210,19 @@ catch (ApiException e)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | List of applications |  -  |
-| **400** | Tenant has missing/invalid values |  -  |
-| **403** | Missing the required permissions to access to this tenant/resource |  -  |
-| **500** | Oops! Can&#39;t retrieve the resource right now |  -  |
+| **401** | Unauthorized. The request requires authentication. The OAuth bearer token was either not provided or is invalid. The operation may succeed once authentication has been successfully completed. |  -  |
+| **403** | Forbidden. The request cannot be completed in the current authorization context. Contact your administrator if you believe this operation should be allowed. |  -  |
+| **500** | An unhandled error occurred on the server.See the response body for details. |  -  |
+| **200** | The requested resource was successfully retrieved. |  -  |
+| **400** | Bad Request. The request was invalid and cannot be completed. See the response body for specific validation errors. This will typically be an issue with the query parameters or the request body values. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a id="getalltenantsubscriptions"></a>
-# **GetAllTenantSubscriptions**
-> EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesSubscriptionListResponseDtoPaginatedItemsViewModel GetAllTenantSubscriptions (string tenantId, int? pageSize = null, int? pageIndex = null, string? orderBy = null, string? filter = null, string? apiVersion = null, string? xVersion = null)
+<a id="getalltenantsubscriptionsasync"></a>
+# **GetAllTenantSubscriptionsAsync**
+> EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesSubscriptionListResponseDtoPaginatedItemsViewModel GetAllTenantSubscriptionsAsync (string tenantId, int? pageSize = null, int? pageIndex = null, string? orderBy = null, string? filter = null, string? apiVersion = null, string? xVersion = null)
 
-Retrieves a list of Tenant Subscriptions
+Retrieves a list of subscriptions associated to this tenant
 
 ### Example
 ```csharp
@@ -228,7 +234,7 @@ using EdGraph.Tenant.Client.Model;
 
 namespace Example
 {
-    public class GetAllTenantSubscriptionsExample
+    public class GetAllTenantSubscriptionsAsyncExample
     {
         public static void Main()
         {
@@ -248,13 +254,13 @@ namespace Example
 
             try
             {
-                // Retrieves a list of Tenant Subscriptions
-                EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesSubscriptionListResponseDtoPaginatedItemsViewModel result = apiInstance.GetAllTenantSubscriptions(tenantId, pageSize, pageIndex, orderBy, filter, apiVersion, xVersion);
+                // Retrieves a list of subscriptions associated to this tenant
+                EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesSubscriptionListResponseDtoPaginatedItemsViewModel result = apiInstance.GetAllTenantSubscriptionsAsync(tenantId, pageSize, pageIndex, orderBy, filter, apiVersion, xVersion);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling SubscriptionsApi.GetAllTenantSubscriptions: " + e.Message);
+                Debug.Print("Exception when calling SubscriptionsApi.GetAllTenantSubscriptionsAsync: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -263,21 +269,21 @@ namespace Example
 }
 ```
 
-#### Using the GetAllTenantSubscriptionsWithHttpInfo variant
+#### Using the GetAllTenantSubscriptionsAsyncWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
 ```csharp
 try
 {
-    // Retrieves a list of Tenant Subscriptions
-    ApiResponse<EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesSubscriptionListResponseDtoPaginatedItemsViewModel> response = apiInstance.GetAllTenantSubscriptionsWithHttpInfo(tenantId, pageSize, pageIndex, orderBy, filter, apiVersion, xVersion);
+    // Retrieves a list of subscriptions associated to this tenant
+    ApiResponse<EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesSubscriptionListResponseDtoPaginatedItemsViewModel> response = apiInstance.GetAllTenantSubscriptionsAsyncWithHttpInfo(tenantId, pageSize, pageIndex, orderBy, filter, apiVersion, xVersion);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling SubscriptionsApi.GetAllTenantSubscriptionsWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling SubscriptionsApi.GetAllTenantSubscriptionsAsyncWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -312,18 +318,19 @@ catch (ApiException e)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | List of Tenant Subscriptions returned |  -  |
-| **400** | Tenant has missing/invalid values |  -  |
-| **403** | Missing the required permissions to access to this tenant/resource |  -  |
-| **500** | Oops! Can&#39;t retrieve the list of Tenant Subscriptions right now |  -  |
+| **401** | Unauthorized. The request requires authentication. The OAuth bearer token was either not provided or is invalid. The operation may succeed once authentication has been successfully completed. |  -  |
+| **403** | Forbidden. The request cannot be completed in the current authorization context. Contact your administrator if you believe this operation should be allowed. |  -  |
+| **500** | An unhandled error occurred on the server.See the response body for details. |  -  |
+| **200** | The requested resource was successfully retrieved. |  -  |
+| **400** | Bad Request. The request was invalid and cannot be completed. See the response body for specific validation errors. This will typically be an issue with the query parameters or the request body values. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a id="gettenantsubscriptionprofilebyid"></a>
-# **GetTenantSubscriptionProfileById**
-> EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesSubscriptionProfileResponseDto GetTenantSubscriptionProfileById (string tenantId, string subscriptionId, string? apiVersion = null, string? xVersion = null)
+<a id="gettenantsubscriptionprofilebyidasync"></a>
+# **GetTenantSubscriptionProfileByIdAsync**
+> EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesSubscriptionProfileResponseDto GetTenantSubscriptionProfileByIdAsync (string tenantId, string subscriptionId, string? apiVersion = null, string? xVersion = null)
 
-Retrieves a specific Tenant Subscription using its primary key
+Retrieves a subscription
 
 ### Example
 ```csharp
@@ -335,7 +342,7 @@ using EdGraph.Tenant.Client.Model;
 
 namespace Example
 {
-    public class GetTenantSubscriptionProfileByIdExample
+    public class GetTenantSubscriptionProfileByIdAsyncExample
     {
         public static void Main()
         {
@@ -352,13 +359,13 @@ namespace Example
 
             try
             {
-                // Retrieves a specific Tenant Subscription using its primary key
-                EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesSubscriptionProfileResponseDto result = apiInstance.GetTenantSubscriptionProfileById(tenantId, subscriptionId, apiVersion, xVersion);
+                // Retrieves a subscription
+                EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesSubscriptionProfileResponseDto result = apiInstance.GetTenantSubscriptionProfileByIdAsync(tenantId, subscriptionId, apiVersion, xVersion);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling SubscriptionsApi.GetTenantSubscriptionProfileById: " + e.Message);
+                Debug.Print("Exception when calling SubscriptionsApi.GetTenantSubscriptionProfileByIdAsync: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -367,21 +374,21 @@ namespace Example
 }
 ```
 
-#### Using the GetTenantSubscriptionProfileByIdWithHttpInfo variant
+#### Using the GetTenantSubscriptionProfileByIdAsyncWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
 ```csharp
 try
 {
-    // Retrieves a specific Tenant Subscription using its primary key
-    ApiResponse<EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesSubscriptionProfileResponseDto> response = apiInstance.GetTenantSubscriptionProfileByIdWithHttpInfo(tenantId, subscriptionId, apiVersion, xVersion);
+    // Retrieves a subscription
+    ApiResponse<EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesSubscriptionProfileResponseDto> response = apiInstance.GetTenantSubscriptionProfileByIdAsyncWithHttpInfo(tenantId, subscriptionId, apiVersion, xVersion);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling SubscriptionsApi.GetTenantSubscriptionProfileByIdWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling SubscriptionsApi.GetTenantSubscriptionProfileByIdAsyncWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -413,19 +420,20 @@ catch (ApiException e)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Tenant Subscription returned |  -  |
-| **404** | Tenant Subscription not found |  -  |
-| **400** | Tenant has missing/invalid values |  -  |
-| **403** | Missing the required permissions to access to this tenant/resource |  -  |
-| **500** | Oops! Can&#39;t retrieve your Tenant Subscription right now |  -  |
+| **401** | Unauthorized. The request requires authentication. The OAuth bearer token was either not provided or is invalid. The operation may succeed once authentication has been successfully completed. |  -  |
+| **403** | Forbidden. The request cannot be completed in the current authorization context. Contact your administrator if you believe this operation should be allowed. |  -  |
+| **500** | An unhandled error occurred on the server.See the response body for details. |  -  |
+| **200** | The requested resource was successfully retrieved. |  -  |
+| **400** | Bad Request. The request was invalid and cannot be completed. See the response body for specific validation errors. This will typically be an issue with the query parameters or the request body values. |  -  |
+| **404** | The resource could not be found. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a id="updatetenantsubscription"></a>
-# **UpdateTenantSubscription**
-> void UpdateTenantSubscription (string tenantId, string subscriptionId, string? apiVersion = null, string? xVersion = null, TenantApiTenantV1UpdateSubscriptionRequest? tenantApiTenantV1UpdateSubscriptionRequest = null)
+<a id="updatetenantsubscriptionasync"></a>
+# **UpdateTenantSubscriptionAsync**
+> TenantApiTenantV1SubscriptionUpdatedResponse UpdateTenantSubscriptionAsync (string tenantId, string subscriptionId, string? apiVersion = null, string? xVersion = null, TenantApiTenantV1UpdateSubscriptionRequest? tenantApiTenantV1UpdateSubscriptionRequest = null)
 
-Updates a Tenant Subscription matching the primary key
+Updates a subscription
 
 ### Example
 ```csharp
@@ -437,7 +445,7 @@ using EdGraph.Tenant.Client.Model;
 
 namespace Example
 {
-    public class UpdateTenantSubscriptionExample
+    public class UpdateTenantSubscriptionAsyncExample
     {
         public static void Main()
         {
@@ -455,12 +463,13 @@ namespace Example
 
             try
             {
-                // Updates a Tenant Subscription matching the primary key
-                apiInstance.UpdateTenantSubscription(tenantId, subscriptionId, apiVersion, xVersion, tenantApiTenantV1UpdateSubscriptionRequest);
+                // Updates a subscription
+                TenantApiTenantV1SubscriptionUpdatedResponse result = apiInstance.UpdateTenantSubscriptionAsync(tenantId, subscriptionId, apiVersion, xVersion, tenantApiTenantV1UpdateSubscriptionRequest);
+                Debug.WriteLine(result);
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling SubscriptionsApi.UpdateTenantSubscription: " + e.Message);
+                Debug.Print("Exception when calling SubscriptionsApi.UpdateTenantSubscriptionAsync: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -469,18 +478,21 @@ namespace Example
 }
 ```
 
-#### Using the UpdateTenantSubscriptionWithHttpInfo variant
+#### Using the UpdateTenantSubscriptionAsyncWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
 ```csharp
 try
 {
-    // Updates a Tenant Subscription matching the primary key
-    apiInstance.UpdateTenantSubscriptionWithHttpInfo(tenantId, subscriptionId, apiVersion, xVersion, tenantApiTenantV1UpdateSubscriptionRequest);
+    // Updates a subscription
+    ApiResponse<TenantApiTenantV1SubscriptionUpdatedResponse> response = apiInstance.UpdateTenantSubscriptionAsyncWithHttpInfo(tenantId, subscriptionId, apiVersion, xVersion, tenantApiTenantV1UpdateSubscriptionRequest);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling SubscriptionsApi.UpdateTenantSubscriptionWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling SubscriptionsApi.UpdateTenantSubscriptionAsyncWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -498,7 +510,7 @@ catch (ApiException e)
 
 ### Return type
 
-void (empty response body)
+[**TenantApiTenantV1SubscriptionUpdatedResponse**](TenantApiTenantV1SubscriptionUpdatedResponse.md)
 
 ### Authorization
 
@@ -513,10 +525,11 @@ void (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **202** | Tenant Subscription updated |  -  |
-| **400** | Tenant Subscription has missing/invalid values |  -  |
-| **403** | Missing the required permissions to access to this tenant/resource |  -  |
-| **500** | Oops! Can&#39;t update your Tenant Subscription right now |  -  |
+| **401** | Unauthorized. The request requires authentication. The OAuth bearer token was either not provided or is invalid. The operation may succeed once authentication has been successfully completed. |  -  |
+| **403** | Forbidden. The request cannot be completed in the current authorization context. Contact your administrator if you believe this operation should be allowed. |  -  |
+| **500** | An unhandled error occurred on the server.See the response body for details. |  -  |
+| **200** | The requested resource was successfully retrieved. |  -  |
+| **400** | Bad Request. The request was invalid and cannot be completed. See the response body for specific validation errors. This will typically be an issue with the query parameters or the request body values. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

@@ -55,31 +55,32 @@ namespace EdGraph.Tenant.Client.Test.Api
         }
 
         /// <summary>
-        /// Test GetTenantById
+        /// Test GetTenantByIdAsync
         /// </summary>
         [Fact]
-        public void GetTenantByIdTest()
+        public void GetTenantByIdAsyncTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
             //string tenantId = null;
             //string? apiVersion = null;
             //string? xVersion = null;
-            //var response = instance.GetTenantById(tenantId, apiVersion, xVersion);
+            //var response = instance.GetTenantByIdAsync(tenantId, apiVersion, xVersion);
             //Assert.IsType<TenantApiTenantV1TenantProfileResponse>(response);
         }
 
         /// <summary>
-        /// Test UpdateTenant
+        /// Test UpdateTenantAsync
         /// </summary>
         [Fact]
-        public void UpdateTenantTest()
+        public void UpdateTenantAsyncTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
             //string tenantId = null;
             //string? apiVersion = null;
             //string? xVersion = null;
             //TenantApiTenantV1UpdateTenantRequest? tenantApiTenantV1UpdateTenantRequest = null;
-            //instance.UpdateTenant(tenantId, apiVersion, xVersion, tenantApiTenantV1UpdateTenantRequest);
+            //var response = instance.UpdateTenantAsync(tenantId, apiVersion, xVersion, tenantApiTenantV1UpdateTenantRequest);
+            //Assert.IsType<TenantApiTenantV1TenantUpdatedResponse>(response);
         }
     }
 }

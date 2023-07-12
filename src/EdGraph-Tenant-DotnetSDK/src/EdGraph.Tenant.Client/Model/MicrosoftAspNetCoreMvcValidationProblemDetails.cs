@@ -26,27 +26,35 @@ using OpenAPIDateConverter = EdGraph.Tenant.Client.Client.OpenAPIDateConverter;
 namespace EdGraph.Tenant.Client.Model
 {
     /// <summary>
-    /// MicrosoftAspNetCoreMvcProblemDetails
+    /// MicrosoftAspNetCoreMvcValidationProblemDetails
     /// </summary>
-    [DataContract(Name = "Microsoft.AspNetCore.Mvc.ProblemDetails")]
-    public partial class MicrosoftAspNetCoreMvcProblemDetails : Dictionary<String, Object>, IEquatable<MicrosoftAspNetCoreMvcProblemDetails>, IValidatableObject
+    [DataContract(Name = "Microsoft.AspNetCore.Mvc.ValidationProblemDetails")]
+    public partial class MicrosoftAspNetCoreMvcValidationProblemDetails : Dictionary<String, Object>, IEquatable<MicrosoftAspNetCoreMvcValidationProblemDetails>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="MicrosoftAspNetCoreMvcProblemDetails" /> class.
+        /// Initializes a new instance of the <see cref="MicrosoftAspNetCoreMvcValidationProblemDetails" /> class.
         /// </summary>
+        /// <param name="errors">errors.</param>
         /// <param name="type">type.</param>
         /// <param name="title">title.</param>
         /// <param name="status">status.</param>
         /// <param name="detail">detail.</param>
         /// <param name="instance">instance.</param>
-        public MicrosoftAspNetCoreMvcProblemDetails(string type = default(string), string title = default(string), int? status = default(int?), string detail = default(string), string instance = default(string)) : base()
+        public MicrosoftAspNetCoreMvcValidationProblemDetails(Dictionary<string, List<string>> errors = default(Dictionary<string, List<string>>), string type = default(string), string title = default(string), int? status = default(int?), string detail = default(string), string instance = default(string)) : base()
         {
+            this.Errors = errors;
             this.Type = type;
             this.Title = title;
             this.Status = status;
             this.Detail = detail;
             this.Instance = instance;
         }
+
+        /// <summary>
+        /// Gets or Sets Errors
+        /// </summary>
+        [DataMember(Name = "errors", EmitDefaultValue = true)]
+        public Dictionary<string, List<string>> Errors { get; set; }
 
         /// <summary>
         /// Gets or Sets Type
@@ -85,8 +93,9 @@ namespace EdGraph.Tenant.Client.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class MicrosoftAspNetCoreMvcProblemDetails {\n");
+            sb.Append("class MicrosoftAspNetCoreMvcValidationProblemDetails {\n");
             sb.Append("  ").Append(base.ToString().Replace("\n", "\n  ")).Append("\n");
+            sb.Append("  Errors: ").Append(Errors).Append("\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("  Title: ").Append(Title).Append("\n");
             sb.Append("  Status: ").Append(Status).Append("\n");
@@ -112,21 +121,27 @@ namespace EdGraph.Tenant.Client.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as MicrosoftAspNetCoreMvcProblemDetails);
+            return this.Equals(input as MicrosoftAspNetCoreMvcValidationProblemDetails);
         }
 
         /// <summary>
-        /// Returns true if MicrosoftAspNetCoreMvcProblemDetails instances are equal
+        /// Returns true if MicrosoftAspNetCoreMvcValidationProblemDetails instances are equal
         /// </summary>
-        /// <param name="input">Instance of MicrosoftAspNetCoreMvcProblemDetails to be compared</param>
+        /// <param name="input">Instance of MicrosoftAspNetCoreMvcValidationProblemDetails to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(MicrosoftAspNetCoreMvcProblemDetails input)
+        public bool Equals(MicrosoftAspNetCoreMvcValidationProblemDetails input)
         {
             if (input == null)
             {
                 return false;
             }
             return base.Equals(input) && 
+                (
+                    this.Errors == input.Errors ||
+                    this.Errors != null &&
+                    input.Errors != null &&
+                    this.Errors.SequenceEqual(input.Errors)
+                ) && base.Equals(input) && 
                 (
                     this.Type == input.Type ||
                     (this.Type != null &&
@@ -163,6 +178,10 @@ namespace EdGraph.Tenant.Client.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = base.GetHashCode();
+                if (this.Errors != null)
+                {
+                    hashCode = (hashCode * 59) + this.Errors.GetHashCode();
+                }
                 if (this.Type != null)
                 {
                     hashCode = (hashCode * 59) + this.Type.GetHashCode();

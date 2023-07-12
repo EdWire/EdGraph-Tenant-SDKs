@@ -28,7 +28,7 @@ namespace EdGraph.Tenant.Client.Api
     {
         #region Synchronous Operations
         /// <summary>
-        /// Retrieves a specific tenant using its primary key
+        /// Retrieves the profile of a specific tenant
         /// </summary>
         /// <exception cref="EdGraph.Tenant.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tenantId"></param>
@@ -36,10 +36,10 @@ namespace EdGraph.Tenant.Client.Api
         /// <param name="xVersion"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>TenantApiTenantV1TenantProfileResponse</returns>
-        TenantApiTenantV1TenantProfileResponse GetTenantById(string tenantId, string? apiVersion = default(string?), string? xVersion = default(string?), int operationIndex = 0);
+        TenantApiTenantV1TenantProfileResponse GetTenantByIdAsync(string tenantId, string? apiVersion = default(string?), string? xVersion = default(string?), int operationIndex = 0);
 
         /// <summary>
-        /// Retrieves a specific tenant using its primary key
+        /// Retrieves the profile of a specific tenant
         /// </summary>
         /// <remarks>
         /// 
@@ -50,24 +50,12 @@ namespace EdGraph.Tenant.Client.Api
         /// <param name="xVersion"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of TenantApiTenantV1TenantProfileResponse</returns>
-        ApiResponse<TenantApiTenantV1TenantProfileResponse> GetTenantByIdWithHttpInfo(string tenantId, string? apiVersion = default(string?), string? xVersion = default(string?), int operationIndex = 0);
+        ApiResponse<TenantApiTenantV1TenantProfileResponse> GetTenantByIdAsyncWithHttpInfo(string tenantId, string? apiVersion = default(string?), string? xVersion = default(string?), int operationIndex = 0);
         /// <summary>
-        /// Update a new tenant with only new IdentityProviders
-        /// </summary>
-        /// <exception cref="EdGraph.Tenant.Client.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="tenantId"></param>
-        /// <param name="apiVersion"> (optional)</param>
-        /// <param name="xVersion"> (optional)</param>
-        /// <param name="tenantApiTenantV1UpdateTenantRequest"> (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns></returns>
-        void UpdateTenant(string tenantId, string? apiVersion = default(string?), string? xVersion = default(string?), TenantApiTenantV1UpdateTenantRequest? tenantApiTenantV1UpdateTenantRequest = default(TenantApiTenantV1UpdateTenantRequest?), int operationIndex = 0);
-
-        /// <summary>
-        /// Update a new tenant with only new IdentityProviders
+        /// Updates a tenant&#39;s profile
         /// </summary>
         /// <remarks>
-        /// 
+        /// Note: Only the tenant&#39;s Identity Providers can be updated at this time
         /// </remarks>
         /// <exception cref="EdGraph.Tenant.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tenantId"></param>
@@ -75,8 +63,23 @@ namespace EdGraph.Tenant.Client.Api
         /// <param name="xVersion"> (optional)</param>
         /// <param name="tenantApiTenantV1UpdateTenantRequest"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> UpdateTenantWithHttpInfo(string tenantId, string? apiVersion = default(string?), string? xVersion = default(string?), TenantApiTenantV1UpdateTenantRequest? tenantApiTenantV1UpdateTenantRequest = default(TenantApiTenantV1UpdateTenantRequest?), int operationIndex = 0);
+        /// <returns>TenantApiTenantV1TenantUpdatedResponse</returns>
+        TenantApiTenantV1TenantUpdatedResponse UpdateTenantAsync(string tenantId, string? apiVersion = default(string?), string? xVersion = default(string?), TenantApiTenantV1UpdateTenantRequest? tenantApiTenantV1UpdateTenantRequest = default(TenantApiTenantV1UpdateTenantRequest?), int operationIndex = 0);
+
+        /// <summary>
+        /// Updates a tenant&#39;s profile
+        /// </summary>
+        /// <remarks>
+        /// Note: Only the tenant&#39;s Identity Providers can be updated at this time
+        /// </remarks>
+        /// <exception cref="EdGraph.Tenant.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="tenantId"></param>
+        /// <param name="apiVersion"> (optional)</param>
+        /// <param name="xVersion"> (optional)</param>
+        /// <param name="tenantApiTenantV1UpdateTenantRequest"> (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of TenantApiTenantV1TenantUpdatedResponse</returns>
+        ApiResponse<TenantApiTenantV1TenantUpdatedResponse> UpdateTenantAsyncWithHttpInfo(string tenantId, string? apiVersion = default(string?), string? xVersion = default(string?), TenantApiTenantV1UpdateTenantRequest? tenantApiTenantV1UpdateTenantRequest = default(TenantApiTenantV1UpdateTenantRequest?), int operationIndex = 0);
         #endregion Synchronous Operations
     }
 
@@ -87,7 +90,7 @@ namespace EdGraph.Tenant.Client.Api
     {
         #region Asynchronous Operations
         /// <summary>
-        /// Retrieves a specific tenant using its primary key
+        /// Retrieves the profile of a specific tenant
         /// </summary>
         /// <remarks>
         /// 
@@ -99,10 +102,10 @@ namespace EdGraph.Tenant.Client.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of TenantApiTenantV1TenantProfileResponse</returns>
-        System.Threading.Tasks.Task<TenantApiTenantV1TenantProfileResponse> GetTenantByIdAsync(string tenantId, string? apiVersion = default(string?), string? xVersion = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<TenantApiTenantV1TenantProfileResponse> GetTenantByIdAsyncAsync(string tenantId, string? apiVersion = default(string?), string? xVersion = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Retrieves a specific tenant using its primary key
+        /// Retrieves the profile of a specific tenant
         /// </summary>
         /// <remarks>
         /// 
@@ -114,12 +117,12 @@ namespace EdGraph.Tenant.Client.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (TenantApiTenantV1TenantProfileResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<TenantApiTenantV1TenantProfileResponse>> GetTenantByIdWithHttpInfoAsync(string tenantId, string? apiVersion = default(string?), string? xVersion = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<TenantApiTenantV1TenantProfileResponse>> GetTenantByIdAsyncWithHttpInfoAsync(string tenantId, string? apiVersion = default(string?), string? xVersion = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Update a new tenant with only new IdentityProviders
+        /// Updates a tenant&#39;s profile
         /// </summary>
         /// <remarks>
-        /// 
+        /// Note: Only the tenant&#39;s Identity Providers can be updated at this time
         /// </remarks>
         /// <exception cref="EdGraph.Tenant.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tenantId"></param>
@@ -128,14 +131,14 @@ namespace EdGraph.Tenant.Client.Api
         /// <param name="tenantApiTenantV1UpdateTenantRequest"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task UpdateTenantAsync(string tenantId, string? apiVersion = default(string?), string? xVersion = default(string?), TenantApiTenantV1UpdateTenantRequest? tenantApiTenantV1UpdateTenantRequest = default(TenantApiTenantV1UpdateTenantRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of TenantApiTenantV1TenantUpdatedResponse</returns>
+        System.Threading.Tasks.Task<TenantApiTenantV1TenantUpdatedResponse> UpdateTenantAsyncAsync(string tenantId, string? apiVersion = default(string?), string? xVersion = default(string?), TenantApiTenantV1UpdateTenantRequest? tenantApiTenantV1UpdateTenantRequest = default(TenantApiTenantV1UpdateTenantRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Update a new tenant with only new IdentityProviders
+        /// Updates a tenant&#39;s profile
         /// </summary>
         /// <remarks>
-        /// 
+        /// Note: Only the tenant&#39;s Identity Providers can be updated at this time
         /// </remarks>
         /// <exception cref="EdGraph.Tenant.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tenantId"></param>
@@ -144,8 +147,8 @@ namespace EdGraph.Tenant.Client.Api
         /// <param name="tenantApiTenantV1UpdateTenantRequest"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> UpdateTenantWithHttpInfoAsync(string tenantId, string? apiVersion = default(string?), string? xVersion = default(string?), TenantApiTenantV1UpdateTenantRequest? tenantApiTenantV1UpdateTenantRequest = default(TenantApiTenantV1UpdateTenantRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of ApiResponse (TenantApiTenantV1TenantUpdatedResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<TenantApiTenantV1TenantUpdatedResponse>> UpdateTenantAsyncWithHttpInfoAsync(string tenantId, string? apiVersion = default(string?), string? xVersion = default(string?), TenantApiTenantV1UpdateTenantRequest? tenantApiTenantV1UpdateTenantRequest = default(TenantApiTenantV1UpdateTenantRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -267,7 +270,7 @@ namespace EdGraph.Tenant.Client.Api
         }
 
         /// <summary>
-        /// Retrieves a specific tenant using its primary key 
+        /// Retrieves the profile of a specific tenant 
         /// </summary>
         /// <exception cref="EdGraph.Tenant.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tenantId"></param>
@@ -275,14 +278,14 @@ namespace EdGraph.Tenant.Client.Api
         /// <param name="xVersion"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>TenantApiTenantV1TenantProfileResponse</returns>
-        public TenantApiTenantV1TenantProfileResponse GetTenantById(string tenantId, string? apiVersion = default(string?), string? xVersion = default(string?), int operationIndex = 0)
+        public TenantApiTenantV1TenantProfileResponse GetTenantByIdAsync(string tenantId, string? apiVersion = default(string?), string? xVersion = default(string?), int operationIndex = 0)
         {
-            EdGraph.Tenant.Client.Client.ApiResponse<TenantApiTenantV1TenantProfileResponse> localVarResponse = GetTenantByIdWithHttpInfo(tenantId, apiVersion, xVersion);
+            EdGraph.Tenant.Client.Client.ApiResponse<TenantApiTenantV1TenantProfileResponse> localVarResponse = GetTenantByIdAsyncWithHttpInfo(tenantId, apiVersion, xVersion);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Retrieves a specific tenant using its primary key 
+        /// Retrieves the profile of a specific tenant 
         /// </summary>
         /// <exception cref="EdGraph.Tenant.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tenantId"></param>
@@ -290,12 +293,12 @@ namespace EdGraph.Tenant.Client.Api
         /// <param name="xVersion"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of TenantApiTenantV1TenantProfileResponse</returns>
-        public EdGraph.Tenant.Client.Client.ApiResponse<TenantApiTenantV1TenantProfileResponse> GetTenantByIdWithHttpInfo(string tenantId, string? apiVersion = default(string?), string? xVersion = default(string?), int operationIndex = 0)
+        public EdGraph.Tenant.Client.Client.ApiResponse<TenantApiTenantV1TenantProfileResponse> GetTenantByIdAsyncWithHttpInfo(string tenantId, string? apiVersion = default(string?), string? xVersion = default(string?), int operationIndex = 0)
         {
             // verify the required parameter 'tenantId' is set
             if (tenantId == null)
             {
-                throw new EdGraph.Tenant.Client.Client.ApiException(400, "Missing required parameter 'tenantId' when calling TenantsApi->GetTenantById");
+                throw new EdGraph.Tenant.Client.Client.ApiException(400, "Missing required parameter 'tenantId' when calling TenantsApi->GetTenantByIdAsync");
             }
 
             EdGraph.Tenant.Client.Client.RequestOptions localVarRequestOptions = new EdGraph.Tenant.Client.Client.RequestOptions();
@@ -330,7 +333,7 @@ namespace EdGraph.Tenant.Client.Api
                 localVarRequestOptions.HeaderParameters.Add("X-version", EdGraph.Tenant.Client.Client.ClientUtils.ParameterToString(xVersion)); // header parameter
             }
 
-            localVarRequestOptions.Operation = "TenantsApi.GetTenantById";
+            localVarRequestOptions.Operation = "TenantsApi.GetTenantByIdAsync";
             localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (oauth2) required
@@ -354,7 +357,7 @@ namespace EdGraph.Tenant.Client.Api
             var localVarResponse = this.Client.Get<TenantApiTenantV1TenantProfileResponse>("/tenants/{tenantId}", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("GetTenantById", localVarResponse);
+                Exception _exception = this.ExceptionFactory("GetTenantByIdAsync", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
@@ -365,7 +368,7 @@ namespace EdGraph.Tenant.Client.Api
         }
 
         /// <summary>
-        /// Retrieves a specific tenant using its primary key 
+        /// Retrieves the profile of a specific tenant 
         /// </summary>
         /// <exception cref="EdGraph.Tenant.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tenantId"></param>
@@ -374,14 +377,14 @@ namespace EdGraph.Tenant.Client.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of TenantApiTenantV1TenantProfileResponse</returns>
-        public async System.Threading.Tasks.Task<TenantApiTenantV1TenantProfileResponse> GetTenantByIdAsync(string tenantId, string? apiVersion = default(string?), string? xVersion = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<TenantApiTenantV1TenantProfileResponse> GetTenantByIdAsyncAsync(string tenantId, string? apiVersion = default(string?), string? xVersion = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            EdGraph.Tenant.Client.Client.ApiResponse<TenantApiTenantV1TenantProfileResponse> localVarResponse = await GetTenantByIdWithHttpInfoAsync(tenantId, apiVersion, xVersion, operationIndex, cancellationToken).ConfigureAwait(false);
+            EdGraph.Tenant.Client.Client.ApiResponse<TenantApiTenantV1TenantProfileResponse> localVarResponse = await GetTenantByIdAsyncWithHttpInfoAsync(tenantId, apiVersion, xVersion, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Retrieves a specific tenant using its primary key 
+        /// Retrieves the profile of a specific tenant 
         /// </summary>
         /// <exception cref="EdGraph.Tenant.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tenantId"></param>
@@ -390,12 +393,12 @@ namespace EdGraph.Tenant.Client.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (TenantApiTenantV1TenantProfileResponse)</returns>
-        public async System.Threading.Tasks.Task<EdGraph.Tenant.Client.Client.ApiResponse<TenantApiTenantV1TenantProfileResponse>> GetTenantByIdWithHttpInfoAsync(string tenantId, string? apiVersion = default(string?), string? xVersion = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<EdGraph.Tenant.Client.Client.ApiResponse<TenantApiTenantV1TenantProfileResponse>> GetTenantByIdAsyncWithHttpInfoAsync(string tenantId, string? apiVersion = default(string?), string? xVersion = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'tenantId' is set
             if (tenantId == null)
             {
-                throw new EdGraph.Tenant.Client.Client.ApiException(400, "Missing required parameter 'tenantId' when calling TenantsApi->GetTenantById");
+                throw new EdGraph.Tenant.Client.Client.ApiException(400, "Missing required parameter 'tenantId' when calling TenantsApi->GetTenantByIdAsync");
             }
 
 
@@ -431,7 +434,7 @@ namespace EdGraph.Tenant.Client.Api
                 localVarRequestOptions.HeaderParameters.Add("X-version", EdGraph.Tenant.Client.Client.ClientUtils.ParameterToString(xVersion)); // header parameter
             }
 
-            localVarRequestOptions.Operation = "TenantsApi.GetTenantById";
+            localVarRequestOptions.Operation = "TenantsApi.GetTenantByIdAsync";
             localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (oauth2) required
@@ -456,7 +459,7 @@ namespace EdGraph.Tenant.Client.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("GetTenantById", localVarResponse);
+                Exception _exception = this.ExceptionFactory("GetTenantByIdAsync", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
@@ -467,7 +470,7 @@ namespace EdGraph.Tenant.Client.Api
         }
 
         /// <summary>
-        /// Update a new tenant with only new IdentityProviders 
+        /// Updates a tenant&#39;s profile Note: Only the tenant&#39;s Identity Providers can be updated at this time
         /// </summary>
         /// <exception cref="EdGraph.Tenant.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tenantId"></param>
@@ -475,14 +478,15 @@ namespace EdGraph.Tenant.Client.Api
         /// <param name="xVersion"> (optional)</param>
         /// <param name="tenantApiTenantV1UpdateTenantRequest"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns></returns>
-        public void UpdateTenant(string tenantId, string? apiVersion = default(string?), string? xVersion = default(string?), TenantApiTenantV1UpdateTenantRequest? tenantApiTenantV1UpdateTenantRequest = default(TenantApiTenantV1UpdateTenantRequest?), int operationIndex = 0)
+        /// <returns>TenantApiTenantV1TenantUpdatedResponse</returns>
+        public TenantApiTenantV1TenantUpdatedResponse UpdateTenantAsync(string tenantId, string? apiVersion = default(string?), string? xVersion = default(string?), TenantApiTenantV1UpdateTenantRequest? tenantApiTenantV1UpdateTenantRequest = default(TenantApiTenantV1UpdateTenantRequest?), int operationIndex = 0)
         {
-            UpdateTenantWithHttpInfo(tenantId, apiVersion, xVersion, tenantApiTenantV1UpdateTenantRequest);
+            EdGraph.Tenant.Client.Client.ApiResponse<TenantApiTenantV1TenantUpdatedResponse> localVarResponse = UpdateTenantAsyncWithHttpInfo(tenantId, apiVersion, xVersion, tenantApiTenantV1UpdateTenantRequest);
+            return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Update a new tenant with only new IdentityProviders 
+        /// Updates a tenant&#39;s profile Note: Only the tenant&#39;s Identity Providers can be updated at this time
         /// </summary>
         /// <exception cref="EdGraph.Tenant.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tenantId"></param>
@@ -490,13 +494,13 @@ namespace EdGraph.Tenant.Client.Api
         /// <param name="xVersion"> (optional)</param>
         /// <param name="tenantApiTenantV1UpdateTenantRequest"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of Object(void)</returns>
-        public EdGraph.Tenant.Client.Client.ApiResponse<Object> UpdateTenantWithHttpInfo(string tenantId, string? apiVersion = default(string?), string? xVersion = default(string?), TenantApiTenantV1UpdateTenantRequest? tenantApiTenantV1UpdateTenantRequest = default(TenantApiTenantV1UpdateTenantRequest?), int operationIndex = 0)
+        /// <returns>ApiResponse of TenantApiTenantV1TenantUpdatedResponse</returns>
+        public EdGraph.Tenant.Client.Client.ApiResponse<TenantApiTenantV1TenantUpdatedResponse> UpdateTenantAsyncWithHttpInfo(string tenantId, string? apiVersion = default(string?), string? xVersion = default(string?), TenantApiTenantV1UpdateTenantRequest? tenantApiTenantV1UpdateTenantRequest = default(TenantApiTenantV1UpdateTenantRequest?), int operationIndex = 0)
         {
             // verify the required parameter 'tenantId' is set
             if (tenantId == null)
             {
-                throw new EdGraph.Tenant.Client.Client.ApiException(400, "Missing required parameter 'tenantId' when calling TenantsApi->UpdateTenant");
+                throw new EdGraph.Tenant.Client.Client.ApiException(400, "Missing required parameter 'tenantId' when calling TenantsApi->UpdateTenantAsync");
             }
 
             EdGraph.Tenant.Client.Client.RequestOptions localVarRequestOptions = new EdGraph.Tenant.Client.Client.RequestOptions();
@@ -536,7 +540,7 @@ namespace EdGraph.Tenant.Client.Api
             }
             localVarRequestOptions.Data = tenantApiTenantV1UpdateTenantRequest;
 
-            localVarRequestOptions.Operation = "TenantsApi.UpdateTenant";
+            localVarRequestOptions.Operation = "TenantsApi.UpdateTenantAsync";
             localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (oauth2) required
@@ -557,10 +561,10 @@ namespace EdGraph.Tenant.Client.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Post<Object>("/tenants/{tenantId}", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Put<TenantApiTenantV1TenantUpdatedResponse>("/tenants/{tenantId}", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("UpdateTenant", localVarResponse);
+                Exception _exception = this.ExceptionFactory("UpdateTenantAsync", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
@@ -571,7 +575,7 @@ namespace EdGraph.Tenant.Client.Api
         }
 
         /// <summary>
-        /// Update a new tenant with only new IdentityProviders 
+        /// Updates a tenant&#39;s profile Note: Only the tenant&#39;s Identity Providers can be updated at this time
         /// </summary>
         /// <exception cref="EdGraph.Tenant.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tenantId"></param>
@@ -580,14 +584,15 @@ namespace EdGraph.Tenant.Client.Api
         /// <param name="tenantApiTenantV1UpdateTenantRequest"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task UpdateTenantAsync(string tenantId, string? apiVersion = default(string?), string? xVersion = default(string?), TenantApiTenantV1UpdateTenantRequest? tenantApiTenantV1UpdateTenantRequest = default(TenantApiTenantV1UpdateTenantRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of TenantApiTenantV1TenantUpdatedResponse</returns>
+        public async System.Threading.Tasks.Task<TenantApiTenantV1TenantUpdatedResponse> UpdateTenantAsyncAsync(string tenantId, string? apiVersion = default(string?), string? xVersion = default(string?), TenantApiTenantV1UpdateTenantRequest? tenantApiTenantV1UpdateTenantRequest = default(TenantApiTenantV1UpdateTenantRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            await UpdateTenantWithHttpInfoAsync(tenantId, apiVersion, xVersion, tenantApiTenantV1UpdateTenantRequest, operationIndex, cancellationToken).ConfigureAwait(false);
+            EdGraph.Tenant.Client.Client.ApiResponse<TenantApiTenantV1TenantUpdatedResponse> localVarResponse = await UpdateTenantAsyncWithHttpInfoAsync(tenantId, apiVersion, xVersion, tenantApiTenantV1UpdateTenantRequest, operationIndex, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Update a new tenant with only new IdentityProviders 
+        /// Updates a tenant&#39;s profile Note: Only the tenant&#39;s Identity Providers can be updated at this time
         /// </summary>
         /// <exception cref="EdGraph.Tenant.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tenantId"></param>
@@ -596,13 +601,13 @@ namespace EdGraph.Tenant.Client.Api
         /// <param name="tenantApiTenantV1UpdateTenantRequest"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<EdGraph.Tenant.Client.Client.ApiResponse<Object>> UpdateTenantWithHttpInfoAsync(string tenantId, string? apiVersion = default(string?), string? xVersion = default(string?), TenantApiTenantV1UpdateTenantRequest? tenantApiTenantV1UpdateTenantRequest = default(TenantApiTenantV1UpdateTenantRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of ApiResponse (TenantApiTenantV1TenantUpdatedResponse)</returns>
+        public async System.Threading.Tasks.Task<EdGraph.Tenant.Client.Client.ApiResponse<TenantApiTenantV1TenantUpdatedResponse>> UpdateTenantAsyncWithHttpInfoAsync(string tenantId, string? apiVersion = default(string?), string? xVersion = default(string?), TenantApiTenantV1UpdateTenantRequest? tenantApiTenantV1UpdateTenantRequest = default(TenantApiTenantV1UpdateTenantRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'tenantId' is set
             if (tenantId == null)
             {
-                throw new EdGraph.Tenant.Client.Client.ApiException(400, "Missing required parameter 'tenantId' when calling TenantsApi->UpdateTenant");
+                throw new EdGraph.Tenant.Client.Client.ApiException(400, "Missing required parameter 'tenantId' when calling TenantsApi->UpdateTenantAsync");
             }
 
 
@@ -643,7 +648,7 @@ namespace EdGraph.Tenant.Client.Api
             }
             localVarRequestOptions.Data = tenantApiTenantV1UpdateTenantRequest;
 
-            localVarRequestOptions.Operation = "TenantsApi.UpdateTenant";
+            localVarRequestOptions.Operation = "TenantsApi.UpdateTenantAsync";
             localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (oauth2) required
@@ -664,11 +669,11 @@ namespace EdGraph.Tenant.Client.Api
             }
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.PostAsync<Object>("/tenants/{tenantId}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.PutAsync<TenantApiTenantV1TenantUpdatedResponse>("/tenants/{tenantId}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("UpdateTenant", localVarResponse);
+                Exception _exception = this.ExceptionFactory("UpdateTenantAsync", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;

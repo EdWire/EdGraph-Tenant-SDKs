@@ -55,24 +55,24 @@ namespace EdGraph.Tenant.Client.Test.Api
         }
 
         /// <summary>
-        /// Test DeleteTenantInvitation
+        /// Test DeleteTenantInvitationAsync
         /// </summary>
         [Fact]
-        public void DeleteTenantInvitationTest()
+        public void DeleteTenantInvitationAsyncTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
             //string tenantId = null;
             //string invitationId = null;
             //string? apiVersion = null;
             //string? xVersion = null;
-            //instance.DeleteTenantInvitation(tenantId, invitationId, apiVersion, xVersion);
+            //instance.DeleteTenantInvitationAsync(tenantId, invitationId, apiVersion, xVersion);
         }
 
         /// <summary>
-        /// Test GetAllTenantInvitations
+        /// Test GetAllTenantInvitationsAsync
         /// </summary>
         [Fact]
-        public void GetAllTenantInvitationsTest()
+        public void GetAllTenantInvitationsAsyncTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
             //string tenantId = null;
@@ -82,37 +82,38 @@ namespace EdGraph.Tenant.Client.Test.Api
             //string? filter = null;
             //string? apiVersion = null;
             //string? xVersion = null;
-            //var response = instance.GetAllTenantInvitations(tenantId, pageSize, pageIndex, orderBy, filter, apiVersion, xVersion);
+            //var response = instance.GetAllTenantInvitationsAsync(tenantId, pageSize, pageIndex, orderBy, filter, apiVersion, xVersion);
             //Assert.IsType<IdentityApiInvitationV1InvitationListResponsePaginatedItemsViewModel>(response);
         }
 
         /// <summary>
-        /// Test GetTenantInvitationById
+        /// Test GetTenantInvitationByIdAsync
         /// </summary>
         [Fact]
-        public void GetTenantInvitationByIdTest()
+        public void GetTenantInvitationByIdAsyncTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
             //string tenantId = null;
             //string invitationId = null;
             //string? apiVersion = null;
             //string? xVersion = null;
-            //var response = instance.GetTenantInvitationById(tenantId, invitationId, apiVersion, xVersion);
+            //var response = instance.GetTenantInvitationByIdAsync(tenantId, invitationId, apiVersion, xVersion);
             //Assert.IsType<IdentityApiInvitationV1InvitationResponse>(response);
         }
 
         /// <summary>
-        /// Test SendTenantInvitation
+        /// Test SendTenantInvitationAsync
         /// </summary>
         [Fact]
-        public void SendTenantInvitationTest()
+        public void SendTenantInvitationAsyncTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
             //string tenantId = null;
             //string? apiVersion = null;
             //string? xVersion = null;
             //IdentityApiInvitationV1SendInvitationRequest? identityApiInvitationV1SendInvitationRequest = null;
-            //instance.SendTenantInvitation(tenantId, apiVersion, xVersion, identityApiInvitationV1SendInvitationRequest);
+            //var response = instance.SendTenantInvitationAsync(tenantId, apiVersion, xVersion, identityApiInvitationV1SendInvitationRequest);
+            //Assert.IsType<IdentityApiInvitationV1InvitationSentResponse>(response);
         }
     }
 }

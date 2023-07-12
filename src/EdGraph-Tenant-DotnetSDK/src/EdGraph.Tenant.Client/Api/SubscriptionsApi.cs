@@ -28,7 +28,7 @@ namespace EdGraph.Tenant.Client.Api
     {
         #region Synchronous Operations
         /// <summary>
-        /// Creates a new Tenant Subscription
+        /// Creates a new subscription
         /// </summary>
         /// <exception cref="EdGraph.Tenant.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tenantId"></param>
@@ -36,11 +36,11 @@ namespace EdGraph.Tenant.Client.Api
         /// <param name="xVersion"> (optional)</param>
         /// <param name="tenantApiTenantV1CreateSubscriptionRequest"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns></returns>
-        void CreateTenantSubscription(string tenantId, string? apiVersion = default(string?), string? xVersion = default(string?), TenantApiTenantV1CreateSubscriptionRequest? tenantApiTenantV1CreateSubscriptionRequest = default(TenantApiTenantV1CreateSubscriptionRequest?), int operationIndex = 0);
+        /// <returns>TenantApiTenantV1SubscriptionCreatedResponse</returns>
+        TenantApiTenantV1SubscriptionCreatedResponse CreateTenantSubscriptionAsync(string tenantId, string? apiVersion = default(string?), string? xVersion = default(string?), TenantApiTenantV1CreateSubscriptionRequest? tenantApiTenantV1CreateSubscriptionRequest = default(TenantApiTenantV1CreateSubscriptionRequest?), int operationIndex = 0);
 
         /// <summary>
-        /// Creates a new Tenant Subscription
+        /// Creates a new subscription
         /// </summary>
         /// <remarks>
         /// 
@@ -51,8 +51,8 @@ namespace EdGraph.Tenant.Client.Api
         /// <param name="xVersion"> (optional)</param>
         /// <param name="tenantApiTenantV1CreateSubscriptionRequest"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> CreateTenantSubscriptionWithHttpInfo(string tenantId, string? apiVersion = default(string?), string? xVersion = default(string?), TenantApiTenantV1CreateSubscriptionRequest? tenantApiTenantV1CreateSubscriptionRequest = default(TenantApiTenantV1CreateSubscriptionRequest?), int operationIndex = 0);
+        /// <returns>ApiResponse of TenantApiTenantV1SubscriptionCreatedResponse</returns>
+        ApiResponse<TenantApiTenantV1SubscriptionCreatedResponse> CreateTenantSubscriptionAsyncWithHttpInfo(string tenantId, string? apiVersion = default(string?), string? xVersion = default(string?), TenantApiTenantV1CreateSubscriptionRequest? tenantApiTenantV1CreateSubscriptionRequest = default(TenantApiTenantV1CreateSubscriptionRequest?), int operationIndex = 0);
         /// <summary>
         /// Retrieves a list of applications available for subscription.
         /// </summary>
@@ -84,7 +84,7 @@ namespace EdGraph.Tenant.Client.Api
         /// <returns>ApiResponse of ApplicationApiApplicationV2PaginatedItemsResponse</returns>
         ApiResponse<ApplicationApiApplicationV2PaginatedItemsResponse> GetAllTenantSubscriptionApplicationsWithHttpInfo(string tenantId, int? pageIndex = default(int?), int? pageSize = default(int?), string? orderBy = default(string?), string? apiVersion = default(string?), string? xVersion = default(string?), int operationIndex = 0);
         /// <summary>
-        /// Retrieves a list of Tenant Subscriptions
+        /// Retrieves a list of subscriptions associated to this tenant
         /// </summary>
         /// <exception cref="EdGraph.Tenant.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tenantId"></param>
@@ -96,10 +96,10 @@ namespace EdGraph.Tenant.Client.Api
         /// <param name="xVersion"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesSubscriptionListResponseDtoPaginatedItemsViewModel</returns>
-        EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesSubscriptionListResponseDtoPaginatedItemsViewModel GetAllTenantSubscriptions(string tenantId, int? pageSize = default(int?), int? pageIndex = default(int?), string? orderBy = default(string?), string? filter = default(string?), string? apiVersion = default(string?), string? xVersion = default(string?), int operationIndex = 0);
+        EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesSubscriptionListResponseDtoPaginatedItemsViewModel GetAllTenantSubscriptionsAsync(string tenantId, int? pageSize = default(int?), int? pageIndex = default(int?), string? orderBy = default(string?), string? filter = default(string?), string? apiVersion = default(string?), string? xVersion = default(string?), int operationIndex = 0);
 
         /// <summary>
-        /// Retrieves a list of Tenant Subscriptions
+        /// Retrieves a list of subscriptions associated to this tenant
         /// </summary>
         /// <remarks>
         /// 
@@ -114,9 +114,9 @@ namespace EdGraph.Tenant.Client.Api
         /// <param name="xVersion"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesSubscriptionListResponseDtoPaginatedItemsViewModel</returns>
-        ApiResponse<EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesSubscriptionListResponseDtoPaginatedItemsViewModel> GetAllTenantSubscriptionsWithHttpInfo(string tenantId, int? pageSize = default(int?), int? pageIndex = default(int?), string? orderBy = default(string?), string? filter = default(string?), string? apiVersion = default(string?), string? xVersion = default(string?), int operationIndex = 0);
+        ApiResponse<EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesSubscriptionListResponseDtoPaginatedItemsViewModel> GetAllTenantSubscriptionsAsyncWithHttpInfo(string tenantId, int? pageSize = default(int?), int? pageIndex = default(int?), string? orderBy = default(string?), string? filter = default(string?), string? apiVersion = default(string?), string? xVersion = default(string?), int operationIndex = 0);
         /// <summary>
-        /// Retrieves a specific Tenant Subscription using its primary key
+        /// Retrieves a subscription
         /// </summary>
         /// <exception cref="EdGraph.Tenant.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tenantId"></param>
@@ -125,10 +125,10 @@ namespace EdGraph.Tenant.Client.Api
         /// <param name="xVersion"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesSubscriptionProfileResponseDto</returns>
-        EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesSubscriptionProfileResponseDto GetTenantSubscriptionProfileById(string tenantId, string subscriptionId, string? apiVersion = default(string?), string? xVersion = default(string?), int operationIndex = 0);
+        EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesSubscriptionProfileResponseDto GetTenantSubscriptionProfileByIdAsync(string tenantId, string subscriptionId, string? apiVersion = default(string?), string? xVersion = default(string?), int operationIndex = 0);
 
         /// <summary>
-        /// Retrieves a specific Tenant Subscription using its primary key
+        /// Retrieves a subscription
         /// </summary>
         /// <remarks>
         /// 
@@ -140,9 +140,9 @@ namespace EdGraph.Tenant.Client.Api
         /// <param name="xVersion"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesSubscriptionProfileResponseDto</returns>
-        ApiResponse<EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesSubscriptionProfileResponseDto> GetTenantSubscriptionProfileByIdWithHttpInfo(string tenantId, string subscriptionId, string? apiVersion = default(string?), string? xVersion = default(string?), int operationIndex = 0);
+        ApiResponse<EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesSubscriptionProfileResponseDto> GetTenantSubscriptionProfileByIdAsyncWithHttpInfo(string tenantId, string subscriptionId, string? apiVersion = default(string?), string? xVersion = default(string?), int operationIndex = 0);
         /// <summary>
-        /// Updates a Tenant Subscription matching the primary key
+        /// Updates a subscription
         /// </summary>
         /// <exception cref="EdGraph.Tenant.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tenantId"></param>
@@ -151,11 +151,11 @@ namespace EdGraph.Tenant.Client.Api
         /// <param name="xVersion"> (optional)</param>
         /// <param name="tenantApiTenantV1UpdateSubscriptionRequest"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns></returns>
-        void UpdateTenantSubscription(string tenantId, string subscriptionId, string? apiVersion = default(string?), string? xVersion = default(string?), TenantApiTenantV1UpdateSubscriptionRequest? tenantApiTenantV1UpdateSubscriptionRequest = default(TenantApiTenantV1UpdateSubscriptionRequest?), int operationIndex = 0);
+        /// <returns>TenantApiTenantV1SubscriptionUpdatedResponse</returns>
+        TenantApiTenantV1SubscriptionUpdatedResponse UpdateTenantSubscriptionAsync(string tenantId, string subscriptionId, string? apiVersion = default(string?), string? xVersion = default(string?), TenantApiTenantV1UpdateSubscriptionRequest? tenantApiTenantV1UpdateSubscriptionRequest = default(TenantApiTenantV1UpdateSubscriptionRequest?), int operationIndex = 0);
 
         /// <summary>
-        /// Updates a Tenant Subscription matching the primary key
+        /// Updates a subscription
         /// </summary>
         /// <remarks>
         /// 
@@ -167,8 +167,8 @@ namespace EdGraph.Tenant.Client.Api
         /// <param name="xVersion"> (optional)</param>
         /// <param name="tenantApiTenantV1UpdateSubscriptionRequest"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> UpdateTenantSubscriptionWithHttpInfo(string tenantId, string subscriptionId, string? apiVersion = default(string?), string? xVersion = default(string?), TenantApiTenantV1UpdateSubscriptionRequest? tenantApiTenantV1UpdateSubscriptionRequest = default(TenantApiTenantV1UpdateSubscriptionRequest?), int operationIndex = 0);
+        /// <returns>ApiResponse of TenantApiTenantV1SubscriptionUpdatedResponse</returns>
+        ApiResponse<TenantApiTenantV1SubscriptionUpdatedResponse> UpdateTenantSubscriptionAsyncWithHttpInfo(string tenantId, string subscriptionId, string? apiVersion = default(string?), string? xVersion = default(string?), TenantApiTenantV1UpdateSubscriptionRequest? tenantApiTenantV1UpdateSubscriptionRequest = default(TenantApiTenantV1UpdateSubscriptionRequest?), int operationIndex = 0);
         #endregion Synchronous Operations
     }
 
@@ -179,7 +179,7 @@ namespace EdGraph.Tenant.Client.Api
     {
         #region Asynchronous Operations
         /// <summary>
-        /// Creates a new Tenant Subscription
+        /// Creates a new subscription
         /// </summary>
         /// <remarks>
         /// 
@@ -191,11 +191,11 @@ namespace EdGraph.Tenant.Client.Api
         /// <param name="tenantApiTenantV1CreateSubscriptionRequest"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task CreateTenantSubscriptionAsync(string tenantId, string? apiVersion = default(string?), string? xVersion = default(string?), TenantApiTenantV1CreateSubscriptionRequest? tenantApiTenantV1CreateSubscriptionRequest = default(TenantApiTenantV1CreateSubscriptionRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of TenantApiTenantV1SubscriptionCreatedResponse</returns>
+        System.Threading.Tasks.Task<TenantApiTenantV1SubscriptionCreatedResponse> CreateTenantSubscriptionAsyncAsync(string tenantId, string? apiVersion = default(string?), string? xVersion = default(string?), TenantApiTenantV1CreateSubscriptionRequest? tenantApiTenantV1CreateSubscriptionRequest = default(TenantApiTenantV1CreateSubscriptionRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Creates a new Tenant Subscription
+        /// Creates a new subscription
         /// </summary>
         /// <remarks>
         /// 
@@ -207,8 +207,8 @@ namespace EdGraph.Tenant.Client.Api
         /// <param name="tenantApiTenantV1CreateSubscriptionRequest"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> CreateTenantSubscriptionWithHttpInfoAsync(string tenantId, string? apiVersion = default(string?), string? xVersion = default(string?), TenantApiTenantV1CreateSubscriptionRequest? tenantApiTenantV1CreateSubscriptionRequest = default(TenantApiTenantV1CreateSubscriptionRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of ApiResponse (TenantApiTenantV1SubscriptionCreatedResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<TenantApiTenantV1SubscriptionCreatedResponse>> CreateTenantSubscriptionAsyncWithHttpInfoAsync(string tenantId, string? apiVersion = default(string?), string? xVersion = default(string?), TenantApiTenantV1CreateSubscriptionRequest? tenantApiTenantV1CreateSubscriptionRequest = default(TenantApiTenantV1CreateSubscriptionRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Retrieves a list of applications available for subscription.
         /// </summary>
@@ -245,7 +245,7 @@ namespace EdGraph.Tenant.Client.Api
         /// <returns>Task of ApiResponse (ApplicationApiApplicationV2PaginatedItemsResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<ApplicationApiApplicationV2PaginatedItemsResponse>> GetAllTenantSubscriptionApplicationsWithHttpInfoAsync(string tenantId, int? pageIndex = default(int?), int? pageSize = default(int?), string? orderBy = default(string?), string? apiVersion = default(string?), string? xVersion = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Retrieves a list of Tenant Subscriptions
+        /// Retrieves a list of subscriptions associated to this tenant
         /// </summary>
         /// <remarks>
         /// 
@@ -261,10 +261,10 @@ namespace EdGraph.Tenant.Client.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesSubscriptionListResponseDtoPaginatedItemsViewModel</returns>
-        System.Threading.Tasks.Task<EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesSubscriptionListResponseDtoPaginatedItemsViewModel> GetAllTenantSubscriptionsAsync(string tenantId, int? pageSize = default(int?), int? pageIndex = default(int?), string? orderBy = default(string?), string? filter = default(string?), string? apiVersion = default(string?), string? xVersion = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesSubscriptionListResponseDtoPaginatedItemsViewModel> GetAllTenantSubscriptionsAsyncAsync(string tenantId, int? pageSize = default(int?), int? pageIndex = default(int?), string? orderBy = default(string?), string? filter = default(string?), string? apiVersion = default(string?), string? xVersion = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Retrieves a list of Tenant Subscriptions
+        /// Retrieves a list of subscriptions associated to this tenant
         /// </summary>
         /// <remarks>
         /// 
@@ -280,9 +280,9 @@ namespace EdGraph.Tenant.Client.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesSubscriptionListResponseDtoPaginatedItemsViewModel)</returns>
-        System.Threading.Tasks.Task<ApiResponse<EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesSubscriptionListResponseDtoPaginatedItemsViewModel>> GetAllTenantSubscriptionsWithHttpInfoAsync(string tenantId, int? pageSize = default(int?), int? pageIndex = default(int?), string? orderBy = default(string?), string? filter = default(string?), string? apiVersion = default(string?), string? xVersion = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesSubscriptionListResponseDtoPaginatedItemsViewModel>> GetAllTenantSubscriptionsAsyncWithHttpInfoAsync(string tenantId, int? pageSize = default(int?), int? pageIndex = default(int?), string? orderBy = default(string?), string? filter = default(string?), string? apiVersion = default(string?), string? xVersion = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Retrieves a specific Tenant Subscription using its primary key
+        /// Retrieves a subscription
         /// </summary>
         /// <remarks>
         /// 
@@ -295,10 +295,10 @@ namespace EdGraph.Tenant.Client.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesSubscriptionProfileResponseDto</returns>
-        System.Threading.Tasks.Task<EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesSubscriptionProfileResponseDto> GetTenantSubscriptionProfileByIdAsync(string tenantId, string subscriptionId, string? apiVersion = default(string?), string? xVersion = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesSubscriptionProfileResponseDto> GetTenantSubscriptionProfileByIdAsyncAsync(string tenantId, string subscriptionId, string? apiVersion = default(string?), string? xVersion = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Retrieves a specific Tenant Subscription using its primary key
+        /// Retrieves a subscription
         /// </summary>
         /// <remarks>
         /// 
@@ -311,9 +311,9 @@ namespace EdGraph.Tenant.Client.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesSubscriptionProfileResponseDto)</returns>
-        System.Threading.Tasks.Task<ApiResponse<EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesSubscriptionProfileResponseDto>> GetTenantSubscriptionProfileByIdWithHttpInfoAsync(string tenantId, string subscriptionId, string? apiVersion = default(string?), string? xVersion = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesSubscriptionProfileResponseDto>> GetTenantSubscriptionProfileByIdAsyncWithHttpInfoAsync(string tenantId, string subscriptionId, string? apiVersion = default(string?), string? xVersion = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Updates a Tenant Subscription matching the primary key
+        /// Updates a subscription
         /// </summary>
         /// <remarks>
         /// 
@@ -326,11 +326,11 @@ namespace EdGraph.Tenant.Client.Api
         /// <param name="tenantApiTenantV1UpdateSubscriptionRequest"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task UpdateTenantSubscriptionAsync(string tenantId, string subscriptionId, string? apiVersion = default(string?), string? xVersion = default(string?), TenantApiTenantV1UpdateSubscriptionRequest? tenantApiTenantV1UpdateSubscriptionRequest = default(TenantApiTenantV1UpdateSubscriptionRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of TenantApiTenantV1SubscriptionUpdatedResponse</returns>
+        System.Threading.Tasks.Task<TenantApiTenantV1SubscriptionUpdatedResponse> UpdateTenantSubscriptionAsyncAsync(string tenantId, string subscriptionId, string? apiVersion = default(string?), string? xVersion = default(string?), TenantApiTenantV1UpdateSubscriptionRequest? tenantApiTenantV1UpdateSubscriptionRequest = default(TenantApiTenantV1UpdateSubscriptionRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Updates a Tenant Subscription matching the primary key
+        /// Updates a subscription
         /// </summary>
         /// <remarks>
         /// 
@@ -343,8 +343,8 @@ namespace EdGraph.Tenant.Client.Api
         /// <param name="tenantApiTenantV1UpdateSubscriptionRequest"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> UpdateTenantSubscriptionWithHttpInfoAsync(string tenantId, string subscriptionId, string? apiVersion = default(string?), string? xVersion = default(string?), TenantApiTenantV1UpdateSubscriptionRequest? tenantApiTenantV1UpdateSubscriptionRequest = default(TenantApiTenantV1UpdateSubscriptionRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of ApiResponse (TenantApiTenantV1SubscriptionUpdatedResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<TenantApiTenantV1SubscriptionUpdatedResponse>> UpdateTenantSubscriptionAsyncWithHttpInfoAsync(string tenantId, string subscriptionId, string? apiVersion = default(string?), string? xVersion = default(string?), TenantApiTenantV1UpdateSubscriptionRequest? tenantApiTenantV1UpdateSubscriptionRequest = default(TenantApiTenantV1UpdateSubscriptionRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -466,7 +466,7 @@ namespace EdGraph.Tenant.Client.Api
         }
 
         /// <summary>
-        /// Creates a new Tenant Subscription 
+        /// Creates a new subscription 
         /// </summary>
         /// <exception cref="EdGraph.Tenant.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tenantId"></param>
@@ -474,14 +474,15 @@ namespace EdGraph.Tenant.Client.Api
         /// <param name="xVersion"> (optional)</param>
         /// <param name="tenantApiTenantV1CreateSubscriptionRequest"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns></returns>
-        public void CreateTenantSubscription(string tenantId, string? apiVersion = default(string?), string? xVersion = default(string?), TenantApiTenantV1CreateSubscriptionRequest? tenantApiTenantV1CreateSubscriptionRequest = default(TenantApiTenantV1CreateSubscriptionRequest?), int operationIndex = 0)
+        /// <returns>TenantApiTenantV1SubscriptionCreatedResponse</returns>
+        public TenantApiTenantV1SubscriptionCreatedResponse CreateTenantSubscriptionAsync(string tenantId, string? apiVersion = default(string?), string? xVersion = default(string?), TenantApiTenantV1CreateSubscriptionRequest? tenantApiTenantV1CreateSubscriptionRequest = default(TenantApiTenantV1CreateSubscriptionRequest?), int operationIndex = 0)
         {
-            CreateTenantSubscriptionWithHttpInfo(tenantId, apiVersion, xVersion, tenantApiTenantV1CreateSubscriptionRequest);
+            EdGraph.Tenant.Client.Client.ApiResponse<TenantApiTenantV1SubscriptionCreatedResponse> localVarResponse = CreateTenantSubscriptionAsyncWithHttpInfo(tenantId, apiVersion, xVersion, tenantApiTenantV1CreateSubscriptionRequest);
+            return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Creates a new Tenant Subscription 
+        /// Creates a new subscription 
         /// </summary>
         /// <exception cref="EdGraph.Tenant.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tenantId"></param>
@@ -489,13 +490,13 @@ namespace EdGraph.Tenant.Client.Api
         /// <param name="xVersion"> (optional)</param>
         /// <param name="tenantApiTenantV1CreateSubscriptionRequest"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of Object(void)</returns>
-        public EdGraph.Tenant.Client.Client.ApiResponse<Object> CreateTenantSubscriptionWithHttpInfo(string tenantId, string? apiVersion = default(string?), string? xVersion = default(string?), TenantApiTenantV1CreateSubscriptionRequest? tenantApiTenantV1CreateSubscriptionRequest = default(TenantApiTenantV1CreateSubscriptionRequest?), int operationIndex = 0)
+        /// <returns>ApiResponse of TenantApiTenantV1SubscriptionCreatedResponse</returns>
+        public EdGraph.Tenant.Client.Client.ApiResponse<TenantApiTenantV1SubscriptionCreatedResponse> CreateTenantSubscriptionAsyncWithHttpInfo(string tenantId, string? apiVersion = default(string?), string? xVersion = default(string?), TenantApiTenantV1CreateSubscriptionRequest? tenantApiTenantV1CreateSubscriptionRequest = default(TenantApiTenantV1CreateSubscriptionRequest?), int operationIndex = 0)
         {
             // verify the required parameter 'tenantId' is set
             if (tenantId == null)
             {
-                throw new EdGraph.Tenant.Client.Client.ApiException(400, "Missing required parameter 'tenantId' when calling SubscriptionsApi->CreateTenantSubscription");
+                throw new EdGraph.Tenant.Client.Client.ApiException(400, "Missing required parameter 'tenantId' when calling SubscriptionsApi->CreateTenantSubscriptionAsync");
             }
 
             EdGraph.Tenant.Client.Client.RequestOptions localVarRequestOptions = new EdGraph.Tenant.Client.Client.RequestOptions();
@@ -535,7 +536,7 @@ namespace EdGraph.Tenant.Client.Api
             }
             localVarRequestOptions.Data = tenantApiTenantV1CreateSubscriptionRequest;
 
-            localVarRequestOptions.Operation = "SubscriptionsApi.CreateTenantSubscription";
+            localVarRequestOptions.Operation = "SubscriptionsApi.CreateTenantSubscriptionAsync";
             localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (oauth2) required
@@ -556,10 +557,10 @@ namespace EdGraph.Tenant.Client.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Post<Object>("/tenants/{tenantId}/subscriptions/create", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Post<TenantApiTenantV1SubscriptionCreatedResponse>("/tenants/{tenantId}/subscriptions", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("CreateTenantSubscription", localVarResponse);
+                Exception _exception = this.ExceptionFactory("CreateTenantSubscriptionAsync", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
@@ -570,7 +571,7 @@ namespace EdGraph.Tenant.Client.Api
         }
 
         /// <summary>
-        /// Creates a new Tenant Subscription 
+        /// Creates a new subscription 
         /// </summary>
         /// <exception cref="EdGraph.Tenant.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tenantId"></param>
@@ -579,14 +580,15 @@ namespace EdGraph.Tenant.Client.Api
         /// <param name="tenantApiTenantV1CreateSubscriptionRequest"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task CreateTenantSubscriptionAsync(string tenantId, string? apiVersion = default(string?), string? xVersion = default(string?), TenantApiTenantV1CreateSubscriptionRequest? tenantApiTenantV1CreateSubscriptionRequest = default(TenantApiTenantV1CreateSubscriptionRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of TenantApiTenantV1SubscriptionCreatedResponse</returns>
+        public async System.Threading.Tasks.Task<TenantApiTenantV1SubscriptionCreatedResponse> CreateTenantSubscriptionAsyncAsync(string tenantId, string? apiVersion = default(string?), string? xVersion = default(string?), TenantApiTenantV1CreateSubscriptionRequest? tenantApiTenantV1CreateSubscriptionRequest = default(TenantApiTenantV1CreateSubscriptionRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            await CreateTenantSubscriptionWithHttpInfoAsync(tenantId, apiVersion, xVersion, tenantApiTenantV1CreateSubscriptionRequest, operationIndex, cancellationToken).ConfigureAwait(false);
+            EdGraph.Tenant.Client.Client.ApiResponse<TenantApiTenantV1SubscriptionCreatedResponse> localVarResponse = await CreateTenantSubscriptionAsyncWithHttpInfoAsync(tenantId, apiVersion, xVersion, tenantApiTenantV1CreateSubscriptionRequest, operationIndex, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Creates a new Tenant Subscription 
+        /// Creates a new subscription 
         /// </summary>
         /// <exception cref="EdGraph.Tenant.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tenantId"></param>
@@ -595,13 +597,13 @@ namespace EdGraph.Tenant.Client.Api
         /// <param name="tenantApiTenantV1CreateSubscriptionRequest"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<EdGraph.Tenant.Client.Client.ApiResponse<Object>> CreateTenantSubscriptionWithHttpInfoAsync(string tenantId, string? apiVersion = default(string?), string? xVersion = default(string?), TenantApiTenantV1CreateSubscriptionRequest? tenantApiTenantV1CreateSubscriptionRequest = default(TenantApiTenantV1CreateSubscriptionRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of ApiResponse (TenantApiTenantV1SubscriptionCreatedResponse)</returns>
+        public async System.Threading.Tasks.Task<EdGraph.Tenant.Client.Client.ApiResponse<TenantApiTenantV1SubscriptionCreatedResponse>> CreateTenantSubscriptionAsyncWithHttpInfoAsync(string tenantId, string? apiVersion = default(string?), string? xVersion = default(string?), TenantApiTenantV1CreateSubscriptionRequest? tenantApiTenantV1CreateSubscriptionRequest = default(TenantApiTenantV1CreateSubscriptionRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'tenantId' is set
             if (tenantId == null)
             {
-                throw new EdGraph.Tenant.Client.Client.ApiException(400, "Missing required parameter 'tenantId' when calling SubscriptionsApi->CreateTenantSubscription");
+                throw new EdGraph.Tenant.Client.Client.ApiException(400, "Missing required parameter 'tenantId' when calling SubscriptionsApi->CreateTenantSubscriptionAsync");
             }
 
 
@@ -642,7 +644,7 @@ namespace EdGraph.Tenant.Client.Api
             }
             localVarRequestOptions.Data = tenantApiTenantV1CreateSubscriptionRequest;
 
-            localVarRequestOptions.Operation = "SubscriptionsApi.CreateTenantSubscription";
+            localVarRequestOptions.Operation = "SubscriptionsApi.CreateTenantSubscriptionAsync";
             localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (oauth2) required
@@ -663,11 +665,11 @@ namespace EdGraph.Tenant.Client.Api
             }
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.PostAsync<Object>("/tenants/{tenantId}/subscriptions/create", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.PostAsync<TenantApiTenantV1SubscriptionCreatedResponse>("/tenants/{tenantId}/subscriptions", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("CreateTenantSubscription", localVarResponse);
+                Exception _exception = this.ExceptionFactory("CreateTenantSubscriptionAsync", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
@@ -914,7 +916,7 @@ namespace EdGraph.Tenant.Client.Api
         }
 
         /// <summary>
-        /// Retrieves a list of Tenant Subscriptions 
+        /// Retrieves a list of subscriptions associated to this tenant 
         /// </summary>
         /// <exception cref="EdGraph.Tenant.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tenantId"></param>
@@ -926,14 +928,14 @@ namespace EdGraph.Tenant.Client.Api
         /// <param name="xVersion"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesSubscriptionListResponseDtoPaginatedItemsViewModel</returns>
-        public EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesSubscriptionListResponseDtoPaginatedItemsViewModel GetAllTenantSubscriptions(string tenantId, int? pageSize = default(int?), int? pageIndex = default(int?), string? orderBy = default(string?), string? filter = default(string?), string? apiVersion = default(string?), string? xVersion = default(string?), int operationIndex = 0)
+        public EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesSubscriptionListResponseDtoPaginatedItemsViewModel GetAllTenantSubscriptionsAsync(string tenantId, int? pageSize = default(int?), int? pageIndex = default(int?), string? orderBy = default(string?), string? filter = default(string?), string? apiVersion = default(string?), string? xVersion = default(string?), int operationIndex = 0)
         {
-            EdGraph.Tenant.Client.Client.ApiResponse<EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesSubscriptionListResponseDtoPaginatedItemsViewModel> localVarResponse = GetAllTenantSubscriptionsWithHttpInfo(tenantId, pageSize, pageIndex, orderBy, filter, apiVersion, xVersion);
+            EdGraph.Tenant.Client.Client.ApiResponse<EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesSubscriptionListResponseDtoPaginatedItemsViewModel> localVarResponse = GetAllTenantSubscriptionsAsyncWithHttpInfo(tenantId, pageSize, pageIndex, orderBy, filter, apiVersion, xVersion);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Retrieves a list of Tenant Subscriptions 
+        /// Retrieves a list of subscriptions associated to this tenant 
         /// </summary>
         /// <exception cref="EdGraph.Tenant.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tenantId"></param>
@@ -945,12 +947,12 @@ namespace EdGraph.Tenant.Client.Api
         /// <param name="xVersion"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesSubscriptionListResponseDtoPaginatedItemsViewModel</returns>
-        public EdGraph.Tenant.Client.Client.ApiResponse<EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesSubscriptionListResponseDtoPaginatedItemsViewModel> GetAllTenantSubscriptionsWithHttpInfo(string tenantId, int? pageSize = default(int?), int? pageIndex = default(int?), string? orderBy = default(string?), string? filter = default(string?), string? apiVersion = default(string?), string? xVersion = default(string?), int operationIndex = 0)
+        public EdGraph.Tenant.Client.Client.ApiResponse<EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesSubscriptionListResponseDtoPaginatedItemsViewModel> GetAllTenantSubscriptionsAsyncWithHttpInfo(string tenantId, int? pageSize = default(int?), int? pageIndex = default(int?), string? orderBy = default(string?), string? filter = default(string?), string? apiVersion = default(string?), string? xVersion = default(string?), int operationIndex = 0)
         {
             // verify the required parameter 'tenantId' is set
             if (tenantId == null)
             {
-                throw new EdGraph.Tenant.Client.Client.ApiException(400, "Missing required parameter 'tenantId' when calling SubscriptionsApi->GetAllTenantSubscriptions");
+                throw new EdGraph.Tenant.Client.Client.ApiException(400, "Missing required parameter 'tenantId' when calling SubscriptionsApi->GetAllTenantSubscriptionsAsync");
             }
 
             EdGraph.Tenant.Client.Client.RequestOptions localVarRequestOptions = new EdGraph.Tenant.Client.Client.RequestOptions();
@@ -1001,7 +1003,7 @@ namespace EdGraph.Tenant.Client.Api
                 localVarRequestOptions.HeaderParameters.Add("X-version", EdGraph.Tenant.Client.Client.ClientUtils.ParameterToString(xVersion)); // header parameter
             }
 
-            localVarRequestOptions.Operation = "SubscriptionsApi.GetAllTenantSubscriptions";
+            localVarRequestOptions.Operation = "SubscriptionsApi.GetAllTenantSubscriptionsAsync";
             localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (oauth2) required
@@ -1025,7 +1027,7 @@ namespace EdGraph.Tenant.Client.Api
             var localVarResponse = this.Client.Get<EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesSubscriptionListResponseDtoPaginatedItemsViewModel>("/tenants/{tenantId}/subscriptions", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("GetAllTenantSubscriptions", localVarResponse);
+                Exception _exception = this.ExceptionFactory("GetAllTenantSubscriptionsAsync", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
@@ -1036,7 +1038,7 @@ namespace EdGraph.Tenant.Client.Api
         }
 
         /// <summary>
-        /// Retrieves a list of Tenant Subscriptions 
+        /// Retrieves a list of subscriptions associated to this tenant 
         /// </summary>
         /// <exception cref="EdGraph.Tenant.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tenantId"></param>
@@ -1049,14 +1051,14 @@ namespace EdGraph.Tenant.Client.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesSubscriptionListResponseDtoPaginatedItemsViewModel</returns>
-        public async System.Threading.Tasks.Task<EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesSubscriptionListResponseDtoPaginatedItemsViewModel> GetAllTenantSubscriptionsAsync(string tenantId, int? pageSize = default(int?), int? pageIndex = default(int?), string? orderBy = default(string?), string? filter = default(string?), string? apiVersion = default(string?), string? xVersion = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesSubscriptionListResponseDtoPaginatedItemsViewModel> GetAllTenantSubscriptionsAsyncAsync(string tenantId, int? pageSize = default(int?), int? pageIndex = default(int?), string? orderBy = default(string?), string? filter = default(string?), string? apiVersion = default(string?), string? xVersion = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            EdGraph.Tenant.Client.Client.ApiResponse<EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesSubscriptionListResponseDtoPaginatedItemsViewModel> localVarResponse = await GetAllTenantSubscriptionsWithHttpInfoAsync(tenantId, pageSize, pageIndex, orderBy, filter, apiVersion, xVersion, operationIndex, cancellationToken).ConfigureAwait(false);
+            EdGraph.Tenant.Client.Client.ApiResponse<EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesSubscriptionListResponseDtoPaginatedItemsViewModel> localVarResponse = await GetAllTenantSubscriptionsAsyncWithHttpInfoAsync(tenantId, pageSize, pageIndex, orderBy, filter, apiVersion, xVersion, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Retrieves a list of Tenant Subscriptions 
+        /// Retrieves a list of subscriptions associated to this tenant 
         /// </summary>
         /// <exception cref="EdGraph.Tenant.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tenantId"></param>
@@ -1069,12 +1071,12 @@ namespace EdGraph.Tenant.Client.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesSubscriptionListResponseDtoPaginatedItemsViewModel)</returns>
-        public async System.Threading.Tasks.Task<EdGraph.Tenant.Client.Client.ApiResponse<EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesSubscriptionListResponseDtoPaginatedItemsViewModel>> GetAllTenantSubscriptionsWithHttpInfoAsync(string tenantId, int? pageSize = default(int?), int? pageIndex = default(int?), string? orderBy = default(string?), string? filter = default(string?), string? apiVersion = default(string?), string? xVersion = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<EdGraph.Tenant.Client.Client.ApiResponse<EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesSubscriptionListResponseDtoPaginatedItemsViewModel>> GetAllTenantSubscriptionsAsyncWithHttpInfoAsync(string tenantId, int? pageSize = default(int?), int? pageIndex = default(int?), string? orderBy = default(string?), string? filter = default(string?), string? apiVersion = default(string?), string? xVersion = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'tenantId' is set
             if (tenantId == null)
             {
-                throw new EdGraph.Tenant.Client.Client.ApiException(400, "Missing required parameter 'tenantId' when calling SubscriptionsApi->GetAllTenantSubscriptions");
+                throw new EdGraph.Tenant.Client.Client.ApiException(400, "Missing required parameter 'tenantId' when calling SubscriptionsApi->GetAllTenantSubscriptionsAsync");
             }
 
 
@@ -1126,7 +1128,7 @@ namespace EdGraph.Tenant.Client.Api
                 localVarRequestOptions.HeaderParameters.Add("X-version", EdGraph.Tenant.Client.Client.ClientUtils.ParameterToString(xVersion)); // header parameter
             }
 
-            localVarRequestOptions.Operation = "SubscriptionsApi.GetAllTenantSubscriptions";
+            localVarRequestOptions.Operation = "SubscriptionsApi.GetAllTenantSubscriptionsAsync";
             localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (oauth2) required
@@ -1151,7 +1153,7 @@ namespace EdGraph.Tenant.Client.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("GetAllTenantSubscriptions", localVarResponse);
+                Exception _exception = this.ExceptionFactory("GetAllTenantSubscriptionsAsync", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
@@ -1162,7 +1164,7 @@ namespace EdGraph.Tenant.Client.Api
         }
 
         /// <summary>
-        /// Retrieves a specific Tenant Subscription using its primary key 
+        /// Retrieves a subscription 
         /// </summary>
         /// <exception cref="EdGraph.Tenant.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tenantId"></param>
@@ -1171,14 +1173,14 @@ namespace EdGraph.Tenant.Client.Api
         /// <param name="xVersion"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesSubscriptionProfileResponseDto</returns>
-        public EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesSubscriptionProfileResponseDto GetTenantSubscriptionProfileById(string tenantId, string subscriptionId, string? apiVersion = default(string?), string? xVersion = default(string?), int operationIndex = 0)
+        public EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesSubscriptionProfileResponseDto GetTenantSubscriptionProfileByIdAsync(string tenantId, string subscriptionId, string? apiVersion = default(string?), string? xVersion = default(string?), int operationIndex = 0)
         {
-            EdGraph.Tenant.Client.Client.ApiResponse<EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesSubscriptionProfileResponseDto> localVarResponse = GetTenantSubscriptionProfileByIdWithHttpInfo(tenantId, subscriptionId, apiVersion, xVersion);
+            EdGraph.Tenant.Client.Client.ApiResponse<EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesSubscriptionProfileResponseDto> localVarResponse = GetTenantSubscriptionProfileByIdAsyncWithHttpInfo(tenantId, subscriptionId, apiVersion, xVersion);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Retrieves a specific Tenant Subscription using its primary key 
+        /// Retrieves a subscription 
         /// </summary>
         /// <exception cref="EdGraph.Tenant.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tenantId"></param>
@@ -1187,18 +1189,18 @@ namespace EdGraph.Tenant.Client.Api
         /// <param name="xVersion"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesSubscriptionProfileResponseDto</returns>
-        public EdGraph.Tenant.Client.Client.ApiResponse<EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesSubscriptionProfileResponseDto> GetTenantSubscriptionProfileByIdWithHttpInfo(string tenantId, string subscriptionId, string? apiVersion = default(string?), string? xVersion = default(string?), int operationIndex = 0)
+        public EdGraph.Tenant.Client.Client.ApiResponse<EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesSubscriptionProfileResponseDto> GetTenantSubscriptionProfileByIdAsyncWithHttpInfo(string tenantId, string subscriptionId, string? apiVersion = default(string?), string? xVersion = default(string?), int operationIndex = 0)
         {
             // verify the required parameter 'tenantId' is set
             if (tenantId == null)
             {
-                throw new EdGraph.Tenant.Client.Client.ApiException(400, "Missing required parameter 'tenantId' when calling SubscriptionsApi->GetTenantSubscriptionProfileById");
+                throw new EdGraph.Tenant.Client.Client.ApiException(400, "Missing required parameter 'tenantId' when calling SubscriptionsApi->GetTenantSubscriptionProfileByIdAsync");
             }
 
             // verify the required parameter 'subscriptionId' is set
             if (subscriptionId == null)
             {
-                throw new EdGraph.Tenant.Client.Client.ApiException(400, "Missing required parameter 'subscriptionId' when calling SubscriptionsApi->GetTenantSubscriptionProfileById");
+                throw new EdGraph.Tenant.Client.Client.ApiException(400, "Missing required parameter 'subscriptionId' when calling SubscriptionsApi->GetTenantSubscriptionProfileByIdAsync");
             }
 
             EdGraph.Tenant.Client.Client.RequestOptions localVarRequestOptions = new EdGraph.Tenant.Client.Client.RequestOptions();
@@ -1234,7 +1236,7 @@ namespace EdGraph.Tenant.Client.Api
                 localVarRequestOptions.HeaderParameters.Add("X-version", EdGraph.Tenant.Client.Client.ClientUtils.ParameterToString(xVersion)); // header parameter
             }
 
-            localVarRequestOptions.Operation = "SubscriptionsApi.GetTenantSubscriptionProfileById";
+            localVarRequestOptions.Operation = "SubscriptionsApi.GetTenantSubscriptionProfileByIdAsync";
             localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (oauth2) required
@@ -1258,7 +1260,7 @@ namespace EdGraph.Tenant.Client.Api
             var localVarResponse = this.Client.Get<EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesSubscriptionProfileResponseDto>("/tenants/{tenantId}/subscriptions/{subscriptionId}", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("GetTenantSubscriptionProfileById", localVarResponse);
+                Exception _exception = this.ExceptionFactory("GetTenantSubscriptionProfileByIdAsync", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
@@ -1269,7 +1271,7 @@ namespace EdGraph.Tenant.Client.Api
         }
 
         /// <summary>
-        /// Retrieves a specific Tenant Subscription using its primary key 
+        /// Retrieves a subscription 
         /// </summary>
         /// <exception cref="EdGraph.Tenant.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tenantId"></param>
@@ -1279,14 +1281,14 @@ namespace EdGraph.Tenant.Client.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesSubscriptionProfileResponseDto</returns>
-        public async System.Threading.Tasks.Task<EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesSubscriptionProfileResponseDto> GetTenantSubscriptionProfileByIdAsync(string tenantId, string subscriptionId, string? apiVersion = default(string?), string? xVersion = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesSubscriptionProfileResponseDto> GetTenantSubscriptionProfileByIdAsyncAsync(string tenantId, string subscriptionId, string? apiVersion = default(string?), string? xVersion = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            EdGraph.Tenant.Client.Client.ApiResponse<EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesSubscriptionProfileResponseDto> localVarResponse = await GetTenantSubscriptionProfileByIdWithHttpInfoAsync(tenantId, subscriptionId, apiVersion, xVersion, operationIndex, cancellationToken).ConfigureAwait(false);
+            EdGraph.Tenant.Client.Client.ApiResponse<EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesSubscriptionProfileResponseDto> localVarResponse = await GetTenantSubscriptionProfileByIdAsyncWithHttpInfoAsync(tenantId, subscriptionId, apiVersion, xVersion, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Retrieves a specific Tenant Subscription using its primary key 
+        /// Retrieves a subscription 
         /// </summary>
         /// <exception cref="EdGraph.Tenant.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tenantId"></param>
@@ -1296,18 +1298,18 @@ namespace EdGraph.Tenant.Client.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesSubscriptionProfileResponseDto)</returns>
-        public async System.Threading.Tasks.Task<EdGraph.Tenant.Client.Client.ApiResponse<EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesSubscriptionProfileResponseDto>> GetTenantSubscriptionProfileByIdWithHttpInfoAsync(string tenantId, string subscriptionId, string? apiVersion = default(string?), string? xVersion = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<EdGraph.Tenant.Client.Client.ApiResponse<EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesSubscriptionProfileResponseDto>> GetTenantSubscriptionProfileByIdAsyncWithHttpInfoAsync(string tenantId, string subscriptionId, string? apiVersion = default(string?), string? xVersion = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'tenantId' is set
             if (tenantId == null)
             {
-                throw new EdGraph.Tenant.Client.Client.ApiException(400, "Missing required parameter 'tenantId' when calling SubscriptionsApi->GetTenantSubscriptionProfileById");
+                throw new EdGraph.Tenant.Client.Client.ApiException(400, "Missing required parameter 'tenantId' when calling SubscriptionsApi->GetTenantSubscriptionProfileByIdAsync");
             }
 
             // verify the required parameter 'subscriptionId' is set
             if (subscriptionId == null)
             {
-                throw new EdGraph.Tenant.Client.Client.ApiException(400, "Missing required parameter 'subscriptionId' when calling SubscriptionsApi->GetTenantSubscriptionProfileById");
+                throw new EdGraph.Tenant.Client.Client.ApiException(400, "Missing required parameter 'subscriptionId' when calling SubscriptionsApi->GetTenantSubscriptionProfileByIdAsync");
             }
 
 
@@ -1344,7 +1346,7 @@ namespace EdGraph.Tenant.Client.Api
                 localVarRequestOptions.HeaderParameters.Add("X-version", EdGraph.Tenant.Client.Client.ClientUtils.ParameterToString(xVersion)); // header parameter
             }
 
-            localVarRequestOptions.Operation = "SubscriptionsApi.GetTenantSubscriptionProfileById";
+            localVarRequestOptions.Operation = "SubscriptionsApi.GetTenantSubscriptionProfileByIdAsync";
             localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (oauth2) required
@@ -1369,7 +1371,7 @@ namespace EdGraph.Tenant.Client.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("GetTenantSubscriptionProfileById", localVarResponse);
+                Exception _exception = this.ExceptionFactory("GetTenantSubscriptionProfileByIdAsync", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
@@ -1380,7 +1382,7 @@ namespace EdGraph.Tenant.Client.Api
         }
 
         /// <summary>
-        /// Updates a Tenant Subscription matching the primary key 
+        /// Updates a subscription 
         /// </summary>
         /// <exception cref="EdGraph.Tenant.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tenantId"></param>
@@ -1389,14 +1391,15 @@ namespace EdGraph.Tenant.Client.Api
         /// <param name="xVersion"> (optional)</param>
         /// <param name="tenantApiTenantV1UpdateSubscriptionRequest"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns></returns>
-        public void UpdateTenantSubscription(string tenantId, string subscriptionId, string? apiVersion = default(string?), string? xVersion = default(string?), TenantApiTenantV1UpdateSubscriptionRequest? tenantApiTenantV1UpdateSubscriptionRequest = default(TenantApiTenantV1UpdateSubscriptionRequest?), int operationIndex = 0)
+        /// <returns>TenantApiTenantV1SubscriptionUpdatedResponse</returns>
+        public TenantApiTenantV1SubscriptionUpdatedResponse UpdateTenantSubscriptionAsync(string tenantId, string subscriptionId, string? apiVersion = default(string?), string? xVersion = default(string?), TenantApiTenantV1UpdateSubscriptionRequest? tenantApiTenantV1UpdateSubscriptionRequest = default(TenantApiTenantV1UpdateSubscriptionRequest?), int operationIndex = 0)
         {
-            UpdateTenantSubscriptionWithHttpInfo(tenantId, subscriptionId, apiVersion, xVersion, tenantApiTenantV1UpdateSubscriptionRequest);
+            EdGraph.Tenant.Client.Client.ApiResponse<TenantApiTenantV1SubscriptionUpdatedResponse> localVarResponse = UpdateTenantSubscriptionAsyncWithHttpInfo(tenantId, subscriptionId, apiVersion, xVersion, tenantApiTenantV1UpdateSubscriptionRequest);
+            return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Updates a Tenant Subscription matching the primary key 
+        /// Updates a subscription 
         /// </summary>
         /// <exception cref="EdGraph.Tenant.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tenantId"></param>
@@ -1405,19 +1408,19 @@ namespace EdGraph.Tenant.Client.Api
         /// <param name="xVersion"> (optional)</param>
         /// <param name="tenantApiTenantV1UpdateSubscriptionRequest"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of Object(void)</returns>
-        public EdGraph.Tenant.Client.Client.ApiResponse<Object> UpdateTenantSubscriptionWithHttpInfo(string tenantId, string subscriptionId, string? apiVersion = default(string?), string? xVersion = default(string?), TenantApiTenantV1UpdateSubscriptionRequest? tenantApiTenantV1UpdateSubscriptionRequest = default(TenantApiTenantV1UpdateSubscriptionRequest?), int operationIndex = 0)
+        /// <returns>ApiResponse of TenantApiTenantV1SubscriptionUpdatedResponse</returns>
+        public EdGraph.Tenant.Client.Client.ApiResponse<TenantApiTenantV1SubscriptionUpdatedResponse> UpdateTenantSubscriptionAsyncWithHttpInfo(string tenantId, string subscriptionId, string? apiVersion = default(string?), string? xVersion = default(string?), TenantApiTenantV1UpdateSubscriptionRequest? tenantApiTenantV1UpdateSubscriptionRequest = default(TenantApiTenantV1UpdateSubscriptionRequest?), int operationIndex = 0)
         {
             // verify the required parameter 'tenantId' is set
             if (tenantId == null)
             {
-                throw new EdGraph.Tenant.Client.Client.ApiException(400, "Missing required parameter 'tenantId' when calling SubscriptionsApi->UpdateTenantSubscription");
+                throw new EdGraph.Tenant.Client.Client.ApiException(400, "Missing required parameter 'tenantId' when calling SubscriptionsApi->UpdateTenantSubscriptionAsync");
             }
 
             // verify the required parameter 'subscriptionId' is set
             if (subscriptionId == null)
             {
-                throw new EdGraph.Tenant.Client.Client.ApiException(400, "Missing required parameter 'subscriptionId' when calling SubscriptionsApi->UpdateTenantSubscription");
+                throw new EdGraph.Tenant.Client.Client.ApiException(400, "Missing required parameter 'subscriptionId' when calling SubscriptionsApi->UpdateTenantSubscriptionAsync");
             }
 
             EdGraph.Tenant.Client.Client.RequestOptions localVarRequestOptions = new EdGraph.Tenant.Client.Client.RequestOptions();
@@ -1458,7 +1461,7 @@ namespace EdGraph.Tenant.Client.Api
             }
             localVarRequestOptions.Data = tenantApiTenantV1UpdateSubscriptionRequest;
 
-            localVarRequestOptions.Operation = "SubscriptionsApi.UpdateTenantSubscription";
+            localVarRequestOptions.Operation = "SubscriptionsApi.UpdateTenantSubscriptionAsync";
             localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (oauth2) required
@@ -1479,10 +1482,10 @@ namespace EdGraph.Tenant.Client.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Post<Object>("/tenants/{tenantId}/subscriptions/{subscriptionId}/update", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Put<TenantApiTenantV1SubscriptionUpdatedResponse>("/tenants/{tenantId}/subscriptions/{subscriptionId}", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("UpdateTenantSubscription", localVarResponse);
+                Exception _exception = this.ExceptionFactory("UpdateTenantSubscriptionAsync", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
@@ -1493,7 +1496,7 @@ namespace EdGraph.Tenant.Client.Api
         }
 
         /// <summary>
-        /// Updates a Tenant Subscription matching the primary key 
+        /// Updates a subscription 
         /// </summary>
         /// <exception cref="EdGraph.Tenant.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tenantId"></param>
@@ -1503,14 +1506,15 @@ namespace EdGraph.Tenant.Client.Api
         /// <param name="tenantApiTenantV1UpdateSubscriptionRequest"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task UpdateTenantSubscriptionAsync(string tenantId, string subscriptionId, string? apiVersion = default(string?), string? xVersion = default(string?), TenantApiTenantV1UpdateSubscriptionRequest? tenantApiTenantV1UpdateSubscriptionRequest = default(TenantApiTenantV1UpdateSubscriptionRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of TenantApiTenantV1SubscriptionUpdatedResponse</returns>
+        public async System.Threading.Tasks.Task<TenantApiTenantV1SubscriptionUpdatedResponse> UpdateTenantSubscriptionAsyncAsync(string tenantId, string subscriptionId, string? apiVersion = default(string?), string? xVersion = default(string?), TenantApiTenantV1UpdateSubscriptionRequest? tenantApiTenantV1UpdateSubscriptionRequest = default(TenantApiTenantV1UpdateSubscriptionRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            await UpdateTenantSubscriptionWithHttpInfoAsync(tenantId, subscriptionId, apiVersion, xVersion, tenantApiTenantV1UpdateSubscriptionRequest, operationIndex, cancellationToken).ConfigureAwait(false);
+            EdGraph.Tenant.Client.Client.ApiResponse<TenantApiTenantV1SubscriptionUpdatedResponse> localVarResponse = await UpdateTenantSubscriptionAsyncWithHttpInfoAsync(tenantId, subscriptionId, apiVersion, xVersion, tenantApiTenantV1UpdateSubscriptionRequest, operationIndex, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Updates a Tenant Subscription matching the primary key 
+        /// Updates a subscription 
         /// </summary>
         /// <exception cref="EdGraph.Tenant.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tenantId"></param>
@@ -1520,19 +1524,19 @@ namespace EdGraph.Tenant.Client.Api
         /// <param name="tenantApiTenantV1UpdateSubscriptionRequest"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<EdGraph.Tenant.Client.Client.ApiResponse<Object>> UpdateTenantSubscriptionWithHttpInfoAsync(string tenantId, string subscriptionId, string? apiVersion = default(string?), string? xVersion = default(string?), TenantApiTenantV1UpdateSubscriptionRequest? tenantApiTenantV1UpdateSubscriptionRequest = default(TenantApiTenantV1UpdateSubscriptionRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of ApiResponse (TenantApiTenantV1SubscriptionUpdatedResponse)</returns>
+        public async System.Threading.Tasks.Task<EdGraph.Tenant.Client.Client.ApiResponse<TenantApiTenantV1SubscriptionUpdatedResponse>> UpdateTenantSubscriptionAsyncWithHttpInfoAsync(string tenantId, string subscriptionId, string? apiVersion = default(string?), string? xVersion = default(string?), TenantApiTenantV1UpdateSubscriptionRequest? tenantApiTenantV1UpdateSubscriptionRequest = default(TenantApiTenantV1UpdateSubscriptionRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'tenantId' is set
             if (tenantId == null)
             {
-                throw new EdGraph.Tenant.Client.Client.ApiException(400, "Missing required parameter 'tenantId' when calling SubscriptionsApi->UpdateTenantSubscription");
+                throw new EdGraph.Tenant.Client.Client.ApiException(400, "Missing required parameter 'tenantId' when calling SubscriptionsApi->UpdateTenantSubscriptionAsync");
             }
 
             // verify the required parameter 'subscriptionId' is set
             if (subscriptionId == null)
             {
-                throw new EdGraph.Tenant.Client.Client.ApiException(400, "Missing required parameter 'subscriptionId' when calling SubscriptionsApi->UpdateTenantSubscription");
+                throw new EdGraph.Tenant.Client.Client.ApiException(400, "Missing required parameter 'subscriptionId' when calling SubscriptionsApi->UpdateTenantSubscriptionAsync");
             }
 
 
@@ -1574,7 +1578,7 @@ namespace EdGraph.Tenant.Client.Api
             }
             localVarRequestOptions.Data = tenantApiTenantV1UpdateSubscriptionRequest;
 
-            localVarRequestOptions.Operation = "SubscriptionsApi.UpdateTenantSubscription";
+            localVarRequestOptions.Operation = "SubscriptionsApi.UpdateTenantSubscriptionAsync";
             localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (oauth2) required
@@ -1595,11 +1599,11 @@ namespace EdGraph.Tenant.Client.Api
             }
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.PostAsync<Object>("/tenants/{tenantId}/subscriptions/{subscriptionId}/update", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.PutAsync<TenantApiTenantV1SubscriptionUpdatedResponse>("/tenants/{tenantId}/subscriptions/{subscriptionId}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("UpdateTenantSubscription", localVarResponse);
+                Exception _exception = this.ExceptionFactory("UpdateTenantSubscriptionAsync", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;

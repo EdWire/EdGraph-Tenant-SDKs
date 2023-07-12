@@ -1,21 +1,21 @@
-# EdGraph.Tenant.Client.Api.IdentityAPIClientsApi
+# EdGraph.Tenant.Client.Api.APIClientsApi
 
 All URIs are relative to *https://api.edgraph.com/tenant*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
-| [**CreateTenantApiClient**](IdentityAPIClientsApi.md#createtenantapiclient) | **POST** /tenants/{tenantId}/identity/apiclients | Creates a new tenant OpenId api client |
-| [**DeleteTenantApiClient**](IdentityAPIClientsApi.md#deletetenantapiclient) | **DELETE** /tenants/{tenantId}/identity/apiclients/{clientId} | Delete a tenant&#39;s OpenId api client matching the primary key |
-| [**GetAllTenantApiClients**](IdentityAPIClientsApi.md#getalltenantapiclients) | **GET** /tenants/{tenantId}/identity/apiclients | Retrieves  a list of OpenId api clients associated to this tenant |
-| [**GetTenantApiClientProfileById**](IdentityAPIClientsApi.md#gettenantapiclientprofilebyid) | **GET** /tenants/{tenantId}/identity/apiclients/{clientId} | Retrieves the OpenId api client associated to this tenant |
-| [**RegenerateTenantApiClientSecret**](IdentityAPIClientsApi.md#regeneratetenantapiclientsecret) | **POST** /tenants/{tenantId}/identity/apiclients/{clientId}/regeneratesecret | Creates a tenant&#39;s OpenId client secret matching the primary key |
-| [**UpdateTenantApiClient**](IdentityAPIClientsApi.md#updatetenantapiclient) | **PUT** /tenants/{tenantId}/identity/apiclients/{clientId} | Updates a tenant&#39;s OpenId api client matching the primary key |
+| [**CreateTenantApiClientAsync**](APIClientsApi.md#createtenantapiclientasync) | **POST** /tenants/{tenantId}/apiclients | Creates a new OpenId API Client |
+| [**DeleteTenantApiClientAsync**](APIClientsApi.md#deletetenantapiclientasync) | **DELETE** /tenants/{tenantId}/apiclients/{clientId} | Deletes an OpenId API Client |
+| [**GetAllTenantApiClientsAsync**](APIClientsApi.md#getalltenantapiclientsasync) | **GET** /tenants/{tenantId}/apiclients | Retrieves a list of OpenId API Clients associated to this tenant |
+| [**GetTenantApiClientByIdAsync**](APIClientsApi.md#gettenantapiclientbyidasync) | **GET** /tenants/{tenantId}/apiclients/{clientId} | Retrieves an OpenId API Client |
+| [**RegenerateTenantApiClientSecretAsync**](APIClientsApi.md#regeneratetenantapiclientsecretasync) | **PUT** /tenants/{tenantId}/apiclients/{clientId}/regeneratesecret | Regenerates an OpenId API Client&#39;s secret |
+| [**UpdateTenantApiClientAsync**](APIClientsApi.md#updatetenantapiclientasync) | **PUT** /tenants/{tenantId}/apiclients/{clientId} | Updates an OpenId API Client |
 
-<a id="createtenantapiclient"></a>
-# **CreateTenantApiClient**
-> void CreateTenantApiClient (string tenantId, string? apiVersion = null, string? xVersion = null, IdentityApiApiClientV1CreateApiClientRequest? identityApiApiClientV1CreateApiClientRequest = null)
+<a id="createtenantapiclientasync"></a>
+# **CreateTenantApiClientAsync**
+> IdentityApiApiClientV1ApiClientCreatedResponse CreateTenantApiClientAsync (string tenantId, string? apiVersion = null, string? xVersion = null, IdentityApiApiClientV1CreateApiClientRequest? identityApiApiClientV1CreateApiClientRequest = null)
 
-Creates a new tenant OpenId api client
+Creates a new OpenId API Client
 
 ### Example
 ```csharp
@@ -27,7 +27,7 @@ using EdGraph.Tenant.Client.Model;
 
 namespace Example
 {
-    public class CreateTenantApiClientExample
+    public class CreateTenantApiClientAsyncExample
     {
         public static void Main()
         {
@@ -36,7 +36,7 @@ namespace Example
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
-            var apiInstance = new IdentityAPIClientsApi(config);
+            var apiInstance = new APIClientsApi(config);
             var tenantId = "tenantId_example";  // string | 
             var apiVersion = "apiVersion_example";  // string? |  (optional) 
             var xVersion = "xVersion_example";  // string? |  (optional) 
@@ -44,12 +44,13 @@ namespace Example
 
             try
             {
-                // Creates a new tenant OpenId api client
-                apiInstance.CreateTenantApiClient(tenantId, apiVersion, xVersion, identityApiApiClientV1CreateApiClientRequest);
+                // Creates a new OpenId API Client
+                IdentityApiApiClientV1ApiClientCreatedResponse result = apiInstance.CreateTenantApiClientAsync(tenantId, apiVersion, xVersion, identityApiApiClientV1CreateApiClientRequest);
+                Debug.WriteLine(result);
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling IdentityAPIClientsApi.CreateTenantApiClient: " + e.Message);
+                Debug.Print("Exception when calling APIClientsApi.CreateTenantApiClientAsync: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -58,18 +59,21 @@ namespace Example
 }
 ```
 
-#### Using the CreateTenantApiClientWithHttpInfo variant
+#### Using the CreateTenantApiClientAsyncWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
 ```csharp
 try
 {
-    // Creates a new tenant OpenId api client
-    apiInstance.CreateTenantApiClientWithHttpInfo(tenantId, apiVersion, xVersion, identityApiApiClientV1CreateApiClientRequest);
+    // Creates a new OpenId API Client
+    ApiResponse<IdentityApiApiClientV1ApiClientCreatedResponse> response = apiInstance.CreateTenantApiClientAsyncWithHttpInfo(tenantId, apiVersion, xVersion, identityApiApiClientV1CreateApiClientRequest);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling IdentityAPIClientsApi.CreateTenantApiClientWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling APIClientsApi.CreateTenantApiClientAsyncWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -86,7 +90,7 @@ catch (ApiException e)
 
 ### Return type
 
-void (empty response body)
+[**IdentityApiApiClientV1ApiClientCreatedResponse**](IdentityApiApiClientV1ApiClientCreatedResponse.md)
 
 ### Authorization
 
@@ -101,18 +105,19 @@ void (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **202** | Tenant&#39;s OpenId client created |  -  |
-| **400** | Tenant&#39;s OpenId client has missing/invalid values |  -  |
-| **403** | Missing the required permissions to access to this tenant/resource |  -  |
-| **500** | Oops! Can&#39;t create your tenant&#39;s OpenId client right now |  -  |
+| **401** | Unauthorized. The request requires authentication. The OAuth bearer token was either not provided or is invalid. The operation may succeed once authentication has been successfully completed. |  -  |
+| **403** | Forbidden. The request cannot be completed in the current authorization context. Contact your administrator if you believe this operation should be allowed. |  -  |
+| **500** | An unhandled error occurred on the server.See the response body for details. |  -  |
+| **201** | The resource was created. The location of the resource is available in the Location header of the response. |  -  |
+| **400** | Bad Request. The request was invalid and cannot be completed. See the response body for specific validation errors. This will typically be an issue with the query parameters or the request body values. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a id="deletetenantapiclient"></a>
-# **DeleteTenantApiClient**
-> void DeleteTenantApiClient (string tenantId, string clientId, string? apiVersion = null, string? xVersion = null)
+<a id="deletetenantapiclientasync"></a>
+# **DeleteTenantApiClientAsync**
+> void DeleteTenantApiClientAsync (string tenantId, string clientId, string? apiVersion = null, string? xVersion = null)
 
-Delete a tenant's OpenId api client matching the primary key
+Deletes an OpenId API Client
 
 ### Example
 ```csharp
@@ -124,7 +129,7 @@ using EdGraph.Tenant.Client.Model;
 
 namespace Example
 {
-    public class DeleteTenantApiClientExample
+    public class DeleteTenantApiClientAsyncExample
     {
         public static void Main()
         {
@@ -133,7 +138,7 @@ namespace Example
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
-            var apiInstance = new IdentityAPIClientsApi(config);
+            var apiInstance = new APIClientsApi(config);
             var tenantId = "tenantId_example";  // string | 
             var clientId = "clientId_example";  // string | 
             var apiVersion = "apiVersion_example";  // string? |  (optional) 
@@ -141,12 +146,12 @@ namespace Example
 
             try
             {
-                // Delete a tenant's OpenId api client matching the primary key
-                apiInstance.DeleteTenantApiClient(tenantId, clientId, apiVersion, xVersion);
+                // Deletes an OpenId API Client
+                apiInstance.DeleteTenantApiClientAsync(tenantId, clientId, apiVersion, xVersion);
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling IdentityAPIClientsApi.DeleteTenantApiClient: " + e.Message);
+                Debug.Print("Exception when calling APIClientsApi.DeleteTenantApiClientAsync: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -155,18 +160,18 @@ namespace Example
 }
 ```
 
-#### Using the DeleteTenantApiClientWithHttpInfo variant
+#### Using the DeleteTenantApiClientAsyncWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
 ```csharp
 try
 {
-    // Delete a tenant's OpenId api client matching the primary key
-    apiInstance.DeleteTenantApiClientWithHttpInfo(tenantId, clientId, apiVersion, xVersion);
+    // Deletes an OpenId API Client
+    apiInstance.DeleteTenantApiClientAsyncWithHttpInfo(tenantId, clientId, apiVersion, xVersion);
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling IdentityAPIClientsApi.DeleteTenantApiClientWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling APIClientsApi.DeleteTenantApiClientAsyncWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -198,18 +203,19 @@ void (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **202** | Tenant&#39;s OpenId client deleted |  -  |
-| **400** | Tenant&#39;s OpenId client has missing/invalid values |  -  |
-| **403** | Missing the required permissions to access to this tenant/resource |  -  |
-| **500** | Oops! Can&#39;t delete your tenant&#39;s OpenId client right now |  -  |
+| **401** | Unauthorized. The request requires authentication. The OAuth bearer token was either not provided or is invalid. The operation may succeed once authentication has been successfully completed. |  -  |
+| **403** | Forbidden. The request cannot be completed in the current authorization context. Contact your administrator if you believe this operation should be allowed. |  -  |
+| **500** | An unhandled error occurred on the server.See the response body for details. |  -  |
+| **204** | The resource was successfully deleted. |  -  |
+| **400** | Bad Request. The request was invalid and cannot be completed. See the response body for specific validation errors. This will typically be an issue with the query parameters or the request body values. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a id="getalltenantapiclients"></a>
-# **GetAllTenantApiClients**
-> IdentityApiApiClientV1ApiClientPaginatedItemsResponsePaginatedItemsViewModel GetAllTenantApiClients (string tenantId, int? pageSize = null, int? pageIndex = null, string? orderBy = null, string? filter = null, string? apiVersion = null, string? xVersion = null)
+<a id="getalltenantapiclientsasync"></a>
+# **GetAllTenantApiClientsAsync**
+> IdentityApiApiClientV1ApiClientPaginatedItemsResponsePaginatedItemsViewModel GetAllTenantApiClientsAsync (string tenantId, int? pageSize = null, int? pageIndex = null, string? orderBy = null, string? filter = null, string? apiVersion = null, string? xVersion = null)
 
-Retrieves  a list of OpenId api clients associated to this tenant
+Retrieves a list of OpenId API Clients associated to this tenant
 
 ### Example
 ```csharp
@@ -221,7 +227,7 @@ using EdGraph.Tenant.Client.Model;
 
 namespace Example
 {
-    public class GetAllTenantApiClientsExample
+    public class GetAllTenantApiClientsAsyncExample
     {
         public static void Main()
         {
@@ -230,7 +236,7 @@ namespace Example
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
-            var apiInstance = new IdentityAPIClientsApi(config);
+            var apiInstance = new APIClientsApi(config);
             var tenantId = "tenantId_example";  // string | 
             var pageSize = 10;  // int? |  (optional)  (default to 10)
             var pageIndex = 0;  // int? |  (optional)  (default to 0)
@@ -241,13 +247,13 @@ namespace Example
 
             try
             {
-                // Retrieves  a list of OpenId api clients associated to this tenant
-                IdentityApiApiClientV1ApiClientPaginatedItemsResponsePaginatedItemsViewModel result = apiInstance.GetAllTenantApiClients(tenantId, pageSize, pageIndex, orderBy, filter, apiVersion, xVersion);
+                // Retrieves a list of OpenId API Clients associated to this tenant
+                IdentityApiApiClientV1ApiClientPaginatedItemsResponsePaginatedItemsViewModel result = apiInstance.GetAllTenantApiClientsAsync(tenantId, pageSize, pageIndex, orderBy, filter, apiVersion, xVersion);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling IdentityAPIClientsApi.GetAllTenantApiClients: " + e.Message);
+                Debug.Print("Exception when calling APIClientsApi.GetAllTenantApiClientsAsync: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -256,21 +262,21 @@ namespace Example
 }
 ```
 
-#### Using the GetAllTenantApiClientsWithHttpInfo variant
+#### Using the GetAllTenantApiClientsAsyncWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
 ```csharp
 try
 {
-    // Retrieves  a list of OpenId api clients associated to this tenant
-    ApiResponse<IdentityApiApiClientV1ApiClientPaginatedItemsResponsePaginatedItemsViewModel> response = apiInstance.GetAllTenantApiClientsWithHttpInfo(tenantId, pageSize, pageIndex, orderBy, filter, apiVersion, xVersion);
+    // Retrieves a list of OpenId API Clients associated to this tenant
+    ApiResponse<IdentityApiApiClientV1ApiClientPaginatedItemsResponsePaginatedItemsViewModel> response = apiInstance.GetAllTenantApiClientsAsyncWithHttpInfo(tenantId, pageSize, pageIndex, orderBy, filter, apiVersion, xVersion);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling IdentityAPIClientsApi.GetAllTenantApiClientsWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling APIClientsApi.GetAllTenantApiClientsAsyncWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -305,19 +311,19 @@ catch (ApiException e)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | List of tenant OpenId api client returned |  -  |
-| **404** | Not Found |  -  |
-| **400** | Tenant has missing/invalid values |  -  |
-| **403** | Missing the required permissions to access to this tenant/resource |  -  |
-| **500** | Oops! Can&#39;t retrieve your list of tenant application&#39;s OpenId api client right now |  -  |
+| **401** | Unauthorized. The request requires authentication. The OAuth bearer token was either not provided or is invalid. The operation may succeed once authentication has been successfully completed. |  -  |
+| **403** | Forbidden. The request cannot be completed in the current authorization context. Contact your administrator if you believe this operation should be allowed. |  -  |
+| **500** | An unhandled error occurred on the server.See the response body for details. |  -  |
+| **200** | The requested resource was successfully retrieved. |  -  |
+| **400** | Bad Request. The request was invalid and cannot be completed. See the response body for specific validation errors. This will typically be an issue with the query parameters or the request body values. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a id="gettenantapiclientprofilebyid"></a>
-# **GetTenantApiClientProfileById**
-> IdentityApiApiClientV1ApiClientProfileResponse GetTenantApiClientProfileById (string tenantId, string clientId, string? apiVersion = null, string? xVersion = null)
+<a id="gettenantapiclientbyidasync"></a>
+# **GetTenantApiClientByIdAsync**
+> IdentityApiApiClientV1ApiClientProfileResponse GetTenantApiClientByIdAsync (string tenantId, string clientId, string? apiVersion = null, string? xVersion = null)
 
-Retrieves the OpenId api client associated to this tenant
+Retrieves an OpenId API Client
 
 ### Example
 ```csharp
@@ -329,7 +335,7 @@ using EdGraph.Tenant.Client.Model;
 
 namespace Example
 {
-    public class GetTenantApiClientProfileByIdExample
+    public class GetTenantApiClientByIdAsyncExample
     {
         public static void Main()
         {
@@ -338,7 +344,7 @@ namespace Example
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
-            var apiInstance = new IdentityAPIClientsApi(config);
+            var apiInstance = new APIClientsApi(config);
             var tenantId = "tenantId_example";  // string | 
             var clientId = "clientId_example";  // string | 
             var apiVersion = "apiVersion_example";  // string? |  (optional) 
@@ -346,13 +352,13 @@ namespace Example
 
             try
             {
-                // Retrieves the OpenId api client associated to this tenant
-                IdentityApiApiClientV1ApiClientProfileResponse result = apiInstance.GetTenantApiClientProfileById(tenantId, clientId, apiVersion, xVersion);
+                // Retrieves an OpenId API Client
+                IdentityApiApiClientV1ApiClientProfileResponse result = apiInstance.GetTenantApiClientByIdAsync(tenantId, clientId, apiVersion, xVersion);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling IdentityAPIClientsApi.GetTenantApiClientProfileById: " + e.Message);
+                Debug.Print("Exception when calling APIClientsApi.GetTenantApiClientByIdAsync: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -361,21 +367,21 @@ namespace Example
 }
 ```
 
-#### Using the GetTenantApiClientProfileByIdWithHttpInfo variant
+#### Using the GetTenantApiClientByIdAsyncWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
 ```csharp
 try
 {
-    // Retrieves the OpenId api client associated to this tenant
-    ApiResponse<IdentityApiApiClientV1ApiClientProfileResponse> response = apiInstance.GetTenantApiClientProfileByIdWithHttpInfo(tenantId, clientId, apiVersion, xVersion);
+    // Retrieves an OpenId API Client
+    ApiResponse<IdentityApiApiClientV1ApiClientProfileResponse> response = apiInstance.GetTenantApiClientByIdAsyncWithHttpInfo(tenantId, clientId, apiVersion, xVersion);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling IdentityAPIClientsApi.GetTenantApiClientProfileByIdWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling APIClientsApi.GetTenantApiClientByIdAsyncWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -407,19 +413,20 @@ catch (ApiException e)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Tenant OpenId api client returned |  -  |
-| **404** | Tenant OpenId api client not found |  -  |
-| **400** | Tenant has missing/invalid values |  -  |
-| **403** | Missing the required permissions to access to this tenant/resource |  -  |
-| **500** | Oops! Can&#39;t retrieve your tenant application&#39;s OpenId api client right now |  -  |
+| **401** | Unauthorized. The request requires authentication. The OAuth bearer token was either not provided or is invalid. The operation may succeed once authentication has been successfully completed. |  -  |
+| **403** | Forbidden. The request cannot be completed in the current authorization context. Contact your administrator if you believe this operation should be allowed. |  -  |
+| **500** | An unhandled error occurred on the server.See the response body for details. |  -  |
+| **200** | The requested resource was successfully retrieved. |  -  |
+| **400** | Bad Request. The request was invalid and cannot be completed. See the response body for specific validation errors. This will typically be an issue with the query parameters or the request body values. |  -  |
+| **404** | The resource could not be found. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a id="regeneratetenantapiclientsecret"></a>
-# **RegenerateTenantApiClientSecret**
-> void RegenerateTenantApiClientSecret (string tenantId, string clientId, string? apiVersion = null, string? xVersion = null, IdentityApiApiClientV1RegenerateApiClientSecretRequest? identityApiApiClientV1RegenerateApiClientSecretRequest = null)
+<a id="regeneratetenantapiclientsecretasync"></a>
+# **RegenerateTenantApiClientSecretAsync**
+> IdentityApiApiClientV1ApiClientSecretRegeneratedResponse RegenerateTenantApiClientSecretAsync (string tenantId, string clientId, string? apiVersion = null, string? xVersion = null, IdentityApiApiClientV1RegenerateApiClientSecretRequest? identityApiApiClientV1RegenerateApiClientSecretRequest = null)
 
-Creates a tenant's OpenId client secret matching the primary key
+Regenerates an OpenId API Client's secret
 
 ### Example
 ```csharp
@@ -431,7 +438,7 @@ using EdGraph.Tenant.Client.Model;
 
 namespace Example
 {
-    public class RegenerateTenantApiClientSecretExample
+    public class RegenerateTenantApiClientSecretAsyncExample
     {
         public static void Main()
         {
@@ -440,7 +447,7 @@ namespace Example
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
-            var apiInstance = new IdentityAPIClientsApi(config);
+            var apiInstance = new APIClientsApi(config);
             var tenantId = "tenantId_example";  // string | 
             var clientId = "clientId_example";  // string | 
             var apiVersion = "apiVersion_example";  // string? |  (optional) 
@@ -449,12 +456,13 @@ namespace Example
 
             try
             {
-                // Creates a tenant's OpenId client secret matching the primary key
-                apiInstance.RegenerateTenantApiClientSecret(tenantId, clientId, apiVersion, xVersion, identityApiApiClientV1RegenerateApiClientSecretRequest);
+                // Regenerates an OpenId API Client's secret
+                IdentityApiApiClientV1ApiClientSecretRegeneratedResponse result = apiInstance.RegenerateTenantApiClientSecretAsync(tenantId, clientId, apiVersion, xVersion, identityApiApiClientV1RegenerateApiClientSecretRequest);
+                Debug.WriteLine(result);
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling IdentityAPIClientsApi.RegenerateTenantApiClientSecret: " + e.Message);
+                Debug.Print("Exception when calling APIClientsApi.RegenerateTenantApiClientSecretAsync: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -463,18 +471,21 @@ namespace Example
 }
 ```
 
-#### Using the RegenerateTenantApiClientSecretWithHttpInfo variant
+#### Using the RegenerateTenantApiClientSecretAsyncWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
 ```csharp
 try
 {
-    // Creates a tenant's OpenId client secret matching the primary key
-    apiInstance.RegenerateTenantApiClientSecretWithHttpInfo(tenantId, clientId, apiVersion, xVersion, identityApiApiClientV1RegenerateApiClientSecretRequest);
+    // Regenerates an OpenId API Client's secret
+    ApiResponse<IdentityApiApiClientV1ApiClientSecretRegeneratedResponse> response = apiInstance.RegenerateTenantApiClientSecretAsyncWithHttpInfo(tenantId, clientId, apiVersion, xVersion, identityApiApiClientV1RegenerateApiClientSecretRequest);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling IdentityAPIClientsApi.RegenerateTenantApiClientSecretWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling APIClientsApi.RegenerateTenantApiClientSecretAsyncWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -492,7 +503,7 @@ catch (ApiException e)
 
 ### Return type
 
-void (empty response body)
+[**IdentityApiApiClientV1ApiClientSecretRegeneratedResponse**](IdentityApiApiClientV1ApiClientSecretRegeneratedResponse.md)
 
 ### Authorization
 
@@ -507,18 +518,19 @@ void (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **202** | Tenant&#39;s OpenId client secret created/updated |  -  |
-| **400** | Tenant&#39;s OpenId client secret has missing/invalid values |  -  |
-| **403** | Missing the required permissions to access to this tenant/resource |  -  |
-| **500** | Oops! Can&#39;t create/update your tenant&#39;s OpenId client secret right now |  -  |
+| **401** | Unauthorized. The request requires authentication. The OAuth bearer token was either not provided or is invalid. The operation may succeed once authentication has been successfully completed. |  -  |
+| **403** | Forbidden. The request cannot be completed in the current authorization context. Contact your administrator if you believe this operation should be allowed. |  -  |
+| **500** | An unhandled error occurred on the server.See the response body for details. |  -  |
+| **200** | The requested resource was successfully retrieved. |  -  |
+| **400** | Bad Request. The request was invalid and cannot be completed. See the response body for specific validation errors. This will typically be an issue with the query parameters or the request body values. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a id="updatetenantapiclient"></a>
-# **UpdateTenantApiClient**
-> void UpdateTenantApiClient (string tenantId, string clientId, string? apiVersion = null, string? xVersion = null, IdentityApiApiClientV1UpdateApiClientRequest? identityApiApiClientV1UpdateApiClientRequest = null)
+<a id="updatetenantapiclientasync"></a>
+# **UpdateTenantApiClientAsync**
+> IdentityApiApiClientV1ApiClientUpdatedResponse UpdateTenantApiClientAsync (string tenantId, string clientId, string? apiVersion = null, string? xVersion = null, IdentityApiApiClientV1UpdateApiClientRequest? identityApiApiClientV1UpdateApiClientRequest = null)
 
-Updates a tenant's OpenId api client matching the primary key
+Updates an OpenId API Client
 
 ### Example
 ```csharp
@@ -530,7 +542,7 @@ using EdGraph.Tenant.Client.Model;
 
 namespace Example
 {
-    public class UpdateTenantApiClientExample
+    public class UpdateTenantApiClientAsyncExample
     {
         public static void Main()
         {
@@ -539,7 +551,7 @@ namespace Example
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
-            var apiInstance = new IdentityAPIClientsApi(config);
+            var apiInstance = new APIClientsApi(config);
             var tenantId = "tenantId_example";  // string | 
             var clientId = "clientId_example";  // string | 
             var apiVersion = "apiVersion_example";  // string? |  (optional) 
@@ -548,12 +560,13 @@ namespace Example
 
             try
             {
-                // Updates a tenant's OpenId api client matching the primary key
-                apiInstance.UpdateTenantApiClient(tenantId, clientId, apiVersion, xVersion, identityApiApiClientV1UpdateApiClientRequest);
+                // Updates an OpenId API Client
+                IdentityApiApiClientV1ApiClientUpdatedResponse result = apiInstance.UpdateTenantApiClientAsync(tenantId, clientId, apiVersion, xVersion, identityApiApiClientV1UpdateApiClientRequest);
+                Debug.WriteLine(result);
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling IdentityAPIClientsApi.UpdateTenantApiClient: " + e.Message);
+                Debug.Print("Exception when calling APIClientsApi.UpdateTenantApiClientAsync: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -562,18 +575,21 @@ namespace Example
 }
 ```
 
-#### Using the UpdateTenantApiClientWithHttpInfo variant
+#### Using the UpdateTenantApiClientAsyncWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
 ```csharp
 try
 {
-    // Updates a tenant's OpenId api client matching the primary key
-    apiInstance.UpdateTenantApiClientWithHttpInfo(tenantId, clientId, apiVersion, xVersion, identityApiApiClientV1UpdateApiClientRequest);
+    // Updates an OpenId API Client
+    ApiResponse<IdentityApiApiClientV1ApiClientUpdatedResponse> response = apiInstance.UpdateTenantApiClientAsyncWithHttpInfo(tenantId, clientId, apiVersion, xVersion, identityApiApiClientV1UpdateApiClientRequest);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling IdentityAPIClientsApi.UpdateTenantApiClientWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling APIClientsApi.UpdateTenantApiClientAsyncWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -591,7 +607,7 @@ catch (ApiException e)
 
 ### Return type
 
-void (empty response body)
+[**IdentityApiApiClientV1ApiClientUpdatedResponse**](IdentityApiApiClientV1ApiClientUpdatedResponse.md)
 
 ### Authorization
 
@@ -606,10 +622,11 @@ void (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **202** | Tenant&#39;s OpenId client created/updated |  -  |
-| **400** | Tenant&#39;s OpenId client has missing/invalid values |  -  |
-| **403** | Missing the required permissions to access to this tenant/resource |  -  |
-| **500** | Oops! Can&#39;t create/update your tenant&#39;s OpenId client right now |  -  |
+| **401** | Unauthorized. The request requires authentication. The OAuth bearer token was either not provided or is invalid. The operation may succeed once authentication has been successfully completed. |  -  |
+| **403** | Forbidden. The request cannot be completed in the current authorization context. Contact your administrator if you believe this operation should be allowed. |  -  |
+| **500** | An unhandled error occurred on the server.See the response body for details. |  -  |
+| **200** | The requested resource was successfully retrieved. |  -  |
+| **400** | Bad Request. The request was invalid and cannot be completed. See the response body for specific validation errors. This will typically be an issue with the query parameters or the request body values. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

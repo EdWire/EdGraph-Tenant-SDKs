@@ -183,6 +183,22 @@ namespace EdGraph.Tenant.Client.Test.Model
         {
             // TODO unit test for the property 'IdentityProviders'
         }
+        /// <summary>
+        /// Test the property 'Onboarding'
+        /// </summary>
+        [Fact]
+        public void OnboardingTest()
+        {
+            // TODO unit test for the property 'Onboarding'
+        }
+        /// <summary>
+        /// Test the property 'Organizations'
+        /// </summary>
+        [Fact]
+        public void OrganizationsTest()
+        {
+            // TODO unit test for the property 'Organizations'
+        }
 
     }
 

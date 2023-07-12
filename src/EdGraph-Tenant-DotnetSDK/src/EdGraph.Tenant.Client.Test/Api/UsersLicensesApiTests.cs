@@ -55,10 +55,10 @@ namespace EdGraph.Tenant.Client.Test.Api
         }
 
         /// <summary>
-        /// Test AssignLicenseTenantUser
+        /// Test AssignLicenseTenantUserAsync
         /// </summary>
         [Fact]
-        public void AssignLicenseTenantUserTest()
+        public void AssignLicenseTenantUserAsyncTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
             //string tenantId = null;
@@ -66,14 +66,15 @@ namespace EdGraph.Tenant.Client.Test.Api
             //string? apiVersion = null;
             //string? xVersion = null;
             //IdentityApiUserV1AssignLicenseRequest? identityApiUserV1AssignLicenseRequest = null;
-            //instance.AssignLicenseTenantUser(tenantId, userId, apiVersion, xVersion, identityApiUserV1AssignLicenseRequest);
+            //var response = instance.AssignLicenseTenantUserAsync(tenantId, userId, apiVersion, xVersion, identityApiUserV1AssignLicenseRequest);
+            //Assert.IsType<IdentityApiUserV1LicenseAssignedResponse>(response);
         }
 
         /// <summary>
-        /// Test AssignLicenseTenantUserBulk
+        /// Test AssignLicenseTenantUserBulkAsync
         /// </summary>
         [Fact]
-        public void AssignLicenseTenantUserBulkTest()
+        public void AssignLicenseTenantUserBulkAsyncTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
             //string tenantId = null;
@@ -81,14 +82,15 @@ namespace EdGraph.Tenant.Client.Test.Api
             //string? apiVersion = null;
             //string? xVersion = null;
             //IdentityApiUserV1AssignLicenseBulkRequest? identityApiUserV1AssignLicenseBulkRequest = null;
-            //instance.AssignLicenseTenantUserBulk(tenantId, userId, apiVersion, xVersion, identityApiUserV1AssignLicenseBulkRequest);
+            //var response = instance.AssignLicenseTenantUserBulkAsync(tenantId, userId, apiVersion, xVersion, identityApiUserV1AssignLicenseBulkRequest);
+            //Assert.IsType<IdentityApiUserV1LicenseAssignedBulkResponse>(response);
         }
 
         /// <summary>
-        /// Test GetAllTenantUserApplicationLicenses
+        /// Test GetAllTenantUserApplicationLicensesAsync
         /// </summary>
         [Fact]
-        public void GetAllTenantUserApplicationLicensesTest()
+        public void GetAllTenantUserApplicationLicensesAsyncTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
             //string tenantId = null;
@@ -99,15 +101,15 @@ namespace EdGraph.Tenant.Client.Test.Api
             //string? filter = null;
             //string? apiVersion = null;
             //string? xVersion = null;
-            //var response = instance.GetAllTenantUserApplicationLicenses(tenantId, userId, pageSize, pageIndex, orderBy, filter, apiVersion, xVersion);
+            //var response = instance.GetAllTenantUserApplicationLicensesAsync(tenantId, userId, pageSize, pageIndex, orderBy, filter, apiVersion, xVersion);
             //Assert.IsType<EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesUserLicensePaginatedItemsViewModel>(response);
         }
 
         /// <summary>
-        /// Test RevokeLicenseTenantUser
+        /// Test RevokeLicenseTenantUserAsync
         /// </summary>
         [Fact]
-        public void RevokeLicenseTenantUserTest()
+        public void RevokeLicenseTenantUserAsyncTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
             //string tenantId = null;
@@ -115,14 +117,15 @@ namespace EdGraph.Tenant.Client.Test.Api
             //string? apiVersion = null;
             //string? xVersion = null;
             //IdentityApiUserV1RevokeLicenseRequest? identityApiUserV1RevokeLicenseRequest = null;
-            //instance.RevokeLicenseTenantUser(tenantId, userId, apiVersion, xVersion, identityApiUserV1RevokeLicenseRequest);
+            //var response = instance.RevokeLicenseTenantUserAsync(tenantId, userId, apiVersion, xVersion, identityApiUserV1RevokeLicenseRequest);
+            //Assert.IsType<IdentityApiUserV1LicenseRevokedResponse>(response);
         }
 
         /// <summary>
-        /// Test RevokeLicenseTenantUserBulk
+        /// Test RevokeLicenseTenantUserBulkAsync
         /// </summary>
         [Fact]
-        public void RevokeLicenseTenantUserBulkTest()
+        public void RevokeLicenseTenantUserBulkAsyncTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
             //string tenantId = null;
@@ -130,7 +133,8 @@ namespace EdGraph.Tenant.Client.Test.Api
             //string? apiVersion = null;
             //string? xVersion = null;
             //IdentityApiUserV1RevokeLicenseBulkRequest? identityApiUserV1RevokeLicenseBulkRequest = null;
-            //instance.RevokeLicenseTenantUserBulk(tenantId, userId, apiVersion, xVersion, identityApiUserV1RevokeLicenseBulkRequest);
+            //var response = instance.RevokeLicenseTenantUserBulkAsync(tenantId, userId, apiVersion, xVersion, identityApiUserV1RevokeLicenseBulkRequest);
+            //Assert.IsType<IdentityApiUserV1LicenseRevokedBulkResponse>(response);
         }
     }
 }

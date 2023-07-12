@@ -6,15 +6,15 @@
     <AssemblyName>EdGraph.Tenant.Client</AssemblyName>
     <PackageId>EdGraph.Tenant.Client</PackageId>
     <OutputType>Library</OutputType>
-    <Authors>EdWire</Authors>
-    <Company>EdWire</Company>
-    <AssemblyTitle>Tenant SDK</AssemblyTitle>
-    <Description>Tenant SDK</Description>
+    <Authors>OpenAPI</Authors>
+    <Company>OpenAPI</Company>
+    <AssemblyTitle>OpenAPI Library</AssemblyTitle>
+    <Description>A library generated from a OpenAPI doc</Description>
     <Copyright>No Copyright</Copyright>
     <RootNamespace>EdGraph.Tenant.Client</RootNamespace>
     <Version>1.0.0</Version>
     <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\EdGraph.Tenant.Client.xml</DocumentationFile>
-    <RepositoryUrl>https://github.com/EdWire/EdGraph-Tenant-SDKs</RepositoryUrl>
+    <RepositoryUrl>https://github.com/GIT_USER_ID/GIT_REPO_ID.git</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <PackageReleaseNotes>Minor update</PackageReleaseNotes>
     <Nullable>annotations</Nullable>

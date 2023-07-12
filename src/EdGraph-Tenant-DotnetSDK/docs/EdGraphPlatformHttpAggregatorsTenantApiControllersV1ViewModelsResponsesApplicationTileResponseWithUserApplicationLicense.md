@@ -7,6 +7,8 @@ Name | Type | Description | Notes
 **ApplicationTenantId** | **string** | The Tenant this application belongs to | [optional] 
 **ApplicationId** | **string** |  | [optional] 
 **ApplicationName** | **string** |  | [optional] 
+**ApplicationDescription** | **string** |  | [optional] 
+**DocumentationUrl** | **string** |  | [optional] 
 **ApplicationUri** | **string** |  | [optional] 
 **_Version** | **string** |  | [optional] 
 **TooltipText** | **string** |  | [optional] 

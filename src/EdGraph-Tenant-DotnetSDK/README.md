@@ -88,21 +88,21 @@ namespace Example
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
-            var apiInstance = new ApplicationsApi(config);
+            var apiInstance = new APIClientsApi(config);
             var tenantId = "tenantId_example";  // string | 
-            var applicationId = "applicationId_example";  // string | 
             var apiVersion = "apiVersion_example";  // string? |  (optional) 
             var xVersion = "xVersion_example";  // string? |  (optional) 
+            var identityApiApiClientV1CreateApiClientRequest = new IdentityApiApiClientV1CreateApiClientRequest?(); // IdentityApiApiClientV1CreateApiClientRequest? |  (optional) 
 
             try
             {
-                // Retrieves a specific application associated to a tenant using its primary key
-                ApplicationApiApplicationV2ApplicationProfileResponse result = apiInstance.GetTenantApplicationProfileByIdAsync(tenantId, applicationId, apiVersion, xVersion);
+                // Creates a new OpenId API Client
+                IdentityApiApiClientV1ApiClientCreatedResponse result = apiInstance.CreateTenantApiClientAsync(tenantId, apiVersion, xVersion, identityApiApiClientV1CreateApiClientRequest);
                 Debug.WriteLine(result);
             }
             catch (ApiException e)
             {
-                Debug.Print("Exception when calling ApplicationsApi.GetTenantApplicationProfileByIdAsync: " + e.Message );
+                Debug.Print("Exception when calling APIClientsApi.CreateTenantApiClientAsync: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -119,39 +119,55 @@ All URIs are relative to *https://api.edgraph.com/tenant*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*ApplicationsApi* | [**GetTenantApplicationProfileByIdAsync**](docs\ApplicationsApi.md#gettenantapplicationprofilebyidasync) | **GET** /tenants/{tenantId}/applications/{applicationId} | Retrieves a specific application associated to a tenant using its primary key
-*ApplicationsApi* | [**GetTenantApplicationTilesAsync**](docs\ApplicationsApi.md#gettenantapplicationtilesasync) | **GET** /tenants/{tenantId}/applicationtiles | Retrieves a list of tenant application tiles
-*ApplicationsApi* | [**GetTenantApplicationsAsync**](docs\ApplicationsApi.md#gettenantapplicationsasync) | **GET** /tenants/{tenantId}/applications | Retrieves a list of applications that belong to the current tenant.
-*IdentityAPIClientsApi* | [**CreateTenantApiClient**](docs\IdentityAPIClientsApi.md#createtenantapiclient) | **POST** /tenants/{tenantId}/identity/apiclients | Creates a new tenant OpenId api client
-*IdentityAPIClientsApi* | [**DeleteTenantApiClient**](docs\IdentityAPIClientsApi.md#deletetenantapiclient) | **DELETE** /tenants/{tenantId}/identity/apiclients/{clientId} | Delete a tenant's OpenId api client matching the primary key
-*IdentityAPIClientsApi* | [**GetAllTenantApiClients**](docs\IdentityAPIClientsApi.md#getalltenantapiclients) | **GET** /tenants/{tenantId}/identity/apiclients | Retrieves  a list of OpenId api clients associated to this tenant
-*IdentityAPIClientsApi* | [**GetTenantApiClientProfileById**](docs\IdentityAPIClientsApi.md#gettenantapiclientprofilebyid) | **GET** /tenants/{tenantId}/identity/apiclients/{clientId} | Retrieves the OpenId api client associated to this tenant
-*IdentityAPIClientsApi* | [**RegenerateTenantApiClientSecret**](docs\IdentityAPIClientsApi.md#regeneratetenantapiclientsecret) | **POST** /tenants/{tenantId}/identity/apiclients/{clientId}/regeneratesecret | Creates a tenant's OpenId client secret matching the primary key
-*IdentityAPIClientsApi* | [**UpdateTenantApiClient**](docs\IdentityAPIClientsApi.md#updatetenantapiclient) | **PUT** /tenants/{tenantId}/identity/apiclients/{clientId} | Updates a tenant's OpenId api client matching the primary key
-*InvitationsApi* | [**DeleteTenantInvitation**](docs\InvitationsApi.md#deletetenantinvitation) | **DELETE** /tenants/{tenantId}/invitations/{invitationId} | Delete a tenant invitation matching the primary key
-*InvitationsApi* | [**GetAllTenantInvitations**](docs\InvitationsApi.md#getalltenantinvitations) | **GET** /tenants/{tenantId}/invitations | Retrieves a list of tenant invitations
-*InvitationsApi* | [**GetTenantInvitationById**](docs\InvitationsApi.md#gettenantinvitationbyid) | **GET** /tenants/{tenantId}/invitations/{invitationId} | Retrieves a specific tenant invitation using its primary key
-*InvitationsApi* | [**SendTenantInvitation**](docs\InvitationsApi.md#sendtenantinvitation) | **POST** /tenants/{tenantId}/invitations | Send an invitation
-*SubscriptionsApi* | [**CreateTenantSubscription**](docs\SubscriptionsApi.md#createtenantsubscription) | **POST** /tenants/{tenantId}/subscriptions/create | Creates a new Tenant Subscription
+*APIClientsApi* | [**CreateTenantApiClientAsync**](docs\APIClientsApi.md#createtenantapiclientasync) | **POST** /tenants/{tenantId}/apiclients | Creates a new OpenId API Client
+*APIClientsApi* | [**DeleteTenantApiClientAsync**](docs\APIClientsApi.md#deletetenantapiclientasync) | **DELETE** /tenants/{tenantId}/apiclients/{clientId} | Deletes an OpenId API Client
+*APIClientsApi* | [**GetAllTenantApiClientsAsync**](docs\APIClientsApi.md#getalltenantapiclientsasync) | **GET** /tenants/{tenantId}/apiclients | Retrieves a list of OpenId API Clients associated to this tenant
+*APIClientsApi* | [**GetTenantApiClientByIdAsync**](docs\APIClientsApi.md#gettenantapiclientbyidasync) | **GET** /tenants/{tenantId}/apiclients/{clientId} | Retrieves an OpenId API Client
+*APIClientsApi* | [**RegenerateTenantApiClientSecretAsync**](docs\APIClientsApi.md#regeneratetenantapiclientsecretasync) | **PUT** /tenants/{tenantId}/apiclients/{clientId}/regeneratesecret | Regenerates an OpenId API Client's secret
+*APIClientsApi* | [**UpdateTenantApiClientAsync**](docs\APIClientsApi.md#updatetenantapiclientasync) | **PUT** /tenants/{tenantId}/apiclients/{clientId} | Updates an OpenId API Client
+*ApplicationsApi* | [**GetTenantApplicationProfileByIdAsync**](docs\ApplicationsApi.md#gettenantapplicationprofilebyidasync) | **GET** /tenants/{tenantId}/applications/{applicationId} | Retrieves an application
+*ApplicationsApi* | [**GetTenantApplicationsAsync**](docs\ApplicationsApi.md#gettenantapplicationsasync) | **GET** /tenants/{tenantId}/applications | Retrieves a list of applications associated to this tenant
+*ApplicationsSettingsApi* | [**GetClientSettingsAsync**](docs\ApplicationsSettingsApi.md#getclientsettingsasync) | **GET** /tenants/{tenantId}/clients/{clientId}/settings | Retrieves a list of a Tenant's ClientSettings.
+*ApplicationsSettingsApi* | [**GetClientSettingsTypesAsync**](docs\ApplicationsSettingsApi.md#getclientsettingstypesasync) | **GET** /tenants/{tenantId}/clients/{clientId}/settingstypes | Retrieves a list of ClientSettingsTypes.
+*ApplicationsSettingsApi* | [**SetClientSettingsAsync**](docs\ApplicationsSettingsApi.md#setclientsettingsasync) | **POST** /tenants/{tenantId}/clients/{clientId}/settings | Creates/updates a Tenant's ClientSettings.
+*ApplicationsTilesApi* | [**GetTenantApplicationTilesAsync**](docs\ApplicationsTilesApi.md#gettenantapplicationtilesasync) | **GET** /tenants/{tenantId}/applicationtiles | Retrieves a list of applications licensed to the user that is currently logged in the context of this tenant
+*InvitationsApi* | [**DeleteTenantInvitationAsync**](docs\InvitationsApi.md#deletetenantinvitationasync) | **DELETE** /tenants/{tenantId}/invitations/{invitationId} | Deletes an invitation
+*InvitationsApi* | [**GetAllTenantInvitationsAsync**](docs\InvitationsApi.md#getalltenantinvitationsasync) | **GET** /tenants/{tenantId}/invitations | Retrieves a list of invitations associated to this tenant
+*InvitationsApi* | [**GetTenantInvitationByIdAsync**](docs\InvitationsApi.md#gettenantinvitationbyidasync) | **GET** /tenants/{tenantId}/invitations/{invitationId} | Retrieves a specific invitation
+*InvitationsApi* | [**SendTenantInvitationAsync**](docs\InvitationsApi.md#sendtenantinvitationasync) | **POST** /tenants/{tenantId}/invitations | Creates and sends an invitation to a user
+*OnboardingStepsApi* | [**CreateOnboardingStepAsync**](docs\OnboardingStepsApi.md#createonboardingstepasync) | **POST** /tenants/{tenantId}/onboardingsteps | Creates an Onboarding Step.
+*OnboardingStepsApi* | [**UpdateOnboardingStepAsync**](docs\OnboardingStepsApi.md#updateonboardingstepasync) | **PUT** /tenants/{tenantId}/onboardingsteps/{stepNumber} | Updates the status of an Onboarding Step.
+*OrganizationsApi* | [**CreateOrganizationAsync**](docs\OrganizationsApi.md#createorganizationasync) | **POST** /tenants/{tenantId}/organizations | Creates an Organization.
+*OrganizationsApi* | [**DeleteOrganizationAsync**](docs\OrganizationsApi.md#deleteorganizationasync) | **DELETE** /tenants/{tenantId}/organizations/{organizationIdentifier} | Deletes an Organization.
+*OrganizationsApi* | [**GetOrganizationByIdAsync**](docs\OrganizationsApi.md#getorganizationbyidasync) | **GET** /tenants/{tenantId}/organizations/{organizationIdentifier} | Retrieves an Organization by ID.
+*OrganizationsApi* | [**GetOrganizationsAsync**](docs\OrganizationsApi.md#getorganizationsasync) | **GET** /tenants/{tenantId}/organizations | Retrieves a list of Organizations.
+*OrganizationsApi* | [**UpdateOrganizationAsync**](docs\OrganizationsApi.md#updateorganizationasync) | **PUT** /tenants/{tenantId}/organizations/{organizationIdentifier} | Updates an Organization.
+*SubscriptionsApi* | [**CreateTenantSubscriptionAsync**](docs\SubscriptionsApi.md#createtenantsubscriptionasync) | **POST** /tenants/{tenantId}/subscriptions | Creates a new subscription
 *SubscriptionsApi* | [**GetAllTenantSubscriptionApplications**](docs\SubscriptionsApi.md#getalltenantsubscriptionapplications) | **GET** /tenants/{tenantId}/subscriptions/applications | Retrieves a list of applications available for subscription.
-*SubscriptionsApi* | [**GetAllTenantSubscriptions**](docs\SubscriptionsApi.md#getalltenantsubscriptions) | **GET** /tenants/{tenantId}/subscriptions | Retrieves a list of Tenant Subscriptions
-*SubscriptionsApi* | [**GetTenantSubscriptionProfileById**](docs\SubscriptionsApi.md#gettenantsubscriptionprofilebyid) | **GET** /tenants/{tenantId}/subscriptions/{subscriptionId} | Retrieves a specific Tenant Subscription using its primary key
-*SubscriptionsApi* | [**UpdateTenantSubscription**](docs\SubscriptionsApi.md#updatetenantsubscription) | **POST** /tenants/{tenantId}/subscriptions/{subscriptionId}/update | Updates a Tenant Subscription matching the primary key
-*TenantsApi* | [**GetTenantById**](docs\TenantsApi.md#gettenantbyid) | **GET** /tenants/{tenantId} | Retrieves a specific tenant using its primary key
-*TenantsApi* | [**UpdateTenant**](docs\TenantsApi.md#updatetenant) | **POST** /tenants/{tenantId} | Update a new tenant with only new IdentityProviders
-*UsersApi* | [**ActivateTenantUser**](docs\UsersApi.md#activatetenantuser) | **POST** /tenants/{tenantId}/users/{userId}/activate | Activate a Tenant user matching the primary key
-*UsersApi* | [**CreateTenantLocalUser**](docs\UsersApi.md#createtenantlocaluser) | **POST** /tenants/{tenantId}/users/addlocaluser | Creates a new tenant local user
-*UsersApi* | [**DeactivateTenantUser**](docs\UsersApi.md#deactivatetenantuser) | **POST** /tenants/{tenantId}/users/{userId}/deactivate | Deactivate a Tenant user matching the primary key
-*UsersApi* | [**DeleteTenantUser**](docs\UsersApi.md#deletetenantuser) | **DELETE** /tenants/{tenantId}/users/{userId} | Delete a tenant user matching the primary key
-*UsersApi* | [**GetAllTenantUsers**](docs\UsersApi.md#getalltenantusers) | **GET** /tenants/{tenantId}/users | Retrieves a list of tenant users
-*UsersApi* | [**GetTenantUserProfileById**](docs\UsersApi.md#gettenantuserprofilebyid) | **GET** /tenants/{tenantId}/users/{userId} | Retrieves a specific tenant user using its primary key
-*UsersApi* | [**ResetPasswordTenantUser**](docs\UsersApi.md#resetpasswordtenantuser) | **PUT** /tenants/{tenantId}/users/{userId}/resetpassword | Reset a tenant user password
-*UsersApi* | [**UpdateTenantUser**](docs\UsersApi.md#updatetenantuser) | **PUT** /tenants/{tenantId}/users/{userId} | Creates or Updates a tenant user matching the primary key
-*UsersLicensesApi* | [**AssignLicenseTenantUser**](docs\UsersLicensesApi.md#assignlicensetenantuser) | **POST** /tenants/{tenantId}/users/{userId}/licenses/assignlicense | Assigns a license to a tenant user matching the primary key
-*UsersLicensesApi* | [**AssignLicenseTenantUserBulk**](docs\UsersLicensesApi.md#assignlicensetenantuserbulk) | **POST** /tenants/{tenantId}/users/{userId}/licenses/assignlicensebulk | Assigns a license to a tenant user matching the primary key
-*UsersLicensesApi* | [**GetAllTenantUserApplicationLicenses**](docs\UsersLicensesApi.md#getalltenantuserapplicationlicenses) | **GET** /tenants/{tenantId}/users/{userId}/licenses | Retrieves a list of tenant users licenses
-*UsersLicensesApi* | [**RevokeLicenseTenantUser**](docs\UsersLicensesApi.md#revokelicensetenantuser) | **POST** /tenants/{tenantId}/users/{userId}/licenses/revokelicense | Revokes a license to a tenant user matching the primary key
-*UsersLicensesApi* | [**RevokeLicenseTenantUserBulk**](docs\UsersLicensesApi.md#revokelicensetenantuserbulk) | **POST** /tenants/{tenantId}/users/{userId}/licenses/revokelicensebulk | Revokes a license to a tenant user matching the primary key
+*SubscriptionsApi* | [**GetAllTenantSubscriptionsAsync**](docs\SubscriptionsApi.md#getalltenantsubscriptionsasync) | **GET** /tenants/{tenantId}/subscriptions | Retrieves a list of subscriptions associated to this tenant
+*SubscriptionsApi* | [**GetTenantSubscriptionProfileByIdAsync**](docs\SubscriptionsApi.md#gettenantsubscriptionprofilebyidasync) | **GET** /tenants/{tenantId}/subscriptions/{subscriptionId} | Retrieves a subscription
+*SubscriptionsApi* | [**UpdateTenantSubscriptionAsync**](docs\SubscriptionsApi.md#updatetenantsubscriptionasync) | **PUT** /tenants/{tenantId}/subscriptions/{subscriptionId} | Updates a subscription
+*TenantsApi* | [**GetTenantByIdAsync**](docs\TenantsApi.md#gettenantbyidasync) | **GET** /tenants/{tenantId} | Retrieves the profile of a specific tenant
+*TenantsApi* | [**UpdateTenantAsync**](docs\TenantsApi.md#updatetenantasync) | **PUT** /tenants/{tenantId} | Updates a tenant's profile
+*UsersApi* | [**ActivateTenantUserAsync**](docs\UsersApi.md#activatetenantuserasync) | **PUT** /tenants/{tenantId}/users/{userId}/activate | Activates a user
+*UsersApi* | [**CreateTenantLocalUserAsync**](docs\UsersApi.md#createtenantlocaluserasync) | **POST** /tenants/{tenantId}/users | Creates a user in the local identity provider
+*UsersApi* | [**DeactivateTenantUserAsync**](docs\UsersApi.md#deactivatetenantuserasync) | **PUT** /tenants/{tenantId}/users/{userId}/deactivate | Deactivates a user
+*UsersApi* | [**DeleteTenantUserAsync**](docs\UsersApi.md#deletetenantuserasync) | **DELETE** /tenants/{tenantId}/users/{userId} | Deletes a user
+*UsersApi* | [**GetAllTenantUsersAsync**](docs\UsersApi.md#getalltenantusersasync) | **GET** /tenants/{tenantId}/users | Retrieves a list of users associated to this tenant
+*UsersApi* | [**GetTenantUserProfileByIdAsync**](docs\UsersApi.md#gettenantuserprofilebyidasync) | **GET** /tenants/{tenantId}/users/{userId} | Retrieves a user
+*UsersApi* | [**ResetPasswordTenantUserAsync**](docs\UsersApi.md#resetpasswordtenantuserasync) | **PUT** /tenants/{tenantId}/users/{userId}/resetpassword | Resets a user's password
+*UsersApi* | [**UpdateTenantUserAsync**](docs\UsersApi.md#updatetenantuserasync) | **PUT** /tenants/{tenantId}/users/{userId} | Creates or updates a user
+*UsersLicensesApi* | [**AssignLicenseTenantUserAsync**](docs\UsersLicensesApi.md#assignlicensetenantuserasync) | **PUT** /tenants/{tenantId}/users/{userId}/licenses/assign | Assigns a license to a user in the context of a specific tenant
+*UsersLicensesApi* | [**AssignLicenseTenantUserBulkAsync**](docs\UsersLicensesApi.md#assignlicensetenantuserbulkasync) | **PUT** /tenants/{tenantId}/users/{userId}/licenses/assignbulk | Assigns one or more licenses to a user in the context of a specific tenant
+*UsersLicensesApi* | [**GetAllTenantUserApplicationLicensesAsync**](docs\UsersLicensesApi.md#getalltenantuserapplicationlicensesasync) | **GET** /tenants/{tenantId}/users/{userId}/licenses | Retrieves a list of user licenses in the context of a specific tenant
+*UsersLicensesApi* | [**RevokeLicenseTenantUserAsync**](docs\UsersLicensesApi.md#revokelicensetenantuserasync) | **PUT** /tenants/{tenantId}/users/{userId}/licenses/revoke | Revokes a license from a user in the context of a specific tenant
+*UsersLicensesApi* | [**RevokeLicenseTenantUserBulkAsync**](docs\UsersLicensesApi.md#revokelicensetenantuserbulkasync) | **PUT** /tenants/{tenantId}/users/{userId}/licenses/revokebulk | Revokes one or more licenses from a user in the context of a specific tenant
+*WebhooksApi* | [**CreateWebhookAsync**](docs\WebhooksApi.md#createwebhookasync) | **POST** /tenants/{tenantId}/webhooks | Creates a new Webhook
+*WebhooksApi* | [**DeleteWebhookAsync**](docs\WebhooksApi.md#deletewebhookasync) | **DELETE** /tenants/{tenantId}/webhooks/{webhookId} | Removes a webhook.
+*WebhooksApi* | [**GetAllWebhookSubscriptionsAsync**](docs\WebhooksApi.md#getallwebhooksubscriptionsasync) | **GET** /tenants/{tenantId}/webhooks/events | 
+*WebhooksApi* | [**GetAllWebhooksAsync**](docs\WebhooksApi.md#getallwebhooksasync) | **GET** /tenants/{tenantId}/webhooks | Retrieves a list of webhooks.
+*WebhooksApi* | [**GetWebhookByIdAsync**](docs\WebhooksApi.md#getwebhookbyidasync) | **GET** /tenants/{tenantId}/webhooks/{webhookId} | Retrieves a webhook by ID.
+*WebhooksApi* | [**UpdateWebhookAsync**](docs\WebhooksApi.md#updatewebhookasync) | **PUT** /tenants/{tenantId}/webhooks/{webhookId} | Updates a webhook
 
 
 <a id="documentation-for-models"></a>
@@ -163,6 +179,7 @@ Class | Method | HTTP request | Description
  - [Model.ApplicationApiApplicationV2ApplicationType](docs\ApplicationApiApplicationV2ApplicationType.md)
  - [Model.ApplicationApiApplicationV2PaginatedItemsResponse](docs\ApplicationApiApplicationV2PaginatedItemsResponse.md)
  - [Model.ApplicationApiApplicationV2Role](docs\ApplicationApiApplicationV2Role.md)
+ - [Model.EdGraphCommonErrorsCoreProblemDetails](docs\EdGraphCommonErrorsCoreProblemDetails.md)
  - [Model.EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesRole](docs\EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesRole.md)
  - [Model.EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesSubscriptionListResponseDto](docs\EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesSubscriptionListResponseDto.md)
  - [Model.EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesSubscriptionListResponseDtoPaginatedItemsViewModel](docs\EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesSubscriptionListResponseDtoPaginatedItemsViewModel.md)
@@ -180,20 +197,26 @@ Class | Method | HTTP request | Description
  - [Model.EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesUserTenant](docs\EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesUserTenant.md)
  - [Model.IdentityApiApiClientV1AccessTokenType](docs\IdentityApiApiClientV1AccessTokenType.md)
  - [Model.IdentityApiApiClientV1ApiClaim](docs\IdentityApiApiClientV1ApiClaim.md)
+ - [Model.IdentityApiApiClientV1ApiClientCreatedResponse](docs\IdentityApiApiClientV1ApiClientCreatedResponse.md)
  - [Model.IdentityApiApiClientV1ApiClientListResponse](docs\IdentityApiApiClientV1ApiClientListResponse.md)
  - [Model.IdentityApiApiClientV1ApiClientPaginatedItemsResponse](docs\IdentityApiApiClientV1ApiClientPaginatedItemsResponse.md)
  - [Model.IdentityApiApiClientV1ApiClientPaginatedItemsResponsePaginatedItemsViewModel](docs\IdentityApiApiClientV1ApiClientPaginatedItemsResponsePaginatedItemsViewModel.md)
  - [Model.IdentityApiApiClientV1ApiClientProfileResponse](docs\IdentityApiApiClientV1ApiClientProfileResponse.md)
+ - [Model.IdentityApiApiClientV1ApiClientSecretRegeneratedResponse](docs\IdentityApiApiClientV1ApiClientSecretRegeneratedResponse.md)
+ - [Model.IdentityApiApiClientV1ApiClientUpdatedResponse](docs\IdentityApiApiClientV1ApiClientUpdatedResponse.md)
  - [Model.IdentityApiApiClientV1Claim](docs\IdentityApiApiClientV1Claim.md)
  - [Model.IdentityApiApiClientV1CreateApiClientRequest](docs\IdentityApiApiClientV1CreateApiClientRequest.md)
  - [Model.IdentityApiApiClientV1RegenerateApiClientSecretRequest](docs\IdentityApiApiClientV1RegenerateApiClientSecretRequest.md)
  - [Model.IdentityApiApiClientV1TokenExpiration](docs\IdentityApiApiClientV1TokenExpiration.md)
  - [Model.IdentityApiApiClientV1TokenUsage](docs\IdentityApiApiClientV1TokenUsage.md)
  - [Model.IdentityApiApiClientV1UpdateApiClientRequest](docs\IdentityApiApiClientV1UpdateApiClientRequest.md)
+ - [Model.IdentityApiClientSettingsTypeV1ClientSettingsTypeResponse](docs\IdentityApiClientSettingsTypeV1ClientSettingsTypeResponse.md)
+ - [Model.IdentityApiClientSettingsTypeV1GetClientSettingsTypesResponse](docs\IdentityApiClientSettingsTypeV1GetClientSettingsTypesResponse.md)
  - [Model.IdentityApiInvitationV1AssignLicenseRequest](docs\IdentityApiInvitationV1AssignLicenseRequest.md)
  - [Model.IdentityApiInvitationV1InvitationListResponse](docs\IdentityApiInvitationV1InvitationListResponse.md)
  - [Model.IdentityApiInvitationV1InvitationListResponsePaginatedItemsViewModel](docs\IdentityApiInvitationV1InvitationListResponsePaginatedItemsViewModel.md)
  - [Model.IdentityApiInvitationV1InvitationResponse](docs\IdentityApiInvitationV1InvitationResponse.md)
+ - [Model.IdentityApiInvitationV1InvitationSentResponse](docs\IdentityApiInvitationV1InvitationSentResponse.md)
  - [Model.IdentityApiInvitationV1InvitationStatus](docs\IdentityApiInvitationV1InvitationStatus.md)
  - [Model.IdentityApiInvitationV1SendInvitationRequest](docs\IdentityApiInvitationV1SendInvitationRequest.md)
  - [Model.IdentityApiUserV1ActivateUserRequest](docs\IdentityApiUserV1ActivateUserRequest.md)
@@ -201,21 +224,55 @@ Class | Method | HTTP request | Description
  - [Model.IdentityApiUserV1AssignLicenseRequest](docs\IdentityApiUserV1AssignLicenseRequest.md)
  - [Model.IdentityApiUserV1CreateLocalUserRequest](docs\IdentityApiUserV1CreateLocalUserRequest.md)
  - [Model.IdentityApiUserV1DeactivateUserRequest](docs\IdentityApiUserV1DeactivateUserRequest.md)
+ - [Model.IdentityApiUserV1LicenseAssignedBulkResponse](docs\IdentityApiUserV1LicenseAssignedBulkResponse.md)
+ - [Model.IdentityApiUserV1LicenseAssignedResponse](docs\IdentityApiUserV1LicenseAssignedResponse.md)
+ - [Model.IdentityApiUserV1LicenseRevokedBulkResponse](docs\IdentityApiUserV1LicenseRevokedBulkResponse.md)
+ - [Model.IdentityApiUserV1LicenseRevokedResponse](docs\IdentityApiUserV1LicenseRevokedResponse.md)
+ - [Model.IdentityApiUserV1LocalUserCreatedResponse](docs\IdentityApiUserV1LocalUserCreatedResponse.md)
+ - [Model.IdentityApiUserV1PasswordResettedResponse](docs\IdentityApiUserV1PasswordResettedResponse.md)
  - [Model.IdentityApiUserV1ResetPasswordRequest](docs\IdentityApiUserV1ResetPasswordRequest.md)
  - [Model.IdentityApiUserV1RevokeLicenseBulkRequest](docs\IdentityApiUserV1RevokeLicenseBulkRequest.md)
  - [Model.IdentityApiUserV1RevokeLicenseRequest](docs\IdentityApiUserV1RevokeLicenseRequest.md)
  - [Model.IdentityApiUserV1UpdateUserRequest](docs\IdentityApiUserV1UpdateUserRequest.md)
- - [Model.MicrosoftAspNetCoreMvcProblemDetails](docs\MicrosoftAspNetCoreMvcProblemDetails.md)
+ - [Model.IdentityApiUserV1UserActivatedResponse](docs\IdentityApiUserV1UserActivatedResponse.md)
+ - [Model.IdentityApiUserV1UserDeactivatedResponse](docs\IdentityApiUserV1UserDeactivatedResponse.md)
+ - [Model.IdentityApiUserV1UserUpdatedResponse](docs\IdentityApiUserV1UserUpdatedResponse.md)
+ - [Model.MicrosoftAspNetCoreMvcValidationProblemDetails](docs\MicrosoftAspNetCoreMvcValidationProblemDetails.md)
+ - [Model.TenantApiTenantV1CreateOnboardingStepRequest](docs\TenantApiTenantV1CreateOnboardingStepRequest.md)
+ - [Model.TenantApiTenantV1CreateOrganizationRequest](docs\TenantApiTenantV1CreateOrganizationRequest.md)
  - [Model.TenantApiTenantV1CreateSubscriptionRequest](docs\TenantApiTenantV1CreateSubscriptionRequest.md)
+ - [Model.TenantApiTenantV1GetAppSettingsResponse](docs\TenantApiTenantV1GetAppSettingsResponse.md)
+ - [Model.TenantApiTenantV1GetOrganizationsResponse](docs\TenantApiTenantV1GetOrganizationsResponse.md)
  - [Model.TenantApiTenantV1LicenseType](docs\TenantApiTenantV1LicenseType.md)
+ - [Model.TenantApiTenantV1Onboarding](docs\TenantApiTenantV1Onboarding.md)
+ - [Model.TenantApiTenantV1OnboardingStep](docs\TenantApiTenantV1OnboardingStep.md)
+ - [Model.TenantApiTenantV1Organization](docs\TenantApiTenantV1Organization.md)
+ - [Model.TenantApiTenantV1OrganizationCreatedResponse](docs\TenantApiTenantV1OrganizationCreatedResponse.md)
+ - [Model.TenantApiTenantV1OrganizationDeletedResponse](docs\TenantApiTenantV1OrganizationDeletedResponse.md)
+ - [Model.TenantApiTenantV1OrganizationUpdatedResponse](docs\TenantApiTenantV1OrganizationUpdatedResponse.md)
+ - [Model.TenantApiTenantV1SetAppSettingsRequest](docs\TenantApiTenantV1SetAppSettingsRequest.md)
+ - [Model.TenantApiTenantV1SetAppSettingsResponse](docs\TenantApiTenantV1SetAppSettingsResponse.md)
+ - [Model.TenantApiTenantV1SubscriptionCreatedResponse](docs\TenantApiTenantV1SubscriptionCreatedResponse.md)
  - [Model.TenantApiTenantV1SubscriptionProfileResponse](docs\TenantApiTenantV1SubscriptionProfileResponse.md)
  - [Model.TenantApiTenantV1SubscriptionStatus](docs\TenantApiTenantV1SubscriptionStatus.md)
+ - [Model.TenantApiTenantV1SubscriptionUpdatedResponse](docs\TenantApiTenantV1SubscriptionUpdatedResponse.md)
+ - [Model.TenantApiTenantV1TenantAppSettings](docs\TenantApiTenantV1TenantAppSettings.md)
  - [Model.TenantApiTenantV1TenantIdentityProviders](docs\TenantApiTenantV1TenantIdentityProviders.md)
  - [Model.TenantApiTenantV1TenantProfileResponse](docs\TenantApiTenantV1TenantProfileResponse.md)
  - [Model.TenantApiTenantV1TenantStatus](docs\TenantApiTenantV1TenantStatus.md)
  - [Model.TenantApiTenantV1TenantType](docs\TenantApiTenantV1TenantType.md)
+ - [Model.TenantApiTenantV1TenantUpdatedResponse](docs\TenantApiTenantV1TenantUpdatedResponse.md)
+ - [Model.TenantApiTenantV1UpdateOnboardingStepRequest](docs\TenantApiTenantV1UpdateOnboardingStepRequest.md)
+ - [Model.TenantApiTenantV1UpdateOrganizationRequest](docs\TenantApiTenantV1UpdateOrganizationRequest.md)
  - [Model.TenantApiTenantV1UpdateSubscriptionRequest](docs\TenantApiTenantV1UpdateSubscriptionRequest.md)
  - [Model.TenantApiTenantV1UpdateTenantRequest](docs\TenantApiTenantV1UpdateTenantRequest.md)
+ - [Model.TenantApiWebhookV1CreateWebhookRequest](docs\TenantApiWebhookV1CreateWebhookRequest.md)
+ - [Model.TenantApiWebhookV1PaginatedItemsResponse](docs\TenantApiWebhookV1PaginatedItemsResponse.md)
+ - [Model.TenantApiWebhookV1UpdateWebhookRequest](docs\TenantApiWebhookV1UpdateWebhookRequest.md)
+ - [Model.TenantApiWebhookV1WebhookEventsResponse](docs\TenantApiWebhookV1WebhookEventsResponse.md)
+ - [Model.TenantApiWebhookV1WebhookIdResponse](docs\TenantApiWebhookV1WebhookIdResponse.md)
+ - [Model.TenantApiWebhookV1WebhookResponse](docs\TenantApiWebhookV1WebhookResponse.md)
+ - [Model.TenantApiWebhookV1WebhookSubscriberResponse](docs\TenantApiWebhookV1WebhookSubscriberResponse.md)
 
 
 <a id="documentation-for-authorization"></a>

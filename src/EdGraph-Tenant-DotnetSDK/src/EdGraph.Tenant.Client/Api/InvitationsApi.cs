@@ -28,7 +28,7 @@ namespace EdGraph.Tenant.Client.Api
     {
         #region Synchronous Operations
         /// <summary>
-        /// Delete a tenant invitation matching the primary key
+        /// Deletes an invitation
         /// </summary>
         /// <exception cref="EdGraph.Tenant.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tenantId"></param>
@@ -37,10 +37,10 @@ namespace EdGraph.Tenant.Client.Api
         /// <param name="xVersion"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns></returns>
-        void DeleteTenantInvitation(string tenantId, string invitationId, string? apiVersion = default(string?), string? xVersion = default(string?), int operationIndex = 0);
+        void DeleteTenantInvitationAsync(string tenantId, string invitationId, string? apiVersion = default(string?), string? xVersion = default(string?), int operationIndex = 0);
 
         /// <summary>
-        /// Delete a tenant invitation matching the primary key
+        /// Deletes an invitation
         /// </summary>
         /// <remarks>
         /// 
@@ -52,9 +52,9 @@ namespace EdGraph.Tenant.Client.Api
         /// <param name="xVersion"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> DeleteTenantInvitationWithHttpInfo(string tenantId, string invitationId, string? apiVersion = default(string?), string? xVersion = default(string?), int operationIndex = 0);
+        ApiResponse<Object> DeleteTenantInvitationAsyncWithHttpInfo(string tenantId, string invitationId, string? apiVersion = default(string?), string? xVersion = default(string?), int operationIndex = 0);
         /// <summary>
-        /// Retrieves a list of tenant invitations
+        /// Retrieves a list of invitations associated to this tenant
         /// </summary>
         /// <exception cref="EdGraph.Tenant.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tenantId"></param>
@@ -66,10 +66,10 @@ namespace EdGraph.Tenant.Client.Api
         /// <param name="xVersion"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>IdentityApiInvitationV1InvitationListResponsePaginatedItemsViewModel</returns>
-        IdentityApiInvitationV1InvitationListResponsePaginatedItemsViewModel GetAllTenantInvitations(string tenantId, int? pageSize = default(int?), int? pageIndex = default(int?), string? orderBy = default(string?), string? filter = default(string?), string? apiVersion = default(string?), string? xVersion = default(string?), int operationIndex = 0);
+        IdentityApiInvitationV1InvitationListResponsePaginatedItemsViewModel GetAllTenantInvitationsAsync(string tenantId, int? pageSize = default(int?), int? pageIndex = default(int?), string? orderBy = default(string?), string? filter = default(string?), string? apiVersion = default(string?), string? xVersion = default(string?), int operationIndex = 0);
 
         /// <summary>
-        /// Retrieves a list of tenant invitations
+        /// Retrieves a list of invitations associated to this tenant
         /// </summary>
         /// <remarks>
         /// 
@@ -84,9 +84,9 @@ namespace EdGraph.Tenant.Client.Api
         /// <param name="xVersion"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of IdentityApiInvitationV1InvitationListResponsePaginatedItemsViewModel</returns>
-        ApiResponse<IdentityApiInvitationV1InvitationListResponsePaginatedItemsViewModel> GetAllTenantInvitationsWithHttpInfo(string tenantId, int? pageSize = default(int?), int? pageIndex = default(int?), string? orderBy = default(string?), string? filter = default(string?), string? apiVersion = default(string?), string? xVersion = default(string?), int operationIndex = 0);
+        ApiResponse<IdentityApiInvitationV1InvitationListResponsePaginatedItemsViewModel> GetAllTenantInvitationsAsyncWithHttpInfo(string tenantId, int? pageSize = default(int?), int? pageIndex = default(int?), string? orderBy = default(string?), string? filter = default(string?), string? apiVersion = default(string?), string? xVersion = default(string?), int operationIndex = 0);
         /// <summary>
-        /// Retrieves a specific tenant invitation using its primary key
+        /// Retrieves a specific invitation
         /// </summary>
         /// <exception cref="EdGraph.Tenant.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tenantId"></param>
@@ -95,10 +95,10 @@ namespace EdGraph.Tenant.Client.Api
         /// <param name="xVersion"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>IdentityApiInvitationV1InvitationResponse</returns>
-        IdentityApiInvitationV1InvitationResponse GetTenantInvitationById(string tenantId, string invitationId, string? apiVersion = default(string?), string? xVersion = default(string?), int operationIndex = 0);
+        IdentityApiInvitationV1InvitationResponse GetTenantInvitationByIdAsync(string tenantId, string invitationId, string? apiVersion = default(string?), string? xVersion = default(string?), int operationIndex = 0);
 
         /// <summary>
-        /// Retrieves a specific tenant invitation using its primary key
+        /// Retrieves a specific invitation
         /// </summary>
         /// <remarks>
         /// 
@@ -110,9 +110,9 @@ namespace EdGraph.Tenant.Client.Api
         /// <param name="xVersion"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of IdentityApiInvitationV1InvitationResponse</returns>
-        ApiResponse<IdentityApiInvitationV1InvitationResponse> GetTenantInvitationByIdWithHttpInfo(string tenantId, string invitationId, string? apiVersion = default(string?), string? xVersion = default(string?), int operationIndex = 0);
+        ApiResponse<IdentityApiInvitationV1InvitationResponse> GetTenantInvitationByIdAsyncWithHttpInfo(string tenantId, string invitationId, string? apiVersion = default(string?), string? xVersion = default(string?), int operationIndex = 0);
         /// <summary>
-        /// Send an invitation
+        /// Creates and sends an invitation to a user
         /// </summary>
         /// <exception cref="EdGraph.Tenant.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tenantId"></param>
@@ -120,11 +120,11 @@ namespace EdGraph.Tenant.Client.Api
         /// <param name="xVersion"> (optional)</param>
         /// <param name="identityApiInvitationV1SendInvitationRequest"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns></returns>
-        void SendTenantInvitation(string tenantId, string? apiVersion = default(string?), string? xVersion = default(string?), IdentityApiInvitationV1SendInvitationRequest? identityApiInvitationV1SendInvitationRequest = default(IdentityApiInvitationV1SendInvitationRequest?), int operationIndex = 0);
+        /// <returns>IdentityApiInvitationV1InvitationSentResponse</returns>
+        IdentityApiInvitationV1InvitationSentResponse SendTenantInvitationAsync(string tenantId, string? apiVersion = default(string?), string? xVersion = default(string?), IdentityApiInvitationV1SendInvitationRequest? identityApiInvitationV1SendInvitationRequest = default(IdentityApiInvitationV1SendInvitationRequest?), int operationIndex = 0);
 
         /// <summary>
-        /// Send an invitation
+        /// Creates and sends an invitation to a user
         /// </summary>
         /// <remarks>
         /// 
@@ -135,8 +135,8 @@ namespace EdGraph.Tenant.Client.Api
         /// <param name="xVersion"> (optional)</param>
         /// <param name="identityApiInvitationV1SendInvitationRequest"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> SendTenantInvitationWithHttpInfo(string tenantId, string? apiVersion = default(string?), string? xVersion = default(string?), IdentityApiInvitationV1SendInvitationRequest? identityApiInvitationV1SendInvitationRequest = default(IdentityApiInvitationV1SendInvitationRequest?), int operationIndex = 0);
+        /// <returns>ApiResponse of IdentityApiInvitationV1InvitationSentResponse</returns>
+        ApiResponse<IdentityApiInvitationV1InvitationSentResponse> SendTenantInvitationAsyncWithHttpInfo(string tenantId, string? apiVersion = default(string?), string? xVersion = default(string?), IdentityApiInvitationV1SendInvitationRequest? identityApiInvitationV1SendInvitationRequest = default(IdentityApiInvitationV1SendInvitationRequest?), int operationIndex = 0);
         #endregion Synchronous Operations
     }
 
@@ -147,7 +147,7 @@ namespace EdGraph.Tenant.Client.Api
     {
         #region Asynchronous Operations
         /// <summary>
-        /// Delete a tenant invitation matching the primary key
+        /// Deletes an invitation
         /// </summary>
         /// <remarks>
         /// 
@@ -160,10 +160,10 @@ namespace EdGraph.Tenant.Client.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task DeleteTenantInvitationAsync(string tenantId, string invitationId, string? apiVersion = default(string?), string? xVersion = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task DeleteTenantInvitationAsyncAsync(string tenantId, string invitationId, string? apiVersion = default(string?), string? xVersion = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Delete a tenant invitation matching the primary key
+        /// Deletes an invitation
         /// </summary>
         /// <remarks>
         /// 
@@ -176,9 +176,9 @@ namespace EdGraph.Tenant.Client.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> DeleteTenantInvitationWithHttpInfoAsync(string tenantId, string invitationId, string? apiVersion = default(string?), string? xVersion = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Object>> DeleteTenantInvitationAsyncWithHttpInfoAsync(string tenantId, string invitationId, string? apiVersion = default(string?), string? xVersion = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Retrieves a list of tenant invitations
+        /// Retrieves a list of invitations associated to this tenant
         /// </summary>
         /// <remarks>
         /// 
@@ -194,10 +194,10 @@ namespace EdGraph.Tenant.Client.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of IdentityApiInvitationV1InvitationListResponsePaginatedItemsViewModel</returns>
-        System.Threading.Tasks.Task<IdentityApiInvitationV1InvitationListResponsePaginatedItemsViewModel> GetAllTenantInvitationsAsync(string tenantId, int? pageSize = default(int?), int? pageIndex = default(int?), string? orderBy = default(string?), string? filter = default(string?), string? apiVersion = default(string?), string? xVersion = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<IdentityApiInvitationV1InvitationListResponsePaginatedItemsViewModel> GetAllTenantInvitationsAsyncAsync(string tenantId, int? pageSize = default(int?), int? pageIndex = default(int?), string? orderBy = default(string?), string? filter = default(string?), string? apiVersion = default(string?), string? xVersion = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Retrieves a list of tenant invitations
+        /// Retrieves a list of invitations associated to this tenant
         /// </summary>
         /// <remarks>
         /// 
@@ -213,9 +213,9 @@ namespace EdGraph.Tenant.Client.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (IdentityApiInvitationV1InvitationListResponsePaginatedItemsViewModel)</returns>
-        System.Threading.Tasks.Task<ApiResponse<IdentityApiInvitationV1InvitationListResponsePaginatedItemsViewModel>> GetAllTenantInvitationsWithHttpInfoAsync(string tenantId, int? pageSize = default(int?), int? pageIndex = default(int?), string? orderBy = default(string?), string? filter = default(string?), string? apiVersion = default(string?), string? xVersion = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<IdentityApiInvitationV1InvitationListResponsePaginatedItemsViewModel>> GetAllTenantInvitationsAsyncWithHttpInfoAsync(string tenantId, int? pageSize = default(int?), int? pageIndex = default(int?), string? orderBy = default(string?), string? filter = default(string?), string? apiVersion = default(string?), string? xVersion = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Retrieves a specific tenant invitation using its primary key
+        /// Retrieves a specific invitation
         /// </summary>
         /// <remarks>
         /// 
@@ -228,10 +228,10 @@ namespace EdGraph.Tenant.Client.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of IdentityApiInvitationV1InvitationResponse</returns>
-        System.Threading.Tasks.Task<IdentityApiInvitationV1InvitationResponse> GetTenantInvitationByIdAsync(string tenantId, string invitationId, string? apiVersion = default(string?), string? xVersion = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<IdentityApiInvitationV1InvitationResponse> GetTenantInvitationByIdAsyncAsync(string tenantId, string invitationId, string? apiVersion = default(string?), string? xVersion = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Retrieves a specific tenant invitation using its primary key
+        /// Retrieves a specific invitation
         /// </summary>
         /// <remarks>
         /// 
@@ -244,9 +244,9 @@ namespace EdGraph.Tenant.Client.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (IdentityApiInvitationV1InvitationResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<IdentityApiInvitationV1InvitationResponse>> GetTenantInvitationByIdWithHttpInfoAsync(string tenantId, string invitationId, string? apiVersion = default(string?), string? xVersion = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<IdentityApiInvitationV1InvitationResponse>> GetTenantInvitationByIdAsyncWithHttpInfoAsync(string tenantId, string invitationId, string? apiVersion = default(string?), string? xVersion = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Send an invitation
+        /// Creates and sends an invitation to a user
         /// </summary>
         /// <remarks>
         /// 
@@ -258,11 +258,11 @@ namespace EdGraph.Tenant.Client.Api
         /// <param name="identityApiInvitationV1SendInvitationRequest"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task SendTenantInvitationAsync(string tenantId, string? apiVersion = default(string?), string? xVersion = default(string?), IdentityApiInvitationV1SendInvitationRequest? identityApiInvitationV1SendInvitationRequest = default(IdentityApiInvitationV1SendInvitationRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of IdentityApiInvitationV1InvitationSentResponse</returns>
+        System.Threading.Tasks.Task<IdentityApiInvitationV1InvitationSentResponse> SendTenantInvitationAsyncAsync(string tenantId, string? apiVersion = default(string?), string? xVersion = default(string?), IdentityApiInvitationV1SendInvitationRequest? identityApiInvitationV1SendInvitationRequest = default(IdentityApiInvitationV1SendInvitationRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Send an invitation
+        /// Creates and sends an invitation to a user
         /// </summary>
         /// <remarks>
         /// 
@@ -274,8 +274,8 @@ namespace EdGraph.Tenant.Client.Api
         /// <param name="identityApiInvitationV1SendInvitationRequest"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> SendTenantInvitationWithHttpInfoAsync(string tenantId, string? apiVersion = default(string?), string? xVersion = default(string?), IdentityApiInvitationV1SendInvitationRequest? identityApiInvitationV1SendInvitationRequest = default(IdentityApiInvitationV1SendInvitationRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of ApiResponse (IdentityApiInvitationV1InvitationSentResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<IdentityApiInvitationV1InvitationSentResponse>> SendTenantInvitationAsyncWithHttpInfoAsync(string tenantId, string? apiVersion = default(string?), string? xVersion = default(string?), IdentityApiInvitationV1SendInvitationRequest? identityApiInvitationV1SendInvitationRequest = default(IdentityApiInvitationV1SendInvitationRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -397,7 +397,7 @@ namespace EdGraph.Tenant.Client.Api
         }
 
         /// <summary>
-        /// Delete a tenant invitation matching the primary key 
+        /// Deletes an invitation 
         /// </summary>
         /// <exception cref="EdGraph.Tenant.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tenantId"></param>
@@ -406,13 +406,13 @@ namespace EdGraph.Tenant.Client.Api
         /// <param name="xVersion"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns></returns>
-        public void DeleteTenantInvitation(string tenantId, string invitationId, string? apiVersion = default(string?), string? xVersion = default(string?), int operationIndex = 0)
+        public void DeleteTenantInvitationAsync(string tenantId, string invitationId, string? apiVersion = default(string?), string? xVersion = default(string?), int operationIndex = 0)
         {
-            DeleteTenantInvitationWithHttpInfo(tenantId, invitationId, apiVersion, xVersion);
+            DeleteTenantInvitationAsyncWithHttpInfo(tenantId, invitationId, apiVersion, xVersion);
         }
 
         /// <summary>
-        /// Delete a tenant invitation matching the primary key 
+        /// Deletes an invitation 
         /// </summary>
         /// <exception cref="EdGraph.Tenant.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tenantId"></param>
@@ -421,18 +421,18 @@ namespace EdGraph.Tenant.Client.Api
         /// <param name="xVersion"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        public EdGraph.Tenant.Client.Client.ApiResponse<Object> DeleteTenantInvitationWithHttpInfo(string tenantId, string invitationId, string? apiVersion = default(string?), string? xVersion = default(string?), int operationIndex = 0)
+        public EdGraph.Tenant.Client.Client.ApiResponse<Object> DeleteTenantInvitationAsyncWithHttpInfo(string tenantId, string invitationId, string? apiVersion = default(string?), string? xVersion = default(string?), int operationIndex = 0)
         {
             // verify the required parameter 'tenantId' is set
             if (tenantId == null)
             {
-                throw new EdGraph.Tenant.Client.Client.ApiException(400, "Missing required parameter 'tenantId' when calling InvitationsApi->DeleteTenantInvitation");
+                throw new EdGraph.Tenant.Client.Client.ApiException(400, "Missing required parameter 'tenantId' when calling InvitationsApi->DeleteTenantInvitationAsync");
             }
 
             // verify the required parameter 'invitationId' is set
             if (invitationId == null)
             {
-                throw new EdGraph.Tenant.Client.Client.ApiException(400, "Missing required parameter 'invitationId' when calling InvitationsApi->DeleteTenantInvitation");
+                throw new EdGraph.Tenant.Client.Client.ApiException(400, "Missing required parameter 'invitationId' when calling InvitationsApi->DeleteTenantInvitationAsync");
             }
 
             EdGraph.Tenant.Client.Client.RequestOptions localVarRequestOptions = new EdGraph.Tenant.Client.Client.RequestOptions();
@@ -468,7 +468,7 @@ namespace EdGraph.Tenant.Client.Api
                 localVarRequestOptions.HeaderParameters.Add("X-version", EdGraph.Tenant.Client.Client.ClientUtils.ParameterToString(xVersion)); // header parameter
             }
 
-            localVarRequestOptions.Operation = "InvitationsApi.DeleteTenantInvitation";
+            localVarRequestOptions.Operation = "InvitationsApi.DeleteTenantInvitationAsync";
             localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (oauth2) required
@@ -492,7 +492,7 @@ namespace EdGraph.Tenant.Client.Api
             var localVarResponse = this.Client.Delete<Object>("/tenants/{tenantId}/invitations/{invitationId}", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("DeleteTenantInvitation", localVarResponse);
+                Exception _exception = this.ExceptionFactory("DeleteTenantInvitationAsync", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
@@ -503,7 +503,7 @@ namespace EdGraph.Tenant.Client.Api
         }
 
         /// <summary>
-        /// Delete a tenant invitation matching the primary key 
+        /// Deletes an invitation 
         /// </summary>
         /// <exception cref="EdGraph.Tenant.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tenantId"></param>
@@ -513,13 +513,13 @@ namespace EdGraph.Tenant.Client.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task DeleteTenantInvitationAsync(string tenantId, string invitationId, string? apiVersion = default(string?), string? xVersion = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task DeleteTenantInvitationAsyncAsync(string tenantId, string invitationId, string? apiVersion = default(string?), string? xVersion = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            await DeleteTenantInvitationWithHttpInfoAsync(tenantId, invitationId, apiVersion, xVersion, operationIndex, cancellationToken).ConfigureAwait(false);
+            await DeleteTenantInvitationAsyncWithHttpInfoAsync(tenantId, invitationId, apiVersion, xVersion, operationIndex, cancellationToken).ConfigureAwait(false);
         }
 
         /// <summary>
-        /// Delete a tenant invitation matching the primary key 
+        /// Deletes an invitation 
         /// </summary>
         /// <exception cref="EdGraph.Tenant.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tenantId"></param>
@@ -529,18 +529,18 @@ namespace EdGraph.Tenant.Client.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<EdGraph.Tenant.Client.Client.ApiResponse<Object>> DeleteTenantInvitationWithHttpInfoAsync(string tenantId, string invitationId, string? apiVersion = default(string?), string? xVersion = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<EdGraph.Tenant.Client.Client.ApiResponse<Object>> DeleteTenantInvitationAsyncWithHttpInfoAsync(string tenantId, string invitationId, string? apiVersion = default(string?), string? xVersion = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'tenantId' is set
             if (tenantId == null)
             {
-                throw new EdGraph.Tenant.Client.Client.ApiException(400, "Missing required parameter 'tenantId' when calling InvitationsApi->DeleteTenantInvitation");
+                throw new EdGraph.Tenant.Client.Client.ApiException(400, "Missing required parameter 'tenantId' when calling InvitationsApi->DeleteTenantInvitationAsync");
             }
 
             // verify the required parameter 'invitationId' is set
             if (invitationId == null)
             {
-                throw new EdGraph.Tenant.Client.Client.ApiException(400, "Missing required parameter 'invitationId' when calling InvitationsApi->DeleteTenantInvitation");
+                throw new EdGraph.Tenant.Client.Client.ApiException(400, "Missing required parameter 'invitationId' when calling InvitationsApi->DeleteTenantInvitationAsync");
             }
 
 
@@ -577,7 +577,7 @@ namespace EdGraph.Tenant.Client.Api
                 localVarRequestOptions.HeaderParameters.Add("X-version", EdGraph.Tenant.Client.Client.ClientUtils.ParameterToString(xVersion)); // header parameter
             }
 
-            localVarRequestOptions.Operation = "InvitationsApi.DeleteTenantInvitation";
+            localVarRequestOptions.Operation = "InvitationsApi.DeleteTenantInvitationAsync";
             localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (oauth2) required
@@ -602,7 +602,7 @@ namespace EdGraph.Tenant.Client.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("DeleteTenantInvitation", localVarResponse);
+                Exception _exception = this.ExceptionFactory("DeleteTenantInvitationAsync", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
@@ -613,7 +613,7 @@ namespace EdGraph.Tenant.Client.Api
         }
 
         /// <summary>
-        /// Retrieves a list of tenant invitations 
+        /// Retrieves a list of invitations associated to this tenant 
         /// </summary>
         /// <exception cref="EdGraph.Tenant.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tenantId"></param>
@@ -625,14 +625,14 @@ namespace EdGraph.Tenant.Client.Api
         /// <param name="xVersion"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>IdentityApiInvitationV1InvitationListResponsePaginatedItemsViewModel</returns>
-        public IdentityApiInvitationV1InvitationListResponsePaginatedItemsViewModel GetAllTenantInvitations(string tenantId, int? pageSize = default(int?), int? pageIndex = default(int?), string? orderBy = default(string?), string? filter = default(string?), string? apiVersion = default(string?), string? xVersion = default(string?), int operationIndex = 0)
+        public IdentityApiInvitationV1InvitationListResponsePaginatedItemsViewModel GetAllTenantInvitationsAsync(string tenantId, int? pageSize = default(int?), int? pageIndex = default(int?), string? orderBy = default(string?), string? filter = default(string?), string? apiVersion = default(string?), string? xVersion = default(string?), int operationIndex = 0)
         {
-            EdGraph.Tenant.Client.Client.ApiResponse<IdentityApiInvitationV1InvitationListResponsePaginatedItemsViewModel> localVarResponse = GetAllTenantInvitationsWithHttpInfo(tenantId, pageSize, pageIndex, orderBy, filter, apiVersion, xVersion);
+            EdGraph.Tenant.Client.Client.ApiResponse<IdentityApiInvitationV1InvitationListResponsePaginatedItemsViewModel> localVarResponse = GetAllTenantInvitationsAsyncWithHttpInfo(tenantId, pageSize, pageIndex, orderBy, filter, apiVersion, xVersion);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Retrieves a list of tenant invitations 
+        /// Retrieves a list of invitations associated to this tenant 
         /// </summary>
         /// <exception cref="EdGraph.Tenant.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tenantId"></param>
@@ -644,12 +644,12 @@ namespace EdGraph.Tenant.Client.Api
         /// <param name="xVersion"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of IdentityApiInvitationV1InvitationListResponsePaginatedItemsViewModel</returns>
-        public EdGraph.Tenant.Client.Client.ApiResponse<IdentityApiInvitationV1InvitationListResponsePaginatedItemsViewModel> GetAllTenantInvitationsWithHttpInfo(string tenantId, int? pageSize = default(int?), int? pageIndex = default(int?), string? orderBy = default(string?), string? filter = default(string?), string? apiVersion = default(string?), string? xVersion = default(string?), int operationIndex = 0)
+        public EdGraph.Tenant.Client.Client.ApiResponse<IdentityApiInvitationV1InvitationListResponsePaginatedItemsViewModel> GetAllTenantInvitationsAsyncWithHttpInfo(string tenantId, int? pageSize = default(int?), int? pageIndex = default(int?), string? orderBy = default(string?), string? filter = default(string?), string? apiVersion = default(string?), string? xVersion = default(string?), int operationIndex = 0)
         {
             // verify the required parameter 'tenantId' is set
             if (tenantId == null)
             {
-                throw new EdGraph.Tenant.Client.Client.ApiException(400, "Missing required parameter 'tenantId' when calling InvitationsApi->GetAllTenantInvitations");
+                throw new EdGraph.Tenant.Client.Client.ApiException(400, "Missing required parameter 'tenantId' when calling InvitationsApi->GetAllTenantInvitationsAsync");
             }
 
             EdGraph.Tenant.Client.Client.RequestOptions localVarRequestOptions = new EdGraph.Tenant.Client.Client.RequestOptions();
@@ -700,7 +700,7 @@ namespace EdGraph.Tenant.Client.Api
                 localVarRequestOptions.HeaderParameters.Add("X-version", EdGraph.Tenant.Client.Client.ClientUtils.ParameterToString(xVersion)); // header parameter
             }
 
-            localVarRequestOptions.Operation = "InvitationsApi.GetAllTenantInvitations";
+            localVarRequestOptions.Operation = "InvitationsApi.GetAllTenantInvitationsAsync";
             localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (oauth2) required
@@ -724,7 +724,7 @@ namespace EdGraph.Tenant.Client.Api
             var localVarResponse = this.Client.Get<IdentityApiInvitationV1InvitationListResponsePaginatedItemsViewModel>("/tenants/{tenantId}/invitations", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("GetAllTenantInvitations", localVarResponse);
+                Exception _exception = this.ExceptionFactory("GetAllTenantInvitationsAsync", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
@@ -735,7 +735,7 @@ namespace EdGraph.Tenant.Client.Api
         }
 
         /// <summary>
-        /// Retrieves a list of tenant invitations 
+        /// Retrieves a list of invitations associated to this tenant 
         /// </summary>
         /// <exception cref="EdGraph.Tenant.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tenantId"></param>
@@ -748,14 +748,14 @@ namespace EdGraph.Tenant.Client.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of IdentityApiInvitationV1InvitationListResponsePaginatedItemsViewModel</returns>
-        public async System.Threading.Tasks.Task<IdentityApiInvitationV1InvitationListResponsePaginatedItemsViewModel> GetAllTenantInvitationsAsync(string tenantId, int? pageSize = default(int?), int? pageIndex = default(int?), string? orderBy = default(string?), string? filter = default(string?), string? apiVersion = default(string?), string? xVersion = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<IdentityApiInvitationV1InvitationListResponsePaginatedItemsViewModel> GetAllTenantInvitationsAsyncAsync(string tenantId, int? pageSize = default(int?), int? pageIndex = default(int?), string? orderBy = default(string?), string? filter = default(string?), string? apiVersion = default(string?), string? xVersion = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            EdGraph.Tenant.Client.Client.ApiResponse<IdentityApiInvitationV1InvitationListResponsePaginatedItemsViewModel> localVarResponse = await GetAllTenantInvitationsWithHttpInfoAsync(tenantId, pageSize, pageIndex, orderBy, filter, apiVersion, xVersion, operationIndex, cancellationToken).ConfigureAwait(false);
+            EdGraph.Tenant.Client.Client.ApiResponse<IdentityApiInvitationV1InvitationListResponsePaginatedItemsViewModel> localVarResponse = await GetAllTenantInvitationsAsyncWithHttpInfoAsync(tenantId, pageSize, pageIndex, orderBy, filter, apiVersion, xVersion, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Retrieves a list of tenant invitations 
+        /// Retrieves a list of invitations associated to this tenant 
         /// </summary>
         /// <exception cref="EdGraph.Tenant.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tenantId"></param>
@@ -768,12 +768,12 @@ namespace EdGraph.Tenant.Client.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (IdentityApiInvitationV1InvitationListResponsePaginatedItemsViewModel)</returns>
-        public async System.Threading.Tasks.Task<EdGraph.Tenant.Client.Client.ApiResponse<IdentityApiInvitationV1InvitationListResponsePaginatedItemsViewModel>> GetAllTenantInvitationsWithHttpInfoAsync(string tenantId, int? pageSize = default(int?), int? pageIndex = default(int?), string? orderBy = default(string?), string? filter = default(string?), string? apiVersion = default(string?), string? xVersion = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<EdGraph.Tenant.Client.Client.ApiResponse<IdentityApiInvitationV1InvitationListResponsePaginatedItemsViewModel>> GetAllTenantInvitationsAsyncWithHttpInfoAsync(string tenantId, int? pageSize = default(int?), int? pageIndex = default(int?), string? orderBy = default(string?), string? filter = default(string?), string? apiVersion = default(string?), string? xVersion = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'tenantId' is set
             if (tenantId == null)
             {
-                throw new EdGraph.Tenant.Client.Client.ApiException(400, "Missing required parameter 'tenantId' when calling InvitationsApi->GetAllTenantInvitations");
+                throw new EdGraph.Tenant.Client.Client.ApiException(400, "Missing required parameter 'tenantId' when calling InvitationsApi->GetAllTenantInvitationsAsync");
             }
 
 
@@ -825,7 +825,7 @@ namespace EdGraph.Tenant.Client.Api
                 localVarRequestOptions.HeaderParameters.Add("X-version", EdGraph.Tenant.Client.Client.ClientUtils.ParameterToString(xVersion)); // header parameter
             }
 
-            localVarRequestOptions.Operation = "InvitationsApi.GetAllTenantInvitations";
+            localVarRequestOptions.Operation = "InvitationsApi.GetAllTenantInvitationsAsync";
             localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (oauth2) required
@@ -850,7 +850,7 @@ namespace EdGraph.Tenant.Client.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("GetAllTenantInvitations", localVarResponse);
+                Exception _exception = this.ExceptionFactory("GetAllTenantInvitationsAsync", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
@@ -861,7 +861,7 @@ namespace EdGraph.Tenant.Client.Api
         }
 
         /// <summary>
-        /// Retrieves a specific tenant invitation using its primary key 
+        /// Retrieves a specific invitation 
         /// </summary>
         /// <exception cref="EdGraph.Tenant.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tenantId"></param>
@@ -870,14 +870,14 @@ namespace EdGraph.Tenant.Client.Api
         /// <param name="xVersion"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>IdentityApiInvitationV1InvitationResponse</returns>
-        public IdentityApiInvitationV1InvitationResponse GetTenantInvitationById(string tenantId, string invitationId, string? apiVersion = default(string?), string? xVersion = default(string?), int operationIndex = 0)
+        public IdentityApiInvitationV1InvitationResponse GetTenantInvitationByIdAsync(string tenantId, string invitationId, string? apiVersion = default(string?), string? xVersion = default(string?), int operationIndex = 0)
         {
-            EdGraph.Tenant.Client.Client.ApiResponse<IdentityApiInvitationV1InvitationResponse> localVarResponse = GetTenantInvitationByIdWithHttpInfo(tenantId, invitationId, apiVersion, xVersion);
+            EdGraph.Tenant.Client.Client.ApiResponse<IdentityApiInvitationV1InvitationResponse> localVarResponse = GetTenantInvitationByIdAsyncWithHttpInfo(tenantId, invitationId, apiVersion, xVersion);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Retrieves a specific tenant invitation using its primary key 
+        /// Retrieves a specific invitation 
         /// </summary>
         /// <exception cref="EdGraph.Tenant.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tenantId"></param>
@@ -886,18 +886,18 @@ namespace EdGraph.Tenant.Client.Api
         /// <param name="xVersion"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of IdentityApiInvitationV1InvitationResponse</returns>
-        public EdGraph.Tenant.Client.Client.ApiResponse<IdentityApiInvitationV1InvitationResponse> GetTenantInvitationByIdWithHttpInfo(string tenantId, string invitationId, string? apiVersion = default(string?), string? xVersion = default(string?), int operationIndex = 0)
+        public EdGraph.Tenant.Client.Client.ApiResponse<IdentityApiInvitationV1InvitationResponse> GetTenantInvitationByIdAsyncWithHttpInfo(string tenantId, string invitationId, string? apiVersion = default(string?), string? xVersion = default(string?), int operationIndex = 0)
         {
             // verify the required parameter 'tenantId' is set
             if (tenantId == null)
             {
-                throw new EdGraph.Tenant.Client.Client.ApiException(400, "Missing required parameter 'tenantId' when calling InvitationsApi->GetTenantInvitationById");
+                throw new EdGraph.Tenant.Client.Client.ApiException(400, "Missing required parameter 'tenantId' when calling InvitationsApi->GetTenantInvitationByIdAsync");
             }
 
             // verify the required parameter 'invitationId' is set
             if (invitationId == null)
             {
-                throw new EdGraph.Tenant.Client.Client.ApiException(400, "Missing required parameter 'invitationId' when calling InvitationsApi->GetTenantInvitationById");
+                throw new EdGraph.Tenant.Client.Client.ApiException(400, "Missing required parameter 'invitationId' when calling InvitationsApi->GetTenantInvitationByIdAsync");
             }
 
             EdGraph.Tenant.Client.Client.RequestOptions localVarRequestOptions = new EdGraph.Tenant.Client.Client.RequestOptions();
@@ -933,7 +933,7 @@ namespace EdGraph.Tenant.Client.Api
                 localVarRequestOptions.HeaderParameters.Add("X-version", EdGraph.Tenant.Client.Client.ClientUtils.ParameterToString(xVersion)); // header parameter
             }
 
-            localVarRequestOptions.Operation = "InvitationsApi.GetTenantInvitationById";
+            localVarRequestOptions.Operation = "InvitationsApi.GetTenantInvitationByIdAsync";
             localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (oauth2) required
@@ -957,7 +957,7 @@ namespace EdGraph.Tenant.Client.Api
             var localVarResponse = this.Client.Get<IdentityApiInvitationV1InvitationResponse>("/tenants/{tenantId}/invitations/{invitationId}", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("GetTenantInvitationById", localVarResponse);
+                Exception _exception = this.ExceptionFactory("GetTenantInvitationByIdAsync", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
@@ -968,7 +968,7 @@ namespace EdGraph.Tenant.Client.Api
         }
 
         /// <summary>
-        /// Retrieves a specific tenant invitation using its primary key 
+        /// Retrieves a specific invitation 
         /// </summary>
         /// <exception cref="EdGraph.Tenant.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tenantId"></param>
@@ -978,14 +978,14 @@ namespace EdGraph.Tenant.Client.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of IdentityApiInvitationV1InvitationResponse</returns>
-        public async System.Threading.Tasks.Task<IdentityApiInvitationV1InvitationResponse> GetTenantInvitationByIdAsync(string tenantId, string invitationId, string? apiVersion = default(string?), string? xVersion = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<IdentityApiInvitationV1InvitationResponse> GetTenantInvitationByIdAsyncAsync(string tenantId, string invitationId, string? apiVersion = default(string?), string? xVersion = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            EdGraph.Tenant.Client.Client.ApiResponse<IdentityApiInvitationV1InvitationResponse> localVarResponse = await GetTenantInvitationByIdWithHttpInfoAsync(tenantId, invitationId, apiVersion, xVersion, operationIndex, cancellationToken).ConfigureAwait(false);
+            EdGraph.Tenant.Client.Client.ApiResponse<IdentityApiInvitationV1InvitationResponse> localVarResponse = await GetTenantInvitationByIdAsyncWithHttpInfoAsync(tenantId, invitationId, apiVersion, xVersion, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Retrieves a specific tenant invitation using its primary key 
+        /// Retrieves a specific invitation 
         /// </summary>
         /// <exception cref="EdGraph.Tenant.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tenantId"></param>
@@ -995,18 +995,18 @@ namespace EdGraph.Tenant.Client.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (IdentityApiInvitationV1InvitationResponse)</returns>
-        public async System.Threading.Tasks.Task<EdGraph.Tenant.Client.Client.ApiResponse<IdentityApiInvitationV1InvitationResponse>> GetTenantInvitationByIdWithHttpInfoAsync(string tenantId, string invitationId, string? apiVersion = default(string?), string? xVersion = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<EdGraph.Tenant.Client.Client.ApiResponse<IdentityApiInvitationV1InvitationResponse>> GetTenantInvitationByIdAsyncWithHttpInfoAsync(string tenantId, string invitationId, string? apiVersion = default(string?), string? xVersion = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'tenantId' is set
             if (tenantId == null)
             {
-                throw new EdGraph.Tenant.Client.Client.ApiException(400, "Missing required parameter 'tenantId' when calling InvitationsApi->GetTenantInvitationById");
+                throw new EdGraph.Tenant.Client.Client.ApiException(400, "Missing required parameter 'tenantId' when calling InvitationsApi->GetTenantInvitationByIdAsync");
             }
 
             // verify the required parameter 'invitationId' is set
             if (invitationId == null)
             {
-                throw new EdGraph.Tenant.Client.Client.ApiException(400, "Missing required parameter 'invitationId' when calling InvitationsApi->GetTenantInvitationById");
+                throw new EdGraph.Tenant.Client.Client.ApiException(400, "Missing required parameter 'invitationId' when calling InvitationsApi->GetTenantInvitationByIdAsync");
             }
 
 
@@ -1043,7 +1043,7 @@ namespace EdGraph.Tenant.Client.Api
                 localVarRequestOptions.HeaderParameters.Add("X-version", EdGraph.Tenant.Client.Client.ClientUtils.ParameterToString(xVersion)); // header parameter
             }
 
-            localVarRequestOptions.Operation = "InvitationsApi.GetTenantInvitationById";
+            localVarRequestOptions.Operation = "InvitationsApi.GetTenantInvitationByIdAsync";
             localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (oauth2) required
@@ -1068,7 +1068,7 @@ namespace EdGraph.Tenant.Client.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("GetTenantInvitationById", localVarResponse);
+                Exception _exception = this.ExceptionFactory("GetTenantInvitationByIdAsync", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
@@ -1079,7 +1079,7 @@ namespace EdGraph.Tenant.Client.Api
         }
 
         /// <summary>
-        /// Send an invitation 
+        /// Creates and sends an invitation to a user 
         /// </summary>
         /// <exception cref="EdGraph.Tenant.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tenantId"></param>
@@ -1087,14 +1087,15 @@ namespace EdGraph.Tenant.Client.Api
         /// <param name="xVersion"> (optional)</param>
         /// <param name="identityApiInvitationV1SendInvitationRequest"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns></returns>
-        public void SendTenantInvitation(string tenantId, string? apiVersion = default(string?), string? xVersion = default(string?), IdentityApiInvitationV1SendInvitationRequest? identityApiInvitationV1SendInvitationRequest = default(IdentityApiInvitationV1SendInvitationRequest?), int operationIndex = 0)
+        /// <returns>IdentityApiInvitationV1InvitationSentResponse</returns>
+        public IdentityApiInvitationV1InvitationSentResponse SendTenantInvitationAsync(string tenantId, string? apiVersion = default(string?), string? xVersion = default(string?), IdentityApiInvitationV1SendInvitationRequest? identityApiInvitationV1SendInvitationRequest = default(IdentityApiInvitationV1SendInvitationRequest?), int operationIndex = 0)
         {
-            SendTenantInvitationWithHttpInfo(tenantId, apiVersion, xVersion, identityApiInvitationV1SendInvitationRequest);
+            EdGraph.Tenant.Client.Client.ApiResponse<IdentityApiInvitationV1InvitationSentResponse> localVarResponse = SendTenantInvitationAsyncWithHttpInfo(tenantId, apiVersion, xVersion, identityApiInvitationV1SendInvitationRequest);
+            return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Send an invitation 
+        /// Creates and sends an invitation to a user 
         /// </summary>
         /// <exception cref="EdGraph.Tenant.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tenantId"></param>
@@ -1102,13 +1103,13 @@ namespace EdGraph.Tenant.Client.Api
         /// <param name="xVersion"> (optional)</param>
         /// <param name="identityApiInvitationV1SendInvitationRequest"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of Object(void)</returns>
-        public EdGraph.Tenant.Client.Client.ApiResponse<Object> SendTenantInvitationWithHttpInfo(string tenantId, string? apiVersion = default(string?), string? xVersion = default(string?), IdentityApiInvitationV1SendInvitationRequest? identityApiInvitationV1SendInvitationRequest = default(IdentityApiInvitationV1SendInvitationRequest?), int operationIndex = 0)
+        /// <returns>ApiResponse of IdentityApiInvitationV1InvitationSentResponse</returns>
+        public EdGraph.Tenant.Client.Client.ApiResponse<IdentityApiInvitationV1InvitationSentResponse> SendTenantInvitationAsyncWithHttpInfo(string tenantId, string? apiVersion = default(string?), string? xVersion = default(string?), IdentityApiInvitationV1SendInvitationRequest? identityApiInvitationV1SendInvitationRequest = default(IdentityApiInvitationV1SendInvitationRequest?), int operationIndex = 0)
         {
             // verify the required parameter 'tenantId' is set
             if (tenantId == null)
             {
-                throw new EdGraph.Tenant.Client.Client.ApiException(400, "Missing required parameter 'tenantId' when calling InvitationsApi->SendTenantInvitation");
+                throw new EdGraph.Tenant.Client.Client.ApiException(400, "Missing required parameter 'tenantId' when calling InvitationsApi->SendTenantInvitationAsync");
             }
 
             EdGraph.Tenant.Client.Client.RequestOptions localVarRequestOptions = new EdGraph.Tenant.Client.Client.RequestOptions();
@@ -1148,7 +1149,7 @@ namespace EdGraph.Tenant.Client.Api
             }
             localVarRequestOptions.Data = identityApiInvitationV1SendInvitationRequest;
 
-            localVarRequestOptions.Operation = "InvitationsApi.SendTenantInvitation";
+            localVarRequestOptions.Operation = "InvitationsApi.SendTenantInvitationAsync";
             localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (oauth2) required
@@ -1169,10 +1170,10 @@ namespace EdGraph.Tenant.Client.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Post<Object>("/tenants/{tenantId}/invitations", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Post<IdentityApiInvitationV1InvitationSentResponse>("/tenants/{tenantId}/invitations", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("SendTenantInvitation", localVarResponse);
+                Exception _exception = this.ExceptionFactory("SendTenantInvitationAsync", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
@@ -1183,7 +1184,7 @@ namespace EdGraph.Tenant.Client.Api
         }
 
         /// <summary>
-        /// Send an invitation 
+        /// Creates and sends an invitation to a user 
         /// </summary>
         /// <exception cref="EdGraph.Tenant.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tenantId"></param>
@@ -1192,14 +1193,15 @@ namespace EdGraph.Tenant.Client.Api
         /// <param name="identityApiInvitationV1SendInvitationRequest"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task SendTenantInvitationAsync(string tenantId, string? apiVersion = default(string?), string? xVersion = default(string?), IdentityApiInvitationV1SendInvitationRequest? identityApiInvitationV1SendInvitationRequest = default(IdentityApiInvitationV1SendInvitationRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of IdentityApiInvitationV1InvitationSentResponse</returns>
+        public async System.Threading.Tasks.Task<IdentityApiInvitationV1InvitationSentResponse> SendTenantInvitationAsyncAsync(string tenantId, string? apiVersion = default(string?), string? xVersion = default(string?), IdentityApiInvitationV1SendInvitationRequest? identityApiInvitationV1SendInvitationRequest = default(IdentityApiInvitationV1SendInvitationRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            await SendTenantInvitationWithHttpInfoAsync(tenantId, apiVersion, xVersion, identityApiInvitationV1SendInvitationRequest, operationIndex, cancellationToken).ConfigureAwait(false);
+            EdGraph.Tenant.Client.Client.ApiResponse<IdentityApiInvitationV1InvitationSentResponse> localVarResponse = await SendTenantInvitationAsyncWithHttpInfoAsync(tenantId, apiVersion, xVersion, identityApiInvitationV1SendInvitationRequest, operationIndex, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Send an invitation 
+        /// Creates and sends an invitation to a user 
         /// </summary>
         /// <exception cref="EdGraph.Tenant.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tenantId"></param>
@@ -1208,13 +1210,13 @@ namespace EdGraph.Tenant.Client.Api
         /// <param name="identityApiInvitationV1SendInvitationRequest"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<EdGraph.Tenant.Client.Client.ApiResponse<Object>> SendTenantInvitationWithHttpInfoAsync(string tenantId, string? apiVersion = default(string?), string? xVersion = default(string?), IdentityApiInvitationV1SendInvitationRequest? identityApiInvitationV1SendInvitationRequest = default(IdentityApiInvitationV1SendInvitationRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of ApiResponse (IdentityApiInvitationV1InvitationSentResponse)</returns>
+        public async System.Threading.Tasks.Task<EdGraph.Tenant.Client.Client.ApiResponse<IdentityApiInvitationV1InvitationSentResponse>> SendTenantInvitationAsyncWithHttpInfoAsync(string tenantId, string? apiVersion = default(string?), string? xVersion = default(string?), IdentityApiInvitationV1SendInvitationRequest? identityApiInvitationV1SendInvitationRequest = default(IdentityApiInvitationV1SendInvitationRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'tenantId' is set
             if (tenantId == null)
             {
-                throw new EdGraph.Tenant.Client.Client.ApiException(400, "Missing required parameter 'tenantId' when calling InvitationsApi->SendTenantInvitation");
+                throw new EdGraph.Tenant.Client.Client.ApiException(400, "Missing required parameter 'tenantId' when calling InvitationsApi->SendTenantInvitationAsync");
             }
 
 
@@ -1255,7 +1257,7 @@ namespace EdGraph.Tenant.Client.Api
             }
             localVarRequestOptions.Data = identityApiInvitationV1SendInvitationRequest;
 
-            localVarRequestOptions.Operation = "InvitationsApi.SendTenantInvitation";
+            localVarRequestOptions.Operation = "InvitationsApi.SendTenantInvitationAsync";
             localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (oauth2) required
@@ -1276,11 +1278,11 @@ namespace EdGraph.Tenant.Client.Api
             }
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.PostAsync<Object>("/tenants/{tenantId}/invitations", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.PostAsync<IdentityApiInvitationV1InvitationSentResponse>("/tenants/{tenantId}/invitations", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("SendTenantInvitation", localVarResponse);
+                Exception _exception = this.ExceptionFactory("SendTenantInvitationAsync", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;

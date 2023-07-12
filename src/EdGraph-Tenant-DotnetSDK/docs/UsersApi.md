@@ -4,20 +4,20 @@ All URIs are relative to *https://api.edgraph.com/tenant*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
-| [**ActivateTenantUser**](UsersApi.md#activatetenantuser) | **POST** /tenants/{tenantId}/users/{userId}/activate | Activate a Tenant user matching the primary key |
-| [**CreateTenantLocalUser**](UsersApi.md#createtenantlocaluser) | **POST** /tenants/{tenantId}/users/addlocaluser | Creates a new tenant local user |
-| [**DeactivateTenantUser**](UsersApi.md#deactivatetenantuser) | **POST** /tenants/{tenantId}/users/{userId}/deactivate | Deactivate a Tenant user matching the primary key |
-| [**DeleteTenantUser**](UsersApi.md#deletetenantuser) | **DELETE** /tenants/{tenantId}/users/{userId} | Delete a tenant user matching the primary key |
-| [**GetAllTenantUsers**](UsersApi.md#getalltenantusers) | **GET** /tenants/{tenantId}/users | Retrieves a list of tenant users |
-| [**GetTenantUserProfileById**](UsersApi.md#gettenantuserprofilebyid) | **GET** /tenants/{tenantId}/users/{userId} | Retrieves a specific tenant user using its primary key |
-| [**ResetPasswordTenantUser**](UsersApi.md#resetpasswordtenantuser) | **PUT** /tenants/{tenantId}/users/{userId}/resetpassword | Reset a tenant user password |
-| [**UpdateTenantUser**](UsersApi.md#updatetenantuser) | **PUT** /tenants/{tenantId}/users/{userId} | Creates or Updates a tenant user matching the primary key |
+| [**ActivateTenantUserAsync**](UsersApi.md#activatetenantuserasync) | **PUT** /tenants/{tenantId}/users/{userId}/activate | Activates a user |
+| [**CreateTenantLocalUserAsync**](UsersApi.md#createtenantlocaluserasync) | **POST** /tenants/{tenantId}/users | Creates a user in the local identity provider |
+| [**DeactivateTenantUserAsync**](UsersApi.md#deactivatetenantuserasync) | **PUT** /tenants/{tenantId}/users/{userId}/deactivate | Deactivates a user |
+| [**DeleteTenantUserAsync**](UsersApi.md#deletetenantuserasync) | **DELETE** /tenants/{tenantId}/users/{userId} | Deletes a user |
+| [**GetAllTenantUsersAsync**](UsersApi.md#getalltenantusersasync) | **GET** /tenants/{tenantId}/users | Retrieves a list of users associated to this tenant |
+| [**GetTenantUserProfileByIdAsync**](UsersApi.md#gettenantuserprofilebyidasync) | **GET** /tenants/{tenantId}/users/{userId} | Retrieves a user |
+| [**ResetPasswordTenantUserAsync**](UsersApi.md#resetpasswordtenantuserasync) | **PUT** /tenants/{tenantId}/users/{userId}/resetpassword | Resets a user&#39;s password |
+| [**UpdateTenantUserAsync**](UsersApi.md#updatetenantuserasync) | **PUT** /tenants/{tenantId}/users/{userId} | Creates or updates a user |
 
-<a id="activatetenantuser"></a>
-# **ActivateTenantUser**
-> void ActivateTenantUser (string tenantId, string userId, string? apiVersion = null, string? xVersion = null, IdentityApiUserV1ActivateUserRequest? identityApiUserV1ActivateUserRequest = null)
+<a id="activatetenantuserasync"></a>
+# **ActivateTenantUserAsync**
+> IdentityApiUserV1UserActivatedResponse ActivateTenantUserAsync (string tenantId, string userId, string? apiVersion = null, string? xVersion = null, IdentityApiUserV1ActivateUserRequest? identityApiUserV1ActivateUserRequest = null)
 
-Activate a Tenant user matching the primary key
+Activates a user
 
 ### Example
 ```csharp
@@ -29,7 +29,7 @@ using EdGraph.Tenant.Client.Model;
 
 namespace Example
 {
-    public class ActivateTenantUserExample
+    public class ActivateTenantUserAsyncExample
     {
         public static void Main()
         {
@@ -47,12 +47,13 @@ namespace Example
 
             try
             {
-                // Activate a Tenant user matching the primary key
-                apiInstance.ActivateTenantUser(tenantId, userId, apiVersion, xVersion, identityApiUserV1ActivateUserRequest);
+                // Activates a user
+                IdentityApiUserV1UserActivatedResponse result = apiInstance.ActivateTenantUserAsync(tenantId, userId, apiVersion, xVersion, identityApiUserV1ActivateUserRequest);
+                Debug.WriteLine(result);
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling UsersApi.ActivateTenantUser: " + e.Message);
+                Debug.Print("Exception when calling UsersApi.ActivateTenantUserAsync: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -61,18 +62,21 @@ namespace Example
 }
 ```
 
-#### Using the ActivateTenantUserWithHttpInfo variant
+#### Using the ActivateTenantUserAsyncWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
 ```csharp
 try
 {
-    // Activate a Tenant user matching the primary key
-    apiInstance.ActivateTenantUserWithHttpInfo(tenantId, userId, apiVersion, xVersion, identityApiUserV1ActivateUserRequest);
+    // Activates a user
+    ApiResponse<IdentityApiUserV1UserActivatedResponse> response = apiInstance.ActivateTenantUserAsyncWithHttpInfo(tenantId, userId, apiVersion, xVersion, identityApiUserV1ActivateUserRequest);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling UsersApi.ActivateTenantUserWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling UsersApi.ActivateTenantUserAsyncWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -90,7 +94,7 @@ catch (ApiException e)
 
 ### Return type
 
-void (empty response body)
+[**IdentityApiUserV1UserActivatedResponse**](IdentityApiUserV1UserActivatedResponse.md)
 
 ### Authorization
 
@@ -105,18 +109,21 @@ void (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **202** | Tenant user activated |  -  |
-| **400** | Tenant user has missing/invalid values |  -  |
-| **403** | Missing the required permissions to access to this tenant/resource |  -  |
-| **500** | Oops! Can&#39;t activate your Tenant user right now |  -  |
+| **401** | Unauthorized. The request requires authentication. The OAuth bearer token was either not provided or is invalid. The operation may succeed once authentication has been successfully completed. |  -  |
+| **403** | Forbidden. The request cannot be completed in the current authorization context. Contact your administrator if you believe this operation should be allowed. |  -  |
+| **500** | An unhandled error occurred on the server.See the response body for details. |  -  |
+| **200** | The requested resource was successfully retrieved. |  -  |
+| **400** | Bad Request. The request was invalid and cannot be completed. See the response body for specific validation errors. This will typically be an issue with the query parameters or the request body values. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a id="createtenantlocaluser"></a>
-# **CreateTenantLocalUser**
-> void CreateTenantLocalUser (string tenantId, string? apiVersion = null, string? xVersion = null, IdentityApiUserV1CreateLocalUserRequest? identityApiUserV1CreateLocalUserRequest = null)
+<a id="createtenantlocaluserasync"></a>
+# **CreateTenantLocalUserAsync**
+> IdentityApiUserV1LocalUserCreatedResponse CreateTenantLocalUserAsync (string tenantId, string? apiVersion = null, string? xVersion = null, IdentityApiUserV1CreateLocalUserRequest? identityApiUserV1CreateLocalUserRequest = null)
 
-Creates a new tenant local user
+Creates a user in the local identity provider
+
+Note: This is only used to create a user in the local identity provider, i.e. this cannot be used to create a user in an external identity providers such as Microsoft or Google.
 
 ### Example
 ```csharp
@@ -128,7 +135,7 @@ using EdGraph.Tenant.Client.Model;
 
 namespace Example
 {
-    public class CreateTenantLocalUserExample
+    public class CreateTenantLocalUserAsyncExample
     {
         public static void Main()
         {
@@ -145,12 +152,13 @@ namespace Example
 
             try
             {
-                // Creates a new tenant local user
-                apiInstance.CreateTenantLocalUser(tenantId, apiVersion, xVersion, identityApiUserV1CreateLocalUserRequest);
+                // Creates a user in the local identity provider
+                IdentityApiUserV1LocalUserCreatedResponse result = apiInstance.CreateTenantLocalUserAsync(tenantId, apiVersion, xVersion, identityApiUserV1CreateLocalUserRequest);
+                Debug.WriteLine(result);
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling UsersApi.CreateTenantLocalUser: " + e.Message);
+                Debug.Print("Exception when calling UsersApi.CreateTenantLocalUserAsync: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -159,18 +167,21 @@ namespace Example
 }
 ```
 
-#### Using the CreateTenantLocalUserWithHttpInfo variant
+#### Using the CreateTenantLocalUserAsyncWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
 ```csharp
 try
 {
-    // Creates a new tenant local user
-    apiInstance.CreateTenantLocalUserWithHttpInfo(tenantId, apiVersion, xVersion, identityApiUserV1CreateLocalUserRequest);
+    // Creates a user in the local identity provider
+    ApiResponse<IdentityApiUserV1LocalUserCreatedResponse> response = apiInstance.CreateTenantLocalUserAsyncWithHttpInfo(tenantId, apiVersion, xVersion, identityApiUserV1CreateLocalUserRequest);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling UsersApi.CreateTenantLocalUserWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling UsersApi.CreateTenantLocalUserAsyncWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -187,7 +198,7 @@ catch (ApiException e)
 
 ### Return type
 
-void (empty response body)
+[**IdentityApiUserV1LocalUserCreatedResponse**](IdentityApiUserV1LocalUserCreatedResponse.md)
 
 ### Authorization
 
@@ -202,18 +213,19 @@ void (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **202** | Tenant local user created |  -  |
-| **400** | Tenant local user has missing/invalid values |  -  |
-| **403** | Missing the required permissions to access to this tenant/resource |  -  |
-| **500** | Oops! Can&#39;t create your tenant local user right now |  -  |
+| **401** | Unauthorized. The request requires authentication. The OAuth bearer token was either not provided or is invalid. The operation may succeed once authentication has been successfully completed. |  -  |
+| **403** | Forbidden. The request cannot be completed in the current authorization context. Contact your administrator if you believe this operation should be allowed. |  -  |
+| **500** | An unhandled error occurred on the server.See the response body for details. |  -  |
+| **201** | The resource was created. The location of the resource is available in the Location header of the response. |  -  |
+| **400** | Bad Request. The request was invalid and cannot be completed. See the response body for specific validation errors. This will typically be an issue with the query parameters or the request body values. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a id="deactivatetenantuser"></a>
-# **DeactivateTenantUser**
-> void DeactivateTenantUser (string tenantId, string userId, string? apiVersion = null, string? xVersion = null, IdentityApiUserV1DeactivateUserRequest? identityApiUserV1DeactivateUserRequest = null)
+<a id="deactivatetenantuserasync"></a>
+# **DeactivateTenantUserAsync**
+> IdentityApiUserV1UserDeactivatedResponse DeactivateTenantUserAsync (string tenantId, string userId, string? apiVersion = null, string? xVersion = null, IdentityApiUserV1DeactivateUserRequest? identityApiUserV1DeactivateUserRequest = null)
 
-Deactivate a Tenant user matching the primary key
+Deactivates a user
 
 ### Example
 ```csharp
@@ -225,7 +237,7 @@ using EdGraph.Tenant.Client.Model;
 
 namespace Example
 {
-    public class DeactivateTenantUserExample
+    public class DeactivateTenantUserAsyncExample
     {
         public static void Main()
         {
@@ -243,12 +255,13 @@ namespace Example
 
             try
             {
-                // Deactivate a Tenant user matching the primary key
-                apiInstance.DeactivateTenantUser(tenantId, userId, apiVersion, xVersion, identityApiUserV1DeactivateUserRequest);
+                // Deactivates a user
+                IdentityApiUserV1UserDeactivatedResponse result = apiInstance.DeactivateTenantUserAsync(tenantId, userId, apiVersion, xVersion, identityApiUserV1DeactivateUserRequest);
+                Debug.WriteLine(result);
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling UsersApi.DeactivateTenantUser: " + e.Message);
+                Debug.Print("Exception when calling UsersApi.DeactivateTenantUserAsync: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -257,18 +270,21 @@ namespace Example
 }
 ```
 
-#### Using the DeactivateTenantUserWithHttpInfo variant
+#### Using the DeactivateTenantUserAsyncWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
 ```csharp
 try
 {
-    // Deactivate a Tenant user matching the primary key
-    apiInstance.DeactivateTenantUserWithHttpInfo(tenantId, userId, apiVersion, xVersion, identityApiUserV1DeactivateUserRequest);
+    // Deactivates a user
+    ApiResponse<IdentityApiUserV1UserDeactivatedResponse> response = apiInstance.DeactivateTenantUserAsyncWithHttpInfo(tenantId, userId, apiVersion, xVersion, identityApiUserV1DeactivateUserRequest);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling UsersApi.DeactivateTenantUserWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling UsersApi.DeactivateTenantUserAsyncWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -286,7 +302,7 @@ catch (ApiException e)
 
 ### Return type
 
-void (empty response body)
+[**IdentityApiUserV1UserDeactivatedResponse**](IdentityApiUserV1UserDeactivatedResponse.md)
 
 ### Authorization
 
@@ -301,18 +317,19 @@ void (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **202** | Tenant user deactivated |  -  |
-| **400** | Tenant user has missing/invalid values |  -  |
-| **403** | Missing the required permissions to access to this tenant/resource |  -  |
-| **500** | Oops! Can&#39;t deactivate your Tenant user right now |  -  |
+| **401** | Unauthorized. The request requires authentication. The OAuth bearer token was either not provided or is invalid. The operation may succeed once authentication has been successfully completed. |  -  |
+| **403** | Forbidden. The request cannot be completed in the current authorization context. Contact your administrator if you believe this operation should be allowed. |  -  |
+| **500** | An unhandled error occurred on the server.See the response body for details. |  -  |
+| **200** | The requested resource was successfully retrieved. |  -  |
+| **400** | Bad Request. The request was invalid and cannot be completed. See the response body for specific validation errors. This will typically be an issue with the query parameters or the request body values. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a id="deletetenantuser"></a>
-# **DeleteTenantUser**
-> void DeleteTenantUser (string tenantId, string userId, string? apiVersion = null, string? xVersion = null)
+<a id="deletetenantuserasync"></a>
+# **DeleteTenantUserAsync**
+> void DeleteTenantUserAsync (string tenantId, string userId, string? apiVersion = null, string? xVersion = null)
 
-Delete a tenant user matching the primary key
+Deletes a user
 
 ### Example
 ```csharp
@@ -324,7 +341,7 @@ using EdGraph.Tenant.Client.Model;
 
 namespace Example
 {
-    public class DeleteTenantUserExample
+    public class DeleteTenantUserAsyncExample
     {
         public static void Main()
         {
@@ -341,12 +358,12 @@ namespace Example
 
             try
             {
-                // Delete a tenant user matching the primary key
-                apiInstance.DeleteTenantUser(tenantId, userId, apiVersion, xVersion);
+                // Deletes a user
+                apiInstance.DeleteTenantUserAsync(tenantId, userId, apiVersion, xVersion);
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling UsersApi.DeleteTenantUser: " + e.Message);
+                Debug.Print("Exception when calling UsersApi.DeleteTenantUserAsync: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -355,18 +372,18 @@ namespace Example
 }
 ```
 
-#### Using the DeleteTenantUserWithHttpInfo variant
+#### Using the DeleteTenantUserAsyncWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
 ```csharp
 try
 {
-    // Delete a tenant user matching the primary key
-    apiInstance.DeleteTenantUserWithHttpInfo(tenantId, userId, apiVersion, xVersion);
+    // Deletes a user
+    apiInstance.DeleteTenantUserAsyncWithHttpInfo(tenantId, userId, apiVersion, xVersion);
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling UsersApi.DeleteTenantUserWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling UsersApi.DeleteTenantUserAsyncWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -398,18 +415,19 @@ void (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **204** | Tenant user deleted |  -  |
-| **400** | Tenant has missing/invalid values |  -  |
-| **403** | Missing the required permissions to access to this tenant/resource |  -  |
-| **500** | Oops! Can&#39;t delete your tenant user right now |  -  |
+| **401** | Unauthorized. The request requires authentication. The OAuth bearer token was either not provided or is invalid. The operation may succeed once authentication has been successfully completed. |  -  |
+| **403** | Forbidden. The request cannot be completed in the current authorization context. Contact your administrator if you believe this operation should be allowed. |  -  |
+| **500** | An unhandled error occurred on the server.See the response body for details. |  -  |
+| **204** | The resource was successfully deleted. |  -  |
+| **400** | Bad Request. The request was invalid and cannot be completed. See the response body for specific validation errors. This will typically be an issue with the query parameters or the request body values. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a id="getalltenantusers"></a>
-# **GetAllTenantUsers**
-> EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesUserListResponseWithApplicationLicensePaginatedItemsViewModel GetAllTenantUsers (string tenantId, int? pageSize = null, int? pageIndex = null, string? orderBy = null, string? filter = null, string? apiVersion = null, string? xVersion = null)
+<a id="getalltenantusersasync"></a>
+# **GetAllTenantUsersAsync**
+> EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesUserListResponseWithApplicationLicensePaginatedItemsViewModel GetAllTenantUsersAsync (string tenantId, int? pageSize = null, int? pageIndex = null, string? orderBy = null, string? filter = null, string? apiVersion = null, string? xVersion = null)
 
-Retrieves a list of tenant users
+Retrieves a list of users associated to this tenant
 
 ### Example
 ```csharp
@@ -421,7 +439,7 @@ using EdGraph.Tenant.Client.Model;
 
 namespace Example
 {
-    public class GetAllTenantUsersExample
+    public class GetAllTenantUsersAsyncExample
     {
         public static void Main()
         {
@@ -441,13 +459,13 @@ namespace Example
 
             try
             {
-                // Retrieves a list of tenant users
-                EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesUserListResponseWithApplicationLicensePaginatedItemsViewModel result = apiInstance.GetAllTenantUsers(tenantId, pageSize, pageIndex, orderBy, filter, apiVersion, xVersion);
+                // Retrieves a list of users associated to this tenant
+                EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesUserListResponseWithApplicationLicensePaginatedItemsViewModel result = apiInstance.GetAllTenantUsersAsync(tenantId, pageSize, pageIndex, orderBy, filter, apiVersion, xVersion);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling UsersApi.GetAllTenantUsers: " + e.Message);
+                Debug.Print("Exception when calling UsersApi.GetAllTenantUsersAsync: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -456,21 +474,21 @@ namespace Example
 }
 ```
 
-#### Using the GetAllTenantUsersWithHttpInfo variant
+#### Using the GetAllTenantUsersAsyncWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
 ```csharp
 try
 {
-    // Retrieves a list of tenant users
-    ApiResponse<EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesUserListResponseWithApplicationLicensePaginatedItemsViewModel> response = apiInstance.GetAllTenantUsersWithHttpInfo(tenantId, pageSize, pageIndex, orderBy, filter, apiVersion, xVersion);
+    // Retrieves a list of users associated to this tenant
+    ApiResponse<EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesUserListResponseWithApplicationLicensePaginatedItemsViewModel> response = apiInstance.GetAllTenantUsersAsyncWithHttpInfo(tenantId, pageSize, pageIndex, orderBy, filter, apiVersion, xVersion);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling UsersApi.GetAllTenantUsersWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling UsersApi.GetAllTenantUsersAsyncWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -505,18 +523,19 @@ catch (ApiException e)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | List of tenant users returned |  -  |
-| **400** | Tenant has missing/invalid values |  -  |
-| **403** | Missing the required permissions to access to this tenant/resource |  -  |
-| **500** | Oops! Can&#39;t retrieve the list of tenant users right now |  -  |
+| **401** | Unauthorized. The request requires authentication. The OAuth bearer token was either not provided or is invalid. The operation may succeed once authentication has been successfully completed. |  -  |
+| **403** | Forbidden. The request cannot be completed in the current authorization context. Contact your administrator if you believe this operation should be allowed. |  -  |
+| **500** | An unhandled error occurred on the server.See the response body for details. |  -  |
+| **200** | The requested resource was successfully retrieved. |  -  |
+| **400** | Bad Request. The request was invalid and cannot be completed. See the response body for specific validation errors. This will typically be an issue with the query parameters or the request body values. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a id="gettenantuserprofilebyid"></a>
-# **GetTenantUserProfileById**
-> EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesUserProfileResponseWithApplicationLicense GetTenantUserProfileById (string tenantId, string userId, string? apiVersion = null, string? xVersion = null)
+<a id="gettenantuserprofilebyidasync"></a>
+# **GetTenantUserProfileByIdAsync**
+> EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesUserProfileResponseWithApplicationLicense GetTenantUserProfileByIdAsync (string tenantId, string userId, string? apiVersion = null, string? xVersion = null)
 
-Retrieves a specific tenant user using its primary key
+Retrieves a user
 
 ### Example
 ```csharp
@@ -528,7 +547,7 @@ using EdGraph.Tenant.Client.Model;
 
 namespace Example
 {
-    public class GetTenantUserProfileByIdExample
+    public class GetTenantUserProfileByIdAsyncExample
     {
         public static void Main()
         {
@@ -545,13 +564,13 @@ namespace Example
 
             try
             {
-                // Retrieves a specific tenant user using its primary key
-                EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesUserProfileResponseWithApplicationLicense result = apiInstance.GetTenantUserProfileById(tenantId, userId, apiVersion, xVersion);
+                // Retrieves a user
+                EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesUserProfileResponseWithApplicationLicense result = apiInstance.GetTenantUserProfileByIdAsync(tenantId, userId, apiVersion, xVersion);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling UsersApi.GetTenantUserProfileById: " + e.Message);
+                Debug.Print("Exception when calling UsersApi.GetTenantUserProfileByIdAsync: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -560,21 +579,21 @@ namespace Example
 }
 ```
 
-#### Using the GetTenantUserProfileByIdWithHttpInfo variant
+#### Using the GetTenantUserProfileByIdAsyncWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
 ```csharp
 try
 {
-    // Retrieves a specific tenant user using its primary key
-    ApiResponse<EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesUserProfileResponseWithApplicationLicense> response = apiInstance.GetTenantUserProfileByIdWithHttpInfo(tenantId, userId, apiVersion, xVersion);
+    // Retrieves a user
+    ApiResponse<EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesUserProfileResponseWithApplicationLicense> response = apiInstance.GetTenantUserProfileByIdAsyncWithHttpInfo(tenantId, userId, apiVersion, xVersion);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling UsersApi.GetTenantUserProfileByIdWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling UsersApi.GetTenantUserProfileByIdAsyncWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -606,19 +625,22 @@ catch (ApiException e)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Tenant user returned |  -  |
-| **404** | Tenant user not found |  -  |
-| **400** | Tenant has missing/invalid values |  -  |
-| **403** | Missing the required permissions to access to this tenant/resource |  -  |
-| **500** | Oops! Can&#39;t retrieve your tenant user right now |  -  |
+| **401** | Unauthorized. The request requires authentication. The OAuth bearer token was either not provided or is invalid. The operation may succeed once authentication has been successfully completed. |  -  |
+| **403** | Forbidden. The request cannot be completed in the current authorization context. Contact your administrator if you believe this operation should be allowed. |  -  |
+| **500** | An unhandled error occurred on the server.See the response body for details. |  -  |
+| **200** | The requested resource was successfully retrieved. |  -  |
+| **400** | Bad Request. The request was invalid and cannot be completed. See the response body for specific validation errors. This will typically be an issue with the query parameters or the request body values. |  -  |
+| **404** | The resource could not be found. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a id="resetpasswordtenantuser"></a>
-# **ResetPasswordTenantUser**
-> void ResetPasswordTenantUser (string tenantId, string userId, string? apiVersion = null, string? xVersion = null, IdentityApiUserV1ResetPasswordRequest? identityApiUserV1ResetPasswordRequest = null)
+<a id="resetpasswordtenantuserasync"></a>
+# **ResetPasswordTenantUserAsync**
+> IdentityApiUserV1PasswordResettedResponse ResetPasswordTenantUserAsync (string tenantId, string userId, string? apiVersion = null, string? xVersion = null, IdentityApiUserV1ResetPasswordRequest? identityApiUserV1ResetPasswordRequest = null)
 
-Reset a tenant user password
+Resets a user's password
+
+Note: This is only applicable to user created in the local identity provider.
 
 ### Example
 ```csharp
@@ -630,7 +652,7 @@ using EdGraph.Tenant.Client.Model;
 
 namespace Example
 {
-    public class ResetPasswordTenantUserExample
+    public class ResetPasswordTenantUserAsyncExample
     {
         public static void Main()
         {
@@ -648,12 +670,13 @@ namespace Example
 
             try
             {
-                // Reset a tenant user password
-                apiInstance.ResetPasswordTenantUser(tenantId, userId, apiVersion, xVersion, identityApiUserV1ResetPasswordRequest);
+                // Resets a user's password
+                IdentityApiUserV1PasswordResettedResponse result = apiInstance.ResetPasswordTenantUserAsync(tenantId, userId, apiVersion, xVersion, identityApiUserV1ResetPasswordRequest);
+                Debug.WriteLine(result);
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling UsersApi.ResetPasswordTenantUser: " + e.Message);
+                Debug.Print("Exception when calling UsersApi.ResetPasswordTenantUserAsync: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -662,18 +685,21 @@ namespace Example
 }
 ```
 
-#### Using the ResetPasswordTenantUserWithHttpInfo variant
+#### Using the ResetPasswordTenantUserAsyncWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
 ```csharp
 try
 {
-    // Reset a tenant user password
-    apiInstance.ResetPasswordTenantUserWithHttpInfo(tenantId, userId, apiVersion, xVersion, identityApiUserV1ResetPasswordRequest);
+    // Resets a user's password
+    ApiResponse<IdentityApiUserV1PasswordResettedResponse> response = apiInstance.ResetPasswordTenantUserAsyncWithHttpInfo(tenantId, userId, apiVersion, xVersion, identityApiUserV1ResetPasswordRequest);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling UsersApi.ResetPasswordTenantUserWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling UsersApi.ResetPasswordTenantUserAsyncWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -691,7 +717,7 @@ catch (ApiException e)
 
 ### Return type
 
-void (empty response body)
+[**IdentityApiUserV1PasswordResettedResponse**](IdentityApiUserV1PasswordResettedResponse.md)
 
 ### Authorization
 
@@ -706,18 +732,19 @@ void (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **202** | Tenant user password updated |  -  |
-| **400** | Tenant user password request has missing/invalid values |  -  |
-| **403** | Missing the required permissions to access to this tenant/resource |  -  |
-| **500** | Oops! Can&#39;t reset your tenant user password right now |  -  |
+| **401** | Unauthorized. The request requires authentication. The OAuth bearer token was either not provided or is invalid. The operation may succeed once authentication has been successfully completed. |  -  |
+| **403** | Forbidden. The request cannot be completed in the current authorization context. Contact your administrator if you believe this operation should be allowed. |  -  |
+| **500** | An unhandled error occurred on the server.See the response body for details. |  -  |
+| **200** | The requested resource was successfully retrieved. |  -  |
+| **400** | Bad Request. The request was invalid and cannot be completed. See the response body for specific validation errors. This will typically be an issue with the query parameters or the request body values. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a id="updatetenantuser"></a>
-# **UpdateTenantUser**
-> void UpdateTenantUser (string tenantId, string userId, string? apiVersion = null, string? xVersion = null, IdentityApiUserV1UpdateUserRequest? identityApiUserV1UpdateUserRequest = null)
+<a id="updatetenantuserasync"></a>
+# **UpdateTenantUserAsync**
+> IdentityApiUserV1UserUpdatedResponse UpdateTenantUserAsync (string tenantId, string userId, string? apiVersion = null, string? xVersion = null, IdentityApiUserV1UpdateUserRequest? identityApiUserV1UpdateUserRequest = null)
 
-Creates or Updates a tenant user matching the primary key
+Creates or updates a user
 
 ### Example
 ```csharp
@@ -729,7 +756,7 @@ using EdGraph.Tenant.Client.Model;
 
 namespace Example
 {
-    public class UpdateTenantUserExample
+    public class UpdateTenantUserAsyncExample
     {
         public static void Main()
         {
@@ -747,12 +774,13 @@ namespace Example
 
             try
             {
-                // Creates or Updates a tenant user matching the primary key
-                apiInstance.UpdateTenantUser(tenantId, userId, apiVersion, xVersion, identityApiUserV1UpdateUserRequest);
+                // Creates or updates a user
+                IdentityApiUserV1UserUpdatedResponse result = apiInstance.UpdateTenantUserAsync(tenantId, userId, apiVersion, xVersion, identityApiUserV1UpdateUserRequest);
+                Debug.WriteLine(result);
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling UsersApi.UpdateTenantUser: " + e.Message);
+                Debug.Print("Exception when calling UsersApi.UpdateTenantUserAsync: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -761,18 +789,21 @@ namespace Example
 }
 ```
 
-#### Using the UpdateTenantUserWithHttpInfo variant
+#### Using the UpdateTenantUserAsyncWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
 ```csharp
 try
 {
-    // Creates or Updates a tenant user matching the primary key
-    apiInstance.UpdateTenantUserWithHttpInfo(tenantId, userId, apiVersion, xVersion, identityApiUserV1UpdateUserRequest);
+    // Creates or updates a user
+    ApiResponse<IdentityApiUserV1UserUpdatedResponse> response = apiInstance.UpdateTenantUserAsyncWithHttpInfo(tenantId, userId, apiVersion, xVersion, identityApiUserV1UpdateUserRequest);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling UsersApi.UpdateTenantUserWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling UsersApi.UpdateTenantUserAsyncWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -790,7 +821,7 @@ catch (ApiException e)
 
 ### Return type
 
-void (empty response body)
+[**IdentityApiUserV1UserUpdatedResponse**](IdentityApiUserV1UserUpdatedResponse.md)
 
 ### Authorization
 
@@ -805,10 +836,11 @@ void (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **202** | Tenant user created/updated |  -  |
-| **400** | Tenant user has missing/invalid values |  -  |
-| **403** | Missing the required permissions to access to this tenant/resource |  -  |
-| **500** | Oops! Can&#39;t create/update your tenant user right now |  -  |
+| **401** | Unauthorized. The request requires authentication. The OAuth bearer token was either not provided or is invalid. The operation may succeed once authentication has been successfully completed. |  -  |
+| **403** | Forbidden. The request cannot be completed in the current authorization context. Contact your administrator if you believe this operation should be allowed. |  -  |
+| **500** | An unhandled error occurred on the server.See the response body for details. |  -  |
+| **200** | The requested resource was successfully retrieved. |  -  |
+| **400** | Bad Request. The request was invalid and cannot be completed. See the response body for specific validation errors. This will typically be an issue with the query parameters or the request body values. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

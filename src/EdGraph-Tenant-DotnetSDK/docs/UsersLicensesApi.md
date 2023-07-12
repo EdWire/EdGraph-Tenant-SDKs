@@ -4,17 +4,17 @@ All URIs are relative to *https://api.edgraph.com/tenant*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
-| [**AssignLicenseTenantUser**](UsersLicensesApi.md#assignlicensetenantuser) | **POST** /tenants/{tenantId}/users/{userId}/licenses/assignlicense | Assigns a license to a tenant user matching the primary key |
-| [**AssignLicenseTenantUserBulk**](UsersLicensesApi.md#assignlicensetenantuserbulk) | **POST** /tenants/{tenantId}/users/{userId}/licenses/assignlicensebulk | Assigns a license to a tenant user matching the primary key |
-| [**GetAllTenantUserApplicationLicenses**](UsersLicensesApi.md#getalltenantuserapplicationlicenses) | **GET** /tenants/{tenantId}/users/{userId}/licenses | Retrieves a list of tenant users licenses |
-| [**RevokeLicenseTenantUser**](UsersLicensesApi.md#revokelicensetenantuser) | **POST** /tenants/{tenantId}/users/{userId}/licenses/revokelicense | Revokes a license to a tenant user matching the primary key |
-| [**RevokeLicenseTenantUserBulk**](UsersLicensesApi.md#revokelicensetenantuserbulk) | **POST** /tenants/{tenantId}/users/{userId}/licenses/revokelicensebulk | Revokes a license to a tenant user matching the primary key |
+| [**AssignLicenseTenantUserAsync**](UsersLicensesApi.md#assignlicensetenantuserasync) | **PUT** /tenants/{tenantId}/users/{userId}/licenses/assign | Assigns a license to a user in the context of a specific tenant |
+| [**AssignLicenseTenantUserBulkAsync**](UsersLicensesApi.md#assignlicensetenantuserbulkasync) | **PUT** /tenants/{tenantId}/users/{userId}/licenses/assignbulk | Assigns one or more licenses to a user in the context of a specific tenant |
+| [**GetAllTenantUserApplicationLicensesAsync**](UsersLicensesApi.md#getalltenantuserapplicationlicensesasync) | **GET** /tenants/{tenantId}/users/{userId}/licenses | Retrieves a list of user licenses in the context of a specific tenant |
+| [**RevokeLicenseTenantUserAsync**](UsersLicensesApi.md#revokelicensetenantuserasync) | **PUT** /tenants/{tenantId}/users/{userId}/licenses/revoke | Revokes a license from a user in the context of a specific tenant |
+| [**RevokeLicenseTenantUserBulkAsync**](UsersLicensesApi.md#revokelicensetenantuserbulkasync) | **PUT** /tenants/{tenantId}/users/{userId}/licenses/revokebulk | Revokes one or more licenses from a user in the context of a specific tenant |
 
-<a id="assignlicensetenantuser"></a>
-# **AssignLicenseTenantUser**
-> void AssignLicenseTenantUser (string tenantId, string userId, string? apiVersion = null, string? xVersion = null, IdentityApiUserV1AssignLicenseRequest? identityApiUserV1AssignLicenseRequest = null)
+<a id="assignlicensetenantuserasync"></a>
+# **AssignLicenseTenantUserAsync**
+> IdentityApiUserV1LicenseAssignedResponse AssignLicenseTenantUserAsync (string tenantId, string userId, string? apiVersion = null, string? xVersion = null, IdentityApiUserV1AssignLicenseRequest? identityApiUserV1AssignLicenseRequest = null)
 
-Assigns a license to a tenant user matching the primary key
+Assigns a license to a user in the context of a specific tenant
 
 ### Example
 ```csharp
@@ -26,7 +26,7 @@ using EdGraph.Tenant.Client.Model;
 
 namespace Example
 {
-    public class AssignLicenseTenantUserExample
+    public class AssignLicenseTenantUserAsyncExample
     {
         public static void Main()
         {
@@ -44,12 +44,13 @@ namespace Example
 
             try
             {
-                // Assigns a license to a tenant user matching the primary key
-                apiInstance.AssignLicenseTenantUser(tenantId, userId, apiVersion, xVersion, identityApiUserV1AssignLicenseRequest);
+                // Assigns a license to a user in the context of a specific tenant
+                IdentityApiUserV1LicenseAssignedResponse result = apiInstance.AssignLicenseTenantUserAsync(tenantId, userId, apiVersion, xVersion, identityApiUserV1AssignLicenseRequest);
+                Debug.WriteLine(result);
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling UsersLicensesApi.AssignLicenseTenantUser: " + e.Message);
+                Debug.Print("Exception when calling UsersLicensesApi.AssignLicenseTenantUserAsync: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -58,18 +59,21 @@ namespace Example
 }
 ```
 
-#### Using the AssignLicenseTenantUserWithHttpInfo variant
+#### Using the AssignLicenseTenantUserAsyncWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
 ```csharp
 try
 {
-    // Assigns a license to a tenant user matching the primary key
-    apiInstance.AssignLicenseTenantUserWithHttpInfo(tenantId, userId, apiVersion, xVersion, identityApiUserV1AssignLicenseRequest);
+    // Assigns a license to a user in the context of a specific tenant
+    ApiResponse<IdentityApiUserV1LicenseAssignedResponse> response = apiInstance.AssignLicenseTenantUserAsyncWithHttpInfo(tenantId, userId, apiVersion, xVersion, identityApiUserV1AssignLicenseRequest);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling UsersLicensesApi.AssignLicenseTenantUserWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling UsersLicensesApi.AssignLicenseTenantUserAsyncWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -87,7 +91,7 @@ catch (ApiException e)
 
 ### Return type
 
-void (empty response body)
+[**IdentityApiUserV1LicenseAssignedResponse**](IdentityApiUserV1LicenseAssignedResponse.md)
 
 ### Authorization
 
@@ -102,18 +106,19 @@ void (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **202** | Tenant user assigned a license |  -  |
-| **400** | Tenant user has missing/invalid values |  -  |
-| **403** | Missing the required permissions to access to this tenant/resource |  -  |
-| **500** | Oops! Can&#39;t assigned a license to your tenant user right now |  -  |
+| **401** | Unauthorized. The request requires authentication. The OAuth bearer token was either not provided or is invalid. The operation may succeed once authentication has been successfully completed. |  -  |
+| **403** | Forbidden. The request cannot be completed in the current authorization context. Contact your administrator if you believe this operation should be allowed. |  -  |
+| **500** | An unhandled error occurred on the server.See the response body for details. |  -  |
+| **200** | The requested resource was successfully retrieved. |  -  |
+| **400** | Bad Request. The request was invalid and cannot be completed. See the response body for specific validation errors. This will typically be an issue with the query parameters or the request body values. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a id="assignlicensetenantuserbulk"></a>
-# **AssignLicenseTenantUserBulk**
-> void AssignLicenseTenantUserBulk (string tenantId, string userId, string? apiVersion = null, string? xVersion = null, IdentityApiUserV1AssignLicenseBulkRequest? identityApiUserV1AssignLicenseBulkRequest = null)
+<a id="assignlicensetenantuserbulkasync"></a>
+# **AssignLicenseTenantUserBulkAsync**
+> IdentityApiUserV1LicenseAssignedBulkResponse AssignLicenseTenantUserBulkAsync (string tenantId, string userId, string? apiVersion = null, string? xVersion = null, IdentityApiUserV1AssignLicenseBulkRequest? identityApiUserV1AssignLicenseBulkRequest = null)
 
-Assigns a license to a tenant user matching the primary key
+Assigns one or more licenses to a user in the context of a specific tenant
 
 ### Example
 ```csharp
@@ -125,7 +130,7 @@ using EdGraph.Tenant.Client.Model;
 
 namespace Example
 {
-    public class AssignLicenseTenantUserBulkExample
+    public class AssignLicenseTenantUserBulkAsyncExample
     {
         public static void Main()
         {
@@ -143,12 +148,13 @@ namespace Example
 
             try
             {
-                // Assigns a license to a tenant user matching the primary key
-                apiInstance.AssignLicenseTenantUserBulk(tenantId, userId, apiVersion, xVersion, identityApiUserV1AssignLicenseBulkRequest);
+                // Assigns one or more licenses to a user in the context of a specific tenant
+                IdentityApiUserV1LicenseAssignedBulkResponse result = apiInstance.AssignLicenseTenantUserBulkAsync(tenantId, userId, apiVersion, xVersion, identityApiUserV1AssignLicenseBulkRequest);
+                Debug.WriteLine(result);
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling UsersLicensesApi.AssignLicenseTenantUserBulk: " + e.Message);
+                Debug.Print("Exception when calling UsersLicensesApi.AssignLicenseTenantUserBulkAsync: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -157,18 +163,21 @@ namespace Example
 }
 ```
 
-#### Using the AssignLicenseTenantUserBulkWithHttpInfo variant
+#### Using the AssignLicenseTenantUserBulkAsyncWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
 ```csharp
 try
 {
-    // Assigns a license to a tenant user matching the primary key
-    apiInstance.AssignLicenseTenantUserBulkWithHttpInfo(tenantId, userId, apiVersion, xVersion, identityApiUserV1AssignLicenseBulkRequest);
+    // Assigns one or more licenses to a user in the context of a specific tenant
+    ApiResponse<IdentityApiUserV1LicenseAssignedBulkResponse> response = apiInstance.AssignLicenseTenantUserBulkAsyncWithHttpInfo(tenantId, userId, apiVersion, xVersion, identityApiUserV1AssignLicenseBulkRequest);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling UsersLicensesApi.AssignLicenseTenantUserBulkWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling UsersLicensesApi.AssignLicenseTenantUserBulkAsyncWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -186,7 +195,7 @@ catch (ApiException e)
 
 ### Return type
 
-void (empty response body)
+[**IdentityApiUserV1LicenseAssignedBulkResponse**](IdentityApiUserV1LicenseAssignedBulkResponse.md)
 
 ### Authorization
 
@@ -201,18 +210,19 @@ void (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **202** | Tenant user assigned a license |  -  |
-| **400** | Tenant user has missing/invalid values |  -  |
-| **403** | Missing the required permissions to access to this tenant/resource |  -  |
-| **500** | Oops! Can&#39;t assigned a license to your tenant user right now |  -  |
+| **401** | Unauthorized. The request requires authentication. The OAuth bearer token was either not provided or is invalid. The operation may succeed once authentication has been successfully completed. |  -  |
+| **403** | Forbidden. The request cannot be completed in the current authorization context. Contact your administrator if you believe this operation should be allowed. |  -  |
+| **500** | An unhandled error occurred on the server.See the response body for details. |  -  |
+| **200** | The requested resource was successfully retrieved. |  -  |
+| **400** | Bad Request. The request was invalid and cannot be completed. See the response body for specific validation errors. This will typically be an issue with the query parameters or the request body values. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a id="getalltenantuserapplicationlicenses"></a>
-# **GetAllTenantUserApplicationLicenses**
-> EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesUserLicensePaginatedItemsViewModel GetAllTenantUserApplicationLicenses (string tenantId, string userId, int? pageSize = null, int? pageIndex = null, string? orderBy = null, string? filter = null, string? apiVersion = null, string? xVersion = null)
+<a id="getalltenantuserapplicationlicensesasync"></a>
+# **GetAllTenantUserApplicationLicensesAsync**
+> EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesUserLicensePaginatedItemsViewModel GetAllTenantUserApplicationLicensesAsync (string tenantId, string userId, int? pageSize = null, int? pageIndex = null, string? orderBy = null, string? filter = null, string? apiVersion = null, string? xVersion = null)
 
-Retrieves a list of tenant users licenses
+Retrieves a list of user licenses in the context of a specific tenant
 
 ### Example
 ```csharp
@@ -224,7 +234,7 @@ using EdGraph.Tenant.Client.Model;
 
 namespace Example
 {
-    public class GetAllTenantUserApplicationLicensesExample
+    public class GetAllTenantUserApplicationLicensesAsyncExample
     {
         public static void Main()
         {
@@ -245,13 +255,13 @@ namespace Example
 
             try
             {
-                // Retrieves a list of tenant users licenses
-                EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesUserLicensePaginatedItemsViewModel result = apiInstance.GetAllTenantUserApplicationLicenses(tenantId, userId, pageSize, pageIndex, orderBy, filter, apiVersion, xVersion);
+                // Retrieves a list of user licenses in the context of a specific tenant
+                EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesUserLicensePaginatedItemsViewModel result = apiInstance.GetAllTenantUserApplicationLicensesAsync(tenantId, userId, pageSize, pageIndex, orderBy, filter, apiVersion, xVersion);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling UsersLicensesApi.GetAllTenantUserApplicationLicenses: " + e.Message);
+                Debug.Print("Exception when calling UsersLicensesApi.GetAllTenantUserApplicationLicensesAsync: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -260,21 +270,21 @@ namespace Example
 }
 ```
 
-#### Using the GetAllTenantUserApplicationLicensesWithHttpInfo variant
+#### Using the GetAllTenantUserApplicationLicensesAsyncWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
 ```csharp
 try
 {
-    // Retrieves a list of tenant users licenses
-    ApiResponse<EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesUserLicensePaginatedItemsViewModel> response = apiInstance.GetAllTenantUserApplicationLicensesWithHttpInfo(tenantId, userId, pageSize, pageIndex, orderBy, filter, apiVersion, xVersion);
+    // Retrieves a list of user licenses in the context of a specific tenant
+    ApiResponse<EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesUserLicensePaginatedItemsViewModel> response = apiInstance.GetAllTenantUserApplicationLicensesAsyncWithHttpInfo(tenantId, userId, pageSize, pageIndex, orderBy, filter, apiVersion, xVersion);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling UsersLicensesApi.GetAllTenantUserApplicationLicensesWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling UsersLicensesApi.GetAllTenantUserApplicationLicensesAsyncWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -310,18 +320,19 @@ catch (ApiException e)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | List of tenant users licenses returned |  -  |
-| **400** | Tenant has missing/invalid values |  -  |
-| **403** | Missing the required permissions to access to this tenant/resource |  -  |
-| **500** | Oops! Can&#39;t retrieve the list of tenant users licenses right now |  -  |
+| **401** | Unauthorized. The request requires authentication. The OAuth bearer token was either not provided or is invalid. The operation may succeed once authentication has been successfully completed. |  -  |
+| **403** | Forbidden. The request cannot be completed in the current authorization context. Contact your administrator if you believe this operation should be allowed. |  -  |
+| **500** | An unhandled error occurred on the server.See the response body for details. |  -  |
+| **200** | The requested resource was successfully retrieved. |  -  |
+| **400** | Bad Request. The request was invalid and cannot be completed. See the response body for specific validation errors. This will typically be an issue with the query parameters or the request body values. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a id="revokelicensetenantuser"></a>
-# **RevokeLicenseTenantUser**
-> void RevokeLicenseTenantUser (string tenantId, string userId, string? apiVersion = null, string? xVersion = null, IdentityApiUserV1RevokeLicenseRequest? identityApiUserV1RevokeLicenseRequest = null)
+<a id="revokelicensetenantuserasync"></a>
+# **RevokeLicenseTenantUserAsync**
+> IdentityApiUserV1LicenseRevokedResponse RevokeLicenseTenantUserAsync (string tenantId, string userId, string? apiVersion = null, string? xVersion = null, IdentityApiUserV1RevokeLicenseRequest? identityApiUserV1RevokeLicenseRequest = null)
 
-Revokes a license to a tenant user matching the primary key
+Revokes a license from a user in the context of a specific tenant
 
 ### Example
 ```csharp
@@ -333,7 +344,7 @@ using EdGraph.Tenant.Client.Model;
 
 namespace Example
 {
-    public class RevokeLicenseTenantUserExample
+    public class RevokeLicenseTenantUserAsyncExample
     {
         public static void Main()
         {
@@ -351,12 +362,13 @@ namespace Example
 
             try
             {
-                // Revokes a license to a tenant user matching the primary key
-                apiInstance.RevokeLicenseTenantUser(tenantId, userId, apiVersion, xVersion, identityApiUserV1RevokeLicenseRequest);
+                // Revokes a license from a user in the context of a specific tenant
+                IdentityApiUserV1LicenseRevokedResponse result = apiInstance.RevokeLicenseTenantUserAsync(tenantId, userId, apiVersion, xVersion, identityApiUserV1RevokeLicenseRequest);
+                Debug.WriteLine(result);
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling UsersLicensesApi.RevokeLicenseTenantUser: " + e.Message);
+                Debug.Print("Exception when calling UsersLicensesApi.RevokeLicenseTenantUserAsync: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -365,18 +377,21 @@ namespace Example
 }
 ```
 
-#### Using the RevokeLicenseTenantUserWithHttpInfo variant
+#### Using the RevokeLicenseTenantUserAsyncWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
 ```csharp
 try
 {
-    // Revokes a license to a tenant user matching the primary key
-    apiInstance.RevokeLicenseTenantUserWithHttpInfo(tenantId, userId, apiVersion, xVersion, identityApiUserV1RevokeLicenseRequest);
+    // Revokes a license from a user in the context of a specific tenant
+    ApiResponse<IdentityApiUserV1LicenseRevokedResponse> response = apiInstance.RevokeLicenseTenantUserAsyncWithHttpInfo(tenantId, userId, apiVersion, xVersion, identityApiUserV1RevokeLicenseRequest);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling UsersLicensesApi.RevokeLicenseTenantUserWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling UsersLicensesApi.RevokeLicenseTenantUserAsyncWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -394,7 +409,7 @@ catch (ApiException e)
 
 ### Return type
 
-void (empty response body)
+[**IdentityApiUserV1LicenseRevokedResponse**](IdentityApiUserV1LicenseRevokedResponse.md)
 
 ### Authorization
 
@@ -409,18 +424,19 @@ void (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **202** | Tenant user revokes a license |  -  |
-| **400** | Tenant user has missing/invalid values |  -  |
-| **403** | Missing the required permissions to access to this tenant/resource |  -  |
-| **500** | Oops! Can&#39;t revoke a license to your tenant user right now |  -  |
+| **401** | Unauthorized. The request requires authentication. The OAuth bearer token was either not provided or is invalid. The operation may succeed once authentication has been successfully completed. |  -  |
+| **403** | Forbidden. The request cannot be completed in the current authorization context. Contact your administrator if you believe this operation should be allowed. |  -  |
+| **500** | An unhandled error occurred on the server.See the response body for details. |  -  |
+| **200** | The requested resource was successfully retrieved. |  -  |
+| **400** | Bad Request. The request was invalid and cannot be completed. See the response body for specific validation errors. This will typically be an issue with the query parameters or the request body values. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a id="revokelicensetenantuserbulk"></a>
-# **RevokeLicenseTenantUserBulk**
-> void RevokeLicenseTenantUserBulk (string tenantId, string userId, string? apiVersion = null, string? xVersion = null, IdentityApiUserV1RevokeLicenseBulkRequest? identityApiUserV1RevokeLicenseBulkRequest = null)
+<a id="revokelicensetenantuserbulkasync"></a>
+# **RevokeLicenseTenantUserBulkAsync**
+> IdentityApiUserV1LicenseRevokedBulkResponse RevokeLicenseTenantUserBulkAsync (string tenantId, string userId, string? apiVersion = null, string? xVersion = null, IdentityApiUserV1RevokeLicenseBulkRequest? identityApiUserV1RevokeLicenseBulkRequest = null)
 
-Revokes a license to a tenant user matching the primary key
+Revokes one or more licenses from a user in the context of a specific tenant
 
 ### Example
 ```csharp
@@ -432,7 +448,7 @@ using EdGraph.Tenant.Client.Model;
 
 namespace Example
 {
-    public class RevokeLicenseTenantUserBulkExample
+    public class RevokeLicenseTenantUserBulkAsyncExample
     {
         public static void Main()
         {
@@ -450,12 +466,13 @@ namespace Example
 
             try
             {
-                // Revokes a license to a tenant user matching the primary key
-                apiInstance.RevokeLicenseTenantUserBulk(tenantId, userId, apiVersion, xVersion, identityApiUserV1RevokeLicenseBulkRequest);
+                // Revokes one or more licenses from a user in the context of a specific tenant
+                IdentityApiUserV1LicenseRevokedBulkResponse result = apiInstance.RevokeLicenseTenantUserBulkAsync(tenantId, userId, apiVersion, xVersion, identityApiUserV1RevokeLicenseBulkRequest);
+                Debug.WriteLine(result);
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling UsersLicensesApi.RevokeLicenseTenantUserBulk: " + e.Message);
+                Debug.Print("Exception when calling UsersLicensesApi.RevokeLicenseTenantUserBulkAsync: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -464,18 +481,21 @@ namespace Example
 }
 ```
 
-#### Using the RevokeLicenseTenantUserBulkWithHttpInfo variant
+#### Using the RevokeLicenseTenantUserBulkAsyncWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
 ```csharp
 try
 {
-    // Revokes a license to a tenant user matching the primary key
-    apiInstance.RevokeLicenseTenantUserBulkWithHttpInfo(tenantId, userId, apiVersion, xVersion, identityApiUserV1RevokeLicenseBulkRequest);
+    // Revokes one or more licenses from a user in the context of a specific tenant
+    ApiResponse<IdentityApiUserV1LicenseRevokedBulkResponse> response = apiInstance.RevokeLicenseTenantUserBulkAsyncWithHttpInfo(tenantId, userId, apiVersion, xVersion, identityApiUserV1RevokeLicenseBulkRequest);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling UsersLicensesApi.RevokeLicenseTenantUserBulkWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling UsersLicensesApi.RevokeLicenseTenantUserBulkAsyncWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -493,7 +513,7 @@ catch (ApiException e)
 
 ### Return type
 
-void (empty response body)
+[**IdentityApiUserV1LicenseRevokedBulkResponse**](IdentityApiUserV1LicenseRevokedBulkResponse.md)
 
 ### Authorization
 
@@ -508,10 +528,11 @@ void (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **202** | Tenant user revokes a license |  -  |
-| **400** | Tenant user has missing/invalid values |  -  |
-| **403** | Missing the required permissions to access to this tenant/resource |  -  |
-| **500** | Oops! Can&#39;t revoke a license to your tenant user right now |  -  |
+| **401** | Unauthorized. The request requires authentication. The OAuth bearer token was either not provided or is invalid. The operation may succeed once authentication has been successfully completed. |  -  |
+| **403** | Forbidden. The request cannot be completed in the current authorization context. Contact your administrator if you believe this operation should be allowed. |  -  |
+| **500** | An unhandled error occurred on the server.See the response body for details. |  -  |
+| **200** | The requested resource was successfully retrieved. |  -  |
+| **400** | Bad Request. The request was invalid and cannot be completed. See the response body for specific validation errors. This will typically be an issue with the query parameters or the request body values. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

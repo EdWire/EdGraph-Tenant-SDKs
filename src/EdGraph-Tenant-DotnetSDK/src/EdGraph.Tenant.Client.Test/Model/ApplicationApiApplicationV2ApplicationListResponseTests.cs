@@ -159,6 +159,14 @@ namespace EdGraph.Tenant.Client.Test.Model
         {
             // TODO unit test for the property 'SubscriptionType'
         }
+        /// <summary>
+        /// Test the property 'DocumentationUrl'
+        /// </summary>
+        [Fact]
+        public void DocumentationUrlTest()
+        {
+            // TODO unit test for the property 'DocumentationUrl'
+        }
 
     }
 

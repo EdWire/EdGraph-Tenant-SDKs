@@ -24,11 +24,11 @@ namespace EdGraph.Tenant.Client.Api
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
-    public interface IIdentityAPIClientsApiSync : IApiAccessor
+    public interface IAPIClientsApiSync : IApiAccessor
     {
         #region Synchronous Operations
         /// <summary>
-        /// Creates a new tenant OpenId api client
+        /// Creates a new OpenId API Client
         /// </summary>
         /// <exception cref="EdGraph.Tenant.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tenantId"></param>
@@ -36,11 +36,11 @@ namespace EdGraph.Tenant.Client.Api
         /// <param name="xVersion"> (optional)</param>
         /// <param name="identityApiApiClientV1CreateApiClientRequest"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns></returns>
-        void CreateTenantApiClient(string tenantId, string? apiVersion = default(string?), string? xVersion = default(string?), IdentityApiApiClientV1CreateApiClientRequest? identityApiApiClientV1CreateApiClientRequest = default(IdentityApiApiClientV1CreateApiClientRequest?), int operationIndex = 0);
+        /// <returns>IdentityApiApiClientV1ApiClientCreatedResponse</returns>
+        IdentityApiApiClientV1ApiClientCreatedResponse CreateTenantApiClientAsync(string tenantId, string? apiVersion = default(string?), string? xVersion = default(string?), IdentityApiApiClientV1CreateApiClientRequest? identityApiApiClientV1CreateApiClientRequest = default(IdentityApiApiClientV1CreateApiClientRequest?), int operationIndex = 0);
 
         /// <summary>
-        /// Creates a new tenant OpenId api client
+        /// Creates a new OpenId API Client
         /// </summary>
         /// <remarks>
         /// 
@@ -51,10 +51,10 @@ namespace EdGraph.Tenant.Client.Api
         /// <param name="xVersion"> (optional)</param>
         /// <param name="identityApiApiClientV1CreateApiClientRequest"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> CreateTenantApiClientWithHttpInfo(string tenantId, string? apiVersion = default(string?), string? xVersion = default(string?), IdentityApiApiClientV1CreateApiClientRequest? identityApiApiClientV1CreateApiClientRequest = default(IdentityApiApiClientV1CreateApiClientRequest?), int operationIndex = 0);
+        /// <returns>ApiResponse of IdentityApiApiClientV1ApiClientCreatedResponse</returns>
+        ApiResponse<IdentityApiApiClientV1ApiClientCreatedResponse> CreateTenantApiClientAsyncWithHttpInfo(string tenantId, string? apiVersion = default(string?), string? xVersion = default(string?), IdentityApiApiClientV1CreateApiClientRequest? identityApiApiClientV1CreateApiClientRequest = default(IdentityApiApiClientV1CreateApiClientRequest?), int operationIndex = 0);
         /// <summary>
-        /// Delete a tenant&#39;s OpenId api client matching the primary key
+        /// Deletes an OpenId API Client
         /// </summary>
         /// <exception cref="EdGraph.Tenant.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tenantId"></param>
@@ -63,10 +63,10 @@ namespace EdGraph.Tenant.Client.Api
         /// <param name="xVersion"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns></returns>
-        void DeleteTenantApiClient(string tenantId, string clientId, string? apiVersion = default(string?), string? xVersion = default(string?), int operationIndex = 0);
+        void DeleteTenantApiClientAsync(string tenantId, string clientId, string? apiVersion = default(string?), string? xVersion = default(string?), int operationIndex = 0);
 
         /// <summary>
-        /// Delete a tenant&#39;s OpenId api client matching the primary key
+        /// Deletes an OpenId API Client
         /// </summary>
         /// <remarks>
         /// 
@@ -78,9 +78,9 @@ namespace EdGraph.Tenant.Client.Api
         /// <param name="xVersion"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> DeleteTenantApiClientWithHttpInfo(string tenantId, string clientId, string? apiVersion = default(string?), string? xVersion = default(string?), int operationIndex = 0);
+        ApiResponse<Object> DeleteTenantApiClientAsyncWithHttpInfo(string tenantId, string clientId, string? apiVersion = default(string?), string? xVersion = default(string?), int operationIndex = 0);
         /// <summary>
-        /// Retrieves  a list of OpenId api clients associated to this tenant
+        /// Retrieves a list of OpenId API Clients associated to this tenant
         /// </summary>
         /// <exception cref="EdGraph.Tenant.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tenantId"></param>
@@ -92,10 +92,10 @@ namespace EdGraph.Tenant.Client.Api
         /// <param name="xVersion"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>IdentityApiApiClientV1ApiClientPaginatedItemsResponsePaginatedItemsViewModel</returns>
-        IdentityApiApiClientV1ApiClientPaginatedItemsResponsePaginatedItemsViewModel GetAllTenantApiClients(string tenantId, int? pageSize = default(int?), int? pageIndex = default(int?), string? orderBy = default(string?), string? filter = default(string?), string? apiVersion = default(string?), string? xVersion = default(string?), int operationIndex = 0);
+        IdentityApiApiClientV1ApiClientPaginatedItemsResponsePaginatedItemsViewModel GetAllTenantApiClientsAsync(string tenantId, int? pageSize = default(int?), int? pageIndex = default(int?), string? orderBy = default(string?), string? filter = default(string?), string? apiVersion = default(string?), string? xVersion = default(string?), int operationIndex = 0);
 
         /// <summary>
-        /// Retrieves  a list of OpenId api clients associated to this tenant
+        /// Retrieves a list of OpenId API Clients associated to this tenant
         /// </summary>
         /// <remarks>
         /// 
@@ -110,9 +110,9 @@ namespace EdGraph.Tenant.Client.Api
         /// <param name="xVersion"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of IdentityApiApiClientV1ApiClientPaginatedItemsResponsePaginatedItemsViewModel</returns>
-        ApiResponse<IdentityApiApiClientV1ApiClientPaginatedItemsResponsePaginatedItemsViewModel> GetAllTenantApiClientsWithHttpInfo(string tenantId, int? pageSize = default(int?), int? pageIndex = default(int?), string? orderBy = default(string?), string? filter = default(string?), string? apiVersion = default(string?), string? xVersion = default(string?), int operationIndex = 0);
+        ApiResponse<IdentityApiApiClientV1ApiClientPaginatedItemsResponsePaginatedItemsViewModel> GetAllTenantApiClientsAsyncWithHttpInfo(string tenantId, int? pageSize = default(int?), int? pageIndex = default(int?), string? orderBy = default(string?), string? filter = default(string?), string? apiVersion = default(string?), string? xVersion = default(string?), int operationIndex = 0);
         /// <summary>
-        /// Retrieves the OpenId api client associated to this tenant
+        /// Retrieves an OpenId API Client
         /// </summary>
         /// <exception cref="EdGraph.Tenant.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tenantId"></param>
@@ -121,10 +121,10 @@ namespace EdGraph.Tenant.Client.Api
         /// <param name="xVersion"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>IdentityApiApiClientV1ApiClientProfileResponse</returns>
-        IdentityApiApiClientV1ApiClientProfileResponse GetTenantApiClientProfileById(string tenantId, string clientId, string? apiVersion = default(string?), string? xVersion = default(string?), int operationIndex = 0);
+        IdentityApiApiClientV1ApiClientProfileResponse GetTenantApiClientByIdAsync(string tenantId, string clientId, string? apiVersion = default(string?), string? xVersion = default(string?), int operationIndex = 0);
 
         /// <summary>
-        /// Retrieves the OpenId api client associated to this tenant
+        /// Retrieves an OpenId API Client
         /// </summary>
         /// <remarks>
         /// 
@@ -136,9 +136,9 @@ namespace EdGraph.Tenant.Client.Api
         /// <param name="xVersion"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of IdentityApiApiClientV1ApiClientProfileResponse</returns>
-        ApiResponse<IdentityApiApiClientV1ApiClientProfileResponse> GetTenantApiClientProfileByIdWithHttpInfo(string tenantId, string clientId, string? apiVersion = default(string?), string? xVersion = default(string?), int operationIndex = 0);
+        ApiResponse<IdentityApiApiClientV1ApiClientProfileResponse> GetTenantApiClientByIdAsyncWithHttpInfo(string tenantId, string clientId, string? apiVersion = default(string?), string? xVersion = default(string?), int operationIndex = 0);
         /// <summary>
-        /// Creates a tenant&#39;s OpenId client secret matching the primary key
+        /// Regenerates an OpenId API Client&#39;s secret
         /// </summary>
         /// <exception cref="EdGraph.Tenant.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tenantId"></param>
@@ -147,11 +147,11 @@ namespace EdGraph.Tenant.Client.Api
         /// <param name="xVersion"> (optional)</param>
         /// <param name="identityApiApiClientV1RegenerateApiClientSecretRequest"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns></returns>
-        void RegenerateTenantApiClientSecret(string tenantId, string clientId, string? apiVersion = default(string?), string? xVersion = default(string?), IdentityApiApiClientV1RegenerateApiClientSecretRequest? identityApiApiClientV1RegenerateApiClientSecretRequest = default(IdentityApiApiClientV1RegenerateApiClientSecretRequest?), int operationIndex = 0);
+        /// <returns>IdentityApiApiClientV1ApiClientSecretRegeneratedResponse</returns>
+        IdentityApiApiClientV1ApiClientSecretRegeneratedResponse RegenerateTenantApiClientSecretAsync(string tenantId, string clientId, string? apiVersion = default(string?), string? xVersion = default(string?), IdentityApiApiClientV1RegenerateApiClientSecretRequest? identityApiApiClientV1RegenerateApiClientSecretRequest = default(IdentityApiApiClientV1RegenerateApiClientSecretRequest?), int operationIndex = 0);
 
         /// <summary>
-        /// Creates a tenant&#39;s OpenId client secret matching the primary key
+        /// Regenerates an OpenId API Client&#39;s secret
         /// </summary>
         /// <remarks>
         /// 
@@ -163,10 +163,10 @@ namespace EdGraph.Tenant.Client.Api
         /// <param name="xVersion"> (optional)</param>
         /// <param name="identityApiApiClientV1RegenerateApiClientSecretRequest"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> RegenerateTenantApiClientSecretWithHttpInfo(string tenantId, string clientId, string? apiVersion = default(string?), string? xVersion = default(string?), IdentityApiApiClientV1RegenerateApiClientSecretRequest? identityApiApiClientV1RegenerateApiClientSecretRequest = default(IdentityApiApiClientV1RegenerateApiClientSecretRequest?), int operationIndex = 0);
+        /// <returns>ApiResponse of IdentityApiApiClientV1ApiClientSecretRegeneratedResponse</returns>
+        ApiResponse<IdentityApiApiClientV1ApiClientSecretRegeneratedResponse> RegenerateTenantApiClientSecretAsyncWithHttpInfo(string tenantId, string clientId, string? apiVersion = default(string?), string? xVersion = default(string?), IdentityApiApiClientV1RegenerateApiClientSecretRequest? identityApiApiClientV1RegenerateApiClientSecretRequest = default(IdentityApiApiClientV1RegenerateApiClientSecretRequest?), int operationIndex = 0);
         /// <summary>
-        /// Updates a tenant&#39;s OpenId api client matching the primary key
+        /// Updates an OpenId API Client
         /// </summary>
         /// <exception cref="EdGraph.Tenant.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tenantId"></param>
@@ -175,11 +175,11 @@ namespace EdGraph.Tenant.Client.Api
         /// <param name="xVersion"> (optional)</param>
         /// <param name="identityApiApiClientV1UpdateApiClientRequest"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns></returns>
-        void UpdateTenantApiClient(string tenantId, string clientId, string? apiVersion = default(string?), string? xVersion = default(string?), IdentityApiApiClientV1UpdateApiClientRequest? identityApiApiClientV1UpdateApiClientRequest = default(IdentityApiApiClientV1UpdateApiClientRequest?), int operationIndex = 0);
+        /// <returns>IdentityApiApiClientV1ApiClientUpdatedResponse</returns>
+        IdentityApiApiClientV1ApiClientUpdatedResponse UpdateTenantApiClientAsync(string tenantId, string clientId, string? apiVersion = default(string?), string? xVersion = default(string?), IdentityApiApiClientV1UpdateApiClientRequest? identityApiApiClientV1UpdateApiClientRequest = default(IdentityApiApiClientV1UpdateApiClientRequest?), int operationIndex = 0);
 
         /// <summary>
-        /// Updates a tenant&#39;s OpenId api client matching the primary key
+        /// Updates an OpenId API Client
         /// </summary>
         /// <remarks>
         /// 
@@ -191,19 +191,19 @@ namespace EdGraph.Tenant.Client.Api
         /// <param name="xVersion"> (optional)</param>
         /// <param name="identityApiApiClientV1UpdateApiClientRequest"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> UpdateTenantApiClientWithHttpInfo(string tenantId, string clientId, string? apiVersion = default(string?), string? xVersion = default(string?), IdentityApiApiClientV1UpdateApiClientRequest? identityApiApiClientV1UpdateApiClientRequest = default(IdentityApiApiClientV1UpdateApiClientRequest?), int operationIndex = 0);
+        /// <returns>ApiResponse of IdentityApiApiClientV1ApiClientUpdatedResponse</returns>
+        ApiResponse<IdentityApiApiClientV1ApiClientUpdatedResponse> UpdateTenantApiClientAsyncWithHttpInfo(string tenantId, string clientId, string? apiVersion = default(string?), string? xVersion = default(string?), IdentityApiApiClientV1UpdateApiClientRequest? identityApiApiClientV1UpdateApiClientRequest = default(IdentityApiApiClientV1UpdateApiClientRequest?), int operationIndex = 0);
         #endregion Synchronous Operations
     }
 
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
-    public interface IIdentityAPIClientsApiAsync : IApiAccessor
+    public interface IAPIClientsApiAsync : IApiAccessor
     {
         #region Asynchronous Operations
         /// <summary>
-        /// Creates a new tenant OpenId api client
+        /// Creates a new OpenId API Client
         /// </summary>
         /// <remarks>
         /// 
@@ -215,11 +215,11 @@ namespace EdGraph.Tenant.Client.Api
         /// <param name="identityApiApiClientV1CreateApiClientRequest"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task CreateTenantApiClientAsync(string tenantId, string? apiVersion = default(string?), string? xVersion = default(string?), IdentityApiApiClientV1CreateApiClientRequest? identityApiApiClientV1CreateApiClientRequest = default(IdentityApiApiClientV1CreateApiClientRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of IdentityApiApiClientV1ApiClientCreatedResponse</returns>
+        System.Threading.Tasks.Task<IdentityApiApiClientV1ApiClientCreatedResponse> CreateTenantApiClientAsyncAsync(string tenantId, string? apiVersion = default(string?), string? xVersion = default(string?), IdentityApiApiClientV1CreateApiClientRequest? identityApiApiClientV1CreateApiClientRequest = default(IdentityApiApiClientV1CreateApiClientRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Creates a new tenant OpenId api client
+        /// Creates a new OpenId API Client
         /// </summary>
         /// <remarks>
         /// 
@@ -231,10 +231,10 @@ namespace EdGraph.Tenant.Client.Api
         /// <param name="identityApiApiClientV1CreateApiClientRequest"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> CreateTenantApiClientWithHttpInfoAsync(string tenantId, string? apiVersion = default(string?), string? xVersion = default(string?), IdentityApiApiClientV1CreateApiClientRequest? identityApiApiClientV1CreateApiClientRequest = default(IdentityApiApiClientV1CreateApiClientRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of ApiResponse (IdentityApiApiClientV1ApiClientCreatedResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<IdentityApiApiClientV1ApiClientCreatedResponse>> CreateTenantApiClientAsyncWithHttpInfoAsync(string tenantId, string? apiVersion = default(string?), string? xVersion = default(string?), IdentityApiApiClientV1CreateApiClientRequest? identityApiApiClientV1CreateApiClientRequest = default(IdentityApiApiClientV1CreateApiClientRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Delete a tenant&#39;s OpenId api client matching the primary key
+        /// Deletes an OpenId API Client
         /// </summary>
         /// <remarks>
         /// 
@@ -247,10 +247,10 @@ namespace EdGraph.Tenant.Client.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task DeleteTenantApiClientAsync(string tenantId, string clientId, string? apiVersion = default(string?), string? xVersion = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task DeleteTenantApiClientAsyncAsync(string tenantId, string clientId, string? apiVersion = default(string?), string? xVersion = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Delete a tenant&#39;s OpenId api client matching the primary key
+        /// Deletes an OpenId API Client
         /// </summary>
         /// <remarks>
         /// 
@@ -263,9 +263,9 @@ namespace EdGraph.Tenant.Client.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> DeleteTenantApiClientWithHttpInfoAsync(string tenantId, string clientId, string? apiVersion = default(string?), string? xVersion = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Object>> DeleteTenantApiClientAsyncWithHttpInfoAsync(string tenantId, string clientId, string? apiVersion = default(string?), string? xVersion = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Retrieves  a list of OpenId api clients associated to this tenant
+        /// Retrieves a list of OpenId API Clients associated to this tenant
         /// </summary>
         /// <remarks>
         /// 
@@ -281,10 +281,10 @@ namespace EdGraph.Tenant.Client.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of IdentityApiApiClientV1ApiClientPaginatedItemsResponsePaginatedItemsViewModel</returns>
-        System.Threading.Tasks.Task<IdentityApiApiClientV1ApiClientPaginatedItemsResponsePaginatedItemsViewModel> GetAllTenantApiClientsAsync(string tenantId, int? pageSize = default(int?), int? pageIndex = default(int?), string? orderBy = default(string?), string? filter = default(string?), string? apiVersion = default(string?), string? xVersion = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<IdentityApiApiClientV1ApiClientPaginatedItemsResponsePaginatedItemsViewModel> GetAllTenantApiClientsAsyncAsync(string tenantId, int? pageSize = default(int?), int? pageIndex = default(int?), string? orderBy = default(string?), string? filter = default(string?), string? apiVersion = default(string?), string? xVersion = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Retrieves  a list of OpenId api clients associated to this tenant
+        /// Retrieves a list of OpenId API Clients associated to this tenant
         /// </summary>
         /// <remarks>
         /// 
@@ -300,9 +300,9 @@ namespace EdGraph.Tenant.Client.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (IdentityApiApiClientV1ApiClientPaginatedItemsResponsePaginatedItemsViewModel)</returns>
-        System.Threading.Tasks.Task<ApiResponse<IdentityApiApiClientV1ApiClientPaginatedItemsResponsePaginatedItemsViewModel>> GetAllTenantApiClientsWithHttpInfoAsync(string tenantId, int? pageSize = default(int?), int? pageIndex = default(int?), string? orderBy = default(string?), string? filter = default(string?), string? apiVersion = default(string?), string? xVersion = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<IdentityApiApiClientV1ApiClientPaginatedItemsResponsePaginatedItemsViewModel>> GetAllTenantApiClientsAsyncWithHttpInfoAsync(string tenantId, int? pageSize = default(int?), int? pageIndex = default(int?), string? orderBy = default(string?), string? filter = default(string?), string? apiVersion = default(string?), string? xVersion = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Retrieves the OpenId api client associated to this tenant
+        /// Retrieves an OpenId API Client
         /// </summary>
         /// <remarks>
         /// 
@@ -315,10 +315,10 @@ namespace EdGraph.Tenant.Client.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of IdentityApiApiClientV1ApiClientProfileResponse</returns>
-        System.Threading.Tasks.Task<IdentityApiApiClientV1ApiClientProfileResponse> GetTenantApiClientProfileByIdAsync(string tenantId, string clientId, string? apiVersion = default(string?), string? xVersion = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<IdentityApiApiClientV1ApiClientProfileResponse> GetTenantApiClientByIdAsyncAsync(string tenantId, string clientId, string? apiVersion = default(string?), string? xVersion = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Retrieves the OpenId api client associated to this tenant
+        /// Retrieves an OpenId API Client
         /// </summary>
         /// <remarks>
         /// 
@@ -331,9 +331,9 @@ namespace EdGraph.Tenant.Client.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (IdentityApiApiClientV1ApiClientProfileResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<IdentityApiApiClientV1ApiClientProfileResponse>> GetTenantApiClientProfileByIdWithHttpInfoAsync(string tenantId, string clientId, string? apiVersion = default(string?), string? xVersion = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<IdentityApiApiClientV1ApiClientProfileResponse>> GetTenantApiClientByIdAsyncWithHttpInfoAsync(string tenantId, string clientId, string? apiVersion = default(string?), string? xVersion = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Creates a tenant&#39;s OpenId client secret matching the primary key
+        /// Regenerates an OpenId API Client&#39;s secret
         /// </summary>
         /// <remarks>
         /// 
@@ -346,11 +346,11 @@ namespace EdGraph.Tenant.Client.Api
         /// <param name="identityApiApiClientV1RegenerateApiClientSecretRequest"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task RegenerateTenantApiClientSecretAsync(string tenantId, string clientId, string? apiVersion = default(string?), string? xVersion = default(string?), IdentityApiApiClientV1RegenerateApiClientSecretRequest? identityApiApiClientV1RegenerateApiClientSecretRequest = default(IdentityApiApiClientV1RegenerateApiClientSecretRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of IdentityApiApiClientV1ApiClientSecretRegeneratedResponse</returns>
+        System.Threading.Tasks.Task<IdentityApiApiClientV1ApiClientSecretRegeneratedResponse> RegenerateTenantApiClientSecretAsyncAsync(string tenantId, string clientId, string? apiVersion = default(string?), string? xVersion = default(string?), IdentityApiApiClientV1RegenerateApiClientSecretRequest? identityApiApiClientV1RegenerateApiClientSecretRequest = default(IdentityApiApiClientV1RegenerateApiClientSecretRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Creates a tenant&#39;s OpenId client secret matching the primary key
+        /// Regenerates an OpenId API Client&#39;s secret
         /// </summary>
         /// <remarks>
         /// 
@@ -363,10 +363,10 @@ namespace EdGraph.Tenant.Client.Api
         /// <param name="identityApiApiClientV1RegenerateApiClientSecretRequest"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> RegenerateTenantApiClientSecretWithHttpInfoAsync(string tenantId, string clientId, string? apiVersion = default(string?), string? xVersion = default(string?), IdentityApiApiClientV1RegenerateApiClientSecretRequest? identityApiApiClientV1RegenerateApiClientSecretRequest = default(IdentityApiApiClientV1RegenerateApiClientSecretRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of ApiResponse (IdentityApiApiClientV1ApiClientSecretRegeneratedResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<IdentityApiApiClientV1ApiClientSecretRegeneratedResponse>> RegenerateTenantApiClientSecretAsyncWithHttpInfoAsync(string tenantId, string clientId, string? apiVersion = default(string?), string? xVersion = default(string?), IdentityApiApiClientV1RegenerateApiClientSecretRequest? identityApiApiClientV1RegenerateApiClientSecretRequest = default(IdentityApiApiClientV1RegenerateApiClientSecretRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Updates a tenant&#39;s OpenId api client matching the primary key
+        /// Updates an OpenId API Client
         /// </summary>
         /// <remarks>
         /// 
@@ -379,11 +379,11 @@ namespace EdGraph.Tenant.Client.Api
         /// <param name="identityApiApiClientV1UpdateApiClientRequest"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task UpdateTenantApiClientAsync(string tenantId, string clientId, string? apiVersion = default(string?), string? xVersion = default(string?), IdentityApiApiClientV1UpdateApiClientRequest? identityApiApiClientV1UpdateApiClientRequest = default(IdentityApiApiClientV1UpdateApiClientRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of IdentityApiApiClientV1ApiClientUpdatedResponse</returns>
+        System.Threading.Tasks.Task<IdentityApiApiClientV1ApiClientUpdatedResponse> UpdateTenantApiClientAsyncAsync(string tenantId, string clientId, string? apiVersion = default(string?), string? xVersion = default(string?), IdentityApiApiClientV1UpdateApiClientRequest? identityApiApiClientV1UpdateApiClientRequest = default(IdentityApiApiClientV1UpdateApiClientRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Updates a tenant&#39;s OpenId api client matching the primary key
+        /// Updates an OpenId API Client
         /// </summary>
         /// <remarks>
         /// 
@@ -396,15 +396,15 @@ namespace EdGraph.Tenant.Client.Api
         /// <param name="identityApiApiClientV1UpdateApiClientRequest"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> UpdateTenantApiClientWithHttpInfoAsync(string tenantId, string clientId, string? apiVersion = default(string?), string? xVersion = default(string?), IdentityApiApiClientV1UpdateApiClientRequest? identityApiApiClientV1UpdateApiClientRequest = default(IdentityApiApiClientV1UpdateApiClientRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of ApiResponse (IdentityApiApiClientV1ApiClientUpdatedResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<IdentityApiApiClientV1ApiClientUpdatedResponse>> UpdateTenantApiClientAsyncWithHttpInfoAsync(string tenantId, string clientId, string? apiVersion = default(string?), string? xVersion = default(string?), IdentityApiApiClientV1UpdateApiClientRequest? identityApiApiClientV1UpdateApiClientRequest = default(IdentityApiApiClientV1UpdateApiClientRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
-    public interface IIdentityAPIClientsApi : IIdentityAPIClientsApiSync, IIdentityAPIClientsApiAsync
+    public interface IAPIClientsApi : IAPIClientsApiSync, IAPIClientsApiAsync
     {
 
     }
@@ -412,23 +412,23 @@ namespace EdGraph.Tenant.Client.Api
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
-    public partial class IdentityAPIClientsApi : IIdentityAPIClientsApi
+    public partial class APIClientsApi : IAPIClientsApi
     {
         private EdGraph.Tenant.Client.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="IdentityAPIClientsApi"/> class.
+        /// Initializes a new instance of the <see cref="APIClientsApi"/> class.
         /// </summary>
         /// <returns></returns>
-        public IdentityAPIClientsApi() : this((string)null)
+        public APIClientsApi() : this((string)null)
         {
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="IdentityAPIClientsApi"/> class.
+        /// Initializes a new instance of the <see cref="APIClientsApi"/> class.
         /// </summary>
         /// <returns></returns>
-        public IdentityAPIClientsApi(string basePath)
+        public APIClientsApi(string basePath)
         {
             this.Configuration = EdGraph.Tenant.Client.Client.Configuration.MergeConfigurations(
                 EdGraph.Tenant.Client.Client.GlobalConfiguration.Instance,
@@ -440,12 +440,12 @@ namespace EdGraph.Tenant.Client.Api
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="IdentityAPIClientsApi"/> class
+        /// Initializes a new instance of the <see cref="APIClientsApi"/> class
         /// using Configuration object
         /// </summary>
         /// <param name="configuration">An instance of Configuration</param>
         /// <returns></returns>
-        public IdentityAPIClientsApi(EdGraph.Tenant.Client.Client.Configuration configuration)
+        public APIClientsApi(EdGraph.Tenant.Client.Client.Configuration configuration)
         {
             if (configuration == null) throw new ArgumentNullException("configuration");
 
@@ -459,13 +459,13 @@ namespace EdGraph.Tenant.Client.Api
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="IdentityAPIClientsApi"/> class
+        /// Initializes a new instance of the <see cref="APIClientsApi"/> class
         /// using a Configuration object and client instance.
         /// </summary>
         /// <param name="client">The client interface for synchronous API access.</param>
         /// <param name="asyncClient">The client interface for asynchronous API access.</param>
         /// <param name="configuration">The configuration object.</param>
-        public IdentityAPIClientsApi(EdGraph.Tenant.Client.Client.ISynchronousClient client, EdGraph.Tenant.Client.Client.IAsynchronousClient asyncClient, EdGraph.Tenant.Client.Client.IReadableConfiguration configuration)
+        public APIClientsApi(EdGraph.Tenant.Client.Client.ISynchronousClient client, EdGraph.Tenant.Client.Client.IAsynchronousClient asyncClient, EdGraph.Tenant.Client.Client.IReadableConfiguration configuration)
         {
             if (client == null) throw new ArgumentNullException("client");
             if (asyncClient == null) throw new ArgumentNullException("asyncClient");
@@ -519,7 +519,7 @@ namespace EdGraph.Tenant.Client.Api
         }
 
         /// <summary>
-        /// Creates a new tenant OpenId api client 
+        /// Creates a new OpenId API Client 
         /// </summary>
         /// <exception cref="EdGraph.Tenant.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tenantId"></param>
@@ -527,14 +527,15 @@ namespace EdGraph.Tenant.Client.Api
         /// <param name="xVersion"> (optional)</param>
         /// <param name="identityApiApiClientV1CreateApiClientRequest"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns></returns>
-        public void CreateTenantApiClient(string tenantId, string? apiVersion = default(string?), string? xVersion = default(string?), IdentityApiApiClientV1CreateApiClientRequest? identityApiApiClientV1CreateApiClientRequest = default(IdentityApiApiClientV1CreateApiClientRequest?), int operationIndex = 0)
+        /// <returns>IdentityApiApiClientV1ApiClientCreatedResponse</returns>
+        public IdentityApiApiClientV1ApiClientCreatedResponse CreateTenantApiClientAsync(string tenantId, string? apiVersion = default(string?), string? xVersion = default(string?), IdentityApiApiClientV1CreateApiClientRequest? identityApiApiClientV1CreateApiClientRequest = default(IdentityApiApiClientV1CreateApiClientRequest?), int operationIndex = 0)
         {
-            CreateTenantApiClientWithHttpInfo(tenantId, apiVersion, xVersion, identityApiApiClientV1CreateApiClientRequest);
+            EdGraph.Tenant.Client.Client.ApiResponse<IdentityApiApiClientV1ApiClientCreatedResponse> localVarResponse = CreateTenantApiClientAsyncWithHttpInfo(tenantId, apiVersion, xVersion, identityApiApiClientV1CreateApiClientRequest);
+            return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Creates a new tenant OpenId api client 
+        /// Creates a new OpenId API Client 
         /// </summary>
         /// <exception cref="EdGraph.Tenant.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tenantId"></param>
@@ -542,13 +543,13 @@ namespace EdGraph.Tenant.Client.Api
         /// <param name="xVersion"> (optional)</param>
         /// <param name="identityApiApiClientV1CreateApiClientRequest"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of Object(void)</returns>
-        public EdGraph.Tenant.Client.Client.ApiResponse<Object> CreateTenantApiClientWithHttpInfo(string tenantId, string? apiVersion = default(string?), string? xVersion = default(string?), IdentityApiApiClientV1CreateApiClientRequest? identityApiApiClientV1CreateApiClientRequest = default(IdentityApiApiClientV1CreateApiClientRequest?), int operationIndex = 0)
+        /// <returns>ApiResponse of IdentityApiApiClientV1ApiClientCreatedResponse</returns>
+        public EdGraph.Tenant.Client.Client.ApiResponse<IdentityApiApiClientV1ApiClientCreatedResponse> CreateTenantApiClientAsyncWithHttpInfo(string tenantId, string? apiVersion = default(string?), string? xVersion = default(string?), IdentityApiApiClientV1CreateApiClientRequest? identityApiApiClientV1CreateApiClientRequest = default(IdentityApiApiClientV1CreateApiClientRequest?), int operationIndex = 0)
         {
             // verify the required parameter 'tenantId' is set
             if (tenantId == null)
             {
-                throw new EdGraph.Tenant.Client.Client.ApiException(400, "Missing required parameter 'tenantId' when calling IdentityAPIClientsApi->CreateTenantApiClient");
+                throw new EdGraph.Tenant.Client.Client.ApiException(400, "Missing required parameter 'tenantId' when calling APIClientsApi->CreateTenantApiClientAsync");
             }
 
             EdGraph.Tenant.Client.Client.RequestOptions localVarRequestOptions = new EdGraph.Tenant.Client.Client.RequestOptions();
@@ -588,7 +589,7 @@ namespace EdGraph.Tenant.Client.Api
             }
             localVarRequestOptions.Data = identityApiApiClientV1CreateApiClientRequest;
 
-            localVarRequestOptions.Operation = "IdentityAPIClientsApi.CreateTenantApiClient";
+            localVarRequestOptions.Operation = "APIClientsApi.CreateTenantApiClientAsync";
             localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (oauth2) required
@@ -609,10 +610,10 @@ namespace EdGraph.Tenant.Client.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Post<Object>("/tenants/{tenantId}/identity/apiclients", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Post<IdentityApiApiClientV1ApiClientCreatedResponse>("/tenants/{tenantId}/apiclients", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("CreateTenantApiClient", localVarResponse);
+                Exception _exception = this.ExceptionFactory("CreateTenantApiClientAsync", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
@@ -623,7 +624,7 @@ namespace EdGraph.Tenant.Client.Api
         }
 
         /// <summary>
-        /// Creates a new tenant OpenId api client 
+        /// Creates a new OpenId API Client 
         /// </summary>
         /// <exception cref="EdGraph.Tenant.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tenantId"></param>
@@ -632,14 +633,15 @@ namespace EdGraph.Tenant.Client.Api
         /// <param name="identityApiApiClientV1CreateApiClientRequest"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task CreateTenantApiClientAsync(string tenantId, string? apiVersion = default(string?), string? xVersion = default(string?), IdentityApiApiClientV1CreateApiClientRequest? identityApiApiClientV1CreateApiClientRequest = default(IdentityApiApiClientV1CreateApiClientRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of IdentityApiApiClientV1ApiClientCreatedResponse</returns>
+        public async System.Threading.Tasks.Task<IdentityApiApiClientV1ApiClientCreatedResponse> CreateTenantApiClientAsyncAsync(string tenantId, string? apiVersion = default(string?), string? xVersion = default(string?), IdentityApiApiClientV1CreateApiClientRequest? identityApiApiClientV1CreateApiClientRequest = default(IdentityApiApiClientV1CreateApiClientRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            await CreateTenantApiClientWithHttpInfoAsync(tenantId, apiVersion, xVersion, identityApiApiClientV1CreateApiClientRequest, operationIndex, cancellationToken).ConfigureAwait(false);
+            EdGraph.Tenant.Client.Client.ApiResponse<IdentityApiApiClientV1ApiClientCreatedResponse> localVarResponse = await CreateTenantApiClientAsyncWithHttpInfoAsync(tenantId, apiVersion, xVersion, identityApiApiClientV1CreateApiClientRequest, operationIndex, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Creates a new tenant OpenId api client 
+        /// Creates a new OpenId API Client 
         /// </summary>
         /// <exception cref="EdGraph.Tenant.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tenantId"></param>
@@ -648,13 +650,13 @@ namespace EdGraph.Tenant.Client.Api
         /// <param name="identityApiApiClientV1CreateApiClientRequest"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<EdGraph.Tenant.Client.Client.ApiResponse<Object>> CreateTenantApiClientWithHttpInfoAsync(string tenantId, string? apiVersion = default(string?), string? xVersion = default(string?), IdentityApiApiClientV1CreateApiClientRequest? identityApiApiClientV1CreateApiClientRequest = default(IdentityApiApiClientV1CreateApiClientRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of ApiResponse (IdentityApiApiClientV1ApiClientCreatedResponse)</returns>
+        public async System.Threading.Tasks.Task<EdGraph.Tenant.Client.Client.ApiResponse<IdentityApiApiClientV1ApiClientCreatedResponse>> CreateTenantApiClientAsyncWithHttpInfoAsync(string tenantId, string? apiVersion = default(string?), string? xVersion = default(string?), IdentityApiApiClientV1CreateApiClientRequest? identityApiApiClientV1CreateApiClientRequest = default(IdentityApiApiClientV1CreateApiClientRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'tenantId' is set
             if (tenantId == null)
             {
-                throw new EdGraph.Tenant.Client.Client.ApiException(400, "Missing required parameter 'tenantId' when calling IdentityAPIClientsApi->CreateTenantApiClient");
+                throw new EdGraph.Tenant.Client.Client.ApiException(400, "Missing required parameter 'tenantId' when calling APIClientsApi->CreateTenantApiClientAsync");
             }
 
 
@@ -695,7 +697,7 @@ namespace EdGraph.Tenant.Client.Api
             }
             localVarRequestOptions.Data = identityApiApiClientV1CreateApiClientRequest;
 
-            localVarRequestOptions.Operation = "IdentityAPIClientsApi.CreateTenantApiClient";
+            localVarRequestOptions.Operation = "APIClientsApi.CreateTenantApiClientAsync";
             localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (oauth2) required
@@ -716,11 +718,11 @@ namespace EdGraph.Tenant.Client.Api
             }
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.PostAsync<Object>("/tenants/{tenantId}/identity/apiclients", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.PostAsync<IdentityApiApiClientV1ApiClientCreatedResponse>("/tenants/{tenantId}/apiclients", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("CreateTenantApiClient", localVarResponse);
+                Exception _exception = this.ExceptionFactory("CreateTenantApiClientAsync", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
@@ -731,7 +733,7 @@ namespace EdGraph.Tenant.Client.Api
         }
 
         /// <summary>
-        /// Delete a tenant&#39;s OpenId api client matching the primary key 
+        /// Deletes an OpenId API Client 
         /// </summary>
         /// <exception cref="EdGraph.Tenant.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tenantId"></param>
@@ -740,13 +742,13 @@ namespace EdGraph.Tenant.Client.Api
         /// <param name="xVersion"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns></returns>
-        public void DeleteTenantApiClient(string tenantId, string clientId, string? apiVersion = default(string?), string? xVersion = default(string?), int operationIndex = 0)
+        public void DeleteTenantApiClientAsync(string tenantId, string clientId, string? apiVersion = default(string?), string? xVersion = default(string?), int operationIndex = 0)
         {
-            DeleteTenantApiClientWithHttpInfo(tenantId, clientId, apiVersion, xVersion);
+            DeleteTenantApiClientAsyncWithHttpInfo(tenantId, clientId, apiVersion, xVersion);
         }
 
         /// <summary>
-        /// Delete a tenant&#39;s OpenId api client matching the primary key 
+        /// Deletes an OpenId API Client 
         /// </summary>
         /// <exception cref="EdGraph.Tenant.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tenantId"></param>
@@ -755,18 +757,18 @@ namespace EdGraph.Tenant.Client.Api
         /// <param name="xVersion"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        public EdGraph.Tenant.Client.Client.ApiResponse<Object> DeleteTenantApiClientWithHttpInfo(string tenantId, string clientId, string? apiVersion = default(string?), string? xVersion = default(string?), int operationIndex = 0)
+        public EdGraph.Tenant.Client.Client.ApiResponse<Object> DeleteTenantApiClientAsyncWithHttpInfo(string tenantId, string clientId, string? apiVersion = default(string?), string? xVersion = default(string?), int operationIndex = 0)
         {
             // verify the required parameter 'tenantId' is set
             if (tenantId == null)
             {
-                throw new EdGraph.Tenant.Client.Client.ApiException(400, "Missing required parameter 'tenantId' when calling IdentityAPIClientsApi->DeleteTenantApiClient");
+                throw new EdGraph.Tenant.Client.Client.ApiException(400, "Missing required parameter 'tenantId' when calling APIClientsApi->DeleteTenantApiClientAsync");
             }
 
             // verify the required parameter 'clientId' is set
             if (clientId == null)
             {
-                throw new EdGraph.Tenant.Client.Client.ApiException(400, "Missing required parameter 'clientId' when calling IdentityAPIClientsApi->DeleteTenantApiClient");
+                throw new EdGraph.Tenant.Client.Client.ApiException(400, "Missing required parameter 'clientId' when calling APIClientsApi->DeleteTenantApiClientAsync");
             }
 
             EdGraph.Tenant.Client.Client.RequestOptions localVarRequestOptions = new EdGraph.Tenant.Client.Client.RequestOptions();
@@ -802,7 +804,7 @@ namespace EdGraph.Tenant.Client.Api
                 localVarRequestOptions.HeaderParameters.Add("X-version", EdGraph.Tenant.Client.Client.ClientUtils.ParameterToString(xVersion)); // header parameter
             }
 
-            localVarRequestOptions.Operation = "IdentityAPIClientsApi.DeleteTenantApiClient";
+            localVarRequestOptions.Operation = "APIClientsApi.DeleteTenantApiClientAsync";
             localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (oauth2) required
@@ -823,10 +825,10 @@ namespace EdGraph.Tenant.Client.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Delete<Object>("/tenants/{tenantId}/identity/apiclients/{clientId}", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Delete<Object>("/tenants/{tenantId}/apiclients/{clientId}", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("DeleteTenantApiClient", localVarResponse);
+                Exception _exception = this.ExceptionFactory("DeleteTenantApiClientAsync", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
@@ -837,7 +839,7 @@ namespace EdGraph.Tenant.Client.Api
         }
 
         /// <summary>
-        /// Delete a tenant&#39;s OpenId api client matching the primary key 
+        /// Deletes an OpenId API Client 
         /// </summary>
         /// <exception cref="EdGraph.Tenant.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tenantId"></param>
@@ -847,13 +849,13 @@ namespace EdGraph.Tenant.Client.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task DeleteTenantApiClientAsync(string tenantId, string clientId, string? apiVersion = default(string?), string? xVersion = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task DeleteTenantApiClientAsyncAsync(string tenantId, string clientId, string? apiVersion = default(string?), string? xVersion = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            await DeleteTenantApiClientWithHttpInfoAsync(tenantId, clientId, apiVersion, xVersion, operationIndex, cancellationToken).ConfigureAwait(false);
+            await DeleteTenantApiClientAsyncWithHttpInfoAsync(tenantId, clientId, apiVersion, xVersion, operationIndex, cancellationToken).ConfigureAwait(false);
         }
 
         /// <summary>
-        /// Delete a tenant&#39;s OpenId api client matching the primary key 
+        /// Deletes an OpenId API Client 
         /// </summary>
         /// <exception cref="EdGraph.Tenant.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tenantId"></param>
@@ -863,18 +865,18 @@ namespace EdGraph.Tenant.Client.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<EdGraph.Tenant.Client.Client.ApiResponse<Object>> DeleteTenantApiClientWithHttpInfoAsync(string tenantId, string clientId, string? apiVersion = default(string?), string? xVersion = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<EdGraph.Tenant.Client.Client.ApiResponse<Object>> DeleteTenantApiClientAsyncWithHttpInfoAsync(string tenantId, string clientId, string? apiVersion = default(string?), string? xVersion = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'tenantId' is set
             if (tenantId == null)
             {
-                throw new EdGraph.Tenant.Client.Client.ApiException(400, "Missing required parameter 'tenantId' when calling IdentityAPIClientsApi->DeleteTenantApiClient");
+                throw new EdGraph.Tenant.Client.Client.ApiException(400, "Missing required parameter 'tenantId' when calling APIClientsApi->DeleteTenantApiClientAsync");
             }
 
             // verify the required parameter 'clientId' is set
             if (clientId == null)
             {
-                throw new EdGraph.Tenant.Client.Client.ApiException(400, "Missing required parameter 'clientId' when calling IdentityAPIClientsApi->DeleteTenantApiClient");
+                throw new EdGraph.Tenant.Client.Client.ApiException(400, "Missing required parameter 'clientId' when calling APIClientsApi->DeleteTenantApiClientAsync");
             }
 
 
@@ -911,7 +913,7 @@ namespace EdGraph.Tenant.Client.Api
                 localVarRequestOptions.HeaderParameters.Add("X-version", EdGraph.Tenant.Client.Client.ClientUtils.ParameterToString(xVersion)); // header parameter
             }
 
-            localVarRequestOptions.Operation = "IdentityAPIClientsApi.DeleteTenantApiClient";
+            localVarRequestOptions.Operation = "APIClientsApi.DeleteTenantApiClientAsync";
             localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (oauth2) required
@@ -932,11 +934,11 @@ namespace EdGraph.Tenant.Client.Api
             }
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.DeleteAsync<Object>("/tenants/{tenantId}/identity/apiclients/{clientId}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.DeleteAsync<Object>("/tenants/{tenantId}/apiclients/{clientId}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("DeleteTenantApiClient", localVarResponse);
+                Exception _exception = this.ExceptionFactory("DeleteTenantApiClientAsync", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
@@ -947,7 +949,7 @@ namespace EdGraph.Tenant.Client.Api
         }
 
         /// <summary>
-        /// Retrieves  a list of OpenId api clients associated to this tenant 
+        /// Retrieves a list of OpenId API Clients associated to this tenant 
         /// </summary>
         /// <exception cref="EdGraph.Tenant.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tenantId"></param>
@@ -959,14 +961,14 @@ namespace EdGraph.Tenant.Client.Api
         /// <param name="xVersion"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>IdentityApiApiClientV1ApiClientPaginatedItemsResponsePaginatedItemsViewModel</returns>
-        public IdentityApiApiClientV1ApiClientPaginatedItemsResponsePaginatedItemsViewModel GetAllTenantApiClients(string tenantId, int? pageSize = default(int?), int? pageIndex = default(int?), string? orderBy = default(string?), string? filter = default(string?), string? apiVersion = default(string?), string? xVersion = default(string?), int operationIndex = 0)
+        public IdentityApiApiClientV1ApiClientPaginatedItemsResponsePaginatedItemsViewModel GetAllTenantApiClientsAsync(string tenantId, int? pageSize = default(int?), int? pageIndex = default(int?), string? orderBy = default(string?), string? filter = default(string?), string? apiVersion = default(string?), string? xVersion = default(string?), int operationIndex = 0)
         {
-            EdGraph.Tenant.Client.Client.ApiResponse<IdentityApiApiClientV1ApiClientPaginatedItemsResponsePaginatedItemsViewModel> localVarResponse = GetAllTenantApiClientsWithHttpInfo(tenantId, pageSize, pageIndex, orderBy, filter, apiVersion, xVersion);
+            EdGraph.Tenant.Client.Client.ApiResponse<IdentityApiApiClientV1ApiClientPaginatedItemsResponsePaginatedItemsViewModel> localVarResponse = GetAllTenantApiClientsAsyncWithHttpInfo(tenantId, pageSize, pageIndex, orderBy, filter, apiVersion, xVersion);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Retrieves  a list of OpenId api clients associated to this tenant 
+        /// Retrieves a list of OpenId API Clients associated to this tenant 
         /// </summary>
         /// <exception cref="EdGraph.Tenant.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tenantId"></param>
@@ -978,12 +980,12 @@ namespace EdGraph.Tenant.Client.Api
         /// <param name="xVersion"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of IdentityApiApiClientV1ApiClientPaginatedItemsResponsePaginatedItemsViewModel</returns>
-        public EdGraph.Tenant.Client.Client.ApiResponse<IdentityApiApiClientV1ApiClientPaginatedItemsResponsePaginatedItemsViewModel> GetAllTenantApiClientsWithHttpInfo(string tenantId, int? pageSize = default(int?), int? pageIndex = default(int?), string? orderBy = default(string?), string? filter = default(string?), string? apiVersion = default(string?), string? xVersion = default(string?), int operationIndex = 0)
+        public EdGraph.Tenant.Client.Client.ApiResponse<IdentityApiApiClientV1ApiClientPaginatedItemsResponsePaginatedItemsViewModel> GetAllTenantApiClientsAsyncWithHttpInfo(string tenantId, int? pageSize = default(int?), int? pageIndex = default(int?), string? orderBy = default(string?), string? filter = default(string?), string? apiVersion = default(string?), string? xVersion = default(string?), int operationIndex = 0)
         {
             // verify the required parameter 'tenantId' is set
             if (tenantId == null)
             {
-                throw new EdGraph.Tenant.Client.Client.ApiException(400, "Missing required parameter 'tenantId' when calling IdentityAPIClientsApi->GetAllTenantApiClients");
+                throw new EdGraph.Tenant.Client.Client.ApiException(400, "Missing required parameter 'tenantId' when calling APIClientsApi->GetAllTenantApiClientsAsync");
             }
 
             EdGraph.Tenant.Client.Client.RequestOptions localVarRequestOptions = new EdGraph.Tenant.Client.Client.RequestOptions();
@@ -1034,7 +1036,7 @@ namespace EdGraph.Tenant.Client.Api
                 localVarRequestOptions.HeaderParameters.Add("X-version", EdGraph.Tenant.Client.Client.ClientUtils.ParameterToString(xVersion)); // header parameter
             }
 
-            localVarRequestOptions.Operation = "IdentityAPIClientsApi.GetAllTenantApiClients";
+            localVarRequestOptions.Operation = "APIClientsApi.GetAllTenantApiClientsAsync";
             localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (oauth2) required
@@ -1055,10 +1057,10 @@ namespace EdGraph.Tenant.Client.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<IdentityApiApiClientV1ApiClientPaginatedItemsResponsePaginatedItemsViewModel>("/tenants/{tenantId}/identity/apiclients", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get<IdentityApiApiClientV1ApiClientPaginatedItemsResponsePaginatedItemsViewModel>("/tenants/{tenantId}/apiclients", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("GetAllTenantApiClients", localVarResponse);
+                Exception _exception = this.ExceptionFactory("GetAllTenantApiClientsAsync", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
@@ -1069,7 +1071,7 @@ namespace EdGraph.Tenant.Client.Api
         }
 
         /// <summary>
-        /// Retrieves  a list of OpenId api clients associated to this tenant 
+        /// Retrieves a list of OpenId API Clients associated to this tenant 
         /// </summary>
         /// <exception cref="EdGraph.Tenant.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tenantId"></param>
@@ -1082,14 +1084,14 @@ namespace EdGraph.Tenant.Client.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of IdentityApiApiClientV1ApiClientPaginatedItemsResponsePaginatedItemsViewModel</returns>
-        public async System.Threading.Tasks.Task<IdentityApiApiClientV1ApiClientPaginatedItemsResponsePaginatedItemsViewModel> GetAllTenantApiClientsAsync(string tenantId, int? pageSize = default(int?), int? pageIndex = default(int?), string? orderBy = default(string?), string? filter = default(string?), string? apiVersion = default(string?), string? xVersion = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<IdentityApiApiClientV1ApiClientPaginatedItemsResponsePaginatedItemsViewModel> GetAllTenantApiClientsAsyncAsync(string tenantId, int? pageSize = default(int?), int? pageIndex = default(int?), string? orderBy = default(string?), string? filter = default(string?), string? apiVersion = default(string?), string? xVersion = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            EdGraph.Tenant.Client.Client.ApiResponse<IdentityApiApiClientV1ApiClientPaginatedItemsResponsePaginatedItemsViewModel> localVarResponse = await GetAllTenantApiClientsWithHttpInfoAsync(tenantId, pageSize, pageIndex, orderBy, filter, apiVersion, xVersion, operationIndex, cancellationToken).ConfigureAwait(false);
+            EdGraph.Tenant.Client.Client.ApiResponse<IdentityApiApiClientV1ApiClientPaginatedItemsResponsePaginatedItemsViewModel> localVarResponse = await GetAllTenantApiClientsAsyncWithHttpInfoAsync(tenantId, pageSize, pageIndex, orderBy, filter, apiVersion, xVersion, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Retrieves  a list of OpenId api clients associated to this tenant 
+        /// Retrieves a list of OpenId API Clients associated to this tenant 
         /// </summary>
         /// <exception cref="EdGraph.Tenant.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tenantId"></param>
@@ -1102,12 +1104,12 @@ namespace EdGraph.Tenant.Client.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (IdentityApiApiClientV1ApiClientPaginatedItemsResponsePaginatedItemsViewModel)</returns>
-        public async System.Threading.Tasks.Task<EdGraph.Tenant.Client.Client.ApiResponse<IdentityApiApiClientV1ApiClientPaginatedItemsResponsePaginatedItemsViewModel>> GetAllTenantApiClientsWithHttpInfoAsync(string tenantId, int? pageSize = default(int?), int? pageIndex = default(int?), string? orderBy = default(string?), string? filter = default(string?), string? apiVersion = default(string?), string? xVersion = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<EdGraph.Tenant.Client.Client.ApiResponse<IdentityApiApiClientV1ApiClientPaginatedItemsResponsePaginatedItemsViewModel>> GetAllTenantApiClientsAsyncWithHttpInfoAsync(string tenantId, int? pageSize = default(int?), int? pageIndex = default(int?), string? orderBy = default(string?), string? filter = default(string?), string? apiVersion = default(string?), string? xVersion = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'tenantId' is set
             if (tenantId == null)
             {
-                throw new EdGraph.Tenant.Client.Client.ApiException(400, "Missing required parameter 'tenantId' when calling IdentityAPIClientsApi->GetAllTenantApiClients");
+                throw new EdGraph.Tenant.Client.Client.ApiException(400, "Missing required parameter 'tenantId' when calling APIClientsApi->GetAllTenantApiClientsAsync");
             }
 
 
@@ -1159,7 +1161,7 @@ namespace EdGraph.Tenant.Client.Api
                 localVarRequestOptions.HeaderParameters.Add("X-version", EdGraph.Tenant.Client.Client.ClientUtils.ParameterToString(xVersion)); // header parameter
             }
 
-            localVarRequestOptions.Operation = "IdentityAPIClientsApi.GetAllTenantApiClients";
+            localVarRequestOptions.Operation = "APIClientsApi.GetAllTenantApiClientsAsync";
             localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (oauth2) required
@@ -1180,11 +1182,11 @@ namespace EdGraph.Tenant.Client.Api
             }
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<IdentityApiApiClientV1ApiClientPaginatedItemsResponsePaginatedItemsViewModel>("/tenants/{tenantId}/identity/apiclients", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<IdentityApiApiClientV1ApiClientPaginatedItemsResponsePaginatedItemsViewModel>("/tenants/{tenantId}/apiclients", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("GetAllTenantApiClients", localVarResponse);
+                Exception _exception = this.ExceptionFactory("GetAllTenantApiClientsAsync", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
@@ -1195,7 +1197,7 @@ namespace EdGraph.Tenant.Client.Api
         }
 
         /// <summary>
-        /// Retrieves the OpenId api client associated to this tenant 
+        /// Retrieves an OpenId API Client 
         /// </summary>
         /// <exception cref="EdGraph.Tenant.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tenantId"></param>
@@ -1204,14 +1206,14 @@ namespace EdGraph.Tenant.Client.Api
         /// <param name="xVersion"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>IdentityApiApiClientV1ApiClientProfileResponse</returns>
-        public IdentityApiApiClientV1ApiClientProfileResponse GetTenantApiClientProfileById(string tenantId, string clientId, string? apiVersion = default(string?), string? xVersion = default(string?), int operationIndex = 0)
+        public IdentityApiApiClientV1ApiClientProfileResponse GetTenantApiClientByIdAsync(string tenantId, string clientId, string? apiVersion = default(string?), string? xVersion = default(string?), int operationIndex = 0)
         {
-            EdGraph.Tenant.Client.Client.ApiResponse<IdentityApiApiClientV1ApiClientProfileResponse> localVarResponse = GetTenantApiClientProfileByIdWithHttpInfo(tenantId, clientId, apiVersion, xVersion);
+            EdGraph.Tenant.Client.Client.ApiResponse<IdentityApiApiClientV1ApiClientProfileResponse> localVarResponse = GetTenantApiClientByIdAsyncWithHttpInfo(tenantId, clientId, apiVersion, xVersion);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Retrieves the OpenId api client associated to this tenant 
+        /// Retrieves an OpenId API Client 
         /// </summary>
         /// <exception cref="EdGraph.Tenant.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tenantId"></param>
@@ -1220,18 +1222,18 @@ namespace EdGraph.Tenant.Client.Api
         /// <param name="xVersion"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of IdentityApiApiClientV1ApiClientProfileResponse</returns>
-        public EdGraph.Tenant.Client.Client.ApiResponse<IdentityApiApiClientV1ApiClientProfileResponse> GetTenantApiClientProfileByIdWithHttpInfo(string tenantId, string clientId, string? apiVersion = default(string?), string? xVersion = default(string?), int operationIndex = 0)
+        public EdGraph.Tenant.Client.Client.ApiResponse<IdentityApiApiClientV1ApiClientProfileResponse> GetTenantApiClientByIdAsyncWithHttpInfo(string tenantId, string clientId, string? apiVersion = default(string?), string? xVersion = default(string?), int operationIndex = 0)
         {
             // verify the required parameter 'tenantId' is set
             if (tenantId == null)
             {
-                throw new EdGraph.Tenant.Client.Client.ApiException(400, "Missing required parameter 'tenantId' when calling IdentityAPIClientsApi->GetTenantApiClientProfileById");
+                throw new EdGraph.Tenant.Client.Client.ApiException(400, "Missing required parameter 'tenantId' when calling APIClientsApi->GetTenantApiClientByIdAsync");
             }
 
             // verify the required parameter 'clientId' is set
             if (clientId == null)
             {
-                throw new EdGraph.Tenant.Client.Client.ApiException(400, "Missing required parameter 'clientId' when calling IdentityAPIClientsApi->GetTenantApiClientProfileById");
+                throw new EdGraph.Tenant.Client.Client.ApiException(400, "Missing required parameter 'clientId' when calling APIClientsApi->GetTenantApiClientByIdAsync");
             }
 
             EdGraph.Tenant.Client.Client.RequestOptions localVarRequestOptions = new EdGraph.Tenant.Client.Client.RequestOptions();
@@ -1267,7 +1269,7 @@ namespace EdGraph.Tenant.Client.Api
                 localVarRequestOptions.HeaderParameters.Add("X-version", EdGraph.Tenant.Client.Client.ClientUtils.ParameterToString(xVersion)); // header parameter
             }
 
-            localVarRequestOptions.Operation = "IdentityAPIClientsApi.GetTenantApiClientProfileById";
+            localVarRequestOptions.Operation = "APIClientsApi.GetTenantApiClientByIdAsync";
             localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (oauth2) required
@@ -1288,10 +1290,10 @@ namespace EdGraph.Tenant.Client.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<IdentityApiApiClientV1ApiClientProfileResponse>("/tenants/{tenantId}/identity/apiclients/{clientId}", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get<IdentityApiApiClientV1ApiClientProfileResponse>("/tenants/{tenantId}/apiclients/{clientId}", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("GetTenantApiClientProfileById", localVarResponse);
+                Exception _exception = this.ExceptionFactory("GetTenantApiClientByIdAsync", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
@@ -1302,7 +1304,7 @@ namespace EdGraph.Tenant.Client.Api
         }
 
         /// <summary>
-        /// Retrieves the OpenId api client associated to this tenant 
+        /// Retrieves an OpenId API Client 
         /// </summary>
         /// <exception cref="EdGraph.Tenant.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tenantId"></param>
@@ -1312,14 +1314,14 @@ namespace EdGraph.Tenant.Client.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of IdentityApiApiClientV1ApiClientProfileResponse</returns>
-        public async System.Threading.Tasks.Task<IdentityApiApiClientV1ApiClientProfileResponse> GetTenantApiClientProfileByIdAsync(string tenantId, string clientId, string? apiVersion = default(string?), string? xVersion = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<IdentityApiApiClientV1ApiClientProfileResponse> GetTenantApiClientByIdAsyncAsync(string tenantId, string clientId, string? apiVersion = default(string?), string? xVersion = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            EdGraph.Tenant.Client.Client.ApiResponse<IdentityApiApiClientV1ApiClientProfileResponse> localVarResponse = await GetTenantApiClientProfileByIdWithHttpInfoAsync(tenantId, clientId, apiVersion, xVersion, operationIndex, cancellationToken).ConfigureAwait(false);
+            EdGraph.Tenant.Client.Client.ApiResponse<IdentityApiApiClientV1ApiClientProfileResponse> localVarResponse = await GetTenantApiClientByIdAsyncWithHttpInfoAsync(tenantId, clientId, apiVersion, xVersion, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Retrieves the OpenId api client associated to this tenant 
+        /// Retrieves an OpenId API Client 
         /// </summary>
         /// <exception cref="EdGraph.Tenant.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tenantId"></param>
@@ -1329,18 +1331,18 @@ namespace EdGraph.Tenant.Client.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (IdentityApiApiClientV1ApiClientProfileResponse)</returns>
-        public async System.Threading.Tasks.Task<EdGraph.Tenant.Client.Client.ApiResponse<IdentityApiApiClientV1ApiClientProfileResponse>> GetTenantApiClientProfileByIdWithHttpInfoAsync(string tenantId, string clientId, string? apiVersion = default(string?), string? xVersion = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<EdGraph.Tenant.Client.Client.ApiResponse<IdentityApiApiClientV1ApiClientProfileResponse>> GetTenantApiClientByIdAsyncWithHttpInfoAsync(string tenantId, string clientId, string? apiVersion = default(string?), string? xVersion = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'tenantId' is set
             if (tenantId == null)
             {
-                throw new EdGraph.Tenant.Client.Client.ApiException(400, "Missing required parameter 'tenantId' when calling IdentityAPIClientsApi->GetTenantApiClientProfileById");
+                throw new EdGraph.Tenant.Client.Client.ApiException(400, "Missing required parameter 'tenantId' when calling APIClientsApi->GetTenantApiClientByIdAsync");
             }
 
             // verify the required parameter 'clientId' is set
             if (clientId == null)
             {
-                throw new EdGraph.Tenant.Client.Client.ApiException(400, "Missing required parameter 'clientId' when calling IdentityAPIClientsApi->GetTenantApiClientProfileById");
+                throw new EdGraph.Tenant.Client.Client.ApiException(400, "Missing required parameter 'clientId' when calling APIClientsApi->GetTenantApiClientByIdAsync");
             }
 
 
@@ -1377,7 +1379,7 @@ namespace EdGraph.Tenant.Client.Api
                 localVarRequestOptions.HeaderParameters.Add("X-version", EdGraph.Tenant.Client.Client.ClientUtils.ParameterToString(xVersion)); // header parameter
             }
 
-            localVarRequestOptions.Operation = "IdentityAPIClientsApi.GetTenantApiClientProfileById";
+            localVarRequestOptions.Operation = "APIClientsApi.GetTenantApiClientByIdAsync";
             localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (oauth2) required
@@ -1398,11 +1400,11 @@ namespace EdGraph.Tenant.Client.Api
             }
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<IdentityApiApiClientV1ApiClientProfileResponse>("/tenants/{tenantId}/identity/apiclients/{clientId}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<IdentityApiApiClientV1ApiClientProfileResponse>("/tenants/{tenantId}/apiclients/{clientId}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("GetTenantApiClientProfileById", localVarResponse);
+                Exception _exception = this.ExceptionFactory("GetTenantApiClientByIdAsync", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
@@ -1413,7 +1415,7 @@ namespace EdGraph.Tenant.Client.Api
         }
 
         /// <summary>
-        /// Creates a tenant&#39;s OpenId client secret matching the primary key 
+        /// Regenerates an OpenId API Client&#39;s secret 
         /// </summary>
         /// <exception cref="EdGraph.Tenant.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tenantId"></param>
@@ -1422,14 +1424,15 @@ namespace EdGraph.Tenant.Client.Api
         /// <param name="xVersion"> (optional)</param>
         /// <param name="identityApiApiClientV1RegenerateApiClientSecretRequest"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns></returns>
-        public void RegenerateTenantApiClientSecret(string tenantId, string clientId, string? apiVersion = default(string?), string? xVersion = default(string?), IdentityApiApiClientV1RegenerateApiClientSecretRequest? identityApiApiClientV1RegenerateApiClientSecretRequest = default(IdentityApiApiClientV1RegenerateApiClientSecretRequest?), int operationIndex = 0)
+        /// <returns>IdentityApiApiClientV1ApiClientSecretRegeneratedResponse</returns>
+        public IdentityApiApiClientV1ApiClientSecretRegeneratedResponse RegenerateTenantApiClientSecretAsync(string tenantId, string clientId, string? apiVersion = default(string?), string? xVersion = default(string?), IdentityApiApiClientV1RegenerateApiClientSecretRequest? identityApiApiClientV1RegenerateApiClientSecretRequest = default(IdentityApiApiClientV1RegenerateApiClientSecretRequest?), int operationIndex = 0)
         {
-            RegenerateTenantApiClientSecretWithHttpInfo(tenantId, clientId, apiVersion, xVersion, identityApiApiClientV1RegenerateApiClientSecretRequest);
+            EdGraph.Tenant.Client.Client.ApiResponse<IdentityApiApiClientV1ApiClientSecretRegeneratedResponse> localVarResponse = RegenerateTenantApiClientSecretAsyncWithHttpInfo(tenantId, clientId, apiVersion, xVersion, identityApiApiClientV1RegenerateApiClientSecretRequest);
+            return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Creates a tenant&#39;s OpenId client secret matching the primary key 
+        /// Regenerates an OpenId API Client&#39;s secret 
         /// </summary>
         /// <exception cref="EdGraph.Tenant.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tenantId"></param>
@@ -1438,19 +1441,19 @@ namespace EdGraph.Tenant.Client.Api
         /// <param name="xVersion"> (optional)</param>
         /// <param name="identityApiApiClientV1RegenerateApiClientSecretRequest"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of Object(void)</returns>
-        public EdGraph.Tenant.Client.Client.ApiResponse<Object> RegenerateTenantApiClientSecretWithHttpInfo(string tenantId, string clientId, string? apiVersion = default(string?), string? xVersion = default(string?), IdentityApiApiClientV1RegenerateApiClientSecretRequest? identityApiApiClientV1RegenerateApiClientSecretRequest = default(IdentityApiApiClientV1RegenerateApiClientSecretRequest?), int operationIndex = 0)
+        /// <returns>ApiResponse of IdentityApiApiClientV1ApiClientSecretRegeneratedResponse</returns>
+        public EdGraph.Tenant.Client.Client.ApiResponse<IdentityApiApiClientV1ApiClientSecretRegeneratedResponse> RegenerateTenantApiClientSecretAsyncWithHttpInfo(string tenantId, string clientId, string? apiVersion = default(string?), string? xVersion = default(string?), IdentityApiApiClientV1RegenerateApiClientSecretRequest? identityApiApiClientV1RegenerateApiClientSecretRequest = default(IdentityApiApiClientV1RegenerateApiClientSecretRequest?), int operationIndex = 0)
         {
             // verify the required parameter 'tenantId' is set
             if (tenantId == null)
             {
-                throw new EdGraph.Tenant.Client.Client.ApiException(400, "Missing required parameter 'tenantId' when calling IdentityAPIClientsApi->RegenerateTenantApiClientSecret");
+                throw new EdGraph.Tenant.Client.Client.ApiException(400, "Missing required parameter 'tenantId' when calling APIClientsApi->RegenerateTenantApiClientSecretAsync");
             }
 
             // verify the required parameter 'clientId' is set
             if (clientId == null)
             {
-                throw new EdGraph.Tenant.Client.Client.ApiException(400, "Missing required parameter 'clientId' when calling IdentityAPIClientsApi->RegenerateTenantApiClientSecret");
+                throw new EdGraph.Tenant.Client.Client.ApiException(400, "Missing required parameter 'clientId' when calling APIClientsApi->RegenerateTenantApiClientSecretAsync");
             }
 
             EdGraph.Tenant.Client.Client.RequestOptions localVarRequestOptions = new EdGraph.Tenant.Client.Client.RequestOptions();
@@ -1491,7 +1494,7 @@ namespace EdGraph.Tenant.Client.Api
             }
             localVarRequestOptions.Data = identityApiApiClientV1RegenerateApiClientSecretRequest;
 
-            localVarRequestOptions.Operation = "IdentityAPIClientsApi.RegenerateTenantApiClientSecret";
+            localVarRequestOptions.Operation = "APIClientsApi.RegenerateTenantApiClientSecretAsync";
             localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (oauth2) required
@@ -1512,10 +1515,10 @@ namespace EdGraph.Tenant.Client.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Post<Object>("/tenants/{tenantId}/identity/apiclients/{clientId}/regeneratesecret", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Put<IdentityApiApiClientV1ApiClientSecretRegeneratedResponse>("/tenants/{tenantId}/apiclients/{clientId}/regeneratesecret", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("RegenerateTenantApiClientSecret", localVarResponse);
+                Exception _exception = this.ExceptionFactory("RegenerateTenantApiClientSecretAsync", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
@@ -1526,7 +1529,7 @@ namespace EdGraph.Tenant.Client.Api
         }
 
         /// <summary>
-        /// Creates a tenant&#39;s OpenId client secret matching the primary key 
+        /// Regenerates an OpenId API Client&#39;s secret 
         /// </summary>
         /// <exception cref="EdGraph.Tenant.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tenantId"></param>
@@ -1536,14 +1539,15 @@ namespace EdGraph.Tenant.Client.Api
         /// <param name="identityApiApiClientV1RegenerateApiClientSecretRequest"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task RegenerateTenantApiClientSecretAsync(string tenantId, string clientId, string? apiVersion = default(string?), string? xVersion = default(string?), IdentityApiApiClientV1RegenerateApiClientSecretRequest? identityApiApiClientV1RegenerateApiClientSecretRequest = default(IdentityApiApiClientV1RegenerateApiClientSecretRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of IdentityApiApiClientV1ApiClientSecretRegeneratedResponse</returns>
+        public async System.Threading.Tasks.Task<IdentityApiApiClientV1ApiClientSecretRegeneratedResponse> RegenerateTenantApiClientSecretAsyncAsync(string tenantId, string clientId, string? apiVersion = default(string?), string? xVersion = default(string?), IdentityApiApiClientV1RegenerateApiClientSecretRequest? identityApiApiClientV1RegenerateApiClientSecretRequest = default(IdentityApiApiClientV1RegenerateApiClientSecretRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            await RegenerateTenantApiClientSecretWithHttpInfoAsync(tenantId, clientId, apiVersion, xVersion, identityApiApiClientV1RegenerateApiClientSecretRequest, operationIndex, cancellationToken).ConfigureAwait(false);
+            EdGraph.Tenant.Client.Client.ApiResponse<IdentityApiApiClientV1ApiClientSecretRegeneratedResponse> localVarResponse = await RegenerateTenantApiClientSecretAsyncWithHttpInfoAsync(tenantId, clientId, apiVersion, xVersion, identityApiApiClientV1RegenerateApiClientSecretRequest, operationIndex, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Creates a tenant&#39;s OpenId client secret matching the primary key 
+        /// Regenerates an OpenId API Client&#39;s secret 
         /// </summary>
         /// <exception cref="EdGraph.Tenant.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tenantId"></param>
@@ -1553,19 +1557,19 @@ namespace EdGraph.Tenant.Client.Api
         /// <param name="identityApiApiClientV1RegenerateApiClientSecretRequest"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<EdGraph.Tenant.Client.Client.ApiResponse<Object>> RegenerateTenantApiClientSecretWithHttpInfoAsync(string tenantId, string clientId, string? apiVersion = default(string?), string? xVersion = default(string?), IdentityApiApiClientV1RegenerateApiClientSecretRequest? identityApiApiClientV1RegenerateApiClientSecretRequest = default(IdentityApiApiClientV1RegenerateApiClientSecretRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of ApiResponse (IdentityApiApiClientV1ApiClientSecretRegeneratedResponse)</returns>
+        public async System.Threading.Tasks.Task<EdGraph.Tenant.Client.Client.ApiResponse<IdentityApiApiClientV1ApiClientSecretRegeneratedResponse>> RegenerateTenantApiClientSecretAsyncWithHttpInfoAsync(string tenantId, string clientId, string? apiVersion = default(string?), string? xVersion = default(string?), IdentityApiApiClientV1RegenerateApiClientSecretRequest? identityApiApiClientV1RegenerateApiClientSecretRequest = default(IdentityApiApiClientV1RegenerateApiClientSecretRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'tenantId' is set
             if (tenantId == null)
             {
-                throw new EdGraph.Tenant.Client.Client.ApiException(400, "Missing required parameter 'tenantId' when calling IdentityAPIClientsApi->RegenerateTenantApiClientSecret");
+                throw new EdGraph.Tenant.Client.Client.ApiException(400, "Missing required parameter 'tenantId' when calling APIClientsApi->RegenerateTenantApiClientSecretAsync");
             }
 
             // verify the required parameter 'clientId' is set
             if (clientId == null)
             {
-                throw new EdGraph.Tenant.Client.Client.ApiException(400, "Missing required parameter 'clientId' when calling IdentityAPIClientsApi->RegenerateTenantApiClientSecret");
+                throw new EdGraph.Tenant.Client.Client.ApiException(400, "Missing required parameter 'clientId' when calling APIClientsApi->RegenerateTenantApiClientSecretAsync");
             }
 
 
@@ -1607,7 +1611,7 @@ namespace EdGraph.Tenant.Client.Api
             }
             localVarRequestOptions.Data = identityApiApiClientV1RegenerateApiClientSecretRequest;
 
-            localVarRequestOptions.Operation = "IdentityAPIClientsApi.RegenerateTenantApiClientSecret";
+            localVarRequestOptions.Operation = "APIClientsApi.RegenerateTenantApiClientSecretAsync";
             localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (oauth2) required
@@ -1628,11 +1632,11 @@ namespace EdGraph.Tenant.Client.Api
             }
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.PostAsync<Object>("/tenants/{tenantId}/identity/apiclients/{clientId}/regeneratesecret", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.PutAsync<IdentityApiApiClientV1ApiClientSecretRegeneratedResponse>("/tenants/{tenantId}/apiclients/{clientId}/regeneratesecret", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("RegenerateTenantApiClientSecret", localVarResponse);
+                Exception _exception = this.ExceptionFactory("RegenerateTenantApiClientSecretAsync", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
@@ -1643,7 +1647,7 @@ namespace EdGraph.Tenant.Client.Api
         }
 
         /// <summary>
-        /// Updates a tenant&#39;s OpenId api client matching the primary key 
+        /// Updates an OpenId API Client 
         /// </summary>
         /// <exception cref="EdGraph.Tenant.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tenantId"></param>
@@ -1652,14 +1656,15 @@ namespace EdGraph.Tenant.Client.Api
         /// <param name="xVersion"> (optional)</param>
         /// <param name="identityApiApiClientV1UpdateApiClientRequest"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns></returns>
-        public void UpdateTenantApiClient(string tenantId, string clientId, string? apiVersion = default(string?), string? xVersion = default(string?), IdentityApiApiClientV1UpdateApiClientRequest? identityApiApiClientV1UpdateApiClientRequest = default(IdentityApiApiClientV1UpdateApiClientRequest?), int operationIndex = 0)
+        /// <returns>IdentityApiApiClientV1ApiClientUpdatedResponse</returns>
+        public IdentityApiApiClientV1ApiClientUpdatedResponse UpdateTenantApiClientAsync(string tenantId, string clientId, string? apiVersion = default(string?), string? xVersion = default(string?), IdentityApiApiClientV1UpdateApiClientRequest? identityApiApiClientV1UpdateApiClientRequest = default(IdentityApiApiClientV1UpdateApiClientRequest?), int operationIndex = 0)
         {
-            UpdateTenantApiClientWithHttpInfo(tenantId, clientId, apiVersion, xVersion, identityApiApiClientV1UpdateApiClientRequest);
+            EdGraph.Tenant.Client.Client.ApiResponse<IdentityApiApiClientV1ApiClientUpdatedResponse> localVarResponse = UpdateTenantApiClientAsyncWithHttpInfo(tenantId, clientId, apiVersion, xVersion, identityApiApiClientV1UpdateApiClientRequest);
+            return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Updates a tenant&#39;s OpenId api client matching the primary key 
+        /// Updates an OpenId API Client 
         /// </summary>
         /// <exception cref="EdGraph.Tenant.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tenantId"></param>
@@ -1668,19 +1673,19 @@ namespace EdGraph.Tenant.Client.Api
         /// <param name="xVersion"> (optional)</param>
         /// <param name="identityApiApiClientV1UpdateApiClientRequest"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of Object(void)</returns>
-        public EdGraph.Tenant.Client.Client.ApiResponse<Object> UpdateTenantApiClientWithHttpInfo(string tenantId, string clientId, string? apiVersion = default(string?), string? xVersion = default(string?), IdentityApiApiClientV1UpdateApiClientRequest? identityApiApiClientV1UpdateApiClientRequest = default(IdentityApiApiClientV1UpdateApiClientRequest?), int operationIndex = 0)
+        /// <returns>ApiResponse of IdentityApiApiClientV1ApiClientUpdatedResponse</returns>
+        public EdGraph.Tenant.Client.Client.ApiResponse<IdentityApiApiClientV1ApiClientUpdatedResponse> UpdateTenantApiClientAsyncWithHttpInfo(string tenantId, string clientId, string? apiVersion = default(string?), string? xVersion = default(string?), IdentityApiApiClientV1UpdateApiClientRequest? identityApiApiClientV1UpdateApiClientRequest = default(IdentityApiApiClientV1UpdateApiClientRequest?), int operationIndex = 0)
         {
             // verify the required parameter 'tenantId' is set
             if (tenantId == null)
             {
-                throw new EdGraph.Tenant.Client.Client.ApiException(400, "Missing required parameter 'tenantId' when calling IdentityAPIClientsApi->UpdateTenantApiClient");
+                throw new EdGraph.Tenant.Client.Client.ApiException(400, "Missing required parameter 'tenantId' when calling APIClientsApi->UpdateTenantApiClientAsync");
             }
 
             // verify the required parameter 'clientId' is set
             if (clientId == null)
             {
-                throw new EdGraph.Tenant.Client.Client.ApiException(400, "Missing required parameter 'clientId' when calling IdentityAPIClientsApi->UpdateTenantApiClient");
+                throw new EdGraph.Tenant.Client.Client.ApiException(400, "Missing required parameter 'clientId' when calling APIClientsApi->UpdateTenantApiClientAsync");
             }
 
             EdGraph.Tenant.Client.Client.RequestOptions localVarRequestOptions = new EdGraph.Tenant.Client.Client.RequestOptions();
@@ -1721,7 +1726,7 @@ namespace EdGraph.Tenant.Client.Api
             }
             localVarRequestOptions.Data = identityApiApiClientV1UpdateApiClientRequest;
 
-            localVarRequestOptions.Operation = "IdentityAPIClientsApi.UpdateTenantApiClient";
+            localVarRequestOptions.Operation = "APIClientsApi.UpdateTenantApiClientAsync";
             localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (oauth2) required
@@ -1742,10 +1747,10 @@ namespace EdGraph.Tenant.Client.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Put<Object>("/tenants/{tenantId}/identity/apiclients/{clientId}", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Put<IdentityApiApiClientV1ApiClientUpdatedResponse>("/tenants/{tenantId}/apiclients/{clientId}", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("UpdateTenantApiClient", localVarResponse);
+                Exception _exception = this.ExceptionFactory("UpdateTenantApiClientAsync", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
@@ -1756,7 +1761,7 @@ namespace EdGraph.Tenant.Client.Api
         }
 
         /// <summary>
-        /// Updates a tenant&#39;s OpenId api client matching the primary key 
+        /// Updates an OpenId API Client 
         /// </summary>
         /// <exception cref="EdGraph.Tenant.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tenantId"></param>
@@ -1766,14 +1771,15 @@ namespace EdGraph.Tenant.Client.Api
         /// <param name="identityApiApiClientV1UpdateApiClientRequest"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task UpdateTenantApiClientAsync(string tenantId, string clientId, string? apiVersion = default(string?), string? xVersion = default(string?), IdentityApiApiClientV1UpdateApiClientRequest? identityApiApiClientV1UpdateApiClientRequest = default(IdentityApiApiClientV1UpdateApiClientRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of IdentityApiApiClientV1ApiClientUpdatedResponse</returns>
+        public async System.Threading.Tasks.Task<IdentityApiApiClientV1ApiClientUpdatedResponse> UpdateTenantApiClientAsyncAsync(string tenantId, string clientId, string? apiVersion = default(string?), string? xVersion = default(string?), IdentityApiApiClientV1UpdateApiClientRequest? identityApiApiClientV1UpdateApiClientRequest = default(IdentityApiApiClientV1UpdateApiClientRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            await UpdateTenantApiClientWithHttpInfoAsync(tenantId, clientId, apiVersion, xVersion, identityApiApiClientV1UpdateApiClientRequest, operationIndex, cancellationToken).ConfigureAwait(false);
+            EdGraph.Tenant.Client.Client.ApiResponse<IdentityApiApiClientV1ApiClientUpdatedResponse> localVarResponse = await UpdateTenantApiClientAsyncWithHttpInfoAsync(tenantId, clientId, apiVersion, xVersion, identityApiApiClientV1UpdateApiClientRequest, operationIndex, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Updates a tenant&#39;s OpenId api client matching the primary key 
+        /// Updates an OpenId API Client 
         /// </summary>
         /// <exception cref="EdGraph.Tenant.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tenantId"></param>
@@ -1783,19 +1789,19 @@ namespace EdGraph.Tenant.Client.Api
         /// <param name="identityApiApiClientV1UpdateApiClientRequest"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<EdGraph.Tenant.Client.Client.ApiResponse<Object>> UpdateTenantApiClientWithHttpInfoAsync(string tenantId, string clientId, string? apiVersion = default(string?), string? xVersion = default(string?), IdentityApiApiClientV1UpdateApiClientRequest? identityApiApiClientV1UpdateApiClientRequest = default(IdentityApiApiClientV1UpdateApiClientRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of ApiResponse (IdentityApiApiClientV1ApiClientUpdatedResponse)</returns>
+        public async System.Threading.Tasks.Task<EdGraph.Tenant.Client.Client.ApiResponse<IdentityApiApiClientV1ApiClientUpdatedResponse>> UpdateTenantApiClientAsyncWithHttpInfoAsync(string tenantId, string clientId, string? apiVersion = default(string?), string? xVersion = default(string?), IdentityApiApiClientV1UpdateApiClientRequest? identityApiApiClientV1UpdateApiClientRequest = default(IdentityApiApiClientV1UpdateApiClientRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'tenantId' is set
             if (tenantId == null)
             {
-                throw new EdGraph.Tenant.Client.Client.ApiException(400, "Missing required parameter 'tenantId' when calling IdentityAPIClientsApi->UpdateTenantApiClient");
+                throw new EdGraph.Tenant.Client.Client.ApiException(400, "Missing required parameter 'tenantId' when calling APIClientsApi->UpdateTenantApiClientAsync");
             }
 
             // verify the required parameter 'clientId' is set
             if (clientId == null)
             {
-                throw new EdGraph.Tenant.Client.Client.ApiException(400, "Missing required parameter 'clientId' when calling IdentityAPIClientsApi->UpdateTenantApiClient");
+                throw new EdGraph.Tenant.Client.Client.ApiException(400, "Missing required parameter 'clientId' when calling APIClientsApi->UpdateTenantApiClientAsync");
             }
 
 
@@ -1837,7 +1843,7 @@ namespace EdGraph.Tenant.Client.Api
             }
             localVarRequestOptions.Data = identityApiApiClientV1UpdateApiClientRequest;
 
-            localVarRequestOptions.Operation = "IdentityAPIClientsApi.UpdateTenantApiClient";
+            localVarRequestOptions.Operation = "APIClientsApi.UpdateTenantApiClientAsync";
             localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (oauth2) required
@@ -1858,11 +1864,11 @@ namespace EdGraph.Tenant.Client.Api
             }
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.PutAsync<Object>("/tenants/{tenantId}/identity/apiclients/{clientId}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.PutAsync<IdentityApiApiClientV1ApiClientUpdatedResponse>("/tenants/{tenantId}/apiclients/{clientId}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("UpdateTenantApiClient", localVarResponse);
+                Exception _exception = this.ExceptionFactory("UpdateTenantApiClientAsync", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;

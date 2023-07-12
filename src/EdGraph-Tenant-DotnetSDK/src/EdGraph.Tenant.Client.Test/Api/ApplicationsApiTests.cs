@@ -70,24 +70,6 @@ namespace EdGraph.Tenant.Client.Test.Api
         }
 
         /// <summary>
-        /// Test GetTenantApplicationTilesAsync
-        /// </summary>
-        [Fact]
-        public void GetTenantApplicationTilesAsyncTest()
-        {
-            // TODO uncomment below to test the method and replace null with proper value
-            //string tenantId = null;
-            //int? pageIndex = null;
-            //int? pageSize = null;
-            //string? orderBy = null;
-            //string? filter = null;
-            //string? apiVersion = null;
-            //string? xVersion = null;
-            //var response = instance.GetTenantApplicationTilesAsync(tenantId, pageIndex, pageSize, orderBy, filter, apiVersion, xVersion);
-            //Assert.IsType<EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesApplicationTilesResponseWithUserApplicationLicense>(response);
-        }
-
-        /// <summary>
         /// Test GetTenantApplicationsAsync
         /// </summary>
         [Fact]
