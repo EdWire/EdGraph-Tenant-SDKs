@@ -1,0 +1,11 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\src",
+    "\\src\\EdGraph-Tenant-DotnetSDK",
+    "\\src\\EdGraph-Tenant-DotnetSDK\\src",
+    "\\src\\EdGraph-Tenant-DotnetSDK\\src\\EdGraph.Tenant.Client"
+  ],
+  "SelectedNode": "\\src\\EdGraph-Tenant-DotnetSDK\\EdGraph.Tenant.Client.sln",
+  "PreviewInSolutionExplorer": false
+}
