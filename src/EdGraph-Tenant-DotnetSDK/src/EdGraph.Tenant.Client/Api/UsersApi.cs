@@ -65,10 +65,10 @@ namespace EdGraph.Tenant.Client.Api
         /// <param name="tenantId"></param>
         /// <param name="apiVersion"> (optional)</param>
         /// <param name="xVersion"> (optional)</param>
-        /// <param name="identityApiUserV1CreateLocalUserRequest"> (optional)</param>
+        /// <param name="edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsCreateLocalUserRequest"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>IdentityApiUserV1LocalUserCreatedResponse</returns>
-        IdentityApiUserV1LocalUserCreatedResponse CreateTenantLocalUserAsync(string tenantId, string? apiVersion = default(string?), string? xVersion = default(string?), IdentityApiUserV1CreateLocalUserRequest? identityApiUserV1CreateLocalUserRequest = default(IdentityApiUserV1CreateLocalUserRequest?), int operationIndex = 0);
+        IdentityApiUserV1LocalUserCreatedResponse CreateTenantLocalUserAsync(string tenantId, string? apiVersion = default(string?), string? xVersion = default(string?), EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsCreateLocalUserRequest? edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsCreateLocalUserRequest = default(EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsCreateLocalUserRequest?), int operationIndex = 0);
 
         /// <summary>
         /// Creates a user in the local identity provider
@@ -80,10 +80,10 @@ namespace EdGraph.Tenant.Client.Api
         /// <param name="tenantId"></param>
         /// <param name="apiVersion"> (optional)</param>
         /// <param name="xVersion"> (optional)</param>
-        /// <param name="identityApiUserV1CreateLocalUserRequest"> (optional)</param>
+        /// <param name="edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsCreateLocalUserRequest"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of IdentityApiUserV1LocalUserCreatedResponse</returns>
-        ApiResponse<IdentityApiUserV1LocalUserCreatedResponse> CreateTenantLocalUserAsyncWithHttpInfo(string tenantId, string? apiVersion = default(string?), string? xVersion = default(string?), IdentityApiUserV1CreateLocalUserRequest? identityApiUserV1CreateLocalUserRequest = default(IdentityApiUserV1CreateLocalUserRequest?), int operationIndex = 0);
+        ApiResponse<IdentityApiUserV1LocalUserCreatedResponse> CreateTenantLocalUserAsyncWithHttpInfo(string tenantId, string? apiVersion = default(string?), string? xVersion = default(string?), EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsCreateLocalUserRequest? edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsCreateLocalUserRequest = default(EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsCreateLocalUserRequest?), int operationIndex = 0);
         /// <summary>
         /// Deactivates a user
         /// </summary>
@@ -307,11 +307,11 @@ namespace EdGraph.Tenant.Client.Api
         /// <param name="tenantId"></param>
         /// <param name="apiVersion"> (optional)</param>
         /// <param name="xVersion"> (optional)</param>
-        /// <param name="identityApiUserV1CreateLocalUserRequest"> (optional)</param>
+        /// <param name="edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsCreateLocalUserRequest"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of IdentityApiUserV1LocalUserCreatedResponse</returns>
-        System.Threading.Tasks.Task<IdentityApiUserV1LocalUserCreatedResponse> CreateTenantLocalUserAsyncAsync(string tenantId, string? apiVersion = default(string?), string? xVersion = default(string?), IdentityApiUserV1CreateLocalUserRequest? identityApiUserV1CreateLocalUserRequest = default(IdentityApiUserV1CreateLocalUserRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<IdentityApiUserV1LocalUserCreatedResponse> CreateTenantLocalUserAsyncAsync(string tenantId, string? apiVersion = default(string?), string? xVersion = default(string?), EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsCreateLocalUserRequest? edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsCreateLocalUserRequest = default(EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsCreateLocalUserRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Creates a user in the local identity provider
@@ -323,11 +323,11 @@ namespace EdGraph.Tenant.Client.Api
         /// <param name="tenantId"></param>
         /// <param name="apiVersion"> (optional)</param>
         /// <param name="xVersion"> (optional)</param>
-        /// <param name="identityApiUserV1CreateLocalUserRequest"> (optional)</param>
+        /// <param name="edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsCreateLocalUserRequest"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (IdentityApiUserV1LocalUserCreatedResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<IdentityApiUserV1LocalUserCreatedResponse>> CreateTenantLocalUserAsyncWithHttpInfoAsync(string tenantId, string? apiVersion = default(string?), string? xVersion = default(string?), IdentityApiUserV1CreateLocalUserRequest? identityApiUserV1CreateLocalUserRequest = default(IdentityApiUserV1CreateLocalUserRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<IdentityApiUserV1LocalUserCreatedResponse>> CreateTenantLocalUserAsyncWithHttpInfoAsync(string tenantId, string? apiVersion = default(string?), string? xVersion = default(string?), EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsCreateLocalUserRequest? edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsCreateLocalUserRequest = default(EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsCreateLocalUserRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Deactivates a user
         /// </summary>
@@ -885,12 +885,12 @@ namespace EdGraph.Tenant.Client.Api
         /// <param name="tenantId"></param>
         /// <param name="apiVersion"> (optional)</param>
         /// <param name="xVersion"> (optional)</param>
-        /// <param name="identityApiUserV1CreateLocalUserRequest"> (optional)</param>
+        /// <param name="edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsCreateLocalUserRequest"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>IdentityApiUserV1LocalUserCreatedResponse</returns>
-        public IdentityApiUserV1LocalUserCreatedResponse CreateTenantLocalUserAsync(string tenantId, string? apiVersion = default(string?), string? xVersion = default(string?), IdentityApiUserV1CreateLocalUserRequest? identityApiUserV1CreateLocalUserRequest = default(IdentityApiUserV1CreateLocalUserRequest?), int operationIndex = 0)
+        public IdentityApiUserV1LocalUserCreatedResponse CreateTenantLocalUserAsync(string tenantId, string? apiVersion = default(string?), string? xVersion = default(string?), EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsCreateLocalUserRequest? edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsCreateLocalUserRequest = default(EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsCreateLocalUserRequest?), int operationIndex = 0)
         {
-            EdGraph.Tenant.Client.Client.ApiResponse<IdentityApiUserV1LocalUserCreatedResponse> localVarResponse = CreateTenantLocalUserAsyncWithHttpInfo(tenantId, apiVersion, xVersion, identityApiUserV1CreateLocalUserRequest);
+            EdGraph.Tenant.Client.Client.ApiResponse<IdentityApiUserV1LocalUserCreatedResponse> localVarResponse = CreateTenantLocalUserAsyncWithHttpInfo(tenantId, apiVersion, xVersion, edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsCreateLocalUserRequest);
             return localVarResponse.Data;
         }
 
@@ -901,10 +901,10 @@ namespace EdGraph.Tenant.Client.Api
         /// <param name="tenantId"></param>
         /// <param name="apiVersion"> (optional)</param>
         /// <param name="xVersion"> (optional)</param>
-        /// <param name="identityApiUserV1CreateLocalUserRequest"> (optional)</param>
+        /// <param name="edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsCreateLocalUserRequest"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of IdentityApiUserV1LocalUserCreatedResponse</returns>
-        public EdGraph.Tenant.Client.Client.ApiResponse<IdentityApiUserV1LocalUserCreatedResponse> CreateTenantLocalUserAsyncWithHttpInfo(string tenantId, string? apiVersion = default(string?), string? xVersion = default(string?), IdentityApiUserV1CreateLocalUserRequest? identityApiUserV1CreateLocalUserRequest = default(IdentityApiUserV1CreateLocalUserRequest?), int operationIndex = 0)
+        public EdGraph.Tenant.Client.Client.ApiResponse<IdentityApiUserV1LocalUserCreatedResponse> CreateTenantLocalUserAsyncWithHttpInfo(string tenantId, string? apiVersion = default(string?), string? xVersion = default(string?), EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsCreateLocalUserRequest? edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsCreateLocalUserRequest = default(EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsCreateLocalUserRequest?), int operationIndex = 0)
         {
             // verify the required parameter 'tenantId' is set
             if (tenantId == null)
@@ -947,7 +947,7 @@ namespace EdGraph.Tenant.Client.Api
             {
                 localVarRequestOptions.HeaderParameters.Add("X-version", EdGraph.Tenant.Client.Client.ClientUtils.ParameterToString(xVersion)); // header parameter
             }
-            localVarRequestOptions.Data = identityApiUserV1CreateLocalUserRequest;
+            localVarRequestOptions.Data = edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsCreateLocalUserRequest;
 
             localVarRequestOptions.Operation = "UsersApi.CreateTenantLocalUserAsync";
             localVarRequestOptions.OperationIndex = operationIndex;
@@ -990,13 +990,13 @@ namespace EdGraph.Tenant.Client.Api
         /// <param name="tenantId"></param>
         /// <param name="apiVersion"> (optional)</param>
         /// <param name="xVersion"> (optional)</param>
-        /// <param name="identityApiUserV1CreateLocalUserRequest"> (optional)</param>
+        /// <param name="edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsCreateLocalUserRequest"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of IdentityApiUserV1LocalUserCreatedResponse</returns>
-        public async System.Threading.Tasks.Task<IdentityApiUserV1LocalUserCreatedResponse> CreateTenantLocalUserAsyncAsync(string tenantId, string? apiVersion = default(string?), string? xVersion = default(string?), IdentityApiUserV1CreateLocalUserRequest? identityApiUserV1CreateLocalUserRequest = default(IdentityApiUserV1CreateLocalUserRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<IdentityApiUserV1LocalUserCreatedResponse> CreateTenantLocalUserAsyncAsync(string tenantId, string? apiVersion = default(string?), string? xVersion = default(string?), EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsCreateLocalUserRequest? edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsCreateLocalUserRequest = default(EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsCreateLocalUserRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            EdGraph.Tenant.Client.Client.ApiResponse<IdentityApiUserV1LocalUserCreatedResponse> localVarResponse = await CreateTenantLocalUserAsyncWithHttpInfoAsync(tenantId, apiVersion, xVersion, identityApiUserV1CreateLocalUserRequest, operationIndex, cancellationToken).ConfigureAwait(false);
+            EdGraph.Tenant.Client.Client.ApiResponse<IdentityApiUserV1LocalUserCreatedResponse> localVarResponse = await CreateTenantLocalUserAsyncWithHttpInfoAsync(tenantId, apiVersion, xVersion, edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsCreateLocalUserRequest, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1007,11 +1007,11 @@ namespace EdGraph.Tenant.Client.Api
         /// <param name="tenantId"></param>
         /// <param name="apiVersion"> (optional)</param>
         /// <param name="xVersion"> (optional)</param>
-        /// <param name="identityApiUserV1CreateLocalUserRequest"> (optional)</param>
+        /// <param name="edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsCreateLocalUserRequest"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (IdentityApiUserV1LocalUserCreatedResponse)</returns>
-        public async System.Threading.Tasks.Task<EdGraph.Tenant.Client.Client.ApiResponse<IdentityApiUserV1LocalUserCreatedResponse>> CreateTenantLocalUserAsyncWithHttpInfoAsync(string tenantId, string? apiVersion = default(string?), string? xVersion = default(string?), IdentityApiUserV1CreateLocalUserRequest? identityApiUserV1CreateLocalUserRequest = default(IdentityApiUserV1CreateLocalUserRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<EdGraph.Tenant.Client.Client.ApiResponse<IdentityApiUserV1LocalUserCreatedResponse>> CreateTenantLocalUserAsyncWithHttpInfoAsync(string tenantId, string? apiVersion = default(string?), string? xVersion = default(string?), EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsCreateLocalUserRequest? edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsCreateLocalUserRequest = default(EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsCreateLocalUserRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'tenantId' is set
             if (tenantId == null)
@@ -1055,7 +1055,7 @@ namespace EdGraph.Tenant.Client.Api
             {
                 localVarRequestOptions.HeaderParameters.Add("X-version", EdGraph.Tenant.Client.Client.ClientUtils.ParameterToString(xVersion)); // header parameter
             }
-            localVarRequestOptions.Data = identityApiUserV1CreateLocalUserRequest;
+            localVarRequestOptions.Data = edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsCreateLocalUserRequest;
 
             localVarRequestOptions.Operation = "UsersApi.CreateTenantLocalUserAsync";
             localVarRequestOptions.OperationIndex = operationIndex;

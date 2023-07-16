@@ -26,20 +26,18 @@ using OpenAPIDateConverter = EdGraph.Tenant.Client.Client.OpenAPIDateConverter;
 namespace EdGraph.Tenant.Client.Model
 {
     /// <summary>
-    /// IdentityApiUserV1RevokeLicenseBulkRequest
+    /// TenantApiTenantV1OrganizationsSyncedResponse
     /// </summary>
-    [DataContract(Name = "IdentityApi.User.V1.RevokeLicenseBulkRequest")]
-    public partial class IdentityApiUserV1RevokeLicenseBulkRequest : IEquatable<IdentityApiUserV1RevokeLicenseBulkRequest>, IValidatableObject
+    [DataContract(Name = "TenantApi.Tenant.V1.OrganizationsSyncedResponse")]
+    public partial class TenantApiTenantV1OrganizationsSyncedResponse : IEquatable<TenantApiTenantV1OrganizationsSyncedResponse>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="IdentityApiUserV1RevokeLicenseBulkRequest" /> class.
+        /// Initializes a new instance of the <see cref="TenantApiTenantV1OrganizationsSyncedResponse" /> class.
         /// </summary>
         /// <param name="tenantId">tenantId.</param>
-        /// <param name="userId">userId.</param>
-        public IdentityApiUserV1RevokeLicenseBulkRequest(string tenantId = default(string), string userId = default(string))
+        public TenantApiTenantV1OrganizationsSyncedResponse(string tenantId = default(string))
         {
             this.TenantId = tenantId;
-            this.UserId = userId;
         }
 
         /// <summary>
@@ -49,36 +47,14 @@ namespace EdGraph.Tenant.Client.Model
         public string TenantId { get; set; }
 
         /// <summary>
-        /// Gets or Sets UserId
-        /// </summary>
-        [DataMember(Name = "userId", EmitDefaultValue = true)]
-        public string UserId { get; set; }
-
-        /// <summary>
-        /// Gets or Sets RevokeLicenseRequests
-        /// </summary>
-        [DataMember(Name = "revokeLicenseRequests", EmitDefaultValue = true)]
-        public List<IdentityApiUserV1RevokeLicenseRequest> RevokeLicenseRequests { get; private set; }
-
-        /// <summary>
-        /// Returns false as RevokeLicenseRequests should not be serialized given that it's read-only.
-        /// </summary>
-        /// <returns>false (boolean)</returns>
-        public bool ShouldSerializeRevokeLicenseRequests()
-        {
-            return false;
-        }
-        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class IdentityApiUserV1RevokeLicenseBulkRequest {\n");
+            sb.Append("class TenantApiTenantV1OrganizationsSyncedResponse {\n");
             sb.Append("  TenantId: ").Append(TenantId).Append("\n");
-            sb.Append("  UserId: ").Append(UserId).Append("\n");
-            sb.Append("  RevokeLicenseRequests: ").Append(RevokeLicenseRequests).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -99,15 +75,15 @@ namespace EdGraph.Tenant.Client.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as IdentityApiUserV1RevokeLicenseBulkRequest);
+            return this.Equals(input as TenantApiTenantV1OrganizationsSyncedResponse);
         }
 
         /// <summary>
-        /// Returns true if IdentityApiUserV1RevokeLicenseBulkRequest instances are equal
+        /// Returns true if TenantApiTenantV1OrganizationsSyncedResponse instances are equal
         /// </summary>
-        /// <param name="input">Instance of IdentityApiUserV1RevokeLicenseBulkRequest to be compared</param>
+        /// <param name="input">Instance of TenantApiTenantV1OrganizationsSyncedResponse to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(IdentityApiUserV1RevokeLicenseBulkRequest input)
+        public bool Equals(TenantApiTenantV1OrganizationsSyncedResponse input)
         {
             if (input == null)
             {
@@ -118,17 +94,6 @@ namespace EdGraph.Tenant.Client.Model
                     this.TenantId == input.TenantId ||
                     (this.TenantId != null &&
                     this.TenantId.Equals(input.TenantId))
-                ) && 
-                (
-                    this.UserId == input.UserId ||
-                    (this.UserId != null &&
-                    this.UserId.Equals(input.UserId))
-                ) && 
-                (
-                    this.RevokeLicenseRequests == input.RevokeLicenseRequests ||
-                    this.RevokeLicenseRequests != null &&
-                    input.RevokeLicenseRequests != null &&
-                    this.RevokeLicenseRequests.SequenceEqual(input.RevokeLicenseRequests)
                 );
         }
 
@@ -144,14 +109,6 @@ namespace EdGraph.Tenant.Client.Model
                 if (this.TenantId != null)
                 {
                     hashCode = (hashCode * 59) + this.TenantId.GetHashCode();
-                }
-                if (this.UserId != null)
-                {
-                    hashCode = (hashCode * 59) + this.UserId.GetHashCode();
-                }
-                if (this.RevokeLicenseRequests != null)
-                {
-                    hashCode = (hashCode * 59) + this.RevokeLicenseRequests.GetHashCode();
                 }
                 return hashCode;
             }

@@ -1,6 +1,6 @@
 # EdGraph.Tenant.Client.Api.TenantsApi
 
-All URIs are relative to *https://api.edgraph.com/tenant*
+All URIs are relative to *https://api.edgraph.dev/tenant*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
@@ -28,7 +28,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://api.edgraph.com/tenant";
+            config.BasePath = "https://api.edgraph.dev/tenant";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
@@ -109,7 +109,7 @@ catch (ApiException e)
 
 <a id="updatetenantasync"></a>
 # **UpdateTenantAsync**
-> TenantApiTenantV1TenantUpdatedResponse UpdateTenantAsync (string tenantId, string? apiVersion = null, string? xVersion = null, TenantApiTenantV1UpdateTenantRequest? tenantApiTenantV1UpdateTenantRequest = null)
+> TenantApiTenantV1TenantUpdatedResponse UpdateTenantAsync (string tenantId, string? apiVersion = null, string? xVersion = null, EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsUpdateTenantRequest? edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsUpdateTenantRequest = null)
 
 Updates a tenant's profile
 
@@ -130,7 +130,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://api.edgraph.com/tenant";
+            config.BasePath = "https://api.edgraph.dev/tenant";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
@@ -138,12 +138,12 @@ namespace Example
             var tenantId = "tenantId_example";  // string | 
             var apiVersion = "apiVersion_example";  // string? |  (optional) 
             var xVersion = "xVersion_example";  // string? |  (optional) 
-            var tenantApiTenantV1UpdateTenantRequest = new TenantApiTenantV1UpdateTenantRequest?(); // TenantApiTenantV1UpdateTenantRequest? |  (optional) 
+            var edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsUpdateTenantRequest = new EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsUpdateTenantRequest?(); // EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsUpdateTenantRequest? |  (optional) 
 
             try
             {
                 // Updates a tenant's profile
-                TenantApiTenantV1TenantUpdatedResponse result = apiInstance.UpdateTenantAsync(tenantId, apiVersion, xVersion, tenantApiTenantV1UpdateTenantRequest);
+                TenantApiTenantV1TenantUpdatedResponse result = apiInstance.UpdateTenantAsync(tenantId, apiVersion, xVersion, edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsUpdateTenantRequest);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -164,7 +164,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Updates a tenant's profile
-    ApiResponse<TenantApiTenantV1TenantUpdatedResponse> response = apiInstance.UpdateTenantAsyncWithHttpInfo(tenantId, apiVersion, xVersion, tenantApiTenantV1UpdateTenantRequest);
+    ApiResponse<TenantApiTenantV1TenantUpdatedResponse> response = apiInstance.UpdateTenantAsyncWithHttpInfo(tenantId, apiVersion, xVersion, edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsUpdateTenantRequest);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -184,7 +184,7 @@ catch (ApiException e)
 | **tenantId** | **string** |  |  |
 | **apiVersion** | **string?** |  | [optional]  |
 | **xVersion** | **string?** |  | [optional]  |
-| **tenantApiTenantV1UpdateTenantRequest** | [**TenantApiTenantV1UpdateTenantRequest?**](TenantApiTenantV1UpdateTenantRequest?.md) |  | [optional]  |
+| **edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsUpdateTenantRequest** | [**EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsUpdateTenantRequest?**](EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsUpdateTenantRequest?.md) |  | [optional]  |
 
 ### Return type
 

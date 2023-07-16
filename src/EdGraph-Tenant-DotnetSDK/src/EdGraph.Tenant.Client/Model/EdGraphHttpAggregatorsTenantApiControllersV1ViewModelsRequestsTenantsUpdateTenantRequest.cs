@@ -26,25 +26,25 @@ using OpenAPIDateConverter = EdGraph.Tenant.Client.Client.OpenAPIDateConverter;
 namespace EdGraph.Tenant.Client.Model
 {
     /// <summary>
-    /// TenantApiTenantV1UpdateTenantRequest
+    /// EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsUpdateTenantRequest
     /// </summary>
-    [DataContract(Name = "TenantApi.Tenant.V1.UpdateTenantRequest")]
-    public partial class TenantApiTenantV1UpdateTenantRequest : IEquatable<TenantApiTenantV1UpdateTenantRequest>, IValidatableObject
+    [DataContract(Name = "EdGraph.HttpAggregators.Tenant.Api.Controllers.v1.ViewModels.Requests.Tenants.UpdateTenantRequest")]
+    public partial class EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsUpdateTenantRequest : IEquatable<EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsUpdateTenantRequest>, IValidatableObject
     {
 
         /// <summary>
         /// Gets or Sets TenantType
         /// </summary>
         [DataMember(Name = "tenantType", EmitDefaultValue = false)]
-        public TenantApiTenantV1TenantType? TenantType { get; set; }
+        public EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsTenantType? TenantType { get; set; }
 
         /// <summary>
         /// Gets or Sets TenantStatus
         /// </summary>
         [DataMember(Name = "tenantStatus", EmitDefaultValue = false)]
-        public TenantApiTenantV1TenantStatus? TenantStatus { get; set; }
+        public EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsTenantStatus? TenantStatus { get; set; }
         /// <summary>
-        /// Initializes a new instance of the <see cref="TenantApiTenantV1UpdateTenantRequest" /> class.
+        /// Initializes a new instance of the <see cref="EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsUpdateTenantRequest" /> class.
         /// </summary>
         /// <param name="tenantId">tenantId.</param>
         /// <param name="tenantType">tenantType.</param>
@@ -54,7 +54,9 @@ namespace EdGraph.Tenant.Client.Model
         /// <param name="isDemo">isDemo.</param>
         /// <param name="enforceMfa">enforceMfa.</param>
         /// <param name="tenantStatus">tenantStatus.</param>
-        public TenantApiTenantV1UpdateTenantRequest(string tenantId = default(string), TenantApiTenantV1TenantType? tenantType = default(TenantApiTenantV1TenantType?), string organizationIdentifier = default(string), string organizationName = default(string), string state = default(string), bool isDemo = default(bool), bool enforceMfa = default(bool), TenantApiTenantV1TenantStatus? tenantStatus = default(TenantApiTenantV1TenantStatus?))
+        /// <param name="domains">domains.</param>
+        /// <param name="identityProviders">identityProviders.</param>
+        public EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsUpdateTenantRequest(string tenantId = default(string), EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsTenantType? tenantType = default(EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsTenantType?), string organizationIdentifier = default(string), string organizationName = default(string), string state = default(string), bool isDemo = default(bool), bool enforceMfa = default(bool), EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsTenantStatus? tenantStatus = default(EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsTenantStatus?), List<string> domains = default(List<string>), List<EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsTenantIdentityProvider> identityProviders = default(List<EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsTenantIdentityProvider>))
         {
             this.TenantId = tenantId;
             this.TenantType = tenantType;
@@ -64,6 +66,8 @@ namespace EdGraph.Tenant.Client.Model
             this.IsDemo = isDemo;
             this.EnforceMfa = enforceMfa;
             this.TenantStatus = tenantStatus;
+            this.Domains = domains;
+            this.IdentityProviders = identityProviders;
         }
 
         /// <summary>
@@ -106,30 +110,14 @@ namespace EdGraph.Tenant.Client.Model
         /// Gets or Sets Domains
         /// </summary>
         [DataMember(Name = "domains", EmitDefaultValue = true)]
-        public List<string> Domains { get; private set; }
+        public List<string> Domains { get; set; }
 
-        /// <summary>
-        /// Returns false as Domains should not be serialized given that it's read-only.
-        /// </summary>
-        /// <returns>false (boolean)</returns>
-        public bool ShouldSerializeDomains()
-        {
-            return false;
-        }
         /// <summary>
         /// Gets or Sets IdentityProviders
         /// </summary>
         [DataMember(Name = "identityProviders", EmitDefaultValue = true)]
-        public List<TenantApiTenantV1TenantIdentityProviders> IdentityProviders { get; private set; }
+        public List<EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsTenantIdentityProvider> IdentityProviders { get; set; }
 
-        /// <summary>
-        /// Returns false as IdentityProviders should not be serialized given that it's read-only.
-        /// </summary>
-        /// <returns>false (boolean)</returns>
-        public bool ShouldSerializeIdentityProviders()
-        {
-            return false;
-        }
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -137,7 +125,7 @@ namespace EdGraph.Tenant.Client.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class TenantApiTenantV1UpdateTenantRequest {\n");
+            sb.Append("class EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsUpdateTenantRequest {\n");
             sb.Append("  TenantId: ").Append(TenantId).Append("\n");
             sb.Append("  TenantType: ").Append(TenantType).Append("\n");
             sb.Append("  OrganizationIdentifier: ").Append(OrganizationIdentifier).Append("\n");
@@ -168,15 +156,15 @@ namespace EdGraph.Tenant.Client.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as TenantApiTenantV1UpdateTenantRequest);
+            return this.Equals(input as EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsUpdateTenantRequest);
         }
 
         /// <summary>
-        /// Returns true if TenantApiTenantV1UpdateTenantRequest instances are equal
+        /// Returns true if EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsUpdateTenantRequest instances are equal
         /// </summary>
-        /// <param name="input">Instance of TenantApiTenantV1UpdateTenantRequest to be compared</param>
+        /// <param name="input">Instance of EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsUpdateTenantRequest to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(TenantApiTenantV1UpdateTenantRequest input)
+        public bool Equals(EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsUpdateTenantRequest input)
         {
             if (input == null)
             {

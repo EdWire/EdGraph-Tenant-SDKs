@@ -61,10 +61,10 @@ namespace EdGraph.Tenant.Client.Api
         /// <param name="tenantId"></param>
         /// <param name="apiVersion"> (optional)</param>
         /// <param name="xVersion"> (optional)</param>
-        /// <param name="tenantApiTenantV1UpdateTenantRequest"> (optional)</param>
+        /// <param name="edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsUpdateTenantRequest"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>TenantApiTenantV1TenantUpdatedResponse</returns>
-        TenantApiTenantV1TenantUpdatedResponse UpdateTenantAsync(string tenantId, string? apiVersion = default(string?), string? xVersion = default(string?), TenantApiTenantV1UpdateTenantRequest? tenantApiTenantV1UpdateTenantRequest = default(TenantApiTenantV1UpdateTenantRequest?), int operationIndex = 0);
+        TenantApiTenantV1TenantUpdatedResponse UpdateTenantAsync(string tenantId, string? apiVersion = default(string?), string? xVersion = default(string?), EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsUpdateTenantRequest? edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsUpdateTenantRequest = default(EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsUpdateTenantRequest?), int operationIndex = 0);
 
         /// <summary>
         /// Updates a tenant&#39;s profile
@@ -76,10 +76,10 @@ namespace EdGraph.Tenant.Client.Api
         /// <param name="tenantId"></param>
         /// <param name="apiVersion"> (optional)</param>
         /// <param name="xVersion"> (optional)</param>
-        /// <param name="tenantApiTenantV1UpdateTenantRequest"> (optional)</param>
+        /// <param name="edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsUpdateTenantRequest"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of TenantApiTenantV1TenantUpdatedResponse</returns>
-        ApiResponse<TenantApiTenantV1TenantUpdatedResponse> UpdateTenantAsyncWithHttpInfo(string tenantId, string? apiVersion = default(string?), string? xVersion = default(string?), TenantApiTenantV1UpdateTenantRequest? tenantApiTenantV1UpdateTenantRequest = default(TenantApiTenantV1UpdateTenantRequest?), int operationIndex = 0);
+        ApiResponse<TenantApiTenantV1TenantUpdatedResponse> UpdateTenantAsyncWithHttpInfo(string tenantId, string? apiVersion = default(string?), string? xVersion = default(string?), EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsUpdateTenantRequest? edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsUpdateTenantRequest = default(EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsUpdateTenantRequest?), int operationIndex = 0);
         #endregion Synchronous Operations
     }
 
@@ -128,11 +128,11 @@ namespace EdGraph.Tenant.Client.Api
         /// <param name="tenantId"></param>
         /// <param name="apiVersion"> (optional)</param>
         /// <param name="xVersion"> (optional)</param>
-        /// <param name="tenantApiTenantV1UpdateTenantRequest"> (optional)</param>
+        /// <param name="edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsUpdateTenantRequest"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of TenantApiTenantV1TenantUpdatedResponse</returns>
-        System.Threading.Tasks.Task<TenantApiTenantV1TenantUpdatedResponse> UpdateTenantAsyncAsync(string tenantId, string? apiVersion = default(string?), string? xVersion = default(string?), TenantApiTenantV1UpdateTenantRequest? tenantApiTenantV1UpdateTenantRequest = default(TenantApiTenantV1UpdateTenantRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<TenantApiTenantV1TenantUpdatedResponse> UpdateTenantAsyncAsync(string tenantId, string? apiVersion = default(string?), string? xVersion = default(string?), EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsUpdateTenantRequest? edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsUpdateTenantRequest = default(EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsUpdateTenantRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Updates a tenant&#39;s profile
@@ -144,11 +144,11 @@ namespace EdGraph.Tenant.Client.Api
         /// <param name="tenantId"></param>
         /// <param name="apiVersion"> (optional)</param>
         /// <param name="xVersion"> (optional)</param>
-        /// <param name="tenantApiTenantV1UpdateTenantRequest"> (optional)</param>
+        /// <param name="edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsUpdateTenantRequest"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (TenantApiTenantV1TenantUpdatedResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<TenantApiTenantV1TenantUpdatedResponse>> UpdateTenantAsyncWithHttpInfoAsync(string tenantId, string? apiVersion = default(string?), string? xVersion = default(string?), TenantApiTenantV1UpdateTenantRequest? tenantApiTenantV1UpdateTenantRequest = default(TenantApiTenantV1UpdateTenantRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<TenantApiTenantV1TenantUpdatedResponse>> UpdateTenantAsyncWithHttpInfoAsync(string tenantId, string? apiVersion = default(string?), string? xVersion = default(string?), EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsUpdateTenantRequest? edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsUpdateTenantRequest = default(EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsUpdateTenantRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -476,12 +476,12 @@ namespace EdGraph.Tenant.Client.Api
         /// <param name="tenantId"></param>
         /// <param name="apiVersion"> (optional)</param>
         /// <param name="xVersion"> (optional)</param>
-        /// <param name="tenantApiTenantV1UpdateTenantRequest"> (optional)</param>
+        /// <param name="edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsUpdateTenantRequest"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>TenantApiTenantV1TenantUpdatedResponse</returns>
-        public TenantApiTenantV1TenantUpdatedResponse UpdateTenantAsync(string tenantId, string? apiVersion = default(string?), string? xVersion = default(string?), TenantApiTenantV1UpdateTenantRequest? tenantApiTenantV1UpdateTenantRequest = default(TenantApiTenantV1UpdateTenantRequest?), int operationIndex = 0)
+        public TenantApiTenantV1TenantUpdatedResponse UpdateTenantAsync(string tenantId, string? apiVersion = default(string?), string? xVersion = default(string?), EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsUpdateTenantRequest? edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsUpdateTenantRequest = default(EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsUpdateTenantRequest?), int operationIndex = 0)
         {
-            EdGraph.Tenant.Client.Client.ApiResponse<TenantApiTenantV1TenantUpdatedResponse> localVarResponse = UpdateTenantAsyncWithHttpInfo(tenantId, apiVersion, xVersion, tenantApiTenantV1UpdateTenantRequest);
+            EdGraph.Tenant.Client.Client.ApiResponse<TenantApiTenantV1TenantUpdatedResponse> localVarResponse = UpdateTenantAsyncWithHttpInfo(tenantId, apiVersion, xVersion, edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsUpdateTenantRequest);
             return localVarResponse.Data;
         }
 
@@ -492,10 +492,10 @@ namespace EdGraph.Tenant.Client.Api
         /// <param name="tenantId"></param>
         /// <param name="apiVersion"> (optional)</param>
         /// <param name="xVersion"> (optional)</param>
-        /// <param name="tenantApiTenantV1UpdateTenantRequest"> (optional)</param>
+        /// <param name="edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsUpdateTenantRequest"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of TenantApiTenantV1TenantUpdatedResponse</returns>
-        public EdGraph.Tenant.Client.Client.ApiResponse<TenantApiTenantV1TenantUpdatedResponse> UpdateTenantAsyncWithHttpInfo(string tenantId, string? apiVersion = default(string?), string? xVersion = default(string?), TenantApiTenantV1UpdateTenantRequest? tenantApiTenantV1UpdateTenantRequest = default(TenantApiTenantV1UpdateTenantRequest?), int operationIndex = 0)
+        public EdGraph.Tenant.Client.Client.ApiResponse<TenantApiTenantV1TenantUpdatedResponse> UpdateTenantAsyncWithHttpInfo(string tenantId, string? apiVersion = default(string?), string? xVersion = default(string?), EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsUpdateTenantRequest? edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsUpdateTenantRequest = default(EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsUpdateTenantRequest?), int operationIndex = 0)
         {
             // verify the required parameter 'tenantId' is set
             if (tenantId == null)
@@ -538,7 +538,7 @@ namespace EdGraph.Tenant.Client.Api
             {
                 localVarRequestOptions.HeaderParameters.Add("X-version", EdGraph.Tenant.Client.Client.ClientUtils.ParameterToString(xVersion)); // header parameter
             }
-            localVarRequestOptions.Data = tenantApiTenantV1UpdateTenantRequest;
+            localVarRequestOptions.Data = edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsUpdateTenantRequest;
 
             localVarRequestOptions.Operation = "TenantsApi.UpdateTenantAsync";
             localVarRequestOptions.OperationIndex = operationIndex;
@@ -581,13 +581,13 @@ namespace EdGraph.Tenant.Client.Api
         /// <param name="tenantId"></param>
         /// <param name="apiVersion"> (optional)</param>
         /// <param name="xVersion"> (optional)</param>
-        /// <param name="tenantApiTenantV1UpdateTenantRequest"> (optional)</param>
+        /// <param name="edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsUpdateTenantRequest"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of TenantApiTenantV1TenantUpdatedResponse</returns>
-        public async System.Threading.Tasks.Task<TenantApiTenantV1TenantUpdatedResponse> UpdateTenantAsyncAsync(string tenantId, string? apiVersion = default(string?), string? xVersion = default(string?), TenantApiTenantV1UpdateTenantRequest? tenantApiTenantV1UpdateTenantRequest = default(TenantApiTenantV1UpdateTenantRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<TenantApiTenantV1TenantUpdatedResponse> UpdateTenantAsyncAsync(string tenantId, string? apiVersion = default(string?), string? xVersion = default(string?), EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsUpdateTenantRequest? edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsUpdateTenantRequest = default(EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsUpdateTenantRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            EdGraph.Tenant.Client.Client.ApiResponse<TenantApiTenantV1TenantUpdatedResponse> localVarResponse = await UpdateTenantAsyncWithHttpInfoAsync(tenantId, apiVersion, xVersion, tenantApiTenantV1UpdateTenantRequest, operationIndex, cancellationToken).ConfigureAwait(false);
+            EdGraph.Tenant.Client.Client.ApiResponse<TenantApiTenantV1TenantUpdatedResponse> localVarResponse = await UpdateTenantAsyncWithHttpInfoAsync(tenantId, apiVersion, xVersion, edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsUpdateTenantRequest, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -598,11 +598,11 @@ namespace EdGraph.Tenant.Client.Api
         /// <param name="tenantId"></param>
         /// <param name="apiVersion"> (optional)</param>
         /// <param name="xVersion"> (optional)</param>
-        /// <param name="tenantApiTenantV1UpdateTenantRequest"> (optional)</param>
+        /// <param name="edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsUpdateTenantRequest"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (TenantApiTenantV1TenantUpdatedResponse)</returns>
-        public async System.Threading.Tasks.Task<EdGraph.Tenant.Client.Client.ApiResponse<TenantApiTenantV1TenantUpdatedResponse>> UpdateTenantAsyncWithHttpInfoAsync(string tenantId, string? apiVersion = default(string?), string? xVersion = default(string?), TenantApiTenantV1UpdateTenantRequest? tenantApiTenantV1UpdateTenantRequest = default(TenantApiTenantV1UpdateTenantRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<EdGraph.Tenant.Client.Client.ApiResponse<TenantApiTenantV1TenantUpdatedResponse>> UpdateTenantAsyncWithHttpInfoAsync(string tenantId, string? apiVersion = default(string?), string? xVersion = default(string?), EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsUpdateTenantRequest? edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsUpdateTenantRequest = default(EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsUpdateTenantRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'tenantId' is set
             if (tenantId == null)
@@ -646,7 +646,7 @@ namespace EdGraph.Tenant.Client.Api
             {
                 localVarRequestOptions.HeaderParameters.Add("X-version", EdGraph.Tenant.Client.Client.ClientUtils.ParameterToString(xVersion)); // header parameter
             }
-            localVarRequestOptions.Data = tenantApiTenantV1UpdateTenantRequest;
+            localVarRequestOptions.Data = edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsUpdateTenantRequest;
 
             localVarRequestOptions.Operation = "TenantsApi.UpdateTenantAsync";
             localVarRequestOptions.OperationIndex = operationIndex;

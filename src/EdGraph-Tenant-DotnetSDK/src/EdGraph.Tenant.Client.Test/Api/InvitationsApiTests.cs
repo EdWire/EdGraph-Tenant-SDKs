@@ -111,8 +111,8 @@ namespace EdGraph.Tenant.Client.Test.Api
             //string tenantId = null;
             //string? apiVersion = null;
             //string? xVersion = null;
-            //IdentityApiInvitationV1SendInvitationRequest? identityApiInvitationV1SendInvitationRequest = null;
-            //var response = instance.SendTenantInvitationAsync(tenantId, apiVersion, xVersion, identityApiInvitationV1SendInvitationRequest);
+            //EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsSendInvitationRequest? edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsSendInvitationRequest = null;
+            //var response = instance.SendTenantInvitationAsync(tenantId, apiVersion, xVersion, edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsSendInvitationRequest);
             //Assert.IsType<IdentityApiInvitationV1InvitationSentResponse>(response);
         }
     }

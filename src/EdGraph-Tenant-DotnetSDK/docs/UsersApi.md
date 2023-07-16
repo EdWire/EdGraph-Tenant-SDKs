@@ -1,6 +1,6 @@
 # EdGraph.Tenant.Client.Api.UsersApi
 
-All URIs are relative to *https://api.edgraph.com/tenant*
+All URIs are relative to *https://api.edgraph.dev/tenant*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
@@ -34,7 +34,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://api.edgraph.com/tenant";
+            config.BasePath = "https://api.edgraph.dev/tenant";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
@@ -119,7 +119,7 @@ catch (ApiException e)
 
 <a id="createtenantlocaluserasync"></a>
 # **CreateTenantLocalUserAsync**
-> IdentityApiUserV1LocalUserCreatedResponse CreateTenantLocalUserAsync (string tenantId, string? apiVersion = null, string? xVersion = null, IdentityApiUserV1CreateLocalUserRequest? identityApiUserV1CreateLocalUserRequest = null)
+> IdentityApiUserV1LocalUserCreatedResponse CreateTenantLocalUserAsync (string tenantId, string? apiVersion = null, string? xVersion = null, EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsCreateLocalUserRequest? edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsCreateLocalUserRequest = null)
 
 Creates a user in the local identity provider
 
@@ -140,7 +140,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://api.edgraph.com/tenant";
+            config.BasePath = "https://api.edgraph.dev/tenant";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
@@ -148,12 +148,12 @@ namespace Example
             var tenantId = "tenantId_example";  // string | 
             var apiVersion = "apiVersion_example";  // string? |  (optional) 
             var xVersion = "xVersion_example";  // string? |  (optional) 
-            var identityApiUserV1CreateLocalUserRequest = new IdentityApiUserV1CreateLocalUserRequest?(); // IdentityApiUserV1CreateLocalUserRequest? |  (optional) 
+            var edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsCreateLocalUserRequest = new EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsCreateLocalUserRequest?(); // EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsCreateLocalUserRequest? |  (optional) 
 
             try
             {
                 // Creates a user in the local identity provider
-                IdentityApiUserV1LocalUserCreatedResponse result = apiInstance.CreateTenantLocalUserAsync(tenantId, apiVersion, xVersion, identityApiUserV1CreateLocalUserRequest);
+                IdentityApiUserV1LocalUserCreatedResponse result = apiInstance.CreateTenantLocalUserAsync(tenantId, apiVersion, xVersion, edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsCreateLocalUserRequest);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -174,7 +174,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Creates a user in the local identity provider
-    ApiResponse<IdentityApiUserV1LocalUserCreatedResponse> response = apiInstance.CreateTenantLocalUserAsyncWithHttpInfo(tenantId, apiVersion, xVersion, identityApiUserV1CreateLocalUserRequest);
+    ApiResponse<IdentityApiUserV1LocalUserCreatedResponse> response = apiInstance.CreateTenantLocalUserAsyncWithHttpInfo(tenantId, apiVersion, xVersion, edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsCreateLocalUserRequest);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -194,7 +194,7 @@ catch (ApiException e)
 | **tenantId** | **string** |  |  |
 | **apiVersion** | **string?** |  | [optional]  |
 | **xVersion** | **string?** |  | [optional]  |
-| **identityApiUserV1CreateLocalUserRequest** | [**IdentityApiUserV1CreateLocalUserRequest?**](IdentityApiUserV1CreateLocalUserRequest?.md) |  | [optional]  |
+| **edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsCreateLocalUserRequest** | [**EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsCreateLocalUserRequest?**](EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsCreateLocalUserRequest?.md) |  | [optional]  |
 
 ### Return type
 
@@ -242,7 +242,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://api.edgraph.com/tenant";
+            config.BasePath = "https://api.edgraph.dev/tenant";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
@@ -346,7 +346,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://api.edgraph.com/tenant";
+            config.BasePath = "https://api.edgraph.dev/tenant";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
@@ -444,7 +444,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://api.edgraph.com/tenant";
+            config.BasePath = "https://api.edgraph.dev/tenant";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
@@ -552,7 +552,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://api.edgraph.com/tenant";
+            config.BasePath = "https://api.edgraph.dev/tenant";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
@@ -657,7 +657,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://api.edgraph.com/tenant";
+            config.BasePath = "https://api.edgraph.dev/tenant";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
@@ -761,7 +761,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://api.edgraph.com/tenant";
+            config.BasePath = "https://api.edgraph.dev/tenant";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 

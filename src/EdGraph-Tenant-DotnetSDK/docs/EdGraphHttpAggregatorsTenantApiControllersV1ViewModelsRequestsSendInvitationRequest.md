@@ -1,4 +1,4 @@
-# EdGraph.Tenant.Client.Model.IdentityApiInvitationV1SendInvitationRequest
+# EdGraph.Tenant.Client.Model.EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsSendInvitationRequest
 
 ## Properties
 
@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **FirstName** | **string** |  | [optional] 
 **LastName** | **string** |  | [optional] 
 **Role** | **string** |  | [optional] 
-**AssignLicenseRequests** | [**List&lt;IdentityApiInvitationV1AssignLicenseRequest&gt;**](IdentityApiInvitationV1AssignLicenseRequest.md) |  | [optional] [readonly] 
+**AssignLicenseRequests** | [**List&lt;EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsLicensesAssignLicenseRequest&gt;**](EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsLicensesAssignLicenseRequest.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

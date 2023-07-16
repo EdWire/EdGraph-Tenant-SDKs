@@ -152,6 +152,20 @@ namespace EdGraph.Tenant.Client.Model
         public int? MaxLength { get; set; }
 
         /// <summary>
+        /// Gets or Sets Options
+        /// </summary>
+        [DataMember(Name = "options", EmitDefaultValue = true)]
+        public List<string> Options { get; private set; }
+
+        /// <summary>
+        /// Returns false as Options should not be serialized given that it's read-only.
+        /// </summary>
+        /// <returns>false (boolean)</returns>
+        public bool ShouldSerializeOptions()
+        {
+            return false;
+        }
+        /// <summary>
         /// Gets or Sets CreatedBy
         /// </summary>
         [DataMember(Name = "createdBy", EmitDefaultValue = true)]
@@ -196,6 +210,7 @@ namespace EdGraph.Tenant.Client.Model
             sb.Append("  MinValue: ").Append(MinValue).Append("\n");
             sb.Append("  MaxValue: ").Append(MaxValue).Append("\n");
             sb.Append("  MaxLength: ").Append(MaxLength).Append("\n");
+            sb.Append("  Options: ").Append(Options).Append("\n");
             sb.Append("  CreatedBy: ").Append(CreatedBy).Append("\n");
             sb.Append("  CreatedDateTime: ").Append(CreatedDateTime).Append("\n");
             sb.Append("  LastModifiedBy: ").Append(LastModifiedBy).Append("\n");
@@ -299,6 +314,12 @@ namespace EdGraph.Tenant.Client.Model
                     this.MaxLength.Equals(input.MaxLength))
                 ) && 
                 (
+                    this.Options == input.Options ||
+                    this.Options != null &&
+                    input.Options != null &&
+                    this.Options.SequenceEqual(input.Options)
+                ) && 
+                (
                     this.CreatedBy == input.CreatedBy ||
                     (this.CreatedBy != null &&
                     this.CreatedBy.Equals(input.CreatedBy))
@@ -374,6 +395,10 @@ namespace EdGraph.Tenant.Client.Model
                 if (this.MaxLength != null)
                 {
                     hashCode = (hashCode * 59) + this.MaxLength.GetHashCode();
+                }
+                if (this.Options != null)
+                {
+                    hashCode = (hashCode * 59) + this.Options.GetHashCode();
                 }
                 if (this.CreatedBy != null)
                 {

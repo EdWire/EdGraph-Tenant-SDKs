@@ -85,6 +85,24 @@ namespace EdGraph.Tenant.Client.Test.Api
         }
 
         /// <summary>
+        /// Test GetEdFiAdminInstancesAsync
+        /// </summary>
+        [Fact]
+        public void GetEdFiAdminInstancesAsyncTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //string tenantId = null;
+            //int? pageIndex = null;
+            //int? pageSize = null;
+            //string? orderBy = null;
+            //string? filter = null;
+            //string? apiVersion = null;
+            //string? xVersion = null;
+            //var response = instance.GetEdFiAdminInstancesAsync(tenantId, pageIndex, pageSize, orderBy, filter, apiVersion, xVersion);
+            //Assert.IsType<TenantApiTenantV1GetEdFiAdminInstancesResponse>(response);
+        }
+
+        /// <summary>
         /// Test GetOrganizationByIdAsync
         /// </summary>
         [Fact]
@@ -111,6 +129,20 @@ namespace EdGraph.Tenant.Client.Test.Api
             //string? xVersion = null;
             //var response = instance.GetOrganizationsAsync(tenantId, apiVersion, xVersion);
             //Assert.IsType<TenantApiTenantV1GetOrganizationsResponse>(response);
+        }
+
+        /// <summary>
+        /// Test SyncOrganizationsAsync
+        /// </summary>
+        [Fact]
+        public void SyncOrganizationsAsyncTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //string tenantId = null;
+            //string? apiVersion = null;
+            //string? xVersion = null;
+            //TenantApiTenantV1SyncOrganizationsRequest? tenantApiTenantV1SyncOrganizationsRequest = null;
+            //instance.SyncOrganizationsAsync(tenantId, apiVersion, xVersion, tenantApiTenantV1SyncOrganizationsRequest);
         }
 
         /// <summary>

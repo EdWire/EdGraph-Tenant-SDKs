@@ -26,20 +26,22 @@ using OpenAPIDateConverter = EdGraph.Tenant.Client.Client.OpenAPIDateConverter;
 namespace EdGraph.Tenant.Client.Model
 {
     /// <summary>
-    /// IdentityApiUserV1AssignLicenseBulkRequest
+    /// TenantApiTenantV1SyncOrganizationsRequest
     /// </summary>
-    [DataContract(Name = "IdentityApi.User.V1.AssignLicenseBulkRequest")]
-    public partial class IdentityApiUserV1AssignLicenseBulkRequest : IEquatable<IdentityApiUserV1AssignLicenseBulkRequest>, IValidatableObject
+    [DataContract(Name = "TenantApi.Tenant.V1.SyncOrganizationsRequest")]
+    public partial class TenantApiTenantV1SyncOrganizationsRequest : IEquatable<TenantApiTenantV1SyncOrganizationsRequest>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="IdentityApiUserV1AssignLicenseBulkRequest" /> class.
+        /// Initializes a new instance of the <see cref="TenantApiTenantV1SyncOrganizationsRequest" /> class.
         /// </summary>
         /// <param name="tenantId">tenantId.</param>
-        /// <param name="userId">userId.</param>
-        public IdentityApiUserV1AssignLicenseBulkRequest(string tenantId = default(string), string userId = default(string))
+        /// <param name="instanceId">instanceId.</param>
+        /// <param name="year">year.</param>
+        public TenantApiTenantV1SyncOrganizationsRequest(string tenantId = default(string), string instanceId = default(string), int year = default(int))
         {
             this.TenantId = tenantId;
-            this.UserId = userId;
+            this.InstanceId = instanceId;
+            this.Year = year;
         }
 
         /// <summary>
@@ -49,25 +51,17 @@ namespace EdGraph.Tenant.Client.Model
         public string TenantId { get; set; }
 
         /// <summary>
-        /// Gets or Sets UserId
+        /// Gets or Sets InstanceId
         /// </summary>
-        [DataMember(Name = "userId", EmitDefaultValue = true)]
-        public string UserId { get; set; }
+        [DataMember(Name = "instanceId", EmitDefaultValue = true)]
+        public string InstanceId { get; set; }
 
         /// <summary>
-        /// Gets or Sets AssignLicenseRequests
+        /// Gets or Sets Year
         /// </summary>
-        [DataMember(Name = "assignLicenseRequests", EmitDefaultValue = true)]
-        public List<IdentityApiUserV1AssignLicenseRequest> AssignLicenseRequests { get; private set; }
+        [DataMember(Name = "year", EmitDefaultValue = false)]
+        public int Year { get; set; }
 
-        /// <summary>
-        /// Returns false as AssignLicenseRequests should not be serialized given that it's read-only.
-        /// </summary>
-        /// <returns>false (boolean)</returns>
-        public bool ShouldSerializeAssignLicenseRequests()
-        {
-            return false;
-        }
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -75,10 +69,10 @@ namespace EdGraph.Tenant.Client.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class IdentityApiUserV1AssignLicenseBulkRequest {\n");
+            sb.Append("class TenantApiTenantV1SyncOrganizationsRequest {\n");
             sb.Append("  TenantId: ").Append(TenantId).Append("\n");
-            sb.Append("  UserId: ").Append(UserId).Append("\n");
-            sb.Append("  AssignLicenseRequests: ").Append(AssignLicenseRequests).Append("\n");
+            sb.Append("  InstanceId: ").Append(InstanceId).Append("\n");
+            sb.Append("  Year: ").Append(Year).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -99,15 +93,15 @@ namespace EdGraph.Tenant.Client.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as IdentityApiUserV1AssignLicenseBulkRequest);
+            return this.Equals(input as TenantApiTenantV1SyncOrganizationsRequest);
         }
 
         /// <summary>
-        /// Returns true if IdentityApiUserV1AssignLicenseBulkRequest instances are equal
+        /// Returns true if TenantApiTenantV1SyncOrganizationsRequest instances are equal
         /// </summary>
-        /// <param name="input">Instance of IdentityApiUserV1AssignLicenseBulkRequest to be compared</param>
+        /// <param name="input">Instance of TenantApiTenantV1SyncOrganizationsRequest to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(IdentityApiUserV1AssignLicenseBulkRequest input)
+        public bool Equals(TenantApiTenantV1SyncOrganizationsRequest input)
         {
             if (input == null)
             {
@@ -120,15 +114,13 @@ namespace EdGraph.Tenant.Client.Model
                     this.TenantId.Equals(input.TenantId))
                 ) && 
                 (
-                    this.UserId == input.UserId ||
-                    (this.UserId != null &&
-                    this.UserId.Equals(input.UserId))
+                    this.InstanceId == input.InstanceId ||
+                    (this.InstanceId != null &&
+                    this.InstanceId.Equals(input.InstanceId))
                 ) && 
                 (
-                    this.AssignLicenseRequests == input.AssignLicenseRequests ||
-                    this.AssignLicenseRequests != null &&
-                    input.AssignLicenseRequests != null &&
-                    this.AssignLicenseRequests.SequenceEqual(input.AssignLicenseRequests)
+                    this.Year == input.Year ||
+                    this.Year.Equals(input.Year)
                 );
         }
 
@@ -145,14 +137,11 @@ namespace EdGraph.Tenant.Client.Model
                 {
                     hashCode = (hashCode * 59) + this.TenantId.GetHashCode();
                 }
-                if (this.UserId != null)
+                if (this.InstanceId != null)
                 {
-                    hashCode = (hashCode * 59) + this.UserId.GetHashCode();
+                    hashCode = (hashCode * 59) + this.InstanceId.GetHashCode();
                 }
-                if (this.AssignLicenseRequests != null)
-                {
-                    hashCode = (hashCode * 59) + this.AssignLicenseRequests.GetHashCode();
-                }
+                hashCode = (hashCode * 59) + this.Year.GetHashCode();
                 return hashCode;
             }
         }

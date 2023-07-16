@@ -17,6 +17,7 @@ Name | Type | Description | Notes
 **MinValue** | **int?** |  | [optional] 
 **MaxValue** | **int?** |  | [optional] 
 **MaxLength** | **int?** |  | [optional] 
+**Options** | **List&lt;string&gt;** |  | [optional] [readonly] 
 **CreatedBy** | **string** |  | [optional] 
 **CreatedDateTime** | **string** |  | [optional] 
 **LastModifiedBy** | **string** |  | [optional] 

@@ -80,6 +80,38 @@ namespace EdGraph.Tenant.Client.Api
         /// <returns>ApiResponse of TenantApiTenantV1OrganizationDeletedResponse</returns>
         ApiResponse<TenantApiTenantV1OrganizationDeletedResponse> DeleteOrganizationAsyncWithHttpInfo(string tenantId, string organizationIdentifier, string? apiVersion = default(string?), string? xVersion = default(string?), int operationIndex = 0);
         /// <summary>
+        /// Retrieves the tenant&#39;s Ed-Fi Admin instances.
+        /// </summary>
+        /// <exception cref="EdGraph.Tenant.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="tenantId"></param>
+        /// <param name="pageIndex"> (optional, default to 0)</param>
+        /// <param name="pageSize"> (optional, default to 10)</param>
+        /// <param name="orderBy"> (optional, default to &quot;instanceName&quot;)</param>
+        /// <param name="filter"> (optional)</param>
+        /// <param name="apiVersion"> (optional)</param>
+        /// <param name="xVersion"> (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>TenantApiTenantV1GetEdFiAdminInstancesResponse</returns>
+        TenantApiTenantV1GetEdFiAdminInstancesResponse GetEdFiAdminInstancesAsync(string tenantId, int? pageIndex = default(int?), int? pageSize = default(int?), string? orderBy = default(string?), string? filter = default(string?), string? apiVersion = default(string?), string? xVersion = default(string?), int operationIndex = 0);
+
+        /// <summary>
+        /// Retrieves the tenant&#39;s Ed-Fi Admin instances.
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="EdGraph.Tenant.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="tenantId"></param>
+        /// <param name="pageIndex"> (optional, default to 0)</param>
+        /// <param name="pageSize"> (optional, default to 10)</param>
+        /// <param name="orderBy"> (optional, default to &quot;instanceName&quot;)</param>
+        /// <param name="filter"> (optional)</param>
+        /// <param name="apiVersion"> (optional)</param>
+        /// <param name="xVersion"> (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of TenantApiTenantV1GetEdFiAdminInstancesResponse</returns>
+        ApiResponse<TenantApiTenantV1GetEdFiAdminInstancesResponse> GetEdFiAdminInstancesAsyncWithHttpInfo(string tenantId, int? pageIndex = default(int?), int? pageSize = default(int?), string? orderBy = default(string?), string? filter = default(string?), string? apiVersion = default(string?), string? xVersion = default(string?), int operationIndex = 0);
+        /// <summary>
         /// Retrieves an Organization by ID.
         /// </summary>
         /// <exception cref="EdGraph.Tenant.Client.Client.ApiException">Thrown when fails to make API call</exception>
@@ -129,6 +161,32 @@ namespace EdGraph.Tenant.Client.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of TenantApiTenantV1GetOrganizationsResponse</returns>
         ApiResponse<TenantApiTenantV1GetOrganizationsResponse> GetOrganizationsAsyncWithHttpInfo(string tenantId, string? apiVersion = default(string?), string? xVersion = default(string?), int operationIndex = 0);
+        /// <summary>
+        /// Syncs an Ed-Fi Admin instance&#39;s organizations into the Tenant&#39;s organizations.
+        /// </summary>
+        /// <exception cref="EdGraph.Tenant.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="tenantId"></param>
+        /// <param name="apiVersion"> (optional)</param>
+        /// <param name="xVersion"> (optional)</param>
+        /// <param name="tenantApiTenantV1SyncOrganizationsRequest"> (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns></returns>
+        void SyncOrganizationsAsync(string tenantId, string? apiVersion = default(string?), string? xVersion = default(string?), TenantApiTenantV1SyncOrganizationsRequest? tenantApiTenantV1SyncOrganizationsRequest = default(TenantApiTenantV1SyncOrganizationsRequest?), int operationIndex = 0);
+
+        /// <summary>
+        /// Syncs an Ed-Fi Admin instance&#39;s organizations into the Tenant&#39;s organizations.
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="EdGraph.Tenant.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="tenantId"></param>
+        /// <param name="apiVersion"> (optional)</param>
+        /// <param name="xVersion"> (optional)</param>
+        /// <param name="tenantApiTenantV1SyncOrganizationsRequest"> (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        ApiResponse<Object> SyncOrganizationsAsyncWithHttpInfo(string tenantId, string? apiVersion = default(string?), string? xVersion = default(string?), TenantApiTenantV1SyncOrganizationsRequest? tenantApiTenantV1SyncOrganizationsRequest = default(TenantApiTenantV1SyncOrganizationsRequest?), int operationIndex = 0);
         /// <summary>
         /// Updates an Organization.
         /// </summary>
@@ -229,6 +287,43 @@ namespace EdGraph.Tenant.Client.Api
         /// <returns>Task of ApiResponse (TenantApiTenantV1OrganizationDeletedResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<TenantApiTenantV1OrganizationDeletedResponse>> DeleteOrganizationAsyncWithHttpInfoAsync(string tenantId, string organizationIdentifier, string? apiVersion = default(string?), string? xVersion = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
+        /// Retrieves the tenant&#39;s Ed-Fi Admin instances.
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="EdGraph.Tenant.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="tenantId"></param>
+        /// <param name="pageIndex"> (optional, default to 0)</param>
+        /// <param name="pageSize"> (optional, default to 10)</param>
+        /// <param name="orderBy"> (optional, default to &quot;instanceName&quot;)</param>
+        /// <param name="filter"> (optional)</param>
+        /// <param name="apiVersion"> (optional)</param>
+        /// <param name="xVersion"> (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of TenantApiTenantV1GetEdFiAdminInstancesResponse</returns>
+        System.Threading.Tasks.Task<TenantApiTenantV1GetEdFiAdminInstancesResponse> GetEdFiAdminInstancesAsyncAsync(string tenantId, int? pageIndex = default(int?), int? pageSize = default(int?), string? orderBy = default(string?), string? filter = default(string?), string? apiVersion = default(string?), string? xVersion = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+        /// <summary>
+        /// Retrieves the tenant&#39;s Ed-Fi Admin instances.
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="EdGraph.Tenant.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="tenantId"></param>
+        /// <param name="pageIndex"> (optional, default to 0)</param>
+        /// <param name="pageSize"> (optional, default to 10)</param>
+        /// <param name="orderBy"> (optional, default to &quot;instanceName&quot;)</param>
+        /// <param name="filter"> (optional)</param>
+        /// <param name="apiVersion"> (optional)</param>
+        /// <param name="xVersion"> (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (TenantApiTenantV1GetEdFiAdminInstancesResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<TenantApiTenantV1GetEdFiAdminInstancesResponse>> GetEdFiAdminInstancesAsyncWithHttpInfoAsync(string tenantId, int? pageIndex = default(int?), int? pageSize = default(int?), string? orderBy = default(string?), string? filter = default(string?), string? apiVersion = default(string?), string? xVersion = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
         /// Retrieves an Organization by ID.
         /// </summary>
         /// <remarks>
@@ -288,6 +383,37 @@ namespace EdGraph.Tenant.Client.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (TenantApiTenantV1GetOrganizationsResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<TenantApiTenantV1GetOrganizationsResponse>> GetOrganizationsAsyncWithHttpInfoAsync(string tenantId, string? apiVersion = default(string?), string? xVersion = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
+        /// Syncs an Ed-Fi Admin instance&#39;s organizations into the Tenant&#39;s organizations.
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="EdGraph.Tenant.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="tenantId"></param>
+        /// <param name="apiVersion"> (optional)</param>
+        /// <param name="xVersion"> (optional)</param>
+        /// <param name="tenantApiTenantV1SyncOrganizationsRequest"> (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of void</returns>
+        System.Threading.Tasks.Task SyncOrganizationsAsyncAsync(string tenantId, string? apiVersion = default(string?), string? xVersion = default(string?), TenantApiTenantV1SyncOrganizationsRequest? tenantApiTenantV1SyncOrganizationsRequest = default(TenantApiTenantV1SyncOrganizationsRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+        /// <summary>
+        /// Syncs an Ed-Fi Admin instance&#39;s organizations into the Tenant&#39;s organizations.
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="EdGraph.Tenant.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="tenantId"></param>
+        /// <param name="apiVersion"> (optional)</param>
+        /// <param name="xVersion"> (optional)</param>
+        /// <param name="tenantApiTenantV1SyncOrganizationsRequest"> (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse</returns>
+        System.Threading.Tasks.Task<ApiResponse<Object>> SyncOrganizationsAsyncWithHttpInfoAsync(string tenantId, string? apiVersion = default(string?), string? xVersion = default(string?), TenantApiTenantV1SyncOrganizationsRequest? tenantApiTenantV1SyncOrganizationsRequest = default(TenantApiTenantV1SyncOrganizationsRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Updates an Organization.
         /// </summary>
@@ -874,6 +1000,254 @@ namespace EdGraph.Tenant.Client.Api
         }
 
         /// <summary>
+        /// Retrieves the tenant&#39;s Ed-Fi Admin instances. 
+        /// </summary>
+        /// <exception cref="EdGraph.Tenant.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="tenantId"></param>
+        /// <param name="pageIndex"> (optional, default to 0)</param>
+        /// <param name="pageSize"> (optional, default to 10)</param>
+        /// <param name="orderBy"> (optional, default to &quot;instanceName&quot;)</param>
+        /// <param name="filter"> (optional)</param>
+        /// <param name="apiVersion"> (optional)</param>
+        /// <param name="xVersion"> (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>TenantApiTenantV1GetEdFiAdminInstancesResponse</returns>
+        public TenantApiTenantV1GetEdFiAdminInstancesResponse GetEdFiAdminInstancesAsync(string tenantId, int? pageIndex = default(int?), int? pageSize = default(int?), string? orderBy = default(string?), string? filter = default(string?), string? apiVersion = default(string?), string? xVersion = default(string?), int operationIndex = 0)
+        {
+            EdGraph.Tenant.Client.Client.ApiResponse<TenantApiTenantV1GetEdFiAdminInstancesResponse> localVarResponse = GetEdFiAdminInstancesAsyncWithHttpInfo(tenantId, pageIndex, pageSize, orderBy, filter, apiVersion, xVersion);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Retrieves the tenant&#39;s Ed-Fi Admin instances. 
+        /// </summary>
+        /// <exception cref="EdGraph.Tenant.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="tenantId"></param>
+        /// <param name="pageIndex"> (optional, default to 0)</param>
+        /// <param name="pageSize"> (optional, default to 10)</param>
+        /// <param name="orderBy"> (optional, default to &quot;instanceName&quot;)</param>
+        /// <param name="filter"> (optional)</param>
+        /// <param name="apiVersion"> (optional)</param>
+        /// <param name="xVersion"> (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of TenantApiTenantV1GetEdFiAdminInstancesResponse</returns>
+        public EdGraph.Tenant.Client.Client.ApiResponse<TenantApiTenantV1GetEdFiAdminInstancesResponse> GetEdFiAdminInstancesAsyncWithHttpInfo(string tenantId, int? pageIndex = default(int?), int? pageSize = default(int?), string? orderBy = default(string?), string? filter = default(string?), string? apiVersion = default(string?), string? xVersion = default(string?), int operationIndex = 0)
+        {
+            // verify the required parameter 'tenantId' is set
+            if (tenantId == null)
+            {
+                throw new EdGraph.Tenant.Client.Client.ApiException(400, "Missing required parameter 'tenantId' when calling OrganizationsApi->GetEdFiAdminInstancesAsync");
+            }
+
+            EdGraph.Tenant.Client.Client.RequestOptions localVarRequestOptions = new EdGraph.Tenant.Client.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = EdGraph.Tenant.Client.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = EdGraph.Tenant.Client.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("tenantId", EdGraph.Tenant.Client.Client.ClientUtils.ParameterToString(tenantId)); // path parameter
+            if (pageIndex != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(EdGraph.Tenant.Client.Client.ClientUtils.ParameterToMultiMap("", "pageIndex", pageIndex));
+            }
+            if (pageSize != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(EdGraph.Tenant.Client.Client.ClientUtils.ParameterToMultiMap("", "pageSize", pageSize));
+            }
+            if (orderBy != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(EdGraph.Tenant.Client.Client.ClientUtils.ParameterToMultiMap("", "orderBy", orderBy));
+            }
+            if (filter != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(EdGraph.Tenant.Client.Client.ClientUtils.ParameterToMultiMap("", "filter", filter));
+            }
+            if (apiVersion != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(EdGraph.Tenant.Client.Client.ClientUtils.ParameterToMultiMap("", "api-version", apiVersion));
+            }
+            if (xVersion != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("X-version", EdGraph.Tenant.Client.Client.ClientUtils.ParameterToString(xVersion)); // header parameter
+            }
+
+            localVarRequestOptions.Operation = "OrganizationsApi.GetEdFiAdminInstancesAsync";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<TenantApiTenantV1GetEdFiAdminInstancesResponse>("/tenants/{tenantId}/organizations/instances", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetEdFiAdminInstancesAsync", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Retrieves the tenant&#39;s Ed-Fi Admin instances. 
+        /// </summary>
+        /// <exception cref="EdGraph.Tenant.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="tenantId"></param>
+        /// <param name="pageIndex"> (optional, default to 0)</param>
+        /// <param name="pageSize"> (optional, default to 10)</param>
+        /// <param name="orderBy"> (optional, default to &quot;instanceName&quot;)</param>
+        /// <param name="filter"> (optional)</param>
+        /// <param name="apiVersion"> (optional)</param>
+        /// <param name="xVersion"> (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of TenantApiTenantV1GetEdFiAdminInstancesResponse</returns>
+        public async System.Threading.Tasks.Task<TenantApiTenantV1GetEdFiAdminInstancesResponse> GetEdFiAdminInstancesAsyncAsync(string tenantId, int? pageIndex = default(int?), int? pageSize = default(int?), string? orderBy = default(string?), string? filter = default(string?), string? apiVersion = default(string?), string? xVersion = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            EdGraph.Tenant.Client.Client.ApiResponse<TenantApiTenantV1GetEdFiAdminInstancesResponse> localVarResponse = await GetEdFiAdminInstancesAsyncWithHttpInfoAsync(tenantId, pageIndex, pageSize, orderBy, filter, apiVersion, xVersion, operationIndex, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Retrieves the tenant&#39;s Ed-Fi Admin instances. 
+        /// </summary>
+        /// <exception cref="EdGraph.Tenant.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="tenantId"></param>
+        /// <param name="pageIndex"> (optional, default to 0)</param>
+        /// <param name="pageSize"> (optional, default to 10)</param>
+        /// <param name="orderBy"> (optional, default to &quot;instanceName&quot;)</param>
+        /// <param name="filter"> (optional)</param>
+        /// <param name="apiVersion"> (optional)</param>
+        /// <param name="xVersion"> (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (TenantApiTenantV1GetEdFiAdminInstancesResponse)</returns>
+        public async System.Threading.Tasks.Task<EdGraph.Tenant.Client.Client.ApiResponse<TenantApiTenantV1GetEdFiAdminInstancesResponse>> GetEdFiAdminInstancesAsyncWithHttpInfoAsync(string tenantId, int? pageIndex = default(int?), int? pageSize = default(int?), string? orderBy = default(string?), string? filter = default(string?), string? apiVersion = default(string?), string? xVersion = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            // verify the required parameter 'tenantId' is set
+            if (tenantId == null)
+            {
+                throw new EdGraph.Tenant.Client.Client.ApiException(400, "Missing required parameter 'tenantId' when calling OrganizationsApi->GetEdFiAdminInstancesAsync");
+            }
+
+
+            EdGraph.Tenant.Client.Client.RequestOptions localVarRequestOptions = new EdGraph.Tenant.Client.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = EdGraph.Tenant.Client.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = EdGraph.Tenant.Client.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("tenantId", EdGraph.Tenant.Client.Client.ClientUtils.ParameterToString(tenantId)); // path parameter
+            if (pageIndex != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(EdGraph.Tenant.Client.Client.ClientUtils.ParameterToMultiMap("", "pageIndex", pageIndex));
+            }
+            if (pageSize != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(EdGraph.Tenant.Client.Client.ClientUtils.ParameterToMultiMap("", "pageSize", pageSize));
+            }
+            if (orderBy != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(EdGraph.Tenant.Client.Client.ClientUtils.ParameterToMultiMap("", "orderBy", orderBy));
+            }
+            if (filter != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(EdGraph.Tenant.Client.Client.ClientUtils.ParameterToMultiMap("", "filter", filter));
+            }
+            if (apiVersion != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(EdGraph.Tenant.Client.Client.ClientUtils.ParameterToMultiMap("", "api-version", apiVersion));
+            }
+            if (xVersion != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("X-version", EdGraph.Tenant.Client.Client.ClientUtils.ParameterToString(xVersion)); // header parameter
+            }
+
+            localVarRequestOptions.Operation = "OrganizationsApi.GetEdFiAdminInstancesAsync";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.GetAsync<TenantApiTenantV1GetEdFiAdminInstancesResponse>("/tenants/{tenantId}/organizations/instances", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetEdFiAdminInstancesAsync", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
         /// Retrieves an Organization by ID. 
         /// </summary>
         /// <exception cref="EdGraph.Tenant.Client.Client.ApiException">Thrown when fails to make API call</exception>
@@ -1282,6 +1656,218 @@ namespace EdGraph.Tenant.Client.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetOrganizationsAsync", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Syncs an Ed-Fi Admin instance&#39;s organizations into the Tenant&#39;s organizations. 
+        /// </summary>
+        /// <exception cref="EdGraph.Tenant.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="tenantId"></param>
+        /// <param name="apiVersion"> (optional)</param>
+        /// <param name="xVersion"> (optional)</param>
+        /// <param name="tenantApiTenantV1SyncOrganizationsRequest"> (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns></returns>
+        public void SyncOrganizationsAsync(string tenantId, string? apiVersion = default(string?), string? xVersion = default(string?), TenantApiTenantV1SyncOrganizationsRequest? tenantApiTenantV1SyncOrganizationsRequest = default(TenantApiTenantV1SyncOrganizationsRequest?), int operationIndex = 0)
+        {
+            SyncOrganizationsAsyncWithHttpInfo(tenantId, apiVersion, xVersion, tenantApiTenantV1SyncOrganizationsRequest);
+        }
+
+        /// <summary>
+        /// Syncs an Ed-Fi Admin instance&#39;s organizations into the Tenant&#39;s organizations. 
+        /// </summary>
+        /// <exception cref="EdGraph.Tenant.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="tenantId"></param>
+        /// <param name="apiVersion"> (optional)</param>
+        /// <param name="xVersion"> (optional)</param>
+        /// <param name="tenantApiTenantV1SyncOrganizationsRequest"> (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        public EdGraph.Tenant.Client.Client.ApiResponse<Object> SyncOrganizationsAsyncWithHttpInfo(string tenantId, string? apiVersion = default(string?), string? xVersion = default(string?), TenantApiTenantV1SyncOrganizationsRequest? tenantApiTenantV1SyncOrganizationsRequest = default(TenantApiTenantV1SyncOrganizationsRequest?), int operationIndex = 0)
+        {
+            // verify the required parameter 'tenantId' is set
+            if (tenantId == null)
+            {
+                throw new EdGraph.Tenant.Client.Client.ApiException(400, "Missing required parameter 'tenantId' when calling OrganizationsApi->SyncOrganizationsAsync");
+            }
+
+            EdGraph.Tenant.Client.Client.RequestOptions localVarRequestOptions = new EdGraph.Tenant.Client.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json-patch+json",
+                "application/json",
+                "text/json",
+                "application/*+json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = EdGraph.Tenant.Client.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = EdGraph.Tenant.Client.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("tenantId", EdGraph.Tenant.Client.Client.ClientUtils.ParameterToString(tenantId)); // path parameter
+            if (apiVersion != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(EdGraph.Tenant.Client.Client.ClientUtils.ParameterToMultiMap("", "api-version", apiVersion));
+            }
+            if (xVersion != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("X-version", EdGraph.Tenant.Client.Client.ClientUtils.ParameterToString(xVersion)); // header parameter
+            }
+            localVarRequestOptions.Data = tenantApiTenantV1SyncOrganizationsRequest;
+
+            localVarRequestOptions.Operation = "OrganizationsApi.SyncOrganizationsAsync";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<Object>("/tenants/{tenantId}/organizations/sync", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("SyncOrganizationsAsync", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Syncs an Ed-Fi Admin instance&#39;s organizations into the Tenant&#39;s organizations. 
+        /// </summary>
+        /// <exception cref="EdGraph.Tenant.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="tenantId"></param>
+        /// <param name="apiVersion"> (optional)</param>
+        /// <param name="xVersion"> (optional)</param>
+        /// <param name="tenantApiTenantV1SyncOrganizationsRequest"> (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of void</returns>
+        public async System.Threading.Tasks.Task SyncOrganizationsAsyncAsync(string tenantId, string? apiVersion = default(string?), string? xVersion = default(string?), TenantApiTenantV1SyncOrganizationsRequest? tenantApiTenantV1SyncOrganizationsRequest = default(TenantApiTenantV1SyncOrganizationsRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            await SyncOrganizationsAsyncWithHttpInfoAsync(tenantId, apiVersion, xVersion, tenantApiTenantV1SyncOrganizationsRequest, operationIndex, cancellationToken).ConfigureAwait(false);
+        }
+
+        /// <summary>
+        /// Syncs an Ed-Fi Admin instance&#39;s organizations into the Tenant&#39;s organizations. 
+        /// </summary>
+        /// <exception cref="EdGraph.Tenant.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="tenantId"></param>
+        /// <param name="apiVersion"> (optional)</param>
+        /// <param name="xVersion"> (optional)</param>
+        /// <param name="tenantApiTenantV1SyncOrganizationsRequest"> (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse</returns>
+        public async System.Threading.Tasks.Task<EdGraph.Tenant.Client.Client.ApiResponse<Object>> SyncOrganizationsAsyncWithHttpInfoAsync(string tenantId, string? apiVersion = default(string?), string? xVersion = default(string?), TenantApiTenantV1SyncOrganizationsRequest? tenantApiTenantV1SyncOrganizationsRequest = default(TenantApiTenantV1SyncOrganizationsRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            // verify the required parameter 'tenantId' is set
+            if (tenantId == null)
+            {
+                throw new EdGraph.Tenant.Client.Client.ApiException(400, "Missing required parameter 'tenantId' when calling OrganizationsApi->SyncOrganizationsAsync");
+            }
+
+
+            EdGraph.Tenant.Client.Client.RequestOptions localVarRequestOptions = new EdGraph.Tenant.Client.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json-patch+json", 
+                "application/json", 
+                "text/json", 
+                "application/*+json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = EdGraph.Tenant.Client.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = EdGraph.Tenant.Client.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("tenantId", EdGraph.Tenant.Client.Client.ClientUtils.ParameterToString(tenantId)); // path parameter
+            if (apiVersion != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(EdGraph.Tenant.Client.Client.ClientUtils.ParameterToMultiMap("", "api-version", apiVersion));
+            }
+            if (xVersion != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("X-version", EdGraph.Tenant.Client.Client.ClientUtils.ParameterToString(xVersion)); // header parameter
+            }
+            localVarRequestOptions.Data = tenantApiTenantV1SyncOrganizationsRequest;
+
+            localVarRequestOptions.Operation = "OrganizationsApi.SyncOrganizationsAsync";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.PostAsync<Object>("/tenants/{tenantId}/organizations/sync", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("SyncOrganizationsAsync", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;

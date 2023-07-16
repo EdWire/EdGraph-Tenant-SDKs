@@ -80,8 +80,8 @@ namespace EdGraph.Tenant.Client.Test.Api
             //string tenantId = null;
             //string? apiVersion = null;
             //string? xVersion = null;
-            //IdentityApiUserV1CreateLocalUserRequest? identityApiUserV1CreateLocalUserRequest = null;
-            //var response = instance.CreateTenantLocalUserAsync(tenantId, apiVersion, xVersion, identityApiUserV1CreateLocalUserRequest);
+            //EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsCreateLocalUserRequest? edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsCreateLocalUserRequest = null;
+            //var response = instance.CreateTenantLocalUserAsync(tenantId, apiVersion, xVersion, edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsCreateLocalUserRequest);
             //Assert.IsType<IdentityApiUserV1LocalUserCreatedResponse>(response);
         }
 

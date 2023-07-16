@@ -1,6 +1,6 @@
 # EdGraph.Tenant.Client.Api.UsersLicensesApi
 
-All URIs are relative to *https://api.edgraph.com/tenant*
+All URIs are relative to *https://api.edgraph.dev/tenant*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
@@ -31,7 +31,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://api.edgraph.com/tenant";
+            config.BasePath = "https://api.edgraph.dev/tenant";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
@@ -116,7 +116,7 @@ catch (ApiException e)
 
 <a id="assignlicensetenantuserbulkasync"></a>
 # **AssignLicenseTenantUserBulkAsync**
-> IdentityApiUserV1LicenseAssignedBulkResponse AssignLicenseTenantUserBulkAsync (string tenantId, string userId, string? apiVersion = null, string? xVersion = null, IdentityApiUserV1AssignLicenseBulkRequest? identityApiUserV1AssignLicenseBulkRequest = null)
+> IdentityApiUserV1LicenseAssignedBulkResponse AssignLicenseTenantUserBulkAsync (string tenantId, string userId, string? apiVersion = null, string? xVersion = null, EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsLicensesAssignLicenseBulkRequest? edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsLicensesAssignLicenseBulkRequest = null)
 
 Assigns one or more licenses to a user in the context of a specific tenant
 
@@ -135,7 +135,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://api.edgraph.com/tenant";
+            config.BasePath = "https://api.edgraph.dev/tenant";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
@@ -144,12 +144,12 @@ namespace Example
             var userId = "userId_example";  // string | 
             var apiVersion = "apiVersion_example";  // string? |  (optional) 
             var xVersion = "xVersion_example";  // string? |  (optional) 
-            var identityApiUserV1AssignLicenseBulkRequest = new IdentityApiUserV1AssignLicenseBulkRequest?(); // IdentityApiUserV1AssignLicenseBulkRequest? |  (optional) 
+            var edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsLicensesAssignLicenseBulkRequest = new EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsLicensesAssignLicenseBulkRequest?(); // EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsLicensesAssignLicenseBulkRequest? |  (optional) 
 
             try
             {
                 // Assigns one or more licenses to a user in the context of a specific tenant
-                IdentityApiUserV1LicenseAssignedBulkResponse result = apiInstance.AssignLicenseTenantUserBulkAsync(tenantId, userId, apiVersion, xVersion, identityApiUserV1AssignLicenseBulkRequest);
+                IdentityApiUserV1LicenseAssignedBulkResponse result = apiInstance.AssignLicenseTenantUserBulkAsync(tenantId, userId, apiVersion, xVersion, edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsLicensesAssignLicenseBulkRequest);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -170,7 +170,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Assigns one or more licenses to a user in the context of a specific tenant
-    ApiResponse<IdentityApiUserV1LicenseAssignedBulkResponse> response = apiInstance.AssignLicenseTenantUserBulkAsyncWithHttpInfo(tenantId, userId, apiVersion, xVersion, identityApiUserV1AssignLicenseBulkRequest);
+    ApiResponse<IdentityApiUserV1LicenseAssignedBulkResponse> response = apiInstance.AssignLicenseTenantUserBulkAsyncWithHttpInfo(tenantId, userId, apiVersion, xVersion, edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsLicensesAssignLicenseBulkRequest);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -191,7 +191,7 @@ catch (ApiException e)
 | **userId** | **string** |  |  |
 | **apiVersion** | **string?** |  | [optional]  |
 | **xVersion** | **string?** |  | [optional]  |
-| **identityApiUserV1AssignLicenseBulkRequest** | [**IdentityApiUserV1AssignLicenseBulkRequest?**](IdentityApiUserV1AssignLicenseBulkRequest?.md) |  | [optional]  |
+| **edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsLicensesAssignLicenseBulkRequest** | [**EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsLicensesAssignLicenseBulkRequest?**](EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsLicensesAssignLicenseBulkRequest?.md) |  | [optional]  |
 
 ### Return type
 
@@ -239,7 +239,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://api.edgraph.com/tenant";
+            config.BasePath = "https://api.edgraph.dev/tenant";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
@@ -349,7 +349,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://api.edgraph.com/tenant";
+            config.BasePath = "https://api.edgraph.dev/tenant";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
@@ -434,7 +434,7 @@ catch (ApiException e)
 
 <a id="revokelicensetenantuserbulkasync"></a>
 # **RevokeLicenseTenantUserBulkAsync**
-> IdentityApiUserV1LicenseRevokedBulkResponse RevokeLicenseTenantUserBulkAsync (string tenantId, string userId, string? apiVersion = null, string? xVersion = null, IdentityApiUserV1RevokeLicenseBulkRequest? identityApiUserV1RevokeLicenseBulkRequest = null)
+> IdentityApiUserV1LicenseRevokedBulkResponse RevokeLicenseTenantUserBulkAsync (string tenantId, string userId, string? apiVersion = null, string? xVersion = null, EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsLicensesRevokeLicenseBulkRequest? edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsLicensesRevokeLicenseBulkRequest = null)
 
 Revokes one or more licenses from a user in the context of a specific tenant
 
@@ -453,7 +453,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://api.edgraph.com/tenant";
+            config.BasePath = "https://api.edgraph.dev/tenant";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
@@ -462,12 +462,12 @@ namespace Example
             var userId = "userId_example";  // string | 
             var apiVersion = "apiVersion_example";  // string? |  (optional) 
             var xVersion = "xVersion_example";  // string? |  (optional) 
-            var identityApiUserV1RevokeLicenseBulkRequest = new IdentityApiUserV1RevokeLicenseBulkRequest?(); // IdentityApiUserV1RevokeLicenseBulkRequest? |  (optional) 
+            var edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsLicensesRevokeLicenseBulkRequest = new EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsLicensesRevokeLicenseBulkRequest?(); // EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsLicensesRevokeLicenseBulkRequest? |  (optional) 
 
             try
             {
                 // Revokes one or more licenses from a user in the context of a specific tenant
-                IdentityApiUserV1LicenseRevokedBulkResponse result = apiInstance.RevokeLicenseTenantUserBulkAsync(tenantId, userId, apiVersion, xVersion, identityApiUserV1RevokeLicenseBulkRequest);
+                IdentityApiUserV1LicenseRevokedBulkResponse result = apiInstance.RevokeLicenseTenantUserBulkAsync(tenantId, userId, apiVersion, xVersion, edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsLicensesRevokeLicenseBulkRequest);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -488,7 +488,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Revokes one or more licenses from a user in the context of a specific tenant
-    ApiResponse<IdentityApiUserV1LicenseRevokedBulkResponse> response = apiInstance.RevokeLicenseTenantUserBulkAsyncWithHttpInfo(tenantId, userId, apiVersion, xVersion, identityApiUserV1RevokeLicenseBulkRequest);
+    ApiResponse<IdentityApiUserV1LicenseRevokedBulkResponse> response = apiInstance.RevokeLicenseTenantUserBulkAsyncWithHttpInfo(tenantId, userId, apiVersion, xVersion, edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsLicensesRevokeLicenseBulkRequest);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -509,7 +509,7 @@ catch (ApiException e)
 | **userId** | **string** |  |  |
 | **apiVersion** | **string?** |  | [optional]  |
 | **xVersion** | **string?** |  | [optional]  |
-| **identityApiUserV1RevokeLicenseBulkRequest** | [**IdentityApiUserV1RevokeLicenseBulkRequest?**](IdentityApiUserV1RevokeLicenseBulkRequest?.md) |  | [optional]  |
+| **edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsLicensesRevokeLicenseBulkRequest** | [**EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsLicensesRevokeLicenseBulkRequest?**](EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsLicensesRevokeLicenseBulkRequest?.md) |  | [optional]  |
 
 ### Return type
 

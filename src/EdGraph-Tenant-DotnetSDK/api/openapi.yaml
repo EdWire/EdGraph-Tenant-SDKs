@@ -4,7 +4,7 @@ info:
   title: Tenant Api
   version: v1.0
 servers:
-- url: https://api.edgraph.com/tenant
+- url: https://api.edgraph.dev/tenant
 security:
 - oauth2:
   - https://api.edgraph.com/tenant
@@ -1387,16 +1387,16 @@ paths:
         content:
           application/json-patch+json:
             schema:
-              $ref: '#/components/schemas/IdentityApi.Invitation.V1.SendInvitationRequest'
+              $ref: '#/components/schemas/EdGraph.HttpAggregators.Tenant.Api.Controllers.v1.ViewModels.Requests.SendInvitationRequest'
           application/json:
             schema:
-              $ref: '#/components/schemas/IdentityApi.Invitation.V1.SendInvitationRequest'
+              $ref: '#/components/schemas/EdGraph.HttpAggregators.Tenant.Api.Controllers.v1.ViewModels.Requests.SendInvitationRequest'
           text/json:
             schema:
-              $ref: '#/components/schemas/IdentityApi.Invitation.V1.SendInvitationRequest'
+              $ref: '#/components/schemas/EdGraph.HttpAggregators.Tenant.Api.Controllers.v1.ViewModels.Requests.SendInvitationRequest'
           application/*+json:
             schema:
-              $ref: '#/components/schemas/IdentityApi.Invitation.V1.SendInvitationRequest'
+              $ref: '#/components/schemas/EdGraph.HttpAggregators.Tenant.Api.Controllers.v1.ViewModels.Requests.SendInvitationRequest'
         description: ""
       responses:
         "401":
@@ -1865,6 +1865,192 @@ paths:
                 $ref: '#/components/schemas/EdGraph.Common.Errors.Core.ProblemDetails'
           description: The resource could not be found.
       summary: Updates an Organization.
+      tags:
+      - Organizations
+  /tenants/{tenantId}/organizations/instances:
+    get:
+      operationId: GetEdFiAdminInstancesAsync
+      parameters:
+      - description: ""
+        explode: false
+        in: path
+        name: tenantId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: ""
+        explode: true
+        in: query
+        name: pageIndex
+        required: false
+        schema:
+          default: 0
+          format: int32
+          type: integer
+        style: form
+      - description: ""
+        explode: true
+        in: query
+        name: pageSize
+        required: false
+        schema:
+          default: 10
+          format: int32
+          type: integer
+        style: form
+      - description: ""
+        explode: true
+        in: query
+        name: orderBy
+        required: false
+        schema:
+          default: instanceName
+          type: string
+        style: form
+      - description: ""
+        explode: true
+        in: query
+        name: filter
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: X-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EdGraph.Common.Errors.Core.ProblemDetails'
+          description: Unauthorized. The request requires authentication. The OAuth
+            bearer token was either not provided or is invalid. The operation may
+            succeed once authentication has been successfully completed.
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EdGraph.Common.Errors.Core.ProblemDetails'
+          description: Forbidden. The request cannot be completed in the current authorization
+            context. Contact your administrator if you believe this operation should
+            be allowed.
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EdGraph.Common.Errors.Core.ProblemDetails'
+          description: An unhandled error occurred on the server.See the response
+            body for details.
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TenantApi.Tenant.V1.GetEdFiAdminInstancesResponse'
+          description: The requested resource was successfully retrieved.
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EdGraph.Common.Errors.Core.ProblemDetails'
+          description: The resource could not be found.
+      summary: Retrieves the tenant's Ed-Fi Admin instances.
+      tags:
+      - Organizations
+  /tenants/{tenantId}/organizations/sync:
+    post:
+      operationId: SyncOrganizationsAsync
+      parameters:
+      - description: ""
+        explode: false
+        in: path
+        name: tenantId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: X-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json-patch+json:
+            schema:
+              $ref: '#/components/schemas/TenantApi.Tenant.V1.SyncOrganizationsRequest'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TenantApi.Tenant.V1.SyncOrganizationsRequest'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/TenantApi.Tenant.V1.SyncOrganizationsRequest'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/TenantApi.Tenant.V1.SyncOrganizationsRequest'
+        description: ""
+      responses:
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EdGraph.Common.Errors.Core.ProblemDetails'
+          description: Unauthorized. The request requires authentication. The OAuth
+            bearer token was either not provided or is invalid. The operation may
+            succeed once authentication has been successfully completed.
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EdGraph.Common.Errors.Core.ProblemDetails'
+          description: Forbidden. The request cannot be completed in the current authorization
+            context. Contact your administrator if you believe this operation should
+            be allowed.
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EdGraph.Common.Errors.Core.ProblemDetails'
+          description: An unhandled error occurred on the server.See the response
+            body for details.
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TenantApi.Tenant.V1.OrganizationsSyncedResponse'
+          description: Created
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ValidationProblemDetails'
+          description: Bad Request. The request was invalid and cannot be completed.
+            See the response body for specific validation errors. This will typically
+            be an issue with the query parameters or the request body values.
+        "200":
+          description: The requested resource was successfully retrieved.
+      summary: Syncs an Ed-Fi Admin instance's organizations into the Tenant's organizations.
       tags:
       - Organizations
   /tenants/{tenantId}/organizations:
@@ -2564,16 +2750,16 @@ paths:
         content:
           application/json-patch+json:
             schema:
-              $ref: '#/components/schemas/TenantApi.Tenant.V1.UpdateTenantRequest'
+              $ref: '#/components/schemas/EdGraph.HttpAggregators.Tenant.Api.Controllers.v1.ViewModels.Requests.Tenants.UpdateTenantRequest'
           application/json:
             schema:
-              $ref: '#/components/schemas/TenantApi.Tenant.V1.UpdateTenantRequest'
+              $ref: '#/components/schemas/EdGraph.HttpAggregators.Tenant.Api.Controllers.v1.ViewModels.Requests.Tenants.UpdateTenantRequest'
           text/json:
             schema:
-              $ref: '#/components/schemas/TenantApi.Tenant.V1.UpdateTenantRequest'
+              $ref: '#/components/schemas/EdGraph.HttpAggregators.Tenant.Api.Controllers.v1.ViewModels.Requests.Tenants.UpdateTenantRequest'
           application/*+json:
             schema:
-              $ref: '#/components/schemas/TenantApi.Tenant.V1.UpdateTenantRequest'
+              $ref: '#/components/schemas/EdGraph.HttpAggregators.Tenant.Api.Controllers.v1.ViewModels.Requests.Tenants.UpdateTenantRequest'
         description: ""
       responses:
         "401":
@@ -2654,16 +2840,16 @@ paths:
         content:
           application/json-patch+json:
             schema:
-              $ref: '#/components/schemas/IdentityApi.User.V1.AssignLicenseBulkRequest'
+              $ref: '#/components/schemas/EdGraph.HttpAggregators.Tenant.Api.Controllers.v1.ViewModels.Requests.Licenses.AssignLicenseBulkRequest'
           application/json:
             schema:
-              $ref: '#/components/schemas/IdentityApi.User.V1.AssignLicenseBulkRequest'
+              $ref: '#/components/schemas/EdGraph.HttpAggregators.Tenant.Api.Controllers.v1.ViewModels.Requests.Licenses.AssignLicenseBulkRequest'
           text/json:
             schema:
-              $ref: '#/components/schemas/IdentityApi.User.V1.AssignLicenseBulkRequest'
+              $ref: '#/components/schemas/EdGraph.HttpAggregators.Tenant.Api.Controllers.v1.ViewModels.Requests.Licenses.AssignLicenseBulkRequest'
           application/*+json:
             schema:
-              $ref: '#/components/schemas/IdentityApi.User.V1.AssignLicenseBulkRequest'
+              $ref: '#/components/schemas/EdGraph.HttpAggregators.Tenant.Api.Controllers.v1.ViewModels.Requests.Licenses.AssignLicenseBulkRequest'
         description: ""
       responses:
         "401":
@@ -2835,16 +3021,16 @@ paths:
         content:
           application/json-patch+json:
             schema:
-              $ref: '#/components/schemas/IdentityApi.User.V1.RevokeLicenseBulkRequest'
+              $ref: '#/components/schemas/EdGraph.HttpAggregators.Tenant.Api.Controllers.v1.ViewModels.Requests.Licenses.RevokeLicenseBulkRequest'
           application/json:
             schema:
-              $ref: '#/components/schemas/IdentityApi.User.V1.RevokeLicenseBulkRequest'
+              $ref: '#/components/schemas/EdGraph.HttpAggregators.Tenant.Api.Controllers.v1.ViewModels.Requests.Licenses.RevokeLicenseBulkRequest'
           text/json:
             schema:
-              $ref: '#/components/schemas/IdentityApi.User.V1.RevokeLicenseBulkRequest'
+              $ref: '#/components/schemas/EdGraph.HttpAggregators.Tenant.Api.Controllers.v1.ViewModels.Requests.Licenses.RevokeLicenseBulkRequest'
           application/*+json:
             schema:
-              $ref: '#/components/schemas/IdentityApi.User.V1.RevokeLicenseBulkRequest'
+              $ref: '#/components/schemas/EdGraph.HttpAggregators.Tenant.Api.Controllers.v1.ViewModels.Requests.Licenses.RevokeLicenseBulkRequest'
         description: ""
       responses:
         "401":
@@ -3740,16 +3926,16 @@ paths:
         content:
           application/json-patch+json:
             schema:
-              $ref: '#/components/schemas/IdentityApi.User.V1.CreateLocalUserRequest'
+              $ref: '#/components/schemas/EdGraph.HttpAggregators.Tenant.Api.Controllers.v1.ViewModels.Requests.CreateLocalUserRequest'
           application/json:
             schema:
-              $ref: '#/components/schemas/IdentityApi.User.V1.CreateLocalUserRequest'
+              $ref: '#/components/schemas/EdGraph.HttpAggregators.Tenant.Api.Controllers.v1.ViewModels.Requests.CreateLocalUserRequest'
           text/json:
             schema:
-              $ref: '#/components/schemas/IdentityApi.User.V1.CreateLocalUserRequest'
+              $ref: '#/components/schemas/EdGraph.HttpAggregators.Tenant.Api.Controllers.v1.ViewModels.Requests.CreateLocalUserRequest'
           application/*+json:
             schema:
-              $ref: '#/components/schemas/IdentityApi.User.V1.CreateLocalUserRequest'
+              $ref: '#/components/schemas/EdGraph.HttpAggregators.Tenant.Api.Controllers.v1.ViewModels.Requests.CreateLocalUserRequest'
         description: ""
       responses:
         "401":
@@ -4543,6 +4729,194 @@ components:
           nullable: true
           readOnly: true
           type: object
+      type: object
+    EdGraph.HttpAggregators.Tenant.Api.Controllers.v1.ViewModels.Requests.CreateLocalUserRequest:
+      additionalProperties: false
+      properties:
+        tenantId:
+          nullable: true
+          type: string
+        userName:
+          nullable: true
+          type: string
+        email:
+          nullable: true
+          type: string
+        firstName:
+          nullable: true
+          type: string
+        lastName:
+          nullable: true
+          type: string
+        role:
+          nullable: true
+          type: string
+        phoneNumber:
+          nullable: true
+          type: string
+        lockoutEnabled:
+          type: boolean
+        password:
+          nullable: true
+          type: string
+        autoGeneratedPassword:
+          type: boolean
+        twoFactorEnabled:
+          type: boolean
+        assignLicenseRequests:
+          items:
+            $ref: '#/components/schemas/EdGraph.HttpAggregators.Tenant.Api.Controllers.v1.ViewModels.Requests.Licenses.AssignLicenseRequest'
+          nullable: true
+          type: array
+      type: object
+    EdGraph.HttpAggregators.Tenant.Api.Controllers.v1.ViewModels.Requests.Licenses.AssignLicenseBulkRequest:
+      additionalProperties: false
+      properties:
+        tenantId:
+          nullable: true
+          type: string
+        userId:
+          nullable: true
+          type: string
+        assignLicenseRequests:
+          items:
+            $ref: '#/components/schemas/EdGraph.HttpAggregators.Tenant.Api.Controllers.v1.ViewModels.Requests.Licenses.AssignLicenseRequest'
+          nullable: true
+          type: array
+      type: object
+    EdGraph.HttpAggregators.Tenant.Api.Controllers.v1.ViewModels.Requests.Licenses.AssignLicenseRequest:
+      additionalProperties: false
+      properties:
+        tenantId:
+          nullable: true
+          type: string
+        subscriptionId:
+          nullable: true
+          type: string
+        applicationId:
+          nullable: true
+          type: string
+        userId:
+          nullable: true
+          type: string
+        roles:
+          items:
+            type: string
+          nullable: true
+          type: array
+      type: object
+    EdGraph.HttpAggregators.Tenant.Api.Controllers.v1.ViewModels.Requests.Licenses.RevokeLicenseBulkRequest:
+      additionalProperties: false
+      properties:
+        tenantId:
+          nullable: true
+          type: string
+        userId:
+          nullable: true
+          type: string
+        revokeLicenseRequests:
+          items:
+            $ref: '#/components/schemas/EdGraph.HttpAggregators.Tenant.Api.Controllers.v1.ViewModels.Requests.Licenses.RevokeLicenseRequest'
+          nullable: true
+          type: array
+      type: object
+    EdGraph.HttpAggregators.Tenant.Api.Controllers.v1.ViewModels.Requests.Licenses.RevokeLicenseRequest:
+      additionalProperties: false
+      properties:
+        tenantId:
+          nullable: true
+          type: string
+        subscriptionId:
+          nullable: true
+          type: string
+        applicationId:
+          nullable: true
+          type: string
+        userId:
+          nullable: true
+          type: string
+      type: object
+    EdGraph.HttpAggregators.Tenant.Api.Controllers.v1.ViewModels.Requests.SendInvitationRequest:
+      additionalProperties: false
+      properties:
+        tenantId:
+          nullable: true
+          type: string
+        email:
+          nullable: true
+          type: string
+        firstName:
+          nullable: true
+          type: string
+        lastName:
+          nullable: true
+          type: string
+        role:
+          nullable: true
+          type: string
+        assignLicenseRequests:
+          items:
+            $ref: '#/components/schemas/EdGraph.HttpAggregators.Tenant.Api.Controllers.v1.ViewModels.Requests.Licenses.AssignLicenseRequest'
+          nullable: true
+          type: array
+      type: object
+    EdGraph.HttpAggregators.Tenant.Api.Controllers.v1.ViewModels.Requests.Tenants.TenantIdentityProvider:
+      enum:
+      - Local
+      - Aad
+      - Google
+      - Adfs
+      type: string
+    EdGraph.HttpAggregators.Tenant.Api.Controllers.v1.ViewModels.Requests.Tenants.TenantStatus:
+      enum:
+      - Unknown
+      - Active
+      - Inactive
+      type: string
+    EdGraph.HttpAggregators.Tenant.Api.Controllers.v1.ViewModels.Requests.Tenants.TenantType:
+      enum:
+      - Unknown
+      - Internal
+      - State
+      - Collaborative
+      - District
+      - Partner
+      - Teacher
+      - Student
+      type: string
+    EdGraph.HttpAggregators.Tenant.Api.Controllers.v1.ViewModels.Requests.Tenants.UpdateTenantRequest:
+      additionalProperties: false
+      properties:
+        tenantId:
+          nullable: true
+          type: string
+        tenantType:
+          $ref: '#/components/schemas/EdGraph.HttpAggregators.Tenant.Api.Controllers.v1.ViewModels.Requests.Tenants.TenantType'
+        organizationIdentifier:
+          nullable: true
+          type: string
+        organizationName:
+          nullable: true
+          type: string
+        state:
+          nullable: true
+          type: string
+        isDemo:
+          type: boolean
+        enforceMfa:
+          type: boolean
+        tenantStatus:
+          $ref: '#/components/schemas/EdGraph.HttpAggregators.Tenant.Api.Controllers.v1.ViewModels.Requests.Tenants.TenantStatus'
+        domains:
+          items:
+            type: string
+          nullable: true
+          type: array
+        identityProviders:
+          items:
+            $ref: '#/components/schemas/EdGraph.HttpAggregators.Tenant.Api.Controllers.v1.ViewModels.Requests.Tenants.TenantIdentityProvider'
+          nullable: true
+          type: array
       type: object
     EdGraph.HttpAggregators.Tenant.Api.Controllers.v1.ViewModels.Responses.Role:
       additionalProperties: false
@@ -5980,6 +6354,9 @@ components:
         label: label
         minValue: 5
         createdBy: createdBy
+        options:
+        - options
+        - options
         inputType: inputType
         id: id
         htmlElement: htmlElement
@@ -6028,6 +6405,12 @@ components:
           format: int32
           nullable: true
           type: integer
+        options:
+          items:
+            type: string
+          nullable: true
+          readOnly: true
+          type: array
         createdBy:
           nullable: true
           type: string
@@ -6057,6 +6440,9 @@ components:
           label: label
           minValue: 5
           createdBy: createdBy
+          options:
+          - options
+          - options
           inputType: inputType
           id: id
           htmlElement: htmlElement
@@ -6074,6 +6460,9 @@ components:
           label: label
           minValue: 5
           createdBy: createdBy
+          options:
+          - options
+          - options
           inputType: inputType
           id: id
           htmlElement: htmlElement
@@ -6341,31 +6730,6 @@ components:
       - Sent
       - Accepted
       type: string
-    IdentityApi.Invitation.V1.SendInvitationRequest:
-      additionalProperties: false
-      properties:
-        tenantId:
-          nullable: true
-          type: string
-        email:
-          nullable: true
-          type: string
-        firstName:
-          nullable: true
-          type: string
-        lastName:
-          nullable: true
-          type: string
-        role:
-          nullable: true
-          type: string
-        assignLicenseRequests:
-          items:
-            $ref: '#/components/schemas/IdentityApi.Invitation.V1.AssignLicenseRequest'
-          nullable: true
-          readOnly: true
-          type: array
-      type: object
     IdentityApi.User.V1.ActivateUserRequest:
       additionalProperties: false
       properties:
@@ -6375,22 +6739,6 @@ components:
         userId:
           nullable: true
           type: string
-      type: object
-    IdentityApi.User.V1.AssignLicenseBulkRequest:
-      additionalProperties: false
-      properties:
-        tenantId:
-          nullable: true
-          type: string
-        userId:
-          nullable: true
-          type: string
-        assignLicenseRequests:
-          items:
-            $ref: '#/components/schemas/IdentityApi.User.V1.AssignLicenseRequest'
-          nullable: true
-          readOnly: true
-          type: array
       type: object
     IdentityApi.User.V1.AssignLicenseRequest:
       additionalProperties: false
@@ -6410,46 +6758,6 @@ components:
         roles:
           items:
             type: string
-          nullable: true
-          readOnly: true
-          type: array
-      type: object
-    IdentityApi.User.V1.CreateLocalUserRequest:
-      additionalProperties: false
-      properties:
-        tenantId:
-          nullable: true
-          type: string
-        userName:
-          nullable: true
-          type: string
-        email:
-          nullable: true
-          type: string
-        firstName:
-          nullable: true
-          type: string
-        lastName:
-          nullable: true
-          type: string
-        role:
-          nullable: true
-          type: string
-        phoneNumber:
-          nullable: true
-          type: string
-        lockoutEnabled:
-          type: boolean
-        password:
-          nullable: true
-          type: string
-        autoGeneratedPassword:
-          type: boolean
-        twoFactorEnabled:
-          type: boolean
-        assignLicenseRequests:
-          items:
-            $ref: '#/components/schemas/IdentityApi.User.V1.AssignLicenseRequest'
           nullable: true
           readOnly: true
           type: array
@@ -6583,22 +6891,6 @@ components:
           type: string
         autoGeneratedPassword:
           type: boolean
-      type: object
-    IdentityApi.User.V1.RevokeLicenseBulkRequest:
-      additionalProperties: false
-      properties:
-        tenantId:
-          nullable: true
-          type: string
-        userId:
-          nullable: true
-          type: string
-        revokeLicenseRequests:
-          items:
-            $ref: '#/components/schemas/IdentityApi.User.V1.RevokeLicenseRequest'
-          nullable: true
-          readOnly: true
-          type: array
       type: object
     IdentityApi.User.V1.RevokeLicenseRequest:
       additionalProperties: false
@@ -6780,6 +7072,151 @@ components:
         autoAssign:
           type: boolean
       type: object
+    TenantApi.Tenant.V1.EdFiAdminInstance:
+      additionalProperties: false
+      example:
+        databases:
+          security:
+            selectedTierName: selectedTierName
+            selectedTierId: selectedTierId
+            jobs:
+              generateReportsJobId: generateReportsJobId
+              deleteJobId: deleteJobId
+              createJobId: createJobId
+              resetCreateJobId: resetCreateJobId
+              resetDeleteJobId: resetDeleteJobId
+            status: status
+          admin:
+            selectedTierName: selectedTierName
+            selectedTierId: selectedTierId
+            jobs:
+              generateReportsJobId: generateReportsJobId
+              deleteJobId: deleteJobId
+              createJobId: createJobId
+              resetCreateJobId: resetCreateJobId
+              resetDeleteJobId: resetDeleteJobId
+            status: status
+          ods:
+          - selectedTierName: selectedTierName
+            odsBackupCode: odsBackupCode
+            selectedTierId: selectedTierId
+            year: 5
+            odsBackupDescription: odsBackupDescription
+            jobs:
+              generateReportsJobId: generateReportsJobId
+              deleteJobId: deleteJobId
+              createJobId: createJobId
+              resetCreateJobId: resetCreateJobId
+              resetDeleteJobId: resetDeleteJobId
+            status: status
+          - selectedTierName: selectedTierName
+            odsBackupCode: odsBackupCode
+            selectedTierId: selectedTierId
+            year: 5
+            odsBackupDescription: odsBackupDescription
+            jobs:
+              generateReportsJobId: generateReportsJobId
+              deleteJobId: deleteJobId
+              createJobId: createJobId
+              resetCreateJobId: resetCreateJobId
+              resetDeleteJobId: resetDeleteJobId
+            status: status
+        apiAuthUrl: apiAuthUrl
+        apiClientSecret: apiClientSecret
+        lastModifiedDateTime: lastModifiedDateTime
+        instanceName: instanceName
+        apiResourcesUrls:
+        - apiResourcesUrls
+        - apiResourcesUrls
+        lastModifiedBy: lastModifiedBy
+        description: description
+        createdDateTime: createdDateTime
+        apiClientKey: apiClientKey
+        useCustomId: true
+        customId: customId
+        password: password
+        isApiClientSecretSecured: true
+        isDeleted: true
+        createdBy: createdBy
+        tenantId: tenantId
+        id: id
+        connectionName: connectionName
+        apiCompositesUrls:
+        - apiCompositesUrls
+        - apiCompositesUrls
+        selectedConnectionId: selectedConnectionId
+      properties:
+        id:
+          description: Details
+          nullable: true
+          type: string
+        instanceName:
+          nullable: true
+          type: string
+        useCustomId:
+          type: boolean
+        customId:
+          nullable: true
+          type: string
+        description:
+          nullable: true
+          type: string
+        connectionName:
+          nullable: true
+          type: string
+        selectedConnectionId:
+          description: Connection
+          nullable: true
+          type: string
+        databases:
+          $ref: '#/components/schemas/TenantApi.Tenant.V1.InstanceDatabases'
+        password:
+          description: API Client
+          nullable: true
+          type: string
+        apiClientKey:
+          nullable: true
+          type: string
+        apiClientSecret:
+          nullable: true
+          type: string
+        isApiClientSecretSecured:
+          type: boolean
+        tenantId:
+          description: Metadata
+          nullable: true
+          type: string
+        createdBy:
+          nullable: true
+          type: string
+        createdDateTime:
+          nullable: true
+          type: string
+        isDeleted:
+          type: boolean
+        lastModifiedBy:
+          nullable: true
+          type: string
+        lastModifiedDateTime:
+          nullable: true
+          type: string
+        apiAuthUrl:
+          description: URLs
+          nullable: true
+          type: string
+        apiResourcesUrls:
+          items:
+            type: string
+          nullable: true
+          readOnly: true
+          type: array
+        apiCompositesUrls:
+          items:
+            type: string
+          nullable: true
+          readOnly: true
+          type: array
+      type: object
     TenantApi.Tenant.V1.GetAppSettingsResponse:
       additionalProperties: false
       example:
@@ -6796,6 +7233,170 @@ components:
         data:
           items:
             $ref: '#/components/schemas/TenantApi.Tenant.V1.TenantAppSettings'
+          nullable: true
+          readOnly: true
+          type: array
+      type: object
+    TenantApi.Tenant.V1.GetEdFiAdminInstancesResponse:
+      additionalProperties: false
+      example:
+        data:
+        - databases:
+            security:
+              selectedTierName: selectedTierName
+              selectedTierId: selectedTierId
+              jobs:
+                generateReportsJobId: generateReportsJobId
+                deleteJobId: deleteJobId
+                createJobId: createJobId
+                resetCreateJobId: resetCreateJobId
+                resetDeleteJobId: resetDeleteJobId
+              status: status
+            admin:
+              selectedTierName: selectedTierName
+              selectedTierId: selectedTierId
+              jobs:
+                generateReportsJobId: generateReportsJobId
+                deleteJobId: deleteJobId
+                createJobId: createJobId
+                resetCreateJobId: resetCreateJobId
+                resetDeleteJobId: resetDeleteJobId
+              status: status
+            ods:
+            - selectedTierName: selectedTierName
+              odsBackupCode: odsBackupCode
+              selectedTierId: selectedTierId
+              year: 5
+              odsBackupDescription: odsBackupDescription
+              jobs:
+                generateReportsJobId: generateReportsJobId
+                deleteJobId: deleteJobId
+                createJobId: createJobId
+                resetCreateJobId: resetCreateJobId
+                resetDeleteJobId: resetDeleteJobId
+              status: status
+            - selectedTierName: selectedTierName
+              odsBackupCode: odsBackupCode
+              selectedTierId: selectedTierId
+              year: 5
+              odsBackupDescription: odsBackupDescription
+              jobs:
+                generateReportsJobId: generateReportsJobId
+                deleteJobId: deleteJobId
+                createJobId: createJobId
+                resetCreateJobId: resetCreateJobId
+                resetDeleteJobId: resetDeleteJobId
+              status: status
+          apiAuthUrl: apiAuthUrl
+          apiClientSecret: apiClientSecret
+          lastModifiedDateTime: lastModifiedDateTime
+          instanceName: instanceName
+          apiResourcesUrls:
+          - apiResourcesUrls
+          - apiResourcesUrls
+          lastModifiedBy: lastModifiedBy
+          description: description
+          createdDateTime: createdDateTime
+          apiClientKey: apiClientKey
+          useCustomId: true
+          customId: customId
+          password: password
+          isApiClientSecretSecured: true
+          isDeleted: true
+          createdBy: createdBy
+          tenantId: tenantId
+          id: id
+          connectionName: connectionName
+          apiCompositesUrls:
+          - apiCompositesUrls
+          - apiCompositesUrls
+          selectedConnectionId: selectedConnectionId
+        - databases:
+            security:
+              selectedTierName: selectedTierName
+              selectedTierId: selectedTierId
+              jobs:
+                generateReportsJobId: generateReportsJobId
+                deleteJobId: deleteJobId
+                createJobId: createJobId
+                resetCreateJobId: resetCreateJobId
+                resetDeleteJobId: resetDeleteJobId
+              status: status
+            admin:
+              selectedTierName: selectedTierName
+              selectedTierId: selectedTierId
+              jobs:
+                generateReportsJobId: generateReportsJobId
+                deleteJobId: deleteJobId
+                createJobId: createJobId
+                resetCreateJobId: resetCreateJobId
+                resetDeleteJobId: resetDeleteJobId
+              status: status
+            ods:
+            - selectedTierName: selectedTierName
+              odsBackupCode: odsBackupCode
+              selectedTierId: selectedTierId
+              year: 5
+              odsBackupDescription: odsBackupDescription
+              jobs:
+                generateReportsJobId: generateReportsJobId
+                deleteJobId: deleteJobId
+                createJobId: createJobId
+                resetCreateJobId: resetCreateJobId
+                resetDeleteJobId: resetDeleteJobId
+              status: status
+            - selectedTierName: selectedTierName
+              odsBackupCode: odsBackupCode
+              selectedTierId: selectedTierId
+              year: 5
+              odsBackupDescription: odsBackupDescription
+              jobs:
+                generateReportsJobId: generateReportsJobId
+                deleteJobId: deleteJobId
+                createJobId: createJobId
+                resetCreateJobId: resetCreateJobId
+                resetDeleteJobId: resetDeleteJobId
+              status: status
+          apiAuthUrl: apiAuthUrl
+          apiClientSecret: apiClientSecret
+          lastModifiedDateTime: lastModifiedDateTime
+          instanceName: instanceName
+          apiResourcesUrls:
+          - apiResourcesUrls
+          - apiResourcesUrls
+          lastModifiedBy: lastModifiedBy
+          description: description
+          createdDateTime: createdDateTime
+          apiClientKey: apiClientKey
+          useCustomId: true
+          customId: customId
+          password: password
+          isApiClientSecretSecured: true
+          isDeleted: true
+          createdBy: createdBy
+          tenantId: tenantId
+          id: id
+          connectionName: connectionName
+          apiCompositesUrls:
+          - apiCompositesUrls
+          - apiCompositesUrls
+          selectedConnectionId: selectedConnectionId
+        pageIndex: 0
+        count: 1
+        pageSize: 6
+      properties:
+        pageIndex:
+          format: int32
+          type: integer
+        pageSize:
+          format: int32
+          type: integer
+        count:
+          format: int64
+          type: integer
+        data:
+          items:
+            $ref: '#/components/schemas/TenantApi.Tenant.V1.EdFiAdminInstance'
           nullable: true
           readOnly: true
           type: array
@@ -6821,6 +7422,153 @@ components:
           nullable: true
           readOnly: true
           type: array
+      type: object
+    TenantApi.Tenant.V1.InstanceDatabase:
+      additionalProperties: false
+      example:
+        selectedTierName: selectedTierName
+        selectedTierId: selectedTierId
+        jobs:
+          generateReportsJobId: generateReportsJobId
+          deleteJobId: deleteJobId
+          createJobId: createJobId
+          resetCreateJobId: resetCreateJobId
+          resetDeleteJobId: resetDeleteJobId
+        status: status
+      properties:
+        selectedTierId:
+          nullable: true
+          type: string
+        selectedTierName:
+          nullable: true
+          type: string
+        status:
+          nullable: true
+          type: string
+        jobs:
+          $ref: '#/components/schemas/TenantApi.Tenant.V1.InstanceDatabaseJobs'
+      type: object
+    TenantApi.Tenant.V1.InstanceDatabaseJobs:
+      additionalProperties: false
+      example:
+        generateReportsJobId: generateReportsJobId
+        deleteJobId: deleteJobId
+        createJobId: createJobId
+        resetCreateJobId: resetCreateJobId
+        resetDeleteJobId: resetDeleteJobId
+      properties:
+        createJobId:
+          nullable: true
+          type: string
+        deleteJobId:
+          nullable: true
+          type: string
+        resetDeleteJobId:
+          nullable: true
+          type: string
+        resetCreateJobId:
+          nullable: true
+          type: string
+        generateReportsJobId:
+          nullable: true
+          type: string
+      type: object
+    TenantApi.Tenant.V1.InstanceDatabases:
+      additionalProperties: false
+      example:
+        security:
+          selectedTierName: selectedTierName
+          selectedTierId: selectedTierId
+          jobs:
+            generateReportsJobId: generateReportsJobId
+            deleteJobId: deleteJobId
+            createJobId: createJobId
+            resetCreateJobId: resetCreateJobId
+            resetDeleteJobId: resetDeleteJobId
+          status: status
+        admin:
+          selectedTierName: selectedTierName
+          selectedTierId: selectedTierId
+          jobs:
+            generateReportsJobId: generateReportsJobId
+            deleteJobId: deleteJobId
+            createJobId: createJobId
+            resetCreateJobId: resetCreateJobId
+            resetDeleteJobId: resetDeleteJobId
+          status: status
+        ods:
+        - selectedTierName: selectedTierName
+          odsBackupCode: odsBackupCode
+          selectedTierId: selectedTierId
+          year: 5
+          odsBackupDescription: odsBackupDescription
+          jobs:
+            generateReportsJobId: generateReportsJobId
+            deleteJobId: deleteJobId
+            createJobId: createJobId
+            resetCreateJobId: resetCreateJobId
+            resetDeleteJobId: resetDeleteJobId
+          status: status
+        - selectedTierName: selectedTierName
+          odsBackupCode: odsBackupCode
+          selectedTierId: selectedTierId
+          year: 5
+          odsBackupDescription: odsBackupDescription
+          jobs:
+            generateReportsJobId: generateReportsJobId
+            deleteJobId: deleteJobId
+            createJobId: createJobId
+            resetCreateJobId: resetCreateJobId
+            resetDeleteJobId: resetDeleteJobId
+          status: status
+      properties:
+        admin:
+          $ref: '#/components/schemas/TenantApi.Tenant.V1.InstanceDatabase'
+        security:
+          $ref: '#/components/schemas/TenantApi.Tenant.V1.InstanceDatabase'
+        ods:
+          items:
+            $ref: '#/components/schemas/TenantApi.Tenant.V1.InstanceOdsDatabase'
+          nullable: true
+          readOnly: true
+          type: array
+      type: object
+    TenantApi.Tenant.V1.InstanceOdsDatabase:
+      additionalProperties: false
+      example:
+        selectedTierName: selectedTierName
+        odsBackupCode: odsBackupCode
+        selectedTierId: selectedTierId
+        year: 5
+        odsBackupDescription: odsBackupDescription
+        jobs:
+          generateReportsJobId: generateReportsJobId
+          deleteJobId: deleteJobId
+          createJobId: createJobId
+          resetCreateJobId: resetCreateJobId
+          resetDeleteJobId: resetDeleteJobId
+        status: status
+      properties:
+        selectedTierId:
+          nullable: true
+          type: string
+        selectedTierName:
+          nullable: true
+          type: string
+        status:
+          nullable: true
+          type: string
+        jobs:
+          $ref: '#/components/schemas/TenantApi.Tenant.V1.InstanceDatabaseJobs'
+        year:
+          format: int32
+          type: integer
+        odsBackupCode:
+          nullable: true
+          type: string
+        odsBackupDescription:
+          nullable: true
+          type: string
       type: object
     TenantApi.Tenant.V1.LicenseType:
       enum:
@@ -6960,6 +7708,13 @@ components:
           nullable: true
           type: string
         identifierValue:
+          nullable: true
+          type: string
+      type: object
+    TenantApi.Tenant.V1.OrganizationsSyncedResponse:
+      additionalProperties: false
+      properties:
+        tenantId:
           nullable: true
           type: string
       type: object
@@ -7110,6 +7865,19 @@ components:
         subscriptionId:
           nullable: true
           type: string
+      type: object
+    TenantApi.Tenant.V1.SyncOrganizationsRequest:
+      additionalProperties: false
+      properties:
+        tenantId:
+          nullable: true
+          type: string
+        instanceId:
+          nullable: true
+          type: string
+        year:
+          format: int32
+          type: integer
       type: object
     TenantApi.Tenant.V1.TenantAppSettings:
       additionalProperties: false
@@ -7375,42 +8143,6 @@ components:
         autoAssign:
           description: SubscriptionStatus SubscriptionStatus = 10;
           type: boolean
-      type: object
-    TenantApi.Tenant.V1.UpdateTenantRequest:
-      additionalProperties: false
-      properties:
-        tenantId:
-          nullable: true
-          type: string
-        tenantType:
-          $ref: '#/components/schemas/TenantApi.Tenant.V1.TenantType'
-        organizationIdentifier:
-          nullable: true
-          type: string
-        organizationName:
-          nullable: true
-          type: string
-        state:
-          nullable: true
-          type: string
-        isDemo:
-          type: boolean
-        enforceMfa:
-          type: boolean
-        tenantStatus:
-          $ref: '#/components/schemas/TenantApi.Tenant.V1.TenantStatus'
-        domains:
-          items:
-            type: string
-          nullable: true
-          readOnly: true
-          type: array
-        identityProviders:
-          items:
-            $ref: '#/components/schemas/TenantApi.Tenant.V1.TenantIdentityProviders'
-          nullable: true
-          readOnly: true
-          type: array
       type: object
     TenantApi.Webhook.V1.CreateWebhookRequest:
       additionalProperties: false
@@ -7683,6 +8415,6 @@ components:
         clientCredentials:
           scopes:
             https://api.edgraph.com/tenant: EdGraph Platform - Tenant Api
-          tokenUrl: https://login.edgraph.com/connect/token
+          tokenUrl: https://login.edgraph.dev/connect/token
       type: oauth2
 

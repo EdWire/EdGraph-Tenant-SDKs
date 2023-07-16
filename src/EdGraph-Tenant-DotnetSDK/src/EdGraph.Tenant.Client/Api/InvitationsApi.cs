@@ -118,10 +118,10 @@ namespace EdGraph.Tenant.Client.Api
         /// <param name="tenantId"></param>
         /// <param name="apiVersion"> (optional)</param>
         /// <param name="xVersion"> (optional)</param>
-        /// <param name="identityApiInvitationV1SendInvitationRequest"> (optional)</param>
+        /// <param name="edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsSendInvitationRequest"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>IdentityApiInvitationV1InvitationSentResponse</returns>
-        IdentityApiInvitationV1InvitationSentResponse SendTenantInvitationAsync(string tenantId, string? apiVersion = default(string?), string? xVersion = default(string?), IdentityApiInvitationV1SendInvitationRequest? identityApiInvitationV1SendInvitationRequest = default(IdentityApiInvitationV1SendInvitationRequest?), int operationIndex = 0);
+        IdentityApiInvitationV1InvitationSentResponse SendTenantInvitationAsync(string tenantId, string? apiVersion = default(string?), string? xVersion = default(string?), EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsSendInvitationRequest? edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsSendInvitationRequest = default(EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsSendInvitationRequest?), int operationIndex = 0);
 
         /// <summary>
         /// Creates and sends an invitation to a user
@@ -133,10 +133,10 @@ namespace EdGraph.Tenant.Client.Api
         /// <param name="tenantId"></param>
         /// <param name="apiVersion"> (optional)</param>
         /// <param name="xVersion"> (optional)</param>
-        /// <param name="identityApiInvitationV1SendInvitationRequest"> (optional)</param>
+        /// <param name="edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsSendInvitationRequest"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of IdentityApiInvitationV1InvitationSentResponse</returns>
-        ApiResponse<IdentityApiInvitationV1InvitationSentResponse> SendTenantInvitationAsyncWithHttpInfo(string tenantId, string? apiVersion = default(string?), string? xVersion = default(string?), IdentityApiInvitationV1SendInvitationRequest? identityApiInvitationV1SendInvitationRequest = default(IdentityApiInvitationV1SendInvitationRequest?), int operationIndex = 0);
+        ApiResponse<IdentityApiInvitationV1InvitationSentResponse> SendTenantInvitationAsyncWithHttpInfo(string tenantId, string? apiVersion = default(string?), string? xVersion = default(string?), EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsSendInvitationRequest? edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsSendInvitationRequest = default(EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsSendInvitationRequest?), int operationIndex = 0);
         #endregion Synchronous Operations
     }
 
@@ -255,11 +255,11 @@ namespace EdGraph.Tenant.Client.Api
         /// <param name="tenantId"></param>
         /// <param name="apiVersion"> (optional)</param>
         /// <param name="xVersion"> (optional)</param>
-        /// <param name="identityApiInvitationV1SendInvitationRequest"> (optional)</param>
+        /// <param name="edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsSendInvitationRequest"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of IdentityApiInvitationV1InvitationSentResponse</returns>
-        System.Threading.Tasks.Task<IdentityApiInvitationV1InvitationSentResponse> SendTenantInvitationAsyncAsync(string tenantId, string? apiVersion = default(string?), string? xVersion = default(string?), IdentityApiInvitationV1SendInvitationRequest? identityApiInvitationV1SendInvitationRequest = default(IdentityApiInvitationV1SendInvitationRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<IdentityApiInvitationV1InvitationSentResponse> SendTenantInvitationAsyncAsync(string tenantId, string? apiVersion = default(string?), string? xVersion = default(string?), EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsSendInvitationRequest? edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsSendInvitationRequest = default(EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsSendInvitationRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Creates and sends an invitation to a user
@@ -271,11 +271,11 @@ namespace EdGraph.Tenant.Client.Api
         /// <param name="tenantId"></param>
         /// <param name="apiVersion"> (optional)</param>
         /// <param name="xVersion"> (optional)</param>
-        /// <param name="identityApiInvitationV1SendInvitationRequest"> (optional)</param>
+        /// <param name="edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsSendInvitationRequest"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (IdentityApiInvitationV1InvitationSentResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<IdentityApiInvitationV1InvitationSentResponse>> SendTenantInvitationAsyncWithHttpInfoAsync(string tenantId, string? apiVersion = default(string?), string? xVersion = default(string?), IdentityApiInvitationV1SendInvitationRequest? identityApiInvitationV1SendInvitationRequest = default(IdentityApiInvitationV1SendInvitationRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<IdentityApiInvitationV1InvitationSentResponse>> SendTenantInvitationAsyncWithHttpInfoAsync(string tenantId, string? apiVersion = default(string?), string? xVersion = default(string?), EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsSendInvitationRequest? edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsSendInvitationRequest = default(EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsSendInvitationRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -1085,12 +1085,12 @@ namespace EdGraph.Tenant.Client.Api
         /// <param name="tenantId"></param>
         /// <param name="apiVersion"> (optional)</param>
         /// <param name="xVersion"> (optional)</param>
-        /// <param name="identityApiInvitationV1SendInvitationRequest"> (optional)</param>
+        /// <param name="edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsSendInvitationRequest"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>IdentityApiInvitationV1InvitationSentResponse</returns>
-        public IdentityApiInvitationV1InvitationSentResponse SendTenantInvitationAsync(string tenantId, string? apiVersion = default(string?), string? xVersion = default(string?), IdentityApiInvitationV1SendInvitationRequest? identityApiInvitationV1SendInvitationRequest = default(IdentityApiInvitationV1SendInvitationRequest?), int operationIndex = 0)
+        public IdentityApiInvitationV1InvitationSentResponse SendTenantInvitationAsync(string tenantId, string? apiVersion = default(string?), string? xVersion = default(string?), EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsSendInvitationRequest? edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsSendInvitationRequest = default(EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsSendInvitationRequest?), int operationIndex = 0)
         {
-            EdGraph.Tenant.Client.Client.ApiResponse<IdentityApiInvitationV1InvitationSentResponse> localVarResponse = SendTenantInvitationAsyncWithHttpInfo(tenantId, apiVersion, xVersion, identityApiInvitationV1SendInvitationRequest);
+            EdGraph.Tenant.Client.Client.ApiResponse<IdentityApiInvitationV1InvitationSentResponse> localVarResponse = SendTenantInvitationAsyncWithHttpInfo(tenantId, apiVersion, xVersion, edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsSendInvitationRequest);
             return localVarResponse.Data;
         }
 
@@ -1101,10 +1101,10 @@ namespace EdGraph.Tenant.Client.Api
         /// <param name="tenantId"></param>
         /// <param name="apiVersion"> (optional)</param>
         /// <param name="xVersion"> (optional)</param>
-        /// <param name="identityApiInvitationV1SendInvitationRequest"> (optional)</param>
+        /// <param name="edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsSendInvitationRequest"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of IdentityApiInvitationV1InvitationSentResponse</returns>
-        public EdGraph.Tenant.Client.Client.ApiResponse<IdentityApiInvitationV1InvitationSentResponse> SendTenantInvitationAsyncWithHttpInfo(string tenantId, string? apiVersion = default(string?), string? xVersion = default(string?), IdentityApiInvitationV1SendInvitationRequest? identityApiInvitationV1SendInvitationRequest = default(IdentityApiInvitationV1SendInvitationRequest?), int operationIndex = 0)
+        public EdGraph.Tenant.Client.Client.ApiResponse<IdentityApiInvitationV1InvitationSentResponse> SendTenantInvitationAsyncWithHttpInfo(string tenantId, string? apiVersion = default(string?), string? xVersion = default(string?), EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsSendInvitationRequest? edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsSendInvitationRequest = default(EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsSendInvitationRequest?), int operationIndex = 0)
         {
             // verify the required parameter 'tenantId' is set
             if (tenantId == null)
@@ -1147,7 +1147,7 @@ namespace EdGraph.Tenant.Client.Api
             {
                 localVarRequestOptions.HeaderParameters.Add("X-version", EdGraph.Tenant.Client.Client.ClientUtils.ParameterToString(xVersion)); // header parameter
             }
-            localVarRequestOptions.Data = identityApiInvitationV1SendInvitationRequest;
+            localVarRequestOptions.Data = edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsSendInvitationRequest;
 
             localVarRequestOptions.Operation = "InvitationsApi.SendTenantInvitationAsync";
             localVarRequestOptions.OperationIndex = operationIndex;
@@ -1190,13 +1190,13 @@ namespace EdGraph.Tenant.Client.Api
         /// <param name="tenantId"></param>
         /// <param name="apiVersion"> (optional)</param>
         /// <param name="xVersion"> (optional)</param>
-        /// <param name="identityApiInvitationV1SendInvitationRequest"> (optional)</param>
+        /// <param name="edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsSendInvitationRequest"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of IdentityApiInvitationV1InvitationSentResponse</returns>
-        public async System.Threading.Tasks.Task<IdentityApiInvitationV1InvitationSentResponse> SendTenantInvitationAsyncAsync(string tenantId, string? apiVersion = default(string?), string? xVersion = default(string?), IdentityApiInvitationV1SendInvitationRequest? identityApiInvitationV1SendInvitationRequest = default(IdentityApiInvitationV1SendInvitationRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<IdentityApiInvitationV1InvitationSentResponse> SendTenantInvitationAsyncAsync(string tenantId, string? apiVersion = default(string?), string? xVersion = default(string?), EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsSendInvitationRequest? edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsSendInvitationRequest = default(EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsSendInvitationRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            EdGraph.Tenant.Client.Client.ApiResponse<IdentityApiInvitationV1InvitationSentResponse> localVarResponse = await SendTenantInvitationAsyncWithHttpInfoAsync(tenantId, apiVersion, xVersion, identityApiInvitationV1SendInvitationRequest, operationIndex, cancellationToken).ConfigureAwait(false);
+            EdGraph.Tenant.Client.Client.ApiResponse<IdentityApiInvitationV1InvitationSentResponse> localVarResponse = await SendTenantInvitationAsyncWithHttpInfoAsync(tenantId, apiVersion, xVersion, edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsSendInvitationRequest, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1207,11 +1207,11 @@ namespace EdGraph.Tenant.Client.Api
         /// <param name="tenantId"></param>
         /// <param name="apiVersion"> (optional)</param>
         /// <param name="xVersion"> (optional)</param>
-        /// <param name="identityApiInvitationV1SendInvitationRequest"> (optional)</param>
+        /// <param name="edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsSendInvitationRequest"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (IdentityApiInvitationV1InvitationSentResponse)</returns>
-        public async System.Threading.Tasks.Task<EdGraph.Tenant.Client.Client.ApiResponse<IdentityApiInvitationV1InvitationSentResponse>> SendTenantInvitationAsyncWithHttpInfoAsync(string tenantId, string? apiVersion = default(string?), string? xVersion = default(string?), IdentityApiInvitationV1SendInvitationRequest? identityApiInvitationV1SendInvitationRequest = default(IdentityApiInvitationV1SendInvitationRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<EdGraph.Tenant.Client.Client.ApiResponse<IdentityApiInvitationV1InvitationSentResponse>> SendTenantInvitationAsyncWithHttpInfoAsync(string tenantId, string? apiVersion = default(string?), string? xVersion = default(string?), EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsSendInvitationRequest? edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsSendInvitationRequest = default(EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsSendInvitationRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'tenantId' is set
             if (tenantId == null)
@@ -1255,7 +1255,7 @@ namespace EdGraph.Tenant.Client.Api
             {
                 localVarRequestOptions.HeaderParameters.Add("X-version", EdGraph.Tenant.Client.Client.ClientUtils.ParameterToString(xVersion)); // header parameter
             }
-            localVarRequestOptions.Data = identityApiInvitationV1SendInvitationRequest;
+            localVarRequestOptions.Data = edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsSendInvitationRequest;
 
             localVarRequestOptions.Operation = "InvitationsApi.SendTenantInvitationAsync";
             localVarRequestOptions.OperationIndex = operationIndex;

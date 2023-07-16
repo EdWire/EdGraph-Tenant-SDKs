@@ -1,6 +1,6 @@
 # EdGraph.Tenant.Client.Api.InvitationsApi
 
-All URIs are relative to *https://api.edgraph.com/tenant*
+All URIs are relative to *https://api.edgraph.dev/tenant*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
@@ -30,7 +30,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://api.edgraph.com/tenant";
+            config.BasePath = "https://api.edgraph.dev/tenant";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
@@ -128,7 +128,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://api.edgraph.com/tenant";
+            config.BasePath = "https://api.edgraph.dev/tenant";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
@@ -236,7 +236,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://api.edgraph.com/tenant";
+            config.BasePath = "https://api.edgraph.dev/tenant";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
@@ -320,7 +320,7 @@ catch (ApiException e)
 
 <a id="sendtenantinvitationasync"></a>
 # **SendTenantInvitationAsync**
-> IdentityApiInvitationV1InvitationSentResponse SendTenantInvitationAsync (string tenantId, string? apiVersion = null, string? xVersion = null, IdentityApiInvitationV1SendInvitationRequest? identityApiInvitationV1SendInvitationRequest = null)
+> IdentityApiInvitationV1InvitationSentResponse SendTenantInvitationAsync (string tenantId, string? apiVersion = null, string? xVersion = null, EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsSendInvitationRequest? edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsSendInvitationRequest = null)
 
 Creates and sends an invitation to a user
 
@@ -339,7 +339,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://api.edgraph.com/tenant";
+            config.BasePath = "https://api.edgraph.dev/tenant";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
@@ -347,12 +347,12 @@ namespace Example
             var tenantId = "tenantId_example";  // string | 
             var apiVersion = "apiVersion_example";  // string? |  (optional) 
             var xVersion = "xVersion_example";  // string? |  (optional) 
-            var identityApiInvitationV1SendInvitationRequest = new IdentityApiInvitationV1SendInvitationRequest?(); // IdentityApiInvitationV1SendInvitationRequest? |  (optional) 
+            var edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsSendInvitationRequest = new EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsSendInvitationRequest?(); // EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsSendInvitationRequest? |  (optional) 
 
             try
             {
                 // Creates and sends an invitation to a user
-                IdentityApiInvitationV1InvitationSentResponse result = apiInstance.SendTenantInvitationAsync(tenantId, apiVersion, xVersion, identityApiInvitationV1SendInvitationRequest);
+                IdentityApiInvitationV1InvitationSentResponse result = apiInstance.SendTenantInvitationAsync(tenantId, apiVersion, xVersion, edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsSendInvitationRequest);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -373,7 +373,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Creates and sends an invitation to a user
-    ApiResponse<IdentityApiInvitationV1InvitationSentResponse> response = apiInstance.SendTenantInvitationAsyncWithHttpInfo(tenantId, apiVersion, xVersion, identityApiInvitationV1SendInvitationRequest);
+    ApiResponse<IdentityApiInvitationV1InvitationSentResponse> response = apiInstance.SendTenantInvitationAsyncWithHttpInfo(tenantId, apiVersion, xVersion, edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsSendInvitationRequest);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -393,7 +393,7 @@ catch (ApiException e)
 | **tenantId** | **string** |  |  |
 | **apiVersion** | **string?** |  | [optional]  |
 | **xVersion** | **string?** |  | [optional]  |
-| **identityApiInvitationV1SendInvitationRequest** | [**IdentityApiInvitationV1SendInvitationRequest?**](IdentityApiInvitationV1SendInvitationRequest?.md) |  | [optional]  |
+| **edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsSendInvitationRequest** | [**EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsSendInvitationRequest?**](EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsSendInvitationRequest?.md) |  | [optional]  |
 
 ### Return type
 

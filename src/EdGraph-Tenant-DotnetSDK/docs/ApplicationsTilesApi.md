@@ -1,6 +1,6 @@
 # EdGraph.Tenant.Client.Api.ApplicationsTilesApi
 
-All URIs are relative to *https://api.edgraph.com/tenant*
+All URIs are relative to *https://api.edgraph.dev/tenant*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
@@ -27,7 +27,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://api.edgraph.com/tenant";
+            config.BasePath = "https://api.edgraph.dev/tenant";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 

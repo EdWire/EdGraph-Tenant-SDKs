@@ -78,8 +78,8 @@ namespace EdGraph.Tenant.Client.Test.Api
             //string tenantId = null;
             //string? apiVersion = null;
             //string? xVersion = null;
-            //TenantApiTenantV1UpdateTenantRequest? tenantApiTenantV1UpdateTenantRequest = null;
-            //var response = instance.UpdateTenantAsync(tenantId, apiVersion, xVersion, tenantApiTenantV1UpdateTenantRequest);
+            //EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsUpdateTenantRequest? edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsUpdateTenantRequest = null;
+            //var response = instance.UpdateTenantAsync(tenantId, apiVersion, xVersion, edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsUpdateTenantRequest);
             //Assert.IsType<TenantApiTenantV1TenantUpdatedResponse>(response);
         }
     }

@@ -84,7 +84,7 @@ namespace Example
         {
 
             Configuration config = new Configuration();
-            config.BasePath = "https://api.edgraph.com/tenant";
+            config.BasePath = "https://api.edgraph.dev/tenant";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
@@ -115,7 +115,7 @@ namespace Example
 <a id="documentation-for-api-endpoints"></a>
 ## Documentation for API Endpoints
 
-All URIs are relative to *https://api.edgraph.com/tenant*
+All URIs are relative to *https://api.edgraph.dev/tenant*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
@@ -139,8 +139,10 @@ Class | Method | HTTP request | Description
 *OnboardingStepsApi* | [**UpdateOnboardingStepAsync**](docs\OnboardingStepsApi.md#updateonboardingstepasync) | **PUT** /tenants/{tenantId}/onboardingsteps/{stepNumber} | Updates the status of an Onboarding Step.
 *OrganizationsApi* | [**CreateOrganizationAsync**](docs\OrganizationsApi.md#createorganizationasync) | **POST** /tenants/{tenantId}/organizations | Creates an Organization.
 *OrganizationsApi* | [**DeleteOrganizationAsync**](docs\OrganizationsApi.md#deleteorganizationasync) | **DELETE** /tenants/{tenantId}/organizations/{organizationIdentifier} | Deletes an Organization.
+*OrganizationsApi* | [**GetEdFiAdminInstancesAsync**](docs\OrganizationsApi.md#getedfiadmininstancesasync) | **GET** /tenants/{tenantId}/organizations/instances | Retrieves the tenant's Ed-Fi Admin instances.
 *OrganizationsApi* | [**GetOrganizationByIdAsync**](docs\OrganizationsApi.md#getorganizationbyidasync) | **GET** /tenants/{tenantId}/organizations/{organizationIdentifier} | Retrieves an Organization by ID.
 *OrganizationsApi* | [**GetOrganizationsAsync**](docs\OrganizationsApi.md#getorganizationsasync) | **GET** /tenants/{tenantId}/organizations | Retrieves a list of Organizations.
+*OrganizationsApi* | [**SyncOrganizationsAsync**](docs\OrganizationsApi.md#syncorganizationsasync) | **POST** /tenants/{tenantId}/organizations/sync | Syncs an Ed-Fi Admin instance's organizations into the Tenant's organizations.
 *OrganizationsApi* | [**UpdateOrganizationAsync**](docs\OrganizationsApi.md#updateorganizationasync) | **PUT** /tenants/{tenantId}/organizations/{organizationIdentifier} | Updates an Organization.
 *SubscriptionsApi* | [**CreateTenantSubscriptionAsync**](docs\SubscriptionsApi.md#createtenantsubscriptionasync) | **POST** /tenants/{tenantId}/subscriptions | Creates a new subscription
 *SubscriptionsApi* | [**GetAllTenantSubscriptionApplications**](docs\SubscriptionsApi.md#getalltenantsubscriptionapplications) | **GET** /tenants/{tenantId}/subscriptions/applications | Retrieves a list of applications available for subscription.
@@ -180,6 +182,16 @@ Class | Method | HTTP request | Description
  - [Model.ApplicationApiApplicationV2PaginatedItemsResponse](docs\ApplicationApiApplicationV2PaginatedItemsResponse.md)
  - [Model.ApplicationApiApplicationV2Role](docs\ApplicationApiApplicationV2Role.md)
  - [Model.EdGraphCommonErrorsCoreProblemDetails](docs\EdGraphCommonErrorsCoreProblemDetails.md)
+ - [Model.EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsCreateLocalUserRequest](docs\EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsCreateLocalUserRequest.md)
+ - [Model.EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsLicensesAssignLicenseBulkRequest](docs\EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsLicensesAssignLicenseBulkRequest.md)
+ - [Model.EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsLicensesAssignLicenseRequest](docs\EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsLicensesAssignLicenseRequest.md)
+ - [Model.EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsLicensesRevokeLicenseBulkRequest](docs\EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsLicensesRevokeLicenseBulkRequest.md)
+ - [Model.EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsLicensesRevokeLicenseRequest](docs\EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsLicensesRevokeLicenseRequest.md)
+ - [Model.EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsSendInvitationRequest](docs\EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsSendInvitationRequest.md)
+ - [Model.EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsTenantIdentityProvider](docs\EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsTenantIdentityProvider.md)
+ - [Model.EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsTenantStatus](docs\EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsTenantStatus.md)
+ - [Model.EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsTenantType](docs\EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsTenantType.md)
+ - [Model.EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsUpdateTenantRequest](docs\EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsUpdateTenantRequest.md)
  - [Model.EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesRole](docs\EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesRole.md)
  - [Model.EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesSubscriptionListResponseDto](docs\EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesSubscriptionListResponseDto.md)
  - [Model.EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesSubscriptionListResponseDtoPaginatedItemsViewModel](docs\EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesSubscriptionListResponseDtoPaginatedItemsViewModel.md)
@@ -218,11 +230,8 @@ Class | Method | HTTP request | Description
  - [Model.IdentityApiInvitationV1InvitationResponse](docs\IdentityApiInvitationV1InvitationResponse.md)
  - [Model.IdentityApiInvitationV1InvitationSentResponse](docs\IdentityApiInvitationV1InvitationSentResponse.md)
  - [Model.IdentityApiInvitationV1InvitationStatus](docs\IdentityApiInvitationV1InvitationStatus.md)
- - [Model.IdentityApiInvitationV1SendInvitationRequest](docs\IdentityApiInvitationV1SendInvitationRequest.md)
  - [Model.IdentityApiUserV1ActivateUserRequest](docs\IdentityApiUserV1ActivateUserRequest.md)
- - [Model.IdentityApiUserV1AssignLicenseBulkRequest](docs\IdentityApiUserV1AssignLicenseBulkRequest.md)
  - [Model.IdentityApiUserV1AssignLicenseRequest](docs\IdentityApiUserV1AssignLicenseRequest.md)
- - [Model.IdentityApiUserV1CreateLocalUserRequest](docs\IdentityApiUserV1CreateLocalUserRequest.md)
  - [Model.IdentityApiUserV1DeactivateUserRequest](docs\IdentityApiUserV1DeactivateUserRequest.md)
  - [Model.IdentityApiUserV1LicenseAssignedBulkResponse](docs\IdentityApiUserV1LicenseAssignedBulkResponse.md)
  - [Model.IdentityApiUserV1LicenseAssignedResponse](docs\IdentityApiUserV1LicenseAssignedResponse.md)
@@ -231,7 +240,6 @@ Class | Method | HTTP request | Description
  - [Model.IdentityApiUserV1LocalUserCreatedResponse](docs\IdentityApiUserV1LocalUserCreatedResponse.md)
  - [Model.IdentityApiUserV1PasswordResettedResponse](docs\IdentityApiUserV1PasswordResettedResponse.md)
  - [Model.IdentityApiUserV1ResetPasswordRequest](docs\IdentityApiUserV1ResetPasswordRequest.md)
- - [Model.IdentityApiUserV1RevokeLicenseBulkRequest](docs\IdentityApiUserV1RevokeLicenseBulkRequest.md)
  - [Model.IdentityApiUserV1RevokeLicenseRequest](docs\IdentityApiUserV1RevokeLicenseRequest.md)
  - [Model.IdentityApiUserV1UpdateUserRequest](docs\IdentityApiUserV1UpdateUserRequest.md)
  - [Model.IdentityApiUserV1UserActivatedResponse](docs\IdentityApiUserV1UserActivatedResponse.md)
@@ -241,8 +249,14 @@ Class | Method | HTTP request | Description
  - [Model.TenantApiTenantV1CreateOnboardingStepRequest](docs\TenantApiTenantV1CreateOnboardingStepRequest.md)
  - [Model.TenantApiTenantV1CreateOrganizationRequest](docs\TenantApiTenantV1CreateOrganizationRequest.md)
  - [Model.TenantApiTenantV1CreateSubscriptionRequest](docs\TenantApiTenantV1CreateSubscriptionRequest.md)
+ - [Model.TenantApiTenantV1EdFiAdminInstance](docs\TenantApiTenantV1EdFiAdminInstance.md)
  - [Model.TenantApiTenantV1GetAppSettingsResponse](docs\TenantApiTenantV1GetAppSettingsResponse.md)
+ - [Model.TenantApiTenantV1GetEdFiAdminInstancesResponse](docs\TenantApiTenantV1GetEdFiAdminInstancesResponse.md)
  - [Model.TenantApiTenantV1GetOrganizationsResponse](docs\TenantApiTenantV1GetOrganizationsResponse.md)
+ - [Model.TenantApiTenantV1InstanceDatabase](docs\TenantApiTenantV1InstanceDatabase.md)
+ - [Model.TenantApiTenantV1InstanceDatabaseJobs](docs\TenantApiTenantV1InstanceDatabaseJobs.md)
+ - [Model.TenantApiTenantV1InstanceDatabases](docs\TenantApiTenantV1InstanceDatabases.md)
+ - [Model.TenantApiTenantV1InstanceOdsDatabase](docs\TenantApiTenantV1InstanceOdsDatabase.md)
  - [Model.TenantApiTenantV1LicenseType](docs\TenantApiTenantV1LicenseType.md)
  - [Model.TenantApiTenantV1Onboarding](docs\TenantApiTenantV1Onboarding.md)
  - [Model.TenantApiTenantV1OnboardingStep](docs\TenantApiTenantV1OnboardingStep.md)
@@ -250,12 +264,14 @@ Class | Method | HTTP request | Description
  - [Model.TenantApiTenantV1OrganizationCreatedResponse](docs\TenantApiTenantV1OrganizationCreatedResponse.md)
  - [Model.TenantApiTenantV1OrganizationDeletedResponse](docs\TenantApiTenantV1OrganizationDeletedResponse.md)
  - [Model.TenantApiTenantV1OrganizationUpdatedResponse](docs\TenantApiTenantV1OrganizationUpdatedResponse.md)
+ - [Model.TenantApiTenantV1OrganizationsSyncedResponse](docs\TenantApiTenantV1OrganizationsSyncedResponse.md)
  - [Model.TenantApiTenantV1SetAppSettingsRequest](docs\TenantApiTenantV1SetAppSettingsRequest.md)
  - [Model.TenantApiTenantV1SetAppSettingsResponse](docs\TenantApiTenantV1SetAppSettingsResponse.md)
  - [Model.TenantApiTenantV1SubscriptionCreatedResponse](docs\TenantApiTenantV1SubscriptionCreatedResponse.md)
  - [Model.TenantApiTenantV1SubscriptionProfileResponse](docs\TenantApiTenantV1SubscriptionProfileResponse.md)
  - [Model.TenantApiTenantV1SubscriptionStatus](docs\TenantApiTenantV1SubscriptionStatus.md)
  - [Model.TenantApiTenantV1SubscriptionUpdatedResponse](docs\TenantApiTenantV1SubscriptionUpdatedResponse.md)
+ - [Model.TenantApiTenantV1SyncOrganizationsRequest](docs\TenantApiTenantV1SyncOrganizationsRequest.md)
  - [Model.TenantApiTenantV1TenantAppSettings](docs\TenantApiTenantV1TenantAppSettings.md)
  - [Model.TenantApiTenantV1TenantIdentityProviders](docs\TenantApiTenantV1TenantIdentityProviders.md)
  - [Model.TenantApiTenantV1TenantProfileResponse](docs\TenantApiTenantV1TenantProfileResponse.md)
@@ -265,7 +281,6 @@ Class | Method | HTTP request | Description
  - [Model.TenantApiTenantV1UpdateOnboardingStepRequest](docs\TenantApiTenantV1UpdateOnboardingStepRequest.md)
  - [Model.TenantApiTenantV1UpdateOrganizationRequest](docs\TenantApiTenantV1UpdateOrganizationRequest.md)
  - [Model.TenantApiTenantV1UpdateSubscriptionRequest](docs\TenantApiTenantV1UpdateSubscriptionRequest.md)
- - [Model.TenantApiTenantV1UpdateTenantRequest](docs\TenantApiTenantV1UpdateTenantRequest.md)
  - [Model.TenantApiWebhookV1CreateWebhookRequest](docs\TenantApiWebhookV1CreateWebhookRequest.md)
  - [Model.TenantApiWebhookV1PaginatedItemsResponse](docs\TenantApiWebhookV1PaginatedItemsResponse.md)
  - [Model.TenantApiWebhookV1UpdateWebhookRequest](docs\TenantApiWebhookV1UpdateWebhookRequest.md)

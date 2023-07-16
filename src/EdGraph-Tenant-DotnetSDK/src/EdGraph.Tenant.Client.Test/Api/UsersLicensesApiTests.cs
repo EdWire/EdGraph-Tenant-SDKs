@@ -81,8 +81,8 @@ namespace EdGraph.Tenant.Client.Test.Api
             //string userId = null;
             //string? apiVersion = null;
             //string? xVersion = null;
-            //IdentityApiUserV1AssignLicenseBulkRequest? identityApiUserV1AssignLicenseBulkRequest = null;
-            //var response = instance.AssignLicenseTenantUserBulkAsync(tenantId, userId, apiVersion, xVersion, identityApiUserV1AssignLicenseBulkRequest);
+            //EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsLicensesAssignLicenseBulkRequest? edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsLicensesAssignLicenseBulkRequest = null;
+            //var response = instance.AssignLicenseTenantUserBulkAsync(tenantId, userId, apiVersion, xVersion, edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsLicensesAssignLicenseBulkRequest);
             //Assert.IsType<IdentityApiUserV1LicenseAssignedBulkResponse>(response);
         }
 
@@ -132,8 +132,8 @@ namespace EdGraph.Tenant.Client.Test.Api
             //string userId = null;
             //string? apiVersion = null;
             //string? xVersion = null;
-            //IdentityApiUserV1RevokeLicenseBulkRequest? identityApiUserV1RevokeLicenseBulkRequest = null;
-            //var response = instance.RevokeLicenseTenantUserBulkAsync(tenantId, userId, apiVersion, xVersion, identityApiUserV1RevokeLicenseBulkRequest);
+            //EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsLicensesRevokeLicenseBulkRequest? edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsLicensesRevokeLicenseBulkRequest = null;
+            //var response = instance.RevokeLicenseTenantUserBulkAsync(tenantId, userId, apiVersion, xVersion, edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsLicensesRevokeLicenseBulkRequest);
             //Assert.IsType<IdentityApiUserV1LicenseRevokedBulkResponse>(response);
         }
     }

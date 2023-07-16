@@ -160,6 +160,14 @@ namespace EdGraph.Tenant.Client.Test.Model
             // TODO unit test for the property 'MaxLength'
         }
         /// <summary>
+        /// Test the property 'Options'
+        /// </summary>
+        [Fact]
+        public void OptionsTest()
+        {
+            // TODO unit test for the property 'Options'
+        }
+        /// <summary>
         /// Test the property 'CreatedBy'
         /// </summary>
         [Fact]
