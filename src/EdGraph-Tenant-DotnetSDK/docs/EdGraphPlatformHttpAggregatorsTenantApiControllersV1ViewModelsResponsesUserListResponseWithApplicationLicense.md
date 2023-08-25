@@ -16,6 +16,7 @@ Name | Type | Description | Notes
 **CreatedDateTime** | **string** |  | [optional] 
 **LastModifiedBy** | **string** |  | [optional] 
 **LastModifiedDateTime** | **string** |  | [optional] 
+**Logins** | [**List&lt;EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesUserLogin&gt;**](EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesUserLogin.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

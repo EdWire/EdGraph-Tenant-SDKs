@@ -12,7 +12,6 @@ Name | Type | Description | Notes
 **IsDemo** | **bool** |  | [optional] 
 **EnforceMfa** | **bool** |  | [optional] 
 **TenantStatus** | **EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsTenantStatus** |  | [optional] 
-**Domains** | **List&lt;string&gt;** |  | [optional] 
 **IdentityProviders** | [**List&lt;EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsTenantIdentityProvider&gt;**](EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsTenantIdentityProvider.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

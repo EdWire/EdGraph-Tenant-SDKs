@@ -149,6 +149,21 @@ namespace EdGraph.Tenant.Client.Test.Api
         }
 
         /// <summary>
+        /// Test GetUserTenantStatusProfile
+        /// </summary>
+        [Fact]
+        public void GetUserTenantStatusProfileTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //Guid tenantId = null;
+            //string email = null;
+            //string? apiVersion = null;
+            //string? xVersion = null;
+            //var response = instance.GetUserTenantStatusProfile(tenantId, email, apiVersion, xVersion);
+            //Assert.IsType<IdentityApiUserV1UserTenantStatusProfile>(response);
+        }
+
+        /// <summary>
         /// Test ResetPasswordTenantUserAsync
         /// </summary>
         [Fact]
@@ -171,8 +186,8 @@ namespace EdGraph.Tenant.Client.Test.Api
         public void UpdateTenantUserAsyncTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //string tenantId = null;
-            //string userId = null;
+            //Guid tenantId = null;
+            //Guid userId = null;
             //string? apiVersion = null;
             //string? xVersion = null;
             //IdentityApiUserV1UpdateUserRequest? identityApiUserV1UpdateUserRequest = null;

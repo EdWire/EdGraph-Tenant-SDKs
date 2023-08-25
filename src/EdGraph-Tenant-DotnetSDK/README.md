@@ -131,6 +131,12 @@ Class | Method | HTTP request | Description
 *ApplicationsSettingsApi* | [**GetClientSettingsTypesAsync**](docs\ApplicationsSettingsApi.md#getclientsettingstypesasync) | **GET** /tenants/{tenantId}/clients/{clientId}/settingstypes | Retrieves a list of ClientSettingsTypes.
 *ApplicationsSettingsApi* | [**SetClientSettingsAsync**](docs\ApplicationsSettingsApi.md#setclientsettingsasync) | **POST** /tenants/{tenantId}/clients/{clientId}/settings | Creates/updates a Tenant's ClientSettings.
 *ApplicationsTilesApi* | [**GetTenantApplicationTilesAsync**](docs\ApplicationsTilesApi.md#gettenantapplicationtilesasync) | **GET** /tenants/{tenantId}/applicationtiles | Retrieves a list of applications licensed to the user that is currently logged in the context of this tenant
+*DomainsApi* | [**CreateTenantDomainAsync**](docs\DomainsApi.md#createtenantdomainasync) | **POST** /tenants/{tenantId}/domains | Creates a new domain
+*DomainsApi* | [**DeleteTenantDomainAsync**](docs\DomainsApi.md#deletetenantdomainasync) | **DELETE** /tenants/{tenantId}/domains/{domainName} | Deletes a user
+*DomainsApi* | [**GetAllTenantDomainsAsync**](docs\DomainsApi.md#getalltenantdomainsasync) | **GET** /tenants/{tenantId}/domains | Retrieves a list of domains associated to this tenant
+*DomainsApi* | [**GetTenantDomainProfileByNameAsync**](docs\DomainsApi.md#gettenantdomainprofilebynameasync) | **GET** /tenants/{tenantId}/domains/{domainName} | Retrieves a domain
+*DomainsApi* | [**UpdateTenantDomainAsync**](docs\DomainsApi.md#updatetenantdomainasync) | **PUT** /tenants/{tenantId}/domains/{domainName} | Updates a domain
+*DomainsApi* | [**VerifyTenantDomainAsync**](docs\DomainsApi.md#verifytenantdomainasync) | **PUT** /tenants/{tenantId}/domains/{domainName}/verify | Verify a  tenant's domain
 *InvitationsApi* | [**DeleteTenantInvitationAsync**](docs\InvitationsApi.md#deletetenantinvitationasync) | **DELETE** /tenants/{tenantId}/invitations/{invitationId} | Deletes an invitation
 *InvitationsApi* | [**GetAllTenantInvitationsAsync**](docs\InvitationsApi.md#getalltenantinvitationsasync) | **GET** /tenants/{tenantId}/invitations | Retrieves a list of invitations associated to this tenant
 *InvitationsApi* | [**GetTenantInvitationByIdAsync**](docs\InvitationsApi.md#gettenantinvitationbyidasync) | **GET** /tenants/{tenantId}/invitations/{invitationId} | Retrieves a specific invitation
@@ -157,6 +163,7 @@ Class | Method | HTTP request | Description
 *UsersApi* | [**DeleteTenantUserAsync**](docs\UsersApi.md#deletetenantuserasync) | **DELETE** /tenants/{tenantId}/users/{userId} | Deletes a user
 *UsersApi* | [**GetAllTenantUsersAsync**](docs\UsersApi.md#getalltenantusersasync) | **GET** /tenants/{tenantId}/users | Retrieves a list of users associated to this tenant
 *UsersApi* | [**GetTenantUserProfileByIdAsync**](docs\UsersApi.md#gettenantuserprofilebyidasync) | **GET** /tenants/{tenantId}/users/{userId} | Retrieves a user
+*UsersApi* | [**GetUserTenantStatusProfile**](docs\UsersApi.md#getusertenantstatusprofile) | **GET** /tenants/{tenantId}/users/{email}/status | Searches a user by email and retrieves it's minimal information and status.
 *UsersApi* | [**ResetPasswordTenantUserAsync**](docs\UsersApi.md#resetpasswordtenantuserasync) | **PUT** /tenants/{tenantId}/users/{userId}/resetpassword | Resets a user's password
 *UsersApi* | [**UpdateTenantUserAsync**](docs\UsersApi.md#updatetenantuserasync) | **PUT** /tenants/{tenantId}/users/{userId} | Creates or updates a user
 *UsersLicensesApi* | [**AssignLicenseTenantUserAsync**](docs\UsersLicensesApi.md#assignlicensetenantuserasync) | **PUT** /tenants/{tenantId}/users/{userId}/licenses/assign | Assigns a license to a user in the context of a specific tenant
@@ -178,6 +185,7 @@ Class | Method | HTTP request | Description
  - [Model.ApplicationApiApplicationV2ApplicationListResponse](docs\ApplicationApiApplicationV2ApplicationListResponse.md)
  - [Model.ApplicationApiApplicationV2ApplicationProfileResponse](docs\ApplicationApiApplicationV2ApplicationProfileResponse.md)
  - [Model.ApplicationApiApplicationV2ApplicationStatus](docs\ApplicationApiApplicationV2ApplicationStatus.md)
+ - [Model.ApplicationApiApplicationV2ApplicationSubscriptionType](docs\ApplicationApiApplicationV2ApplicationSubscriptionType.md)
  - [Model.ApplicationApiApplicationV2ApplicationType](docs\ApplicationApiApplicationV2ApplicationType.md)
  - [Model.ApplicationApiApplicationV2PaginatedItemsResponse](docs\ApplicationApiApplicationV2PaginatedItemsResponse.md)
  - [Model.ApplicationApiApplicationV2Role](docs\ApplicationApiApplicationV2Role.md)
@@ -192,6 +200,8 @@ Class | Method | HTTP request | Description
  - [Model.EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsTenantStatus](docs\EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsTenantStatus.md)
  - [Model.EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsTenantType](docs\EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsTenantType.md)
  - [Model.EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsUpdateTenantRequest](docs\EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsUpdateTenantRequest.md)
+ - [Model.EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesDomainListResponseDto](docs\EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesDomainListResponseDto.md)
+ - [Model.EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesDomainListResponseDtoPaginatedItemsViewModel](docs\EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesDomainListResponseDtoPaginatedItemsViewModel.md)
  - [Model.EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesRole](docs\EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesRole.md)
  - [Model.EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesSubscriptionListResponseDto](docs\EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesSubscriptionListResponseDto.md)
  - [Model.EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesSubscriptionListResponseDtoPaginatedItemsViewModel](docs\EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesSubscriptionListResponseDtoPaginatedItemsViewModel.md)
@@ -204,6 +214,7 @@ Class | Method | HTTP request | Description
  - [Model.EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesUserLicensePaginatedItemsViewModel](docs\EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesUserLicensePaginatedItemsViewModel.md)
  - [Model.EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesUserListResponseWithApplicationLicense](docs\EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesUserListResponseWithApplicationLicense.md)
  - [Model.EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesUserListResponseWithApplicationLicensePaginatedItemsViewModel](docs\EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesUserListResponseWithApplicationLicensePaginatedItemsViewModel.md)
+ - [Model.EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesUserLogin](docs\EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesUserLogin.md)
  - [Model.EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesUserProfilePreference](docs\EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesUserProfilePreference.md)
  - [Model.EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesUserProfileResponseWithApplicationLicense](docs\EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesUserProfileResponseWithApplicationLicense.md)
  - [Model.EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesUserTenant](docs\EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesUserTenant.md)
@@ -231,7 +242,6 @@ Class | Method | HTTP request | Description
  - [Model.IdentityApiInvitationV1InvitationSentResponse](docs\IdentityApiInvitationV1InvitationSentResponse.md)
  - [Model.IdentityApiInvitationV1InvitationStatus](docs\IdentityApiInvitationV1InvitationStatus.md)
  - [Model.IdentityApiUserV1ActivateUserRequest](docs\IdentityApiUserV1ActivateUserRequest.md)
- - [Model.IdentityApiUserV1AssignLicenseRequest](docs\IdentityApiUserV1AssignLicenseRequest.md)
  - [Model.IdentityApiUserV1DeactivateUserRequest](docs\IdentityApiUserV1DeactivateUserRequest.md)
  - [Model.IdentityApiUserV1LicenseAssignedBulkResponse](docs\IdentityApiUserV1LicenseAssignedBulkResponse.md)
  - [Model.IdentityApiUserV1LicenseAssignedResponse](docs\IdentityApiUserV1LicenseAssignedResponse.md)
@@ -244,11 +254,18 @@ Class | Method | HTTP request | Description
  - [Model.IdentityApiUserV1UpdateUserRequest](docs\IdentityApiUserV1UpdateUserRequest.md)
  - [Model.IdentityApiUserV1UserActivatedResponse](docs\IdentityApiUserV1UserActivatedResponse.md)
  - [Model.IdentityApiUserV1UserDeactivatedResponse](docs\IdentityApiUserV1UserDeactivatedResponse.md)
+ - [Model.IdentityApiUserV1UserTenantStatusProfile](docs\IdentityApiUserV1UserTenantStatusProfile.md)
  - [Model.IdentityApiUserV1UserUpdatedResponse](docs\IdentityApiUserV1UserUpdatedResponse.md)
  - [Model.MicrosoftAspNetCoreMvcValidationProblemDetails](docs\MicrosoftAspNetCoreMvcValidationProblemDetails.md)
+ - [Model.TenantApiTenantV1CreateDomainRequest](docs\TenantApiTenantV1CreateDomainRequest.md)
  - [Model.TenantApiTenantV1CreateOnboardingStepRequest](docs\TenantApiTenantV1CreateOnboardingStepRequest.md)
  - [Model.TenantApiTenantV1CreateOrganizationRequest](docs\TenantApiTenantV1CreateOrganizationRequest.md)
  - [Model.TenantApiTenantV1CreateSubscriptionRequest](docs\TenantApiTenantV1CreateSubscriptionRequest.md)
+ - [Model.TenantApiTenantV1DomainCreatedResponse](docs\TenantApiTenantV1DomainCreatedResponse.md)
+ - [Model.TenantApiTenantV1DomainProfileResponse](docs\TenantApiTenantV1DomainProfileResponse.md)
+ - [Model.TenantApiTenantV1DomainStatus](docs\TenantApiTenantV1DomainStatus.md)
+ - [Model.TenantApiTenantV1DomainUpdatedResponse](docs\TenantApiTenantV1DomainUpdatedResponse.md)
+ - [Model.TenantApiTenantV1DomainVerifiedResponse](docs\TenantApiTenantV1DomainVerifiedResponse.md)
  - [Model.TenantApiTenantV1EdFiAdminInstance](docs\TenantApiTenantV1EdFiAdminInstance.md)
  - [Model.TenantApiTenantV1GetAppSettingsResponse](docs\TenantApiTenantV1GetAppSettingsResponse.md)
  - [Model.TenantApiTenantV1GetEdFiAdminInstancesResponse](docs\TenantApiTenantV1GetEdFiAdminInstancesResponse.md)
@@ -278,9 +295,11 @@ Class | Method | HTTP request | Description
  - [Model.TenantApiTenantV1TenantStatus](docs\TenantApiTenantV1TenantStatus.md)
  - [Model.TenantApiTenantV1TenantType](docs\TenantApiTenantV1TenantType.md)
  - [Model.TenantApiTenantV1TenantUpdatedResponse](docs\TenantApiTenantV1TenantUpdatedResponse.md)
+ - [Model.TenantApiTenantV1UpdateDomainRequest](docs\TenantApiTenantV1UpdateDomainRequest.md)
  - [Model.TenantApiTenantV1UpdateOnboardingStepRequest](docs\TenantApiTenantV1UpdateOnboardingStepRequest.md)
  - [Model.TenantApiTenantV1UpdateOrganizationRequest](docs\TenantApiTenantV1UpdateOrganizationRequest.md)
  - [Model.TenantApiTenantV1UpdateSubscriptionRequest](docs\TenantApiTenantV1UpdateSubscriptionRequest.md)
+ - [Model.TenantApiTenantV1VerifyDomainRequest](docs\TenantApiTenantV1VerifyDomainRequest.md)
  - [Model.TenantApiWebhookV1CreateWebhookRequest](docs\TenantApiWebhookV1CreateWebhookRequest.md)
  - [Model.TenantApiWebhookV1PaginatedItemsResponse](docs\TenantApiWebhookV1PaginatedItemsResponse.md)
  - [Model.TenantApiWebhookV1UpdateWebhookRequest](docs\TenantApiWebhookV1UpdateWebhookRequest.md)

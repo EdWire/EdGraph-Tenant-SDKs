@@ -36,22 +36,12 @@ namespace EdGraph.Tenant.Client.Model
         /// </summary>
         /// <param name="tenantId">tenantId.</param>
         /// <param name="userId">userId.</param>
-        /// <param name="email">email.</param>
-        /// <param name="firstName">firstName.</param>
-        /// <param name="lastName">lastName.</param>
         /// <param name="role">role.</param>
-        /// <param name="phoneNumber">phoneNumber.</param>
-        /// <param name="lockoutEnabled">lockoutEnabled.</param>
-        public IdentityApiUserV1UpdateUserRequest(string tenantId = default(string), string userId = default(string), string email = default(string), string firstName = default(string), string lastName = default(string), string role = default(string), string phoneNumber = default(string), bool lockoutEnabled = default(bool))
+        public IdentityApiUserV1UpdateUserRequest(string tenantId = default(string), string userId = default(string), string role = default(string))
         {
             this.TenantId = tenantId;
             this.UserId = userId;
-            this.Email = email;
-            this.FirstName = firstName;
-            this.LastName = lastName;
             this.Role = role;
-            this.PhoneNumber = phoneNumber;
-            this.LockoutEnabled = lockoutEnabled;
         }
 
         /// <summary>
@@ -67,40 +57,10 @@ namespace EdGraph.Tenant.Client.Model
         public string UserId { get; set; }
 
         /// <summary>
-        /// Gets or Sets Email
-        /// </summary>
-        [DataMember(Name = "email", EmitDefaultValue = true)]
-        public string Email { get; set; }
-
-        /// <summary>
-        /// Gets or Sets FirstName
-        /// </summary>
-        [DataMember(Name = "firstName", EmitDefaultValue = true)]
-        public string FirstName { get; set; }
-
-        /// <summary>
-        /// Gets or Sets LastName
-        /// </summary>
-        [DataMember(Name = "lastName", EmitDefaultValue = true)]
-        public string LastName { get; set; }
-
-        /// <summary>
         /// Gets or Sets Role
         /// </summary>
         [DataMember(Name = "role", EmitDefaultValue = true)]
         public string Role { get; set; }
-
-        /// <summary>
-        /// Gets or Sets PhoneNumber
-        /// </summary>
-        [DataMember(Name = "phoneNumber", EmitDefaultValue = true)]
-        public string PhoneNumber { get; set; }
-
-        /// <summary>
-        /// Gets or Sets LockoutEnabled
-        /// </summary>
-        [DataMember(Name = "lockoutEnabled", EmitDefaultValue = true)]
-        public bool LockoutEnabled { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -112,12 +72,7 @@ namespace EdGraph.Tenant.Client.Model
             sb.Append("class IdentityApiUserV1UpdateUserRequest {\n");
             sb.Append("  TenantId: ").Append(TenantId).Append("\n");
             sb.Append("  UserId: ").Append(UserId).Append("\n");
-            sb.Append("  Email: ").Append(Email).Append("\n");
-            sb.Append("  FirstName: ").Append(FirstName).Append("\n");
-            sb.Append("  LastName: ").Append(LastName).Append("\n");
             sb.Append("  Role: ").Append(Role).Append("\n");
-            sb.Append("  PhoneNumber: ").Append(PhoneNumber).Append("\n");
-            sb.Append("  LockoutEnabled: ").Append(LockoutEnabled).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -164,33 +119,9 @@ namespace EdGraph.Tenant.Client.Model
                     this.UserId.Equals(input.UserId))
                 ) && 
                 (
-                    this.Email == input.Email ||
-                    (this.Email != null &&
-                    this.Email.Equals(input.Email))
-                ) && 
-                (
-                    this.FirstName == input.FirstName ||
-                    (this.FirstName != null &&
-                    this.FirstName.Equals(input.FirstName))
-                ) && 
-                (
-                    this.LastName == input.LastName ||
-                    (this.LastName != null &&
-                    this.LastName.Equals(input.LastName))
-                ) && 
-                (
                     this.Role == input.Role ||
                     (this.Role != null &&
                     this.Role.Equals(input.Role))
-                ) && 
-                (
-                    this.PhoneNumber == input.PhoneNumber ||
-                    (this.PhoneNumber != null &&
-                    this.PhoneNumber.Equals(input.PhoneNumber))
-                ) && 
-                (
-                    this.LockoutEnabled == input.LockoutEnabled ||
-                    this.LockoutEnabled.Equals(input.LockoutEnabled)
                 );
         }
 
@@ -211,27 +142,10 @@ namespace EdGraph.Tenant.Client.Model
                 {
                     hashCode = (hashCode * 59) + this.UserId.GetHashCode();
                 }
-                if (this.Email != null)
-                {
-                    hashCode = (hashCode * 59) + this.Email.GetHashCode();
-                }
-                if (this.FirstName != null)
-                {
-                    hashCode = (hashCode * 59) + this.FirstName.GetHashCode();
-                }
-                if (this.LastName != null)
-                {
-                    hashCode = (hashCode * 59) + this.LastName.GetHashCode();
-                }
                 if (this.Role != null)
                 {
                     hashCode = (hashCode * 59) + this.Role.GetHashCode();
                 }
-                if (this.PhoneNumber != null)
-                {
-                    hashCode = (hashCode * 59) + this.PhoneNumber.GetHashCode();
-                }
-                hashCode = (hashCode * 59) + this.LockoutEnabled.GetHashCode();
                 return hashCode;
             }
         }

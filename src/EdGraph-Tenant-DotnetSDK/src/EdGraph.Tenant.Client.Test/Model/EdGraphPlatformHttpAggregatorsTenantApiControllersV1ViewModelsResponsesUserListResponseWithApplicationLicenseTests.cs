@@ -151,6 +151,14 @@ namespace EdGraph.Tenant.Client.Test.Model
         {
             // TODO unit test for the property 'LastModifiedDateTime'
         }
+        /// <summary>
+        /// Test the property 'Logins'
+        /// </summary>
+        [Fact]
+        public void LoginsTest()
+        {
+            // TODO unit test for the property 'Logins'
+        }
 
     }
 

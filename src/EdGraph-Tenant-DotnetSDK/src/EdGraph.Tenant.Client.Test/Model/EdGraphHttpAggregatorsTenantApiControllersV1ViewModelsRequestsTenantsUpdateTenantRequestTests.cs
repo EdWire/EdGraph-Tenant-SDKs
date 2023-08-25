@@ -120,14 +120,6 @@ namespace EdGraph.Tenant.Client.Test.Model
             // TODO unit test for the property 'TenantStatus'
         }
         /// <summary>
-        /// Test the property 'Domains'
-        /// </summary>
-        [Fact]
-        public void DomainsTest()
-        {
-            // TODO unit test for the property 'Domains'
-        }
-        /// <summary>
         /// Test the property 'IdentityProviders'
         /// </summary>
         [Fact]

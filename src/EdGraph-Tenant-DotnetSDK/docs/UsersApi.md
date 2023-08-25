@@ -10,6 +10,7 @@ All URIs are relative to *https://api.edgraph.dev/tenant*
 | [**DeleteTenantUserAsync**](UsersApi.md#deletetenantuserasync) | **DELETE** /tenants/{tenantId}/users/{userId} | Deletes a user |
 | [**GetAllTenantUsersAsync**](UsersApi.md#getalltenantusersasync) | **GET** /tenants/{tenantId}/users | Retrieves a list of users associated to this tenant |
 | [**GetTenantUserProfileByIdAsync**](UsersApi.md#gettenantuserprofilebyidasync) | **GET** /tenants/{tenantId}/users/{userId} | Retrieves a user |
+| [**GetUserTenantStatusProfile**](UsersApi.md#getusertenantstatusprofile) | **GET** /tenants/{tenantId}/users/{email}/status | Searches a user by email and retrieves it&#39;s minimal information and status. |
 | [**ResetPasswordTenantUserAsync**](UsersApi.md#resetpasswordtenantuserasync) | **PUT** /tenants/{tenantId}/users/{userId}/resetpassword | Resets a user&#39;s password |
 | [**UpdateTenantUserAsync**](UsersApi.md#updatetenantuserasync) | **PUT** /tenants/{tenantId}/users/{userId} | Creates or updates a user |
 
@@ -634,6 +635,109 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+<a id="getusertenantstatusprofile"></a>
+# **GetUserTenantStatusProfile**
+> IdentityApiUserV1UserTenantStatusProfile GetUserTenantStatusProfile (Guid tenantId, string email, string? apiVersion = null, string? xVersion = null)
+
+Searches a user by email and retrieves it's minimal information and status.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using EdGraph.Tenant.Client.Api;
+using EdGraph.Tenant.Client.Client;
+using EdGraph.Tenant.Client.Model;
+
+namespace Example
+{
+    public class GetUserTenantStatusProfileExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.edgraph.dev/tenant";
+            // Configure OAuth2 access token for authorization: oauth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+
+            var apiInstance = new UsersApi(config);
+            var tenantId = "tenantId_example";  // Guid | 
+            var email = "email_example";  // string | 
+            var apiVersion = "apiVersion_example";  // string? |  (optional) 
+            var xVersion = "xVersion_example";  // string? |  (optional) 
+
+            try
+            {
+                // Searches a user by email and retrieves it's minimal information and status.
+                IdentityApiUserV1UserTenantStatusProfile result = apiInstance.GetUserTenantStatusProfile(tenantId, email, apiVersion, xVersion);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling UsersApi.GetUserTenantStatusProfile: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the GetUserTenantStatusProfileWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Searches a user by email and retrieves it's minimal information and status.
+    ApiResponse<IdentityApiUserV1UserTenantStatusProfile> response = apiInstance.GetUserTenantStatusProfileWithHttpInfo(tenantId, email, apiVersion, xVersion);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling UsersApi.GetUserTenantStatusProfileWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **tenantId** | **Guid** |  |  |
+| **email** | **string** |  |  |
+| **apiVersion** | **string?** |  | [optional]  |
+| **xVersion** | **string?** |  | [optional]  |
+
+### Return type
+
+[**IdentityApiUserV1UserTenantStatusProfile**](IdentityApiUserV1UserTenantStatusProfile.md)
+
+### Authorization
+
+[oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **401** | Unauthorized. The request requires authentication. The OAuth bearer token was either not provided or is invalid. The operation may succeed once authentication has been successfully completed. |  -  |
+| **403** | Forbidden. The request cannot be completed in the current authorization context. Contact your administrator if you believe this operation should be allowed. |  -  |
+| **500** | An unhandled error occurred on the server.See the response body for details. |  -  |
+| **200** | The requested resource was successfully retrieved. |  -  |
+| **400** | Bad Request. The request was invalid and cannot be completed. See the response body for specific validation errors. This will typically be an issue with the query parameters or the request body values. |  -  |
+| **404** | The resource could not be found. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a id="resetpasswordtenantuserasync"></a>
 # **ResetPasswordTenantUserAsync**
 > IdentityApiUserV1PasswordResettedResponse ResetPasswordTenantUserAsync (string tenantId, string userId, string? apiVersion = null, string? xVersion = null, IdentityApiUserV1ResetPasswordRequest? identityApiUserV1ResetPasswordRequest = null)
@@ -742,7 +846,7 @@ catch (ApiException e)
 
 <a id="updatetenantuserasync"></a>
 # **UpdateTenantUserAsync**
-> IdentityApiUserV1UserUpdatedResponse UpdateTenantUserAsync (string tenantId, string userId, string? apiVersion = null, string? xVersion = null, IdentityApiUserV1UpdateUserRequest? identityApiUserV1UpdateUserRequest = null)
+> IdentityApiUserV1UserUpdatedResponse UpdateTenantUserAsync (Guid tenantId, Guid userId, string? apiVersion = null, string? xVersion = null, IdentityApiUserV1UpdateUserRequest? identityApiUserV1UpdateUserRequest = null)
 
 Creates or updates a user
 
@@ -766,8 +870,8 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new UsersApi(config);
-            var tenantId = "tenantId_example";  // string | 
-            var userId = "userId_example";  // string | 
+            var tenantId = "tenantId_example";  // Guid | 
+            var userId = "userId_example";  // Guid | 
             var apiVersion = "apiVersion_example";  // string? |  (optional) 
             var xVersion = "xVersion_example";  // string? |  (optional) 
             var identityApiUserV1UpdateUserRequest = new IdentityApiUserV1UpdateUserRequest?(); // IdentityApiUserV1UpdateUserRequest? |  (optional) 
@@ -813,8 +917,8 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **tenantId** | **string** |  |  |
-| **userId** | **string** |  |  |
+| **tenantId** | **Guid** |  |  |
+| **userId** | **Guid** |  |  |
 | **apiVersion** | **string?** |  | [optional]  |
 | **xVersion** | **string?** |  | [optional]  |
 | **identityApiUserV1UpdateUserRequest** | [**IdentityApiUserV1UpdateUserRequest?**](IdentityApiUserV1UpdateUserRequest?.md) |  | [optional]  |

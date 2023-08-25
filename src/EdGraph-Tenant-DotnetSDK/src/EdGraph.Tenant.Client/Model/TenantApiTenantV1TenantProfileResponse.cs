@@ -138,7 +138,7 @@ namespace EdGraph.Tenant.Client.Model
         /// Gets or Sets Domains
         /// </summary>
         [DataMember(Name = "domains", EmitDefaultValue = true)]
-        public List<string> Domains { get; private set; }
+        public List<TenantApiTenantV1DomainProfileResponse> Domains { get; private set; }
 
         /// <summary>
         /// Returns false as Domains should not be serialized given that it's read-only.

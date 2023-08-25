@@ -1102,6 +1102,523 @@ paths:
       summary: Retrieves a list of applications associated to this tenant
       tags:
       - Applications
+  /tenants/{tenantId}/domains/{domainName}/verify:
+    put:
+      operationId: VerifyTenantDomainAsync
+      parameters:
+      - description: ""
+        explode: false
+        in: path
+        name: tenantId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: ""
+        explode: false
+        in: path
+        name: domainName
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: X-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json-patch+json:
+            schema:
+              $ref: '#/components/schemas/TenantApi.Tenant.V1.VerifyDomainRequest'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TenantApi.Tenant.V1.VerifyDomainRequest'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/TenantApi.Tenant.V1.VerifyDomainRequest'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/TenantApi.Tenant.V1.VerifyDomainRequest'
+        description: ""
+      responses:
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EdGraph.Common.Errors.Core.ProblemDetails'
+          description: Unauthorized. The request requires authentication. The OAuth
+            bearer token was either not provided or is invalid. The operation may
+            succeed once authentication has been successfully completed.
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EdGraph.Common.Errors.Core.ProblemDetails'
+          description: Forbidden. The request cannot be completed in the current authorization
+            context. Contact your administrator if you believe this operation should
+            be allowed.
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EdGraph.Common.Errors.Core.ProblemDetails'
+          description: An unhandled error occurred on the server.See the response
+            body for details.
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TenantApi.Tenant.V1.DomainVerifiedResponse'
+          description: The requested resource was successfully retrieved.
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ValidationProblemDetails'
+          description: Bad Request. The request was invalid and cannot be completed.
+            See the response body for specific validation errors. This will typically
+            be an issue with the query parameters or the request body values.
+      summary: Verify a  tenant's domain
+      tags:
+      - Domains
+  /tenants/{tenantId}/domains/{domainName}:
+    delete:
+      operationId: DeleteTenantDomainAsync
+      parameters:
+      - description: ""
+        explode: false
+        in: path
+        name: tenantId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: ""
+        explode: false
+        in: path
+        name: domainName
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: X-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EdGraph.Common.Errors.Core.ProblemDetails'
+          description: Unauthorized. The request requires authentication. The OAuth
+            bearer token was either not provided or is invalid. The operation may
+            succeed once authentication has been successfully completed.
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EdGraph.Common.Errors.Core.ProblemDetails'
+          description: Forbidden. The request cannot be completed in the current authorization
+            context. Contact your administrator if you believe this operation should
+            be allowed.
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EdGraph.Common.Errors.Core.ProblemDetails'
+          description: An unhandled error occurred on the server.See the response
+            body for details.
+        "204":
+          description: The resource was successfully deleted.
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ValidationProblemDetails'
+          description: Bad Request. The request was invalid and cannot be completed.
+            See the response body for specific validation errors. This will typically
+            be an issue with the query parameters or the request body values.
+      summary: Deletes a user
+      tags:
+      - Domains
+    get:
+      operationId: GetTenantDomainProfileByNameAsync
+      parameters:
+      - description: ""
+        explode: false
+        in: path
+        name: tenantId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: ""
+        explode: false
+        in: path
+        name: domainName
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: X-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EdGraph.Common.Errors.Core.ProblemDetails'
+          description: Unauthorized. The request requires authentication. The OAuth
+            bearer token was either not provided or is invalid. The operation may
+            succeed once authentication has been successfully completed.
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EdGraph.Common.Errors.Core.ProblemDetails'
+          description: Forbidden. The request cannot be completed in the current authorization
+            context. Contact your administrator if you believe this operation should
+            be allowed.
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EdGraph.Common.Errors.Core.ProblemDetails'
+          description: An unhandled error occurred on the server.See the response
+            body for details.
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TenantApi.Tenant.V1.DomainProfileResponse'
+          description: The requested resource was successfully retrieved.
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ValidationProblemDetails'
+          description: Bad Request. The request was invalid and cannot be completed.
+            See the response body for specific validation errors. This will typically
+            be an issue with the query parameters or the request body values.
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EdGraph.Common.Errors.Core.ProblemDetails'
+          description: The resource could not be found.
+      summary: Retrieves a domain
+      tags:
+      - Domains
+    put:
+      operationId: UpdateTenantDomainAsync
+      parameters:
+      - description: ""
+        explode: false
+        in: path
+        name: tenantId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: ""
+        explode: false
+        in: path
+        name: domainName
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: X-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json-patch+json:
+            schema:
+              $ref: '#/components/schemas/TenantApi.Tenant.V1.UpdateDomainRequest'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TenantApi.Tenant.V1.UpdateDomainRequest'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/TenantApi.Tenant.V1.UpdateDomainRequest'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/TenantApi.Tenant.V1.UpdateDomainRequest'
+        description: ""
+      responses:
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EdGraph.Common.Errors.Core.ProblemDetails'
+          description: Unauthorized. The request requires authentication. The OAuth
+            bearer token was either not provided or is invalid. The operation may
+            succeed once authentication has been successfully completed.
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EdGraph.Common.Errors.Core.ProblemDetails'
+          description: Forbidden. The request cannot be completed in the current authorization
+            context. Contact your administrator if you believe this operation should
+            be allowed.
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EdGraph.Common.Errors.Core.ProblemDetails'
+          description: An unhandled error occurred on the server.See the response
+            body for details.
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TenantApi.Tenant.V1.DomainUpdatedResponse'
+          description: The requested resource was successfully retrieved.
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ValidationProblemDetails'
+          description: Bad Request. The request was invalid and cannot be completed.
+            See the response body for specific validation errors. This will typically
+            be an issue with the query parameters or the request body values.
+      summary: Updates a domain
+      tags:
+      - Domains
+  /tenants/{tenantId}/domains:
+    get:
+      operationId: GetAllTenantDomainsAsync
+      parameters:
+      - description: ""
+        explode: false
+        in: path
+        name: tenantId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: ""
+        explode: true
+        in: query
+        name: pageSize
+        required: false
+        schema:
+          default: 10
+          format: int32
+          type: integer
+        style: form
+      - description: ""
+        explode: true
+        in: query
+        name: pageIndex
+        required: false
+        schema:
+          default: 0
+          format: int32
+          type: integer
+        style: form
+      - description: ""
+        explode: true
+        in: query
+        name: orderBy
+        required: false
+        schema:
+          default: ""
+          type: string
+        style: form
+      - description: ""
+        explode: true
+        in: query
+        name: filter
+        required: false
+        schema:
+          default: ""
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: X-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EdGraph.Common.Errors.Core.ProblemDetails'
+          description: Unauthorized. The request requires authentication. The OAuth
+            bearer token was either not provided or is invalid. The operation may
+            succeed once authentication has been successfully completed.
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EdGraph.Common.Errors.Core.ProblemDetails'
+          description: Forbidden. The request cannot be completed in the current authorization
+            context. Contact your administrator if you believe this operation should
+            be allowed.
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EdGraph.Common.Errors.Core.ProblemDetails'
+          description: An unhandled error occurred on the server.See the response
+            body for details.
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EdGraph.HttpAggregators.Tenant.Api.Controllers.v1.ViewModels.Responses.DomainListResponseDtoPaginatedItemsViewModel'
+          description: The requested resource was successfully retrieved.
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ValidationProblemDetails'
+          description: Bad Request. The request was invalid and cannot be completed.
+            See the response body for specific validation errors. This will typically
+            be an issue with the query parameters or the request body values.
+      summary: Retrieves a list of domains associated to this tenant
+      tags:
+      - Domains
+    post:
+      operationId: CreateTenantDomainAsync
+      parameters:
+      - description: ""
+        explode: false
+        in: path
+        name: tenantId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: X-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json-patch+json:
+            schema:
+              $ref: '#/components/schemas/TenantApi.Tenant.V1.CreateDomainRequest'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TenantApi.Tenant.V1.CreateDomainRequest'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/TenantApi.Tenant.V1.CreateDomainRequest'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/TenantApi.Tenant.V1.CreateDomainRequest'
+        description: ""
+      responses:
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EdGraph.Common.Errors.Core.ProblemDetails'
+          description: Unauthorized. The request requires authentication. The OAuth
+            bearer token was either not provided or is invalid. The operation may
+            succeed once authentication has been successfully completed.
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EdGraph.Common.Errors.Core.ProblemDetails'
+          description: Forbidden. The request cannot be completed in the current authorization
+            context. Contact your administrator if you believe this operation should
+            be allowed.
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EdGraph.Common.Errors.Core.ProblemDetails'
+          description: An unhandled error occurred on the server.See the response
+            body for details.
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TenantApi.Tenant.V1.DomainCreatedResponse'
+          description: The resource was created. The location of the resource is available
+            in the Location header of the response.
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ValidationProblemDetails'
+          description: Bad Request. The request was invalid and cannot be completed.
+            See the response body for specific validation errors. This will typically
+            be an issue with the query parameters or the request body values.
+      summary: Creates a new domain
+      tags:
+      - Domains
   /tenants/{tenantId}/invitations/{invitationId}:
     delete:
       operationId: DeleteTenantInvitationAsync
@@ -2931,16 +3448,16 @@ paths:
         content:
           application/json-patch+json:
             schema:
-              $ref: '#/components/schemas/IdentityApi.User.V1.AssignLicenseRequest'
+              $ref: '#/components/schemas/EdGraph.HttpAggregators.Tenant.Api.Controllers.v1.ViewModels.Requests.Licenses.AssignLicenseRequest'
           application/json:
             schema:
-              $ref: '#/components/schemas/IdentityApi.User.V1.AssignLicenseRequest'
+              $ref: '#/components/schemas/EdGraph.HttpAggregators.Tenant.Api.Controllers.v1.ViewModels.Requests.Licenses.AssignLicenseRequest'
           text/json:
             schema:
-              $ref: '#/components/schemas/IdentityApi.User.V1.AssignLicenseRequest'
+              $ref: '#/components/schemas/EdGraph.HttpAggregators.Tenant.Api.Controllers.v1.ViewModels.Requests.Licenses.AssignLicenseRequest'
           application/*+json:
             schema:
-              $ref: '#/components/schemas/IdentityApi.User.V1.AssignLicenseRequest'
+              $ref: '#/components/schemas/EdGraph.HttpAggregators.Tenant.Api.Controllers.v1.ViewModels.Requests.Licenses.AssignLicenseRequest'
         description: ""
       responses:
         "401":
@@ -3277,6 +3794,89 @@ paths:
       summary: Retrieves a list of user licenses in the context of a specific tenant
       tags:
       - Users - Licenses
+  /tenants/{tenantId}/users/{email}/status:
+    get:
+      operationId: GetUserTenantStatusProfile
+      parameters:
+      - description: ""
+        explode: false
+        in: path
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - description: ""
+        explode: false
+        in: path
+        name: email
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: X-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EdGraph.Common.Errors.Core.ProblemDetails'
+          description: Unauthorized. The request requires authentication. The OAuth
+            bearer token was either not provided or is invalid. The operation may
+            succeed once authentication has been successfully completed.
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EdGraph.Common.Errors.Core.ProblemDetails'
+          description: Forbidden. The request cannot be completed in the current authorization
+            context. Contact your administrator if you believe this operation should
+            be allowed.
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EdGraph.Common.Errors.Core.ProblemDetails'
+          description: An unhandled error occurred on the server.See the response
+            body for details.
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IdentityApi.User.V1.UserTenantStatusProfile'
+          description: The requested resource was successfully retrieved.
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ValidationProblemDetails'
+          description: Bad Request. The request was invalid and cannot be completed.
+            See the response body for specific validation errors. This will typically
+            be an issue with the query parameters or the request body values.
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EdGraph.Common.Errors.Core.ProblemDetails'
+          description: The resource could not be found.
+      summary: Searches a user by email and retrieves it's minimal information and
+        status.
+      tags:
+      - Users
   /tenants/{tenantId}/users/{userId}/activate:
     put:
       operationId: ActivateTenantUserAsync
@@ -3709,6 +4309,7 @@ paths:
         name: tenantId
         required: true
         schema:
+          format: uuid
           type: string
         style: simple
       - description: ""
@@ -3717,6 +4318,7 @@ paths:
         name: userId
         required: true
         schema:
+          format: uuid
           type: string
         style: simple
       - explode: true
@@ -4486,7 +5088,7 @@ components:
         tags: tags
         applicationStatus: null
         createdBy: createdBy
-        subscriptionType: subscriptionType
+        subscriptionType: null
         tenantId: tenantId
         applicationId: applicationId
         applicationName: applicationName
@@ -4530,8 +5132,7 @@ components:
           nullable: true
           type: string
         subscriptionType:
-          nullable: true
-          type: string
+          $ref: '#/components/schemas/ApplicationApi.Application.V2.ApplicationSubscriptionType'
         documentationUrl:
           nullable: true
           type: string
@@ -4556,7 +5157,7 @@ components:
         applicationStatus: null
         applicationDescription: applicationDescription
         createdBy: createdBy
-        subscriptionType: subscriptionType
+        subscriptionType: null
         tenantId: tenantId
         applicationUri: applicationUri
         applicationId: applicationId
@@ -4618,14 +5219,19 @@ components:
           nullable: true
           type: string
         subscriptionType:
-          nullable: true
-          type: string
+          $ref: '#/components/schemas/ApplicationApi.Application.V2.ApplicationSubscriptionType'
       type: object
     ApplicationApi.Application.V2.ApplicationStatus:
       enum:
       - Unknown
       - Draft
       - Published
+      type: string
+    ApplicationApi.Application.V2.ApplicationSubscriptionType:
+      enum:
+      - Auto
+      - Manual
+      - None
       type: string
     ApplicationApi.Application.V2.ApplicationType:
       enum:
@@ -4651,7 +5257,7 @@ components:
           tags: tags
           applicationStatus: null
           createdBy: createdBy
-          subscriptionType: subscriptionType
+          subscriptionType: null
           tenantId: tenantId
           applicationId: applicationId
           applicationName: applicationName
@@ -4669,7 +5275,7 @@ components:
           tags: tags
           applicationStatus: null
           createdBy: createdBy
-          subscriptionType: subscriptionType
+          subscriptionType: null
           tenantId: tenantId
           applicationId: applicationId
           applicationName: applicationName
@@ -4763,6 +5369,8 @@ components:
           type: boolean
         twoFactorEnabled:
           type: boolean
+        sendEmail:
+          type: boolean
         assignLicenseRequests:
           items:
             $ref: '#/components/schemas/EdGraph.HttpAggregators.Tenant.Api.Controllers.v1.ViewModels.Requests.Licenses.AssignLicenseRequest'
@@ -4854,6 +5462,8 @@ components:
         role:
           nullable: true
           type: string
+        sendEmail:
+          type: boolean
         assignLicenseRequests:
           items:
             $ref: '#/components/schemas/EdGraph.HttpAggregators.Tenant.Api.Controllers.v1.ViewModels.Requests.Licenses.AssignLicenseRequest'
@@ -4907,14 +5517,78 @@ components:
           type: boolean
         tenantStatus:
           $ref: '#/components/schemas/EdGraph.HttpAggregators.Tenant.Api.Controllers.v1.ViewModels.Requests.Tenants.TenantStatus'
-        domains:
-          items:
-            type: string
-          nullable: true
-          type: array
         identityProviders:
           items:
             $ref: '#/components/schemas/EdGraph.HttpAggregators.Tenant.Api.Controllers.v1.ViewModels.Requests.Tenants.TenantIdentityProvider'
+          nullable: true
+          type: array
+      type: object
+    EdGraph.HttpAggregators.Tenant.Api.Controllers.v1.ViewModels.Responses.DomainListResponseDto:
+      additionalProperties: false
+      example:
+        lastModifiedDateTime: lastModifiedDateTime
+        createdBy: createdBy
+        domainName: domainName
+        lastModifiedBy: lastModifiedBy
+        tenantId: tenantId
+        createdDateTime: createdDateTime
+        domainStatus: null
+      properties:
+        tenantId:
+          nullable: true
+          type: string
+        domainName:
+          nullable: true
+          type: string
+        domainStatus:
+          $ref: '#/components/schemas/TenantApi.Tenant.V1.DomainStatus'
+        createdBy:
+          nullable: true
+          type: string
+        createdDateTime:
+          nullable: true
+          type: string
+        lastModifiedBy:
+          nullable: true
+          type: string
+        lastModifiedDateTime:
+          nullable: true
+          type: string
+      type: object
+    EdGraph.HttpAggregators.Tenant.Api.Controllers.v1.ViewModels.Responses.DomainListResponseDtoPaginatedItemsViewModel:
+      additionalProperties: false
+      example:
+        data:
+        - lastModifiedDateTime: lastModifiedDateTime
+          createdBy: createdBy
+          domainName: domainName
+          lastModifiedBy: lastModifiedBy
+          tenantId: tenantId
+          createdDateTime: createdDateTime
+          domainStatus: null
+        - lastModifiedDateTime: lastModifiedDateTime
+          createdBy: createdBy
+          domainName: domainName
+          lastModifiedBy: lastModifiedBy
+          tenantId: tenantId
+          createdDateTime: createdDateTime
+          domainStatus: null
+        pageIndex: 0
+        count: 1
+        pageSize: 6
+      properties:
+        pageIndex:
+          format: int32
+          type: integer
+        pageSize:
+          format: int32
+          type: integer
+        count:
+          format: int64
+          type: integer
+        data:
+          items:
+            $ref: '#/components/schemas/EdGraph.HttpAggregators.Tenant.Api.Controllers.v1.ViewModels.Responses.DomainListResponseDto'
           nullable: true
           type: array
       type: object
@@ -5494,7 +6168,6 @@ components:
     EdGraph.Platform.HttpAggregators.Tenant.Api.Controllers.v1.ViewModels.Responses.UserListResponseWithApplicationLicense:
       additionalProperties: false
       example:
-        firstName: firstName
         lastName: lastName
         tenants:
         - roles:
@@ -5507,6 +6180,12 @@ components:
           - roles
           tenantId: tenantId
           status: null
+        lastModifiedDateTime: lastModifiedDateTime
+        lastModifiedBy: lastModifiedBy
+        createdDateTime: createdDateTime
+        userName: userName
+        userId: userId
+        firstName: firstName
         licenses:
         - tenantSubscriptionStartDateTime: tenantSubscriptionStartDateTime
           isUserLicensed: true
@@ -5542,13 +6221,13 @@ components:
           applicationTenantId: applicationTenantId
           applicationId: applicationId
           applicationName: applicationName
-        lastModifiedDateTime: lastModifiedDateTime
         createdBy: createdBy
-        lastModifiedBy: lastModifiedBy
-        createdDateTime: createdDateTime
-        userName: userName
-        userId: userId
         tenantCount: 5
+        logins:
+        - providerDisplayName: providerDisplayName
+          loginProvider: loginProvider
+        - providerDisplayName: providerDisplayName
+          loginProvider: loginProvider
         email: email
       properties:
         userId:
@@ -5591,13 +6270,17 @@ components:
         lastModifiedDateTime:
           nullable: true
           type: string
+        logins:
+          items:
+            $ref: '#/components/schemas/EdGraph.Platform.HttpAggregators.Tenant.Api.Controllers.v1.ViewModels.Responses.UserLogin'
+          nullable: true
+          type: array
       type: object
     ? EdGraph.Platform.HttpAggregators.Tenant.Api.Controllers.v1.ViewModels.Responses.UserListResponseWithApplicationLicensePaginatedItemsViewModel
     : additionalProperties: false
       example:
         data:
-        - firstName: firstName
-          lastName: lastName
+        - lastName: lastName
           tenants:
           - roles:
             - roles
@@ -5609,6 +6292,12 @@ components:
             - roles
             tenantId: tenantId
             status: null
+          lastModifiedDateTime: lastModifiedDateTime
+          lastModifiedBy: lastModifiedBy
+          createdDateTime: createdDateTime
+          userName: userName
+          userId: userId
+          firstName: firstName
           licenses:
           - tenantSubscriptionStartDateTime: tenantSubscriptionStartDateTime
             isUserLicensed: true
@@ -5644,16 +6333,15 @@ components:
             applicationTenantId: applicationTenantId
             applicationId: applicationId
             applicationName: applicationName
-          lastModifiedDateTime: lastModifiedDateTime
           createdBy: createdBy
-          lastModifiedBy: lastModifiedBy
-          createdDateTime: createdDateTime
-          userName: userName
-          userId: userId
           tenantCount: 5
+          logins:
+          - providerDisplayName: providerDisplayName
+            loginProvider: loginProvider
+          - providerDisplayName: providerDisplayName
+            loginProvider: loginProvider
           email: email
-        - firstName: firstName
-          lastName: lastName
+        - lastName: lastName
           tenants:
           - roles:
             - roles
@@ -5665,6 +6353,12 @@ components:
             - roles
             tenantId: tenantId
             status: null
+          lastModifiedDateTime: lastModifiedDateTime
+          lastModifiedBy: lastModifiedBy
+          createdDateTime: createdDateTime
+          userName: userName
+          userId: userId
+          firstName: firstName
           licenses:
           - tenantSubscriptionStartDateTime: tenantSubscriptionStartDateTime
             isUserLicensed: true
@@ -5700,13 +6394,13 @@ components:
             applicationTenantId: applicationTenantId
             applicationId: applicationId
             applicationName: applicationName
-          lastModifiedDateTime: lastModifiedDateTime
           createdBy: createdBy
-          lastModifiedBy: lastModifiedBy
-          createdDateTime: createdDateTime
-          userName: userName
-          userId: userId
           tenantCount: 5
+          logins:
+          - providerDisplayName: providerDisplayName
+            loginProvider: loginProvider
+          - providerDisplayName: providerDisplayName
+            loginProvider: loginProvider
           email: email
         pageIndex: 0
         count: 1
@@ -5726,6 +6420,19 @@ components:
             $ref: '#/components/schemas/EdGraph.Platform.HttpAggregators.Tenant.Api.Controllers.v1.ViewModels.Responses.UserListResponseWithApplicationLicense'
           nullable: true
           type: array
+      type: object
+    EdGraph.Platform.HttpAggregators.Tenant.Api.Controllers.v1.ViewModels.Responses.UserLogin:
+      additionalProperties: false
+      example:
+        providerDisplayName: providerDisplayName
+        loginProvider: loginProvider
+      properties:
+        loginProvider:
+          nullable: true
+          type: string
+        providerDisplayName:
+          nullable: true
+          type: string
       type: object
     EdGraph.Platform.HttpAggregators.Tenant.Api.Controllers.v1.ViewModels.Responses.UserProfilePreference:
       additionalProperties: false
@@ -5805,6 +6512,11 @@ components:
           applicationName: applicationName
         phoneNumber: phoneNumber
         createdBy: createdBy
+        logins:
+        - providerDisplayName: providerDisplayName
+          loginProvider: loginProvider
+        - providerDisplayName: providerDisplayName
+          loginProvider: loginProvider
         email: email
       properties:
         userId:
@@ -5857,6 +6569,11 @@ components:
         lastModifiedDateTime:
           nullable: true
           type: string
+        logins:
+          items:
+            $ref: '#/components/schemas/EdGraph.Platform.HttpAggregators.Tenant.Api.Controllers.v1.ViewModels.Responses.UserLogin'
+          nullable: true
+          type: array
       type: object
     EdGraph.Platform.HttpAggregators.Tenant.Api.Controllers.v1.ViewModels.Responses.UserTenant:
       additionalProperties: false
@@ -6740,28 +7457,6 @@ components:
           nullable: true
           type: string
       type: object
-    IdentityApi.User.V1.AssignLicenseRequest:
-      additionalProperties: false
-      properties:
-        tenantId:
-          nullable: true
-          type: string
-        subscriptionId:
-          nullable: true
-          type: string
-        applicationId:
-          nullable: true
-          type: string
-        userId:
-          nullable: true
-          type: string
-        roles:
-          items:
-            type: string
-          nullable: true
-          readOnly: true
-          type: array
-      type: object
     IdentityApi.User.V1.DeactivateUserRequest:
       additionalProperties: false
       properties:
@@ -6917,23 +7612,9 @@ components:
         userId:
           nullable: true
           type: string
-        email:
-          nullable: true
-          type: string
-        firstName:
-          nullable: true
-          type: string
-        lastName:
-          nullable: true
-          type: string
         role:
           nullable: true
           type: string
-        phoneNumber:
-          nullable: true
-          type: string
-        lockoutEnabled:
-          type: boolean
       type: object
     IdentityApi.User.V1.UserActivatedResponse:
       additionalProperties: false
@@ -6958,6 +7639,31 @@ components:
           nullable: true
           type: string
         userId:
+          nullable: true
+          type: string
+      type: object
+    IdentityApi.User.V1.UserTenantStatusProfile:
+      additionalProperties: false
+      example:
+        firstName: firstName
+        lastName: lastName
+        email: email
+        username: username
+        status: status
+      properties:
+        email:
+          nullable: true
+          type: string
+        username:
+          nullable: true
+          type: string
+        firstName:
+          nullable: true
+          type: string
+        lastName:
+          nullable: true
+          type: string
+        status:
           nullable: true
           type: string
       type: object
@@ -7000,6 +7706,18 @@ components:
         instance:
           nullable: true
           type: string
+      type: object
+    TenantApi.Tenant.V1.CreateDomainRequest:
+      additionalProperties: false
+      properties:
+        tenantId:
+          nullable: true
+          type: string
+        domainName:
+          nullable: true
+          type: string
+        domainStatus:
+          $ref: '#/components/schemas/TenantApi.Tenant.V1.DomainStatus'
       type: object
     TenantApi.Tenant.V1.CreateOnboardingStepRequest:
       additionalProperties: false
@@ -7071,6 +7789,95 @@ components:
           $ref: '#/components/schemas/TenantApi.Tenant.V1.SubscriptionStatus'
         autoAssign:
           type: boolean
+      type: object
+    TenantApi.Tenant.V1.DomainCreatedResponse:
+      additionalProperties: false
+      example:
+        domainName: domainName
+        tenantId: tenantId
+      properties:
+        tenantId:
+          nullable: true
+          type: string
+        domainName:
+          nullable: true
+          type: string
+      type: object
+    TenantApi.Tenant.V1.DomainProfileResponse:
+      additionalProperties: false
+      example:
+        lastModifiedDateTime: lastModifiedDateTime
+        createdBy: createdBy
+        domainName: domainName
+        lastModifiedBy: lastModifiedBy
+        tenantId: tenantId
+        createdDateTime: createdDateTime
+        domainStatus: null
+      properties:
+        tenantId:
+          nullable: true
+          type: string
+        domainName:
+          nullable: true
+          type: string
+        domainStatus:
+          $ref: '#/components/schemas/TenantApi.Tenant.V1.DomainStatus'
+        createdBy:
+          nullable: true
+          type: string
+        createdDateTime:
+          nullable: true
+          type: string
+        lastModifiedBy:
+          nullable: true
+          type: string
+        lastModifiedDateTime:
+          nullable: true
+          type: string
+      type: object
+    TenantApi.Tenant.V1.DomainStatus:
+      enum:
+      - Unknown
+      - Unverified
+      - Verified
+      - Rejected
+      - Error
+      type: string
+    TenantApi.Tenant.V1.DomainUpdatedResponse:
+      additionalProperties: false
+      example:
+        newDomainName: newDomainName
+        oldDomainName: oldDomainName
+        tenantId: tenantId
+        domainStatus: null
+      properties:
+        tenantId:
+          nullable: true
+          type: string
+        oldDomainName:
+          nullable: true
+          type: string
+        newDomainName:
+          nullable: true
+          type: string
+        domainStatus:
+          $ref: '#/components/schemas/TenantApi.Tenant.V1.DomainStatus'
+      type: object
+    TenantApi.Tenant.V1.DomainVerifiedResponse:
+      additionalProperties: false
+      example:
+        domainName: domainName
+        tenantId: tenantId
+        domainStatus: null
+      properties:
+        tenantId:
+          nullable: true
+          type: string
+        domainName:
+          nullable: true
+          type: string
+        domainStatus:
+          $ref: '#/components/schemas/TenantApi.Tenant.V1.DomainStatus'
       type: object
     TenantApi.Tenant.V1.EdFiAdminInstance:
       additionalProperties: false
@@ -7957,8 +8764,20 @@ components:
         organizationName: organizationName
         lastModifiedBy: lastModifiedBy
         domains:
-        - domains
-        - domains
+        - lastModifiedDateTime: lastModifiedDateTime
+          createdBy: createdBy
+          domainName: domainName
+          lastModifiedBy: lastModifiedBy
+          tenantId: tenantId
+          createdDateTime: createdDateTime
+          domainStatus: null
+        - lastModifiedDateTime: lastModifiedDateTime
+          createdBy: createdBy
+          domainName: domainName
+          lastModifiedBy: lastModifiedBy
+          tenantId: tenantId
+          createdDateTime: createdDateTime
+          domainStatus: null
         createdDateTime: createdDateTime
         isDemo: true
         enforceMfa: true
@@ -8026,7 +8845,7 @@ components:
           type: array
         domains:
           items:
-            type: string
+            $ref: '#/components/schemas/TenantApi.Tenant.V1.DomainProfileResponse'
           nullable: true
           readOnly: true
           type: array
@@ -8082,6 +8901,21 @@ components:
         tenantId:
           nullable: true
           type: string
+      type: object
+    TenantApi.Tenant.V1.UpdateDomainRequest:
+      additionalProperties: false
+      properties:
+        tenantId:
+          nullable: true
+          type: string
+        oldDomainName:
+          nullable: true
+          type: string
+        newDomainName:
+          nullable: true
+          type: string
+        domainStatus:
+          $ref: '#/components/schemas/TenantApi.Tenant.V1.DomainStatus'
       type: object
     TenantApi.Tenant.V1.UpdateOnboardingStepRequest:
       additionalProperties: false
@@ -8144,6 +8978,16 @@ components:
           description: SubscriptionStatus SubscriptionStatus = 10;
           type: boolean
       type: object
+    TenantApi.Tenant.V1.VerifyDomainRequest:
+      additionalProperties: false
+      properties:
+        tenantId:
+          nullable: true
+          type: string
+        domainName:
+          nullable: true
+          type: string
+      type: object
     TenantApi.Webhook.V1.CreateWebhookRequest:
       additionalProperties: false
       properties:
@@ -8191,12 +9035,16 @@ components:
           - groupName: groupName
             eventSchema: eventSchema
             eventVersion: eventVersion
-            scope: scope
+            scope:
+            - scope
+            - scope
             eventName: eventName
           - groupName: groupName
             eventSchema: eventSchema
             eventVersion: eventVersion
-            scope: scope
+            scope:
+            - scope
+            - scope
             eventName: eventName
           updatedAt: updatedAt
           status: status
@@ -8215,12 +9063,16 @@ components:
           - groupName: groupName
             eventSchema: eventSchema
             eventVersion: eventVersion
-            scope: scope
+            scope:
+            - scope
+            - scope
             eventName: eventName
           - groupName: groupName
             eventSchema: eventSchema
             eventVersion: eventVersion
-            scope: scope
+            scope:
+            - scope
+            - scope
             eventName: eventName
           updatedAt: updatedAt
           status: status
@@ -8285,12 +9137,16 @@ components:
         - groupName: groupName
           eventSchema: eventSchema
           eventVersion: eventVersion
-          scope: scope
+          scope:
+          - scope
+          - scope
           eventName: eventName
         - groupName: groupName
           eventSchema: eventSchema
           eventVersion: eventVersion
-          scope: scope
+          scope:
+          - scope
+          - scope
           eventName: eventName
       properties:
         eventSubscriptions:
@@ -8327,12 +9183,16 @@ components:
         - groupName: groupName
           eventSchema: eventSchema
           eventVersion: eventVersion
-          scope: scope
+          scope:
+          - scope
+          - scope
           eventName: eventName
         - groupName: groupName
           eventSchema: eventSchema
           eventVersion: eventVersion
-          scope: scope
+          scope:
+          - scope
+          - scope
           eventName: eventName
         updatedAt: updatedAt
         status: status
@@ -8389,7 +9249,9 @@ components:
         groupName: groupName
         eventSchema: eventSchema
         eventVersion: eventVersion
-        scope: scope
+        scope:
+        - scope
+        - scope
         eventName: eventName
       properties:
         eventName:
@@ -8405,8 +9267,11 @@ components:
           nullable: true
           type: string
         scope:
+          items:
+            type: string
           nullable: true
-          type: string
+          readOnly: true
+          type: array
       type: object
   securitySchemes:
     oauth2:

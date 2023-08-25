@@ -37,6 +37,12 @@ namespace EdGraph.Tenant.Client.Model
         /// </summary>
         [DataMember(Name = "applicationStatus", EmitDefaultValue = false)]
         public ApplicationApiApplicationV2ApplicationStatus? ApplicationStatus { get; set; }
+
+        /// <summary>
+        /// Gets or Sets SubscriptionType
+        /// </summary>
+        [DataMember(Name = "subscriptionType", EmitDefaultValue = false)]
+        public ApplicationApiApplicationV2ApplicationSubscriptionType? SubscriptionType { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="ApplicationApiApplicationV2ApplicationListResponse" /> class.
         /// </summary>
@@ -53,7 +59,7 @@ namespace EdGraph.Tenant.Client.Model
         /// <param name="lastModifiedDateTime">lastModifiedDateTime.</param>
         /// <param name="subscriptionType">subscriptionType.</param>
         /// <param name="documentationUrl">documentationUrl.</param>
-        public ApplicationApiApplicationV2ApplicationListResponse(string tenantId = default(string), string applicationId = default(string), string applicationName = default(string), string version = default(string), string tags = default(string), string groups = default(string), ApplicationApiApplicationV2ApplicationStatus? applicationStatus = default(ApplicationApiApplicationV2ApplicationStatus?), string createdBy = default(string), string createdDateTime = default(string), string lastModifiedBy = default(string), string lastModifiedDateTime = default(string), string subscriptionType = default(string), string documentationUrl = default(string))
+        public ApplicationApiApplicationV2ApplicationListResponse(string tenantId = default(string), string applicationId = default(string), string applicationName = default(string), string version = default(string), string tags = default(string), string groups = default(string), ApplicationApiApplicationV2ApplicationStatus? applicationStatus = default(ApplicationApiApplicationV2ApplicationStatus?), string createdBy = default(string), string createdDateTime = default(string), string lastModifiedBy = default(string), string lastModifiedDateTime = default(string), ApplicationApiApplicationV2ApplicationSubscriptionType? subscriptionType = default(ApplicationApiApplicationV2ApplicationSubscriptionType?), string documentationUrl = default(string))
         {
             this.TenantId = tenantId;
             this.ApplicationId = applicationId;
@@ -143,12 +149,6 @@ namespace EdGraph.Tenant.Client.Model
         /// </summary>
         [DataMember(Name = "lastModifiedDateTime", EmitDefaultValue = true)]
         public string LastModifiedDateTime { get; set; }
-
-        /// <summary>
-        /// Gets or Sets SubscriptionType
-        /// </summary>
-        [DataMember(Name = "subscriptionType", EmitDefaultValue = true)]
-        public string SubscriptionType { get; set; }
 
         /// <summary>
         /// Gets or Sets DocumentationUrl
@@ -275,8 +275,7 @@ namespace EdGraph.Tenant.Client.Model
                 ) && 
                 (
                     this.SubscriptionType == input.SubscriptionType ||
-                    (this.SubscriptionType != null &&
-                    this.SubscriptionType.Equals(input.SubscriptionType))
+                    this.SubscriptionType.Equals(input.SubscriptionType)
                 ) && 
                 (
                     this.DocumentationUrl == input.DocumentationUrl ||
@@ -339,10 +338,7 @@ namespace EdGraph.Tenant.Client.Model
                 {
                     hashCode = (hashCode * 59) + this.LastModifiedDateTime.GetHashCode();
                 }
-                if (this.SubscriptionType != null)
-                {
-                    hashCode = (hashCode * 59) + this.SubscriptionType.GetHashCode();
-                }
+                hashCode = (hashCode * 59) + this.SubscriptionType.GetHashCode();
                 if (this.DocumentationUrl != null)
                 {
                     hashCode = (hashCode * 59) + this.DocumentationUrl.GetHashCode();

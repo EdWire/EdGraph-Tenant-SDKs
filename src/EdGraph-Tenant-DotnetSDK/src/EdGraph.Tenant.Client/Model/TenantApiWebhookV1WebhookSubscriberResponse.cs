@@ -38,14 +38,12 @@ namespace EdGraph.Tenant.Client.Model
         /// <param name="eventVersion">eventVersion.</param>
         /// <param name="eventSchema">eventSchema.</param>
         /// <param name="groupName">groupName.</param>
-        /// <param name="scope">scope.</param>
-        public TenantApiWebhookV1WebhookSubscriberResponse(string eventName = default(string), string eventVersion = default(string), string eventSchema = default(string), string groupName = default(string), string scope = default(string))
+        public TenantApiWebhookV1WebhookSubscriberResponse(string eventName = default(string), string eventVersion = default(string), string eventSchema = default(string), string groupName = default(string))
         {
             this.EventName = eventName;
             this.EventVersion = eventVersion;
             this.EventSchema = eventSchema;
             this.GroupName = groupName;
-            this.Scope = scope;
         }
 
         /// <summary>
@@ -76,8 +74,16 @@ namespace EdGraph.Tenant.Client.Model
         /// Gets or Sets Scope
         /// </summary>
         [DataMember(Name = "scope", EmitDefaultValue = true)]
-        public string Scope { get; set; }
+        public List<string> Scope { get; private set; }
 
+        /// <summary>
+        /// Returns false as Scope should not be serialized given that it's read-only.
+        /// </summary>
+        /// <returns>false (boolean)</returns>
+        public bool ShouldSerializeScope()
+        {
+            return false;
+        }
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -148,8 +154,9 @@ namespace EdGraph.Tenant.Client.Model
                 ) && 
                 (
                     this.Scope == input.Scope ||
-                    (this.Scope != null &&
-                    this.Scope.Equals(input.Scope))
+                    this.Scope != null &&
+                    input.Scope != null &&
+                    this.Scope.SequenceEqual(input.Scope)
                 );
         }
 

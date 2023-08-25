@@ -54,9 +54,8 @@ namespace EdGraph.Tenant.Client.Model
         /// <param name="isDemo">isDemo.</param>
         /// <param name="enforceMfa">enforceMfa.</param>
         /// <param name="tenantStatus">tenantStatus.</param>
-        /// <param name="domains">domains.</param>
         /// <param name="identityProviders">identityProviders.</param>
-        public EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsUpdateTenantRequest(string tenantId = default(string), EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsTenantType? tenantType = default(EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsTenantType?), string organizationIdentifier = default(string), string organizationName = default(string), string state = default(string), bool isDemo = default(bool), bool enforceMfa = default(bool), EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsTenantStatus? tenantStatus = default(EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsTenantStatus?), List<string> domains = default(List<string>), List<EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsTenantIdentityProvider> identityProviders = default(List<EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsTenantIdentityProvider>))
+        public EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsUpdateTenantRequest(string tenantId = default(string), EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsTenantType? tenantType = default(EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsTenantType?), string organizationIdentifier = default(string), string organizationName = default(string), string state = default(string), bool isDemo = default(bool), bool enforceMfa = default(bool), EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsTenantStatus? tenantStatus = default(EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsTenantStatus?), List<EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsTenantIdentityProvider> identityProviders = default(List<EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsTenantIdentityProvider>))
         {
             this.TenantId = tenantId;
             this.TenantType = tenantType;
@@ -66,7 +65,6 @@ namespace EdGraph.Tenant.Client.Model
             this.IsDemo = isDemo;
             this.EnforceMfa = enforceMfa;
             this.TenantStatus = tenantStatus;
-            this.Domains = domains;
             this.IdentityProviders = identityProviders;
         }
 
@@ -107,12 +105,6 @@ namespace EdGraph.Tenant.Client.Model
         public bool EnforceMfa { get; set; }
 
         /// <summary>
-        /// Gets or Sets Domains
-        /// </summary>
-        [DataMember(Name = "domains", EmitDefaultValue = true)]
-        public List<string> Domains { get; set; }
-
-        /// <summary>
         /// Gets or Sets IdentityProviders
         /// </summary>
         [DataMember(Name = "identityProviders", EmitDefaultValue = true)]
@@ -134,7 +126,6 @@ namespace EdGraph.Tenant.Client.Model
             sb.Append("  IsDemo: ").Append(IsDemo).Append("\n");
             sb.Append("  EnforceMfa: ").Append(EnforceMfa).Append("\n");
             sb.Append("  TenantStatus: ").Append(TenantStatus).Append("\n");
-            sb.Append("  Domains: ").Append(Domains).Append("\n");
             sb.Append("  IdentityProviders: ").Append(IdentityProviders).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -208,12 +199,6 @@ namespace EdGraph.Tenant.Client.Model
                     this.TenantStatus.Equals(input.TenantStatus)
                 ) && 
                 (
-                    this.Domains == input.Domains ||
-                    this.Domains != null &&
-                    input.Domains != null &&
-                    this.Domains.SequenceEqual(input.Domains)
-                ) && 
-                (
                     this.IdentityProviders == input.IdentityProviders ||
                     this.IdentityProviders != null &&
                     input.IdentityProviders != null &&
@@ -250,10 +235,6 @@ namespace EdGraph.Tenant.Client.Model
                 hashCode = (hashCode * 59) + this.IsDemo.GetHashCode();
                 hashCode = (hashCode * 59) + this.EnforceMfa.GetHashCode();
                 hashCode = (hashCode * 59) + this.TenantStatus.GetHashCode();
-                if (this.Domains != null)
-                {
-                    hashCode = (hashCode * 59) + this.Domains.GetHashCode();
-                }
                 if (this.IdentityProviders != null)
                 {
                     hashCode = (hashCode * 59) + this.IdentityProviders.GetHashCode();

@@ -197,6 +197,32 @@ namespace EdGraph.Tenant.Client.Api
         /// <returns>ApiResponse of EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesUserProfileResponseWithApplicationLicense</returns>
         ApiResponse<EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesUserProfileResponseWithApplicationLicense> GetTenantUserProfileByIdAsyncWithHttpInfo(string tenantId, string userId, string? apiVersion = default(string?), string? xVersion = default(string?), int operationIndex = 0);
         /// <summary>
+        /// Searches a user by email and retrieves it&#39;s minimal information and status.
+        /// </summary>
+        /// <exception cref="EdGraph.Tenant.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="tenantId"></param>
+        /// <param name="email"></param>
+        /// <param name="apiVersion"> (optional)</param>
+        /// <param name="xVersion"> (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>IdentityApiUserV1UserTenantStatusProfile</returns>
+        IdentityApiUserV1UserTenantStatusProfile GetUserTenantStatusProfile(Guid tenantId, string email, string? apiVersion = default(string?), string? xVersion = default(string?), int operationIndex = 0);
+
+        /// <summary>
+        /// Searches a user by email and retrieves it&#39;s minimal information and status.
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="EdGraph.Tenant.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="tenantId"></param>
+        /// <param name="email"></param>
+        /// <param name="apiVersion"> (optional)</param>
+        /// <param name="xVersion"> (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of IdentityApiUserV1UserTenantStatusProfile</returns>
+        ApiResponse<IdentityApiUserV1UserTenantStatusProfile> GetUserTenantStatusProfileWithHttpInfo(Guid tenantId, string email, string? apiVersion = default(string?), string? xVersion = default(string?), int operationIndex = 0);
+        /// <summary>
         /// Resets a user&#39;s password
         /// </summary>
         /// <remarks>
@@ -238,7 +264,7 @@ namespace EdGraph.Tenant.Client.Api
         /// <param name="identityApiUserV1UpdateUserRequest"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>IdentityApiUserV1UserUpdatedResponse</returns>
-        IdentityApiUserV1UserUpdatedResponse UpdateTenantUserAsync(string tenantId, string userId, string? apiVersion = default(string?), string? xVersion = default(string?), IdentityApiUserV1UpdateUserRequest? identityApiUserV1UpdateUserRequest = default(IdentityApiUserV1UpdateUserRequest?), int operationIndex = 0);
+        IdentityApiUserV1UserUpdatedResponse UpdateTenantUserAsync(Guid tenantId, Guid userId, string? apiVersion = default(string?), string? xVersion = default(string?), IdentityApiUserV1UpdateUserRequest? identityApiUserV1UpdateUserRequest = default(IdentityApiUserV1UpdateUserRequest?), int operationIndex = 0);
 
         /// <summary>
         /// Creates or updates a user
@@ -254,7 +280,7 @@ namespace EdGraph.Tenant.Client.Api
         /// <param name="identityApiUserV1UpdateUserRequest"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of IdentityApiUserV1UserUpdatedResponse</returns>
-        ApiResponse<IdentityApiUserV1UserUpdatedResponse> UpdateTenantUserAsyncWithHttpInfo(string tenantId, string userId, string? apiVersion = default(string?), string? xVersion = default(string?), IdentityApiUserV1UpdateUserRequest? identityApiUserV1UpdateUserRequest = default(IdentityApiUserV1UpdateUserRequest?), int operationIndex = 0);
+        ApiResponse<IdentityApiUserV1UserUpdatedResponse> UpdateTenantUserAsyncWithHttpInfo(Guid tenantId, Guid userId, string? apiVersion = default(string?), string? xVersion = default(string?), IdentityApiUserV1UpdateUserRequest? identityApiUserV1UpdateUserRequest = default(IdentityApiUserV1UpdateUserRequest?), int operationIndex = 0);
         #endregion Synchronous Operations
     }
 
@@ -461,6 +487,37 @@ namespace EdGraph.Tenant.Client.Api
         /// <returns>Task of ApiResponse (EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesUserProfileResponseWithApplicationLicense)</returns>
         System.Threading.Tasks.Task<ApiResponse<EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesUserProfileResponseWithApplicationLicense>> GetTenantUserProfileByIdAsyncWithHttpInfoAsync(string tenantId, string userId, string? apiVersion = default(string?), string? xVersion = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
+        /// Searches a user by email and retrieves it&#39;s minimal information and status.
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="EdGraph.Tenant.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="tenantId"></param>
+        /// <param name="email"></param>
+        /// <param name="apiVersion"> (optional)</param>
+        /// <param name="xVersion"> (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of IdentityApiUserV1UserTenantStatusProfile</returns>
+        System.Threading.Tasks.Task<IdentityApiUserV1UserTenantStatusProfile> GetUserTenantStatusProfileAsync(Guid tenantId, string email, string? apiVersion = default(string?), string? xVersion = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+        /// <summary>
+        /// Searches a user by email and retrieves it&#39;s minimal information and status.
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="EdGraph.Tenant.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="tenantId"></param>
+        /// <param name="email"></param>
+        /// <param name="apiVersion"> (optional)</param>
+        /// <param name="xVersion"> (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (IdentityApiUserV1UserTenantStatusProfile)</returns>
+        System.Threading.Tasks.Task<ApiResponse<IdentityApiUserV1UserTenantStatusProfile>> GetUserTenantStatusProfileWithHttpInfoAsync(Guid tenantId, string email, string? apiVersion = default(string?), string? xVersion = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
         /// Resets a user&#39;s password
         /// </summary>
         /// <remarks>
@@ -508,7 +565,7 @@ namespace EdGraph.Tenant.Client.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of IdentityApiUserV1UserUpdatedResponse</returns>
-        System.Threading.Tasks.Task<IdentityApiUserV1UserUpdatedResponse> UpdateTenantUserAsyncAsync(string tenantId, string userId, string? apiVersion = default(string?), string? xVersion = default(string?), IdentityApiUserV1UpdateUserRequest? identityApiUserV1UpdateUserRequest = default(IdentityApiUserV1UpdateUserRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<IdentityApiUserV1UserUpdatedResponse> UpdateTenantUserAsyncAsync(Guid tenantId, Guid userId, string? apiVersion = default(string?), string? xVersion = default(string?), IdentityApiUserV1UpdateUserRequest? identityApiUserV1UpdateUserRequest = default(IdentityApiUserV1UpdateUserRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Creates or updates a user
@@ -525,7 +582,7 @@ namespace EdGraph.Tenant.Client.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (IdentityApiUserV1UserUpdatedResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<IdentityApiUserV1UserUpdatedResponse>> UpdateTenantUserAsyncWithHttpInfoAsync(string tenantId, string userId, string? apiVersion = default(string?), string? xVersion = default(string?), IdentityApiUserV1UpdateUserRequest? identityApiUserV1UpdateUserRequest = default(IdentityApiUserV1UpdateUserRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<IdentityApiUserV1UserUpdatedResponse>> UpdateTenantUserAsyncWithHttpInfoAsync(Guid tenantId, Guid userId, string? apiVersion = default(string?), string? xVersion = default(string?), IdentityApiUserV1UpdateUserRequest? identityApiUserV1UpdateUserRequest = default(IdentityApiUserV1UpdateUserRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -2007,6 +2064,212 @@ namespace EdGraph.Tenant.Client.Api
         }
 
         /// <summary>
+        /// Searches a user by email and retrieves it&#39;s minimal information and status. 
+        /// </summary>
+        /// <exception cref="EdGraph.Tenant.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="tenantId"></param>
+        /// <param name="email"></param>
+        /// <param name="apiVersion"> (optional)</param>
+        /// <param name="xVersion"> (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>IdentityApiUserV1UserTenantStatusProfile</returns>
+        public IdentityApiUserV1UserTenantStatusProfile GetUserTenantStatusProfile(Guid tenantId, string email, string? apiVersion = default(string?), string? xVersion = default(string?), int operationIndex = 0)
+        {
+            EdGraph.Tenant.Client.Client.ApiResponse<IdentityApiUserV1UserTenantStatusProfile> localVarResponse = GetUserTenantStatusProfileWithHttpInfo(tenantId, email, apiVersion, xVersion);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Searches a user by email and retrieves it&#39;s minimal information and status. 
+        /// </summary>
+        /// <exception cref="EdGraph.Tenant.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="tenantId"></param>
+        /// <param name="email"></param>
+        /// <param name="apiVersion"> (optional)</param>
+        /// <param name="xVersion"> (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of IdentityApiUserV1UserTenantStatusProfile</returns>
+        public EdGraph.Tenant.Client.Client.ApiResponse<IdentityApiUserV1UserTenantStatusProfile> GetUserTenantStatusProfileWithHttpInfo(Guid tenantId, string email, string? apiVersion = default(string?), string? xVersion = default(string?), int operationIndex = 0)
+        {
+            // verify the required parameter 'email' is set
+            if (email == null)
+            {
+                throw new EdGraph.Tenant.Client.Client.ApiException(400, "Missing required parameter 'email' when calling UsersApi->GetUserTenantStatusProfile");
+            }
+
+            EdGraph.Tenant.Client.Client.RequestOptions localVarRequestOptions = new EdGraph.Tenant.Client.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = EdGraph.Tenant.Client.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = EdGraph.Tenant.Client.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("tenantId", EdGraph.Tenant.Client.Client.ClientUtils.ParameterToString(tenantId)); // path parameter
+            localVarRequestOptions.PathParameters.Add("email", EdGraph.Tenant.Client.Client.ClientUtils.ParameterToString(email)); // path parameter
+            if (apiVersion != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(EdGraph.Tenant.Client.Client.ClientUtils.ParameterToMultiMap("", "api-version", apiVersion));
+            }
+            if (xVersion != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("X-version", EdGraph.Tenant.Client.Client.ClientUtils.ParameterToString(xVersion)); // header parameter
+            }
+
+            localVarRequestOptions.Operation = "UsersApi.GetUserTenantStatusProfile";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<IdentityApiUserV1UserTenantStatusProfile>("/tenants/{tenantId}/users/{email}/status", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetUserTenantStatusProfile", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Searches a user by email and retrieves it&#39;s minimal information and status. 
+        /// </summary>
+        /// <exception cref="EdGraph.Tenant.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="tenantId"></param>
+        /// <param name="email"></param>
+        /// <param name="apiVersion"> (optional)</param>
+        /// <param name="xVersion"> (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of IdentityApiUserV1UserTenantStatusProfile</returns>
+        public async System.Threading.Tasks.Task<IdentityApiUserV1UserTenantStatusProfile> GetUserTenantStatusProfileAsync(Guid tenantId, string email, string? apiVersion = default(string?), string? xVersion = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            EdGraph.Tenant.Client.Client.ApiResponse<IdentityApiUserV1UserTenantStatusProfile> localVarResponse = await GetUserTenantStatusProfileWithHttpInfoAsync(tenantId, email, apiVersion, xVersion, operationIndex, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Searches a user by email and retrieves it&#39;s minimal information and status. 
+        /// </summary>
+        /// <exception cref="EdGraph.Tenant.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="tenantId"></param>
+        /// <param name="email"></param>
+        /// <param name="apiVersion"> (optional)</param>
+        /// <param name="xVersion"> (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (IdentityApiUserV1UserTenantStatusProfile)</returns>
+        public async System.Threading.Tasks.Task<EdGraph.Tenant.Client.Client.ApiResponse<IdentityApiUserV1UserTenantStatusProfile>> GetUserTenantStatusProfileWithHttpInfoAsync(Guid tenantId, string email, string? apiVersion = default(string?), string? xVersion = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            // verify the required parameter 'email' is set
+            if (email == null)
+            {
+                throw new EdGraph.Tenant.Client.Client.ApiException(400, "Missing required parameter 'email' when calling UsersApi->GetUserTenantStatusProfile");
+            }
+
+
+            EdGraph.Tenant.Client.Client.RequestOptions localVarRequestOptions = new EdGraph.Tenant.Client.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = EdGraph.Tenant.Client.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = EdGraph.Tenant.Client.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("tenantId", EdGraph.Tenant.Client.Client.ClientUtils.ParameterToString(tenantId)); // path parameter
+            localVarRequestOptions.PathParameters.Add("email", EdGraph.Tenant.Client.Client.ClientUtils.ParameterToString(email)); // path parameter
+            if (apiVersion != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(EdGraph.Tenant.Client.Client.ClientUtils.ParameterToMultiMap("", "api-version", apiVersion));
+            }
+            if (xVersion != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("X-version", EdGraph.Tenant.Client.Client.ClientUtils.ParameterToString(xVersion)); // header parameter
+            }
+
+            localVarRequestOptions.Operation = "UsersApi.GetUserTenantStatusProfile";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.GetAsync<IdentityApiUserV1UserTenantStatusProfile>("/tenants/{tenantId}/users/{email}/status", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetUserTenantStatusProfile", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
         /// Resets a user&#39;s password Note: This is only applicable to user created in the local identity provider.
         /// </summary>
         /// <exception cref="EdGraph.Tenant.Client.Client.ApiException">Thrown when fails to make API call</exception>
@@ -2249,7 +2512,7 @@ namespace EdGraph.Tenant.Client.Api
         /// <param name="identityApiUserV1UpdateUserRequest"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>IdentityApiUserV1UserUpdatedResponse</returns>
-        public IdentityApiUserV1UserUpdatedResponse UpdateTenantUserAsync(string tenantId, string userId, string? apiVersion = default(string?), string? xVersion = default(string?), IdentityApiUserV1UpdateUserRequest? identityApiUserV1UpdateUserRequest = default(IdentityApiUserV1UpdateUserRequest?), int operationIndex = 0)
+        public IdentityApiUserV1UserUpdatedResponse UpdateTenantUserAsync(Guid tenantId, Guid userId, string? apiVersion = default(string?), string? xVersion = default(string?), IdentityApiUserV1UpdateUserRequest? identityApiUserV1UpdateUserRequest = default(IdentityApiUserV1UpdateUserRequest?), int operationIndex = 0)
         {
             EdGraph.Tenant.Client.Client.ApiResponse<IdentityApiUserV1UserUpdatedResponse> localVarResponse = UpdateTenantUserAsyncWithHttpInfo(tenantId, userId, apiVersion, xVersion, identityApiUserV1UpdateUserRequest);
             return localVarResponse.Data;
@@ -2266,20 +2529,8 @@ namespace EdGraph.Tenant.Client.Api
         /// <param name="identityApiUserV1UpdateUserRequest"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of IdentityApiUserV1UserUpdatedResponse</returns>
-        public EdGraph.Tenant.Client.Client.ApiResponse<IdentityApiUserV1UserUpdatedResponse> UpdateTenantUserAsyncWithHttpInfo(string tenantId, string userId, string? apiVersion = default(string?), string? xVersion = default(string?), IdentityApiUserV1UpdateUserRequest? identityApiUserV1UpdateUserRequest = default(IdentityApiUserV1UpdateUserRequest?), int operationIndex = 0)
+        public EdGraph.Tenant.Client.Client.ApiResponse<IdentityApiUserV1UserUpdatedResponse> UpdateTenantUserAsyncWithHttpInfo(Guid tenantId, Guid userId, string? apiVersion = default(string?), string? xVersion = default(string?), IdentityApiUserV1UpdateUserRequest? identityApiUserV1UpdateUserRequest = default(IdentityApiUserV1UpdateUserRequest?), int operationIndex = 0)
         {
-            // verify the required parameter 'tenantId' is set
-            if (tenantId == null)
-            {
-                throw new EdGraph.Tenant.Client.Client.ApiException(400, "Missing required parameter 'tenantId' when calling UsersApi->UpdateTenantUserAsync");
-            }
-
-            // verify the required parameter 'userId' is set
-            if (userId == null)
-            {
-                throw new EdGraph.Tenant.Client.Client.ApiException(400, "Missing required parameter 'userId' when calling UsersApi->UpdateTenantUserAsync");
-            }
-
             EdGraph.Tenant.Client.Client.RequestOptions localVarRequestOptions = new EdGraph.Tenant.Client.Client.RequestOptions();
 
             string[] _contentTypes = new string[] {
@@ -2364,7 +2615,7 @@ namespace EdGraph.Tenant.Client.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of IdentityApiUserV1UserUpdatedResponse</returns>
-        public async System.Threading.Tasks.Task<IdentityApiUserV1UserUpdatedResponse> UpdateTenantUserAsyncAsync(string tenantId, string userId, string? apiVersion = default(string?), string? xVersion = default(string?), IdentityApiUserV1UpdateUserRequest? identityApiUserV1UpdateUserRequest = default(IdentityApiUserV1UpdateUserRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<IdentityApiUserV1UserUpdatedResponse> UpdateTenantUserAsyncAsync(Guid tenantId, Guid userId, string? apiVersion = default(string?), string? xVersion = default(string?), IdentityApiUserV1UpdateUserRequest? identityApiUserV1UpdateUserRequest = default(IdentityApiUserV1UpdateUserRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             EdGraph.Tenant.Client.Client.ApiResponse<IdentityApiUserV1UserUpdatedResponse> localVarResponse = await UpdateTenantUserAsyncWithHttpInfoAsync(tenantId, userId, apiVersion, xVersion, identityApiUserV1UpdateUserRequest, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -2382,20 +2633,8 @@ namespace EdGraph.Tenant.Client.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (IdentityApiUserV1UserUpdatedResponse)</returns>
-        public async System.Threading.Tasks.Task<EdGraph.Tenant.Client.Client.ApiResponse<IdentityApiUserV1UserUpdatedResponse>> UpdateTenantUserAsyncWithHttpInfoAsync(string tenantId, string userId, string? apiVersion = default(string?), string? xVersion = default(string?), IdentityApiUserV1UpdateUserRequest? identityApiUserV1UpdateUserRequest = default(IdentityApiUserV1UpdateUserRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<EdGraph.Tenant.Client.Client.ApiResponse<IdentityApiUserV1UserUpdatedResponse>> UpdateTenantUserAsyncWithHttpInfoAsync(Guid tenantId, Guid userId, string? apiVersion = default(string?), string? xVersion = default(string?), IdentityApiUserV1UpdateUserRequest? identityApiUserV1UpdateUserRequest = default(IdentityApiUserV1UpdateUserRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            // verify the required parameter 'tenantId' is set
-            if (tenantId == null)
-            {
-                throw new EdGraph.Tenant.Client.Client.ApiException(400, "Missing required parameter 'tenantId' when calling UsersApi->UpdateTenantUserAsync");
-            }
-
-            // verify the required parameter 'userId' is set
-            if (userId == null)
-            {
-                throw new EdGraph.Tenant.Client.Client.ApiException(400, "Missing required parameter 'userId' when calling UsersApi->UpdateTenantUserAsync");
-            }
-
 
             EdGraph.Tenant.Client.Client.RequestOptions localVarRequestOptions = new EdGraph.Tenant.Client.Client.RequestOptions();
 

@@ -65,8 +65,8 @@ namespace EdGraph.Tenant.Client.Test.Api
             //string userId = null;
             //string? apiVersion = null;
             //string? xVersion = null;
-            //IdentityApiUserV1AssignLicenseRequest? identityApiUserV1AssignLicenseRequest = null;
-            //var response = instance.AssignLicenseTenantUserAsync(tenantId, userId, apiVersion, xVersion, identityApiUserV1AssignLicenseRequest);
+            //EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsLicensesAssignLicenseRequest? edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsLicensesAssignLicenseRequest = null;
+            //var response = instance.AssignLicenseTenantUserAsync(tenantId, userId, apiVersion, xVersion, edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsLicensesAssignLicenseRequest);
             //Assert.IsType<IdentityApiUserV1LicenseAssignedResponse>(response);
         }
 

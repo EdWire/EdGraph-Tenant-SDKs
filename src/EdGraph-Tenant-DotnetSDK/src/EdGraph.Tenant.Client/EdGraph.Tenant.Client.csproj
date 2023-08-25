@@ -12,14 +12,13 @@
 		<Description>Tenant SDK</Description>
 		<Copyright>No Copyright</Copyright>
 		<RootNamespace>EdGraph.Tenant.Client</RootNamespace>
-		<Version>2.1.0</Version>
+		<Version>3.0.0</Version>
 		<DocumentationFile>bin\$(Configuration)\$(TargetFramework)\EdGraph.Tenant.Client.xml</DocumentationFile>
 		<RepositoryUrl>https://github.com/EdWire/EdGraph-Tenant-SDKs</RepositoryUrl>
 		<RepositoryType>git</RepositoryType>
 		<PackageReleaseNotes>Minor update</PackageReleaseNotes>
 		<Nullable>annotations</Nullable>
 	</PropertyGroup>
-
 	<ItemGroup>
 		<PackageReference Include="JsonSubTypes" Version="2.0.1" />
 		<PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
@@ -27,7 +26,6 @@
 		<PackageReference Include="Polly" Version="7.2.3" />
 		<PackageReference Include="System.ComponentModel.Annotations" Version="5.0.0" />
 	</ItemGroup>
-
 	<ItemGroup>
 		<None Remove="System.Web" />
 	</ItemGroup>

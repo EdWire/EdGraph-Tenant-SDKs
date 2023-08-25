@@ -49,7 +49,8 @@ namespace EdGraph.Tenant.Client.Model
         /// <param name="createdDateTime">createdDateTime.</param>
         /// <param name="lastModifiedBy">lastModifiedBy.</param>
         /// <param name="lastModifiedDateTime">lastModifiedDateTime.</param>
-        public EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesUserProfileResponseWithApplicationLicense(string userId = default(string), string userName = default(string), string email = default(string), string firstName = default(string), string lastName = default(string), string phoneNumber = default(string), string lockoutEnabled = default(string), List<EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesUserTenant> tenants = default(List<EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesUserTenant>), List<EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesUserProfilePreference> preferences = default(List<EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesUserProfilePreference>), bool browserDebugEnabled = default(bool), List<EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesUserLicense> licenses = default(List<EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesUserLicense>), string createdBy = default(string), string createdDateTime = default(string), string lastModifiedBy = default(string), string lastModifiedDateTime = default(string))
+        /// <param name="logins">logins.</param>
+        public EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesUserProfileResponseWithApplicationLicense(string userId = default(string), string userName = default(string), string email = default(string), string firstName = default(string), string lastName = default(string), string phoneNumber = default(string), string lockoutEnabled = default(string), List<EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesUserTenant> tenants = default(List<EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesUserTenant>), List<EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesUserProfilePreference> preferences = default(List<EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesUserProfilePreference>), bool browserDebugEnabled = default(bool), List<EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesUserLicense> licenses = default(List<EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesUserLicense>), string createdBy = default(string), string createdDateTime = default(string), string lastModifiedBy = default(string), string lastModifiedDateTime = default(string), List<EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesUserLogin> logins = default(List<EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesUserLogin>))
         {
             this.UserId = userId;
             this.UserName = userName;
@@ -66,6 +67,7 @@ namespace EdGraph.Tenant.Client.Model
             this.CreatedDateTime = createdDateTime;
             this.LastModifiedBy = lastModifiedBy;
             this.LastModifiedDateTime = lastModifiedDateTime;
+            this.Logins = logins;
         }
 
         /// <summary>
@@ -159,6 +161,12 @@ namespace EdGraph.Tenant.Client.Model
         public string LastModifiedDateTime { get; set; }
 
         /// <summary>
+        /// Gets or Sets Logins
+        /// </summary>
+        [DataMember(Name = "logins", EmitDefaultValue = true)]
+        public List<EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesUserLogin> Logins { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -181,6 +189,7 @@ namespace EdGraph.Tenant.Client.Model
             sb.Append("  CreatedDateTime: ").Append(CreatedDateTime).Append("\n");
             sb.Append("  LastModifiedBy: ").Append(LastModifiedBy).Append("\n");
             sb.Append("  LastModifiedDateTime: ").Append(LastModifiedDateTime).Append("\n");
+            sb.Append("  Logins: ").Append(Logins).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -292,6 +301,12 @@ namespace EdGraph.Tenant.Client.Model
                     this.LastModifiedDateTime == input.LastModifiedDateTime ||
                     (this.LastModifiedDateTime != null &&
                     this.LastModifiedDateTime.Equals(input.LastModifiedDateTime))
+                ) && 
+                (
+                    this.Logins == input.Logins ||
+                    this.Logins != null &&
+                    input.Logins != null &&
+                    this.Logins.SequenceEqual(input.Logins)
                 );
         }
 
@@ -360,6 +375,10 @@ namespace EdGraph.Tenant.Client.Model
                 if (this.LastModifiedDateTime != null)
                 {
                     hashCode = (hashCode * 59) + this.LastModifiedDateTime.GetHashCode();
+                }
+                if (this.Logins != null)
+                {
+                    hashCode = (hashCode * 59) + this.Logins.GetHashCode();
                 }
                 return hashCode;
             }

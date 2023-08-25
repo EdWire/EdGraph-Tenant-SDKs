@@ -39,14 +39,16 @@ namespace EdGraph.Tenant.Client.Model
         /// <param name="firstName">firstName.</param>
         /// <param name="lastName">lastName.</param>
         /// <param name="role">role.</param>
+        /// <param name="sendEmail">sendEmail.</param>
         /// <param name="assignLicenseRequests">assignLicenseRequests.</param>
-        public EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsSendInvitationRequest(string tenantId = default(string), string email = default(string), string firstName = default(string), string lastName = default(string), string role = default(string), List<EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsLicensesAssignLicenseRequest> assignLicenseRequests = default(List<EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsLicensesAssignLicenseRequest>))
+        public EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsSendInvitationRequest(string tenantId = default(string), string email = default(string), string firstName = default(string), string lastName = default(string), string role = default(string), bool sendEmail = default(bool), List<EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsLicensesAssignLicenseRequest> assignLicenseRequests = default(List<EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsLicensesAssignLicenseRequest>))
         {
             this.TenantId = tenantId;
             this.Email = email;
             this.FirstName = firstName;
             this.LastName = lastName;
             this.Role = role;
+            this.SendEmail = sendEmail;
             this.AssignLicenseRequests = assignLicenseRequests;
         }
 
@@ -81,6 +83,12 @@ namespace EdGraph.Tenant.Client.Model
         public string Role { get; set; }
 
         /// <summary>
+        /// Gets or Sets SendEmail
+        /// </summary>
+        [DataMember(Name = "sendEmail", EmitDefaultValue = true)]
+        public bool SendEmail { get; set; }
+
+        /// <summary>
         /// Gets or Sets AssignLicenseRequests
         /// </summary>
         [DataMember(Name = "assignLicenseRequests", EmitDefaultValue = true)]
@@ -99,6 +107,7 @@ namespace EdGraph.Tenant.Client.Model
             sb.Append("  FirstName: ").Append(FirstName).Append("\n");
             sb.Append("  LastName: ").Append(LastName).Append("\n");
             sb.Append("  Role: ").Append(Role).Append("\n");
+            sb.Append("  SendEmail: ").Append(SendEmail).Append("\n");
             sb.Append("  AssignLicenseRequests: ").Append(AssignLicenseRequests).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -161,6 +170,10 @@ namespace EdGraph.Tenant.Client.Model
                     this.Role.Equals(input.Role))
                 ) && 
                 (
+                    this.SendEmail == input.SendEmail ||
+                    this.SendEmail.Equals(input.SendEmail)
+                ) && 
+                (
                     this.AssignLicenseRequests == input.AssignLicenseRequests ||
                     this.AssignLicenseRequests != null &&
                     input.AssignLicenseRequests != null &&
@@ -197,6 +210,7 @@ namespace EdGraph.Tenant.Client.Model
                 {
                     hashCode = (hashCode * 59) + this.Role.GetHashCode();
                 }
+                hashCode = (hashCode * 59) + this.SendEmail.GetHashCode();
                 if (this.AssignLicenseRequests != null)
                 {
                     hashCode = (hashCode * 59) + this.AssignLicenseRequests.GetHashCode();

@@ -72,52 +72,12 @@ namespace EdGraph.Tenant.Client.Test.Model
             // TODO unit test for the property 'UserId'
         }
         /// <summary>
-        /// Test the property 'Email'
-        /// </summary>
-        [Fact]
-        public void EmailTest()
-        {
-            // TODO unit test for the property 'Email'
-        }
-        /// <summary>
-        /// Test the property 'FirstName'
-        /// </summary>
-        [Fact]
-        public void FirstNameTest()
-        {
-            // TODO unit test for the property 'FirstName'
-        }
-        /// <summary>
-        /// Test the property 'LastName'
-        /// </summary>
-        [Fact]
-        public void LastNameTest()
-        {
-            // TODO unit test for the property 'LastName'
-        }
-        /// <summary>
         /// Test the property 'Role'
         /// </summary>
         [Fact]
         public void RoleTest()
         {
             // TODO unit test for the property 'Role'
-        }
-        /// <summary>
-        /// Test the property 'PhoneNumber'
-        /// </summary>
-        [Fact]
-        public void PhoneNumberTest()
-        {
-            // TODO unit test for the property 'PhoneNumber'
-        }
-        /// <summary>
-        /// Test the property 'LockoutEnabled'
-        /// </summary>
-        [Fact]
-        public void LockoutEnabledTest()
-        {
-            // TODO unit test for the property 'LockoutEnabled'
         }
 
     }

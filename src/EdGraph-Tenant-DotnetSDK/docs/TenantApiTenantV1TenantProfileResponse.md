@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 **EnforceMfa** | **bool** |  | [optional] 
 **SubscriptionsMigrated** | **bool** |  | [optional] 
 **Subscriptions** | [**List&lt;TenantApiTenantV1SubscriptionProfileResponse&gt;**](TenantApiTenantV1SubscriptionProfileResponse.md) |  | [optional] [readonly] 
-**Domains** | **List&lt;string&gt;** |  | [optional] [readonly] 
+**Domains** | [**List&lt;TenantApiTenantV1DomainProfileResponse&gt;**](TenantApiTenantV1DomainProfileResponse.md) |  | [optional] [readonly] 
 **CreatedBy** | **string** |  | [optional] 
 **CreatedDateTime** | **string** |  | [optional] 
 **LastModifiedBy** | **string** |  | [optional] 

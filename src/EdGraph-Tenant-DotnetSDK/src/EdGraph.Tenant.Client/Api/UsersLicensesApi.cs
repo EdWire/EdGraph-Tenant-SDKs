@@ -35,10 +35,10 @@ namespace EdGraph.Tenant.Client.Api
         /// <param name="userId"></param>
         /// <param name="apiVersion"> (optional)</param>
         /// <param name="xVersion"> (optional)</param>
-        /// <param name="identityApiUserV1AssignLicenseRequest"> (optional)</param>
+        /// <param name="edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsLicensesAssignLicenseRequest"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>IdentityApiUserV1LicenseAssignedResponse</returns>
-        IdentityApiUserV1LicenseAssignedResponse AssignLicenseTenantUserAsync(string tenantId, string userId, string? apiVersion = default(string?), string? xVersion = default(string?), IdentityApiUserV1AssignLicenseRequest? identityApiUserV1AssignLicenseRequest = default(IdentityApiUserV1AssignLicenseRequest?), int operationIndex = 0);
+        IdentityApiUserV1LicenseAssignedResponse AssignLicenseTenantUserAsync(string tenantId, string userId, string? apiVersion = default(string?), string? xVersion = default(string?), EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsLicensesAssignLicenseRequest? edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsLicensesAssignLicenseRequest = default(EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsLicensesAssignLicenseRequest?), int operationIndex = 0);
 
         /// <summary>
         /// Assigns a license to a user in the context of a specific tenant
@@ -51,10 +51,10 @@ namespace EdGraph.Tenant.Client.Api
         /// <param name="userId"></param>
         /// <param name="apiVersion"> (optional)</param>
         /// <param name="xVersion"> (optional)</param>
-        /// <param name="identityApiUserV1AssignLicenseRequest"> (optional)</param>
+        /// <param name="edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsLicensesAssignLicenseRequest"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of IdentityApiUserV1LicenseAssignedResponse</returns>
-        ApiResponse<IdentityApiUserV1LicenseAssignedResponse> AssignLicenseTenantUserAsyncWithHttpInfo(string tenantId, string userId, string? apiVersion = default(string?), string? xVersion = default(string?), IdentityApiUserV1AssignLicenseRequest? identityApiUserV1AssignLicenseRequest = default(IdentityApiUserV1AssignLicenseRequest?), int operationIndex = 0);
+        ApiResponse<IdentityApiUserV1LicenseAssignedResponse> AssignLicenseTenantUserAsyncWithHttpInfo(string tenantId, string userId, string? apiVersion = default(string?), string? xVersion = default(string?), EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsLicensesAssignLicenseRequest? edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsLicensesAssignLicenseRequest = default(EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsLicensesAssignLicenseRequest?), int operationIndex = 0);
         /// <summary>
         /// Assigns one or more licenses to a user in the context of a specific tenant
         /// </summary>
@@ -193,11 +193,11 @@ namespace EdGraph.Tenant.Client.Api
         /// <param name="userId"></param>
         /// <param name="apiVersion"> (optional)</param>
         /// <param name="xVersion"> (optional)</param>
-        /// <param name="identityApiUserV1AssignLicenseRequest"> (optional)</param>
+        /// <param name="edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsLicensesAssignLicenseRequest"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of IdentityApiUserV1LicenseAssignedResponse</returns>
-        System.Threading.Tasks.Task<IdentityApiUserV1LicenseAssignedResponse> AssignLicenseTenantUserAsyncAsync(string tenantId, string userId, string? apiVersion = default(string?), string? xVersion = default(string?), IdentityApiUserV1AssignLicenseRequest? identityApiUserV1AssignLicenseRequest = default(IdentityApiUserV1AssignLicenseRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<IdentityApiUserV1LicenseAssignedResponse> AssignLicenseTenantUserAsyncAsync(string tenantId, string userId, string? apiVersion = default(string?), string? xVersion = default(string?), EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsLicensesAssignLicenseRequest? edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsLicensesAssignLicenseRequest = default(EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsLicensesAssignLicenseRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Assigns a license to a user in the context of a specific tenant
@@ -210,11 +210,11 @@ namespace EdGraph.Tenant.Client.Api
         /// <param name="userId"></param>
         /// <param name="apiVersion"> (optional)</param>
         /// <param name="xVersion"> (optional)</param>
-        /// <param name="identityApiUserV1AssignLicenseRequest"> (optional)</param>
+        /// <param name="edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsLicensesAssignLicenseRequest"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (IdentityApiUserV1LicenseAssignedResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<IdentityApiUserV1LicenseAssignedResponse>> AssignLicenseTenantUserAsyncWithHttpInfoAsync(string tenantId, string userId, string? apiVersion = default(string?), string? xVersion = default(string?), IdentityApiUserV1AssignLicenseRequest? identityApiUserV1AssignLicenseRequest = default(IdentityApiUserV1AssignLicenseRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<IdentityApiUserV1LicenseAssignedResponse>> AssignLicenseTenantUserAsyncWithHttpInfoAsync(string tenantId, string userId, string? apiVersion = default(string?), string? xVersion = default(string?), EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsLicensesAssignLicenseRequest? edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsLicensesAssignLicenseRequest = default(EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsLicensesAssignLicenseRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Assigns one or more licenses to a user in the context of a specific tenant
         /// </summary>
@@ -481,12 +481,12 @@ namespace EdGraph.Tenant.Client.Api
         /// <param name="userId"></param>
         /// <param name="apiVersion"> (optional)</param>
         /// <param name="xVersion"> (optional)</param>
-        /// <param name="identityApiUserV1AssignLicenseRequest"> (optional)</param>
+        /// <param name="edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsLicensesAssignLicenseRequest"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>IdentityApiUserV1LicenseAssignedResponse</returns>
-        public IdentityApiUserV1LicenseAssignedResponse AssignLicenseTenantUserAsync(string tenantId, string userId, string? apiVersion = default(string?), string? xVersion = default(string?), IdentityApiUserV1AssignLicenseRequest? identityApiUserV1AssignLicenseRequest = default(IdentityApiUserV1AssignLicenseRequest?), int operationIndex = 0)
+        public IdentityApiUserV1LicenseAssignedResponse AssignLicenseTenantUserAsync(string tenantId, string userId, string? apiVersion = default(string?), string? xVersion = default(string?), EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsLicensesAssignLicenseRequest? edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsLicensesAssignLicenseRequest = default(EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsLicensesAssignLicenseRequest?), int operationIndex = 0)
         {
-            EdGraph.Tenant.Client.Client.ApiResponse<IdentityApiUserV1LicenseAssignedResponse> localVarResponse = AssignLicenseTenantUserAsyncWithHttpInfo(tenantId, userId, apiVersion, xVersion, identityApiUserV1AssignLicenseRequest);
+            EdGraph.Tenant.Client.Client.ApiResponse<IdentityApiUserV1LicenseAssignedResponse> localVarResponse = AssignLicenseTenantUserAsyncWithHttpInfo(tenantId, userId, apiVersion, xVersion, edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsLicensesAssignLicenseRequest);
             return localVarResponse.Data;
         }
 
@@ -498,10 +498,10 @@ namespace EdGraph.Tenant.Client.Api
         /// <param name="userId"></param>
         /// <param name="apiVersion"> (optional)</param>
         /// <param name="xVersion"> (optional)</param>
-        /// <param name="identityApiUserV1AssignLicenseRequest"> (optional)</param>
+        /// <param name="edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsLicensesAssignLicenseRequest"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of IdentityApiUserV1LicenseAssignedResponse</returns>
-        public EdGraph.Tenant.Client.Client.ApiResponse<IdentityApiUserV1LicenseAssignedResponse> AssignLicenseTenantUserAsyncWithHttpInfo(string tenantId, string userId, string? apiVersion = default(string?), string? xVersion = default(string?), IdentityApiUserV1AssignLicenseRequest? identityApiUserV1AssignLicenseRequest = default(IdentityApiUserV1AssignLicenseRequest?), int operationIndex = 0)
+        public EdGraph.Tenant.Client.Client.ApiResponse<IdentityApiUserV1LicenseAssignedResponse> AssignLicenseTenantUserAsyncWithHttpInfo(string tenantId, string userId, string? apiVersion = default(string?), string? xVersion = default(string?), EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsLicensesAssignLicenseRequest? edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsLicensesAssignLicenseRequest = default(EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsLicensesAssignLicenseRequest?), int operationIndex = 0)
         {
             // verify the required parameter 'tenantId' is set
             if (tenantId == null)
@@ -551,7 +551,7 @@ namespace EdGraph.Tenant.Client.Api
             {
                 localVarRequestOptions.HeaderParameters.Add("X-version", EdGraph.Tenant.Client.Client.ClientUtils.ParameterToString(xVersion)); // header parameter
             }
-            localVarRequestOptions.Data = identityApiUserV1AssignLicenseRequest;
+            localVarRequestOptions.Data = edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsLicensesAssignLicenseRequest;
 
             localVarRequestOptions.Operation = "UsersLicensesApi.AssignLicenseTenantUserAsync";
             localVarRequestOptions.OperationIndex = operationIndex;
@@ -595,13 +595,13 @@ namespace EdGraph.Tenant.Client.Api
         /// <param name="userId"></param>
         /// <param name="apiVersion"> (optional)</param>
         /// <param name="xVersion"> (optional)</param>
-        /// <param name="identityApiUserV1AssignLicenseRequest"> (optional)</param>
+        /// <param name="edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsLicensesAssignLicenseRequest"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of IdentityApiUserV1LicenseAssignedResponse</returns>
-        public async System.Threading.Tasks.Task<IdentityApiUserV1LicenseAssignedResponse> AssignLicenseTenantUserAsyncAsync(string tenantId, string userId, string? apiVersion = default(string?), string? xVersion = default(string?), IdentityApiUserV1AssignLicenseRequest? identityApiUserV1AssignLicenseRequest = default(IdentityApiUserV1AssignLicenseRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<IdentityApiUserV1LicenseAssignedResponse> AssignLicenseTenantUserAsyncAsync(string tenantId, string userId, string? apiVersion = default(string?), string? xVersion = default(string?), EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsLicensesAssignLicenseRequest? edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsLicensesAssignLicenseRequest = default(EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsLicensesAssignLicenseRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            EdGraph.Tenant.Client.Client.ApiResponse<IdentityApiUserV1LicenseAssignedResponse> localVarResponse = await AssignLicenseTenantUserAsyncWithHttpInfoAsync(tenantId, userId, apiVersion, xVersion, identityApiUserV1AssignLicenseRequest, operationIndex, cancellationToken).ConfigureAwait(false);
+            EdGraph.Tenant.Client.Client.ApiResponse<IdentityApiUserV1LicenseAssignedResponse> localVarResponse = await AssignLicenseTenantUserAsyncWithHttpInfoAsync(tenantId, userId, apiVersion, xVersion, edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsLicensesAssignLicenseRequest, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -613,11 +613,11 @@ namespace EdGraph.Tenant.Client.Api
         /// <param name="userId"></param>
         /// <param name="apiVersion"> (optional)</param>
         /// <param name="xVersion"> (optional)</param>
-        /// <param name="identityApiUserV1AssignLicenseRequest"> (optional)</param>
+        /// <param name="edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsLicensesAssignLicenseRequest"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (IdentityApiUserV1LicenseAssignedResponse)</returns>
-        public async System.Threading.Tasks.Task<EdGraph.Tenant.Client.Client.ApiResponse<IdentityApiUserV1LicenseAssignedResponse>> AssignLicenseTenantUserAsyncWithHttpInfoAsync(string tenantId, string userId, string? apiVersion = default(string?), string? xVersion = default(string?), IdentityApiUserV1AssignLicenseRequest? identityApiUserV1AssignLicenseRequest = default(IdentityApiUserV1AssignLicenseRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<EdGraph.Tenant.Client.Client.ApiResponse<IdentityApiUserV1LicenseAssignedResponse>> AssignLicenseTenantUserAsyncWithHttpInfoAsync(string tenantId, string userId, string? apiVersion = default(string?), string? xVersion = default(string?), EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsLicensesAssignLicenseRequest? edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsLicensesAssignLicenseRequest = default(EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsLicensesAssignLicenseRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'tenantId' is set
             if (tenantId == null)
@@ -668,7 +668,7 @@ namespace EdGraph.Tenant.Client.Api
             {
                 localVarRequestOptions.HeaderParameters.Add("X-version", EdGraph.Tenant.Client.Client.ClientUtils.ParameterToString(xVersion)); // header parameter
             }
-            localVarRequestOptions.Data = identityApiUserV1AssignLicenseRequest;
+            localVarRequestOptions.Data = edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsLicensesAssignLicenseRequest;
 
             localVarRequestOptions.Operation = "UsersLicensesApi.AssignLicenseTenantUserAsync";
             localVarRequestOptions.OperationIndex = operationIndex;

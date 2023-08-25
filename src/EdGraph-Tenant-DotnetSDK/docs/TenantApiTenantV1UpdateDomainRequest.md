@@ -1,14 +1,13 @@
-# EdGraph.Tenant.Client.Model.IdentityApiUserV1AssignLicenseRequest
+# EdGraph.Tenant.Client.Model.TenantApiTenantV1UpdateDomainRequest
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **TenantId** | **string** |  | [optional] 
-**SubscriptionId** | **string** |  | [optional] 
-**ApplicationId** | **string** |  | [optional] 
-**UserId** | **string** |  | [optional] 
-**Roles** | **List&lt;string&gt;** |  | [optional] [readonly] 
+**OldDomainName** | **string** |  | [optional] 
+**NewDomainName** | **string** |  | [optional] 
+**DomainStatus** | **TenantApiTenantV1DomainStatus** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

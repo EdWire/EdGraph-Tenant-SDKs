@@ -12,7 +12,7 @@ All URIs are relative to *https://api.edgraph.dev/tenant*
 
 <a id="assignlicensetenantuserasync"></a>
 # **AssignLicenseTenantUserAsync**
-> IdentityApiUserV1LicenseAssignedResponse AssignLicenseTenantUserAsync (string tenantId, string userId, string? apiVersion = null, string? xVersion = null, IdentityApiUserV1AssignLicenseRequest? identityApiUserV1AssignLicenseRequest = null)
+> IdentityApiUserV1LicenseAssignedResponse AssignLicenseTenantUserAsync (string tenantId, string userId, string? apiVersion = null, string? xVersion = null, EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsLicensesAssignLicenseRequest? edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsLicensesAssignLicenseRequest = null)
 
 Assigns a license to a user in the context of a specific tenant
 
@@ -40,12 +40,12 @@ namespace Example
             var userId = "userId_example";  // string | 
             var apiVersion = "apiVersion_example";  // string? |  (optional) 
             var xVersion = "xVersion_example";  // string? |  (optional) 
-            var identityApiUserV1AssignLicenseRequest = new IdentityApiUserV1AssignLicenseRequest?(); // IdentityApiUserV1AssignLicenseRequest? |  (optional) 
+            var edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsLicensesAssignLicenseRequest = new EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsLicensesAssignLicenseRequest?(); // EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsLicensesAssignLicenseRequest? |  (optional) 
 
             try
             {
                 // Assigns a license to a user in the context of a specific tenant
-                IdentityApiUserV1LicenseAssignedResponse result = apiInstance.AssignLicenseTenantUserAsync(tenantId, userId, apiVersion, xVersion, identityApiUserV1AssignLicenseRequest);
+                IdentityApiUserV1LicenseAssignedResponse result = apiInstance.AssignLicenseTenantUserAsync(tenantId, userId, apiVersion, xVersion, edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsLicensesAssignLicenseRequest);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -66,7 +66,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Assigns a license to a user in the context of a specific tenant
-    ApiResponse<IdentityApiUserV1LicenseAssignedResponse> response = apiInstance.AssignLicenseTenantUserAsyncWithHttpInfo(tenantId, userId, apiVersion, xVersion, identityApiUserV1AssignLicenseRequest);
+    ApiResponse<IdentityApiUserV1LicenseAssignedResponse> response = apiInstance.AssignLicenseTenantUserAsyncWithHttpInfo(tenantId, userId, apiVersion, xVersion, edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsLicensesAssignLicenseRequest);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -87,7 +87,7 @@ catch (ApiException e)
 | **userId** | **string** |  |  |
 | **apiVersion** | **string?** |  | [optional]  |
 | **xVersion** | **string?** |  | [optional]  |
-| **identityApiUserV1AssignLicenseRequest** | [**IdentityApiUserV1AssignLicenseRequest?**](IdentityApiUserV1AssignLicenseRequest?.md) |  | [optional]  |
+| **edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsLicensesAssignLicenseRequest** | [**EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsLicensesAssignLicenseRequest?**](EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsLicensesAssignLicenseRequest?.md) |  | [optional]  |
 
 ### Return type
 

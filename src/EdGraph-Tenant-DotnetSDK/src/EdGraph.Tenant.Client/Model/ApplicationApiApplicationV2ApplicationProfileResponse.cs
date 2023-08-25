@@ -43,6 +43,12 @@ namespace EdGraph.Tenant.Client.Model
         /// </summary>
         [DataMember(Name = "applicationStatus", EmitDefaultValue = false)]
         public ApplicationApiApplicationV2ApplicationStatus? ApplicationStatus { get; set; }
+
+        /// <summary>
+        /// Gets or Sets SubscriptionType
+        /// </summary>
+        [DataMember(Name = "subscriptionType", EmitDefaultValue = false)]
+        public ApplicationApiApplicationV2ApplicationSubscriptionType? SubscriptionType { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="ApplicationApiApplicationV2ApplicationProfileResponse" /> class.
         /// </summary>
@@ -64,7 +70,7 @@ namespace EdGraph.Tenant.Client.Model
         /// <param name="lastModifiedDateTime">lastModifiedDateTime.</param>
         /// <param name="clientId">clientId.</param>
         /// <param name="subscriptionType">subscriptionType.</param>
-        public ApplicationApiApplicationV2ApplicationProfileResponse(string tenantId = default(string), string applicationId = default(string), ApplicationApiApplicationV2ApplicationType? applicationType = default(ApplicationApiApplicationV2ApplicationType?), string applicationName = default(string), string applicationUri = default(string), string version = default(string), string tooltipText = default(string), string applicationDescription = default(string), string tags = default(string), string groups = default(string), ApplicationApiApplicationV2ApplicationStatus? applicationStatus = default(ApplicationApiApplicationV2ApplicationStatus?), bool openInNewWindow = default(bool), string createdBy = default(string), string createdDateTime = default(string), string lastModifiedBy = default(string), string lastModifiedDateTime = default(string), string clientId = default(string), string subscriptionType = default(string))
+        public ApplicationApiApplicationV2ApplicationProfileResponse(string tenantId = default(string), string applicationId = default(string), ApplicationApiApplicationV2ApplicationType? applicationType = default(ApplicationApiApplicationV2ApplicationType?), string applicationName = default(string), string applicationUri = default(string), string version = default(string), string tooltipText = default(string), string applicationDescription = default(string), string tags = default(string), string groups = default(string), ApplicationApiApplicationV2ApplicationStatus? applicationStatus = default(ApplicationApiApplicationV2ApplicationStatus?), bool openInNewWindow = default(bool), string createdBy = default(string), string createdDateTime = default(string), string lastModifiedBy = default(string), string lastModifiedDateTime = default(string), string clientId = default(string), ApplicationApiApplicationV2ApplicationSubscriptionType? subscriptionType = default(ApplicationApiApplicationV2ApplicationSubscriptionType?))
         {
             this.TenantId = tenantId;
             this.ApplicationId = applicationId;
@@ -189,12 +195,6 @@ namespace EdGraph.Tenant.Client.Model
         /// </summary>
         [DataMember(Name = "clientId", EmitDefaultValue = true)]
         public string ClientId { get; set; }
-
-        /// <summary>
-        /// Gets or Sets SubscriptionType
-        /// </summary>
-        [DataMember(Name = "subscriptionType", EmitDefaultValue = true)]
-        public string SubscriptionType { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -348,8 +348,7 @@ namespace EdGraph.Tenant.Client.Model
                 ) && 
                 (
                     this.SubscriptionType == input.SubscriptionType ||
-                    (this.SubscriptionType != null &&
-                    this.SubscriptionType.Equals(input.SubscriptionType))
+                    this.SubscriptionType.Equals(input.SubscriptionType)
                 );
         }
 
@@ -425,10 +424,7 @@ namespace EdGraph.Tenant.Client.Model
                 {
                     hashCode = (hashCode * 59) + this.ClientId.GetHashCode();
                 }
-                if (this.SubscriptionType != null)
-                {
-                    hashCode = (hashCode * 59) + this.SubscriptionType.GetHashCode();
-                }
+                hashCode = (hashCode * 59) + this.SubscriptionType.GetHashCode();
                 return hashCode;
             }
         }
