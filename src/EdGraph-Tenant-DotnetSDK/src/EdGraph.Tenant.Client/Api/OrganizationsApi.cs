@@ -142,11 +142,15 @@ namespace EdGraph.Tenant.Client.Api
         /// </summary>
         /// <exception cref="EdGraph.Tenant.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tenantId"></param>
+        /// <param name="pageSize"> (optional, default to 10)</param>
+        /// <param name="pageIndex"> (optional, default to 0)</param>
+        /// <param name="orderBy"> (optional, default to &quot;&quot;)</param>
+        /// <param name="filter"> (optional, default to &quot;&quot;)</param>
         /// <param name="apiVersion"> (optional)</param>
         /// <param name="xVersion"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>TenantApiTenantV1GetOrganizationsResponse</returns>
-        TenantApiTenantV1GetOrganizationsResponse GetOrganizationsAsync(string tenantId, string? apiVersion = default(string?), string? xVersion = default(string?), int operationIndex = 0);
+        /// <returns>TenantApiTenantV1GetOrganizationsPaginatedResponse</returns>
+        TenantApiTenantV1GetOrganizationsPaginatedResponse GetOrganizationsAsync(string tenantId, int? pageSize = default(int?), int? pageIndex = default(int?), string? orderBy = default(string?), string? filter = default(string?), string? apiVersion = default(string?), string? xVersion = default(string?), int operationIndex = 0);
 
         /// <summary>
         /// Retrieves a list of Organizations.
@@ -156,11 +160,15 @@ namespace EdGraph.Tenant.Client.Api
         /// </remarks>
         /// <exception cref="EdGraph.Tenant.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tenantId"></param>
+        /// <param name="pageSize"> (optional, default to 10)</param>
+        /// <param name="pageIndex"> (optional, default to 0)</param>
+        /// <param name="orderBy"> (optional, default to &quot;&quot;)</param>
+        /// <param name="filter"> (optional, default to &quot;&quot;)</param>
         /// <param name="apiVersion"> (optional)</param>
         /// <param name="xVersion"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of TenantApiTenantV1GetOrganizationsResponse</returns>
-        ApiResponse<TenantApiTenantV1GetOrganizationsResponse> GetOrganizationsAsyncWithHttpInfo(string tenantId, string? apiVersion = default(string?), string? xVersion = default(string?), int operationIndex = 0);
+        /// <returns>ApiResponse of TenantApiTenantV1GetOrganizationsPaginatedResponse</returns>
+        ApiResponse<TenantApiTenantV1GetOrganizationsPaginatedResponse> GetOrganizationsAsyncWithHttpInfo(string tenantId, int? pageSize = default(int?), int? pageIndex = default(int?), string? orderBy = default(string?), string? filter = default(string?), string? apiVersion = default(string?), string? xVersion = default(string?), int operationIndex = 0);
         /// <summary>
         /// Syncs an Ed-Fi Admin instance&#39;s organizations into the Tenant&#39;s organizations.
         /// </summary>
@@ -362,12 +370,16 @@ namespace EdGraph.Tenant.Client.Api
         /// </remarks>
         /// <exception cref="EdGraph.Tenant.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tenantId"></param>
+        /// <param name="pageSize"> (optional, default to 10)</param>
+        /// <param name="pageIndex"> (optional, default to 0)</param>
+        /// <param name="orderBy"> (optional, default to &quot;&quot;)</param>
+        /// <param name="filter"> (optional, default to &quot;&quot;)</param>
         /// <param name="apiVersion"> (optional)</param>
         /// <param name="xVersion"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of TenantApiTenantV1GetOrganizationsResponse</returns>
-        System.Threading.Tasks.Task<TenantApiTenantV1GetOrganizationsResponse> GetOrganizationsAsyncAsync(string tenantId, string? apiVersion = default(string?), string? xVersion = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of TenantApiTenantV1GetOrganizationsPaginatedResponse</returns>
+        System.Threading.Tasks.Task<TenantApiTenantV1GetOrganizationsPaginatedResponse> GetOrganizationsAsyncAsync(string tenantId, int? pageSize = default(int?), int? pageIndex = default(int?), string? orderBy = default(string?), string? filter = default(string?), string? apiVersion = default(string?), string? xVersion = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Retrieves a list of Organizations.
@@ -377,12 +389,16 @@ namespace EdGraph.Tenant.Client.Api
         /// </remarks>
         /// <exception cref="EdGraph.Tenant.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tenantId"></param>
+        /// <param name="pageSize"> (optional, default to 10)</param>
+        /// <param name="pageIndex"> (optional, default to 0)</param>
+        /// <param name="orderBy"> (optional, default to &quot;&quot;)</param>
+        /// <param name="filter"> (optional, default to &quot;&quot;)</param>
         /// <param name="apiVersion"> (optional)</param>
         /// <param name="xVersion"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (TenantApiTenantV1GetOrganizationsResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<TenantApiTenantV1GetOrganizationsResponse>> GetOrganizationsAsyncWithHttpInfoAsync(string tenantId, string? apiVersion = default(string?), string? xVersion = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of ApiResponse (TenantApiTenantV1GetOrganizationsPaginatedResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<TenantApiTenantV1GetOrganizationsPaginatedResponse>> GetOrganizationsAsyncWithHttpInfoAsync(string tenantId, int? pageSize = default(int?), int? pageIndex = default(int?), string? orderBy = default(string?), string? filter = default(string?), string? apiVersion = default(string?), string? xVersion = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Syncs an Ed-Fi Admin instance&#39;s organizations into the Tenant&#39;s organizations.
         /// </summary>
@@ -1470,13 +1486,17 @@ namespace EdGraph.Tenant.Client.Api
         /// </summary>
         /// <exception cref="EdGraph.Tenant.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tenantId"></param>
+        /// <param name="pageSize"> (optional, default to 10)</param>
+        /// <param name="pageIndex"> (optional, default to 0)</param>
+        /// <param name="orderBy"> (optional, default to &quot;&quot;)</param>
+        /// <param name="filter"> (optional, default to &quot;&quot;)</param>
         /// <param name="apiVersion"> (optional)</param>
         /// <param name="xVersion"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>TenantApiTenantV1GetOrganizationsResponse</returns>
-        public TenantApiTenantV1GetOrganizationsResponse GetOrganizationsAsync(string tenantId, string? apiVersion = default(string?), string? xVersion = default(string?), int operationIndex = 0)
+        /// <returns>TenantApiTenantV1GetOrganizationsPaginatedResponse</returns>
+        public TenantApiTenantV1GetOrganizationsPaginatedResponse GetOrganizationsAsync(string tenantId, int? pageSize = default(int?), int? pageIndex = default(int?), string? orderBy = default(string?), string? filter = default(string?), string? apiVersion = default(string?), string? xVersion = default(string?), int operationIndex = 0)
         {
-            EdGraph.Tenant.Client.Client.ApiResponse<TenantApiTenantV1GetOrganizationsResponse> localVarResponse = GetOrganizationsAsyncWithHttpInfo(tenantId, apiVersion, xVersion);
+            EdGraph.Tenant.Client.Client.ApiResponse<TenantApiTenantV1GetOrganizationsPaginatedResponse> localVarResponse = GetOrganizationsAsyncWithHttpInfo(tenantId, pageSize, pageIndex, orderBy, filter, apiVersion, xVersion);
             return localVarResponse.Data;
         }
 
@@ -1485,11 +1505,15 @@ namespace EdGraph.Tenant.Client.Api
         /// </summary>
         /// <exception cref="EdGraph.Tenant.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tenantId"></param>
+        /// <param name="pageSize"> (optional, default to 10)</param>
+        /// <param name="pageIndex"> (optional, default to 0)</param>
+        /// <param name="orderBy"> (optional, default to &quot;&quot;)</param>
+        /// <param name="filter"> (optional, default to &quot;&quot;)</param>
         /// <param name="apiVersion"> (optional)</param>
         /// <param name="xVersion"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of TenantApiTenantV1GetOrganizationsResponse</returns>
-        public EdGraph.Tenant.Client.Client.ApiResponse<TenantApiTenantV1GetOrganizationsResponse> GetOrganizationsAsyncWithHttpInfo(string tenantId, string? apiVersion = default(string?), string? xVersion = default(string?), int operationIndex = 0)
+        /// <returns>ApiResponse of TenantApiTenantV1GetOrganizationsPaginatedResponse</returns>
+        public EdGraph.Tenant.Client.Client.ApiResponse<TenantApiTenantV1GetOrganizationsPaginatedResponse> GetOrganizationsAsyncWithHttpInfo(string tenantId, int? pageSize = default(int?), int? pageIndex = default(int?), string? orderBy = default(string?), string? filter = default(string?), string? apiVersion = default(string?), string? xVersion = default(string?), int operationIndex = 0)
         {
             // verify the required parameter 'tenantId' is set
             if (tenantId == null)
@@ -1520,6 +1544,22 @@ namespace EdGraph.Tenant.Client.Api
             }
 
             localVarRequestOptions.PathParameters.Add("tenantId", EdGraph.Tenant.Client.Client.ClientUtils.ParameterToString(tenantId)); // path parameter
+            if (pageSize != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(EdGraph.Tenant.Client.Client.ClientUtils.ParameterToMultiMap("", "pageSize", pageSize));
+            }
+            if (pageIndex != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(EdGraph.Tenant.Client.Client.ClientUtils.ParameterToMultiMap("", "pageIndex", pageIndex));
+            }
+            if (orderBy != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(EdGraph.Tenant.Client.Client.ClientUtils.ParameterToMultiMap("", "orderBy", orderBy));
+            }
+            if (filter != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(EdGraph.Tenant.Client.Client.ClientUtils.ParameterToMultiMap("", "filter", filter));
+            }
             if (apiVersion != null)
             {
                 localVarRequestOptions.QueryParameters.Add(EdGraph.Tenant.Client.Client.ClientUtils.ParameterToMultiMap("", "api-version", apiVersion));
@@ -1550,7 +1590,7 @@ namespace EdGraph.Tenant.Client.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<TenantApiTenantV1GetOrganizationsResponse>("/tenants/{tenantId}/organizations", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get<TenantApiTenantV1GetOrganizationsPaginatedResponse>("/tenants/{tenantId}/organizations", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetOrganizationsAsync", localVarResponse);
@@ -1568,14 +1608,18 @@ namespace EdGraph.Tenant.Client.Api
         /// </summary>
         /// <exception cref="EdGraph.Tenant.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tenantId"></param>
+        /// <param name="pageSize"> (optional, default to 10)</param>
+        /// <param name="pageIndex"> (optional, default to 0)</param>
+        /// <param name="orderBy"> (optional, default to &quot;&quot;)</param>
+        /// <param name="filter"> (optional, default to &quot;&quot;)</param>
         /// <param name="apiVersion"> (optional)</param>
         /// <param name="xVersion"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of TenantApiTenantV1GetOrganizationsResponse</returns>
-        public async System.Threading.Tasks.Task<TenantApiTenantV1GetOrganizationsResponse> GetOrganizationsAsyncAsync(string tenantId, string? apiVersion = default(string?), string? xVersion = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of TenantApiTenantV1GetOrganizationsPaginatedResponse</returns>
+        public async System.Threading.Tasks.Task<TenantApiTenantV1GetOrganizationsPaginatedResponse> GetOrganizationsAsyncAsync(string tenantId, int? pageSize = default(int?), int? pageIndex = default(int?), string? orderBy = default(string?), string? filter = default(string?), string? apiVersion = default(string?), string? xVersion = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            EdGraph.Tenant.Client.Client.ApiResponse<TenantApiTenantV1GetOrganizationsResponse> localVarResponse = await GetOrganizationsAsyncWithHttpInfoAsync(tenantId, apiVersion, xVersion, operationIndex, cancellationToken).ConfigureAwait(false);
+            EdGraph.Tenant.Client.Client.ApiResponse<TenantApiTenantV1GetOrganizationsPaginatedResponse> localVarResponse = await GetOrganizationsAsyncWithHttpInfoAsync(tenantId, pageSize, pageIndex, orderBy, filter, apiVersion, xVersion, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1584,12 +1628,16 @@ namespace EdGraph.Tenant.Client.Api
         /// </summary>
         /// <exception cref="EdGraph.Tenant.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tenantId"></param>
+        /// <param name="pageSize"> (optional, default to 10)</param>
+        /// <param name="pageIndex"> (optional, default to 0)</param>
+        /// <param name="orderBy"> (optional, default to &quot;&quot;)</param>
+        /// <param name="filter"> (optional, default to &quot;&quot;)</param>
         /// <param name="apiVersion"> (optional)</param>
         /// <param name="xVersion"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (TenantApiTenantV1GetOrganizationsResponse)</returns>
-        public async System.Threading.Tasks.Task<EdGraph.Tenant.Client.Client.ApiResponse<TenantApiTenantV1GetOrganizationsResponse>> GetOrganizationsAsyncWithHttpInfoAsync(string tenantId, string? apiVersion = default(string?), string? xVersion = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of ApiResponse (TenantApiTenantV1GetOrganizationsPaginatedResponse)</returns>
+        public async System.Threading.Tasks.Task<EdGraph.Tenant.Client.Client.ApiResponse<TenantApiTenantV1GetOrganizationsPaginatedResponse>> GetOrganizationsAsyncWithHttpInfoAsync(string tenantId, int? pageSize = default(int?), int? pageIndex = default(int?), string? orderBy = default(string?), string? filter = default(string?), string? apiVersion = default(string?), string? xVersion = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'tenantId' is set
             if (tenantId == null)
@@ -1621,6 +1669,22 @@ namespace EdGraph.Tenant.Client.Api
             }
 
             localVarRequestOptions.PathParameters.Add("tenantId", EdGraph.Tenant.Client.Client.ClientUtils.ParameterToString(tenantId)); // path parameter
+            if (pageSize != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(EdGraph.Tenant.Client.Client.ClientUtils.ParameterToMultiMap("", "pageSize", pageSize));
+            }
+            if (pageIndex != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(EdGraph.Tenant.Client.Client.ClientUtils.ParameterToMultiMap("", "pageIndex", pageIndex));
+            }
+            if (orderBy != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(EdGraph.Tenant.Client.Client.ClientUtils.ParameterToMultiMap("", "orderBy", orderBy));
+            }
+            if (filter != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(EdGraph.Tenant.Client.Client.ClientUtils.ParameterToMultiMap("", "filter", filter));
+            }
             if (apiVersion != null)
             {
                 localVarRequestOptions.QueryParameters.Add(EdGraph.Tenant.Client.Client.ClientUtils.ParameterToMultiMap("", "api-version", apiVersion));
@@ -1651,7 +1715,7 @@ namespace EdGraph.Tenant.Client.Api
             }
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<TenantApiTenantV1GetOrganizationsResponse>("/tenants/{tenantId}/organizations", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<TenantApiTenantV1GetOrganizationsPaginatedResponse>("/tenants/{tenantId}/organizations", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {

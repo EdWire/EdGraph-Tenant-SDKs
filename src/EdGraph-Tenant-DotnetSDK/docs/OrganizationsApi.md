@@ -429,7 +429,7 @@ catch (ApiException e)
 
 <a id="getorganizationsasync"></a>
 # **GetOrganizationsAsync**
-> TenantApiTenantV1GetOrganizationsResponse GetOrganizationsAsync (string tenantId, string? apiVersion = null, string? xVersion = null)
+> TenantApiTenantV1GetOrganizationsPaginatedResponse GetOrganizationsAsync (string tenantId, int? pageSize = null, int? pageIndex = null, string? orderBy = null, string? filter = null, string? apiVersion = null, string? xVersion = null)
 
 Retrieves a list of Organizations.
 
@@ -454,13 +454,17 @@ namespace Example
 
             var apiInstance = new OrganizationsApi(config);
             var tenantId = "tenantId_example";  // string | 
+            var pageSize = 10;  // int? |  (optional)  (default to 10)
+            var pageIndex = 0;  // int? |  (optional)  (default to 0)
+            var orderBy = "\"\"";  // string? |  (optional)  (default to "")
+            var filter = "\"\"";  // string? |  (optional)  (default to "")
             var apiVersion = "apiVersion_example";  // string? |  (optional) 
             var xVersion = "xVersion_example";  // string? |  (optional) 
 
             try
             {
                 // Retrieves a list of Organizations.
-                TenantApiTenantV1GetOrganizationsResponse result = apiInstance.GetOrganizationsAsync(tenantId, apiVersion, xVersion);
+                TenantApiTenantV1GetOrganizationsPaginatedResponse result = apiInstance.GetOrganizationsAsync(tenantId, pageSize, pageIndex, orderBy, filter, apiVersion, xVersion);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -481,7 +485,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Retrieves a list of Organizations.
-    ApiResponse<TenantApiTenantV1GetOrganizationsResponse> response = apiInstance.GetOrganizationsAsyncWithHttpInfo(tenantId, apiVersion, xVersion);
+    ApiResponse<TenantApiTenantV1GetOrganizationsPaginatedResponse> response = apiInstance.GetOrganizationsAsyncWithHttpInfo(tenantId, pageSize, pageIndex, orderBy, filter, apiVersion, xVersion);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -499,12 +503,16 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **tenantId** | **string** |  |  |
+| **pageSize** | **int?** |  | [optional] [default to 10] |
+| **pageIndex** | **int?** |  | [optional] [default to 0] |
+| **orderBy** | **string?** |  | [optional] [default to &quot;&quot;] |
+| **filter** | **string?** |  | [optional] [default to &quot;&quot;] |
 | **apiVersion** | **string?** |  | [optional]  |
 | **xVersion** | **string?** |  | [optional]  |
 
 ### Return type
 
-[**TenantApiTenantV1GetOrganizationsResponse**](TenantApiTenantV1GetOrganizationsResponse.md)
+[**TenantApiTenantV1GetOrganizationsPaginatedResponse**](TenantApiTenantV1GetOrganizationsPaginatedResponse.md)
 
 ### Authorization
 

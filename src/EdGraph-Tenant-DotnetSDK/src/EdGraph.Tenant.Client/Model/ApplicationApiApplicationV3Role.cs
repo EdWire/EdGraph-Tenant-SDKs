@@ -26,33 +26,42 @@ using OpenAPIDateConverter = EdGraph.Tenant.Client.Client.OpenAPIDateConverter;
 namespace EdGraph.Tenant.Client.Model
 {
     /// <summary>
-    /// TenantApiTenantV1GetOrganizationsResponse
+    /// ApplicationApiApplicationV3Role
     /// </summary>
-    [DataContract(Name = "TenantApi.Tenant.V1.GetOrganizationsResponse")]
-    public partial class TenantApiTenantV1GetOrganizationsResponse : IEquatable<TenantApiTenantV1GetOrganizationsResponse>, IValidatableObject
+    [DataContract(Name = "ApplicationApi.Application.V3.Role")]
+    public partial class ApplicationApiApplicationV3Role : IEquatable<ApplicationApiApplicationV3Role>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="TenantApiTenantV1GetOrganizationsResponse" /> class.
+        /// Initializes a new instance of the <see cref="ApplicationApiApplicationV3Role" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        public TenantApiTenantV1GetOrganizationsResponse()
+        /// <param name="roleName">roleName.</param>
+        /// <param name="isDefault">isDefault.</param>
+        /// <param name="isAvailableForTenants">isAvailableForTenants.</param>
+        public ApplicationApiApplicationV3Role(string roleName = default(string), bool isDefault = default(bool), bool isAvailableForTenants = default(bool))
         {
+            this.RoleName = roleName;
+            this.IsDefault = isDefault;
+            this.IsAvailableForTenants = isAvailableForTenants;
         }
 
         /// <summary>
-        /// Gets or Sets Organizations
+        /// Gets or Sets RoleName
         /// </summary>
-        [DataMember(Name = "organizations", EmitDefaultValue = true)]
-        public List<TenantApiTenantV1Organization> Organizations { get; private set; }
+        [DataMember(Name = "roleName", EmitDefaultValue = true)]
+        public string RoleName { get; set; }
 
         /// <summary>
-        /// Returns false as Organizations should not be serialized given that it's read-only.
+        /// Gets or Sets IsDefault
         /// </summary>
-        /// <returns>false (boolean)</returns>
-        public bool ShouldSerializeOrganizations()
-        {
-            return false;
-        }
+        [DataMember(Name = "isDefault", EmitDefaultValue = true)]
+        public bool IsDefault { get; set; }
+
+        /// <summary>
+        /// Gets or Sets IsAvailableForTenants
+        /// </summary>
+        [DataMember(Name = "isAvailableForTenants", EmitDefaultValue = true)]
+        public bool IsAvailableForTenants { get; set; }
+
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -60,8 +69,10 @@ namespace EdGraph.Tenant.Client.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class TenantApiTenantV1GetOrganizationsResponse {\n");
-            sb.Append("  Organizations: ").Append(Organizations).Append("\n");
+            sb.Append("class ApplicationApiApplicationV3Role {\n");
+            sb.Append("  RoleName: ").Append(RoleName).Append("\n");
+            sb.Append("  IsDefault: ").Append(IsDefault).Append("\n");
+            sb.Append("  IsAvailableForTenants: ").Append(IsAvailableForTenants).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -82,15 +93,15 @@ namespace EdGraph.Tenant.Client.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as TenantApiTenantV1GetOrganizationsResponse);
+            return this.Equals(input as ApplicationApiApplicationV3Role);
         }
 
         /// <summary>
-        /// Returns true if TenantApiTenantV1GetOrganizationsResponse instances are equal
+        /// Returns true if ApplicationApiApplicationV3Role instances are equal
         /// </summary>
-        /// <param name="input">Instance of TenantApiTenantV1GetOrganizationsResponse to be compared</param>
+        /// <param name="input">Instance of ApplicationApiApplicationV3Role to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(TenantApiTenantV1GetOrganizationsResponse input)
+        public bool Equals(ApplicationApiApplicationV3Role input)
         {
             if (input == null)
             {
@@ -98,10 +109,17 @@ namespace EdGraph.Tenant.Client.Model
             }
             return 
                 (
-                    this.Organizations == input.Organizations ||
-                    this.Organizations != null &&
-                    input.Organizations != null &&
-                    this.Organizations.SequenceEqual(input.Organizations)
+                    this.RoleName == input.RoleName ||
+                    (this.RoleName != null &&
+                    this.RoleName.Equals(input.RoleName))
+                ) && 
+                (
+                    this.IsDefault == input.IsDefault ||
+                    this.IsDefault.Equals(input.IsDefault)
+                ) && 
+                (
+                    this.IsAvailableForTenants == input.IsAvailableForTenants ||
+                    this.IsAvailableForTenants.Equals(input.IsAvailableForTenants)
                 );
         }
 
@@ -114,10 +132,12 @@ namespace EdGraph.Tenant.Client.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Organizations != null)
+                if (this.RoleName != null)
                 {
-                    hashCode = (hashCode * 59) + this.Organizations.GetHashCode();
+                    hashCode = (hashCode * 59) + this.RoleName.GetHashCode();
                 }
+                hashCode = (hashCode * 59) + this.IsDefault.GetHashCode();
+                hashCode = (hashCode * 59) + this.IsAvailableForTenants.GetHashCode();
                 return hashCode;
             }
         }

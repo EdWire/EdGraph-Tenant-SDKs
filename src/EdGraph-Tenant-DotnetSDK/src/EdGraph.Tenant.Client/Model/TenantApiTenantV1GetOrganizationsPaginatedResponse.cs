@@ -26,18 +26,18 @@ using OpenAPIDateConverter = EdGraph.Tenant.Client.Client.OpenAPIDateConverter;
 namespace EdGraph.Tenant.Client.Model
 {
     /// <summary>
-    /// ApplicationApiApplicationV2PaginatedItemsResponse
+    /// TenantApiTenantV1GetOrganizationsPaginatedResponse
     /// </summary>
-    [DataContract(Name = "ApplicationApi.Application.V2.PaginatedItemsResponse")]
-    public partial class ApplicationApiApplicationV2PaginatedItemsResponse : IEquatable<ApplicationApiApplicationV2PaginatedItemsResponse>, IValidatableObject
+    [DataContract(Name = "TenantApi.Tenant.V1.GetOrganizationsPaginatedResponse")]
+    public partial class TenantApiTenantV1GetOrganizationsPaginatedResponse : IEquatable<TenantApiTenantV1GetOrganizationsPaginatedResponse>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="ApplicationApiApplicationV2PaginatedItemsResponse" /> class.
+        /// Initializes a new instance of the <see cref="TenantApiTenantV1GetOrganizationsPaginatedResponse" /> class.
         /// </summary>
         /// <param name="pageIndex">pageIndex.</param>
         /// <param name="pageSize">pageSize.</param>
         /// <param name="count">count.</param>
-        public ApplicationApiApplicationV2PaginatedItemsResponse(int pageIndex = default(int), int pageSize = default(int), long count = default(long))
+        public TenantApiTenantV1GetOrganizationsPaginatedResponse(int pageIndex = default(int), int pageSize = default(int), long count = default(long))
         {
             this.PageIndex = pageIndex;
             this.PageSize = pageSize;
@@ -66,7 +66,7 @@ namespace EdGraph.Tenant.Client.Model
         /// Gets or Sets Data
         /// </summary>
         [DataMember(Name = "data", EmitDefaultValue = true)]
-        public List<ApplicationApiApplicationV2ApplicationListResponse> Data { get; private set; }
+        public List<TenantApiTenantV1Organization> Data { get; private set; }
 
         /// <summary>
         /// Returns false as Data should not be serialized given that it's read-only.
@@ -83,7 +83,7 @@ namespace EdGraph.Tenant.Client.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class ApplicationApiApplicationV2PaginatedItemsResponse {\n");
+            sb.Append("class TenantApiTenantV1GetOrganizationsPaginatedResponse {\n");
             sb.Append("  PageIndex: ").Append(PageIndex).Append("\n");
             sb.Append("  PageSize: ").Append(PageSize).Append("\n");
             sb.Append("  Count: ").Append(Count).Append("\n");
@@ -108,15 +108,15 @@ namespace EdGraph.Tenant.Client.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as ApplicationApiApplicationV2PaginatedItemsResponse);
+            return this.Equals(input as TenantApiTenantV1GetOrganizationsPaginatedResponse);
         }
 
         /// <summary>
-        /// Returns true if ApplicationApiApplicationV2PaginatedItemsResponse instances are equal
+        /// Returns true if TenantApiTenantV1GetOrganizationsPaginatedResponse instances are equal
         /// </summary>
-        /// <param name="input">Instance of ApplicationApiApplicationV2PaginatedItemsResponse to be compared</param>
+        /// <param name="input">Instance of TenantApiTenantV1GetOrganizationsPaginatedResponse to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(ApplicationApiApplicationV2PaginatedItemsResponse input)
+        public bool Equals(TenantApiTenantV1GetOrganizationsPaginatedResponse input)
         {
             if (input == null)
             {

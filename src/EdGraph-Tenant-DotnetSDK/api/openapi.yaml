@@ -980,7 +980,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ApplicationApi.Application.V2.ApplicationProfileResponse'
+                $ref: '#/components/schemas/ApplicationApi.Application.V3.ApplicationProfileResponse'
           description: The requested resource was successfully retrieved.
         "400":
           content:
@@ -1089,7 +1089,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ApplicationApi.Application.V2.ApplicationListResponse'
+                $ref: '#/components/schemas/ApplicationApi.Application.V3.ApplicationListResponse'
           description: The requested resource was successfully retrieved.
         "400":
           content:
@@ -2582,6 +2582,44 @@ paths:
         schema:
           type: string
         style: simple
+      - description: ""
+        explode: true
+        in: query
+        name: pageSize
+        required: false
+        schema:
+          default: 10
+          format: int32
+          type: integer
+        style: form
+      - description: ""
+        explode: true
+        in: query
+        name: pageIndex
+        required: false
+        schema:
+          default: 0
+          format: int32
+          type: integer
+        style: form
+      - description: ""
+        explode: true
+        in: query
+        name: orderBy
+        required: false
+        schema:
+          default: ""
+          type: string
+        style: form
+      - description: ""
+        explode: true
+        in: query
+        name: filter
+        required: false
+        schema:
+          default: ""
+          type: string
+        style: form
       - explode: true
         in: query
         name: api-version
@@ -2624,7 +2662,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/TenantApi.Tenant.V1.GetOrganizationsResponse'
+                $ref: '#/components/schemas/TenantApi.Tenant.V1.GetOrganizationsPaginatedResponse'
           description: The requested resource was successfully retrieved.
         "400":
           content:
@@ -2971,7 +3009,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ApplicationApi.Application.V2.PaginatedItemsResponse'
+                $ref: '#/components/schemas/ApplicationApi.Application.V3.PaginatedItemsResponse'
           description: The requested resource was successfully retrieved.
         "400":
           content:
@@ -5071,15 +5109,17 @@ paths:
       - Webhooks
 components:
   schemas:
-    ApplicationApi.Application.V2.ApplicationListResponse:
+    ApplicationApi.Application.V3.ApplicationListResponse:
       additionalProperties: false
       example:
         documentationUrl: documentationUrl
         lastModifiedDateTime: lastModifiedDateTime
         roles:
         - isDefault: true
+          isAvailableForTenants: true
           roleName: roleName
         - isDefault: true
+          isAvailableForTenants: true
           roleName: roleName
         lastModifiedBy: lastModifiedBy
         groups: groups
@@ -5112,10 +5152,10 @@ components:
           nullable: true
           type: string
         applicationStatus:
-          $ref: '#/components/schemas/ApplicationApi.Application.V2.ApplicationStatus'
+          $ref: '#/components/schemas/ApplicationApi.Application.V3.ApplicationStatus'
         roles:
           items:
-            $ref: '#/components/schemas/ApplicationApi.Application.V2.Role'
+            $ref: '#/components/schemas/ApplicationApi.Application.V3.Role'
           nullable: true
           readOnly: true
           type: array
@@ -5132,12 +5172,12 @@ components:
           nullable: true
           type: string
         subscriptionType:
-          $ref: '#/components/schemas/ApplicationApi.Application.V2.ApplicationSubscriptionType'
+          $ref: '#/components/schemas/ApplicationApi.Application.V3.ApplicationSubscriptionType'
         documentationUrl:
           nullable: true
           type: string
       type: object
-    ApplicationApi.Application.V2.ApplicationProfileResponse:
+    ApplicationApi.Application.V3.ApplicationProfileResponse:
       additionalProperties: false
       example:
         applicationType: null
@@ -5146,8 +5186,10 @@ components:
         tooltipText: tooltipText
         roles:
         - isDefault: true
+          isAvailableForTenants: true
           roleName: roleName
         - isDefault: true
+          isAvailableForTenants: true
           roleName: roleName
         lastModifiedBy: lastModifiedBy
         groups: groups
@@ -5171,7 +5213,7 @@ components:
           nullable: true
           type: string
         applicationType:
-          $ref: '#/components/schemas/ApplicationApi.Application.V2.ApplicationType'
+          $ref: '#/components/schemas/ApplicationApi.Application.V3.ApplicationType'
         applicationName:
           nullable: true
           type: string
@@ -5194,12 +5236,12 @@ components:
           nullable: true
           type: string
         applicationStatus:
-          $ref: '#/components/schemas/ApplicationApi.Application.V2.ApplicationStatus'
+          $ref: '#/components/schemas/ApplicationApi.Application.V3.ApplicationStatus'
         openInNewWindow:
           type: boolean
         roles:
           items:
-            $ref: '#/components/schemas/ApplicationApi.Application.V2.Role'
+            $ref: '#/components/schemas/ApplicationApi.Application.V3.Role'
           nullable: true
           readOnly: true
           type: array
@@ -5219,27 +5261,27 @@ components:
           nullable: true
           type: string
         subscriptionType:
-          $ref: '#/components/schemas/ApplicationApi.Application.V2.ApplicationSubscriptionType'
+          $ref: '#/components/schemas/ApplicationApi.Application.V3.ApplicationSubscriptionType'
       type: object
-    ApplicationApi.Application.V2.ApplicationStatus:
+    ApplicationApi.Application.V3.ApplicationStatus:
       enum:
       - Unknown
       - Draft
       - Published
       type: string
-    ApplicationApi.Application.V2.ApplicationSubscriptionType:
+    ApplicationApi.Application.V3.ApplicationSubscriptionType:
       enum:
       - Auto
       - Manual
       - None
       type: string
-    ApplicationApi.Application.V2.ApplicationType:
+    ApplicationApi.Application.V3.ApplicationType:
       enum:
       - Unknown
       - SSO
       - Link
       type: string
-    ApplicationApi.Application.V2.PaginatedItemsResponse:
+    ApplicationApi.Application.V3.PaginatedItemsResponse:
       additionalProperties: false
       example:
         data:
@@ -5247,8 +5289,10 @@ components:
           lastModifiedDateTime: lastModifiedDateTime
           roles:
           - isDefault: true
+            isAvailableForTenants: true
             roleName: roleName
           - isDefault: true
+            isAvailableForTenants: true
             roleName: roleName
           lastModifiedBy: lastModifiedBy
           groups: groups
@@ -5265,8 +5309,10 @@ components:
           lastModifiedDateTime: lastModifiedDateTime
           roles:
           - isDefault: true
+            isAvailableForTenants: true
             roleName: roleName
           - isDefault: true
+            isAvailableForTenants: true
             roleName: roleName
           lastModifiedBy: lastModifiedBy
           groups: groups
@@ -5294,21 +5340,24 @@ components:
           type: integer
         data:
           items:
-            $ref: '#/components/schemas/ApplicationApi.Application.V2.ApplicationListResponse'
+            $ref: '#/components/schemas/ApplicationApi.Application.V3.ApplicationListResponse'
           nullable: true
           readOnly: true
           type: array
       type: object
-    ApplicationApi.Application.V2.Role:
+    ApplicationApi.Application.V3.Role:
       additionalProperties: false
       example:
         isDefault: true
+        isAvailableForTenants: true
         roleName: roleName
       properties:
         roleName:
           nullable: true
           type: string
         isDefault:
+          type: boolean
+        isAvailableForTenants:
           type: boolean
       type: object
     EdGraph.Common.Errors.Core.ProblemDetails:
@@ -5592,12 +5641,15 @@ components:
       additionalProperties: false
       example:
         isDefault: true
+        isAvailableForTenants: true
         roleName: roleName
       properties:
         roleName:
           nullable: true
           type: string
         isDefault:
+          type: boolean
+        isAvailableForTenants:
           type: boolean
       type: object
     EdGraph.HttpAggregators.Tenant.Api.Controllers.v1.ViewModels.Responses.SubscriptionListResponseDto:
@@ -5624,8 +5676,10 @@ components:
         applicationName: applicationName
         applicationRoles:
         - isDefault: true
+          isAvailableForTenants: true
           roleName: roleName
         - isDefault: true
+          isAvailableForTenants: true
           roleName: roleName
       properties:
         tenantId:
@@ -5713,8 +5767,10 @@ components:
           applicationName: applicationName
           applicationRoles:
           - isDefault: true
+            isAvailableForTenants: true
             roleName: roleName
           - isDefault: true
+            isAvailableForTenants: true
             roleName: roleName
         - gracePeriod: 5
           actualEndDateTime: actualEndDateTime
@@ -5737,8 +5793,10 @@ components:
           applicationName: applicationName
           applicationRoles:
           - isDefault: true
+            isAvailableForTenants: true
             roleName: roleName
           - isDefault: true
+            isAvailableForTenants: true
             roleName: roleName
         pageIndex: 0
         count: 1
@@ -8204,10 +8262,10 @@ components:
           readOnly: true
           type: array
       type: object
-    TenantApi.Tenant.V1.GetOrganizationsResponse:
+    TenantApi.Tenant.V1.GetOrganizationsPaginatedResponse:
       additionalProperties: false
       example:
-        organizations:
+        data:
         - identifierValue: identifierValue
           identifierType: identifierType
           source: source
@@ -8218,8 +8276,20 @@ components:
           source: source
           includeInJwt: true
           discriminator: discriminator
+        pageIndex: 0
+        count: 1
+        pageSize: 6
       properties:
-        organizations:
+        pageIndex:
+          format: int32
+          type: integer
+        pageSize:
+          format: int32
+          type: integer
+        count:
+          format: int64
+          type: integer
+        data:
           items:
             $ref: '#/components/schemas/TenantApi.Tenant.V1.Organization'
           nullable: true

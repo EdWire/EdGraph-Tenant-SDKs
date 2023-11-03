@@ -125,10 +125,14 @@ namespace EdGraph.Tenant.Client.Test.Api
         {
             // TODO uncomment below to test the method and replace null with proper value
             //string tenantId = null;
+            //int? pageSize = null;
+            //int? pageIndex = null;
+            //string? orderBy = null;
+            //string? filter = null;
             //string? apiVersion = null;
             //string? xVersion = null;
-            //var response = instance.GetOrganizationsAsync(tenantId, apiVersion, xVersion);
-            //Assert.IsType<TenantApiTenantV1GetOrganizationsResponse>(response);
+            //var response = instance.GetOrganizationsAsync(tenantId, pageSize, pageIndex, orderBy, filter, apiVersion, xVersion);
+            //Assert.IsType<TenantApiTenantV1GetOrganizationsPaginatedResponse>(response);
         }
 
         /// <summary>

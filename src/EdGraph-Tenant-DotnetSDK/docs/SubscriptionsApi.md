@@ -114,7 +114,7 @@ catch (ApiException e)
 
 <a id="getalltenantsubscriptionapplications"></a>
 # **GetAllTenantSubscriptionApplications**
-> ApplicationApiApplicationV2PaginatedItemsResponse GetAllTenantSubscriptionApplications (string tenantId, int? pageIndex = null, int? pageSize = null, string? orderBy = null, string? apiVersion = null, string? xVersion = null)
+> ApplicationApiApplicationV3PaginatedItemsResponse GetAllTenantSubscriptionApplications (string tenantId, int? pageIndex = null, int? pageSize = null, string? orderBy = null, string? apiVersion = null, string? xVersion = null)
 
 Retrieves a list of applications available for subscription.
 
@@ -148,7 +148,7 @@ namespace Example
             try
             {
                 // Retrieves a list of applications available for subscription.
-                ApplicationApiApplicationV2PaginatedItemsResponse result = apiInstance.GetAllTenantSubscriptionApplications(tenantId, pageIndex, pageSize, orderBy, apiVersion, xVersion);
+                ApplicationApiApplicationV3PaginatedItemsResponse result = apiInstance.GetAllTenantSubscriptionApplications(tenantId, pageIndex, pageSize, orderBy, apiVersion, xVersion);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -169,7 +169,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Retrieves a list of applications available for subscription.
-    ApiResponse<ApplicationApiApplicationV2PaginatedItemsResponse> response = apiInstance.GetAllTenantSubscriptionApplicationsWithHttpInfo(tenantId, pageIndex, pageSize, orderBy, apiVersion, xVersion);
+    ApiResponse<ApplicationApiApplicationV3PaginatedItemsResponse> response = apiInstance.GetAllTenantSubscriptionApplicationsWithHttpInfo(tenantId, pageIndex, pageSize, orderBy, apiVersion, xVersion);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -195,7 +195,7 @@ catch (ApiException e)
 
 ### Return type
 
-[**ApplicationApiApplicationV2PaginatedItemsResponse**](ApplicationApiApplicationV2PaginatedItemsResponse.md)
+[**ApplicationApiApplicationV3PaginatedItemsResponse**](ApplicationApiApplicationV3PaginatedItemsResponse.md)
 
 ### Authorization
 

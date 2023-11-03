@@ -26,54 +26,70 @@ using OpenAPIDateConverter = EdGraph.Tenant.Client.Client.OpenAPIDateConverter;
 namespace EdGraph.Tenant.Client.Model
 {
     /// <summary>
-    /// ApplicationApiApplicationV2ApplicationListResponse
+    /// ApplicationApiApplicationV3ApplicationProfileResponse
     /// </summary>
-    [DataContract(Name = "ApplicationApi.Application.V2.ApplicationListResponse")]
-    public partial class ApplicationApiApplicationV2ApplicationListResponse : IEquatable<ApplicationApiApplicationV2ApplicationListResponse>, IValidatableObject
+    [DataContract(Name = "ApplicationApi.Application.V3.ApplicationProfileResponse")]
+    public partial class ApplicationApiApplicationV3ApplicationProfileResponse : IEquatable<ApplicationApiApplicationV3ApplicationProfileResponse>, IValidatableObject
     {
+
+        /// <summary>
+        /// Gets or Sets ApplicationType
+        /// </summary>
+        [DataMember(Name = "applicationType", EmitDefaultValue = false)]
+        public ApplicationApiApplicationV3ApplicationType? ApplicationType { get; set; }
 
         /// <summary>
         /// Gets or Sets ApplicationStatus
         /// </summary>
         [DataMember(Name = "applicationStatus", EmitDefaultValue = false)]
-        public ApplicationApiApplicationV2ApplicationStatus? ApplicationStatus { get; set; }
+        public ApplicationApiApplicationV3ApplicationStatus? ApplicationStatus { get; set; }
 
         /// <summary>
         /// Gets or Sets SubscriptionType
         /// </summary>
         [DataMember(Name = "subscriptionType", EmitDefaultValue = false)]
-        public ApplicationApiApplicationV2ApplicationSubscriptionType? SubscriptionType { get; set; }
+        public ApplicationApiApplicationV3ApplicationSubscriptionType? SubscriptionType { get; set; }
         /// <summary>
-        /// Initializes a new instance of the <see cref="ApplicationApiApplicationV2ApplicationListResponse" /> class.
+        /// Initializes a new instance of the <see cref="ApplicationApiApplicationV3ApplicationProfileResponse" /> class.
         /// </summary>
         /// <param name="tenantId">tenantId.</param>
         /// <param name="applicationId">applicationId.</param>
+        /// <param name="applicationType">applicationType.</param>
         /// <param name="applicationName">applicationName.</param>
+        /// <param name="applicationUri">applicationUri.</param>
         /// <param name="version">version.</param>
+        /// <param name="tooltipText">tooltipText.</param>
+        /// <param name="applicationDescription">applicationDescription.</param>
         /// <param name="tags">tags.</param>
         /// <param name="groups">groups.</param>
         /// <param name="applicationStatus">applicationStatus.</param>
+        /// <param name="openInNewWindow">openInNewWindow.</param>
         /// <param name="createdBy">createdBy.</param>
         /// <param name="createdDateTime">createdDateTime.</param>
         /// <param name="lastModifiedBy">lastModifiedBy.</param>
         /// <param name="lastModifiedDateTime">lastModifiedDateTime.</param>
+        /// <param name="clientId">clientId.</param>
         /// <param name="subscriptionType">subscriptionType.</param>
-        /// <param name="documentationUrl">documentationUrl.</param>
-        public ApplicationApiApplicationV2ApplicationListResponse(string tenantId = default(string), string applicationId = default(string), string applicationName = default(string), string version = default(string), string tags = default(string), string groups = default(string), ApplicationApiApplicationV2ApplicationStatus? applicationStatus = default(ApplicationApiApplicationV2ApplicationStatus?), string createdBy = default(string), string createdDateTime = default(string), string lastModifiedBy = default(string), string lastModifiedDateTime = default(string), ApplicationApiApplicationV2ApplicationSubscriptionType? subscriptionType = default(ApplicationApiApplicationV2ApplicationSubscriptionType?), string documentationUrl = default(string))
+        public ApplicationApiApplicationV3ApplicationProfileResponse(string tenantId = default(string), string applicationId = default(string), ApplicationApiApplicationV3ApplicationType? applicationType = default(ApplicationApiApplicationV3ApplicationType?), string applicationName = default(string), string applicationUri = default(string), string version = default(string), string tooltipText = default(string), string applicationDescription = default(string), string tags = default(string), string groups = default(string), ApplicationApiApplicationV3ApplicationStatus? applicationStatus = default(ApplicationApiApplicationV3ApplicationStatus?), bool openInNewWindow = default(bool), string createdBy = default(string), string createdDateTime = default(string), string lastModifiedBy = default(string), string lastModifiedDateTime = default(string), string clientId = default(string), ApplicationApiApplicationV3ApplicationSubscriptionType? subscriptionType = default(ApplicationApiApplicationV3ApplicationSubscriptionType?))
         {
             this.TenantId = tenantId;
             this.ApplicationId = applicationId;
+            this.ApplicationType = applicationType;
             this.ApplicationName = applicationName;
+            this.ApplicationUri = applicationUri;
             this._Version = version;
+            this.TooltipText = tooltipText;
+            this.ApplicationDescription = applicationDescription;
             this.Tags = tags;
             this.Groups = groups;
             this.ApplicationStatus = applicationStatus;
+            this.OpenInNewWindow = openInNewWindow;
             this.CreatedBy = createdBy;
             this.CreatedDateTime = createdDateTime;
             this.LastModifiedBy = lastModifiedBy;
             this.LastModifiedDateTime = lastModifiedDateTime;
+            this.ClientId = clientId;
             this.SubscriptionType = subscriptionType;
-            this.DocumentationUrl = documentationUrl;
         }
 
         /// <summary>
@@ -95,10 +111,28 @@ namespace EdGraph.Tenant.Client.Model
         public string ApplicationName { get; set; }
 
         /// <summary>
+        /// Gets or Sets ApplicationUri
+        /// </summary>
+        [DataMember(Name = "applicationUri", EmitDefaultValue = true)]
+        public string ApplicationUri { get; set; }
+
+        /// <summary>
         /// Gets or Sets _Version
         /// </summary>
         [DataMember(Name = "version", EmitDefaultValue = true)]
         public string _Version { get; set; }
+
+        /// <summary>
+        /// Gets or Sets TooltipText
+        /// </summary>
+        [DataMember(Name = "tooltipText", EmitDefaultValue = true)]
+        public string TooltipText { get; set; }
+
+        /// <summary>
+        /// Gets or Sets ApplicationDescription
+        /// </summary>
+        [DataMember(Name = "applicationDescription", EmitDefaultValue = true)]
+        public string ApplicationDescription { get; set; }
 
         /// <summary>
         /// Gets or Sets Tags
@@ -113,10 +147,16 @@ namespace EdGraph.Tenant.Client.Model
         public string Groups { get; set; }
 
         /// <summary>
+        /// Gets or Sets OpenInNewWindow
+        /// </summary>
+        [DataMember(Name = "openInNewWindow", EmitDefaultValue = true)]
+        public bool OpenInNewWindow { get; set; }
+
+        /// <summary>
         /// Gets or Sets Roles
         /// </summary>
         [DataMember(Name = "roles", EmitDefaultValue = true)]
-        public List<ApplicationApiApplicationV2Role> Roles { get; private set; }
+        public List<ApplicationApiApplicationV3Role> Roles { get; private set; }
 
         /// <summary>
         /// Returns false as Roles should not be serialized given that it's read-only.
@@ -151,10 +191,10 @@ namespace EdGraph.Tenant.Client.Model
         public string LastModifiedDateTime { get; set; }
 
         /// <summary>
-        /// Gets or Sets DocumentationUrl
+        /// Gets or Sets ClientId
         /// </summary>
-        [DataMember(Name = "documentationUrl", EmitDefaultValue = true)]
-        public string DocumentationUrl { get; set; }
+        [DataMember(Name = "clientId", EmitDefaultValue = true)]
+        public string ClientId { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -163,21 +203,26 @@ namespace EdGraph.Tenant.Client.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class ApplicationApiApplicationV2ApplicationListResponse {\n");
+            sb.Append("class ApplicationApiApplicationV3ApplicationProfileResponse {\n");
             sb.Append("  TenantId: ").Append(TenantId).Append("\n");
             sb.Append("  ApplicationId: ").Append(ApplicationId).Append("\n");
+            sb.Append("  ApplicationType: ").Append(ApplicationType).Append("\n");
             sb.Append("  ApplicationName: ").Append(ApplicationName).Append("\n");
+            sb.Append("  ApplicationUri: ").Append(ApplicationUri).Append("\n");
             sb.Append("  _Version: ").Append(_Version).Append("\n");
+            sb.Append("  TooltipText: ").Append(TooltipText).Append("\n");
+            sb.Append("  ApplicationDescription: ").Append(ApplicationDescription).Append("\n");
             sb.Append("  Tags: ").Append(Tags).Append("\n");
             sb.Append("  Groups: ").Append(Groups).Append("\n");
             sb.Append("  ApplicationStatus: ").Append(ApplicationStatus).Append("\n");
+            sb.Append("  OpenInNewWindow: ").Append(OpenInNewWindow).Append("\n");
             sb.Append("  Roles: ").Append(Roles).Append("\n");
             sb.Append("  CreatedBy: ").Append(CreatedBy).Append("\n");
             sb.Append("  CreatedDateTime: ").Append(CreatedDateTime).Append("\n");
             sb.Append("  LastModifiedBy: ").Append(LastModifiedBy).Append("\n");
             sb.Append("  LastModifiedDateTime: ").Append(LastModifiedDateTime).Append("\n");
+            sb.Append("  ClientId: ").Append(ClientId).Append("\n");
             sb.Append("  SubscriptionType: ").Append(SubscriptionType).Append("\n");
-            sb.Append("  DocumentationUrl: ").Append(DocumentationUrl).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -198,15 +243,15 @@ namespace EdGraph.Tenant.Client.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as ApplicationApiApplicationV2ApplicationListResponse);
+            return this.Equals(input as ApplicationApiApplicationV3ApplicationProfileResponse);
         }
 
         /// <summary>
-        /// Returns true if ApplicationApiApplicationV2ApplicationListResponse instances are equal
+        /// Returns true if ApplicationApiApplicationV3ApplicationProfileResponse instances are equal
         /// </summary>
-        /// <param name="input">Instance of ApplicationApiApplicationV2ApplicationListResponse to be compared</param>
+        /// <param name="input">Instance of ApplicationApiApplicationV3ApplicationProfileResponse to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(ApplicationApiApplicationV2ApplicationListResponse input)
+        public bool Equals(ApplicationApiApplicationV3ApplicationProfileResponse input)
         {
             if (input == null)
             {
@@ -224,14 +269,33 @@ namespace EdGraph.Tenant.Client.Model
                     this.ApplicationId.Equals(input.ApplicationId))
                 ) && 
                 (
+                    this.ApplicationType == input.ApplicationType ||
+                    this.ApplicationType.Equals(input.ApplicationType)
+                ) && 
+                (
                     this.ApplicationName == input.ApplicationName ||
                     (this.ApplicationName != null &&
                     this.ApplicationName.Equals(input.ApplicationName))
                 ) && 
                 (
+                    this.ApplicationUri == input.ApplicationUri ||
+                    (this.ApplicationUri != null &&
+                    this.ApplicationUri.Equals(input.ApplicationUri))
+                ) && 
+                (
                     this._Version == input._Version ||
                     (this._Version != null &&
                     this._Version.Equals(input._Version))
+                ) && 
+                (
+                    this.TooltipText == input.TooltipText ||
+                    (this.TooltipText != null &&
+                    this.TooltipText.Equals(input.TooltipText))
+                ) && 
+                (
+                    this.ApplicationDescription == input.ApplicationDescription ||
+                    (this.ApplicationDescription != null &&
+                    this.ApplicationDescription.Equals(input.ApplicationDescription))
                 ) && 
                 (
                     this.Tags == input.Tags ||
@@ -246,6 +310,10 @@ namespace EdGraph.Tenant.Client.Model
                 (
                     this.ApplicationStatus == input.ApplicationStatus ||
                     this.ApplicationStatus.Equals(input.ApplicationStatus)
+                ) && 
+                (
+                    this.OpenInNewWindow == input.OpenInNewWindow ||
+                    this.OpenInNewWindow.Equals(input.OpenInNewWindow)
                 ) && 
                 (
                     this.Roles == input.Roles ||
@@ -274,13 +342,13 @@ namespace EdGraph.Tenant.Client.Model
                     this.LastModifiedDateTime.Equals(input.LastModifiedDateTime))
                 ) && 
                 (
-                    this.SubscriptionType == input.SubscriptionType ||
-                    this.SubscriptionType.Equals(input.SubscriptionType)
+                    this.ClientId == input.ClientId ||
+                    (this.ClientId != null &&
+                    this.ClientId.Equals(input.ClientId))
                 ) && 
                 (
-                    this.DocumentationUrl == input.DocumentationUrl ||
-                    (this.DocumentationUrl != null &&
-                    this.DocumentationUrl.Equals(input.DocumentationUrl))
+                    this.SubscriptionType == input.SubscriptionType ||
+                    this.SubscriptionType.Equals(input.SubscriptionType)
                 );
         }
 
@@ -301,13 +369,26 @@ namespace EdGraph.Tenant.Client.Model
                 {
                     hashCode = (hashCode * 59) + this.ApplicationId.GetHashCode();
                 }
+                hashCode = (hashCode * 59) + this.ApplicationType.GetHashCode();
                 if (this.ApplicationName != null)
                 {
                     hashCode = (hashCode * 59) + this.ApplicationName.GetHashCode();
                 }
+                if (this.ApplicationUri != null)
+                {
+                    hashCode = (hashCode * 59) + this.ApplicationUri.GetHashCode();
+                }
                 if (this._Version != null)
                 {
                     hashCode = (hashCode * 59) + this._Version.GetHashCode();
+                }
+                if (this.TooltipText != null)
+                {
+                    hashCode = (hashCode * 59) + this.TooltipText.GetHashCode();
+                }
+                if (this.ApplicationDescription != null)
+                {
+                    hashCode = (hashCode * 59) + this.ApplicationDescription.GetHashCode();
                 }
                 if (this.Tags != null)
                 {
@@ -318,6 +399,7 @@ namespace EdGraph.Tenant.Client.Model
                     hashCode = (hashCode * 59) + this.Groups.GetHashCode();
                 }
                 hashCode = (hashCode * 59) + this.ApplicationStatus.GetHashCode();
+                hashCode = (hashCode * 59) + this.OpenInNewWindow.GetHashCode();
                 if (this.Roles != null)
                 {
                     hashCode = (hashCode * 59) + this.Roles.GetHashCode();
@@ -338,11 +420,11 @@ namespace EdGraph.Tenant.Client.Model
                 {
                     hashCode = (hashCode * 59) + this.LastModifiedDateTime.GetHashCode();
                 }
-                hashCode = (hashCode * 59) + this.SubscriptionType.GetHashCode();
-                if (this.DocumentationUrl != null)
+                if (this.ClientId != null)
                 {
-                    hashCode = (hashCode * 59) + this.DocumentationUrl.GetHashCode();
+                    hashCode = (hashCode * 59) + this.ClientId.GetHashCode();
                 }
+                hashCode = (hashCode * 59) + this.SubscriptionType.GetHashCode();
                 return hashCode;
             }
         }

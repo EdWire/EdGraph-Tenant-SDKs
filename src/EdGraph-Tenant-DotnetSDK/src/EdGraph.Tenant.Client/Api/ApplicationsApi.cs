@@ -36,8 +36,8 @@ namespace EdGraph.Tenant.Client.Api
         /// <param name="apiVersion"> (optional)</param>
         /// <param name="xVersion"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApplicationApiApplicationV2ApplicationProfileResponse</returns>
-        ApplicationApiApplicationV2ApplicationProfileResponse GetTenantApplicationProfileByIdAsync(string tenantId, string applicationId, string? apiVersion = default(string?), string? xVersion = default(string?), int operationIndex = 0);
+        /// <returns>ApplicationApiApplicationV3ApplicationProfileResponse</returns>
+        ApplicationApiApplicationV3ApplicationProfileResponse GetTenantApplicationProfileByIdAsync(string tenantId, string applicationId, string? apiVersion = default(string?), string? xVersion = default(string?), int operationIndex = 0);
 
         /// <summary>
         /// Retrieves an application
@@ -51,8 +51,8 @@ namespace EdGraph.Tenant.Client.Api
         /// <param name="apiVersion"> (optional)</param>
         /// <param name="xVersion"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of ApplicationApiApplicationV2ApplicationProfileResponse</returns>
-        ApiResponse<ApplicationApiApplicationV2ApplicationProfileResponse> GetTenantApplicationProfileByIdAsyncWithHttpInfo(string tenantId, string applicationId, string? apiVersion = default(string?), string? xVersion = default(string?), int operationIndex = 0);
+        /// <returns>ApiResponse of ApplicationApiApplicationV3ApplicationProfileResponse</returns>
+        ApiResponse<ApplicationApiApplicationV3ApplicationProfileResponse> GetTenantApplicationProfileByIdAsyncWithHttpInfo(string tenantId, string applicationId, string? apiVersion = default(string?), string? xVersion = default(string?), int operationIndex = 0);
         /// <summary>
         /// Retrieves a list of applications associated to this tenant
         /// </summary>
@@ -65,8 +65,8 @@ namespace EdGraph.Tenant.Client.Api
         /// <param name="apiVersion"> (optional)</param>
         /// <param name="xVersion"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApplicationApiApplicationV2ApplicationListResponse</returns>
-        ApplicationApiApplicationV2ApplicationListResponse GetTenantApplicationsAsync(string tenantId, int? pageIndex = default(int?), int? pageSize = default(int?), string? orderBy = default(string?), string? filter = default(string?), string? apiVersion = default(string?), string? xVersion = default(string?), int operationIndex = 0);
+        /// <returns>ApplicationApiApplicationV3ApplicationListResponse</returns>
+        ApplicationApiApplicationV3ApplicationListResponse GetTenantApplicationsAsync(string tenantId, int? pageIndex = default(int?), int? pageSize = default(int?), string? orderBy = default(string?), string? filter = default(string?), string? apiVersion = default(string?), string? xVersion = default(string?), int operationIndex = 0);
 
         /// <summary>
         /// Retrieves a list of applications associated to this tenant
@@ -83,8 +83,8 @@ namespace EdGraph.Tenant.Client.Api
         /// <param name="apiVersion"> (optional)</param>
         /// <param name="xVersion"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of ApplicationApiApplicationV2ApplicationListResponse</returns>
-        ApiResponse<ApplicationApiApplicationV2ApplicationListResponse> GetTenantApplicationsAsyncWithHttpInfo(string tenantId, int? pageIndex = default(int?), int? pageSize = default(int?), string? orderBy = default(string?), string? filter = default(string?), string? apiVersion = default(string?), string? xVersion = default(string?), int operationIndex = 0);
+        /// <returns>ApiResponse of ApplicationApiApplicationV3ApplicationListResponse</returns>
+        ApiResponse<ApplicationApiApplicationV3ApplicationListResponse> GetTenantApplicationsAsyncWithHttpInfo(string tenantId, int? pageIndex = default(int?), int? pageSize = default(int?), string? orderBy = default(string?), string? filter = default(string?), string? apiVersion = default(string?), string? xVersion = default(string?), int operationIndex = 0);
         #endregion Synchronous Operations
     }
 
@@ -107,8 +107,8 @@ namespace EdGraph.Tenant.Client.Api
         /// <param name="xVersion"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApplicationApiApplicationV2ApplicationProfileResponse</returns>
-        System.Threading.Tasks.Task<ApplicationApiApplicationV2ApplicationProfileResponse> GetTenantApplicationProfileByIdAsyncAsync(string tenantId, string applicationId, string? apiVersion = default(string?), string? xVersion = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of ApplicationApiApplicationV3ApplicationProfileResponse</returns>
+        System.Threading.Tasks.Task<ApplicationApiApplicationV3ApplicationProfileResponse> GetTenantApplicationProfileByIdAsyncAsync(string tenantId, string applicationId, string? apiVersion = default(string?), string? xVersion = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Retrieves an application
@@ -123,8 +123,8 @@ namespace EdGraph.Tenant.Client.Api
         /// <param name="xVersion"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (ApplicationApiApplicationV2ApplicationProfileResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ApplicationApiApplicationV2ApplicationProfileResponse>> GetTenantApplicationProfileByIdAsyncWithHttpInfoAsync(string tenantId, string applicationId, string? apiVersion = default(string?), string? xVersion = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of ApiResponse (ApplicationApiApplicationV3ApplicationProfileResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ApplicationApiApplicationV3ApplicationProfileResponse>> GetTenantApplicationProfileByIdAsyncWithHttpInfoAsync(string tenantId, string applicationId, string? apiVersion = default(string?), string? xVersion = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Retrieves a list of applications associated to this tenant
         /// </summary>
@@ -141,8 +141,8 @@ namespace EdGraph.Tenant.Client.Api
         /// <param name="xVersion"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApplicationApiApplicationV2ApplicationListResponse</returns>
-        System.Threading.Tasks.Task<ApplicationApiApplicationV2ApplicationListResponse> GetTenantApplicationsAsyncAsync(string tenantId, int? pageIndex = default(int?), int? pageSize = default(int?), string? orderBy = default(string?), string? filter = default(string?), string? apiVersion = default(string?), string? xVersion = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of ApplicationApiApplicationV3ApplicationListResponse</returns>
+        System.Threading.Tasks.Task<ApplicationApiApplicationV3ApplicationListResponse> GetTenantApplicationsAsyncAsync(string tenantId, int? pageIndex = default(int?), int? pageSize = default(int?), string? orderBy = default(string?), string? filter = default(string?), string? apiVersion = default(string?), string? xVersion = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Retrieves a list of applications associated to this tenant
@@ -160,8 +160,8 @@ namespace EdGraph.Tenant.Client.Api
         /// <param name="xVersion"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (ApplicationApiApplicationV2ApplicationListResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ApplicationApiApplicationV2ApplicationListResponse>> GetTenantApplicationsAsyncWithHttpInfoAsync(string tenantId, int? pageIndex = default(int?), int? pageSize = default(int?), string? orderBy = default(string?), string? filter = default(string?), string? apiVersion = default(string?), string? xVersion = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of ApiResponse (ApplicationApiApplicationV3ApplicationListResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ApplicationApiApplicationV3ApplicationListResponse>> GetTenantApplicationsAsyncWithHttpInfoAsync(string tenantId, int? pageIndex = default(int?), int? pageSize = default(int?), string? orderBy = default(string?), string? filter = default(string?), string? apiVersion = default(string?), string? xVersion = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -291,10 +291,10 @@ namespace EdGraph.Tenant.Client.Api
         /// <param name="apiVersion"> (optional)</param>
         /// <param name="xVersion"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApplicationApiApplicationV2ApplicationProfileResponse</returns>
-        public ApplicationApiApplicationV2ApplicationProfileResponse GetTenantApplicationProfileByIdAsync(string tenantId, string applicationId, string? apiVersion = default(string?), string? xVersion = default(string?), int operationIndex = 0)
+        /// <returns>ApplicationApiApplicationV3ApplicationProfileResponse</returns>
+        public ApplicationApiApplicationV3ApplicationProfileResponse GetTenantApplicationProfileByIdAsync(string tenantId, string applicationId, string? apiVersion = default(string?), string? xVersion = default(string?), int operationIndex = 0)
         {
-            EdGraph.Tenant.Client.Client.ApiResponse<ApplicationApiApplicationV2ApplicationProfileResponse> localVarResponse = GetTenantApplicationProfileByIdAsyncWithHttpInfo(tenantId, applicationId, apiVersion, xVersion);
+            EdGraph.Tenant.Client.Client.ApiResponse<ApplicationApiApplicationV3ApplicationProfileResponse> localVarResponse = GetTenantApplicationProfileByIdAsyncWithHttpInfo(tenantId, applicationId, apiVersion, xVersion);
             return localVarResponse.Data;
         }
 
@@ -307,8 +307,8 @@ namespace EdGraph.Tenant.Client.Api
         /// <param name="apiVersion"> (optional)</param>
         /// <param name="xVersion"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of ApplicationApiApplicationV2ApplicationProfileResponse</returns>
-        public EdGraph.Tenant.Client.Client.ApiResponse<ApplicationApiApplicationV2ApplicationProfileResponse> GetTenantApplicationProfileByIdAsyncWithHttpInfo(string tenantId, string applicationId, string? apiVersion = default(string?), string? xVersion = default(string?), int operationIndex = 0)
+        /// <returns>ApiResponse of ApplicationApiApplicationV3ApplicationProfileResponse</returns>
+        public EdGraph.Tenant.Client.Client.ApiResponse<ApplicationApiApplicationV3ApplicationProfileResponse> GetTenantApplicationProfileByIdAsyncWithHttpInfo(string tenantId, string applicationId, string? apiVersion = default(string?), string? xVersion = default(string?), int operationIndex = 0)
         {
             // verify the required parameter 'tenantId' is set
             if (tenantId == null)
@@ -376,7 +376,7 @@ namespace EdGraph.Tenant.Client.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<ApplicationApiApplicationV2ApplicationProfileResponse>("/tenants/{tenantId}/applications/{applicationId}", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get<ApplicationApiApplicationV3ApplicationProfileResponse>("/tenants/{tenantId}/applications/{applicationId}", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetTenantApplicationProfileByIdAsync", localVarResponse);
@@ -399,10 +399,10 @@ namespace EdGraph.Tenant.Client.Api
         /// <param name="xVersion"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApplicationApiApplicationV2ApplicationProfileResponse</returns>
-        public async System.Threading.Tasks.Task<ApplicationApiApplicationV2ApplicationProfileResponse> GetTenantApplicationProfileByIdAsyncAsync(string tenantId, string applicationId, string? apiVersion = default(string?), string? xVersion = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of ApplicationApiApplicationV3ApplicationProfileResponse</returns>
+        public async System.Threading.Tasks.Task<ApplicationApiApplicationV3ApplicationProfileResponse> GetTenantApplicationProfileByIdAsyncAsync(string tenantId, string applicationId, string? apiVersion = default(string?), string? xVersion = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            EdGraph.Tenant.Client.Client.ApiResponse<ApplicationApiApplicationV2ApplicationProfileResponse> localVarResponse = await GetTenantApplicationProfileByIdAsyncWithHttpInfoAsync(tenantId, applicationId, apiVersion, xVersion, operationIndex, cancellationToken).ConfigureAwait(false);
+            EdGraph.Tenant.Client.Client.ApiResponse<ApplicationApiApplicationV3ApplicationProfileResponse> localVarResponse = await GetTenantApplicationProfileByIdAsyncWithHttpInfoAsync(tenantId, applicationId, apiVersion, xVersion, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -416,8 +416,8 @@ namespace EdGraph.Tenant.Client.Api
         /// <param name="xVersion"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (ApplicationApiApplicationV2ApplicationProfileResponse)</returns>
-        public async System.Threading.Tasks.Task<EdGraph.Tenant.Client.Client.ApiResponse<ApplicationApiApplicationV2ApplicationProfileResponse>> GetTenantApplicationProfileByIdAsyncWithHttpInfoAsync(string tenantId, string applicationId, string? apiVersion = default(string?), string? xVersion = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of ApiResponse (ApplicationApiApplicationV3ApplicationProfileResponse)</returns>
+        public async System.Threading.Tasks.Task<EdGraph.Tenant.Client.Client.ApiResponse<ApplicationApiApplicationV3ApplicationProfileResponse>> GetTenantApplicationProfileByIdAsyncWithHttpInfoAsync(string tenantId, string applicationId, string? apiVersion = default(string?), string? xVersion = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'tenantId' is set
             if (tenantId == null)
@@ -486,7 +486,7 @@ namespace EdGraph.Tenant.Client.Api
             }
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<ApplicationApiApplicationV2ApplicationProfileResponse>("/tenants/{tenantId}/applications/{applicationId}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<ApplicationApiApplicationV3ApplicationProfileResponse>("/tenants/{tenantId}/applications/{applicationId}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -512,10 +512,10 @@ namespace EdGraph.Tenant.Client.Api
         /// <param name="apiVersion"> (optional)</param>
         /// <param name="xVersion"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApplicationApiApplicationV2ApplicationListResponse</returns>
-        public ApplicationApiApplicationV2ApplicationListResponse GetTenantApplicationsAsync(string tenantId, int? pageIndex = default(int?), int? pageSize = default(int?), string? orderBy = default(string?), string? filter = default(string?), string? apiVersion = default(string?), string? xVersion = default(string?), int operationIndex = 0)
+        /// <returns>ApplicationApiApplicationV3ApplicationListResponse</returns>
+        public ApplicationApiApplicationV3ApplicationListResponse GetTenantApplicationsAsync(string tenantId, int? pageIndex = default(int?), int? pageSize = default(int?), string? orderBy = default(string?), string? filter = default(string?), string? apiVersion = default(string?), string? xVersion = default(string?), int operationIndex = 0)
         {
-            EdGraph.Tenant.Client.Client.ApiResponse<ApplicationApiApplicationV2ApplicationListResponse> localVarResponse = GetTenantApplicationsAsyncWithHttpInfo(tenantId, pageIndex, pageSize, orderBy, filter, apiVersion, xVersion);
+            EdGraph.Tenant.Client.Client.ApiResponse<ApplicationApiApplicationV3ApplicationListResponse> localVarResponse = GetTenantApplicationsAsyncWithHttpInfo(tenantId, pageIndex, pageSize, orderBy, filter, apiVersion, xVersion);
             return localVarResponse.Data;
         }
 
@@ -531,8 +531,8 @@ namespace EdGraph.Tenant.Client.Api
         /// <param name="apiVersion"> (optional)</param>
         /// <param name="xVersion"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of ApplicationApiApplicationV2ApplicationListResponse</returns>
-        public EdGraph.Tenant.Client.Client.ApiResponse<ApplicationApiApplicationV2ApplicationListResponse> GetTenantApplicationsAsyncWithHttpInfo(string tenantId, int? pageIndex = default(int?), int? pageSize = default(int?), string? orderBy = default(string?), string? filter = default(string?), string? apiVersion = default(string?), string? xVersion = default(string?), int operationIndex = 0)
+        /// <returns>ApiResponse of ApplicationApiApplicationV3ApplicationListResponse</returns>
+        public EdGraph.Tenant.Client.Client.ApiResponse<ApplicationApiApplicationV3ApplicationListResponse> GetTenantApplicationsAsyncWithHttpInfo(string tenantId, int? pageIndex = default(int?), int? pageSize = default(int?), string? orderBy = default(string?), string? filter = default(string?), string? apiVersion = default(string?), string? xVersion = default(string?), int operationIndex = 0)
         {
             // verify the required parameter 'tenantId' is set
             if (tenantId == null)
@@ -609,7 +609,7 @@ namespace EdGraph.Tenant.Client.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<ApplicationApiApplicationV2ApplicationListResponse>("/tenants/{tenantId}/applications", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get<ApplicationApiApplicationV3ApplicationListResponse>("/tenants/{tenantId}/applications", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetTenantApplicationsAsync", localVarResponse);
@@ -635,10 +635,10 @@ namespace EdGraph.Tenant.Client.Api
         /// <param name="xVersion"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApplicationApiApplicationV2ApplicationListResponse</returns>
-        public async System.Threading.Tasks.Task<ApplicationApiApplicationV2ApplicationListResponse> GetTenantApplicationsAsyncAsync(string tenantId, int? pageIndex = default(int?), int? pageSize = default(int?), string? orderBy = default(string?), string? filter = default(string?), string? apiVersion = default(string?), string? xVersion = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of ApplicationApiApplicationV3ApplicationListResponse</returns>
+        public async System.Threading.Tasks.Task<ApplicationApiApplicationV3ApplicationListResponse> GetTenantApplicationsAsyncAsync(string tenantId, int? pageIndex = default(int?), int? pageSize = default(int?), string? orderBy = default(string?), string? filter = default(string?), string? apiVersion = default(string?), string? xVersion = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            EdGraph.Tenant.Client.Client.ApiResponse<ApplicationApiApplicationV2ApplicationListResponse> localVarResponse = await GetTenantApplicationsAsyncWithHttpInfoAsync(tenantId, pageIndex, pageSize, orderBy, filter, apiVersion, xVersion, operationIndex, cancellationToken).ConfigureAwait(false);
+            EdGraph.Tenant.Client.Client.ApiResponse<ApplicationApiApplicationV3ApplicationListResponse> localVarResponse = await GetTenantApplicationsAsyncWithHttpInfoAsync(tenantId, pageIndex, pageSize, orderBy, filter, apiVersion, xVersion, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -655,8 +655,8 @@ namespace EdGraph.Tenant.Client.Api
         /// <param name="xVersion"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (ApplicationApiApplicationV2ApplicationListResponse)</returns>
-        public async System.Threading.Tasks.Task<EdGraph.Tenant.Client.Client.ApiResponse<ApplicationApiApplicationV2ApplicationListResponse>> GetTenantApplicationsAsyncWithHttpInfoAsync(string tenantId, int? pageIndex = default(int?), int? pageSize = default(int?), string? orderBy = default(string?), string? filter = default(string?), string? apiVersion = default(string?), string? xVersion = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of ApiResponse (ApplicationApiApplicationV3ApplicationListResponse)</returns>
+        public async System.Threading.Tasks.Task<EdGraph.Tenant.Client.Client.ApiResponse<ApplicationApiApplicationV3ApplicationListResponse>> GetTenantApplicationsAsyncWithHttpInfoAsync(string tenantId, int? pageIndex = default(int?), int? pageSize = default(int?), string? orderBy = default(string?), string? filter = default(string?), string? apiVersion = default(string?), string? xVersion = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'tenantId' is set
             if (tenantId == null)
@@ -734,7 +734,7 @@ namespace EdGraph.Tenant.Client.Api
             }
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<ApplicationApiApplicationV2ApplicationListResponse>("/tenants/{tenantId}/applications", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<ApplicationApiApplicationV3ApplicationListResponse>("/tenants/{tenantId}/applications", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {

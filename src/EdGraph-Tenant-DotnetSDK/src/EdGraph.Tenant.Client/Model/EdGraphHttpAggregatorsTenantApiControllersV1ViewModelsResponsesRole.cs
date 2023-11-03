@@ -36,10 +36,12 @@ namespace EdGraph.Tenant.Client.Model
         /// </summary>
         /// <param name="roleName">roleName.</param>
         /// <param name="isDefault">isDefault.</param>
-        public EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesRole(string roleName = default(string), bool isDefault = default(bool))
+        /// <param name="isAvailableForTenants">isAvailableForTenants.</param>
+        public EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesRole(string roleName = default(string), bool isDefault = default(bool), bool isAvailableForTenants = default(bool))
         {
             this.RoleName = roleName;
             this.IsDefault = isDefault;
+            this.IsAvailableForTenants = isAvailableForTenants;
         }
 
         /// <summary>
@@ -55,6 +57,12 @@ namespace EdGraph.Tenant.Client.Model
         public bool IsDefault { get; set; }
 
         /// <summary>
+        /// Gets or Sets IsAvailableForTenants
+        /// </summary>
+        [DataMember(Name = "isAvailableForTenants", EmitDefaultValue = true)]
+        public bool IsAvailableForTenants { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -64,6 +72,7 @@ namespace EdGraph.Tenant.Client.Model
             sb.Append("class EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesRole {\n");
             sb.Append("  RoleName: ").Append(RoleName).Append("\n");
             sb.Append("  IsDefault: ").Append(IsDefault).Append("\n");
+            sb.Append("  IsAvailableForTenants: ").Append(IsAvailableForTenants).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -107,6 +116,10 @@ namespace EdGraph.Tenant.Client.Model
                 (
                     this.IsDefault == input.IsDefault ||
                     this.IsDefault.Equals(input.IsDefault)
+                ) && 
+                (
+                    this.IsAvailableForTenants == input.IsAvailableForTenants ||
+                    this.IsAvailableForTenants.Equals(input.IsAvailableForTenants)
                 );
         }
 
@@ -124,6 +137,7 @@ namespace EdGraph.Tenant.Client.Model
                     hashCode = (hashCode * 59) + this.RoleName.GetHashCode();
                 }
                 hashCode = (hashCode * 59) + this.IsDefault.GetHashCode();
+                hashCode = (hashCode * 59) + this.IsAvailableForTenants.GetHashCode();
                 return hashCode;
             }
         }

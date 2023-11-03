@@ -1,4 +1,4 @@
-# EdGraph.Tenant.Client.Model.ApplicationApiApplicationV2ApplicationStatus
+# EdGraph.Tenant.Client.Model.ApplicationApiApplicationV3ApplicationSubscriptionType
 
 ## Properties
 

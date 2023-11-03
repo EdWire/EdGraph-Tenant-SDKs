@@ -71,6 +71,14 @@ namespace EdGraph.Tenant.Client.Test.Model
         {
             // TODO unit test for the property 'IsDefault'
         }
+        /// <summary>
+        /// Test the property 'IsAvailableForTenants'
+        /// </summary>
+        [Fact]
+        public void IsAvailableForTenantsTest()
+        {
+            // TODO unit test for the property 'IsAvailableForTenants'
+        }
 
     }
 
