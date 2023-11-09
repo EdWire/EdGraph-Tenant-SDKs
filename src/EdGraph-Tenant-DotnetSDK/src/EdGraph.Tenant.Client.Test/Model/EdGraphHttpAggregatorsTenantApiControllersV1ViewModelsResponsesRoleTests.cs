@@ -54,7 +54,6 @@ namespace EdGraph.Tenant.Client.Test.Model
             //Assert.IsType<EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesRole>(instance);
         }
 
-
         /// <summary>
         /// Test the property 'RoleName'
         /// </summary>
@@ -63,6 +62,7 @@ namespace EdGraph.Tenant.Client.Test.Model
         {
             // TODO unit test for the property 'RoleName'
         }
+
         /// <summary>
         /// Test the property 'IsDefault'
         /// </summary>
@@ -71,6 +71,7 @@ namespace EdGraph.Tenant.Client.Test.Model
         {
             // TODO unit test for the property 'IsDefault'
         }
+
         /// <summary>
         /// Test the property 'IsAvailableForTenants'
         /// </summary>
@@ -79,7 +80,5 @@ namespace EdGraph.Tenant.Client.Test.Model
         {
             // TODO unit test for the property 'IsAvailableForTenants'
         }
-
     }
-
 }

@@ -54,7 +54,6 @@ namespace EdGraph.Tenant.Client.Test.Model
             //Assert.IsType<MicrosoftAspNetCoreMvcValidationProblemDetails>(instance);
         }
 
-
         /// <summary>
         /// Test the property 'Errors'
         /// </summary>
@@ -63,6 +62,7 @@ namespace EdGraph.Tenant.Client.Test.Model
         {
             // TODO unit test for the property 'Errors'
         }
+
         /// <summary>
         /// Test the property 'Type'
         /// </summary>
@@ -71,6 +71,7 @@ namespace EdGraph.Tenant.Client.Test.Model
         {
             // TODO unit test for the property 'Type'
         }
+
         /// <summary>
         /// Test the property 'Title'
         /// </summary>
@@ -79,6 +80,7 @@ namespace EdGraph.Tenant.Client.Test.Model
         {
             // TODO unit test for the property 'Title'
         }
+
         /// <summary>
         /// Test the property 'Status'
         /// </summary>
@@ -87,6 +89,7 @@ namespace EdGraph.Tenant.Client.Test.Model
         {
             // TODO unit test for the property 'Status'
         }
+
         /// <summary>
         /// Test the property 'Detail'
         /// </summary>
@@ -95,6 +98,7 @@ namespace EdGraph.Tenant.Client.Test.Model
         {
             // TODO unit test for the property 'Detail'
         }
+
         /// <summary>
         /// Test the property 'Instance'
         /// </summary>
@@ -103,7 +107,5 @@ namespace EdGraph.Tenant.Client.Test.Model
         {
             // TODO unit test for the property 'Instance'
         }
-
     }
-
 }

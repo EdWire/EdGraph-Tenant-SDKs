@@ -35,50 +35,49 @@ namespace EdGraph.Tenant.Client.Model
         /// Enum Unknown for value: Unknown
         /// </summary>
         [EnumMember(Value = "Unknown")]
-        Unknown = 1,
+        Unknown,
 
         /// <summary>
         /// Enum Internal for value: Internal
         /// </summary>
         [EnumMember(Value = "Internal")]
-        Internal = 2,
+        Internal,
 
         /// <summary>
         /// Enum State for value: State
         /// </summary>
         [EnumMember(Value = "State")]
-        State = 3,
+        State,
 
         /// <summary>
         /// Enum Collaborative for value: Collaborative
         /// </summary>
         [EnumMember(Value = "Collaborative")]
-        Collaborative = 4,
+        Collaborative,
 
         /// <summary>
         /// Enum District for value: District
         /// </summary>
         [EnumMember(Value = "District")]
-        District = 5,
+        District,
 
         /// <summary>
         /// Enum Partner for value: Partner
         /// </summary>
         [EnumMember(Value = "Partner")]
-        Partner = 6,
+        Partner,
 
         /// <summary>
         /// Enum Teacher for value: Teacher
         /// </summary>
         [EnumMember(Value = "Teacher")]
-        Teacher = 7,
+        Teacher,
 
         /// <summary>
         /// Enum Student for value: Student
         /// </summary>
         [EnumMember(Value = "Student")]
-        Student = 8
-
+        Student
     }
 
 }

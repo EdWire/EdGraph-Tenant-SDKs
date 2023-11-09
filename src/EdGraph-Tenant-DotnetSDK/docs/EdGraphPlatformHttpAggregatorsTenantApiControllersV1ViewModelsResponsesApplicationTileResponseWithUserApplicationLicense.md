@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **ApplicationDescription** | **string** |  | [optional] 
 **DocumentationUrl** | **string** |  | [optional] 
 **ApplicationUri** | **string** |  | [optional] 
-**_Version** | **string** |  | [optional] 
+**VarVersion** | **string** |  | [optional] 
 **TooltipText** | **string** |  | [optional] 
 **Tags** | **string** |  | [optional] 
 **Groups** | **string** |  | [optional] 
@@ -30,6 +30,7 @@ Name | Type | Description | Notes
 **TenantSubscriptionEndDateTime** | **string** | The Tenant subscription end date | [optional] 
 **TenantSubscriptionActualEndDateTime** | **string** | The Tenant subscription end date | [optional] 
 **IsUserLicensed** | **bool** |  | [optional] 
+**Urls** | [**List&lt;EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesApplicationUrl&gt;**](EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesApplicationUrl.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -54,7 +54,6 @@ namespace EdGraph.Tenant.Client.Test.Model
             //Assert.IsType<TenantApiWebhookV1WebhookEventsResponse>(instance);
         }
 
-
         /// <summary>
         /// Test the property 'EventSubscriptions'
         /// </summary>
@@ -63,7 +62,5 @@ namespace EdGraph.Tenant.Client.Test.Model
         {
             // TODO unit test for the property 'EventSubscriptions'
         }
-
     }
-
 }

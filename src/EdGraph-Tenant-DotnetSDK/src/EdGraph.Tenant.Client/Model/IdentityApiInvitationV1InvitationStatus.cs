@@ -35,20 +35,19 @@ namespace EdGraph.Tenant.Client.Model
         /// Enum Unknown for value: Unknown
         /// </summary>
         [EnumMember(Value = "Unknown")]
-        Unknown = 1,
+        Unknown,
 
         /// <summary>
         /// Enum Sent for value: Sent
         /// </summary>
         [EnumMember(Value = "Sent")]
-        Sent = 2,
+        Sent,
 
         /// <summary>
         /// Enum Accepted for value: Accepted
         /// </summary>
         [EnumMember(Value = "Accepted")]
-        Accepted = 3
-
+        Accepted
     }
 
 }

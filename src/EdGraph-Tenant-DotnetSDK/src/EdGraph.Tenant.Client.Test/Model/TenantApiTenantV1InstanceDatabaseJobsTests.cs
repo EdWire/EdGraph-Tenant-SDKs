@@ -54,7 +54,6 @@ namespace EdGraph.Tenant.Client.Test.Model
             //Assert.IsType<TenantApiTenantV1InstanceDatabaseJobs>(instance);
         }
 
-
         /// <summary>
         /// Test the property 'CreateJobId'
         /// </summary>
@@ -63,6 +62,7 @@ namespace EdGraph.Tenant.Client.Test.Model
         {
             // TODO unit test for the property 'CreateJobId'
         }
+
         /// <summary>
         /// Test the property 'DeleteJobId'
         /// </summary>
@@ -71,6 +71,7 @@ namespace EdGraph.Tenant.Client.Test.Model
         {
             // TODO unit test for the property 'DeleteJobId'
         }
+
         /// <summary>
         /// Test the property 'ResetDeleteJobId'
         /// </summary>
@@ -79,6 +80,7 @@ namespace EdGraph.Tenant.Client.Test.Model
         {
             // TODO unit test for the property 'ResetDeleteJobId'
         }
+
         /// <summary>
         /// Test the property 'ResetCreateJobId'
         /// </summary>
@@ -87,6 +89,7 @@ namespace EdGraph.Tenant.Client.Test.Model
         {
             // TODO unit test for the property 'ResetCreateJobId'
         }
+
         /// <summary>
         /// Test the property 'GenerateReportsJobId'
         /// </summary>
@@ -95,7 +98,5 @@ namespace EdGraph.Tenant.Client.Test.Model
         {
             // TODO unit test for the property 'GenerateReportsJobId'
         }
-
     }
-
 }

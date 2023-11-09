@@ -54,7 +54,6 @@ namespace EdGraph.Tenant.Client.Test.Model
             //Assert.IsType<TenantApiTenantV1CreateOrganizationRequest>(instance);
         }
 
-
         /// <summary>
         /// Test the property 'TenantId'
         /// </summary>
@@ -63,6 +62,7 @@ namespace EdGraph.Tenant.Client.Test.Model
         {
             // TODO unit test for the property 'TenantId'
         }
+
         /// <summary>
         /// Test the property 'IdentifierType'
         /// </summary>
@@ -71,6 +71,7 @@ namespace EdGraph.Tenant.Client.Test.Model
         {
             // TODO unit test for the property 'IdentifierType'
         }
+
         /// <summary>
         /// Test the property 'IdentifierValue'
         /// </summary>
@@ -79,6 +80,7 @@ namespace EdGraph.Tenant.Client.Test.Model
         {
             // TODO unit test for the property 'IdentifierValue'
         }
+
         /// <summary>
         /// Test the property 'Discriminator'
         /// </summary>
@@ -87,6 +89,7 @@ namespace EdGraph.Tenant.Client.Test.Model
         {
             // TODO unit test for the property 'Discriminator'
         }
+
         /// <summary>
         /// Test the property 'Source'
         /// </summary>
@@ -95,6 +98,7 @@ namespace EdGraph.Tenant.Client.Test.Model
         {
             // TODO unit test for the property 'Source'
         }
+
         /// <summary>
         /// Test the property 'IncludeInJwt'
         /// </summary>
@@ -103,7 +107,5 @@ namespace EdGraph.Tenant.Client.Test.Model
         {
             // TODO unit test for the property 'IncludeInJwt'
         }
-
     }
-
 }

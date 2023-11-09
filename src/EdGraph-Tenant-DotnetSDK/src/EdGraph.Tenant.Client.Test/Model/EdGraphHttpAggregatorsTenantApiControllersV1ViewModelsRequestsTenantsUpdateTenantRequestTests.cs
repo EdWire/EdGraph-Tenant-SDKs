@@ -54,7 +54,6 @@ namespace EdGraph.Tenant.Client.Test.Model
             //Assert.IsType<EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsUpdateTenantRequest>(instance);
         }
 
-
         /// <summary>
         /// Test the property 'TenantId'
         /// </summary>
@@ -63,6 +62,7 @@ namespace EdGraph.Tenant.Client.Test.Model
         {
             // TODO unit test for the property 'TenantId'
         }
+
         /// <summary>
         /// Test the property 'TenantType'
         /// </summary>
@@ -71,6 +71,7 @@ namespace EdGraph.Tenant.Client.Test.Model
         {
             // TODO unit test for the property 'TenantType'
         }
+
         /// <summary>
         /// Test the property 'OrganizationIdentifier'
         /// </summary>
@@ -79,6 +80,7 @@ namespace EdGraph.Tenant.Client.Test.Model
         {
             // TODO unit test for the property 'OrganizationIdentifier'
         }
+
         /// <summary>
         /// Test the property 'OrganizationName'
         /// </summary>
@@ -87,6 +89,7 @@ namespace EdGraph.Tenant.Client.Test.Model
         {
             // TODO unit test for the property 'OrganizationName'
         }
+
         /// <summary>
         /// Test the property 'State'
         /// </summary>
@@ -95,6 +98,7 @@ namespace EdGraph.Tenant.Client.Test.Model
         {
             // TODO unit test for the property 'State'
         }
+
         /// <summary>
         /// Test the property 'IsDemo'
         /// </summary>
@@ -103,6 +107,7 @@ namespace EdGraph.Tenant.Client.Test.Model
         {
             // TODO unit test for the property 'IsDemo'
         }
+
         /// <summary>
         /// Test the property 'EnforceMfa'
         /// </summary>
@@ -111,6 +116,7 @@ namespace EdGraph.Tenant.Client.Test.Model
         {
             // TODO unit test for the property 'EnforceMfa'
         }
+
         /// <summary>
         /// Test the property 'TenantStatus'
         /// </summary>
@@ -119,6 +125,7 @@ namespace EdGraph.Tenant.Client.Test.Model
         {
             // TODO unit test for the property 'TenantStatus'
         }
+
         /// <summary>
         /// Test the property 'IdentityProviders'
         /// </summary>
@@ -127,7 +134,5 @@ namespace EdGraph.Tenant.Client.Test.Model
         {
             // TODO unit test for the property 'IdentityProviders'
         }
-
     }
-
 }

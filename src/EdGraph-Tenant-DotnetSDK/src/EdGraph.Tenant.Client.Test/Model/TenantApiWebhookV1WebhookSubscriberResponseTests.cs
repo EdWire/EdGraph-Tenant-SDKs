@@ -54,7 +54,6 @@ namespace EdGraph.Tenant.Client.Test.Model
             //Assert.IsType<TenantApiWebhookV1WebhookSubscriberResponse>(instance);
         }
 
-
         /// <summary>
         /// Test the property 'EventName'
         /// </summary>
@@ -63,6 +62,7 @@ namespace EdGraph.Tenant.Client.Test.Model
         {
             // TODO unit test for the property 'EventName'
         }
+
         /// <summary>
         /// Test the property 'EventVersion'
         /// </summary>
@@ -71,6 +71,7 @@ namespace EdGraph.Tenant.Client.Test.Model
         {
             // TODO unit test for the property 'EventVersion'
         }
+
         /// <summary>
         /// Test the property 'EventSchema'
         /// </summary>
@@ -79,6 +80,7 @@ namespace EdGraph.Tenant.Client.Test.Model
         {
             // TODO unit test for the property 'EventSchema'
         }
+
         /// <summary>
         /// Test the property 'GroupName'
         /// </summary>
@@ -87,6 +89,7 @@ namespace EdGraph.Tenant.Client.Test.Model
         {
             // TODO unit test for the property 'GroupName'
         }
+
         /// <summary>
         /// Test the property 'Scope'
         /// </summary>
@@ -95,7 +98,5 @@ namespace EdGraph.Tenant.Client.Test.Model
         {
             // TODO unit test for the property 'Scope'
         }
-
     }
-
 }

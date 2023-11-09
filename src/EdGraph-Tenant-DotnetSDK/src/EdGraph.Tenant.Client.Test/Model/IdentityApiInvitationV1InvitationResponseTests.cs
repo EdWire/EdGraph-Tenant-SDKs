@@ -54,7 +54,6 @@ namespace EdGraph.Tenant.Client.Test.Model
             //Assert.IsType<IdentityApiInvitationV1InvitationResponse>(instance);
         }
 
-
         /// <summary>
         /// Test the property 'TenantId'
         /// </summary>
@@ -63,6 +62,7 @@ namespace EdGraph.Tenant.Client.Test.Model
         {
             // TODO unit test for the property 'TenantId'
         }
+
         /// <summary>
         /// Test the property 'InvitationId'
         /// </summary>
@@ -71,6 +71,7 @@ namespace EdGraph.Tenant.Client.Test.Model
         {
             // TODO unit test for the property 'InvitationId'
         }
+
         /// <summary>
         /// Test the property 'FirstName'
         /// </summary>
@@ -79,6 +80,7 @@ namespace EdGraph.Tenant.Client.Test.Model
         {
             // TODO unit test for the property 'FirstName'
         }
+
         /// <summary>
         /// Test the property 'LastName'
         /// </summary>
@@ -87,6 +89,7 @@ namespace EdGraph.Tenant.Client.Test.Model
         {
             // TODO unit test for the property 'LastName'
         }
+
         /// <summary>
         /// Test the property 'Email'
         /// </summary>
@@ -95,6 +98,7 @@ namespace EdGraph.Tenant.Client.Test.Model
         {
             // TODO unit test for the property 'Email'
         }
+
         /// <summary>
         /// Test the property 'Role'
         /// </summary>
@@ -103,6 +107,7 @@ namespace EdGraph.Tenant.Client.Test.Model
         {
             // TODO unit test for the property 'Role'
         }
+
         /// <summary>
         /// Test the property 'InvitationToken'
         /// </summary>
@@ -111,6 +116,7 @@ namespace EdGraph.Tenant.Client.Test.Model
         {
             // TODO unit test for the property 'InvitationToken'
         }
+
         /// <summary>
         /// Test the property 'InvitationStatus'
         /// </summary>
@@ -119,6 +125,7 @@ namespace EdGraph.Tenant.Client.Test.Model
         {
             // TODO unit test for the property 'InvitationStatus'
         }
+
         /// <summary>
         /// Test the property 'InvitationSentDateTime'
         /// </summary>
@@ -127,6 +134,7 @@ namespace EdGraph.Tenant.Client.Test.Model
         {
             // TODO unit test for the property 'InvitationSentDateTime'
         }
+
         /// <summary>
         /// Test the property 'AssignLicenseRequests'
         /// </summary>
@@ -135,7 +143,5 @@ namespace EdGraph.Tenant.Client.Test.Model
         {
             // TODO unit test for the property 'AssignLicenseRequests'
         }
-
     }
-
 }

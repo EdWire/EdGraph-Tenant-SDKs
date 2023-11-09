@@ -54,7 +54,6 @@ namespace EdGraph.Tenant.Client.Test.Model
             //Assert.IsType<TenantApiTenantV1DomainProfileResponse>(instance);
         }
 
-
         /// <summary>
         /// Test the property 'TenantId'
         /// </summary>
@@ -63,6 +62,7 @@ namespace EdGraph.Tenant.Client.Test.Model
         {
             // TODO unit test for the property 'TenantId'
         }
+
         /// <summary>
         /// Test the property 'DomainName'
         /// </summary>
@@ -71,6 +71,7 @@ namespace EdGraph.Tenant.Client.Test.Model
         {
             // TODO unit test for the property 'DomainName'
         }
+
         /// <summary>
         /// Test the property 'DomainStatus'
         /// </summary>
@@ -79,6 +80,7 @@ namespace EdGraph.Tenant.Client.Test.Model
         {
             // TODO unit test for the property 'DomainStatus'
         }
+
         /// <summary>
         /// Test the property 'CreatedBy'
         /// </summary>
@@ -87,6 +89,7 @@ namespace EdGraph.Tenant.Client.Test.Model
         {
             // TODO unit test for the property 'CreatedBy'
         }
+
         /// <summary>
         /// Test the property 'CreatedDateTime'
         /// </summary>
@@ -95,6 +98,7 @@ namespace EdGraph.Tenant.Client.Test.Model
         {
             // TODO unit test for the property 'CreatedDateTime'
         }
+
         /// <summary>
         /// Test the property 'LastModifiedBy'
         /// </summary>
@@ -103,6 +107,7 @@ namespace EdGraph.Tenant.Client.Test.Model
         {
             // TODO unit test for the property 'LastModifiedBy'
         }
+
         /// <summary>
         /// Test the property 'LastModifiedDateTime'
         /// </summary>
@@ -111,7 +116,5 @@ namespace EdGraph.Tenant.Client.Test.Model
         {
             // TODO unit test for the property 'LastModifiedDateTime'
         }
-
     }
-
 }

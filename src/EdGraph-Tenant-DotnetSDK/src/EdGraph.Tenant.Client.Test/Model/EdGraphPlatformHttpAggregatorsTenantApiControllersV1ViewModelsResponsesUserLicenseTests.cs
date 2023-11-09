@@ -54,7 +54,6 @@ namespace EdGraph.Tenant.Client.Test.Model
             //Assert.IsType<EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesUserLicense>(instance);
         }
 
-
         /// <summary>
         /// Test the property 'SubscriptionTenantId'
         /// </summary>
@@ -63,6 +62,7 @@ namespace EdGraph.Tenant.Client.Test.Model
         {
             // TODO unit test for the property 'SubscriptionTenantId'
         }
+
         /// <summary>
         /// Test the property 'IsTenantSubscribed'
         /// </summary>
@@ -71,6 +71,7 @@ namespace EdGraph.Tenant.Client.Test.Model
         {
             // TODO unit test for the property 'IsTenantSubscribed'
         }
+
         /// <summary>
         /// Test the property 'TenantSubscriptionId'
         /// </summary>
@@ -79,6 +80,7 @@ namespace EdGraph.Tenant.Client.Test.Model
         {
             // TODO unit test for the property 'TenantSubscriptionId'
         }
+
         /// <summary>
         /// Test the property 'TenantSubscriptionStartDateTime'
         /// </summary>
@@ -87,6 +89,7 @@ namespace EdGraph.Tenant.Client.Test.Model
         {
             // TODO unit test for the property 'TenantSubscriptionStartDateTime'
         }
+
         /// <summary>
         /// Test the property 'TenantSubscriptionEndDateTime'
         /// </summary>
@@ -95,6 +98,7 @@ namespace EdGraph.Tenant.Client.Test.Model
         {
             // TODO unit test for the property 'TenantSubscriptionEndDateTime'
         }
+
         /// <summary>
         /// Test the property 'TenantSubscriptionActualEndDateTime'
         /// </summary>
@@ -103,6 +107,7 @@ namespace EdGraph.Tenant.Client.Test.Model
         {
             // TODO unit test for the property 'TenantSubscriptionActualEndDateTime'
         }
+
         /// <summary>
         /// Test the property 'NumberOfLicenses'
         /// </summary>
@@ -111,6 +116,7 @@ namespace EdGraph.Tenant.Client.Test.Model
         {
             // TODO unit test for the property 'NumberOfLicenses'
         }
+
         /// <summary>
         /// Test the property 'AssignedLicenses'
         /// </summary>
@@ -119,6 +125,7 @@ namespace EdGraph.Tenant.Client.Test.Model
         {
             // TODO unit test for the property 'AssignedLicenses'
         }
+
         /// <summary>
         /// Test the property 'IsUserLicensed'
         /// </summary>
@@ -127,6 +134,7 @@ namespace EdGraph.Tenant.Client.Test.Model
         {
             // TODO unit test for the property 'IsUserLicensed'
         }
+
         /// <summary>
         /// Test the property 'ApplicationTenantId'
         /// </summary>
@@ -135,6 +143,7 @@ namespace EdGraph.Tenant.Client.Test.Model
         {
             // TODO unit test for the property 'ApplicationTenantId'
         }
+
         /// <summary>
         /// Test the property 'ApplicationId'
         /// </summary>
@@ -143,6 +152,7 @@ namespace EdGraph.Tenant.Client.Test.Model
         {
             // TODO unit test for the property 'ApplicationId'
         }
+
         /// <summary>
         /// Test the property 'ApplicationName'
         /// </summary>
@@ -151,6 +161,7 @@ namespace EdGraph.Tenant.Client.Test.Model
         {
             // TODO unit test for the property 'ApplicationName'
         }
+
         /// <summary>
         /// Test the property 'ApplicationRole'
         /// </summary>
@@ -159,7 +170,5 @@ namespace EdGraph.Tenant.Client.Test.Model
         {
             // TODO unit test for the property 'ApplicationRole'
         }
-
     }
-
 }

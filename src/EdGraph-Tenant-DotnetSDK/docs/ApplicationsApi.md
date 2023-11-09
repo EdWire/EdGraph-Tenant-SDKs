@@ -9,7 +9,7 @@ All URIs are relative to *https://api.edgraph.dev/tenant*
 
 <a id="gettenantapplicationprofilebyidasync"></a>
 # **GetTenantApplicationProfileByIdAsync**
-> ApplicationApiApplicationV3ApplicationProfileResponse GetTenantApplicationProfileByIdAsync (string tenantId, string applicationId, string? apiVersion = null, string? xVersion = null)
+> ApplicationApiApplicationV1ApplicationProfileResponse GetTenantApplicationProfileByIdAsync (string tenantId, string applicationId, string? apiVersion = null, string? xVersion = null)
 
 Retrieves an application
 
@@ -41,7 +41,7 @@ namespace Example
             try
             {
                 // Retrieves an application
-                ApplicationApiApplicationV3ApplicationProfileResponse result = apiInstance.GetTenantApplicationProfileByIdAsync(tenantId, applicationId, apiVersion, xVersion);
+                ApplicationApiApplicationV1ApplicationProfileResponse result = apiInstance.GetTenantApplicationProfileByIdAsync(tenantId, applicationId, apiVersion, xVersion);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -62,7 +62,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Retrieves an application
-    ApiResponse<ApplicationApiApplicationV3ApplicationProfileResponse> response = apiInstance.GetTenantApplicationProfileByIdAsyncWithHttpInfo(tenantId, applicationId, apiVersion, xVersion);
+    ApiResponse<ApplicationApiApplicationV1ApplicationProfileResponse> response = apiInstance.GetTenantApplicationProfileByIdAsyncWithHttpInfo(tenantId, applicationId, apiVersion, xVersion);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -86,7 +86,7 @@ catch (ApiException e)
 
 ### Return type
 
-[**ApplicationApiApplicationV3ApplicationProfileResponse**](ApplicationApiApplicationV3ApplicationProfileResponse.md)
+[**ApplicationApiApplicationV1ApplicationProfileResponse**](ApplicationApiApplicationV1ApplicationProfileResponse.md)
 
 ### Authorization
 
@@ -112,7 +112,7 @@ catch (ApiException e)
 
 <a id="gettenantapplicationsasync"></a>
 # **GetTenantApplicationsAsync**
-> ApplicationApiApplicationV3ApplicationListResponse GetTenantApplicationsAsync (string tenantId, int? pageIndex = null, int? pageSize = null, string? orderBy = null, string? filter = null, string? apiVersion = null, string? xVersion = null)
+> ApplicationApiApplicationV1ApplicationListResponse GetTenantApplicationsAsync (string tenantId, int? pageIndex = null, int? pageSize = null, string? orderBy = null, string? filter = null, string? apiVersion = null, string? xVersion = null)
 
 Retrieves a list of applications associated to this tenant
 
@@ -147,7 +147,7 @@ namespace Example
             try
             {
                 // Retrieves a list of applications associated to this tenant
-                ApplicationApiApplicationV3ApplicationListResponse result = apiInstance.GetTenantApplicationsAsync(tenantId, pageIndex, pageSize, orderBy, filter, apiVersion, xVersion);
+                ApplicationApiApplicationV1ApplicationListResponse result = apiInstance.GetTenantApplicationsAsync(tenantId, pageIndex, pageSize, orderBy, filter, apiVersion, xVersion);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -168,7 +168,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Retrieves a list of applications associated to this tenant
-    ApiResponse<ApplicationApiApplicationV3ApplicationListResponse> response = apiInstance.GetTenantApplicationsAsyncWithHttpInfo(tenantId, pageIndex, pageSize, orderBy, filter, apiVersion, xVersion);
+    ApiResponse<ApplicationApiApplicationV1ApplicationListResponse> response = apiInstance.GetTenantApplicationsAsyncWithHttpInfo(tenantId, pageIndex, pageSize, orderBy, filter, apiVersion, xVersion);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -195,7 +195,7 @@ catch (ApiException e)
 
 ### Return type
 
-[**ApplicationApiApplicationV3ApplicationListResponse**](ApplicationApiApplicationV3ApplicationListResponse.md)
+[**ApplicationApiApplicationV1ApplicationListResponse**](ApplicationApiApplicationV1ApplicationListResponse.md)
 
 ### Authorization
 

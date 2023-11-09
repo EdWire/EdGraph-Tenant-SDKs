@@ -83,7 +83,7 @@ namespace EdGraph.Tenant.Client.Test.Api
             //string? apiVersion = null;
             //string? xVersion = null;
             //var response = instance.GetAllTenantSubscriptionApplications(tenantId, pageIndex, pageSize, orderBy, apiVersion, xVersion);
-            //Assert.IsType<ApplicationApiApplicationV3PaginatedItemsResponse>(response);
+            //Assert.IsType<ApplicationApiApplicationV1PaginatedItemsResponse>(response);
         }
 
         /// <summary>

@@ -54,7 +54,6 @@ namespace EdGraph.Tenant.Client.Test.Model
             //Assert.IsType<TenantApiTenantV1InstanceDatabase>(instance);
         }
 
-
         /// <summary>
         /// Test the property 'SelectedTierId'
         /// </summary>
@@ -63,6 +62,7 @@ namespace EdGraph.Tenant.Client.Test.Model
         {
             // TODO unit test for the property 'SelectedTierId'
         }
+
         /// <summary>
         /// Test the property 'SelectedTierName'
         /// </summary>
@@ -71,6 +71,7 @@ namespace EdGraph.Tenant.Client.Test.Model
         {
             // TODO unit test for the property 'SelectedTierName'
         }
+
         /// <summary>
         /// Test the property 'Status'
         /// </summary>
@@ -79,6 +80,7 @@ namespace EdGraph.Tenant.Client.Test.Model
         {
             // TODO unit test for the property 'Status'
         }
+
         /// <summary>
         /// Test the property 'Jobs'
         /// </summary>
@@ -87,7 +89,5 @@ namespace EdGraph.Tenant.Client.Test.Model
         {
             // TODO unit test for the property 'Jobs'
         }
-
     }
-
 }

@@ -54,7 +54,6 @@ namespace EdGraph.Tenant.Client.Test.Model
             //Assert.IsType<TenantApiWebhookV1PaginatedItemsResponse>(instance);
         }
 
-
         /// <summary>
         /// Test the property 'PageIndex'
         /// </summary>
@@ -63,6 +62,7 @@ namespace EdGraph.Tenant.Client.Test.Model
         {
             // TODO unit test for the property 'PageIndex'
         }
+
         /// <summary>
         /// Test the property 'PageSize'
         /// </summary>
@@ -71,6 +71,7 @@ namespace EdGraph.Tenant.Client.Test.Model
         {
             // TODO unit test for the property 'PageSize'
         }
+
         /// <summary>
         /// Test the property 'Count'
         /// </summary>
@@ -79,6 +80,7 @@ namespace EdGraph.Tenant.Client.Test.Model
         {
             // TODO unit test for the property 'Count'
         }
+
         /// <summary>
         /// Test the property 'Data'
         /// </summary>
@@ -87,7 +89,5 @@ namespace EdGraph.Tenant.Client.Test.Model
         {
             // TODO unit test for the property 'Data'
         }
-
     }
-
 }

@@ -53,9 +53,5 @@ namespace EdGraph.Tenant.Client.Test.Model
             // TODO uncomment below to test "IsType" IdentityApiInvitationV1InvitationStatus
             //Assert.IsType<IdentityApiInvitationV1InvitationStatus>(instance);
         }
-
-
-
     }
-
 }

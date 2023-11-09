@@ -54,7 +54,6 @@ namespace EdGraph.Tenant.Client.Test.Model
             //Assert.IsType<IdentityApiApiClientV1ApiClientProfileResponse>(instance);
         }
 
-
         /// <summary>
         /// Test the property 'TenantId'
         /// </summary>
@@ -63,6 +62,7 @@ namespace EdGraph.Tenant.Client.Test.Model
         {
             // TODO unit test for the property 'TenantId'
         }
+
         /// <summary>
         /// Test the property 'ClientId'
         /// </summary>
@@ -71,6 +71,7 @@ namespace EdGraph.Tenant.Client.Test.Model
         {
             // TODO unit test for the property 'ClientId'
         }
+
         /// <summary>
         /// Test the property 'ClientName'
         /// </summary>
@@ -79,6 +80,7 @@ namespace EdGraph.Tenant.Client.Test.Model
         {
             // TODO unit test for the property 'ClientName'
         }
+
         /// <summary>
         /// Test the property 'Description'
         /// </summary>
@@ -87,6 +89,7 @@ namespace EdGraph.Tenant.Client.Test.Model
         {
             // TODO unit test for the property 'Description'
         }
+
         /// <summary>
         /// Test the property 'ClientUri'
         /// </summary>
@@ -95,6 +98,7 @@ namespace EdGraph.Tenant.Client.Test.Model
         {
             // TODO unit test for the property 'ClientUri'
         }
+
         /// <summary>
         /// Test the property 'LogoUri'
         /// </summary>
@@ -103,6 +107,7 @@ namespace EdGraph.Tenant.Client.Test.Model
         {
             // TODO unit test for the property 'LogoUri'
         }
+
         /// <summary>
         /// Test the property 'Enabled'
         /// </summary>
@@ -111,6 +116,7 @@ namespace EdGraph.Tenant.Client.Test.Model
         {
             // TODO unit test for the property 'Enabled'
         }
+
         /// <summary>
         /// Test the property 'AccessTokenType'
         /// </summary>
@@ -119,6 +125,7 @@ namespace EdGraph.Tenant.Client.Test.Model
         {
             // TODO unit test for the property 'AccessTokenType'
         }
+
         /// <summary>
         /// Test the property 'TokenUsage'
         /// </summary>
@@ -127,6 +134,7 @@ namespace EdGraph.Tenant.Client.Test.Model
         {
             // TODO unit test for the property 'TokenUsage'
         }
+
         /// <summary>
         /// Test the property 'RefreshTokenExpiration'
         /// </summary>
@@ -135,6 +143,7 @@ namespace EdGraph.Tenant.Client.Test.Model
         {
             // TODO unit test for the property 'RefreshTokenExpiration'
         }
+
         /// <summary>
         /// Test the property 'EnableLocalLogin'
         /// </summary>
@@ -143,6 +152,7 @@ namespace EdGraph.Tenant.Client.Test.Model
         {
             // TODO unit test for the property 'EnableLocalLogin'
         }
+
         /// <summary>
         /// Test the property 'AllowOfflineAccess'
         /// </summary>
@@ -151,6 +161,7 @@ namespace EdGraph.Tenant.Client.Test.Model
         {
             // TODO unit test for the property 'AllowOfflineAccess'
         }
+
         /// <summary>
         /// Test the property 'AllowAccessTokensViaBrowser'
         /// </summary>
@@ -159,6 +170,7 @@ namespace EdGraph.Tenant.Client.Test.Model
         {
             // TODO unit test for the property 'AllowAccessTokensViaBrowser'
         }
+
         /// <summary>
         /// Test the property 'UpdateAccessTokenClaimsOnRefresh'
         /// </summary>
@@ -167,6 +179,7 @@ namespace EdGraph.Tenant.Client.Test.Model
         {
             // TODO unit test for the property 'UpdateAccessTokenClaimsOnRefresh'
         }
+
         /// <summary>
         /// Test the property 'AlwaysIncludeUserClaimsInIdToken'
         /// </summary>
@@ -175,6 +188,7 @@ namespace EdGraph.Tenant.Client.Test.Model
         {
             // TODO unit test for the property 'AlwaysIncludeUserClaimsInIdToken'
         }
+
         /// <summary>
         /// Test the property 'IdentityTokenLifetime'
         /// </summary>
@@ -183,6 +197,7 @@ namespace EdGraph.Tenant.Client.Test.Model
         {
             // TODO unit test for the property 'IdentityTokenLifetime'
         }
+
         /// <summary>
         /// Test the property 'AccessTokenLifetime'
         /// </summary>
@@ -191,6 +206,7 @@ namespace EdGraph.Tenant.Client.Test.Model
         {
             // TODO unit test for the property 'AccessTokenLifetime'
         }
+
         /// <summary>
         /// Test the property 'AuthorizationCodeLifetime'
         /// </summary>
@@ -199,6 +215,7 @@ namespace EdGraph.Tenant.Client.Test.Model
         {
             // TODO unit test for the property 'AuthorizationCodeLifetime'
         }
+
         /// <summary>
         /// Test the property 'AbsoluteRefreshTokenLifetime'
         /// </summary>
@@ -207,6 +224,7 @@ namespace EdGraph.Tenant.Client.Test.Model
         {
             // TODO unit test for the property 'AbsoluteRefreshTokenLifetime'
         }
+
         /// <summary>
         /// Test the property 'SlidingRefreshTokenLifetime'
         /// </summary>
@@ -215,6 +233,7 @@ namespace EdGraph.Tenant.Client.Test.Model
         {
             // TODO unit test for the property 'SlidingRefreshTokenLifetime'
         }
+
         /// <summary>
         /// Test the property 'RequireClientSecret'
         /// </summary>
@@ -223,6 +242,7 @@ namespace EdGraph.Tenant.Client.Test.Model
         {
             // TODO unit test for the property 'RequireClientSecret'
         }
+
         /// <summary>
         /// Test the property 'RequireConsent'
         /// </summary>
@@ -231,6 +251,7 @@ namespace EdGraph.Tenant.Client.Test.Model
         {
             // TODO unit test for the property 'RequireConsent'
         }
+
         /// <summary>
         /// Test the property 'AllowedScopes'
         /// </summary>
@@ -239,6 +260,7 @@ namespace EdGraph.Tenant.Client.Test.Model
         {
             // TODO unit test for the property 'AllowedScopes'
         }
+
         /// <summary>
         /// Test the property 'AllowedCorsOrigins'
         /// </summary>
@@ -247,6 +269,7 @@ namespace EdGraph.Tenant.Client.Test.Model
         {
             // TODO unit test for the property 'AllowedCorsOrigins'
         }
+
         /// <summary>
         /// Test the property 'AllowedGrantTypes'
         /// </summary>
@@ -255,6 +278,7 @@ namespace EdGraph.Tenant.Client.Test.Model
         {
             // TODO unit test for the property 'AllowedGrantTypes'
         }
+
         /// <summary>
         /// Test the property 'IdentityProviderRestrictions'
         /// </summary>
@@ -263,6 +287,7 @@ namespace EdGraph.Tenant.Client.Test.Model
         {
             // TODO unit test for the property 'IdentityProviderRestrictions'
         }
+
         /// <summary>
         /// Test the property 'RedirectUris'
         /// </summary>
@@ -271,6 +296,7 @@ namespace EdGraph.Tenant.Client.Test.Model
         {
             // TODO unit test for the property 'RedirectUris'
         }
+
         /// <summary>
         /// Test the property 'PostLogoutRedirectUris'
         /// </summary>
@@ -279,6 +305,7 @@ namespace EdGraph.Tenant.Client.Test.Model
         {
             // TODO unit test for the property 'PostLogoutRedirectUris'
         }
+
         /// <summary>
         /// Test the property 'Claims'
         /// </summary>
@@ -287,6 +314,7 @@ namespace EdGraph.Tenant.Client.Test.Model
         {
             // TODO unit test for the property 'Claims'
         }
+
         /// <summary>
         /// Test the property 'RequirePkce'
         /// </summary>
@@ -295,6 +323,7 @@ namespace EdGraph.Tenant.Client.Test.Model
         {
             // TODO unit test for the property 'RequirePkce'
         }
+
         /// <summary>
         /// Test the property 'CreatedBy'
         /// </summary>
@@ -303,6 +332,7 @@ namespace EdGraph.Tenant.Client.Test.Model
         {
             // TODO unit test for the property 'CreatedBy'
         }
+
         /// <summary>
         /// Test the property 'CreatedDateTime'
         /// </summary>
@@ -311,6 +341,7 @@ namespace EdGraph.Tenant.Client.Test.Model
         {
             // TODO unit test for the property 'CreatedDateTime'
         }
+
         /// <summary>
         /// Test the property 'LastModifiedBy'
         /// </summary>
@@ -319,6 +350,7 @@ namespace EdGraph.Tenant.Client.Test.Model
         {
             // TODO unit test for the property 'LastModifiedBy'
         }
+
         /// <summary>
         /// Test the property 'LastModifiedDateTime'
         /// </summary>
@@ -327,7 +359,5 @@ namespace EdGraph.Tenant.Client.Test.Model
         {
             // TODO unit test for the property 'LastModifiedDateTime'
         }
-
     }
-
 }

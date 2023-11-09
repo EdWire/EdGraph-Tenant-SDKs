@@ -35,20 +35,19 @@ namespace EdGraph.Tenant.Client.Model
         /// Enum Unknown for value: Unknown
         /// </summary>
         [EnumMember(Value = "Unknown")]
-        Unknown = 1,
+        Unknown,
 
         /// <summary>
         /// Enum Full for value: Full
         /// </summary>
         [EnumMember(Value = "Full")]
-        Full = 2,
+        Full,
 
         /// <summary>
         /// Enum Trial for value: Trial
         /// </summary>
         [EnumMember(Value = "Trial")]
-        Trial = 3
-
+        Trial
     }
 
 }

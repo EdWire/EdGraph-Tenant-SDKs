@@ -53,9 +53,5 @@ namespace EdGraph.Tenant.Client.Test.Model
             // TODO uncomment below to test "IsType" TenantApiTenantV1TenantType
             //Assert.IsType<TenantApiTenantV1TenantType>(instance);
         }
-
-
-
     }
-
 }

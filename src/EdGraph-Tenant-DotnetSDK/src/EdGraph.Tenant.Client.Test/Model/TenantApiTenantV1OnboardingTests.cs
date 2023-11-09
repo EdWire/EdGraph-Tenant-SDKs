@@ -54,7 +54,6 @@ namespace EdGraph.Tenant.Client.Test.Model
             //Assert.IsType<TenantApiTenantV1Onboarding>(instance);
         }
 
-
         /// <summary>
         /// Test the property 'Status'
         /// </summary>
@@ -63,6 +62,7 @@ namespace EdGraph.Tenant.Client.Test.Model
         {
             // TODO unit test for the property 'Status'
         }
+
         /// <summary>
         /// Test the property 'ProgressPercentage'
         /// </summary>
@@ -71,6 +71,7 @@ namespace EdGraph.Tenant.Client.Test.Model
         {
             // TODO unit test for the property 'ProgressPercentage'
         }
+
         /// <summary>
         /// Test the property 'TotalSteps'
         /// </summary>
@@ -79,6 +80,7 @@ namespace EdGraph.Tenant.Client.Test.Model
         {
             // TODO unit test for the property 'TotalSteps'
         }
+
         /// <summary>
         /// Test the property 'LastCompletedStep'
         /// </summary>
@@ -87,6 +89,7 @@ namespace EdGraph.Tenant.Client.Test.Model
         {
             // TODO unit test for the property 'LastCompletedStep'
         }
+
         /// <summary>
         /// Test the property 'StartedAt'
         /// </summary>
@@ -95,6 +98,7 @@ namespace EdGraph.Tenant.Client.Test.Model
         {
             // TODO unit test for the property 'StartedAt'
         }
+
         /// <summary>
         /// Test the property 'CompletedAt'
         /// </summary>
@@ -103,6 +107,7 @@ namespace EdGraph.Tenant.Client.Test.Model
         {
             // TODO unit test for the property 'CompletedAt'
         }
+
         /// <summary>
         /// Test the property 'Steps'
         /// </summary>
@@ -111,7 +116,5 @@ namespace EdGraph.Tenant.Client.Test.Model
         {
             // TODO unit test for the property 'Steps'
         }
-
     }
-
 }

@@ -66,7 +66,7 @@ namespace EdGraph.Tenant.Client.Test.Api
             //string? apiVersion = null;
             //string? xVersion = null;
             //var response = instance.GetTenantApplicationProfileByIdAsync(tenantId, applicationId, apiVersion, xVersion);
-            //Assert.IsType<ApplicationApiApplicationV3ApplicationProfileResponse>(response);
+            //Assert.IsType<ApplicationApiApplicationV1ApplicationProfileResponse>(response);
         }
 
         /// <summary>
@@ -84,7 +84,7 @@ namespace EdGraph.Tenant.Client.Test.Api
             //string? apiVersion = null;
             //string? xVersion = null;
             //var response = instance.GetTenantApplicationsAsync(tenantId, pageIndex, pageSize, orderBy, filter, apiVersion, xVersion);
-            //Assert.IsType<ApplicationApiApplicationV3ApplicationListResponse>(response);
+            //Assert.IsType<ApplicationApiApplicationV1ApplicationListResponse>(response);
         }
     }
 }

@@ -980,7 +980,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ApplicationApi.Application.V3.ApplicationProfileResponse'
+                $ref: '#/components/schemas/ApplicationApi.Application.V1.ApplicationProfileResponse'
           description: The requested resource was successfully retrieved.
         "400":
           content:
@@ -1089,7 +1089,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ApplicationApi.Application.V3.ApplicationListResponse'
+                $ref: '#/components/schemas/ApplicationApi.Application.V1.ApplicationListResponse'
           description: The requested resource was successfully retrieved.
         "400":
           content:
@@ -2757,6 +2757,445 @@ paths:
       summary: Creates an Organization.
       tags:
       - Organizations
+  /tenants/{tenantId}/staffclassifications/{staffClassificationId}:
+    delete:
+      operationId: DeleteStaffClassification
+      parameters:
+      - description: ""
+        explode: false
+        in: path
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - description: ""
+        explode: false
+        in: path
+        name: staffClassificationId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: X-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EdGraph.Common.Errors.Core.ProblemDetails'
+          description: Unauthorized. The request requires authentication. The OAuth
+            bearer token was either not provided or is invalid. The operation may
+            succeed once authentication has been successfully completed.
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EdGraph.Common.Errors.Core.ProblemDetails'
+          description: Forbidden. The request cannot be completed in the current authorization
+            context. Contact your administrator if you believe this operation should
+            be allowed.
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EdGraph.Common.Errors.Core.ProblemDetails'
+          description: An unhandled error occurred on the server.See the response
+            body for details.
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IdentityApi.StaffClassification.V1.StaffClassificationDeletedResponse'
+          description: The requested resource was successfully retrieved.
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ValidationProblemDetails'
+          description: Bad Request. The request was invalid and cannot be completed.
+            See the response body for specific validation errors. This will typically
+            be an issue with the query parameters or the request body values.
+      summary: Deletes a StaffClassification.
+      tags:
+      - StaffClassifications
+    get:
+      operationId: GetStaffClassificationById
+      parameters:
+      - description: ""
+        explode: false
+        in: path
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - description: ""
+        explode: false
+        in: path
+        name: staffClassificationId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: X-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EdGraph.Common.Errors.Core.ProblemDetails'
+          description: Unauthorized. The request requires authentication. The OAuth
+            bearer token was either not provided or is invalid. The operation may
+            succeed once authentication has been successfully completed.
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EdGraph.Common.Errors.Core.ProblemDetails'
+          description: Forbidden. The request cannot be completed in the current authorization
+            context. Contact your administrator if you believe this operation should
+            be allowed.
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EdGraph.Common.Errors.Core.ProblemDetails'
+          description: An unhandled error occurred on the server.See the response
+            body for details.
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IdentityApi.StaffClassification.V1.StaffClassificationResponse'
+          description: The requested resource was successfully retrieved.
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ValidationProblemDetails'
+          description: Bad Request. The request was invalid and cannot be completed.
+            See the response body for specific validation errors. This will typically
+            be an issue with the query parameters or the request body values.
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EdGraph.Common.Errors.Core.ProblemDetails'
+          description: The resource could not be found.
+      summary: Retrieves a StaffClassification by ID.
+      tags:
+      - StaffClassifications
+    put:
+      operationId: UpdateStaffClassification
+      parameters:
+      - description: ""
+        explode: false
+        in: path
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - description: ""
+        explode: false
+        in: path
+        name: staffClassificationId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: X-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json-patch+json:
+            schema:
+              $ref: '#/components/schemas/IdentityApi.StaffClassification.V1.UpdateStaffClassificationRequest'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/IdentityApi.StaffClassification.V1.UpdateStaffClassificationRequest'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/IdentityApi.StaffClassification.V1.UpdateStaffClassificationRequest'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/IdentityApi.StaffClassification.V1.UpdateStaffClassificationRequest'
+        description: ""
+      responses:
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EdGraph.Common.Errors.Core.ProblemDetails'
+          description: Unauthorized. The request requires authentication. The OAuth
+            bearer token was either not provided or is invalid. The operation may
+            succeed once authentication has been successfully completed.
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EdGraph.Common.Errors.Core.ProblemDetails'
+          description: Forbidden. The request cannot be completed in the current authorization
+            context. Contact your administrator if you believe this operation should
+            be allowed.
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EdGraph.Common.Errors.Core.ProblemDetails'
+          description: An unhandled error occurred on the server.See the response
+            body for details.
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IdentityApi.StaffClassification.V1.StaffClassificationUpdatedResponse'
+          description: The requested resource was successfully retrieved.
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ValidationProblemDetails'
+          description: Bad Request. The request was invalid and cannot be completed.
+            See the response body for specific validation errors. This will typically
+            be an issue with the query parameters or the request body values.
+      summary: Updates a StaffClassification.
+      tags:
+      - StaffClassifications
+  /tenants/{tenantId}/staffclassifications:
+    get:
+      operationId: GetStaffClassifications
+      parameters:
+      - description: ""
+        explode: false
+        in: path
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - description: ""
+        explode: true
+        in: query
+        name: pageIndex
+        required: false
+        schema:
+          default: 0
+          format: int32
+          type: integer
+        style: form
+      - description: ""
+        explode: true
+        in: query
+        name: pageSize
+        required: false
+        schema:
+          default: 10
+          format: int32
+          type: integer
+        style: form
+      - description: ""
+        explode: true
+        in: query
+        name: orderBy
+        required: false
+        schema:
+          default: ""
+          type: string
+        style: form
+      - description: ""
+        explode: true
+        in: query
+        name: filter
+        required: false
+        schema:
+          default: ""
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: X-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EdGraph.Common.Errors.Core.ProblemDetails'
+          description: Unauthorized. The request requires authentication. The OAuth
+            bearer token was either not provided or is invalid. The operation may
+            succeed once authentication has been successfully completed.
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EdGraph.Common.Errors.Core.ProblemDetails'
+          description: Forbidden. The request cannot be completed in the current authorization
+            context. Contact your administrator if you believe this operation should
+            be allowed.
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EdGraph.Common.Errors.Core.ProblemDetails'
+          description: An unhandled error occurred on the server.See the response
+            body for details.
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IdentityApi.StaffClassification.V1.GetStaffClassificationsResponse'
+          description: The requested resource was successfully retrieved.
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ValidationProblemDetails'
+          description: Bad Request. The request was invalid and cannot be completed.
+            See the response body for specific validation errors. This will typically
+            be an issue with the query parameters or the request body values.
+      summary: Retrieves a list of StaffClassifications.
+      tags:
+      - StaffClassifications
+    post:
+      operationId: CreateStaffClassification
+      parameters:
+      - description: ""
+        explode: false
+        in: path
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: X-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json-patch+json:
+            schema:
+              $ref: '#/components/schemas/IdentityApi.StaffClassification.V1.CreateStaffClassificationRequest'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/IdentityApi.StaffClassification.V1.CreateStaffClassificationRequest'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/IdentityApi.StaffClassification.V1.CreateStaffClassificationRequest'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/IdentityApi.StaffClassification.V1.CreateStaffClassificationRequest'
+        description: ""
+      responses:
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EdGraph.Common.Errors.Core.ProblemDetails'
+          description: Unauthorized. The request requires authentication. The OAuth
+            bearer token was either not provided or is invalid. The operation may
+            succeed once authentication has been successfully completed.
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EdGraph.Common.Errors.Core.ProblemDetails'
+          description: Forbidden. The request cannot be completed in the current authorization
+            context. Contact your administrator if you believe this operation should
+            be allowed.
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EdGraph.Common.Errors.Core.ProblemDetails'
+          description: An unhandled error occurred on the server.See the response
+            body for details.
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IdentityApi.StaffClassification.V1.StaffClassificationCreatedResponse'
+          description: The resource was created. The location of the resource is available
+            in the Location header of the response.
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ValidationProblemDetails'
+          description: Bad Request. The request was invalid and cannot be completed.
+            See the response body for specific validation errors. This will typically
+            be an issue with the query parameters or the request body values.
+      summary: Creates a StaffClassification.
+      tags:
+      - StaffClassifications
   /tenants/{tenantId}/subscriptions/{subscriptionId}:
     get:
       operationId: GetTenantSubscriptionProfileByIdAsync
@@ -3009,7 +3448,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ApplicationApi.Application.V3.PaginatedItemsResponse'
+                $ref: '#/components/schemas/ApplicationApi.Application.V1.PaginatedItemsResponse'
           description: The requested resource was successfully retrieved.
         "400":
           content:
@@ -3357,6 +3796,378 @@ paths:
       summary: Updates a tenant's profile
       tags:
       - Tenants
+  /tenants/{tenantId}/users/{userId}/educationorganizations/{educationOrganizationId}:
+    delete:
+      operationId: RemoveUserEducationOrganization
+      parameters:
+      - description: ""
+        explode: false
+        in: path
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - description: ""
+        explode: false
+        in: path
+        name: userId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - description: ""
+        explode: false
+        in: path
+        name: educationOrganizationId
+        required: true
+        schema:
+          format: int32
+          type: integer
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: X-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EdGraph.Common.Errors.Core.ProblemDetails'
+          description: Unauthorized. The request requires authentication. The OAuth
+            bearer token was either not provided or is invalid. The operation may
+            succeed once authentication has been successfully completed.
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EdGraph.Common.Errors.Core.ProblemDetails'
+          description: Forbidden. The request cannot be completed in the current authorization
+            context. Contact your administrator if you believe this operation should
+            be allowed.
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EdGraph.Common.Errors.Core.ProblemDetails'
+          description: An unhandled error occurred on the server.See the response
+            body for details.
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IdentityApi.User.V1.EducationOrganizationRemovedResponse'
+          description: The requested resource was successfully retrieved.
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ValidationProblemDetails'
+          description: Bad Request. The request was invalid and cannot be completed.
+            See the response body for specific validation errors. This will typically
+            be an issue with the query parameters or the request body values.
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EdGraph.Common.Errors.Core.ProblemDetails'
+          description: The resource could not be found.
+      summary: Removes an Education Organization from a user.
+      tags:
+      - Users - Education Organizations
+    put:
+      operationId: UpdateUserEducationOrganization
+      parameters:
+      - description: ""
+        explode: false
+        in: path
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - description: ""
+        explode: false
+        in: path
+        name: userId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - description: ""
+        explode: false
+        in: path
+        name: educationOrganizationId
+        required: true
+        schema:
+          format: int32
+          type: integer
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: X-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json-patch+json:
+            schema:
+              $ref: '#/components/schemas/IdentityApi.User.V1.UpdateEducationOrganizationRequest'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/IdentityApi.User.V1.UpdateEducationOrganizationRequest'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/IdentityApi.User.V1.UpdateEducationOrganizationRequest'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/IdentityApi.User.V1.UpdateEducationOrganizationRequest'
+        description: ""
+      responses:
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EdGraph.Common.Errors.Core.ProblemDetails'
+          description: Unauthorized. The request requires authentication. The OAuth
+            bearer token was either not provided or is invalid. The operation may
+            succeed once authentication has been successfully completed.
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EdGraph.Common.Errors.Core.ProblemDetails'
+          description: Forbidden. The request cannot be completed in the current authorization
+            context. Contact your administrator if you believe this operation should
+            be allowed.
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EdGraph.Common.Errors.Core.ProblemDetails'
+          description: An unhandled error occurred on the server.See the response
+            body for details.
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IdentityApi.User.V1.EducationOrganizationUpdatedResponse'
+          description: The requested resource was successfully retrieved.
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ValidationProblemDetails'
+          description: Bad Request. The request was invalid and cannot be completed.
+            See the response body for specific validation errors. This will typically
+            be an issue with the query parameters or the request body values.
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EdGraph.Common.Errors.Core.ProblemDetails'
+          description: The resource could not be found.
+      summary: Updates the Education Organization of a user.
+      tags:
+      - Users - Education Organizations
+  /tenants/{tenantId}/users/{userId}/educationorganizations:
+    get:
+      operationId: GetUserEducationOrganizations
+      parameters:
+      - description: ""
+        explode: false
+        in: path
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - description: ""
+        explode: false
+        in: path
+        name: userId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: X-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EdGraph.Common.Errors.Core.ProblemDetails'
+          description: Unauthorized. The request requires authentication. The OAuth
+            bearer token was either not provided or is invalid. The operation may
+            succeed once authentication has been successfully completed.
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EdGraph.Common.Errors.Core.ProblemDetails'
+          description: Forbidden. The request cannot be completed in the current authorization
+            context. Contact your administrator if you believe this operation should
+            be allowed.
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EdGraph.Common.Errors.Core.ProblemDetails'
+          description: An unhandled error occurred on the server.See the response
+            body for details.
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IdentityApi.User.V1.EducationOrganizationPaginatedItemsResponse'
+          description: The requested resource was successfully retrieved.
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ValidationProblemDetails'
+          description: Bad Request. The request was invalid and cannot be completed.
+            See the response body for specific validation errors. This will typically
+            be an issue with the query parameters or the request body values.
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EdGraph.Common.Errors.Core.ProblemDetails'
+          description: The resource could not be found.
+      summary: Gets the Education Organizations of a user.
+      tags:
+      - Users - Education Organizations
+    post:
+      operationId: AddUserEducationOrganization
+      parameters:
+      - description: ""
+        explode: false
+        in: path
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - description: ""
+        explode: false
+        in: path
+        name: userId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: X-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json-patch+json:
+            schema:
+              $ref: '#/components/schemas/IdentityApi.User.V1.AddEducationOrganizationRequest'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/IdentityApi.User.V1.AddEducationOrganizationRequest'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/IdentityApi.User.V1.AddEducationOrganizationRequest'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/IdentityApi.User.V1.AddEducationOrganizationRequest'
+        description: ""
+      responses:
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EdGraph.Common.Errors.Core.ProblemDetails'
+          description: Unauthorized. The request requires authentication. The OAuth
+            bearer token was either not provided or is invalid. The operation may
+            succeed once authentication has been successfully completed.
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EdGraph.Common.Errors.Core.ProblemDetails'
+          description: Forbidden. The request cannot be completed in the current authorization
+            context. Contact your administrator if you believe this operation should
+            be allowed.
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EdGraph.Common.Errors.Core.ProblemDetails'
+          description: An unhandled error occurred on the server.See the response
+            body for details.
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IdentityApi.User.V1.EducationOrganizationAddedResponse'
+          description: The requested resource was successfully retrieved.
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ValidationProblemDetails'
+          description: Bad Request. The request was invalid and cannot be completed.
+            See the response body for specific validation errors. This will typically
+            be an issue with the query parameters or the request body values.
+      summary: Adds an Education Organization to a user.
+      tags:
+      - Users - Education Organizations
   /tenants/{tenantId}/users/{userId}/licenses/assignbulk:
     put:
       operationId: AssignLicenseTenantUserBulkAsync
@@ -5109,7 +5920,7 @@ paths:
       - Webhooks
 components:
   schemas:
-    ApplicationApi.Application.V3.ApplicationListResponse:
+    ApplicationApi.Application.V1.ApplicationListResponse:
       additionalProperties: false
       example:
         documentationUrl: documentationUrl
@@ -5152,10 +5963,10 @@ components:
           nullable: true
           type: string
         applicationStatus:
-          $ref: '#/components/schemas/ApplicationApi.Application.V3.ApplicationStatus'
+          $ref: '#/components/schemas/ApplicationApi.Application.V1.ApplicationStatus'
         roles:
           items:
-            $ref: '#/components/schemas/ApplicationApi.Application.V3.Role'
+            $ref: '#/components/schemas/ApplicationApi.Application.V1.Role'
           nullable: true
           readOnly: true
           type: array
@@ -5172,12 +5983,12 @@ components:
           nullable: true
           type: string
         subscriptionType:
-          $ref: '#/components/schemas/ApplicationApi.Application.V3.ApplicationSubscriptionType'
+          $ref: '#/components/schemas/ApplicationApi.Application.V1.ApplicationSubscriptionType'
         documentationUrl:
           nullable: true
           type: string
       type: object
-    ApplicationApi.Application.V3.ApplicationProfileResponse:
+    ApplicationApi.Application.V1.ApplicationProfileResponse:
       additionalProperties: false
       example:
         applicationType: null
@@ -5213,7 +6024,7 @@ components:
           nullable: true
           type: string
         applicationType:
-          $ref: '#/components/schemas/ApplicationApi.Application.V3.ApplicationType'
+          $ref: '#/components/schemas/ApplicationApi.Application.V1.ApplicationType'
         applicationName:
           nullable: true
           type: string
@@ -5236,12 +6047,12 @@ components:
           nullable: true
           type: string
         applicationStatus:
-          $ref: '#/components/schemas/ApplicationApi.Application.V3.ApplicationStatus'
+          $ref: '#/components/schemas/ApplicationApi.Application.V1.ApplicationStatus'
         openInNewWindow:
           type: boolean
         roles:
           items:
-            $ref: '#/components/schemas/ApplicationApi.Application.V3.Role'
+            $ref: '#/components/schemas/ApplicationApi.Application.V1.Role'
           nullable: true
           readOnly: true
           type: array
@@ -5261,27 +6072,27 @@ components:
           nullable: true
           type: string
         subscriptionType:
-          $ref: '#/components/schemas/ApplicationApi.Application.V3.ApplicationSubscriptionType'
+          $ref: '#/components/schemas/ApplicationApi.Application.V1.ApplicationSubscriptionType'
       type: object
-    ApplicationApi.Application.V3.ApplicationStatus:
+    ApplicationApi.Application.V1.ApplicationStatus:
       enum:
       - Unknown
       - Draft
       - Published
       type: string
-    ApplicationApi.Application.V3.ApplicationSubscriptionType:
+    ApplicationApi.Application.V1.ApplicationSubscriptionType:
       enum:
       - Auto
       - Manual
       - None
       type: string
-    ApplicationApi.Application.V3.ApplicationType:
+    ApplicationApi.Application.V1.ApplicationType:
       enum:
       - Unknown
       - SSO
       - Link
       type: string
-    ApplicationApi.Application.V3.PaginatedItemsResponse:
+    ApplicationApi.Application.V1.PaginatedItemsResponse:
       additionalProperties: false
       example:
         data:
@@ -5340,12 +6151,12 @@ components:
           type: integer
         data:
           items:
-            $ref: '#/components/schemas/ApplicationApi.Application.V3.ApplicationListResponse'
+            $ref: '#/components/schemas/ApplicationApi.Application.V1.ApplicationListResponse'
           nullable: true
           readOnly: true
           type: array
       type: object
-    ApplicationApi.Application.V3.Role:
+    ApplicationApi.Application.V1.Role:
       additionalProperties: false
       example:
         isDefault: true
@@ -5360,6 +6171,11 @@ components:
         isAvailableForTenants:
           type: boolean
       type: object
+    ApplicationApi.Application.V1.UrlType:
+      enum:
+      - Link
+      - Asset
+      type: string
     EdGraph.Common.Errors.Core.ProblemDetails:
       additionalProperties: false
       properties:
@@ -5918,6 +6734,19 @@ components:
         lightIconUrl: lightIconUrl
         darkIconUrl: darkIconUrl
         subscriptionTenantId: subscriptionTenantId
+        urls:
+        - code: code
+          readonly: true
+          label: label
+          type: null
+          value: value
+          openInNewTab: true
+        - code: code
+          readonly: true
+          label: label
+          type: null
+          value: value
+          openInNewTab: true
         lightOverlayTileUrl: lightOverlayTileUrl
         tenantSubscriptionActualEndDateTime: tenantSubscriptionActualEndDateTime
         applicationName: applicationName
@@ -6018,6 +6847,11 @@ components:
           type: string
         isUserLicensed:
           type: boolean
+        urls:
+          items:
+            $ref: '#/components/schemas/EdGraph.Platform.HttpAggregators.Tenant.Api.Controllers.v1.ViewModels.Responses.ApplicationUrl'
+          nullable: true
+          type: array
       type: object
     ? EdGraph.Platform.HttpAggregators.Tenant.Api.Controllers.v1.ViewModels.Responses.ApplicationTilesResponseWithUserApplicationLicense
     : additionalProperties: false
@@ -6029,6 +6863,19 @@ components:
           lightIconUrl: lightIconUrl
           darkIconUrl: darkIconUrl
           subscriptionTenantId: subscriptionTenantId
+          urls:
+          - code: code
+            readonly: true
+            label: label
+            type: null
+            value: value
+            openInNewTab: true
+          - code: code
+            readonly: true
+            label: label
+            type: null
+            value: value
+            openInNewTab: true
           lightOverlayTileUrl: lightOverlayTileUrl
           tenantSubscriptionActualEndDateTime: tenantSubscriptionActualEndDateTime
           applicationName: applicationName
@@ -6055,6 +6902,19 @@ components:
           lightIconUrl: lightIconUrl
           darkIconUrl: darkIconUrl
           subscriptionTenantId: subscriptionTenantId
+          urls:
+          - code: code
+            readonly: true
+            label: label
+            type: null
+            value: value
+            openInNewTab: true
+          - code: code
+            readonly: true
+            label: label
+            type: null
+            value: value
+            openInNewTab: true
           lightOverlayTileUrl: lightOverlayTileUrl
           tenantSubscriptionActualEndDateTime: tenantSubscriptionActualEndDateTime
           applicationName: applicationName
@@ -6081,6 +6941,32 @@ components:
             $ref: '#/components/schemas/EdGraph.Platform.HttpAggregators.Tenant.Api.Controllers.v1.ViewModels.Responses.ApplicationTileResponseWithUserApplicationLicense'
           nullable: true
           type: array
+      type: object
+    EdGraph.Platform.HttpAggregators.Tenant.Api.Controllers.v1.ViewModels.Responses.ApplicationUrl:
+      additionalProperties: false
+      example:
+        code: code
+        readonly: true
+        label: label
+        type: null
+        value: value
+        openInNewTab: true
+      properties:
+        code:
+          nullable: true
+          type: string
+        label:
+          nullable: true
+          type: string
+        value:
+          nullable: true
+          type: string
+        openInNewTab:
+          type: boolean
+        readonly:
+          type: boolean
+        type:
+          $ref: '#/components/schemas/ApplicationApi.Application.V1.UrlType'
       type: object
     EdGraph.Platform.HttpAggregators.Tenant.Api.Controllers.v1.ViewModels.Responses.TenantStatus:
       enum:
@@ -7501,6 +8387,254 @@ components:
       - Sent
       - Accepted
       type: string
+    IdentityApi.StaffClassification.V1.CreateStaffClassificationRequest:
+      additionalProperties: false
+      properties:
+        tenantId:
+          nullable: true
+          type: string
+        namespace:
+          nullable: true
+          type: string
+        codeValue:
+          nullable: true
+          type: string
+        shortDescription:
+          nullable: true
+          type: string
+        description:
+          nullable: true
+          type: string
+        licenses:
+          items:
+            $ref: '#/components/schemas/IdentityApi.StaffClassification.V1.StaffClassificationLicenseRequest'
+          nullable: true
+          readOnly: true
+          type: array
+      type: object
+    IdentityApi.StaffClassification.V1.GetStaffClassificationsResponse:
+      additionalProperties: false
+      example:
+        data:
+        - licenses:
+          - licenseStatus: licenseStatus
+            roles:
+            - roles
+            - roles
+            applicationId: applicationId
+          - licenseStatus: licenseStatus
+            roles:
+            - roles
+            - roles
+            applicationId: applicationId
+          lastModifiedDateTime: lastModifiedDateTime
+          isDeleted: true
+          createdBy: createdBy
+          lastModifiedBy: lastModifiedBy
+          tenantId: tenantId
+          namespace: namespace
+          createdDateTime: createdDateTime
+          description: description
+          id: id
+          shortDescription: shortDescription
+          codeValue: codeValue
+        - licenses:
+          - licenseStatus: licenseStatus
+            roles:
+            - roles
+            - roles
+            applicationId: applicationId
+          - licenseStatus: licenseStatus
+            roles:
+            - roles
+            - roles
+            applicationId: applicationId
+          lastModifiedDateTime: lastModifiedDateTime
+          isDeleted: true
+          createdBy: createdBy
+          lastModifiedBy: lastModifiedBy
+          tenantId: tenantId
+          namespace: namespace
+          createdDateTime: createdDateTime
+          description: description
+          id: id
+          shortDescription: shortDescription
+          codeValue: codeValue
+        pageIndex: 0
+        count: 1
+        pageSize: 6
+      properties:
+        pageIndex:
+          format: int32
+          type: integer
+        pageSize:
+          format: int32
+          type: integer
+        count:
+          format: int64
+          type: integer
+        data:
+          items:
+            $ref: '#/components/schemas/IdentityApi.StaffClassification.V1.StaffClassificationResponse'
+          nullable: true
+          readOnly: true
+          type: array
+      type: object
+    IdentityApi.StaffClassification.V1.StaffClassificationCreatedResponse:
+      additionalProperties: false
+      example:
+        id: id
+      properties:
+        id:
+          nullable: true
+          type: string
+      type: object
+    IdentityApi.StaffClassification.V1.StaffClassificationDeletedResponse:
+      additionalProperties: false
+      example:
+        id: id
+      properties:
+        id:
+          nullable: true
+          type: string
+      type: object
+    IdentityApi.StaffClassification.V1.StaffClassificationLicense:
+      additionalProperties: false
+      example:
+        licenseStatus: licenseStatus
+        roles:
+        - roles
+        - roles
+        applicationId: applicationId
+      properties:
+        applicationId:
+          nullable: true
+          type: string
+        licenseStatus:
+          nullable: true
+          type: string
+        roles:
+          items:
+            type: string
+          nullable: true
+          readOnly: true
+          type: array
+      type: object
+    IdentityApi.StaffClassification.V1.StaffClassificationLicenseRequest:
+      additionalProperties: false
+      properties:
+        applicationId:
+          nullable: true
+          type: string
+        licenseStatus:
+          nullable: true
+          type: string
+        roles:
+          items:
+            type: string
+          nullable: true
+          readOnly: true
+          type: array
+      type: object
+    IdentityApi.StaffClassification.V1.StaffClassificationResponse:
+      additionalProperties: false
+      example:
+        licenses:
+        - licenseStatus: licenseStatus
+          roles:
+          - roles
+          - roles
+          applicationId: applicationId
+        - licenseStatus: licenseStatus
+          roles:
+          - roles
+          - roles
+          applicationId: applicationId
+        lastModifiedDateTime: lastModifiedDateTime
+        isDeleted: true
+        createdBy: createdBy
+        lastModifiedBy: lastModifiedBy
+        tenantId: tenantId
+        namespace: namespace
+        createdDateTime: createdDateTime
+        description: description
+        id: id
+        shortDescription: shortDescription
+        codeValue: codeValue
+      properties:
+        id:
+          nullable: true
+          type: string
+        createdBy:
+          nullable: true
+          type: string
+        createdDateTime:
+          nullable: true
+          type: string
+        lastModifiedBy:
+          nullable: true
+          type: string
+        lastModifiedDateTime:
+          nullable: true
+          type: string
+        isDeleted:
+          type: boolean
+        tenantId:
+          nullable: true
+          type: string
+        namespace:
+          nullable: true
+          type: string
+        codeValue:
+          nullable: true
+          type: string
+        shortDescription:
+          nullable: true
+          type: string
+        description:
+          nullable: true
+          type: string
+        licenses:
+          items:
+            $ref: '#/components/schemas/IdentityApi.StaffClassification.V1.StaffClassificationLicense'
+          nullable: true
+          readOnly: true
+          type: array
+      type: object
+    IdentityApi.StaffClassification.V1.StaffClassificationUpdatedResponse:
+      additionalProperties: false
+      example:
+        id: id
+      properties:
+        id:
+          nullable: true
+          type: string
+      type: object
+    IdentityApi.StaffClassification.V1.UpdateStaffClassificationRequest:
+      additionalProperties: false
+      properties:
+        id:
+          nullable: true
+          type: string
+        namespace:
+          nullable: true
+          type: string
+        codeValue:
+          nullable: true
+          type: string
+        shortDescription:
+          nullable: true
+          type: string
+        description:
+          nullable: true
+          type: string
+        licenses:
+          items:
+            $ref: '#/components/schemas/IdentityApi.StaffClassification.V1.StaffClassificationLicenseRequest'
+          nullable: true
+          readOnly: true
+          type: array
+      type: object
     IdentityApi.User.V1.ActivateUserRequest:
       additionalProperties: false
       properties:
@@ -7508,6 +8642,25 @@ components:
           nullable: true
           type: string
         userId:
+          nullable: true
+          type: string
+      type: object
+    IdentityApi.User.V1.AddEducationOrganizationRequest:
+      additionalProperties: false
+      properties:
+        userId:
+          nullable: true
+          type: string
+        tenantId:
+          nullable: true
+          type: string
+        educationOrganizationId:
+          format: int32
+          type: integer
+        educationOrganizationName:
+          nullable: true
+          type: string
+        staffClassification:
           nullable: true
           type: string
       type: object
@@ -7520,6 +8673,100 @@ components:
         userId:
           nullable: true
           type: string
+      type: object
+    IdentityApi.User.V1.EducationOrganization:
+      additionalProperties: false
+      example:
+        educationOrganizationName: educationOrganizationName
+        educationOrganizationId: 0
+        staffClassification: staffClassification
+      properties:
+        educationOrganizationId:
+          format: int32
+          type: integer
+        educationOrganizationName:
+          nullable: true
+          type: string
+        staffClassification:
+          nullable: true
+          type: string
+      type: object
+    IdentityApi.User.V1.EducationOrganizationAddedResponse:
+      additionalProperties: false
+      example:
+        tenantId: tenantId
+        educationOrganizationId: 0
+        userId: userId
+      properties:
+        userId:
+          nullable: true
+          type: string
+        tenantId:
+          nullable: true
+          type: string
+        educationOrganizationId:
+          format: int32
+          type: integer
+      type: object
+    IdentityApi.User.V1.EducationOrganizationPaginatedItemsResponse:
+      additionalProperties: false
+      example:
+        data:
+        - educationOrganizationName: educationOrganizationName
+          educationOrganizationId: 0
+          staffClassification: staffClassification
+        - educationOrganizationName: educationOrganizationName
+          educationOrganizationId: 0
+          staffClassification: staffClassification
+        tenantId: tenantId
+        userId: userId
+      properties:
+        userId:
+          nullable: true
+          type: string
+        tenantId:
+          nullable: true
+          type: string
+        data:
+          items:
+            $ref: '#/components/schemas/IdentityApi.User.V1.EducationOrganization'
+          nullable: true
+          readOnly: true
+          type: array
+      type: object
+    IdentityApi.User.V1.EducationOrganizationRemovedResponse:
+      additionalProperties: false
+      example:
+        tenantId: tenantId
+        educationOrganizationId: 0
+        userId: userId
+      properties:
+        userId:
+          nullable: true
+          type: string
+        tenantId:
+          nullable: true
+          type: string
+        educationOrganizationId:
+          format: int32
+          type: integer
+      type: object
+    IdentityApi.User.V1.EducationOrganizationUpdatedResponse:
+      additionalProperties: false
+      example:
+        tenantId: tenantId
+        educationOrganizationId: 0
+        userId: userId
+      properties:
+        userId:
+          nullable: true
+          type: string
+        tenantId:
+          nullable: true
+          type: string
+        educationOrganizationId:
+          format: int32
+          type: integer
       type: object
     IdentityApi.User.V1.LicenseAssignedBulkResponse:
       additionalProperties: false
@@ -7654,6 +8901,22 @@ components:
           nullable: true
           type: string
         userId:
+          nullable: true
+          type: string
+      type: object
+    IdentityApi.User.V1.UpdateEducationOrganizationRequest:
+      additionalProperties: false
+      properties:
+        userId:
+          nullable: true
+          type: string
+        tenantId:
+          nullable: true
+          type: string
+        educationOrganizationId:
+          format: int32
+          type: integer
+        staffClassification:
           nullable: true
           type: string
       type: object

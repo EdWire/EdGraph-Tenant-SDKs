@@ -54,7 +54,6 @@ namespace EdGraph.Tenant.Client.Test.Model
             //Assert.IsType<IdentityApiApiClientV1ApiClaim>(instance);
         }
 
-
         /// <summary>
         /// Test the property 'ApplicationId'
         /// </summary>
@@ -63,6 +62,7 @@ namespace EdGraph.Tenant.Client.Test.Model
         {
             // TODO unit test for the property 'ApplicationId'
         }
+
         /// <summary>
         /// Test the property 'SubscriptionId'
         /// </summary>
@@ -71,6 +71,7 @@ namespace EdGraph.Tenant.Client.Test.Model
         {
             // TODO unit test for the property 'SubscriptionId'
         }
+
         /// <summary>
         /// Test the property 'Value'
         /// </summary>
@@ -79,7 +80,5 @@ namespace EdGraph.Tenant.Client.Test.Model
         {
             // TODO unit test for the property 'Value'
         }
-
     }
-
 }

@@ -54,7 +54,6 @@ namespace EdGraph.Tenant.Client.Model
         /// </summary>
         [EnumMember(Value = "Adfs")]
         Adfs = 4
-
     }
 
 }

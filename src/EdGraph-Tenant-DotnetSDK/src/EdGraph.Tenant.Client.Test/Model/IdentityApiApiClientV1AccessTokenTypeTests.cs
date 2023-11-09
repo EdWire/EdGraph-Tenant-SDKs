@@ -53,9 +53,5 @@ namespace EdGraph.Tenant.Client.Test.Model
             // TODO uncomment below to test "IsType" IdentityApiApiClientV1AccessTokenType
             //Assert.IsType<IdentityApiApiClientV1AccessTokenType>(instance);
         }
-
-
-
     }
-
 }

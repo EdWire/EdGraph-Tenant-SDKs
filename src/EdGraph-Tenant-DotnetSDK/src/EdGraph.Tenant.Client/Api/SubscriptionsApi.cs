@@ -64,8 +64,8 @@ namespace EdGraph.Tenant.Client.Api
         /// <param name="apiVersion"> (optional)</param>
         /// <param name="xVersion"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApplicationApiApplicationV3PaginatedItemsResponse</returns>
-        ApplicationApiApplicationV3PaginatedItemsResponse GetAllTenantSubscriptionApplications(string tenantId, int? pageIndex = default(int?), int? pageSize = default(int?), string? orderBy = default(string?), string? apiVersion = default(string?), string? xVersion = default(string?), int operationIndex = 0);
+        /// <returns>ApplicationApiApplicationV1PaginatedItemsResponse</returns>
+        ApplicationApiApplicationV1PaginatedItemsResponse GetAllTenantSubscriptionApplications(string tenantId, int? pageIndex = default(int?), int? pageSize = default(int?), string? orderBy = default(string?), string? apiVersion = default(string?), string? xVersion = default(string?), int operationIndex = 0);
 
         /// <summary>
         /// Retrieves a list of applications available for subscription.
@@ -81,8 +81,8 @@ namespace EdGraph.Tenant.Client.Api
         /// <param name="apiVersion"> (optional)</param>
         /// <param name="xVersion"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of ApplicationApiApplicationV3PaginatedItemsResponse</returns>
-        ApiResponse<ApplicationApiApplicationV3PaginatedItemsResponse> GetAllTenantSubscriptionApplicationsWithHttpInfo(string tenantId, int? pageIndex = default(int?), int? pageSize = default(int?), string? orderBy = default(string?), string? apiVersion = default(string?), string? xVersion = default(string?), int operationIndex = 0);
+        /// <returns>ApiResponse of ApplicationApiApplicationV1PaginatedItemsResponse</returns>
+        ApiResponse<ApplicationApiApplicationV1PaginatedItemsResponse> GetAllTenantSubscriptionApplicationsWithHttpInfo(string tenantId, int? pageIndex = default(int?), int? pageSize = default(int?), string? orderBy = default(string?), string? apiVersion = default(string?), string? xVersion = default(string?), int operationIndex = 0);
         /// <summary>
         /// Retrieves a list of subscriptions associated to this tenant
         /// </summary>
@@ -224,8 +224,8 @@ namespace EdGraph.Tenant.Client.Api
         /// <param name="xVersion"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApplicationApiApplicationV3PaginatedItemsResponse</returns>
-        System.Threading.Tasks.Task<ApplicationApiApplicationV3PaginatedItemsResponse> GetAllTenantSubscriptionApplicationsAsync(string tenantId, int? pageIndex = default(int?), int? pageSize = default(int?), string? orderBy = default(string?), string? apiVersion = default(string?), string? xVersion = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of ApplicationApiApplicationV1PaginatedItemsResponse</returns>
+        System.Threading.Tasks.Task<ApplicationApiApplicationV1PaginatedItemsResponse> GetAllTenantSubscriptionApplicationsAsync(string tenantId, int? pageIndex = default(int?), int? pageSize = default(int?), string? orderBy = default(string?), string? apiVersion = default(string?), string? xVersion = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Retrieves a list of applications available for subscription.
@@ -242,8 +242,8 @@ namespace EdGraph.Tenant.Client.Api
         /// <param name="xVersion"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (ApplicationApiApplicationV3PaginatedItemsResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ApplicationApiApplicationV3PaginatedItemsResponse>> GetAllTenantSubscriptionApplicationsWithHttpInfoAsync(string tenantId, int? pageIndex = default(int?), int? pageSize = default(int?), string? orderBy = default(string?), string? apiVersion = default(string?), string? xVersion = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of ApiResponse (ApplicationApiApplicationV1PaginatedItemsResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ApplicationApiApplicationV1PaginatedItemsResponse>> GetAllTenantSubscriptionApplicationsWithHttpInfoAsync(string tenantId, int? pageIndex = default(int?), int? pageSize = default(int?), string? orderBy = default(string?), string? apiVersion = default(string?), string? xVersion = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Retrieves a list of subscriptions associated to this tenant
         /// </summary>
@@ -690,10 +690,10 @@ namespace EdGraph.Tenant.Client.Api
         /// <param name="apiVersion"> (optional)</param>
         /// <param name="xVersion"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApplicationApiApplicationV3PaginatedItemsResponse</returns>
-        public ApplicationApiApplicationV3PaginatedItemsResponse GetAllTenantSubscriptionApplications(string tenantId, int? pageIndex = default(int?), int? pageSize = default(int?), string? orderBy = default(string?), string? apiVersion = default(string?), string? xVersion = default(string?), int operationIndex = 0)
+        /// <returns>ApplicationApiApplicationV1PaginatedItemsResponse</returns>
+        public ApplicationApiApplicationV1PaginatedItemsResponse GetAllTenantSubscriptionApplications(string tenantId, int? pageIndex = default(int?), int? pageSize = default(int?), string? orderBy = default(string?), string? apiVersion = default(string?), string? xVersion = default(string?), int operationIndex = 0)
         {
-            EdGraph.Tenant.Client.Client.ApiResponse<ApplicationApiApplicationV3PaginatedItemsResponse> localVarResponse = GetAllTenantSubscriptionApplicationsWithHttpInfo(tenantId, pageIndex, pageSize, orderBy, apiVersion, xVersion);
+            EdGraph.Tenant.Client.Client.ApiResponse<ApplicationApiApplicationV1PaginatedItemsResponse> localVarResponse = GetAllTenantSubscriptionApplicationsWithHttpInfo(tenantId, pageIndex, pageSize, orderBy, apiVersion, xVersion);
             return localVarResponse.Data;
         }
 
@@ -708,8 +708,8 @@ namespace EdGraph.Tenant.Client.Api
         /// <param name="apiVersion"> (optional)</param>
         /// <param name="xVersion"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of ApplicationApiApplicationV3PaginatedItemsResponse</returns>
-        public EdGraph.Tenant.Client.Client.ApiResponse<ApplicationApiApplicationV3PaginatedItemsResponse> GetAllTenantSubscriptionApplicationsWithHttpInfo(string tenantId, int? pageIndex = default(int?), int? pageSize = default(int?), string? orderBy = default(string?), string? apiVersion = default(string?), string? xVersion = default(string?), int operationIndex = 0)
+        /// <returns>ApiResponse of ApplicationApiApplicationV1PaginatedItemsResponse</returns>
+        public EdGraph.Tenant.Client.Client.ApiResponse<ApplicationApiApplicationV1PaginatedItemsResponse> GetAllTenantSubscriptionApplicationsWithHttpInfo(string tenantId, int? pageIndex = default(int?), int? pageSize = default(int?), string? orderBy = default(string?), string? apiVersion = default(string?), string? xVersion = default(string?), int operationIndex = 0)
         {
             // verify the required parameter 'tenantId' is set
             if (tenantId == null)
@@ -782,7 +782,7 @@ namespace EdGraph.Tenant.Client.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<ApplicationApiApplicationV3PaginatedItemsResponse>("/tenants/{tenantId}/subscriptions/applications", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get<ApplicationApiApplicationV1PaginatedItemsResponse>("/tenants/{tenantId}/subscriptions/applications", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetAllTenantSubscriptionApplications", localVarResponse);
@@ -807,10 +807,10 @@ namespace EdGraph.Tenant.Client.Api
         /// <param name="xVersion"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApplicationApiApplicationV3PaginatedItemsResponse</returns>
-        public async System.Threading.Tasks.Task<ApplicationApiApplicationV3PaginatedItemsResponse> GetAllTenantSubscriptionApplicationsAsync(string tenantId, int? pageIndex = default(int?), int? pageSize = default(int?), string? orderBy = default(string?), string? apiVersion = default(string?), string? xVersion = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of ApplicationApiApplicationV1PaginatedItemsResponse</returns>
+        public async System.Threading.Tasks.Task<ApplicationApiApplicationV1PaginatedItemsResponse> GetAllTenantSubscriptionApplicationsAsync(string tenantId, int? pageIndex = default(int?), int? pageSize = default(int?), string? orderBy = default(string?), string? apiVersion = default(string?), string? xVersion = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            EdGraph.Tenant.Client.Client.ApiResponse<ApplicationApiApplicationV3PaginatedItemsResponse> localVarResponse = await GetAllTenantSubscriptionApplicationsWithHttpInfoAsync(tenantId, pageIndex, pageSize, orderBy, apiVersion, xVersion, operationIndex, cancellationToken).ConfigureAwait(false);
+            EdGraph.Tenant.Client.Client.ApiResponse<ApplicationApiApplicationV1PaginatedItemsResponse> localVarResponse = await GetAllTenantSubscriptionApplicationsWithHttpInfoAsync(tenantId, pageIndex, pageSize, orderBy, apiVersion, xVersion, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -826,8 +826,8 @@ namespace EdGraph.Tenant.Client.Api
         /// <param name="xVersion"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (ApplicationApiApplicationV3PaginatedItemsResponse)</returns>
-        public async System.Threading.Tasks.Task<EdGraph.Tenant.Client.Client.ApiResponse<ApplicationApiApplicationV3PaginatedItemsResponse>> GetAllTenantSubscriptionApplicationsWithHttpInfoAsync(string tenantId, int? pageIndex = default(int?), int? pageSize = default(int?), string? orderBy = default(string?), string? apiVersion = default(string?), string? xVersion = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of ApiResponse (ApplicationApiApplicationV1PaginatedItemsResponse)</returns>
+        public async System.Threading.Tasks.Task<EdGraph.Tenant.Client.Client.ApiResponse<ApplicationApiApplicationV1PaginatedItemsResponse>> GetAllTenantSubscriptionApplicationsWithHttpInfoAsync(string tenantId, int? pageIndex = default(int?), int? pageSize = default(int?), string? orderBy = default(string?), string? apiVersion = default(string?), string? xVersion = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'tenantId' is set
             if (tenantId == null)
@@ -901,7 +901,7 @@ namespace EdGraph.Tenant.Client.Api
             }
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<ApplicationApiApplicationV3PaginatedItemsResponse>("/tenants/{tenantId}/subscriptions/applications", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<ApplicationApiApplicationV1PaginatedItemsResponse>("/tenants/{tenantId}/subscriptions/applications", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {

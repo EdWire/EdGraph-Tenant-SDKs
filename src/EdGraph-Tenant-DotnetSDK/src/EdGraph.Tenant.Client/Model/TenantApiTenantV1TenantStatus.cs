@@ -35,20 +35,19 @@ namespace EdGraph.Tenant.Client.Model
         /// Enum Unknown for value: Unknown
         /// </summary>
         [EnumMember(Value = "Unknown")]
-        Unknown = 1,
+        Unknown,
 
         /// <summary>
         /// Enum Active for value: Active
         /// </summary>
         [EnumMember(Value = "Active")]
-        Active = 2,
+        Active,
 
         /// <summary>
         /// Enum Inactive for value: Inactive
         /// </summary>
         [EnumMember(Value = "Inactive")]
-        Inactive = 3
-
+        Inactive
     }
 
 }

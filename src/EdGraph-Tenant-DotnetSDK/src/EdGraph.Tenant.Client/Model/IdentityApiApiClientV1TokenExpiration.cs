@@ -42,7 +42,6 @@ namespace EdGraph.Tenant.Client.Model
         /// </summary>
         [EnumMember(Value = "Absolute")]
         Absolute = 2
-
     }
 
 }

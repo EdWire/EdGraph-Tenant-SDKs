@@ -35,32 +35,31 @@ namespace EdGraph.Tenant.Client.Model
         /// Enum Unknown for value: Unknown
         /// </summary>
         [EnumMember(Value = "Unknown")]
-        Unknown = 1,
+        Unknown,
 
         /// <summary>
         /// Enum Unverified for value: Unverified
         /// </summary>
         [EnumMember(Value = "Unverified")]
-        Unverified = 2,
+        Unverified,
 
         /// <summary>
         /// Enum Verified for value: Verified
         /// </summary>
         [EnumMember(Value = "Verified")]
-        Verified = 3,
+        Verified,
 
         /// <summary>
         /// Enum Rejected for value: Rejected
         /// </summary>
         [EnumMember(Value = "Rejected")]
-        Rejected = 4,
+        Rejected,
 
         /// <summary>
         /// Enum Error for value: Error
         /// </summary>
         [EnumMember(Value = "Error")]
-        Error = 5
-
+        Error
     }
 
 }

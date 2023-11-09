@@ -53,9 +53,5 @@ namespace EdGraph.Tenant.Client.Test.Model
             // TODO uncomment below to test "IsType" EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesTenantStatus
             //Assert.IsType<EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesTenantStatus>(instance);
         }
-
-
-
     }
-
 }

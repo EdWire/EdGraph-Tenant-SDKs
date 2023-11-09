@@ -42,7 +42,6 @@ namespace EdGraph.Tenant.Client.Model
         /// </summary>
         [EnumMember(Value = "OneTimeOnly")]
         OneTimeOnly = 2
-
     }
 
 }

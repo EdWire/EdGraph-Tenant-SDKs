@@ -54,7 +54,6 @@ namespace EdGraph.Tenant.Client.Test.Model
             //Assert.IsType<EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesUserLogin>(instance);
         }
 
-
         /// <summary>
         /// Test the property 'LoginProvider'
         /// </summary>
@@ -63,6 +62,7 @@ namespace EdGraph.Tenant.Client.Test.Model
         {
             // TODO unit test for the property 'LoginProvider'
         }
+
         /// <summary>
         /// Test the property 'ProviderDisplayName'
         /// </summary>
@@ -71,7 +71,5 @@ namespace EdGraph.Tenant.Client.Test.Model
         {
             // TODO unit test for the property 'ProviderDisplayName'
         }
-
     }
-
 }
