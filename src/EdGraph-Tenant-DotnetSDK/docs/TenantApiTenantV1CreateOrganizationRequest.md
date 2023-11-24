@@ -7,6 +7,8 @@ Name | Type | Description | Notes
 **TenantId** | **string** |  | [optional] 
 **IdentifierType** | **string** |  | [optional] 
 **IdentifierValue** | **string** |  | [optional] 
+**ShortNameOfInstitution** | **string** |  | [optional] 
+**NameOfInstitution** | **string** |  | [optional] 
 **Discriminator** | **string** |  | [optional] 
 **Source** | **string** |  | [optional] 
 **IncludeInJwt** | **bool** |  | [optional] 

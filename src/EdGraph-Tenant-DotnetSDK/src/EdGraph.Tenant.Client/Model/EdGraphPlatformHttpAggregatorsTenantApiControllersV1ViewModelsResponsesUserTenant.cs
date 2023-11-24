@@ -43,11 +43,13 @@ namespace EdGraph.Tenant.Client.Model
         /// <param name="tenantId">tenantId.</param>
         /// <param name="status">status.</param>
         /// <param name="roles">roles.</param>
-        public EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesUserTenant(string tenantId = default(string), EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesTenantStatus? status = default(EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesTenantStatus?), List<string> roles = default(List<string>))
+        /// <param name="licenses">licenses.</param>
+        public EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesUserTenant(string tenantId = default(string), EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesTenantStatus? status = default(EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesTenantStatus?), List<string> roles = default(List<string>), List<EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesUserTenantLicense> licenses = default(List<EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesUserTenantLicense>))
         {
             this.TenantId = tenantId;
             this.Status = status;
             this.Roles = roles;
+            this.Licenses = licenses;
         }
 
         /// <summary>
@@ -63,6 +65,12 @@ namespace EdGraph.Tenant.Client.Model
         public List<string> Roles { get; set; }
 
         /// <summary>
+        /// Gets or Sets Licenses
+        /// </summary>
+        [DataMember(Name = "licenses", EmitDefaultValue = true)]
+        public List<EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesUserTenantLicense> Licenses { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -73,6 +81,7 @@ namespace EdGraph.Tenant.Client.Model
             sb.Append("  TenantId: ").Append(TenantId).Append("\n");
             sb.Append("  Status: ").Append(Status).Append("\n");
             sb.Append("  Roles: ").Append(Roles).Append("\n");
+            sb.Append("  Licenses: ").Append(Licenses).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -122,6 +131,12 @@ namespace EdGraph.Tenant.Client.Model
                     this.Roles != null &&
                     input.Roles != null &&
                     this.Roles.SequenceEqual(input.Roles)
+                ) && 
+                (
+                    this.Licenses == input.Licenses ||
+                    this.Licenses != null &&
+                    input.Licenses != null &&
+                    this.Licenses.SequenceEqual(input.Licenses)
                 );
         }
 
@@ -142,6 +157,10 @@ namespace EdGraph.Tenant.Client.Model
                 if (this.Roles != null)
                 {
                     hashCode = (hashCode * 59) + this.Roles.GetHashCode();
+                }
+                if (this.Licenses != null)
+                {
+                    hashCode = (hashCode * 59) + this.Licenses.GetHashCode();
                 }
                 return hashCode;
             }

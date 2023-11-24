@@ -37,13 +37,11 @@ namespace EdGraph.Tenant.Client.Model
         /// <param name="userId">userId.</param>
         /// <param name="tenantId">tenantId.</param>
         /// <param name="educationOrganizationId">educationOrganizationId.</param>
-        /// <param name="staffClassification">staffClassification.</param>
-        public IdentityApiUserV1UpdateEducationOrganizationRequest(string userId = default(string), string tenantId = default(string), int educationOrganizationId = default(int), string staffClassification = default(string))
+        public IdentityApiUserV1UpdateEducationOrganizationRequest(string userId = default(string), string tenantId = default(string), int educationOrganizationId = default(int))
         {
             this.UserId = userId;
             this.TenantId = tenantId;
             this.EducationOrganizationId = educationOrganizationId;
-            this.StaffClassification = staffClassification;
         }
 
         /// <summary>
@@ -65,11 +63,19 @@ namespace EdGraph.Tenant.Client.Model
         public int EducationOrganizationId { get; set; }
 
         /// <summary>
-        /// Gets or Sets StaffClassification
+        /// Gets or Sets StaffClassifications
         /// </summary>
-        [DataMember(Name = "staffClassification", EmitDefaultValue = true)]
-        public string StaffClassification { get; set; }
+        [DataMember(Name = "staffClassifications", EmitDefaultValue = true)]
+        public List<string> StaffClassifications { get; private set; }
 
+        /// <summary>
+        /// Returns false as StaffClassifications should not be serialized given that it's read-only.
+        /// </summary>
+        /// <returns>false (boolean)</returns>
+        public bool ShouldSerializeStaffClassifications()
+        {
+            return false;
+        }
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -81,7 +87,7 @@ namespace EdGraph.Tenant.Client.Model
             sb.Append("  UserId: ").Append(UserId).Append("\n");
             sb.Append("  TenantId: ").Append(TenantId).Append("\n");
             sb.Append("  EducationOrganizationId: ").Append(EducationOrganizationId).Append("\n");
-            sb.Append("  StaffClassification: ").Append(StaffClassification).Append("\n");
+            sb.Append("  StaffClassifications: ").Append(StaffClassifications).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -132,9 +138,10 @@ namespace EdGraph.Tenant.Client.Model
                     this.EducationOrganizationId.Equals(input.EducationOrganizationId)
                 ) && 
                 (
-                    this.StaffClassification == input.StaffClassification ||
-                    (this.StaffClassification != null &&
-                    this.StaffClassification.Equals(input.StaffClassification))
+                    this.StaffClassifications == input.StaffClassifications ||
+                    this.StaffClassifications != null &&
+                    input.StaffClassifications != null &&
+                    this.StaffClassifications.SequenceEqual(input.StaffClassifications)
                 );
         }
 
@@ -156,9 +163,9 @@ namespace EdGraph.Tenant.Client.Model
                     hashCode = (hashCode * 59) + this.TenantId.GetHashCode();
                 }
                 hashCode = (hashCode * 59) + this.EducationOrganizationId.GetHashCode();
-                if (this.StaffClassification != null)
+                if (this.StaffClassifications != null)
                 {
-                    hashCode = (hashCode * 59) + this.StaffClassification.GetHashCode();
+                    hashCode = (hashCode * 59) + this.StaffClassifications.GetHashCode();
                 }
                 return hashCode;
             }

@@ -64,21 +64,39 @@ namespace EdGraph.Tenant.Client.Test.Model
         }
 
         /// <summary>
-        /// Test the property 'EducationOrganizationName'
+        /// Test the property 'ShortNameOfInstitution'
         /// </summary>
         [Fact]
-        public void EducationOrganizationNameTest()
+        public void ShortNameOfInstitutionTest()
         {
-            // TODO unit test for the property 'EducationOrganizationName'
+            // TODO unit test for the property 'ShortNameOfInstitution'
         }
 
         /// <summary>
-        /// Test the property 'StaffClassification'
+        /// Test the property 'NameOfInstitution'
         /// </summary>
         [Fact]
-        public void StaffClassificationTest()
+        public void NameOfInstitutionTest()
         {
-            // TODO unit test for the property 'StaffClassification'
+            // TODO unit test for the property 'NameOfInstitution'
+        }
+
+        /// <summary>
+        /// Test the property 'StaffClassifications'
+        /// </summary>
+        [Fact]
+        public void StaffClassificationsTest()
+        {
+            // TODO unit test for the property 'StaffClassifications'
+        }
+
+        /// <summary>
+        /// Test the property 'Source'
+        /// </summary>
+        [Fact]
+        public void SourceTest()
+        {
+            // TODO unit test for the property 'Source'
         }
     }
 }

@@ -82,12 +82,12 @@ namespace EdGraph.Tenant.Client.Test.Model
         }
 
         /// <summary>
-        /// Test the property 'StaffClassification'
+        /// Test the property 'StaffClassifications'
         /// </summary>
         [Fact]
-        public void StaffClassificationTest()
+        public void StaffClassificationsTest()
         {
-            // TODO unit test for the property 'StaffClassification'
+            // TODO unit test for the property 'StaffClassifications'
         }
     }
 }

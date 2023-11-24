@@ -7110,12 +7110,66 @@ components:
       example:
         lastName: lastName
         tenants:
-        - roles:
+        - licenses:
+          - roles:
+            - role: role
+              isImplicitlyAssigned: true
+              educationOrganizationId: 0
+              staffClassification: staffClassification
+              status: status
+            - role: role
+              isImplicitlyAssigned: true
+              educationOrganizationId: 0
+              staffClassification: staffClassification
+              status: status
+            applicationId: applicationId
+            applicationName: applicationName
+          - roles:
+            - role: role
+              isImplicitlyAssigned: true
+              educationOrganizationId: 0
+              staffClassification: staffClassification
+              status: status
+            - role: role
+              isImplicitlyAssigned: true
+              educationOrganizationId: 0
+              staffClassification: staffClassification
+              status: status
+            applicationId: applicationId
+            applicationName: applicationName
+          roles:
           - roles
           - roles
           tenantId: tenantId
           status: null
-        - roles:
+        - licenses:
+          - roles:
+            - role: role
+              isImplicitlyAssigned: true
+              educationOrganizationId: 0
+              staffClassification: staffClassification
+              status: status
+            - role: role
+              isImplicitlyAssigned: true
+              educationOrganizationId: 0
+              staffClassification: staffClassification
+              status: status
+            applicationId: applicationId
+            applicationName: applicationName
+          - roles:
+            - role: role
+              isImplicitlyAssigned: true
+              educationOrganizationId: 0
+              staffClassification: staffClassification
+              status: status
+            - role: role
+              isImplicitlyAssigned: true
+              educationOrganizationId: 0
+              staffClassification: staffClassification
+              status: status
+            applicationId: applicationId
+            applicationName: applicationName
+          roles:
           - roles
           - roles
           tenantId: tenantId
@@ -7222,12 +7276,66 @@ components:
         data:
         - lastName: lastName
           tenants:
-          - roles:
+          - licenses:
+            - roles:
+              - role: role
+                isImplicitlyAssigned: true
+                educationOrganizationId: 0
+                staffClassification: staffClassification
+                status: status
+              - role: role
+                isImplicitlyAssigned: true
+                educationOrganizationId: 0
+                staffClassification: staffClassification
+                status: status
+              applicationId: applicationId
+              applicationName: applicationName
+            - roles:
+              - role: role
+                isImplicitlyAssigned: true
+                educationOrganizationId: 0
+                staffClassification: staffClassification
+                status: status
+              - role: role
+                isImplicitlyAssigned: true
+                educationOrganizationId: 0
+                staffClassification: staffClassification
+                status: status
+              applicationId: applicationId
+              applicationName: applicationName
+            roles:
             - roles
             - roles
             tenantId: tenantId
             status: null
-          - roles:
+          - licenses:
+            - roles:
+              - role: role
+                isImplicitlyAssigned: true
+                educationOrganizationId: 0
+                staffClassification: staffClassification
+                status: status
+              - role: role
+                isImplicitlyAssigned: true
+                educationOrganizationId: 0
+                staffClassification: staffClassification
+                status: status
+              applicationId: applicationId
+              applicationName: applicationName
+            - roles:
+              - role: role
+                isImplicitlyAssigned: true
+                educationOrganizationId: 0
+                staffClassification: staffClassification
+                status: status
+              - role: role
+                isImplicitlyAssigned: true
+                educationOrganizationId: 0
+                staffClassification: staffClassification
+                status: status
+              applicationId: applicationId
+              applicationName: applicationName
+            roles:
             - roles
             - roles
             tenantId: tenantId
@@ -7283,12 +7391,66 @@ components:
           email: email
         - lastName: lastName
           tenants:
-          - roles:
+          - licenses:
+            - roles:
+              - role: role
+                isImplicitlyAssigned: true
+                educationOrganizationId: 0
+                staffClassification: staffClassification
+                status: status
+              - role: role
+                isImplicitlyAssigned: true
+                educationOrganizationId: 0
+                staffClassification: staffClassification
+                status: status
+              applicationId: applicationId
+              applicationName: applicationName
+            - roles:
+              - role: role
+                isImplicitlyAssigned: true
+                educationOrganizationId: 0
+                staffClassification: staffClassification
+                status: status
+              - role: role
+                isImplicitlyAssigned: true
+                educationOrganizationId: 0
+                staffClassification: staffClassification
+                status: status
+              applicationId: applicationId
+              applicationName: applicationName
+            roles:
             - roles
             - roles
             tenantId: tenantId
             status: null
-          - roles:
+          - licenses:
+            - roles:
+              - role: role
+                isImplicitlyAssigned: true
+                educationOrganizationId: 0
+                staffClassification: staffClassification
+                status: status
+              - role: role
+                isImplicitlyAssigned: true
+                educationOrganizationId: 0
+                staffClassification: staffClassification
+                status: status
+              applicationId: applicationId
+              applicationName: applicationName
+            - roles:
+              - role: role
+                isImplicitlyAssigned: true
+                educationOrganizationId: 0
+                staffClassification: staffClassification
+                status: status
+              - role: role
+                isImplicitlyAssigned: true
+                educationOrganizationId: 0
+                staffClassification: staffClassification
+                status: status
+              applicationId: applicationId
+              applicationName: applicationName
+            roles:
             - roles
             - roles
             tenantId: tenantId
@@ -7392,12 +7554,66 @@ components:
       example:
         lastName: lastName
         tenants:
-        - roles:
+        - licenses:
+          - roles:
+            - role: role
+              isImplicitlyAssigned: true
+              educationOrganizationId: 0
+              staffClassification: staffClassification
+              status: status
+            - role: role
+              isImplicitlyAssigned: true
+              educationOrganizationId: 0
+              staffClassification: staffClassification
+              status: status
+            applicationId: applicationId
+            applicationName: applicationName
+          - roles:
+            - role: role
+              isImplicitlyAssigned: true
+              educationOrganizationId: 0
+              staffClassification: staffClassification
+              status: status
+            - role: role
+              isImplicitlyAssigned: true
+              educationOrganizationId: 0
+              staffClassification: staffClassification
+              status: status
+            applicationId: applicationId
+            applicationName: applicationName
+          roles:
           - roles
           - roles
           tenantId: tenantId
           status: null
-        - roles:
+        - licenses:
+          - roles:
+            - role: role
+              isImplicitlyAssigned: true
+              educationOrganizationId: 0
+              staffClassification: staffClassification
+              status: status
+            - role: role
+              isImplicitlyAssigned: true
+              educationOrganizationId: 0
+              staffClassification: staffClassification
+              status: status
+            applicationId: applicationId
+            applicationName: applicationName
+          - roles:
+            - role: role
+              isImplicitlyAssigned: true
+              educationOrganizationId: 0
+              staffClassification: staffClassification
+              status: status
+            - role: role
+              isImplicitlyAssigned: true
+              educationOrganizationId: 0
+              staffClassification: staffClassification
+              status: status
+            applicationId: applicationId
+            applicationName: applicationName
+          roles:
           - roles
           - roles
           tenantId: tenantId
@@ -7518,6 +7734,33 @@ components:
     EdGraph.Platform.HttpAggregators.Tenant.Api.Controllers.v1.ViewModels.Responses.UserTenant:
       additionalProperties: false
       example:
+        licenses:
+        - roles:
+          - role: role
+            isImplicitlyAssigned: true
+            educationOrganizationId: 0
+            staffClassification: staffClassification
+            status: status
+          - role: role
+            isImplicitlyAssigned: true
+            educationOrganizationId: 0
+            staffClassification: staffClassification
+            status: status
+          applicationId: applicationId
+          applicationName: applicationName
+        - roles:
+          - role: role
+            isImplicitlyAssigned: true
+            educationOrganizationId: 0
+            staffClassification: staffClassification
+            status: status
+          - role: role
+            isImplicitlyAssigned: true
+            educationOrganizationId: 0
+            staffClassification: staffClassification
+            status: status
+          applicationId: applicationId
+          applicationName: applicationName
         roles:
         - roles
         - roles
@@ -7534,6 +7777,65 @@ components:
             type: string
           nullable: true
           type: array
+        licenses:
+          items:
+            $ref: '#/components/schemas/EdGraph.Platform.HttpAggregators.Tenant.Api.Controllers.v1.ViewModels.Responses.UserTenantLicense'
+          nullable: true
+          type: array
+      type: object
+    EdGraph.Platform.HttpAggregators.Tenant.Api.Controllers.v1.ViewModels.Responses.UserTenantLicense:
+      additionalProperties: false
+      example:
+        roles:
+        - role: role
+          isImplicitlyAssigned: true
+          educationOrganizationId: 0
+          staffClassification: staffClassification
+          status: status
+        - role: role
+          isImplicitlyAssigned: true
+          educationOrganizationId: 0
+          staffClassification: staffClassification
+          status: status
+        applicationId: applicationId
+        applicationName: applicationName
+      properties:
+        applicationId:
+          nullable: true
+          type: string
+        applicationName:
+          nullable: true
+          type: string
+        roles:
+          items:
+            $ref: '#/components/schemas/EdGraph.Platform.HttpAggregators.Tenant.Api.Controllers.v1.ViewModels.Responses.UserTenantLicenseRole'
+          nullable: true
+          type: array
+      type: object
+    EdGraph.Platform.HttpAggregators.Tenant.Api.Controllers.v1.ViewModels.Responses.UserTenantLicenseRole:
+      additionalProperties: false
+      example:
+        role: role
+        isImplicitlyAssigned: true
+        educationOrganizationId: 0
+        staffClassification: staffClassification
+        status: status
+      properties:
+        role:
+          nullable: true
+          type: string
+        isImplicitlyAssigned:
+          type: boolean
+        status:
+          nullable: true
+          type: string
+        educationOrganizationId:
+          format: int32
+          nullable: true
+          type: integer
+        staffClassification:
+          nullable: true
+          type: string
       type: object
     IdentityApi.ApiClient.V1.AccessTokenType:
       enum:
@@ -8657,12 +8959,12 @@ components:
         educationOrganizationId:
           format: int32
           type: integer
-        educationOrganizationName:
+        staffClassifications:
+          items:
+            type: string
           nullable: true
-          type: string
-        staffClassification:
-          nullable: true
-          type: string
+          readOnly: true
+          type: array
       type: object
     IdentityApi.User.V1.DeactivateUserRequest:
       additionalProperties: false
@@ -8677,17 +8979,30 @@ components:
     IdentityApi.User.V1.EducationOrganization:
       additionalProperties: false
       example:
-        educationOrganizationName: educationOrganizationName
+        shortNameOfInstitution: shortNameOfInstitution
+        staffClassifications:
+        - staffClassifications
+        - staffClassifications
         educationOrganizationId: 0
-        staffClassification: staffClassification
+        source: source
+        nameOfInstitution: nameOfInstitution
       properties:
         educationOrganizationId:
           format: int32
           type: integer
-        educationOrganizationName:
+        shortNameOfInstitution:
           nullable: true
           type: string
-        staffClassification:
+        nameOfInstitution:
+          nullable: true
+          type: string
+        staffClassifications:
+          items:
+            type: string
+          nullable: true
+          readOnly: true
+          type: array
+        source:
           nullable: true
           type: string
       type: object
@@ -8712,12 +9027,20 @@ components:
       additionalProperties: false
       example:
         data:
-        - educationOrganizationName: educationOrganizationName
+        - shortNameOfInstitution: shortNameOfInstitution
+          staffClassifications:
+          - staffClassifications
+          - staffClassifications
           educationOrganizationId: 0
-          staffClassification: staffClassification
-        - educationOrganizationName: educationOrganizationName
+          source: source
+          nameOfInstitution: nameOfInstitution
+        - shortNameOfInstitution: shortNameOfInstitution
+          staffClassifications:
+          - staffClassifications
+          - staffClassifications
           educationOrganizationId: 0
-          staffClassification: staffClassification
+          source: source
+          nameOfInstitution: nameOfInstitution
         tenantId: tenantId
         userId: userId
       properties:
@@ -8916,9 +9239,12 @@ components:
         educationOrganizationId:
           format: int32
           type: integer
-        staffClassification:
+        staffClassifications:
+          items:
+            type: string
           nullable: true
-          type: string
+          readOnly: true
+          type: array
       type: object
     IdentityApi.User.V1.UpdateUserRequest:
       additionalProperties: false
@@ -9062,6 +9388,12 @@ components:
           nullable: true
           type: string
         identifierValue:
+          nullable: true
+          type: string
+        shortNameOfInstitution:
+          nullable: true
+          type: string
+        nameOfInstitution:
           nullable: true
           type: string
         discriminator:
@@ -9529,16 +9861,20 @@ components:
       additionalProperties: false
       example:
         data:
-        - identifierValue: identifierValue
+        - shortNameOfInstitution: shortNameOfInstitution
+          identifierValue: identifierValue
           identifierType: identifierType
           source: source
           includeInJwt: true
           discriminator: discriminator
-        - identifierValue: identifierValue
+          nameOfInstitution: nameOfInstitution
+        - shortNameOfInstitution: shortNameOfInstitution
+          identifierValue: identifierValue
           identifierType: identifierType
           source: source
           includeInJwt: true
           discriminator: discriminator
+          nameOfInstitution: nameOfInstitution
         pageIndex: 0
         count: 1
         pageSize: 6
@@ -9787,11 +10123,13 @@ components:
     TenantApi.Tenant.V1.Organization:
       additionalProperties: false
       example:
+        shortNameOfInstitution: shortNameOfInstitution
         identifierValue: identifierValue
         identifierType: identifierType
         source: source
         includeInJwt: true
         discriminator: discriminator
+        nameOfInstitution: nameOfInstitution
       properties:
         identifierType:
           nullable: true
@@ -9803,6 +10141,12 @@ components:
           nullable: true
           type: string
         source:
+          nullable: true
+          type: string
+        shortNameOfInstitution:
+          nullable: true
+          type: string
+        nameOfInstitution:
           nullable: true
           type: string
         includeInJwt:
@@ -10114,16 +10458,20 @@ components:
         organizationIdentifier: organizationIdentifier
         tenantId: tenantId
         organizations:
-        - identifierValue: identifierValue
+        - shortNameOfInstitution: shortNameOfInstitution
+          identifierValue: identifierValue
           identifierType: identifierType
           source: source
           includeInJwt: true
           discriminator: discriminator
-        - identifierValue: identifierValue
+          nameOfInstitution: nameOfInstitution
+        - shortNameOfInstitution: shortNameOfInstitution
+          identifierValue: identifierValue
           identifierType: identifierType
           source: source
           includeInJwt: true
           discriminator: discriminator
+          nameOfInstitution: nameOfInstitution
         onboarding:
           completedAt: completedAt
           totalSteps: 2
@@ -10272,6 +10620,12 @@ components:
           nullable: true
           type: string
         source:
+          nullable: true
+          type: string
+        shortNameOfInstitution:
+          nullable: true
+          type: string
+        nameOfInstitution:
           nullable: true
           type: string
         includeInJwt:

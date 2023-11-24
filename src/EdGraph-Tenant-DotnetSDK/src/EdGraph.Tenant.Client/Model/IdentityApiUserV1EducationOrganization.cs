@@ -35,13 +35,15 @@ namespace EdGraph.Tenant.Client.Model
         /// Initializes a new instance of the <see cref="IdentityApiUserV1EducationOrganization" /> class.
         /// </summary>
         /// <param name="educationOrganizationId">educationOrganizationId.</param>
-        /// <param name="educationOrganizationName">educationOrganizationName.</param>
-        /// <param name="staffClassification">staffClassification.</param>
-        public IdentityApiUserV1EducationOrganization(int educationOrganizationId = default(int), string educationOrganizationName = default(string), string staffClassification = default(string))
+        /// <param name="shortNameOfInstitution">shortNameOfInstitution.</param>
+        /// <param name="nameOfInstitution">nameOfInstitution.</param>
+        /// <param name="source">source.</param>
+        public IdentityApiUserV1EducationOrganization(int educationOrganizationId = default(int), string shortNameOfInstitution = default(string), string nameOfInstitution = default(string), string source = default(string))
         {
             this.EducationOrganizationId = educationOrganizationId;
-            this.EducationOrganizationName = educationOrganizationName;
-            this.StaffClassification = staffClassification;
+            this.ShortNameOfInstitution = shortNameOfInstitution;
+            this.NameOfInstitution = nameOfInstitution;
+            this.Source = source;
         }
 
         /// <summary>
@@ -51,16 +53,36 @@ namespace EdGraph.Tenant.Client.Model
         public int EducationOrganizationId { get; set; }
 
         /// <summary>
-        /// Gets or Sets EducationOrganizationName
+        /// Gets or Sets ShortNameOfInstitution
         /// </summary>
-        [DataMember(Name = "educationOrganizationName", EmitDefaultValue = true)]
-        public string EducationOrganizationName { get; set; }
+        [DataMember(Name = "shortNameOfInstitution", EmitDefaultValue = true)]
+        public string ShortNameOfInstitution { get; set; }
 
         /// <summary>
-        /// Gets or Sets StaffClassification
+        /// Gets or Sets NameOfInstitution
         /// </summary>
-        [DataMember(Name = "staffClassification", EmitDefaultValue = true)]
-        public string StaffClassification { get; set; }
+        [DataMember(Name = "nameOfInstitution", EmitDefaultValue = true)]
+        public string NameOfInstitution { get; set; }
+
+        /// <summary>
+        /// Gets or Sets StaffClassifications
+        /// </summary>
+        [DataMember(Name = "staffClassifications", EmitDefaultValue = true)]
+        public List<string> StaffClassifications { get; private set; }
+
+        /// <summary>
+        /// Returns false as StaffClassifications should not be serialized given that it's read-only.
+        /// </summary>
+        /// <returns>false (boolean)</returns>
+        public bool ShouldSerializeStaffClassifications()
+        {
+            return false;
+        }
+        /// <summary>
+        /// Gets or Sets Source
+        /// </summary>
+        [DataMember(Name = "source", EmitDefaultValue = true)]
+        public string Source { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -71,8 +93,10 @@ namespace EdGraph.Tenant.Client.Model
             StringBuilder sb = new StringBuilder();
             sb.Append("class IdentityApiUserV1EducationOrganization {\n");
             sb.Append("  EducationOrganizationId: ").Append(EducationOrganizationId).Append("\n");
-            sb.Append("  EducationOrganizationName: ").Append(EducationOrganizationName).Append("\n");
-            sb.Append("  StaffClassification: ").Append(StaffClassification).Append("\n");
+            sb.Append("  ShortNameOfInstitution: ").Append(ShortNameOfInstitution).Append("\n");
+            sb.Append("  NameOfInstitution: ").Append(NameOfInstitution).Append("\n");
+            sb.Append("  StaffClassifications: ").Append(StaffClassifications).Append("\n");
+            sb.Append("  Source: ").Append(Source).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -113,14 +137,25 @@ namespace EdGraph.Tenant.Client.Model
                     this.EducationOrganizationId.Equals(input.EducationOrganizationId)
                 ) && 
                 (
-                    this.EducationOrganizationName == input.EducationOrganizationName ||
-                    (this.EducationOrganizationName != null &&
-                    this.EducationOrganizationName.Equals(input.EducationOrganizationName))
+                    this.ShortNameOfInstitution == input.ShortNameOfInstitution ||
+                    (this.ShortNameOfInstitution != null &&
+                    this.ShortNameOfInstitution.Equals(input.ShortNameOfInstitution))
                 ) && 
                 (
-                    this.StaffClassification == input.StaffClassification ||
-                    (this.StaffClassification != null &&
-                    this.StaffClassification.Equals(input.StaffClassification))
+                    this.NameOfInstitution == input.NameOfInstitution ||
+                    (this.NameOfInstitution != null &&
+                    this.NameOfInstitution.Equals(input.NameOfInstitution))
+                ) && 
+                (
+                    this.StaffClassifications == input.StaffClassifications ||
+                    this.StaffClassifications != null &&
+                    input.StaffClassifications != null &&
+                    this.StaffClassifications.SequenceEqual(input.StaffClassifications)
+                ) && 
+                (
+                    this.Source == input.Source ||
+                    (this.Source != null &&
+                    this.Source.Equals(input.Source))
                 );
         }
 
@@ -134,13 +169,21 @@ namespace EdGraph.Tenant.Client.Model
             {
                 int hashCode = 41;
                 hashCode = (hashCode * 59) + this.EducationOrganizationId.GetHashCode();
-                if (this.EducationOrganizationName != null)
+                if (this.ShortNameOfInstitution != null)
                 {
-                    hashCode = (hashCode * 59) + this.EducationOrganizationName.GetHashCode();
+                    hashCode = (hashCode * 59) + this.ShortNameOfInstitution.GetHashCode();
                 }
-                if (this.StaffClassification != null)
+                if (this.NameOfInstitution != null)
                 {
-                    hashCode = (hashCode * 59) + this.StaffClassification.GetHashCode();
+                    hashCode = (hashCode * 59) + this.NameOfInstitution.GetHashCode();
+                }
+                if (this.StaffClassifications != null)
+                {
+                    hashCode = (hashCode * 59) + this.StaffClassifications.GetHashCode();
+                }
+                if (this.Source != null)
+                {
+                    hashCode = (hashCode * 59) + this.Source.GetHashCode();
                 }
                 return hashCode;
             }

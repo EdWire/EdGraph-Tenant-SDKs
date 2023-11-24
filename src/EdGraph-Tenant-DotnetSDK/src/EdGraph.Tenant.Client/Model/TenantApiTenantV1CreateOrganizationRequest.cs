@@ -37,14 +37,18 @@ namespace EdGraph.Tenant.Client.Model
         /// <param name="tenantId">tenantId.</param>
         /// <param name="identifierType">identifierType.</param>
         /// <param name="identifierValue">identifierValue.</param>
+        /// <param name="shortNameOfInstitution">shortNameOfInstitution.</param>
+        /// <param name="nameOfInstitution">nameOfInstitution.</param>
         /// <param name="discriminator">discriminator.</param>
         /// <param name="source">source.</param>
         /// <param name="includeInJwt">includeInJwt.</param>
-        public TenantApiTenantV1CreateOrganizationRequest(string tenantId = default(string), string identifierType = default(string), string identifierValue = default(string), string discriminator = default(string), string source = default(string), bool includeInJwt = default(bool))
+        public TenantApiTenantV1CreateOrganizationRequest(string tenantId = default(string), string identifierType = default(string), string identifierValue = default(string), string shortNameOfInstitution = default(string), string nameOfInstitution = default(string), string discriminator = default(string), string source = default(string), bool includeInJwt = default(bool))
         {
             this.TenantId = tenantId;
             this.IdentifierType = identifierType;
             this.IdentifierValue = identifierValue;
+            this.ShortNameOfInstitution = shortNameOfInstitution;
+            this.NameOfInstitution = nameOfInstitution;
             this.Discriminator = discriminator;
             this.Source = source;
             this.IncludeInJwt = includeInJwt;
@@ -67,6 +71,18 @@ namespace EdGraph.Tenant.Client.Model
         /// </summary>
         [DataMember(Name = "identifierValue", EmitDefaultValue = true)]
         public string IdentifierValue { get; set; }
+
+        /// <summary>
+        /// Gets or Sets ShortNameOfInstitution
+        /// </summary>
+        [DataMember(Name = "shortNameOfInstitution", EmitDefaultValue = true)]
+        public string ShortNameOfInstitution { get; set; }
+
+        /// <summary>
+        /// Gets or Sets NameOfInstitution
+        /// </summary>
+        [DataMember(Name = "nameOfInstitution", EmitDefaultValue = true)]
+        public string NameOfInstitution { get; set; }
 
         /// <summary>
         /// Gets or Sets Discriminator
@@ -97,6 +113,8 @@ namespace EdGraph.Tenant.Client.Model
             sb.Append("  TenantId: ").Append(TenantId).Append("\n");
             sb.Append("  IdentifierType: ").Append(IdentifierType).Append("\n");
             sb.Append("  IdentifierValue: ").Append(IdentifierValue).Append("\n");
+            sb.Append("  ShortNameOfInstitution: ").Append(ShortNameOfInstitution).Append("\n");
+            sb.Append("  NameOfInstitution: ").Append(NameOfInstitution).Append("\n");
             sb.Append("  Discriminator: ").Append(Discriminator).Append("\n");
             sb.Append("  Source: ").Append(Source).Append("\n");
             sb.Append("  IncludeInJwt: ").Append(IncludeInJwt).Append("\n");
@@ -151,6 +169,16 @@ namespace EdGraph.Tenant.Client.Model
                     this.IdentifierValue.Equals(input.IdentifierValue))
                 ) && 
                 (
+                    this.ShortNameOfInstitution == input.ShortNameOfInstitution ||
+                    (this.ShortNameOfInstitution != null &&
+                    this.ShortNameOfInstitution.Equals(input.ShortNameOfInstitution))
+                ) && 
+                (
+                    this.NameOfInstitution == input.NameOfInstitution ||
+                    (this.NameOfInstitution != null &&
+                    this.NameOfInstitution.Equals(input.NameOfInstitution))
+                ) && 
+                (
                     this.Discriminator == input.Discriminator ||
                     (this.Discriminator != null &&
                     this.Discriminator.Equals(input.Discriminator))
@@ -186,6 +214,14 @@ namespace EdGraph.Tenant.Client.Model
                 if (this.IdentifierValue != null)
                 {
                     hashCode = (hashCode * 59) + this.IdentifierValue.GetHashCode();
+                }
+                if (this.ShortNameOfInstitution != null)
+                {
+                    hashCode = (hashCode * 59) + this.ShortNameOfInstitution.GetHashCode();
+                }
+                if (this.NameOfInstitution != null)
+                {
+                    hashCode = (hashCode * 59) + this.NameOfInstitution.GetHashCode();
                 }
                 if (this.Discriminator != null)
                 {

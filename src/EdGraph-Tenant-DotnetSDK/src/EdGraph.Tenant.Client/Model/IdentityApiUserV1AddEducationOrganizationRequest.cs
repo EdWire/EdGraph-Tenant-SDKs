@@ -37,15 +37,11 @@ namespace EdGraph.Tenant.Client.Model
         /// <param name="userId">userId.</param>
         /// <param name="tenantId">tenantId.</param>
         /// <param name="educationOrganizationId">educationOrganizationId.</param>
-        /// <param name="educationOrganizationName">educationOrganizationName.</param>
-        /// <param name="staffClassification">staffClassification.</param>
-        public IdentityApiUserV1AddEducationOrganizationRequest(string userId = default(string), string tenantId = default(string), int educationOrganizationId = default(int), string educationOrganizationName = default(string), string staffClassification = default(string))
+        public IdentityApiUserV1AddEducationOrganizationRequest(string userId = default(string), string tenantId = default(string), int educationOrganizationId = default(int))
         {
             this.UserId = userId;
             this.TenantId = tenantId;
             this.EducationOrganizationId = educationOrganizationId;
-            this.EducationOrganizationName = educationOrganizationName;
-            this.StaffClassification = staffClassification;
         }
 
         /// <summary>
@@ -67,17 +63,19 @@ namespace EdGraph.Tenant.Client.Model
         public int EducationOrganizationId { get; set; }
 
         /// <summary>
-        /// Gets or Sets EducationOrganizationName
+        /// Gets or Sets StaffClassifications
         /// </summary>
-        [DataMember(Name = "educationOrganizationName", EmitDefaultValue = true)]
-        public string EducationOrganizationName { get; set; }
+        [DataMember(Name = "staffClassifications", EmitDefaultValue = true)]
+        public List<string> StaffClassifications { get; private set; }
 
         /// <summary>
-        /// Gets or Sets StaffClassification
+        /// Returns false as StaffClassifications should not be serialized given that it's read-only.
         /// </summary>
-        [DataMember(Name = "staffClassification", EmitDefaultValue = true)]
-        public string StaffClassification { get; set; }
-
+        /// <returns>false (boolean)</returns>
+        public bool ShouldSerializeStaffClassifications()
+        {
+            return false;
+        }
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -89,8 +87,7 @@ namespace EdGraph.Tenant.Client.Model
             sb.Append("  UserId: ").Append(UserId).Append("\n");
             sb.Append("  TenantId: ").Append(TenantId).Append("\n");
             sb.Append("  EducationOrganizationId: ").Append(EducationOrganizationId).Append("\n");
-            sb.Append("  EducationOrganizationName: ").Append(EducationOrganizationName).Append("\n");
-            sb.Append("  StaffClassification: ").Append(StaffClassification).Append("\n");
+            sb.Append("  StaffClassifications: ").Append(StaffClassifications).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -141,14 +138,10 @@ namespace EdGraph.Tenant.Client.Model
                     this.EducationOrganizationId.Equals(input.EducationOrganizationId)
                 ) && 
                 (
-                    this.EducationOrganizationName == input.EducationOrganizationName ||
-                    (this.EducationOrganizationName != null &&
-                    this.EducationOrganizationName.Equals(input.EducationOrganizationName))
-                ) && 
-                (
-                    this.StaffClassification == input.StaffClassification ||
-                    (this.StaffClassification != null &&
-                    this.StaffClassification.Equals(input.StaffClassification))
+                    this.StaffClassifications == input.StaffClassifications ||
+                    this.StaffClassifications != null &&
+                    input.StaffClassifications != null &&
+                    this.StaffClassifications.SequenceEqual(input.StaffClassifications)
                 );
         }
 
@@ -170,13 +163,9 @@ namespace EdGraph.Tenant.Client.Model
                     hashCode = (hashCode * 59) + this.TenantId.GetHashCode();
                 }
                 hashCode = (hashCode * 59) + this.EducationOrganizationId.GetHashCode();
-                if (this.EducationOrganizationName != null)
+                if (this.StaffClassifications != null)
                 {
-                    hashCode = (hashCode * 59) + this.EducationOrganizationName.GetHashCode();
-                }
-                if (this.StaffClassification != null)
-                {
-                    hashCode = (hashCode * 59) + this.StaffClassification.GetHashCode();
+                    hashCode = (hashCode * 59) + this.StaffClassifications.GetHashCode();
                 }
                 return hashCode;
             }

@@ -38,13 +38,17 @@ namespace EdGraph.Tenant.Client.Model
         /// <param name="identifierValue">identifierValue.</param>
         /// <param name="discriminator">discriminator.</param>
         /// <param name="source">source.</param>
+        /// <param name="shortNameOfInstitution">shortNameOfInstitution.</param>
+        /// <param name="nameOfInstitution">nameOfInstitution.</param>
         /// <param name="includeInJwt">includeInJwt.</param>
-        public TenantApiTenantV1Organization(string identifierType = default(string), string identifierValue = default(string), string discriminator = default(string), string source = default(string), bool includeInJwt = default(bool))
+        public TenantApiTenantV1Organization(string identifierType = default(string), string identifierValue = default(string), string discriminator = default(string), string source = default(string), string shortNameOfInstitution = default(string), string nameOfInstitution = default(string), bool includeInJwt = default(bool))
         {
             this.IdentifierType = identifierType;
             this.IdentifierValue = identifierValue;
             this.Discriminator = discriminator;
             this.Source = source;
+            this.ShortNameOfInstitution = shortNameOfInstitution;
+            this.NameOfInstitution = nameOfInstitution;
             this.IncludeInJwt = includeInJwt;
         }
 
@@ -73,6 +77,18 @@ namespace EdGraph.Tenant.Client.Model
         public string Source { get; set; }
 
         /// <summary>
+        /// Gets or Sets ShortNameOfInstitution
+        /// </summary>
+        [DataMember(Name = "shortNameOfInstitution", EmitDefaultValue = true)]
+        public string ShortNameOfInstitution { get; set; }
+
+        /// <summary>
+        /// Gets or Sets NameOfInstitution
+        /// </summary>
+        [DataMember(Name = "nameOfInstitution", EmitDefaultValue = true)]
+        public string NameOfInstitution { get; set; }
+
+        /// <summary>
         /// Gets or Sets IncludeInJwt
         /// </summary>
         [DataMember(Name = "includeInJwt", EmitDefaultValue = true)]
@@ -90,6 +106,8 @@ namespace EdGraph.Tenant.Client.Model
             sb.Append("  IdentifierValue: ").Append(IdentifierValue).Append("\n");
             sb.Append("  Discriminator: ").Append(Discriminator).Append("\n");
             sb.Append("  Source: ").Append(Source).Append("\n");
+            sb.Append("  ShortNameOfInstitution: ").Append(ShortNameOfInstitution).Append("\n");
+            sb.Append("  NameOfInstitution: ").Append(NameOfInstitution).Append("\n");
             sb.Append("  IncludeInJwt: ").Append(IncludeInJwt).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -147,6 +165,16 @@ namespace EdGraph.Tenant.Client.Model
                     this.Source.Equals(input.Source))
                 ) && 
                 (
+                    this.ShortNameOfInstitution == input.ShortNameOfInstitution ||
+                    (this.ShortNameOfInstitution != null &&
+                    this.ShortNameOfInstitution.Equals(input.ShortNameOfInstitution))
+                ) && 
+                (
+                    this.NameOfInstitution == input.NameOfInstitution ||
+                    (this.NameOfInstitution != null &&
+                    this.NameOfInstitution.Equals(input.NameOfInstitution))
+                ) && 
+                (
                     this.IncludeInJwt == input.IncludeInJwt ||
                     this.IncludeInJwt.Equals(input.IncludeInJwt)
                 );
@@ -176,6 +204,14 @@ namespace EdGraph.Tenant.Client.Model
                 if (this.Source != null)
                 {
                     hashCode = (hashCode * 59) + this.Source.GetHashCode();
+                }
+                if (this.ShortNameOfInstitution != null)
+                {
+                    hashCode = (hashCode * 59) + this.ShortNameOfInstitution.GetHashCode();
+                }
+                if (this.NameOfInstitution != null)
+                {
+                    hashCode = (hashCode * 59) + this.NameOfInstitution.GetHashCode();
                 }
                 hashCode = (hashCode * 59) + this.IncludeInJwt.GetHashCode();
                 return hashCode;
