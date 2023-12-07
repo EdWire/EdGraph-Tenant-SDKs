@@ -35,10 +35,10 @@ namespace EdGraph.Tenant.Client.Api
         /// <param name="userId"></param>
         /// <param name="apiVersion"> (optional)</param>
         /// <param name="xVersion"> (optional)</param>
-        /// <param name="identityApiUserV1AddEducationOrganizationRequest"> (optional)</param>
+        /// <param name="edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsEducationOrganizationsAddEducationOrganizationRequest"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>IdentityApiUserV1EducationOrganizationAddedResponse</returns>
-        IdentityApiUserV1EducationOrganizationAddedResponse AddUserEducationOrganization(Guid tenantId, Guid userId, string? apiVersion = default(string?), string? xVersion = default(string?), IdentityApiUserV1AddEducationOrganizationRequest? identityApiUserV1AddEducationOrganizationRequest = default(IdentityApiUserV1AddEducationOrganizationRequest?), int operationIndex = 0);
+        IdentityApiUserV1EducationOrganizationAddedResponse AddUserEducationOrganization(Guid tenantId, Guid userId, string? apiVersion = default(string?), string? xVersion = default(string?), EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsEducationOrganizationsAddEducationOrganizationRequest? edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsEducationOrganizationsAddEducationOrganizationRequest = default(EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsEducationOrganizationsAddEducationOrganizationRequest?), int operationIndex = 0);
 
         /// <summary>
         /// Adds an Education Organization to a user.
@@ -51,10 +51,10 @@ namespace EdGraph.Tenant.Client.Api
         /// <param name="userId"></param>
         /// <param name="apiVersion"> (optional)</param>
         /// <param name="xVersion"> (optional)</param>
-        /// <param name="identityApiUserV1AddEducationOrganizationRequest"> (optional)</param>
+        /// <param name="edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsEducationOrganizationsAddEducationOrganizationRequest"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of IdentityApiUserV1EducationOrganizationAddedResponse</returns>
-        ApiResponse<IdentityApiUserV1EducationOrganizationAddedResponse> AddUserEducationOrganizationWithHttpInfo(Guid tenantId, Guid userId, string? apiVersion = default(string?), string? xVersion = default(string?), IdentityApiUserV1AddEducationOrganizationRequest? identityApiUserV1AddEducationOrganizationRequest = default(IdentityApiUserV1AddEducationOrganizationRequest?), int operationIndex = 0);
+        ApiResponse<IdentityApiUserV1EducationOrganizationAddedResponse> AddUserEducationOrganizationWithHttpInfo(Guid tenantId, Guid userId, string? apiVersion = default(string?), string? xVersion = default(string?), EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsEducationOrganizationsAddEducationOrganizationRequest? edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsEducationOrganizationsAddEducationOrganizationRequest = default(EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsEducationOrganizationsAddEducationOrganizationRequest?), int operationIndex = 0);
         /// <summary>
         /// Gets the Education Organizations of a user.
         /// </summary>
@@ -118,10 +118,10 @@ namespace EdGraph.Tenant.Client.Api
         /// <param name="educationOrganizationId"></param>
         /// <param name="apiVersion"> (optional)</param>
         /// <param name="xVersion"> (optional)</param>
-        /// <param name="identityApiUserV1UpdateEducationOrganizationRequest"> (optional)</param>
+        /// <param name="edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsEducationOrganizationsUpdateEducationOrganizationRequest"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>IdentityApiUserV1EducationOrganizationUpdatedResponse</returns>
-        IdentityApiUserV1EducationOrganizationUpdatedResponse UpdateUserEducationOrganization(Guid tenantId, Guid userId, int educationOrganizationId, string? apiVersion = default(string?), string? xVersion = default(string?), IdentityApiUserV1UpdateEducationOrganizationRequest? identityApiUserV1UpdateEducationOrganizationRequest = default(IdentityApiUserV1UpdateEducationOrganizationRequest?), int operationIndex = 0);
+        IdentityApiUserV1EducationOrganizationUpdatedResponse UpdateUserEducationOrganization(Guid tenantId, Guid userId, int educationOrganizationId, string? apiVersion = default(string?), string? xVersion = default(string?), EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsEducationOrganizationsUpdateEducationOrganizationRequest? edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsEducationOrganizationsUpdateEducationOrganizationRequest = default(EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsEducationOrganizationsUpdateEducationOrganizationRequest?), int operationIndex = 0);
 
         /// <summary>
         /// Updates the Education Organization of a user.
@@ -135,10 +135,10 @@ namespace EdGraph.Tenant.Client.Api
         /// <param name="educationOrganizationId"></param>
         /// <param name="apiVersion"> (optional)</param>
         /// <param name="xVersion"> (optional)</param>
-        /// <param name="identityApiUserV1UpdateEducationOrganizationRequest"> (optional)</param>
+        /// <param name="edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsEducationOrganizationsUpdateEducationOrganizationRequest"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of IdentityApiUserV1EducationOrganizationUpdatedResponse</returns>
-        ApiResponse<IdentityApiUserV1EducationOrganizationUpdatedResponse> UpdateUserEducationOrganizationWithHttpInfo(Guid tenantId, Guid userId, int educationOrganizationId, string? apiVersion = default(string?), string? xVersion = default(string?), IdentityApiUserV1UpdateEducationOrganizationRequest? identityApiUserV1UpdateEducationOrganizationRequest = default(IdentityApiUserV1UpdateEducationOrganizationRequest?), int operationIndex = 0);
+        ApiResponse<IdentityApiUserV1EducationOrganizationUpdatedResponse> UpdateUserEducationOrganizationWithHttpInfo(Guid tenantId, Guid userId, int educationOrganizationId, string? apiVersion = default(string?), string? xVersion = default(string?), EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsEducationOrganizationsUpdateEducationOrganizationRequest? edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsEducationOrganizationsUpdateEducationOrganizationRequest = default(EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsEducationOrganizationsUpdateEducationOrganizationRequest?), int operationIndex = 0);
         #endregion Synchronous Operations
     }
 
@@ -159,11 +159,11 @@ namespace EdGraph.Tenant.Client.Api
         /// <param name="userId"></param>
         /// <param name="apiVersion"> (optional)</param>
         /// <param name="xVersion"> (optional)</param>
-        /// <param name="identityApiUserV1AddEducationOrganizationRequest"> (optional)</param>
+        /// <param name="edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsEducationOrganizationsAddEducationOrganizationRequest"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of IdentityApiUserV1EducationOrganizationAddedResponse</returns>
-        System.Threading.Tasks.Task<IdentityApiUserV1EducationOrganizationAddedResponse> AddUserEducationOrganizationAsync(Guid tenantId, Guid userId, string? apiVersion = default(string?), string? xVersion = default(string?), IdentityApiUserV1AddEducationOrganizationRequest? identityApiUserV1AddEducationOrganizationRequest = default(IdentityApiUserV1AddEducationOrganizationRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<IdentityApiUserV1EducationOrganizationAddedResponse> AddUserEducationOrganizationAsync(Guid tenantId, Guid userId, string? apiVersion = default(string?), string? xVersion = default(string?), EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsEducationOrganizationsAddEducationOrganizationRequest? edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsEducationOrganizationsAddEducationOrganizationRequest = default(EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsEducationOrganizationsAddEducationOrganizationRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Adds an Education Organization to a user.
@@ -176,11 +176,11 @@ namespace EdGraph.Tenant.Client.Api
         /// <param name="userId"></param>
         /// <param name="apiVersion"> (optional)</param>
         /// <param name="xVersion"> (optional)</param>
-        /// <param name="identityApiUserV1AddEducationOrganizationRequest"> (optional)</param>
+        /// <param name="edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsEducationOrganizationsAddEducationOrganizationRequest"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (IdentityApiUserV1EducationOrganizationAddedResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<IdentityApiUserV1EducationOrganizationAddedResponse>> AddUserEducationOrganizationWithHttpInfoAsync(Guid tenantId, Guid userId, string? apiVersion = default(string?), string? xVersion = default(string?), IdentityApiUserV1AddEducationOrganizationRequest? identityApiUserV1AddEducationOrganizationRequest = default(IdentityApiUserV1AddEducationOrganizationRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<IdentityApiUserV1EducationOrganizationAddedResponse>> AddUserEducationOrganizationWithHttpInfoAsync(Guid tenantId, Guid userId, string? apiVersion = default(string?), string? xVersion = default(string?), EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsEducationOrganizationsAddEducationOrganizationRequest? edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsEducationOrganizationsAddEducationOrganizationRequest = default(EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsEducationOrganizationsAddEducationOrganizationRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Gets the Education Organizations of a user.
         /// </summary>
@@ -257,11 +257,11 @@ namespace EdGraph.Tenant.Client.Api
         /// <param name="educationOrganizationId"></param>
         /// <param name="apiVersion"> (optional)</param>
         /// <param name="xVersion"> (optional)</param>
-        /// <param name="identityApiUserV1UpdateEducationOrganizationRequest"> (optional)</param>
+        /// <param name="edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsEducationOrganizationsUpdateEducationOrganizationRequest"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of IdentityApiUserV1EducationOrganizationUpdatedResponse</returns>
-        System.Threading.Tasks.Task<IdentityApiUserV1EducationOrganizationUpdatedResponse> UpdateUserEducationOrganizationAsync(Guid tenantId, Guid userId, int educationOrganizationId, string? apiVersion = default(string?), string? xVersion = default(string?), IdentityApiUserV1UpdateEducationOrganizationRequest? identityApiUserV1UpdateEducationOrganizationRequest = default(IdentityApiUserV1UpdateEducationOrganizationRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<IdentityApiUserV1EducationOrganizationUpdatedResponse> UpdateUserEducationOrganizationAsync(Guid tenantId, Guid userId, int educationOrganizationId, string? apiVersion = default(string?), string? xVersion = default(string?), EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsEducationOrganizationsUpdateEducationOrganizationRequest? edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsEducationOrganizationsUpdateEducationOrganizationRequest = default(EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsEducationOrganizationsUpdateEducationOrganizationRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Updates the Education Organization of a user.
@@ -275,11 +275,11 @@ namespace EdGraph.Tenant.Client.Api
         /// <param name="educationOrganizationId"></param>
         /// <param name="apiVersion"> (optional)</param>
         /// <param name="xVersion"> (optional)</param>
-        /// <param name="identityApiUserV1UpdateEducationOrganizationRequest"> (optional)</param>
+        /// <param name="edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsEducationOrganizationsUpdateEducationOrganizationRequest"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (IdentityApiUserV1EducationOrganizationUpdatedResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<IdentityApiUserV1EducationOrganizationUpdatedResponse>> UpdateUserEducationOrganizationWithHttpInfoAsync(Guid tenantId, Guid userId, int educationOrganizationId, string? apiVersion = default(string?), string? xVersion = default(string?), IdentityApiUserV1UpdateEducationOrganizationRequest? identityApiUserV1UpdateEducationOrganizationRequest = default(IdentityApiUserV1UpdateEducationOrganizationRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<IdentityApiUserV1EducationOrganizationUpdatedResponse>> UpdateUserEducationOrganizationWithHttpInfoAsync(Guid tenantId, Guid userId, int educationOrganizationId, string? apiVersion = default(string?), string? xVersion = default(string?), EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsEducationOrganizationsUpdateEducationOrganizationRequest? edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsEducationOrganizationsUpdateEducationOrganizationRequest = default(EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsEducationOrganizationsUpdateEducationOrganizationRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -408,12 +408,12 @@ namespace EdGraph.Tenant.Client.Api
         /// <param name="userId"></param>
         /// <param name="apiVersion"> (optional)</param>
         /// <param name="xVersion"> (optional)</param>
-        /// <param name="identityApiUserV1AddEducationOrganizationRequest"> (optional)</param>
+        /// <param name="edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsEducationOrganizationsAddEducationOrganizationRequest"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>IdentityApiUserV1EducationOrganizationAddedResponse</returns>
-        public IdentityApiUserV1EducationOrganizationAddedResponse AddUserEducationOrganization(Guid tenantId, Guid userId, string? apiVersion = default(string?), string? xVersion = default(string?), IdentityApiUserV1AddEducationOrganizationRequest? identityApiUserV1AddEducationOrganizationRequest = default(IdentityApiUserV1AddEducationOrganizationRequest?), int operationIndex = 0)
+        public IdentityApiUserV1EducationOrganizationAddedResponse AddUserEducationOrganization(Guid tenantId, Guid userId, string? apiVersion = default(string?), string? xVersion = default(string?), EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsEducationOrganizationsAddEducationOrganizationRequest? edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsEducationOrganizationsAddEducationOrganizationRequest = default(EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsEducationOrganizationsAddEducationOrganizationRequest?), int operationIndex = 0)
         {
-            EdGraph.Tenant.Client.Client.ApiResponse<IdentityApiUserV1EducationOrganizationAddedResponse> localVarResponse = AddUserEducationOrganizationWithHttpInfo(tenantId, userId, apiVersion, xVersion, identityApiUserV1AddEducationOrganizationRequest);
+            EdGraph.Tenant.Client.Client.ApiResponse<IdentityApiUserV1EducationOrganizationAddedResponse> localVarResponse = AddUserEducationOrganizationWithHttpInfo(tenantId, userId, apiVersion, xVersion, edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsEducationOrganizationsAddEducationOrganizationRequest);
             return localVarResponse.Data;
         }
 
@@ -425,10 +425,10 @@ namespace EdGraph.Tenant.Client.Api
         /// <param name="userId"></param>
         /// <param name="apiVersion"> (optional)</param>
         /// <param name="xVersion"> (optional)</param>
-        /// <param name="identityApiUserV1AddEducationOrganizationRequest"> (optional)</param>
+        /// <param name="edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsEducationOrganizationsAddEducationOrganizationRequest"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of IdentityApiUserV1EducationOrganizationAddedResponse</returns>
-        public EdGraph.Tenant.Client.Client.ApiResponse<IdentityApiUserV1EducationOrganizationAddedResponse> AddUserEducationOrganizationWithHttpInfo(Guid tenantId, Guid userId, string? apiVersion = default(string?), string? xVersion = default(string?), IdentityApiUserV1AddEducationOrganizationRequest? identityApiUserV1AddEducationOrganizationRequest = default(IdentityApiUserV1AddEducationOrganizationRequest?), int operationIndex = 0)
+        public EdGraph.Tenant.Client.Client.ApiResponse<IdentityApiUserV1EducationOrganizationAddedResponse> AddUserEducationOrganizationWithHttpInfo(Guid tenantId, Guid userId, string? apiVersion = default(string?), string? xVersion = default(string?), EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsEducationOrganizationsAddEducationOrganizationRequest? edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsEducationOrganizationsAddEducationOrganizationRequest = default(EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsEducationOrganizationsAddEducationOrganizationRequest?), int operationIndex = 0)
         {
             EdGraph.Tenant.Client.Client.RequestOptions localVarRequestOptions = new EdGraph.Tenant.Client.Client.RequestOptions();
 
@@ -466,7 +466,7 @@ namespace EdGraph.Tenant.Client.Api
             {
                 localVarRequestOptions.HeaderParameters.Add("X-version", EdGraph.Tenant.Client.Client.ClientUtils.ParameterToString(xVersion)); // header parameter
             }
-            localVarRequestOptions.Data = identityApiUserV1AddEducationOrganizationRequest;
+            localVarRequestOptions.Data = edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsEducationOrganizationsAddEducationOrganizationRequest;
 
             localVarRequestOptions.Operation = "UsersEducationOrganizationsApi.AddUserEducationOrganization";
             localVarRequestOptions.OperationIndex = operationIndex;
@@ -510,13 +510,13 @@ namespace EdGraph.Tenant.Client.Api
         /// <param name="userId"></param>
         /// <param name="apiVersion"> (optional)</param>
         /// <param name="xVersion"> (optional)</param>
-        /// <param name="identityApiUserV1AddEducationOrganizationRequest"> (optional)</param>
+        /// <param name="edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsEducationOrganizationsAddEducationOrganizationRequest"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of IdentityApiUserV1EducationOrganizationAddedResponse</returns>
-        public async System.Threading.Tasks.Task<IdentityApiUserV1EducationOrganizationAddedResponse> AddUserEducationOrganizationAsync(Guid tenantId, Guid userId, string? apiVersion = default(string?), string? xVersion = default(string?), IdentityApiUserV1AddEducationOrganizationRequest? identityApiUserV1AddEducationOrganizationRequest = default(IdentityApiUserV1AddEducationOrganizationRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<IdentityApiUserV1EducationOrganizationAddedResponse> AddUserEducationOrganizationAsync(Guid tenantId, Guid userId, string? apiVersion = default(string?), string? xVersion = default(string?), EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsEducationOrganizationsAddEducationOrganizationRequest? edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsEducationOrganizationsAddEducationOrganizationRequest = default(EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsEducationOrganizationsAddEducationOrganizationRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            EdGraph.Tenant.Client.Client.ApiResponse<IdentityApiUserV1EducationOrganizationAddedResponse> localVarResponse = await AddUserEducationOrganizationWithHttpInfoAsync(tenantId, userId, apiVersion, xVersion, identityApiUserV1AddEducationOrganizationRequest, operationIndex, cancellationToken).ConfigureAwait(false);
+            EdGraph.Tenant.Client.Client.ApiResponse<IdentityApiUserV1EducationOrganizationAddedResponse> localVarResponse = await AddUserEducationOrganizationWithHttpInfoAsync(tenantId, userId, apiVersion, xVersion, edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsEducationOrganizationsAddEducationOrganizationRequest, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -528,11 +528,11 @@ namespace EdGraph.Tenant.Client.Api
         /// <param name="userId"></param>
         /// <param name="apiVersion"> (optional)</param>
         /// <param name="xVersion"> (optional)</param>
-        /// <param name="identityApiUserV1AddEducationOrganizationRequest"> (optional)</param>
+        /// <param name="edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsEducationOrganizationsAddEducationOrganizationRequest"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (IdentityApiUserV1EducationOrganizationAddedResponse)</returns>
-        public async System.Threading.Tasks.Task<EdGraph.Tenant.Client.Client.ApiResponse<IdentityApiUserV1EducationOrganizationAddedResponse>> AddUserEducationOrganizationWithHttpInfoAsync(Guid tenantId, Guid userId, string? apiVersion = default(string?), string? xVersion = default(string?), IdentityApiUserV1AddEducationOrganizationRequest? identityApiUserV1AddEducationOrganizationRequest = default(IdentityApiUserV1AddEducationOrganizationRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<EdGraph.Tenant.Client.Client.ApiResponse<IdentityApiUserV1EducationOrganizationAddedResponse>> AddUserEducationOrganizationWithHttpInfoAsync(Guid tenantId, Guid userId, string? apiVersion = default(string?), string? xVersion = default(string?), EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsEducationOrganizationsAddEducationOrganizationRequest? edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsEducationOrganizationsAddEducationOrganizationRequest = default(EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsEducationOrganizationsAddEducationOrganizationRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             EdGraph.Tenant.Client.Client.RequestOptions localVarRequestOptions = new EdGraph.Tenant.Client.Client.RequestOptions();
@@ -571,7 +571,7 @@ namespace EdGraph.Tenant.Client.Api
             {
                 localVarRequestOptions.HeaderParameters.Add("X-version", EdGraph.Tenant.Client.Client.ClientUtils.ParameterToString(xVersion)); // header parameter
             }
-            localVarRequestOptions.Data = identityApiUserV1AddEducationOrganizationRequest;
+            localVarRequestOptions.Data = edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsEducationOrganizationsAddEducationOrganizationRequest;
 
             localVarRequestOptions.Operation = "UsersEducationOrganizationsApi.AddUserEducationOrganization";
             localVarRequestOptions.OperationIndex = operationIndex;
@@ -1011,12 +1011,12 @@ namespace EdGraph.Tenant.Client.Api
         /// <param name="educationOrganizationId"></param>
         /// <param name="apiVersion"> (optional)</param>
         /// <param name="xVersion"> (optional)</param>
-        /// <param name="identityApiUserV1UpdateEducationOrganizationRequest"> (optional)</param>
+        /// <param name="edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsEducationOrganizationsUpdateEducationOrganizationRequest"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>IdentityApiUserV1EducationOrganizationUpdatedResponse</returns>
-        public IdentityApiUserV1EducationOrganizationUpdatedResponse UpdateUserEducationOrganization(Guid tenantId, Guid userId, int educationOrganizationId, string? apiVersion = default(string?), string? xVersion = default(string?), IdentityApiUserV1UpdateEducationOrganizationRequest? identityApiUserV1UpdateEducationOrganizationRequest = default(IdentityApiUserV1UpdateEducationOrganizationRequest?), int operationIndex = 0)
+        public IdentityApiUserV1EducationOrganizationUpdatedResponse UpdateUserEducationOrganization(Guid tenantId, Guid userId, int educationOrganizationId, string? apiVersion = default(string?), string? xVersion = default(string?), EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsEducationOrganizationsUpdateEducationOrganizationRequest? edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsEducationOrganizationsUpdateEducationOrganizationRequest = default(EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsEducationOrganizationsUpdateEducationOrganizationRequest?), int operationIndex = 0)
         {
-            EdGraph.Tenant.Client.Client.ApiResponse<IdentityApiUserV1EducationOrganizationUpdatedResponse> localVarResponse = UpdateUserEducationOrganizationWithHttpInfo(tenantId, userId, educationOrganizationId, apiVersion, xVersion, identityApiUserV1UpdateEducationOrganizationRequest);
+            EdGraph.Tenant.Client.Client.ApiResponse<IdentityApiUserV1EducationOrganizationUpdatedResponse> localVarResponse = UpdateUserEducationOrganizationWithHttpInfo(tenantId, userId, educationOrganizationId, apiVersion, xVersion, edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsEducationOrganizationsUpdateEducationOrganizationRequest);
             return localVarResponse.Data;
         }
 
@@ -1029,10 +1029,10 @@ namespace EdGraph.Tenant.Client.Api
         /// <param name="educationOrganizationId"></param>
         /// <param name="apiVersion"> (optional)</param>
         /// <param name="xVersion"> (optional)</param>
-        /// <param name="identityApiUserV1UpdateEducationOrganizationRequest"> (optional)</param>
+        /// <param name="edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsEducationOrganizationsUpdateEducationOrganizationRequest"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of IdentityApiUserV1EducationOrganizationUpdatedResponse</returns>
-        public EdGraph.Tenant.Client.Client.ApiResponse<IdentityApiUserV1EducationOrganizationUpdatedResponse> UpdateUserEducationOrganizationWithHttpInfo(Guid tenantId, Guid userId, int educationOrganizationId, string? apiVersion = default(string?), string? xVersion = default(string?), IdentityApiUserV1UpdateEducationOrganizationRequest? identityApiUserV1UpdateEducationOrganizationRequest = default(IdentityApiUserV1UpdateEducationOrganizationRequest?), int operationIndex = 0)
+        public EdGraph.Tenant.Client.Client.ApiResponse<IdentityApiUserV1EducationOrganizationUpdatedResponse> UpdateUserEducationOrganizationWithHttpInfo(Guid tenantId, Guid userId, int educationOrganizationId, string? apiVersion = default(string?), string? xVersion = default(string?), EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsEducationOrganizationsUpdateEducationOrganizationRequest? edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsEducationOrganizationsUpdateEducationOrganizationRequest = default(EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsEducationOrganizationsUpdateEducationOrganizationRequest?), int operationIndex = 0)
         {
             EdGraph.Tenant.Client.Client.RequestOptions localVarRequestOptions = new EdGraph.Tenant.Client.Client.RequestOptions();
 
@@ -1071,7 +1071,7 @@ namespace EdGraph.Tenant.Client.Api
             {
                 localVarRequestOptions.HeaderParameters.Add("X-version", EdGraph.Tenant.Client.Client.ClientUtils.ParameterToString(xVersion)); // header parameter
             }
-            localVarRequestOptions.Data = identityApiUserV1UpdateEducationOrganizationRequest;
+            localVarRequestOptions.Data = edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsEducationOrganizationsUpdateEducationOrganizationRequest;
 
             localVarRequestOptions.Operation = "UsersEducationOrganizationsApi.UpdateUserEducationOrganization";
             localVarRequestOptions.OperationIndex = operationIndex;
@@ -1116,13 +1116,13 @@ namespace EdGraph.Tenant.Client.Api
         /// <param name="educationOrganizationId"></param>
         /// <param name="apiVersion"> (optional)</param>
         /// <param name="xVersion"> (optional)</param>
-        /// <param name="identityApiUserV1UpdateEducationOrganizationRequest"> (optional)</param>
+        /// <param name="edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsEducationOrganizationsUpdateEducationOrganizationRequest"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of IdentityApiUserV1EducationOrganizationUpdatedResponse</returns>
-        public async System.Threading.Tasks.Task<IdentityApiUserV1EducationOrganizationUpdatedResponse> UpdateUserEducationOrganizationAsync(Guid tenantId, Guid userId, int educationOrganizationId, string? apiVersion = default(string?), string? xVersion = default(string?), IdentityApiUserV1UpdateEducationOrganizationRequest? identityApiUserV1UpdateEducationOrganizationRequest = default(IdentityApiUserV1UpdateEducationOrganizationRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<IdentityApiUserV1EducationOrganizationUpdatedResponse> UpdateUserEducationOrganizationAsync(Guid tenantId, Guid userId, int educationOrganizationId, string? apiVersion = default(string?), string? xVersion = default(string?), EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsEducationOrganizationsUpdateEducationOrganizationRequest? edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsEducationOrganizationsUpdateEducationOrganizationRequest = default(EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsEducationOrganizationsUpdateEducationOrganizationRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            EdGraph.Tenant.Client.Client.ApiResponse<IdentityApiUserV1EducationOrganizationUpdatedResponse> localVarResponse = await UpdateUserEducationOrganizationWithHttpInfoAsync(tenantId, userId, educationOrganizationId, apiVersion, xVersion, identityApiUserV1UpdateEducationOrganizationRequest, operationIndex, cancellationToken).ConfigureAwait(false);
+            EdGraph.Tenant.Client.Client.ApiResponse<IdentityApiUserV1EducationOrganizationUpdatedResponse> localVarResponse = await UpdateUserEducationOrganizationWithHttpInfoAsync(tenantId, userId, educationOrganizationId, apiVersion, xVersion, edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsEducationOrganizationsUpdateEducationOrganizationRequest, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1135,11 +1135,11 @@ namespace EdGraph.Tenant.Client.Api
         /// <param name="educationOrganizationId"></param>
         /// <param name="apiVersion"> (optional)</param>
         /// <param name="xVersion"> (optional)</param>
-        /// <param name="identityApiUserV1UpdateEducationOrganizationRequest"> (optional)</param>
+        /// <param name="edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsEducationOrganizationsUpdateEducationOrganizationRequest"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (IdentityApiUserV1EducationOrganizationUpdatedResponse)</returns>
-        public async System.Threading.Tasks.Task<EdGraph.Tenant.Client.Client.ApiResponse<IdentityApiUserV1EducationOrganizationUpdatedResponse>> UpdateUserEducationOrganizationWithHttpInfoAsync(Guid tenantId, Guid userId, int educationOrganizationId, string? apiVersion = default(string?), string? xVersion = default(string?), IdentityApiUserV1UpdateEducationOrganizationRequest? identityApiUserV1UpdateEducationOrganizationRequest = default(IdentityApiUserV1UpdateEducationOrganizationRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<EdGraph.Tenant.Client.Client.ApiResponse<IdentityApiUserV1EducationOrganizationUpdatedResponse>> UpdateUserEducationOrganizationWithHttpInfoAsync(Guid tenantId, Guid userId, int educationOrganizationId, string? apiVersion = default(string?), string? xVersion = default(string?), EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsEducationOrganizationsUpdateEducationOrganizationRequest? edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsEducationOrganizationsUpdateEducationOrganizationRequest = default(EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsEducationOrganizationsUpdateEducationOrganizationRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             EdGraph.Tenant.Client.Client.RequestOptions localVarRequestOptions = new EdGraph.Tenant.Client.Client.RequestOptions();
@@ -1179,7 +1179,7 @@ namespace EdGraph.Tenant.Client.Api
             {
                 localVarRequestOptions.HeaderParameters.Add("X-version", EdGraph.Tenant.Client.Client.ClientUtils.ParameterToString(xVersion)); // header parameter
             }
-            localVarRequestOptions.Data = identityApiUserV1UpdateEducationOrganizationRequest;
+            localVarRequestOptions.Data = edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsEducationOrganizationsUpdateEducationOrganizationRequest;
 
             localVarRequestOptions.Operation = "UsersEducationOrganizationsApi.UpdateUserEducationOrganization";
             localVarRequestOptions.OperationIndex = operationIndex;

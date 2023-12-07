@@ -11,7 +11,7 @@ All URIs are relative to *https://api.edgraph.dev/tenant*
 
 <a id="addusereducationorganization"></a>
 # **AddUserEducationOrganization**
-> IdentityApiUserV1EducationOrganizationAddedResponse AddUserEducationOrganization (Guid tenantId, Guid userId, string? apiVersion = null, string? xVersion = null, IdentityApiUserV1AddEducationOrganizationRequest? identityApiUserV1AddEducationOrganizationRequest = null)
+> IdentityApiUserV1EducationOrganizationAddedResponse AddUserEducationOrganization (Guid tenantId, Guid userId, string? apiVersion = null, string? xVersion = null, EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsEducationOrganizationsAddEducationOrganizationRequest? edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsEducationOrganizationsAddEducationOrganizationRequest = null)
 
 Adds an Education Organization to a user.
 
@@ -39,12 +39,12 @@ namespace Example
             var userId = "userId_example";  // Guid | 
             var apiVersion = "apiVersion_example";  // string? |  (optional) 
             var xVersion = "xVersion_example";  // string? |  (optional) 
-            var identityApiUserV1AddEducationOrganizationRequest = new IdentityApiUserV1AddEducationOrganizationRequest?(); // IdentityApiUserV1AddEducationOrganizationRequest? |  (optional) 
+            var edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsEducationOrganizationsAddEducationOrganizationRequest = new EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsEducationOrganizationsAddEducationOrganizationRequest?(); // EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsEducationOrganizationsAddEducationOrganizationRequest? |  (optional) 
 
             try
             {
                 // Adds an Education Organization to a user.
-                IdentityApiUserV1EducationOrganizationAddedResponse result = apiInstance.AddUserEducationOrganization(tenantId, userId, apiVersion, xVersion, identityApiUserV1AddEducationOrganizationRequest);
+                IdentityApiUserV1EducationOrganizationAddedResponse result = apiInstance.AddUserEducationOrganization(tenantId, userId, apiVersion, xVersion, edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsEducationOrganizationsAddEducationOrganizationRequest);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -65,7 +65,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Adds an Education Organization to a user.
-    ApiResponse<IdentityApiUserV1EducationOrganizationAddedResponse> response = apiInstance.AddUserEducationOrganizationWithHttpInfo(tenantId, userId, apiVersion, xVersion, identityApiUserV1AddEducationOrganizationRequest);
+    ApiResponse<IdentityApiUserV1EducationOrganizationAddedResponse> response = apiInstance.AddUserEducationOrganizationWithHttpInfo(tenantId, userId, apiVersion, xVersion, edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsEducationOrganizationsAddEducationOrganizationRequest);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -86,7 +86,7 @@ catch (ApiException e)
 | **userId** | **Guid** |  |  |
 | **apiVersion** | **string?** |  | [optional]  |
 | **xVersion** | **string?** |  | [optional]  |
-| **identityApiUserV1AddEducationOrganizationRequest** | [**IdentityApiUserV1AddEducationOrganizationRequest?**](IdentityApiUserV1AddEducationOrganizationRequest?.md) |  | [optional]  |
+| **edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsEducationOrganizationsAddEducationOrganizationRequest** | [**EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsEducationOrganizationsAddEducationOrganizationRequest?**](EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsEducationOrganizationsAddEducationOrganizationRequest?.md) |  | [optional]  |
 
 ### Return type
 
@@ -323,7 +323,7 @@ catch (ApiException e)
 
 <a id="updateusereducationorganization"></a>
 # **UpdateUserEducationOrganization**
-> IdentityApiUserV1EducationOrganizationUpdatedResponse UpdateUserEducationOrganization (Guid tenantId, Guid userId, int educationOrganizationId, string? apiVersion = null, string? xVersion = null, IdentityApiUserV1UpdateEducationOrganizationRequest? identityApiUserV1UpdateEducationOrganizationRequest = null)
+> IdentityApiUserV1EducationOrganizationUpdatedResponse UpdateUserEducationOrganization (Guid tenantId, Guid userId, int educationOrganizationId, string? apiVersion = null, string? xVersion = null, EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsEducationOrganizationsUpdateEducationOrganizationRequest? edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsEducationOrganizationsUpdateEducationOrganizationRequest = null)
 
 Updates the Education Organization of a user.
 
@@ -352,12 +352,12 @@ namespace Example
             var educationOrganizationId = 56;  // int | 
             var apiVersion = "apiVersion_example";  // string? |  (optional) 
             var xVersion = "xVersion_example";  // string? |  (optional) 
-            var identityApiUserV1UpdateEducationOrganizationRequest = new IdentityApiUserV1UpdateEducationOrganizationRequest?(); // IdentityApiUserV1UpdateEducationOrganizationRequest? |  (optional) 
+            var edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsEducationOrganizationsUpdateEducationOrganizationRequest = new EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsEducationOrganizationsUpdateEducationOrganizationRequest?(); // EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsEducationOrganizationsUpdateEducationOrganizationRequest? |  (optional) 
 
             try
             {
                 // Updates the Education Organization of a user.
-                IdentityApiUserV1EducationOrganizationUpdatedResponse result = apiInstance.UpdateUserEducationOrganization(tenantId, userId, educationOrganizationId, apiVersion, xVersion, identityApiUserV1UpdateEducationOrganizationRequest);
+                IdentityApiUserV1EducationOrganizationUpdatedResponse result = apiInstance.UpdateUserEducationOrganization(tenantId, userId, educationOrganizationId, apiVersion, xVersion, edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsEducationOrganizationsUpdateEducationOrganizationRequest);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -378,7 +378,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Updates the Education Organization of a user.
-    ApiResponse<IdentityApiUserV1EducationOrganizationUpdatedResponse> response = apiInstance.UpdateUserEducationOrganizationWithHttpInfo(tenantId, userId, educationOrganizationId, apiVersion, xVersion, identityApiUserV1UpdateEducationOrganizationRequest);
+    ApiResponse<IdentityApiUserV1EducationOrganizationUpdatedResponse> response = apiInstance.UpdateUserEducationOrganizationWithHttpInfo(tenantId, userId, educationOrganizationId, apiVersion, xVersion, edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsEducationOrganizationsUpdateEducationOrganizationRequest);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -400,7 +400,7 @@ catch (ApiException e)
 | **educationOrganizationId** | **int** |  |  |
 | **apiVersion** | **string?** |  | [optional]  |
 | **xVersion** | **string?** |  | [optional]  |
-| **identityApiUserV1UpdateEducationOrganizationRequest** | [**IdentityApiUserV1UpdateEducationOrganizationRequest?**](IdentityApiUserV1UpdateEducationOrganizationRequest?.md) |  | [optional]  |
+| **edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsEducationOrganizationsUpdateEducationOrganizationRequest** | [**EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsEducationOrganizationsUpdateEducationOrganizationRequest?**](EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsEducationOrganizationsUpdateEducationOrganizationRequest?.md) |  | [optional]  |
 
 ### Return type
 

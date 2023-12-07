@@ -3936,16 +3936,16 @@ paths:
         content:
           application/json-patch+json:
             schema:
-              $ref: '#/components/schemas/IdentityApi.User.V1.UpdateEducationOrganizationRequest'
+              $ref: '#/components/schemas/EdGraph.HttpAggregators.Tenant.Api.Controllers.v1.ViewModels.Requests.EducationOrganizations.UpdateEducationOrganizationRequest'
           application/json:
             schema:
-              $ref: '#/components/schemas/IdentityApi.User.V1.UpdateEducationOrganizationRequest'
+              $ref: '#/components/schemas/EdGraph.HttpAggregators.Tenant.Api.Controllers.v1.ViewModels.Requests.EducationOrganizations.UpdateEducationOrganizationRequest'
           text/json:
             schema:
-              $ref: '#/components/schemas/IdentityApi.User.V1.UpdateEducationOrganizationRequest'
+              $ref: '#/components/schemas/EdGraph.HttpAggregators.Tenant.Api.Controllers.v1.ViewModels.Requests.EducationOrganizations.UpdateEducationOrganizationRequest'
           application/*+json:
             schema:
-              $ref: '#/components/schemas/IdentityApi.User.V1.UpdateEducationOrganizationRequest'
+              $ref: '#/components/schemas/EdGraph.HttpAggregators.Tenant.Api.Controllers.v1.ViewModels.Requests.EducationOrganizations.UpdateEducationOrganizationRequest'
         description: ""
       responses:
         "401":
@@ -4116,16 +4116,16 @@ paths:
         content:
           application/json-patch+json:
             schema:
-              $ref: '#/components/schemas/IdentityApi.User.V1.AddEducationOrganizationRequest'
+              $ref: '#/components/schemas/EdGraph.HttpAggregators.Tenant.Api.Controllers.v1.ViewModels.Requests.EducationOrganizations.AddEducationOrganizationRequest'
           application/json:
             schema:
-              $ref: '#/components/schemas/IdentityApi.User.V1.AddEducationOrganizationRequest'
+              $ref: '#/components/schemas/EdGraph.HttpAggregators.Tenant.Api.Controllers.v1.ViewModels.Requests.EducationOrganizations.AddEducationOrganizationRequest'
           text/json:
             schema:
-              $ref: '#/components/schemas/IdentityApi.User.V1.AddEducationOrganizationRequest'
+              $ref: '#/components/schemas/EdGraph.HttpAggregators.Tenant.Api.Controllers.v1.ViewModels.Requests.EducationOrganizations.AddEducationOrganizationRequest'
           application/*+json:
             schema:
-              $ref: '#/components/schemas/IdentityApi.User.V1.AddEducationOrganizationRequest'
+              $ref: '#/components/schemas/EdGraph.HttpAggregators.Tenant.Api.Controllers.v1.ViewModels.Requests.EducationOrganizations.AddEducationOrganizationRequest'
         description: ""
       responses:
         "401":
@@ -6237,6 +6237,42 @@ components:
         assignLicenseRequests:
           items:
             $ref: '#/components/schemas/EdGraph.HttpAggregators.Tenant.Api.Controllers.v1.ViewModels.Requests.Licenses.AssignLicenseRequest'
+          nullable: true
+          type: array
+      type: object
+    EdGraph.HttpAggregators.Tenant.Api.Controllers.v1.ViewModels.Requests.EducationOrganizations.AddEducationOrganizationRequest:
+      additionalProperties: false
+      properties:
+        userId:
+          nullable: true
+          type: string
+        tenantId:
+          nullable: true
+          type: string
+        educationOrganizationId:
+          format: int32
+          type: integer
+        staffClassifications:
+          items:
+            type: string
+          nullable: true
+          type: array
+      type: object
+    EdGraph.HttpAggregators.Tenant.Api.Controllers.v1.ViewModels.Requests.EducationOrganizations.UpdateEducationOrganizationRequest:
+      additionalProperties: false
+      properties:
+        userId:
+          nullable: true
+          type: string
+        tenantId:
+          nullable: true
+          type: string
+        educationOrganizationId:
+          format: int32
+          type: integer
+        staffClassifications:
+          items:
+            type: string
           nullable: true
           type: array
       type: object
@@ -8947,25 +8983,6 @@ components:
           nullable: true
           type: string
       type: object
-    IdentityApi.User.V1.AddEducationOrganizationRequest:
-      additionalProperties: false
-      properties:
-        userId:
-          nullable: true
-          type: string
-        tenantId:
-          nullable: true
-          type: string
-        educationOrganizationId:
-          format: int32
-          type: integer
-        staffClassifications:
-          items:
-            type: string
-          nullable: true
-          readOnly: true
-          type: array
-      type: object
     IdentityApi.User.V1.DeactivateUserRequest:
       additionalProperties: false
       properties:
@@ -9226,25 +9243,6 @@ components:
         userId:
           nullable: true
           type: string
-      type: object
-    IdentityApi.User.V1.UpdateEducationOrganizationRequest:
-      additionalProperties: false
-      properties:
-        userId:
-          nullable: true
-          type: string
-        tenantId:
-          nullable: true
-          type: string
-        educationOrganizationId:
-          format: int32
-          type: integer
-        staffClassifications:
-          items:
-            type: string
-          nullable: true
-          readOnly: true
-          type: array
       type: object
     IdentityApi.User.V1.UpdateUserRequest:
       additionalProperties: false

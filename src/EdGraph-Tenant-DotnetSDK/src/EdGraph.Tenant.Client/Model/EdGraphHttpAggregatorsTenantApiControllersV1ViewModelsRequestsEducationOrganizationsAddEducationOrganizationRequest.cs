@@ -26,22 +26,24 @@ using OpenAPIDateConverter = EdGraph.Tenant.Client.Client.OpenAPIDateConverter;
 namespace EdGraph.Tenant.Client.Model
 {
     /// <summary>
-    /// IdentityApiUserV1UpdateEducationOrganizationRequest
+    /// EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsEducationOrganizationsAddEducationOrganizationRequest
     /// </summary>
-    [DataContract(Name = "IdentityApi.User.V1.UpdateEducationOrganizationRequest")]
-    public partial class IdentityApiUserV1UpdateEducationOrganizationRequest : IEquatable<IdentityApiUserV1UpdateEducationOrganizationRequest>, IValidatableObject
+    [DataContract(Name = "EdGraph.HttpAggregators.Tenant.Api.Controllers.v1.ViewModels.Requests.EducationOrganizations.AddEducationOrganizationRequest")]
+    public partial class EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsEducationOrganizationsAddEducationOrganizationRequest : IEquatable<EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsEducationOrganizationsAddEducationOrganizationRequest>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="IdentityApiUserV1UpdateEducationOrganizationRequest" /> class.
+        /// Initializes a new instance of the <see cref="EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsEducationOrganizationsAddEducationOrganizationRequest" /> class.
         /// </summary>
         /// <param name="userId">userId.</param>
         /// <param name="tenantId">tenantId.</param>
         /// <param name="educationOrganizationId">educationOrganizationId.</param>
-        public IdentityApiUserV1UpdateEducationOrganizationRequest(string userId = default(string), string tenantId = default(string), int educationOrganizationId = default(int))
+        /// <param name="staffClassifications">staffClassifications.</param>
+        public EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsEducationOrganizationsAddEducationOrganizationRequest(string userId = default(string), string tenantId = default(string), int educationOrganizationId = default(int), List<string> staffClassifications = default(List<string>))
         {
             this.UserId = userId;
             this.TenantId = tenantId;
             this.EducationOrganizationId = educationOrganizationId;
+            this.StaffClassifications = staffClassifications;
         }
 
         /// <summary>
@@ -66,16 +68,8 @@ namespace EdGraph.Tenant.Client.Model
         /// Gets or Sets StaffClassifications
         /// </summary>
         [DataMember(Name = "staffClassifications", EmitDefaultValue = true)]
-        public List<string> StaffClassifications { get; private set; }
+        public List<string> StaffClassifications { get; set; }
 
-        /// <summary>
-        /// Returns false as StaffClassifications should not be serialized given that it's read-only.
-        /// </summary>
-        /// <returns>false (boolean)</returns>
-        public bool ShouldSerializeStaffClassifications()
-        {
-            return false;
-        }
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -83,7 +77,7 @@ namespace EdGraph.Tenant.Client.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class IdentityApiUserV1UpdateEducationOrganizationRequest {\n");
+            sb.Append("class EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsEducationOrganizationsAddEducationOrganizationRequest {\n");
             sb.Append("  UserId: ").Append(UserId).Append("\n");
             sb.Append("  TenantId: ").Append(TenantId).Append("\n");
             sb.Append("  EducationOrganizationId: ").Append(EducationOrganizationId).Append("\n");
@@ -108,15 +102,15 @@ namespace EdGraph.Tenant.Client.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as IdentityApiUserV1UpdateEducationOrganizationRequest);
+            return this.Equals(input as EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsEducationOrganizationsAddEducationOrganizationRequest);
         }
 
         /// <summary>
-        /// Returns true if IdentityApiUserV1UpdateEducationOrganizationRequest instances are equal
+        /// Returns true if EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsEducationOrganizationsAddEducationOrganizationRequest instances are equal
         /// </summary>
-        /// <param name="input">Instance of IdentityApiUserV1UpdateEducationOrganizationRequest to be compared</param>
+        /// <param name="input">Instance of EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsEducationOrganizationsAddEducationOrganizationRequest to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(IdentityApiUserV1UpdateEducationOrganizationRequest input)
+        public bool Equals(EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsEducationOrganizationsAddEducationOrganizationRequest input)
         {
             if (input == null)
             {

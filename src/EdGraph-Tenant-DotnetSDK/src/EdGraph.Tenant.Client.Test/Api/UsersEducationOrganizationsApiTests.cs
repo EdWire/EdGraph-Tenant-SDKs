@@ -65,8 +65,8 @@ namespace EdGraph.Tenant.Client.Test.Api
             //Guid userId = null;
             //string? apiVersion = null;
             //string? xVersion = null;
-            //IdentityApiUserV1AddEducationOrganizationRequest? identityApiUserV1AddEducationOrganizationRequest = null;
-            //var response = instance.AddUserEducationOrganization(tenantId, userId, apiVersion, xVersion, identityApiUserV1AddEducationOrganizationRequest);
+            //EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsEducationOrganizationsAddEducationOrganizationRequest? edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsEducationOrganizationsAddEducationOrganizationRequest = null;
+            //var response = instance.AddUserEducationOrganization(tenantId, userId, apiVersion, xVersion, edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsEducationOrganizationsAddEducationOrganizationRequest);
             //Assert.IsType<IdentityApiUserV1EducationOrganizationAddedResponse>(response);
         }
 
@@ -113,8 +113,8 @@ namespace EdGraph.Tenant.Client.Test.Api
             //int educationOrganizationId = null;
             //string? apiVersion = null;
             //string? xVersion = null;
-            //IdentityApiUserV1UpdateEducationOrganizationRequest? identityApiUserV1UpdateEducationOrganizationRequest = null;
-            //var response = instance.UpdateUserEducationOrganization(tenantId, userId, educationOrganizationId, apiVersion, xVersion, identityApiUserV1UpdateEducationOrganizationRequest);
+            //EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsEducationOrganizationsUpdateEducationOrganizationRequest? edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsEducationOrganizationsUpdateEducationOrganizationRequest = null;
+            //var response = instance.UpdateUserEducationOrganization(tenantId, userId, educationOrganizationId, apiVersion, xVersion, edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsEducationOrganizationsUpdateEducationOrganizationRequest);
             //Assert.IsType<IdentityApiUserV1EducationOrganizationUpdatedResponse>(response);
         }
     }
