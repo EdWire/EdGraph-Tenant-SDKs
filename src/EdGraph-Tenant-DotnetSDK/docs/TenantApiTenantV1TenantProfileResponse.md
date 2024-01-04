@@ -22,6 +22,7 @@ Name | Type | Description | Notes
 **IdentityProviders** | [**List&lt;TenantApiTenantV1TenantIdentityProviders&gt;**](TenantApiTenantV1TenantIdentityProviders.md) |  | [optional] [readonly] 
 **Onboarding** | [**TenantApiTenantV1Onboarding**](TenantApiTenantV1Onboarding.md) |  | [optional] 
 **Organizations** | [**List&lt;TenantApiTenantV1Organization&gt;**](TenantApiTenantV1Organization.md) |  | [optional] [readonly] 
+**OrganizationIdentifierHash** | **string** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -34,25 +34,33 @@ namespace EdGraph.Tenant.Client.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="IdentityApiUserV1EducationOrganizationPaginatedItemsResponse" /> class.
         /// </summary>
-        /// <param name="userId">userId.</param>
-        /// <param name="tenantId">tenantId.</param>
-        public IdentityApiUserV1EducationOrganizationPaginatedItemsResponse(string userId = default(string), string tenantId = default(string))
+        /// <param name="pageIndex">pageIndex.</param>
+        /// <param name="pageSize">pageSize.</param>
+        /// <param name="count">count.</param>
+        public IdentityApiUserV1EducationOrganizationPaginatedItemsResponse(int pageIndex = default(int), int pageSize = default(int), long count = default(long))
         {
-            this.UserId = userId;
-            this.TenantId = tenantId;
+            this.PageIndex = pageIndex;
+            this.PageSize = pageSize;
+            this.Count = count;
         }
 
         /// <summary>
-        /// Gets or Sets UserId
+        /// Gets or Sets PageIndex
         /// </summary>
-        [DataMember(Name = "userId", EmitDefaultValue = true)]
-        public string UserId { get; set; }
+        [DataMember(Name = "pageIndex", EmitDefaultValue = false)]
+        public int PageIndex { get; set; }
 
         /// <summary>
-        /// Gets or Sets TenantId
+        /// Gets or Sets PageSize
         /// </summary>
-        [DataMember(Name = "tenantId", EmitDefaultValue = true)]
-        public string TenantId { get; set; }
+        [DataMember(Name = "pageSize", EmitDefaultValue = false)]
+        public int PageSize { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Count
+        /// </summary>
+        [DataMember(Name = "count", EmitDefaultValue = false)]
+        public long Count { get; set; }
 
         /// <summary>
         /// Gets or Sets Data
@@ -76,8 +84,9 @@ namespace EdGraph.Tenant.Client.Model
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("class IdentityApiUserV1EducationOrganizationPaginatedItemsResponse {\n");
-            sb.Append("  UserId: ").Append(UserId).Append("\n");
-            sb.Append("  TenantId: ").Append(TenantId).Append("\n");
+            sb.Append("  PageIndex: ").Append(PageIndex).Append("\n");
+            sb.Append("  PageSize: ").Append(PageSize).Append("\n");
+            sb.Append("  Count: ").Append(Count).Append("\n");
             sb.Append("  Data: ").Append(Data).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -115,14 +124,16 @@ namespace EdGraph.Tenant.Client.Model
             }
             return 
                 (
-                    this.UserId == input.UserId ||
-                    (this.UserId != null &&
-                    this.UserId.Equals(input.UserId))
+                    this.PageIndex == input.PageIndex ||
+                    this.PageIndex.Equals(input.PageIndex)
                 ) && 
                 (
-                    this.TenantId == input.TenantId ||
-                    (this.TenantId != null &&
-                    this.TenantId.Equals(input.TenantId))
+                    this.PageSize == input.PageSize ||
+                    this.PageSize.Equals(input.PageSize)
+                ) && 
+                (
+                    this.Count == input.Count ||
+                    this.Count.Equals(input.Count)
                 ) && 
                 (
                     this.Data == input.Data ||
@@ -141,14 +152,9 @@ namespace EdGraph.Tenant.Client.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.UserId != null)
-                {
-                    hashCode = (hashCode * 59) + this.UserId.GetHashCode();
-                }
-                if (this.TenantId != null)
-                {
-                    hashCode = (hashCode * 59) + this.TenantId.GetHashCode();
-                }
+                hashCode = (hashCode * 59) + this.PageIndex.GetHashCode();
+                hashCode = (hashCode * 59) + this.PageSize.GetHashCode();
+                hashCode = (hashCode * 59) + this.Count.GetHashCode();
                 if (this.Data != null)
                 {
                     hashCode = (hashCode * 59) + this.Data.GetHashCode();

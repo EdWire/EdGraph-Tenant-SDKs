@@ -64,7 +64,8 @@ namespace EdGraph.Tenant.Client.Model
         /// <param name="createdDateTime">createdDateTime.</param>
         /// <param name="lastModifiedBy">lastModifiedBy.</param>
         /// <param name="lastModifiedDateTime">lastModifiedDateTime.</param>
-        public TenantApiTenantV1SubscriptionProfileResponse(string tenantId = default(string), string subscriptionId = default(string), string applicationId = default(string), string startDateTime = default(string), string endDateTime = default(string), string actualEndDateTime = default(string), int gracePeriod = default(int), int numberOfLicenses = default(int), int assignedLicenses = default(int), int maxAssignedLicenses = default(int), string lastMaxAssignedLicensesDateTime = default(string), TenantApiTenantV1LicenseType? licenseType = default(TenantApiTenantV1LicenseType?), TenantApiTenantV1SubscriptionStatus? subscriptionStatus = default(TenantApiTenantV1SubscriptionStatus?), bool autoAssign = default(bool), string createdBy = default(string), string createdDateTime = default(string), string lastModifiedBy = default(string), string lastModifiedDateTime = default(string))
+        /// <param name="deletedAt">deletedAt.</param>
+        public TenantApiTenantV1SubscriptionProfileResponse(string tenantId = default(string), string subscriptionId = default(string), string applicationId = default(string), string startDateTime = default(string), string endDateTime = default(string), string actualEndDateTime = default(string), int gracePeriod = default(int), int numberOfLicenses = default(int), int assignedLicenses = default(int), int maxAssignedLicenses = default(int), string lastMaxAssignedLicensesDateTime = default(string), TenantApiTenantV1LicenseType? licenseType = default(TenantApiTenantV1LicenseType?), TenantApiTenantV1SubscriptionStatus? subscriptionStatus = default(TenantApiTenantV1SubscriptionStatus?), bool autoAssign = default(bool), string createdBy = default(string), string createdDateTime = default(string), string lastModifiedBy = default(string), string lastModifiedDateTime = default(string), string deletedAt = default(string))
         {
             this.TenantId = tenantId;
             this.SubscriptionId = subscriptionId;
@@ -84,6 +85,7 @@ namespace EdGraph.Tenant.Client.Model
             this.CreatedDateTime = createdDateTime;
             this.LastModifiedBy = lastModifiedBy;
             this.LastModifiedDateTime = lastModifiedDateTime;
+            this.DeletedAt = deletedAt;
         }
 
         /// <summary>
@@ -183,6 +185,12 @@ namespace EdGraph.Tenant.Client.Model
         public string LastModifiedDateTime { get; set; }
 
         /// <summary>
+        /// Gets or Sets DeletedAt
+        /// </summary>
+        [DataMember(Name = "deletedAt", EmitDefaultValue = true)]
+        public string DeletedAt { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -208,6 +216,7 @@ namespace EdGraph.Tenant.Client.Model
             sb.Append("  CreatedDateTime: ").Append(CreatedDateTime).Append("\n");
             sb.Append("  LastModifiedBy: ").Append(LastModifiedBy).Append("\n");
             sb.Append("  LastModifiedDateTime: ").Append(LastModifiedDateTime).Append("\n");
+            sb.Append("  DeletedAt: ").Append(DeletedAt).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -325,6 +334,11 @@ namespace EdGraph.Tenant.Client.Model
                     this.LastModifiedDateTime == input.LastModifiedDateTime ||
                     (this.LastModifiedDateTime != null &&
                     this.LastModifiedDateTime.Equals(input.LastModifiedDateTime))
+                ) && 
+                (
+                    this.DeletedAt == input.DeletedAt ||
+                    (this.DeletedAt != null &&
+                    this.DeletedAt.Equals(input.DeletedAt))
                 );
         }
 
@@ -387,6 +401,10 @@ namespace EdGraph.Tenant.Client.Model
                 if (this.LastModifiedDateTime != null)
                 {
                     hashCode = (hashCode * 59) + this.LastModifiedDateTime.GetHashCode();
+                }
+                if (this.DeletedAt != null)
+                {
+                    hashCode = (hashCode * 59) + this.DeletedAt.GetHashCode();
                 }
                 return hashCode;
             }

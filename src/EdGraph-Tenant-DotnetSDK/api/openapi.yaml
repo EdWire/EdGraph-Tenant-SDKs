@@ -9000,7 +9000,7 @@ components:
         staffClassifications:
         - staffClassifications
         - staffClassifications
-        educationOrganizationId: 0
+        educationOrganizationId: 5
         source: source
         nameOfInstitution: nameOfInstitution
       properties:
@@ -9048,25 +9048,29 @@ components:
           staffClassifications:
           - staffClassifications
           - staffClassifications
-          educationOrganizationId: 0
+          educationOrganizationId: 5
           source: source
           nameOfInstitution: nameOfInstitution
         - shortNameOfInstitution: shortNameOfInstitution
           staffClassifications:
           - staffClassifications
           - staffClassifications
-          educationOrganizationId: 0
+          educationOrganizationId: 5
           source: source
           nameOfInstitution: nameOfInstitution
-        tenantId: tenantId
-        userId: userId
+        pageIndex: 0
+        count: 1
+        pageSize: 6
       properties:
-        userId:
-          nullable: true
-          type: string
-        tenantId:
-          nullable: true
-          type: string
+        pageIndex:
+          format: int32
+          type: integer
+        pageSize:
+          format: int32
+          type: integer
+        count:
+          format: int64
+          type: integer
         data:
           items:
             $ref: '#/components/schemas/IdentityApi.User.V1.EducationOrganization'
@@ -10262,6 +10266,7 @@ components:
         numberOfLicenses: 6
         licenseType: null
         autoAssign: true
+        deletedAt: deletedAt
         startDateTime: startDateTime
         createdBy: createdBy
         tenantId: tenantId
@@ -10320,6 +10325,9 @@ components:
           nullable: true
           type: string
         lastModifiedDateTime:
+          nullable: true
+          type: string
+        deletedAt:
           nullable: true
           type: string
       type: object
@@ -10402,6 +10410,7 @@ components:
           numberOfLicenses: 6
           licenseType: null
           autoAssign: true
+          deletedAt: deletedAt
           startDateTime: startDateTime
           createdBy: createdBy
           tenantId: tenantId
@@ -10420,6 +10429,7 @@ components:
           numberOfLicenses: 6
           licenseType: null
           autoAssign: true
+          deletedAt: deletedAt
           startDateTime: startDateTime
           createdBy: createdBy
           tenantId: tenantId
@@ -10450,6 +10460,7 @@ components:
           createdDateTime: createdDateTime
           domainStatus: null
         createdDateTime: createdDateTime
+        organizationIdentifierHash: organizationIdentifierHash
         isDemo: true
         enforceMfa: true
         createdBy: createdBy
@@ -10550,6 +10561,9 @@ components:
           nullable: true
           readOnly: true
           type: array
+        organizationIdentifierHash:
+          nullable: true
+          type: string
       type: object
     TenantApi.Tenant.V1.TenantStatus:
       enum:

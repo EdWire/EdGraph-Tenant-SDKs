@@ -4,8 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**UserId** | **string** |  | [optional] 
-**TenantId** | **string** |  | [optional] 
+**PageIndex** | **int** |  | [optional] 
+**PageSize** | **int** |  | [optional] 
+**Count** | **long** |  | [optional] 
 **Data** | [**List&lt;IdentityApiUserV1EducationOrganization&gt;**](IdentityApiUserV1EducationOrganization.md) |  | [optional] [readonly] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

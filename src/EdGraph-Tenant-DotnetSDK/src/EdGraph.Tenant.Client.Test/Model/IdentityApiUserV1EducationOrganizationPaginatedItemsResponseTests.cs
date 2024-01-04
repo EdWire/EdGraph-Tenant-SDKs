@@ -55,21 +55,30 @@ namespace EdGraph.Tenant.Client.Test.Model
         }
 
         /// <summary>
-        /// Test the property 'UserId'
+        /// Test the property 'PageIndex'
         /// </summary>
         [Fact]
-        public void UserIdTest()
+        public void PageIndexTest()
         {
-            // TODO unit test for the property 'UserId'
+            // TODO unit test for the property 'PageIndex'
         }
 
         /// <summary>
-        /// Test the property 'TenantId'
+        /// Test the property 'PageSize'
         /// </summary>
         [Fact]
-        public void TenantIdTest()
+        public void PageSizeTest()
         {
-            // TODO unit test for the property 'TenantId'
+            // TODO unit test for the property 'PageSize'
+        }
+
+        /// <summary>
+        /// Test the property 'Count'
+        /// </summary>
+        [Fact]
+        public void CountTest()
+        {
+            // TODO unit test for the property 'Count'
         }
 
         /// <summary>

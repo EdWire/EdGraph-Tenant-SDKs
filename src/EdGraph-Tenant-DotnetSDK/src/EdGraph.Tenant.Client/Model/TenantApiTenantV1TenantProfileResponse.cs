@@ -60,7 +60,8 @@ namespace EdGraph.Tenant.Client.Model
         /// <param name="lastModifiedBy">lastModifiedBy.</param>
         /// <param name="lastModifiedDateTime">lastModifiedDateTime.</param>
         /// <param name="onboarding">onboarding.</param>
-        public TenantApiTenantV1TenantProfileResponse(string tenantId = default(string), TenantApiTenantV1TenantType? tenantType = default(TenantApiTenantV1TenantType?), string organizationIdentifier = default(string), string organizationName = default(string), string state = default(string), TenantApiTenantV1TenantStatus? tenantStatus = default(TenantApiTenantV1TenantStatus?), bool isDemo = default(bool), bool enforceMfa = default(bool), bool subscriptionsMigrated = default(bool), string createdBy = default(string), string createdDateTime = default(string), string lastModifiedBy = default(string), string lastModifiedDateTime = default(string), TenantApiTenantV1Onboarding onboarding = default(TenantApiTenantV1Onboarding))
+        /// <param name="organizationIdentifierHash">organizationIdentifierHash.</param>
+        public TenantApiTenantV1TenantProfileResponse(string tenantId = default(string), TenantApiTenantV1TenantType? tenantType = default(TenantApiTenantV1TenantType?), string organizationIdentifier = default(string), string organizationName = default(string), string state = default(string), TenantApiTenantV1TenantStatus? tenantStatus = default(TenantApiTenantV1TenantStatus?), bool isDemo = default(bool), bool enforceMfa = default(bool), bool subscriptionsMigrated = default(bool), string createdBy = default(string), string createdDateTime = default(string), string lastModifiedBy = default(string), string lastModifiedDateTime = default(string), TenantApiTenantV1Onboarding onboarding = default(TenantApiTenantV1Onboarding), string organizationIdentifierHash = default(string))
         {
             this.TenantId = tenantId;
             this.TenantType = tenantType;
@@ -76,6 +77,7 @@ namespace EdGraph.Tenant.Client.Model
             this.LastModifiedBy = lastModifiedBy;
             this.LastModifiedDateTime = lastModifiedDateTime;
             this.Onboarding = onboarding;
+            this.OrganizationIdentifierHash = organizationIdentifierHash;
         }
 
         /// <summary>
@@ -207,6 +209,12 @@ namespace EdGraph.Tenant.Client.Model
             return false;
         }
         /// <summary>
+        /// Gets or Sets OrganizationIdentifierHash
+        /// </summary>
+        [DataMember(Name = "organizationIdentifierHash", EmitDefaultValue = true)]
+        public string OrganizationIdentifierHash { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -232,6 +240,7 @@ namespace EdGraph.Tenant.Client.Model
             sb.Append("  IdentityProviders: ").Append(IdentityProviders).Append("\n");
             sb.Append("  Onboarding: ").Append(Onboarding).Append("\n");
             sb.Append("  Organizations: ").Append(Organizations).Append("\n");
+            sb.Append("  OrganizationIdentifierHash: ").Append(OrganizationIdentifierHash).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -355,6 +364,11 @@ namespace EdGraph.Tenant.Client.Model
                     this.Organizations != null &&
                     input.Organizations != null &&
                     this.Organizations.SequenceEqual(input.Organizations)
+                ) && 
+                (
+                    this.OrganizationIdentifierHash == input.OrganizationIdentifierHash ||
+                    (this.OrganizationIdentifierHash != null &&
+                    this.OrganizationIdentifierHash.Equals(input.OrganizationIdentifierHash))
                 );
         }
 
@@ -423,6 +437,10 @@ namespace EdGraph.Tenant.Client.Model
                 if (this.Organizations != null)
                 {
                     hashCode = (hashCode * 59) + this.Organizations.GetHashCode();
+                }
+                if (this.OrganizationIdentifierHash != null)
+                {
+                    hashCode = (hashCode * 59) + this.OrganizationIdentifierHash.GetHashCode();
                 }
                 return hashCode;
             }

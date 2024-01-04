@@ -215,5 +215,14 @@ namespace EdGraph.Tenant.Client.Test.Model
         {
             // TODO unit test for the property 'LastModifiedDateTime'
         }
+
+        /// <summary>
+        /// Test the property 'DeletedAt'
+        /// </summary>
+        [Fact]
+        public void DeletedAtTest()
+        {
+            // TODO unit test for the property 'DeletedAt'
+        }
     }
 }
