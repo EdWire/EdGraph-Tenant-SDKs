@@ -80,5 +80,14 @@ namespace EdGraph.Tenant.Client.Test.Model
         {
             // TODO unit test for the property 'Role'
         }
+
+        /// <summary>
+        /// Test the property 'IsPlatformAdmin'
+        /// </summary>
+        [Fact]
+        public void IsPlatformAdminTest()
+        {
+            // TODO unit test for the property 'IsPlatformAdmin'
+        }
     }
 }

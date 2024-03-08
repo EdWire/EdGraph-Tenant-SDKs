@@ -29,7 +29,7 @@ namespace EdGraph.Tenant.Client.Model
     /// IdentityApiUserV1UpdateUserRequest
     /// </summary>
     [DataContract(Name = "IdentityApi.User.V1.UpdateUserRequest")]
-    public partial class IdentityApiUserV1UpdateUserRequest : IEquatable<IdentityApiUserV1UpdateUserRequest>, IValidatableObject
+    public partial class IdentityApiUserV1UpdateUserRequest : IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="IdentityApiUserV1UpdateUserRequest" /> class.
@@ -37,11 +37,13 @@ namespace EdGraph.Tenant.Client.Model
         /// <param name="tenantId">tenantId.</param>
         /// <param name="userId">userId.</param>
         /// <param name="role">role.</param>
-        public IdentityApiUserV1UpdateUserRequest(string tenantId = default(string), string userId = default(string), string role = default(string))
+        /// <param name="isPlatformAdmin">isPlatformAdmin.</param>
+        public IdentityApiUserV1UpdateUserRequest(string tenantId = default(string), string userId = default(string), string role = default(string), bool? isPlatformAdmin = default(bool?))
         {
             this.TenantId = tenantId;
             this.UserId = userId;
             this.Role = role;
+            this.IsPlatformAdmin = isPlatformAdmin;
         }
 
         /// <summary>
@@ -63,6 +65,12 @@ namespace EdGraph.Tenant.Client.Model
         public string Role { get; set; }
 
         /// <summary>
+        /// Gets or Sets IsPlatformAdmin
+        /// </summary>
+        [DataMember(Name = "isPlatformAdmin", EmitDefaultValue = true)]
+        public bool? IsPlatformAdmin { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -73,6 +81,7 @@ namespace EdGraph.Tenant.Client.Model
             sb.Append("  TenantId: ").Append(TenantId).Append("\n");
             sb.Append("  UserId: ").Append(UserId).Append("\n");
             sb.Append("  Role: ").Append(Role).Append("\n");
+            sb.Append("  IsPlatformAdmin: ").Append(IsPlatformAdmin).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -84,70 +93,6 @@ namespace EdGraph.Tenant.Client.Model
         public virtual string ToJson()
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
-        }
-
-        /// <summary>
-        /// Returns true if objects are equal
-        /// </summary>
-        /// <param name="input">Object to be compared</param>
-        /// <returns>Boolean</returns>
-        public override bool Equals(object input)
-        {
-            return this.Equals(input as IdentityApiUserV1UpdateUserRequest);
-        }
-
-        /// <summary>
-        /// Returns true if IdentityApiUserV1UpdateUserRequest instances are equal
-        /// </summary>
-        /// <param name="input">Instance of IdentityApiUserV1UpdateUserRequest to be compared</param>
-        /// <returns>Boolean</returns>
-        public bool Equals(IdentityApiUserV1UpdateUserRequest input)
-        {
-            if (input == null)
-            {
-                return false;
-            }
-            return 
-                (
-                    this.TenantId == input.TenantId ||
-                    (this.TenantId != null &&
-                    this.TenantId.Equals(input.TenantId))
-                ) && 
-                (
-                    this.UserId == input.UserId ||
-                    (this.UserId != null &&
-                    this.UserId.Equals(input.UserId))
-                ) && 
-                (
-                    this.Role == input.Role ||
-                    (this.Role != null &&
-                    this.Role.Equals(input.Role))
-                );
-        }
-
-        /// <summary>
-        /// Gets the hash code
-        /// </summary>
-        /// <returns>Hash code</returns>
-        public override int GetHashCode()
-        {
-            unchecked // Overflow is fine, just wrap
-            {
-                int hashCode = 41;
-                if (this.TenantId != null)
-                {
-                    hashCode = (hashCode * 59) + this.TenantId.GetHashCode();
-                }
-                if (this.UserId != null)
-                {
-                    hashCode = (hashCode * 59) + this.UserId.GetHashCode();
-                }
-                if (this.Role != null)
-                {
-                    hashCode = (hashCode * 59) + this.Role.GetHashCode();
-                }
-                return hashCode;
-            }
         }
 
         /// <summary>

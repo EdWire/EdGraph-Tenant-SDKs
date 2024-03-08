@@ -29,7 +29,7 @@ namespace EdGraph.Tenant.Client.Model
     /// EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesUserTenant
     /// </summary>
     [DataContract(Name = "EdGraph.Platform.HttpAggregators.Tenant.Api.Controllers.v1.ViewModels.Responses.UserTenant")]
-    public partial class EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesUserTenant : IEquatable<EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesUserTenant>, IValidatableObject
+    public partial class EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesUserTenant : IValidatableObject
     {
 
         /// <summary>
@@ -93,77 +93,6 @@ namespace EdGraph.Tenant.Client.Model
         public virtual string ToJson()
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
-        }
-
-        /// <summary>
-        /// Returns true if objects are equal
-        /// </summary>
-        /// <param name="input">Object to be compared</param>
-        /// <returns>Boolean</returns>
-        public override bool Equals(object input)
-        {
-            return this.Equals(input as EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesUserTenant);
-        }
-
-        /// <summary>
-        /// Returns true if EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesUserTenant instances are equal
-        /// </summary>
-        /// <param name="input">Instance of EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesUserTenant to be compared</param>
-        /// <returns>Boolean</returns>
-        public bool Equals(EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesUserTenant input)
-        {
-            if (input == null)
-            {
-                return false;
-            }
-            return 
-                (
-                    this.TenantId == input.TenantId ||
-                    (this.TenantId != null &&
-                    this.TenantId.Equals(input.TenantId))
-                ) && 
-                (
-                    this.Status == input.Status ||
-                    this.Status.Equals(input.Status)
-                ) && 
-                (
-                    this.Roles == input.Roles ||
-                    this.Roles != null &&
-                    input.Roles != null &&
-                    this.Roles.SequenceEqual(input.Roles)
-                ) && 
-                (
-                    this.Licenses == input.Licenses ||
-                    this.Licenses != null &&
-                    input.Licenses != null &&
-                    this.Licenses.SequenceEqual(input.Licenses)
-                );
-        }
-
-        /// <summary>
-        /// Gets the hash code
-        /// </summary>
-        /// <returns>Hash code</returns>
-        public override int GetHashCode()
-        {
-            unchecked // Overflow is fine, just wrap
-            {
-                int hashCode = 41;
-                if (this.TenantId != null)
-                {
-                    hashCode = (hashCode * 59) + this.TenantId.GetHashCode();
-                }
-                hashCode = (hashCode * 59) + this.Status.GetHashCode();
-                if (this.Roles != null)
-                {
-                    hashCode = (hashCode * 59) + this.Roles.GetHashCode();
-                }
-                if (this.Licenses != null)
-                {
-                    hashCode = (hashCode * 59) + this.Licenses.GetHashCode();
-                }
-                return hashCode;
-            }
         }
 
         /// <summary>

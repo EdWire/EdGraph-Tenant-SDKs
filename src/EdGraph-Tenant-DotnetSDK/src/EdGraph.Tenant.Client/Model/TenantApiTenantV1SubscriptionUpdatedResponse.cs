@@ -29,7 +29,7 @@ namespace EdGraph.Tenant.Client.Model
     /// TenantApiTenantV1SubscriptionUpdatedResponse
     /// </summary>
     [DataContract(Name = "TenantApi.Tenant.V1.SubscriptionUpdatedResponse")]
-    public partial class TenantApiTenantV1SubscriptionUpdatedResponse : IEquatable<TenantApiTenantV1SubscriptionUpdatedResponse>, IValidatableObject
+    public partial class TenantApiTenantV1SubscriptionUpdatedResponse : IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="TenantApiTenantV1SubscriptionUpdatedResponse" /> class.
@@ -75,61 +75,6 @@ namespace EdGraph.Tenant.Client.Model
         public virtual string ToJson()
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
-        }
-
-        /// <summary>
-        /// Returns true if objects are equal
-        /// </summary>
-        /// <param name="input">Object to be compared</param>
-        /// <returns>Boolean</returns>
-        public override bool Equals(object input)
-        {
-            return this.Equals(input as TenantApiTenantV1SubscriptionUpdatedResponse);
-        }
-
-        /// <summary>
-        /// Returns true if TenantApiTenantV1SubscriptionUpdatedResponse instances are equal
-        /// </summary>
-        /// <param name="input">Instance of TenantApiTenantV1SubscriptionUpdatedResponse to be compared</param>
-        /// <returns>Boolean</returns>
-        public bool Equals(TenantApiTenantV1SubscriptionUpdatedResponse input)
-        {
-            if (input == null)
-            {
-                return false;
-            }
-            return 
-                (
-                    this.TenantId == input.TenantId ||
-                    (this.TenantId != null &&
-                    this.TenantId.Equals(input.TenantId))
-                ) && 
-                (
-                    this.SubscriptionId == input.SubscriptionId ||
-                    (this.SubscriptionId != null &&
-                    this.SubscriptionId.Equals(input.SubscriptionId))
-                );
-        }
-
-        /// <summary>
-        /// Gets the hash code
-        /// </summary>
-        /// <returns>Hash code</returns>
-        public override int GetHashCode()
-        {
-            unchecked // Overflow is fine, just wrap
-            {
-                int hashCode = 41;
-                if (this.TenantId != null)
-                {
-                    hashCode = (hashCode * 59) + this.TenantId.GetHashCode();
-                }
-                if (this.SubscriptionId != null)
-                {
-                    hashCode = (hashCode * 59) + this.SubscriptionId.GetHashCode();
-                }
-                return hashCode;
-            }
         }
 
         /// <summary>

@@ -29,7 +29,7 @@ namespace EdGraph.Tenant.Client.Model
     /// IdentityApiUserV1LicenseRevokedBulkResponse
     /// </summary>
     [DataContract(Name = "IdentityApi.User.V1.LicenseRevokedBulkResponse")]
-    public partial class IdentityApiUserV1LicenseRevokedBulkResponse : IEquatable<IdentityApiUserV1LicenseRevokedBulkResponse>, IValidatableObject
+    public partial class IdentityApiUserV1LicenseRevokedBulkResponse : IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="IdentityApiUserV1LicenseRevokedBulkResponse" /> class.
@@ -75,61 +75,6 @@ namespace EdGraph.Tenant.Client.Model
         public virtual string ToJson()
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
-        }
-
-        /// <summary>
-        /// Returns true if objects are equal
-        /// </summary>
-        /// <param name="input">Object to be compared</param>
-        /// <returns>Boolean</returns>
-        public override bool Equals(object input)
-        {
-            return this.Equals(input as IdentityApiUserV1LicenseRevokedBulkResponse);
-        }
-
-        /// <summary>
-        /// Returns true if IdentityApiUserV1LicenseRevokedBulkResponse instances are equal
-        /// </summary>
-        /// <param name="input">Instance of IdentityApiUserV1LicenseRevokedBulkResponse to be compared</param>
-        /// <returns>Boolean</returns>
-        public bool Equals(IdentityApiUserV1LicenseRevokedBulkResponse input)
-        {
-            if (input == null)
-            {
-                return false;
-            }
-            return 
-                (
-                    this.TenantId == input.TenantId ||
-                    (this.TenantId != null &&
-                    this.TenantId.Equals(input.TenantId))
-                ) && 
-                (
-                    this.UserId == input.UserId ||
-                    (this.UserId != null &&
-                    this.UserId.Equals(input.UserId))
-                );
-        }
-
-        /// <summary>
-        /// Gets the hash code
-        /// </summary>
-        /// <returns>Hash code</returns>
-        public override int GetHashCode()
-        {
-            unchecked // Overflow is fine, just wrap
-            {
-                int hashCode = 41;
-                if (this.TenantId != null)
-                {
-                    hashCode = (hashCode * 59) + this.TenantId.GetHashCode();
-                }
-                if (this.UserId != null)
-                {
-                    hashCode = (hashCode * 59) + this.UserId.GetHashCode();
-                }
-                return hashCode;
-            }
         }
 
         /// <summary>

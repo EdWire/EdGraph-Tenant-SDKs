@@ -29,7 +29,7 @@ namespace EdGraph.Tenant.Client.Model
     /// TenantApiTenantV1DomainProfileResponse
     /// </summary>
     [DataContract(Name = "TenantApi.Tenant.V1.DomainProfileResponse")]
-    public partial class TenantApiTenantV1DomainProfileResponse : IEquatable<TenantApiTenantV1DomainProfileResponse>, IValidatableObject
+    public partial class TenantApiTenantV1DomainProfileResponse : IValidatableObject
     {
 
         /// <summary>
@@ -43,15 +43,17 @@ namespace EdGraph.Tenant.Client.Model
         /// <param name="tenantId">tenantId.</param>
         /// <param name="domainName">domainName.</param>
         /// <param name="domainStatus">domainStatus.</param>
+        /// <param name="autoAssignUsers">autoAssignUsers.</param>
         /// <param name="createdBy">createdBy.</param>
         /// <param name="createdDateTime">createdDateTime.</param>
         /// <param name="lastModifiedBy">lastModifiedBy.</param>
         /// <param name="lastModifiedDateTime">lastModifiedDateTime.</param>
-        public TenantApiTenantV1DomainProfileResponse(string tenantId = default(string), string domainName = default(string), TenantApiTenantV1DomainStatus? domainStatus = default(TenantApiTenantV1DomainStatus?), string createdBy = default(string), string createdDateTime = default(string), string lastModifiedBy = default(string), string lastModifiedDateTime = default(string))
+        public TenantApiTenantV1DomainProfileResponse(string tenantId = default(string), string domainName = default(string), TenantApiTenantV1DomainStatus? domainStatus = default(TenantApiTenantV1DomainStatus?), bool autoAssignUsers = default(bool), string createdBy = default(string), string createdDateTime = default(string), string lastModifiedBy = default(string), string lastModifiedDateTime = default(string))
         {
             this.TenantId = tenantId;
             this.DomainName = domainName;
             this.DomainStatus = domainStatus;
+            this.AutoAssignUsers = autoAssignUsers;
             this.CreatedBy = createdBy;
             this.CreatedDateTime = createdDateTime;
             this.LastModifiedBy = lastModifiedBy;
@@ -69,6 +71,12 @@ namespace EdGraph.Tenant.Client.Model
         /// </summary>
         [DataMember(Name = "domainName", EmitDefaultValue = true)]
         public string DomainName { get; set; }
+
+        /// <summary>
+        /// Gets or Sets AutoAssignUsers
+        /// </summary>
+        [DataMember(Name = "autoAssignUsers", EmitDefaultValue = true)]
+        public bool AutoAssignUsers { get; set; }
 
         /// <summary>
         /// Gets or Sets CreatedBy
@@ -105,6 +113,7 @@ namespace EdGraph.Tenant.Client.Model
             sb.Append("  TenantId: ").Append(TenantId).Append("\n");
             sb.Append("  DomainName: ").Append(DomainName).Append("\n");
             sb.Append("  DomainStatus: ").Append(DomainStatus).Append("\n");
+            sb.Append("  AutoAssignUsers: ").Append(AutoAssignUsers).Append("\n");
             sb.Append("  CreatedBy: ").Append(CreatedBy).Append("\n");
             sb.Append("  CreatedDateTime: ").Append(CreatedDateTime).Append("\n");
             sb.Append("  LastModifiedBy: ").Append(LastModifiedBy).Append("\n");
@@ -120,102 +129,6 @@ namespace EdGraph.Tenant.Client.Model
         public virtual string ToJson()
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
-        }
-
-        /// <summary>
-        /// Returns true if objects are equal
-        /// </summary>
-        /// <param name="input">Object to be compared</param>
-        /// <returns>Boolean</returns>
-        public override bool Equals(object input)
-        {
-            return this.Equals(input as TenantApiTenantV1DomainProfileResponse);
-        }
-
-        /// <summary>
-        /// Returns true if TenantApiTenantV1DomainProfileResponse instances are equal
-        /// </summary>
-        /// <param name="input">Instance of TenantApiTenantV1DomainProfileResponse to be compared</param>
-        /// <returns>Boolean</returns>
-        public bool Equals(TenantApiTenantV1DomainProfileResponse input)
-        {
-            if (input == null)
-            {
-                return false;
-            }
-            return 
-                (
-                    this.TenantId == input.TenantId ||
-                    (this.TenantId != null &&
-                    this.TenantId.Equals(input.TenantId))
-                ) && 
-                (
-                    this.DomainName == input.DomainName ||
-                    (this.DomainName != null &&
-                    this.DomainName.Equals(input.DomainName))
-                ) && 
-                (
-                    this.DomainStatus == input.DomainStatus ||
-                    this.DomainStatus.Equals(input.DomainStatus)
-                ) && 
-                (
-                    this.CreatedBy == input.CreatedBy ||
-                    (this.CreatedBy != null &&
-                    this.CreatedBy.Equals(input.CreatedBy))
-                ) && 
-                (
-                    this.CreatedDateTime == input.CreatedDateTime ||
-                    (this.CreatedDateTime != null &&
-                    this.CreatedDateTime.Equals(input.CreatedDateTime))
-                ) && 
-                (
-                    this.LastModifiedBy == input.LastModifiedBy ||
-                    (this.LastModifiedBy != null &&
-                    this.LastModifiedBy.Equals(input.LastModifiedBy))
-                ) && 
-                (
-                    this.LastModifiedDateTime == input.LastModifiedDateTime ||
-                    (this.LastModifiedDateTime != null &&
-                    this.LastModifiedDateTime.Equals(input.LastModifiedDateTime))
-                );
-        }
-
-        /// <summary>
-        /// Gets the hash code
-        /// </summary>
-        /// <returns>Hash code</returns>
-        public override int GetHashCode()
-        {
-            unchecked // Overflow is fine, just wrap
-            {
-                int hashCode = 41;
-                if (this.TenantId != null)
-                {
-                    hashCode = (hashCode * 59) + this.TenantId.GetHashCode();
-                }
-                if (this.DomainName != null)
-                {
-                    hashCode = (hashCode * 59) + this.DomainName.GetHashCode();
-                }
-                hashCode = (hashCode * 59) + this.DomainStatus.GetHashCode();
-                if (this.CreatedBy != null)
-                {
-                    hashCode = (hashCode * 59) + this.CreatedBy.GetHashCode();
-                }
-                if (this.CreatedDateTime != null)
-                {
-                    hashCode = (hashCode * 59) + this.CreatedDateTime.GetHashCode();
-                }
-                if (this.LastModifiedBy != null)
-                {
-                    hashCode = (hashCode * 59) + this.LastModifiedBy.GetHashCode();
-                }
-                if (this.LastModifiedDateTime != null)
-                {
-                    hashCode = (hashCode * 59) + this.LastModifiedDateTime.GetHashCode();
-                }
-                return hashCode;
-            }
         }
 
         /// <summary>

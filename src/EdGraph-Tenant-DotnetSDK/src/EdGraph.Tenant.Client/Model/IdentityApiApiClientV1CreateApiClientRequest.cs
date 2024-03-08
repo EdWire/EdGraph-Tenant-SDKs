@@ -29,7 +29,7 @@ namespace EdGraph.Tenant.Client.Model
     /// IdentityApiApiClientV1CreateApiClientRequest
     /// </summary>
     [DataContract(Name = "IdentityApi.ApiClient.V1.CreateApiClientRequest")]
-    public partial class IdentityApiApiClientV1CreateApiClientRequest : IEquatable<IdentityApiApiClientV1CreateApiClientRequest>, IValidatableObject
+    public partial class IdentityApiApiClientV1CreateApiClientRequest : IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="IdentityApiApiClientV1CreateApiClientRequest" /> class.
@@ -108,85 +108,6 @@ namespace EdGraph.Tenant.Client.Model
         public virtual string ToJson()
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
-        }
-
-        /// <summary>
-        /// Returns true if objects are equal
-        /// </summary>
-        /// <param name="input">Object to be compared</param>
-        /// <returns>Boolean</returns>
-        public override bool Equals(object input)
-        {
-            return this.Equals(input as IdentityApiApiClientV1CreateApiClientRequest);
-        }
-
-        /// <summary>
-        /// Returns true if IdentityApiApiClientV1CreateApiClientRequest instances are equal
-        /// </summary>
-        /// <param name="input">Instance of IdentityApiApiClientV1CreateApiClientRequest to be compared</param>
-        /// <returns>Boolean</returns>
-        public bool Equals(IdentityApiApiClientV1CreateApiClientRequest input)
-        {
-            if (input == null)
-            {
-                return false;
-            }
-            return 
-                (
-                    this.TenantId == input.TenantId ||
-                    (this.TenantId != null &&
-                    this.TenantId.Equals(input.TenantId))
-                ) && 
-                (
-                    this.ClientName == input.ClientName ||
-                    (this.ClientName != null &&
-                    this.ClientName.Equals(input.ClientName))
-                ) && 
-                (
-                    this.Enabled == input.Enabled ||
-                    this.Enabled.Equals(input.Enabled)
-                ) && 
-                (
-                    this.ApiClaims == input.ApiClaims ||
-                    this.ApiClaims != null &&
-                    input.ApiClaims != null &&
-                    this.ApiClaims.SequenceEqual(input.ApiClaims)
-                ) && 
-                (
-                    this.SecretExpirationDateTime == input.SecretExpirationDateTime ||
-                    (this.SecretExpirationDateTime != null &&
-                    this.SecretExpirationDateTime.Equals(input.SecretExpirationDateTime))
-                );
-        }
-
-        /// <summary>
-        /// Gets the hash code
-        /// </summary>
-        /// <returns>Hash code</returns>
-        public override int GetHashCode()
-        {
-            unchecked // Overflow is fine, just wrap
-            {
-                int hashCode = 41;
-                if (this.TenantId != null)
-                {
-                    hashCode = (hashCode * 59) + this.TenantId.GetHashCode();
-                }
-                if (this.ClientName != null)
-                {
-                    hashCode = (hashCode * 59) + this.ClientName.GetHashCode();
-                }
-                hashCode = (hashCode * 59) + this.Enabled.GetHashCode();
-                if (this.ApiClaims != null)
-                {
-                    hashCode = (hashCode * 59) + this.ApiClaims.GetHashCode();
-                }
-                if (this.SecretExpirationDateTime != null)
-                {
-                    hashCode = (hashCode * 59) + this.SecretExpirationDateTime.GetHashCode();
-                }
-                return hashCode;
-            }
         }
 
         /// <summary>

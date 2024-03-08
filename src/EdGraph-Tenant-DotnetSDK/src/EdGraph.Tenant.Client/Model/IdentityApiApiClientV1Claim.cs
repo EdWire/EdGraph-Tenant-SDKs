@@ -29,7 +29,7 @@ namespace EdGraph.Tenant.Client.Model
     /// IdentityApiApiClientV1Claim
     /// </summary>
     [DataContract(Name = "IdentityApi.ApiClient.V1.Claim")]
-    public partial class IdentityApiApiClientV1Claim : IEquatable<IdentityApiApiClientV1Claim>, IValidatableObject
+    public partial class IdentityApiApiClientV1Claim : IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="IdentityApiApiClientV1Claim" /> class.
@@ -75,61 +75,6 @@ namespace EdGraph.Tenant.Client.Model
         public virtual string ToJson()
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
-        }
-
-        /// <summary>
-        /// Returns true if objects are equal
-        /// </summary>
-        /// <param name="input">Object to be compared</param>
-        /// <returns>Boolean</returns>
-        public override bool Equals(object input)
-        {
-            return this.Equals(input as IdentityApiApiClientV1Claim);
-        }
-
-        /// <summary>
-        /// Returns true if IdentityApiApiClientV1Claim instances are equal
-        /// </summary>
-        /// <param name="input">Instance of IdentityApiApiClientV1Claim to be compared</param>
-        /// <returns>Boolean</returns>
-        public bool Equals(IdentityApiApiClientV1Claim input)
-        {
-            if (input == null)
-            {
-                return false;
-            }
-            return 
-                (
-                    this.Type == input.Type ||
-                    (this.Type != null &&
-                    this.Type.Equals(input.Type))
-                ) && 
-                (
-                    this.Value == input.Value ||
-                    (this.Value != null &&
-                    this.Value.Equals(input.Value))
-                );
-        }
-
-        /// <summary>
-        /// Gets the hash code
-        /// </summary>
-        /// <returns>Hash code</returns>
-        public override int GetHashCode()
-        {
-            unchecked // Overflow is fine, just wrap
-            {
-                int hashCode = 41;
-                if (this.Type != null)
-                {
-                    hashCode = (hashCode * 59) + this.Type.GetHashCode();
-                }
-                if (this.Value != null)
-                {
-                    hashCode = (hashCode * 59) + this.Value.GetHashCode();
-                }
-                return hashCode;
-            }
         }
 
         /// <summary>

@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **TenantId** | **string** |  | [optional] 
 **DomainName** | **string** |  | [optional] 
 **DomainStatus** | **TenantApiTenantV1DomainStatus** |  | [optional] 
+**AutoAssignUsers** | **bool** |  | [optional] 
 **CreatedBy** | **string** |  | [optional] 
 **CreatedDateTime** | **string** |  | [optional] 
 **LastModifiedBy** | **string** |  | [optional] 

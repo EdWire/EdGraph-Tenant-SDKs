@@ -5927,16 +5927,23 @@ components:
         lastModifiedDateTime: lastModifiedDateTime
         roles:
         - isDefault: true
+          displayName: displayName
           isAvailableForTenants: true
+          sortOrder: 0
           roleName: roleName
+          description: description
         - isDefault: true
+          displayName: displayName
           isAvailableForTenants: true
+          sortOrder: 0
           roleName: roleName
+          description: description
         lastModifiedBy: lastModifiedBy
         groups: groups
         createdDateTime: createdDateTime
         version: version
         tags: tags
+        deletedAt: deletedAt
         applicationStatus: null
         createdBy: createdBy
         subscriptionType: null
@@ -5982,6 +5989,9 @@ components:
         lastModifiedDateTime:
           nullable: true
           type: string
+        deletedAt:
+          nullable: true
+          type: string
         subscriptionType:
           $ref: '#/components/schemas/ApplicationApi.Application.V1.ApplicationSubscriptionType'
         documentationUrl:
@@ -5997,11 +6007,17 @@ components:
         tooltipText: tooltipText
         roles:
         - isDefault: true
+          displayName: displayName
           isAvailableForTenants: true
+          sortOrder: 0
           roleName: roleName
+          description: description
         - isDefault: true
+          displayName: displayName
           isAvailableForTenants: true
+          sortOrder: 0
           roleName: roleName
+          description: description
         lastModifiedBy: lastModifiedBy
         groups: groups
         createdDateTime: createdDateTime
@@ -6100,16 +6116,23 @@ components:
           lastModifiedDateTime: lastModifiedDateTime
           roles:
           - isDefault: true
+            displayName: displayName
             isAvailableForTenants: true
+            sortOrder: 0
             roleName: roleName
+            description: description
           - isDefault: true
+            displayName: displayName
             isAvailableForTenants: true
+            sortOrder: 0
             roleName: roleName
+            description: description
           lastModifiedBy: lastModifiedBy
           groups: groups
           createdDateTime: createdDateTime
           version: version
           tags: tags
+          deletedAt: deletedAt
           applicationStatus: null
           createdBy: createdBy
           subscriptionType: null
@@ -6120,16 +6143,23 @@ components:
           lastModifiedDateTime: lastModifiedDateTime
           roles:
           - isDefault: true
+            displayName: displayName
             isAvailableForTenants: true
+            sortOrder: 0
             roleName: roleName
+            description: description
           - isDefault: true
+            displayName: displayName
             isAvailableForTenants: true
+            sortOrder: 0
             roleName: roleName
+            description: description
           lastModifiedBy: lastModifiedBy
           groups: groups
           createdDateTime: createdDateTime
           version: version
           tags: tags
+          deletedAt: deletedAt
           applicationStatus: null
           createdBy: createdBy
           subscriptionType: null
@@ -6160,8 +6190,11 @@ components:
       additionalProperties: false
       example:
         isDefault: true
+        displayName: displayName
         isAvailableForTenants: true
+        sortOrder: 0
         roleName: roleName
+        description: description
       properties:
         roleName:
           nullable: true
@@ -6170,6 +6203,15 @@ components:
           type: boolean
         isAvailableForTenants:
           type: boolean
+        displayName:
+          nullable: true
+          type: string
+        description:
+          nullable: true
+          type: string
+        sortOrder:
+          format: int32
+          type: integer
       type: object
     ApplicationApi.Application.V1.UrlType:
       enum:
@@ -6178,6 +6220,14 @@ components:
       type: string
     EdGraph.Common.Errors.Core.ProblemDetails:
       additionalProperties: false
+      example:
+        extensions:
+          key: ""
+        instance: instance
+        details: details
+        type: type
+        title: title
+        status: 0
       properties:
         type:
           nullable: true
@@ -6412,6 +6462,9 @@ components:
           type: boolean
         enforceMfa:
           type: boolean
+        showLocalLoginOptionToTenantAdmins:
+          nullable: true
+          type: boolean
         tenantStatus:
           $ref: '#/components/schemas/EdGraph.HttpAggregators.Tenant.Api.Controllers.v1.ViewModels.Requests.Tenants.TenantStatus'
         identityProviders:
@@ -6423,6 +6476,7 @@ components:
     EdGraph.HttpAggregators.Tenant.Api.Controllers.v1.ViewModels.Responses.DomainListResponseDto:
       additionalProperties: false
       example:
+        autoAssignUsers: true
         lastModifiedDateTime: lastModifiedDateTime
         createdBy: createdBy
         domainName: domainName
@@ -6439,6 +6493,8 @@ components:
           type: string
         domainStatus:
           $ref: '#/components/schemas/TenantApi.Tenant.V1.DomainStatus'
+        autoAssignUsers:
+          type: boolean
         createdBy:
           nullable: true
           type: string
@@ -6456,14 +6512,16 @@ components:
       additionalProperties: false
       example:
         data:
-        - lastModifiedDateTime: lastModifiedDateTime
+        - autoAssignUsers: true
+          lastModifiedDateTime: lastModifiedDateTime
           createdBy: createdBy
           domainName: domainName
           lastModifiedBy: lastModifiedBy
           tenantId: tenantId
           createdDateTime: createdDateTime
           domainStatus: null
-        - lastModifiedDateTime: lastModifiedDateTime
+        - autoAssignUsers: true
+          lastModifiedDateTime: lastModifiedDateTime
           createdBy: createdBy
           domainName: domainName
           lastModifiedBy: lastModifiedBy
@@ -6493,8 +6551,11 @@ components:
       additionalProperties: false
       example:
         isDefault: true
+        displayName: displayName
         isAvailableForTenants: true
+        sortOrder: 5
         roleName: roleName
+        description: description
       properties:
         roleName:
           nullable: true
@@ -6503,18 +6564,27 @@ components:
           type: boolean
         isAvailableForTenants:
           type: boolean
+        displayName:
+          nullable: true
+          type: string
+        description:
+          nullable: true
+          type: string
+        sortOrder:
+          format: int32
+          type: integer
       type: object
     EdGraph.HttpAggregators.Tenant.Api.Controllers.v1.ViewModels.Responses.SubscriptionListResponseDto:
       additionalProperties: false
       example:
         gracePeriod: 5
         actualEndDateTime: actualEndDateTime
-        assignedLicenses: 2
+        assignedLicenses: 7
         lastModifiedDateTime: lastModifiedDateTime
         lastModifiedBy: lastModifiedBy
         createdDateTime: createdDateTime
         endDateTime: endDateTime
-        numberOfLicenses: 5
+        numberOfLicenses: 2
         licenseType: null
         autoAssign: true
         startDateTime: startDateTime
@@ -6524,15 +6594,21 @@ components:
         subscriptionId: subscriptionId
         applicationId: applicationId
         lastMaxAssignedLicensesDateTime: lastMaxAssignedLicensesDateTime
-        maxAssignedLicenses: 7
+        maxAssignedLicenses: 9
         applicationName: applicationName
         applicationRoles:
         - isDefault: true
+          displayName: displayName
           isAvailableForTenants: true
+          sortOrder: 5
           roleName: roleName
+          description: description
         - isDefault: true
+          displayName: displayName
           isAvailableForTenants: true
+          sortOrder: 5
           roleName: roleName
+          description: description
       properties:
         tenantId:
           nullable: true
@@ -6600,12 +6676,12 @@ components:
         data:
         - gracePeriod: 5
           actualEndDateTime: actualEndDateTime
-          assignedLicenses: 2
+          assignedLicenses: 7
           lastModifiedDateTime: lastModifiedDateTime
           lastModifiedBy: lastModifiedBy
           createdDateTime: createdDateTime
           endDateTime: endDateTime
-          numberOfLicenses: 5
+          numberOfLicenses: 2
           licenseType: null
           autoAssign: true
           startDateTime: startDateTime
@@ -6615,23 +6691,29 @@ components:
           subscriptionId: subscriptionId
           applicationId: applicationId
           lastMaxAssignedLicensesDateTime: lastMaxAssignedLicensesDateTime
-          maxAssignedLicenses: 7
+          maxAssignedLicenses: 9
           applicationName: applicationName
           applicationRoles:
           - isDefault: true
+            displayName: displayName
             isAvailableForTenants: true
+            sortOrder: 5
             roleName: roleName
+            description: description
           - isDefault: true
+            displayName: displayName
             isAvailableForTenants: true
+            sortOrder: 5
             roleName: roleName
+            description: description
         - gracePeriod: 5
           actualEndDateTime: actualEndDateTime
-          assignedLicenses: 2
+          assignedLicenses: 7
           lastModifiedDateTime: lastModifiedDateTime
           lastModifiedBy: lastModifiedBy
           createdDateTime: createdDateTime
           endDateTime: endDateTime
-          numberOfLicenses: 5
+          numberOfLicenses: 2
           licenseType: null
           autoAssign: true
           startDateTime: startDateTime
@@ -6641,15 +6723,21 @@ components:
           subscriptionId: subscriptionId
           applicationId: applicationId
           lastMaxAssignedLicensesDateTime: lastMaxAssignedLicensesDateTime
-          maxAssignedLicenses: 7
+          maxAssignedLicenses: 9
           applicationName: applicationName
           applicationRoles:
           - isDefault: true
+            displayName: displayName
             isAvailableForTenants: true
+            sortOrder: 5
             roleName: roleName
+            description: description
           - isDefault: true
+            displayName: displayName
             isAvailableForTenants: true
+            sortOrder: 5
             roleName: roleName
+            description: description
         pageIndex: 0
         count: 1
         pageSize: 6
@@ -7213,6 +7301,7 @@ components:
         lastModifiedDateTime: lastModifiedDateTime
         lastModifiedBy: lastModifiedBy
         createdDateTime: createdDateTime
+        source: source
         userName: userName
         userId: userId
         firstName: firstName
@@ -7305,6 +7394,9 @@ components:
             $ref: '#/components/schemas/EdGraph.Platform.HttpAggregators.Tenant.Api.Controllers.v1.ViewModels.Responses.UserLogin'
           nullable: true
           type: array
+        source:
+          nullable: true
+          type: string
       type: object
     ? EdGraph.Platform.HttpAggregators.Tenant.Api.Controllers.v1.ViewModels.Responses.UserListResponseWithApplicationLicensePaginatedItemsViewModel
     : additionalProperties: false
@@ -7379,6 +7471,7 @@ components:
           lastModifiedDateTime: lastModifiedDateTime
           lastModifiedBy: lastModifiedBy
           createdDateTime: createdDateTime
+          source: source
           userName: userName
           userId: userId
           firstName: firstName
@@ -7494,6 +7587,7 @@ components:
           lastModifiedDateTime: lastModifiedDateTime
           lastModifiedBy: lastModifiedBy
           createdDateTime: createdDateTime
+          source: source
           userName: userName
           userId: userId
           firstName: firstName
@@ -7664,6 +7758,7 @@ components:
         lastModifiedBy: lastModifiedBy
         browserDebugEnabled: true
         createdDateTime: createdDateTime
+        source: source
         userName: userName
         userId: userId
         firstName: firstName
@@ -7766,6 +7861,9 @@ components:
             $ref: '#/components/schemas/EdGraph.Platform.HttpAggregators.Tenant.Api.Controllers.v1.ViewModels.Responses.UserLogin'
           nullable: true
           type: array
+        source:
+          nullable: true
+          type: string
       type: object
     EdGraph.Platform.HttpAggregators.Tenant.Api.Controllers.v1.ViewModels.Responses.UserTenant:
       additionalProperties: false
@@ -8722,7 +8820,7 @@ components:
     IdentityApi.Invitation.V1.InvitationStatus:
       enum:
       - Unknown
-      - Sent
+      - Invited
       - Accepted
       type: string
     IdentityApi.StaffClassification.V1.CreateStaffClassificationRequest:
@@ -9260,6 +9358,9 @@ components:
         role:
           nullable: true
           type: string
+        isPlatformAdmin:
+          nullable: true
+          type: boolean
       type: object
     IdentityApi.User.V1.UserActivatedResponse:
       additionalProperties: false
@@ -9327,6 +9428,16 @@ components:
       type: object
     Microsoft.AspNetCore.Mvc.ValidationProblemDetails:
       additionalProperties: {}
+      example:
+        instance: instance
+        detail: detail
+        type: type
+        title: title
+        errors:
+          key:
+          - errors
+          - errors
+        status: 6
       properties:
         errors:
           additionalProperties:
@@ -9363,6 +9474,8 @@ components:
           type: string
         domainStatus:
           $ref: '#/components/schemas/TenantApi.Tenant.V1.DomainStatus'
+        autoAssignUsers:
+          type: boolean
       type: object
     TenantApi.Tenant.V1.CreateOnboardingStepRequest:
       additionalProperties: false
@@ -9457,6 +9570,7 @@ components:
     TenantApi.Tenant.V1.DomainProfileResponse:
       additionalProperties: false
       example:
+        autoAssignUsers: true
         lastModifiedDateTime: lastModifiedDateTime
         createdBy: createdBy
         domainName: domainName
@@ -9473,6 +9587,8 @@ components:
           type: string
         domainStatus:
           $ref: '#/components/schemas/TenantApi.Tenant.V1.DomainStatus'
+        autoAssignUsers:
+          type: boolean
         createdBy:
           nullable: true
           type: string
@@ -10195,6 +10311,8 @@ components:
       type: object
     TenantApi.Tenant.V1.OrganizationsSyncedResponse:
       additionalProperties: false
+      example:
+        tenantId: tenantId
       properties:
         tenantId:
           nullable: true
@@ -10445,14 +10563,16 @@ components:
         organizationName: organizationName
         lastModifiedBy: lastModifiedBy
         domains:
-        - lastModifiedDateTime: lastModifiedDateTime
+        - autoAssignUsers: true
+          lastModifiedDateTime: lastModifiedDateTime
           createdBy: createdBy
           domainName: domainName
           lastModifiedBy: lastModifiedBy
           tenantId: tenantId
           createdDateTime: createdDateTime
           domainStatus: null
-        - lastModifiedDateTime: lastModifiedDateTime
+        - autoAssignUsers: true
+          lastModifiedDateTime: lastModifiedDateTime
           createdBy: createdBy
           domainName: domainName
           lastModifiedBy: lastModifiedBy
@@ -10463,6 +10583,7 @@ components:
         organizationIdentifierHash: organizationIdentifierHash
         isDemo: true
         enforceMfa: true
+        showLocalLoginOptionToTenantAdmins: true
         createdBy: createdBy
         organizationIdentifier: organizationIdentifier
         tenantId: tenantId
@@ -10522,6 +10643,8 @@ components:
         enforceMfa:
           type: boolean
         subscriptionsMigrated:
+          type: boolean
+        showLocalLoginOptionToTenantAdmins:
           type: boolean
         subscriptions:
           items:
@@ -10605,6 +10728,8 @@ components:
           type: string
         domainStatus:
           $ref: '#/components/schemas/TenantApi.Tenant.V1.DomainStatus'
+        autoAssignUsers:
+          type: boolean
       type: object
     TenantApi.Tenant.V1.UpdateOnboardingStepRequest:
       additionalProperties: false

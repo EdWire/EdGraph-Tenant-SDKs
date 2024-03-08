@@ -29,7 +29,7 @@ namespace EdGraph.Tenant.Client.Model
     /// MicrosoftAspNetCoreMvcValidationProblemDetails
     /// </summary>
     [DataContract(Name = "Microsoft.AspNetCore.Mvc.ValidationProblemDetails")]
-    public partial class MicrosoftAspNetCoreMvcValidationProblemDetails : Dictionary<String, Object>, IEquatable<MicrosoftAspNetCoreMvcValidationProblemDetails>, IValidatableObject
+    public partial class MicrosoftAspNetCoreMvcValidationProblemDetails : IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="MicrosoftAspNetCoreMvcValidationProblemDetails" /> class.
@@ -40,7 +40,7 @@ namespace EdGraph.Tenant.Client.Model
         /// <param name="status">status.</param>
         /// <param name="detail">detail.</param>
         /// <param name="instance">instance.</param>
-        public MicrosoftAspNetCoreMvcValidationProblemDetails(Dictionary<string, List<string>> errors = default(Dictionary<string, List<string>>), string type = default(string), string title = default(string), int? status = default(int?), string detail = default(string), string instance = default(string)) : base()
+        public MicrosoftAspNetCoreMvcValidationProblemDetails(Dictionary<string, List<string>> errors = default(Dictionary<string, List<string>>), string type = default(string), string title = default(string), int? status = default(int?), string detail = default(string), string instance = default(string))
         {
             this.Errors = errors;
             this.Type = type;
@@ -101,7 +101,6 @@ namespace EdGraph.Tenant.Client.Model
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("class MicrosoftAspNetCoreMvcValidationProblemDetails {\n");
-            sb.Append("  ").Append(base.ToString().Replace("\n", "\n  ")).Append("\n");
             sb.Append("  Errors: ").Append(Errors).Append("\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("  Title: ").Append(Title).Append("\n");
@@ -117,106 +116,9 @@ namespace EdGraph.Tenant.Client.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
-        }
-
-        /// <summary>
-        /// Returns true if objects are equal
-        /// </summary>
-        /// <param name="input">Object to be compared</param>
-        /// <returns>Boolean</returns>
-        public override bool Equals(object input)
-        {
-            return this.Equals(input as MicrosoftAspNetCoreMvcValidationProblemDetails);
-        }
-
-        /// <summary>
-        /// Returns true if MicrosoftAspNetCoreMvcValidationProblemDetails instances are equal
-        /// </summary>
-        /// <param name="input">Instance of MicrosoftAspNetCoreMvcValidationProblemDetails to be compared</param>
-        /// <returns>Boolean</returns>
-        public bool Equals(MicrosoftAspNetCoreMvcValidationProblemDetails input)
-        {
-            if (input == null)
-            {
-                return false;
-            }
-            return base.Equals(input) && 
-                (
-                    this.Errors == input.Errors ||
-                    this.Errors != null &&
-                    input.Errors != null &&
-                    this.Errors.SequenceEqual(input.Errors)
-                ) && base.Equals(input) && 
-                (
-                    this.Type == input.Type ||
-                    (this.Type != null &&
-                    this.Type.Equals(input.Type))
-                ) && base.Equals(input) && 
-                (
-                    this.Title == input.Title ||
-                    (this.Title != null &&
-                    this.Title.Equals(input.Title))
-                ) && base.Equals(input) && 
-                (
-                    this.Status == input.Status ||
-                    (this.Status != null &&
-                    this.Status.Equals(input.Status))
-                ) && base.Equals(input) && 
-                (
-                    this.Detail == input.Detail ||
-                    (this.Detail != null &&
-                    this.Detail.Equals(input.Detail))
-                ) && base.Equals(input) && 
-                (
-                    this.Instance == input.Instance ||
-                    (this.Instance != null &&
-                    this.Instance.Equals(input.Instance))
-                )
-                && (this.AdditionalProperties.Count == input.AdditionalProperties.Count && !this.AdditionalProperties.Except(input.AdditionalProperties).Any());
-        }
-
-        /// <summary>
-        /// Gets the hash code
-        /// </summary>
-        /// <returns>Hash code</returns>
-        public override int GetHashCode()
-        {
-            unchecked // Overflow is fine, just wrap
-            {
-                int hashCode = base.GetHashCode();
-                if (this.Errors != null)
-                {
-                    hashCode = (hashCode * 59) + this.Errors.GetHashCode();
-                }
-                if (this.Type != null)
-                {
-                    hashCode = (hashCode * 59) + this.Type.GetHashCode();
-                }
-                if (this.Title != null)
-                {
-                    hashCode = (hashCode * 59) + this.Title.GetHashCode();
-                }
-                if (this.Status != null)
-                {
-                    hashCode = (hashCode * 59) + this.Status.GetHashCode();
-                }
-                if (this.Detail != null)
-                {
-                    hashCode = (hashCode * 59) + this.Detail.GetHashCode();
-                }
-                if (this.Instance != null)
-                {
-                    hashCode = (hashCode * 59) + this.Instance.GetHashCode();
-                }
-                if (this.AdditionalProperties != null)
-                {
-                    hashCode = (hashCode * 59) + this.AdditionalProperties.GetHashCode();
-                }
-                return hashCode;
-            }
         }
 
         /// <summary>
@@ -225,16 +127,6 @@ namespace EdGraph.Tenant.Client.Model
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
-        {
-            return this.BaseValidate(validationContext);
-        }
-
-        /// <summary>
-        /// To validate all properties of the instance
-        /// </summary>
-        /// <param name="validationContext">Validation context</param>
-        /// <returns>Validation Result</returns>
-        protected IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> BaseValidate(ValidationContext validationContext)
         {
             yield break;
         }

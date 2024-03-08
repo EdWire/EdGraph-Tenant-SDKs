@@ -29,7 +29,7 @@ namespace EdGraph.Tenant.Client.Model
     /// EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsUpdateTenantRequest
     /// </summary>
     [DataContract(Name = "EdGraph.HttpAggregators.Tenant.Api.Controllers.v1.ViewModels.Requests.Tenants.UpdateTenantRequest")]
-    public partial class EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsUpdateTenantRequest : IEquatable<EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsUpdateTenantRequest>, IValidatableObject
+    public partial class EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsUpdateTenantRequest : IValidatableObject
     {
 
         /// <summary>
@@ -53,9 +53,10 @@ namespace EdGraph.Tenant.Client.Model
         /// <param name="state">state.</param>
         /// <param name="isDemo">isDemo.</param>
         /// <param name="enforceMfa">enforceMfa.</param>
+        /// <param name="showLocalLoginOptionToTenantAdmins">showLocalLoginOptionToTenantAdmins.</param>
         /// <param name="tenantStatus">tenantStatus.</param>
         /// <param name="identityProviders">identityProviders.</param>
-        public EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsUpdateTenantRequest(string tenantId = default(string), EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsTenantType? tenantType = default(EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsTenantType?), string organizationIdentifier = default(string), string organizationName = default(string), string state = default(string), bool isDemo = default(bool), bool enforceMfa = default(bool), EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsTenantStatus? tenantStatus = default(EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsTenantStatus?), List<EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsTenantIdentityProvider> identityProviders = default(List<EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsTenantIdentityProvider>))
+        public EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsUpdateTenantRequest(string tenantId = default(string), EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsTenantType? tenantType = default(EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsTenantType?), string organizationIdentifier = default(string), string organizationName = default(string), string state = default(string), bool isDemo = default(bool), bool enforceMfa = default(bool), bool? showLocalLoginOptionToTenantAdmins = default(bool?), EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsTenantStatus? tenantStatus = default(EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsTenantStatus?), List<EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsTenantIdentityProvider> identityProviders = default(List<EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsTenantIdentityProvider>))
         {
             this.TenantId = tenantId;
             this.TenantType = tenantType;
@@ -64,6 +65,7 @@ namespace EdGraph.Tenant.Client.Model
             this.State = state;
             this.IsDemo = isDemo;
             this.EnforceMfa = enforceMfa;
+            this.ShowLocalLoginOptionToTenantAdmins = showLocalLoginOptionToTenantAdmins;
             this.TenantStatus = tenantStatus;
             this.IdentityProviders = identityProviders;
         }
@@ -105,6 +107,12 @@ namespace EdGraph.Tenant.Client.Model
         public bool EnforceMfa { get; set; }
 
         /// <summary>
+        /// Gets or Sets ShowLocalLoginOptionToTenantAdmins
+        /// </summary>
+        [DataMember(Name = "showLocalLoginOptionToTenantAdmins", EmitDefaultValue = true)]
+        public bool? ShowLocalLoginOptionToTenantAdmins { get; set; }
+
+        /// <summary>
         /// Gets or Sets IdentityProviders
         /// </summary>
         [DataMember(Name = "identityProviders", EmitDefaultValue = true)]
@@ -125,6 +133,7 @@ namespace EdGraph.Tenant.Client.Model
             sb.Append("  State: ").Append(State).Append("\n");
             sb.Append("  IsDemo: ").Append(IsDemo).Append("\n");
             sb.Append("  EnforceMfa: ").Append(EnforceMfa).Append("\n");
+            sb.Append("  ShowLocalLoginOptionToTenantAdmins: ").Append(ShowLocalLoginOptionToTenantAdmins).Append("\n");
             sb.Append("  TenantStatus: ").Append(TenantStatus).Append("\n");
             sb.Append("  IdentityProviders: ").Append(IdentityProviders).Append("\n");
             sb.Append("}\n");
@@ -138,109 +147,6 @@ namespace EdGraph.Tenant.Client.Model
         public virtual string ToJson()
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
-        }
-
-        /// <summary>
-        /// Returns true if objects are equal
-        /// </summary>
-        /// <param name="input">Object to be compared</param>
-        /// <returns>Boolean</returns>
-        public override bool Equals(object input)
-        {
-            return this.Equals(input as EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsUpdateTenantRequest);
-        }
-
-        /// <summary>
-        /// Returns true if EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsUpdateTenantRequest instances are equal
-        /// </summary>
-        /// <param name="input">Instance of EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsUpdateTenantRequest to be compared</param>
-        /// <returns>Boolean</returns>
-        public bool Equals(EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsUpdateTenantRequest input)
-        {
-            if (input == null)
-            {
-                return false;
-            }
-            return 
-                (
-                    this.TenantId == input.TenantId ||
-                    (this.TenantId != null &&
-                    this.TenantId.Equals(input.TenantId))
-                ) && 
-                (
-                    this.TenantType == input.TenantType ||
-                    this.TenantType.Equals(input.TenantType)
-                ) && 
-                (
-                    this.OrganizationIdentifier == input.OrganizationIdentifier ||
-                    (this.OrganizationIdentifier != null &&
-                    this.OrganizationIdentifier.Equals(input.OrganizationIdentifier))
-                ) && 
-                (
-                    this.OrganizationName == input.OrganizationName ||
-                    (this.OrganizationName != null &&
-                    this.OrganizationName.Equals(input.OrganizationName))
-                ) && 
-                (
-                    this.State == input.State ||
-                    (this.State != null &&
-                    this.State.Equals(input.State))
-                ) && 
-                (
-                    this.IsDemo == input.IsDemo ||
-                    this.IsDemo.Equals(input.IsDemo)
-                ) && 
-                (
-                    this.EnforceMfa == input.EnforceMfa ||
-                    this.EnforceMfa.Equals(input.EnforceMfa)
-                ) && 
-                (
-                    this.TenantStatus == input.TenantStatus ||
-                    this.TenantStatus.Equals(input.TenantStatus)
-                ) && 
-                (
-                    this.IdentityProviders == input.IdentityProviders ||
-                    this.IdentityProviders != null &&
-                    input.IdentityProviders != null &&
-                    this.IdentityProviders.SequenceEqual(input.IdentityProviders)
-                );
-        }
-
-        /// <summary>
-        /// Gets the hash code
-        /// </summary>
-        /// <returns>Hash code</returns>
-        public override int GetHashCode()
-        {
-            unchecked // Overflow is fine, just wrap
-            {
-                int hashCode = 41;
-                if (this.TenantId != null)
-                {
-                    hashCode = (hashCode * 59) + this.TenantId.GetHashCode();
-                }
-                hashCode = (hashCode * 59) + this.TenantType.GetHashCode();
-                if (this.OrganizationIdentifier != null)
-                {
-                    hashCode = (hashCode * 59) + this.OrganizationIdentifier.GetHashCode();
-                }
-                if (this.OrganizationName != null)
-                {
-                    hashCode = (hashCode * 59) + this.OrganizationName.GetHashCode();
-                }
-                if (this.State != null)
-                {
-                    hashCode = (hashCode * 59) + this.State.GetHashCode();
-                }
-                hashCode = (hashCode * 59) + this.IsDemo.GetHashCode();
-                hashCode = (hashCode * 59) + this.EnforceMfa.GetHashCode();
-                hashCode = (hashCode * 59) + this.TenantStatus.GetHashCode();
-                if (this.IdentityProviders != null)
-                {
-                    hashCode = (hashCode * 59) + this.IdentityProviders.GetHashCode();
-                }
-                return hashCode;
-            }
         }
 
         /// <summary>

@@ -29,7 +29,7 @@ namespace EdGraph.Tenant.Client.Model
     /// EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsSendInvitationRequest
     /// </summary>
     [DataContract(Name = "EdGraph.HttpAggregators.Tenant.Api.Controllers.v1.ViewModels.Requests.SendInvitationRequest")]
-    public partial class EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsSendInvitationRequest : IEquatable<EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsSendInvitationRequest>, IValidatableObject
+    public partial class EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsSendInvitationRequest : IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsSendInvitationRequest" /> class.
@@ -111,98 +111,6 @@ namespace EdGraph.Tenant.Client.Model
         public virtual string ToJson()
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
-        }
-
-        /// <summary>
-        /// Returns true if objects are equal
-        /// </summary>
-        /// <param name="input">Object to be compared</param>
-        /// <returns>Boolean</returns>
-        public override bool Equals(object input)
-        {
-            return this.Equals(input as EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsSendInvitationRequest);
-        }
-
-        /// <summary>
-        /// Returns true if EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsSendInvitationRequest instances are equal
-        /// </summary>
-        /// <param name="input">Instance of EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsSendInvitationRequest to be compared</param>
-        /// <returns>Boolean</returns>
-        public bool Equals(EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsSendInvitationRequest input)
-        {
-            if (input == null)
-            {
-                return false;
-            }
-            return 
-                (
-                    this.TenantId == input.TenantId ||
-                    (this.TenantId != null &&
-                    this.TenantId.Equals(input.TenantId))
-                ) && 
-                (
-                    this.Email == input.Email ||
-                    (this.Email != null &&
-                    this.Email.Equals(input.Email))
-                ) && 
-                (
-                    this.FirstName == input.FirstName ||
-                    (this.FirstName != null &&
-                    this.FirstName.Equals(input.FirstName))
-                ) && 
-                (
-                    this.LastName == input.LastName ||
-                    (this.LastName != null &&
-                    this.LastName.Equals(input.LastName))
-                ) && 
-                (
-                    this.Role == input.Role ||
-                    (this.Role != null &&
-                    this.Role.Equals(input.Role))
-                ) && 
-                (
-                    this.AssignLicenseRequests == input.AssignLicenseRequests ||
-                    this.AssignLicenseRequests != null &&
-                    input.AssignLicenseRequests != null &&
-                    this.AssignLicenseRequests.SequenceEqual(input.AssignLicenseRequests)
-                );
-        }
-
-        /// <summary>
-        /// Gets the hash code
-        /// </summary>
-        /// <returns>Hash code</returns>
-        public override int GetHashCode()
-        {
-            unchecked // Overflow is fine, just wrap
-            {
-                int hashCode = 41;
-                if (this.TenantId != null)
-                {
-                    hashCode = (hashCode * 59) + this.TenantId.GetHashCode();
-                }
-                if (this.Email != null)
-                {
-                    hashCode = (hashCode * 59) + this.Email.GetHashCode();
-                }
-                if (this.FirstName != null)
-                {
-                    hashCode = (hashCode * 59) + this.FirstName.GetHashCode();
-                }
-                if (this.LastName != null)
-                {
-                    hashCode = (hashCode * 59) + this.LastName.GetHashCode();
-                }
-                if (this.Role != null)
-                {
-                    hashCode = (hashCode * 59) + this.Role.GetHashCode();
-                }
-                if (this.AssignLicenseRequests != null)
-                {
-                    hashCode = (hashCode * 59) + this.AssignLicenseRequests.GetHashCode();
-                }
-                return hashCode;
-            }
         }
 
         /// <summary>

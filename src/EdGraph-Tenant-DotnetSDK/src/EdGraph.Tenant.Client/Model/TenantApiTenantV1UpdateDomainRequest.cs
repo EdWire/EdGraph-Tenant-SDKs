@@ -29,7 +29,7 @@ namespace EdGraph.Tenant.Client.Model
     /// TenantApiTenantV1UpdateDomainRequest
     /// </summary>
     [DataContract(Name = "TenantApi.Tenant.V1.UpdateDomainRequest")]
-    public partial class TenantApiTenantV1UpdateDomainRequest : IEquatable<TenantApiTenantV1UpdateDomainRequest>, IValidatableObject
+    public partial class TenantApiTenantV1UpdateDomainRequest : IValidatableObject
     {
 
         /// <summary>
@@ -44,12 +44,14 @@ namespace EdGraph.Tenant.Client.Model
         /// <param name="oldDomainName">oldDomainName.</param>
         /// <param name="newDomainName">newDomainName.</param>
         /// <param name="domainStatus">domainStatus.</param>
-        public TenantApiTenantV1UpdateDomainRequest(string tenantId = default(string), string oldDomainName = default(string), string newDomainName = default(string), TenantApiTenantV1DomainStatus? domainStatus = default(TenantApiTenantV1DomainStatus?))
+        /// <param name="autoAssignUsers">autoAssignUsers.</param>
+        public TenantApiTenantV1UpdateDomainRequest(string tenantId = default(string), string oldDomainName = default(string), string newDomainName = default(string), TenantApiTenantV1DomainStatus? domainStatus = default(TenantApiTenantV1DomainStatus?), bool autoAssignUsers = default(bool))
         {
             this.TenantId = tenantId;
             this.OldDomainName = oldDomainName;
             this.NewDomainName = newDomainName;
             this.DomainStatus = domainStatus;
+            this.AutoAssignUsers = autoAssignUsers;
         }
 
         /// <summary>
@@ -71,6 +73,12 @@ namespace EdGraph.Tenant.Client.Model
         public string NewDomainName { get; set; }
 
         /// <summary>
+        /// Gets or Sets AutoAssignUsers
+        /// </summary>
+        [DataMember(Name = "autoAssignUsers", EmitDefaultValue = true)]
+        public bool AutoAssignUsers { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -82,6 +90,7 @@ namespace EdGraph.Tenant.Client.Model
             sb.Append("  OldDomainName: ").Append(OldDomainName).Append("\n");
             sb.Append("  NewDomainName: ").Append(NewDomainName).Append("\n");
             sb.Append("  DomainStatus: ").Append(DomainStatus).Append("\n");
+            sb.Append("  AutoAssignUsers: ").Append(AutoAssignUsers).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -93,75 +102,6 @@ namespace EdGraph.Tenant.Client.Model
         public virtual string ToJson()
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
-        }
-
-        /// <summary>
-        /// Returns true if objects are equal
-        /// </summary>
-        /// <param name="input">Object to be compared</param>
-        /// <returns>Boolean</returns>
-        public override bool Equals(object input)
-        {
-            return this.Equals(input as TenantApiTenantV1UpdateDomainRequest);
-        }
-
-        /// <summary>
-        /// Returns true if TenantApiTenantV1UpdateDomainRequest instances are equal
-        /// </summary>
-        /// <param name="input">Instance of TenantApiTenantV1UpdateDomainRequest to be compared</param>
-        /// <returns>Boolean</returns>
-        public bool Equals(TenantApiTenantV1UpdateDomainRequest input)
-        {
-            if (input == null)
-            {
-                return false;
-            }
-            return 
-                (
-                    this.TenantId == input.TenantId ||
-                    (this.TenantId != null &&
-                    this.TenantId.Equals(input.TenantId))
-                ) && 
-                (
-                    this.OldDomainName == input.OldDomainName ||
-                    (this.OldDomainName != null &&
-                    this.OldDomainName.Equals(input.OldDomainName))
-                ) && 
-                (
-                    this.NewDomainName == input.NewDomainName ||
-                    (this.NewDomainName != null &&
-                    this.NewDomainName.Equals(input.NewDomainName))
-                ) && 
-                (
-                    this.DomainStatus == input.DomainStatus ||
-                    this.DomainStatus.Equals(input.DomainStatus)
-                );
-        }
-
-        /// <summary>
-        /// Gets the hash code
-        /// </summary>
-        /// <returns>Hash code</returns>
-        public override int GetHashCode()
-        {
-            unchecked // Overflow is fine, just wrap
-            {
-                int hashCode = 41;
-                if (this.TenantId != null)
-                {
-                    hashCode = (hashCode * 59) + this.TenantId.GetHashCode();
-                }
-                if (this.OldDomainName != null)
-                {
-                    hashCode = (hashCode * 59) + this.OldDomainName.GetHashCode();
-                }
-                if (this.NewDomainName != null)
-                {
-                    hashCode = (hashCode * 59) + this.NewDomainName.GetHashCode();
-                }
-                hashCode = (hashCode * 59) + this.DomainStatus.GetHashCode();
-                return hashCode;
-            }
         }
 
         /// <summary>

@@ -197,5 +197,14 @@ namespace EdGraph.Tenant.Client.Test.Model
         {
             // TODO unit test for the property 'Logins'
         }
+
+        /// <summary>
+        /// Test the property 'Source'
+        /// </summary>
+        [Fact]
+        public void SourceTest()
+        {
+            // TODO unit test for the property 'Source'
+        }
     }
 }

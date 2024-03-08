@@ -29,7 +29,7 @@ namespace EdGraph.Tenant.Client.Model
     /// ApplicationApiApplicationV1ApplicationListResponse
     /// </summary>
     [DataContract(Name = "ApplicationApi.Application.V1.ApplicationListResponse")]
-    public partial class ApplicationApiApplicationV1ApplicationListResponse : IEquatable<ApplicationApiApplicationV1ApplicationListResponse>, IValidatableObject
+    public partial class ApplicationApiApplicationV1ApplicationListResponse : IValidatableObject
     {
 
         /// <summary>
@@ -57,9 +57,10 @@ namespace EdGraph.Tenant.Client.Model
         /// <param name="createdDateTime">createdDateTime.</param>
         /// <param name="lastModifiedBy">lastModifiedBy.</param>
         /// <param name="lastModifiedDateTime">lastModifiedDateTime.</param>
+        /// <param name="deletedAt">deletedAt.</param>
         /// <param name="subscriptionType">subscriptionType.</param>
         /// <param name="documentationUrl">documentationUrl.</param>
-        public ApplicationApiApplicationV1ApplicationListResponse(string tenantId = default(string), string applicationId = default(string), string applicationName = default(string), string varVersion = default(string), string tags = default(string), string groups = default(string), ApplicationApiApplicationV1ApplicationStatus? applicationStatus = default(ApplicationApiApplicationV1ApplicationStatus?), string createdBy = default(string), string createdDateTime = default(string), string lastModifiedBy = default(string), string lastModifiedDateTime = default(string), ApplicationApiApplicationV1ApplicationSubscriptionType? subscriptionType = default(ApplicationApiApplicationV1ApplicationSubscriptionType?), string documentationUrl = default(string))
+        public ApplicationApiApplicationV1ApplicationListResponse(string tenantId = default(string), string applicationId = default(string), string applicationName = default(string), string varVersion = default(string), string tags = default(string), string groups = default(string), ApplicationApiApplicationV1ApplicationStatus? applicationStatus = default(ApplicationApiApplicationV1ApplicationStatus?), string createdBy = default(string), string createdDateTime = default(string), string lastModifiedBy = default(string), string lastModifiedDateTime = default(string), string deletedAt = default(string), ApplicationApiApplicationV1ApplicationSubscriptionType? subscriptionType = default(ApplicationApiApplicationV1ApplicationSubscriptionType?), string documentationUrl = default(string))
         {
             this.TenantId = tenantId;
             this.ApplicationId = applicationId;
@@ -72,6 +73,7 @@ namespace EdGraph.Tenant.Client.Model
             this.CreatedDateTime = createdDateTime;
             this.LastModifiedBy = lastModifiedBy;
             this.LastModifiedDateTime = lastModifiedDateTime;
+            this.DeletedAt = deletedAt;
             this.SubscriptionType = subscriptionType;
             this.DocumentationUrl = documentationUrl;
         }
@@ -151,6 +153,12 @@ namespace EdGraph.Tenant.Client.Model
         public string LastModifiedDateTime { get; set; }
 
         /// <summary>
+        /// Gets or Sets DeletedAt
+        /// </summary>
+        [DataMember(Name = "deletedAt", EmitDefaultValue = true)]
+        public string DeletedAt { get; set; }
+
+        /// <summary>
         /// Gets or Sets DocumentationUrl
         /// </summary>
         [DataMember(Name = "documentationUrl", EmitDefaultValue = true)]
@@ -176,6 +184,7 @@ namespace EdGraph.Tenant.Client.Model
             sb.Append("  CreatedDateTime: ").Append(CreatedDateTime).Append("\n");
             sb.Append("  LastModifiedBy: ").Append(LastModifiedBy).Append("\n");
             sb.Append("  LastModifiedDateTime: ").Append(LastModifiedDateTime).Append("\n");
+            sb.Append("  DeletedAt: ").Append(DeletedAt).Append("\n");
             sb.Append("  SubscriptionType: ").Append(SubscriptionType).Append("\n");
             sb.Append("  DocumentationUrl: ").Append(DocumentationUrl).Append("\n");
             sb.Append("}\n");
@@ -189,162 +198,6 @@ namespace EdGraph.Tenant.Client.Model
         public virtual string ToJson()
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
-        }
-
-        /// <summary>
-        /// Returns true if objects are equal
-        /// </summary>
-        /// <param name="input">Object to be compared</param>
-        /// <returns>Boolean</returns>
-        public override bool Equals(object input)
-        {
-            return this.Equals(input as ApplicationApiApplicationV1ApplicationListResponse);
-        }
-
-        /// <summary>
-        /// Returns true if ApplicationApiApplicationV1ApplicationListResponse instances are equal
-        /// </summary>
-        /// <param name="input">Instance of ApplicationApiApplicationV1ApplicationListResponse to be compared</param>
-        /// <returns>Boolean</returns>
-        public bool Equals(ApplicationApiApplicationV1ApplicationListResponse input)
-        {
-            if (input == null)
-            {
-                return false;
-            }
-            return 
-                (
-                    this.TenantId == input.TenantId ||
-                    (this.TenantId != null &&
-                    this.TenantId.Equals(input.TenantId))
-                ) && 
-                (
-                    this.ApplicationId == input.ApplicationId ||
-                    (this.ApplicationId != null &&
-                    this.ApplicationId.Equals(input.ApplicationId))
-                ) && 
-                (
-                    this.ApplicationName == input.ApplicationName ||
-                    (this.ApplicationName != null &&
-                    this.ApplicationName.Equals(input.ApplicationName))
-                ) && 
-                (
-                    this.VarVersion == input.VarVersion ||
-                    (this.VarVersion != null &&
-                    this.VarVersion.Equals(input.VarVersion))
-                ) && 
-                (
-                    this.Tags == input.Tags ||
-                    (this.Tags != null &&
-                    this.Tags.Equals(input.Tags))
-                ) && 
-                (
-                    this.Groups == input.Groups ||
-                    (this.Groups != null &&
-                    this.Groups.Equals(input.Groups))
-                ) && 
-                (
-                    this.ApplicationStatus == input.ApplicationStatus ||
-                    this.ApplicationStatus.Equals(input.ApplicationStatus)
-                ) && 
-                (
-                    this.Roles == input.Roles ||
-                    this.Roles != null &&
-                    input.Roles != null &&
-                    this.Roles.SequenceEqual(input.Roles)
-                ) && 
-                (
-                    this.CreatedBy == input.CreatedBy ||
-                    (this.CreatedBy != null &&
-                    this.CreatedBy.Equals(input.CreatedBy))
-                ) && 
-                (
-                    this.CreatedDateTime == input.CreatedDateTime ||
-                    (this.CreatedDateTime != null &&
-                    this.CreatedDateTime.Equals(input.CreatedDateTime))
-                ) && 
-                (
-                    this.LastModifiedBy == input.LastModifiedBy ||
-                    (this.LastModifiedBy != null &&
-                    this.LastModifiedBy.Equals(input.LastModifiedBy))
-                ) && 
-                (
-                    this.LastModifiedDateTime == input.LastModifiedDateTime ||
-                    (this.LastModifiedDateTime != null &&
-                    this.LastModifiedDateTime.Equals(input.LastModifiedDateTime))
-                ) && 
-                (
-                    this.SubscriptionType == input.SubscriptionType ||
-                    this.SubscriptionType.Equals(input.SubscriptionType)
-                ) && 
-                (
-                    this.DocumentationUrl == input.DocumentationUrl ||
-                    (this.DocumentationUrl != null &&
-                    this.DocumentationUrl.Equals(input.DocumentationUrl))
-                );
-        }
-
-        /// <summary>
-        /// Gets the hash code
-        /// </summary>
-        /// <returns>Hash code</returns>
-        public override int GetHashCode()
-        {
-            unchecked // Overflow is fine, just wrap
-            {
-                int hashCode = 41;
-                if (this.TenantId != null)
-                {
-                    hashCode = (hashCode * 59) + this.TenantId.GetHashCode();
-                }
-                if (this.ApplicationId != null)
-                {
-                    hashCode = (hashCode * 59) + this.ApplicationId.GetHashCode();
-                }
-                if (this.ApplicationName != null)
-                {
-                    hashCode = (hashCode * 59) + this.ApplicationName.GetHashCode();
-                }
-                if (this.VarVersion != null)
-                {
-                    hashCode = (hashCode * 59) + this.VarVersion.GetHashCode();
-                }
-                if (this.Tags != null)
-                {
-                    hashCode = (hashCode * 59) + this.Tags.GetHashCode();
-                }
-                if (this.Groups != null)
-                {
-                    hashCode = (hashCode * 59) + this.Groups.GetHashCode();
-                }
-                hashCode = (hashCode * 59) + this.ApplicationStatus.GetHashCode();
-                if (this.Roles != null)
-                {
-                    hashCode = (hashCode * 59) + this.Roles.GetHashCode();
-                }
-                if (this.CreatedBy != null)
-                {
-                    hashCode = (hashCode * 59) + this.CreatedBy.GetHashCode();
-                }
-                if (this.CreatedDateTime != null)
-                {
-                    hashCode = (hashCode * 59) + this.CreatedDateTime.GetHashCode();
-                }
-                if (this.LastModifiedBy != null)
-                {
-                    hashCode = (hashCode * 59) + this.LastModifiedBy.GetHashCode();
-                }
-                if (this.LastModifiedDateTime != null)
-                {
-                    hashCode = (hashCode * 59) + this.LastModifiedDateTime.GetHashCode();
-                }
-                hashCode = (hashCode * 59) + this.SubscriptionType.GetHashCode();
-                if (this.DocumentationUrl != null)
-                {
-                    hashCode = (hashCode * 59) + this.DocumentationUrl.GetHashCode();
-                }
-                return hashCode;
-            }
         }
 
         /// <summary>

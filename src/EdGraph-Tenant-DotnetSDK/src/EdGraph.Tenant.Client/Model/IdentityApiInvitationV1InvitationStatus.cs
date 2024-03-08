@@ -38,10 +38,10 @@ namespace EdGraph.Tenant.Client.Model
         Unknown,
 
         /// <summary>
-        /// Enum Sent for value: Sent
+        /// Enum Invited for value: Invited
         /// </summary>
-        [EnumMember(Value = "Sent")]
-        Sent,
+        [EnumMember(Value = "Invited")]
+        Invited,
 
         /// <summary>
         /// Enum Accepted for value: Accepted

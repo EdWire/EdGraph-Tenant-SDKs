@@ -16,6 +16,7 @@ Name | Type | Description | Notes
 **CreatedDateTime** | **string** |  | [optional] 
 **LastModifiedBy** | **string** |  | [optional] 
 **LastModifiedDateTime** | **string** |  | [optional] 
+**DeletedAt** | **string** |  | [optional] 
 **SubscriptionType** | **ApplicationApiApplicationV1ApplicationSubscriptionType** |  | [optional] 
 **DocumentationUrl** | **string** |  | [optional] 
 

@@ -29,7 +29,7 @@ namespace EdGraph.Tenant.Client.Model
     /// TenantApiWebhookV1CreateWebhookRequest
     /// </summary>
     [DataContract(Name = "TenantApi.Webhook.V1.CreateWebhookRequest")]
-    public partial class TenantApiWebhookV1CreateWebhookRequest : IEquatable<TenantApiWebhookV1CreateWebhookRequest>, IValidatableObject
+    public partial class TenantApiWebhookV1CreateWebhookRequest : IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="TenantApiWebhookV1CreateWebhookRequest" /> class.
@@ -126,107 +126,6 @@ namespace EdGraph.Tenant.Client.Model
         public virtual string ToJson()
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
-        }
-
-        /// <summary>
-        /// Returns true if objects are equal
-        /// </summary>
-        /// <param name="input">Object to be compared</param>
-        /// <returns>Boolean</returns>
-        public override bool Equals(object input)
-        {
-            return this.Equals(input as TenantApiWebhookV1CreateWebhookRequest);
-        }
-
-        /// <summary>
-        /// Returns true if TenantApiWebhookV1CreateWebhookRequest instances are equal
-        /// </summary>
-        /// <param name="input">Instance of TenantApiWebhookV1CreateWebhookRequest to be compared</param>
-        /// <returns>Boolean</returns>
-        public bool Equals(TenantApiWebhookV1CreateWebhookRequest input)
-        {
-            if (input == null)
-            {
-                return false;
-            }
-            return 
-                (
-                    this.TenantId == input.TenantId ||
-                    (this.TenantId != null &&
-                    this.TenantId.Equals(input.TenantId))
-                ) && 
-                (
-                    this.Name == input.Name ||
-                    (this.Name != null &&
-                    this.Name.Equals(input.Name))
-                ) && 
-                (
-                    this.Url == input.Url ||
-                    (this.Url != null &&
-                    this.Url.Equals(input.Url))
-                ) && 
-                (
-                    this.SecretHeader == input.SecretHeader ||
-                    (this.SecretHeader != null &&
-                    this.SecretHeader.Equals(input.SecretHeader))
-                ) && 
-                (
-                    this.SecretValue == input.SecretValue ||
-                    (this.SecretValue != null &&
-                    this.SecretValue.Equals(input.SecretValue))
-                ) && 
-                (
-                    this.ContentType == input.ContentType ||
-                    (this.ContentType != null &&
-                    this.ContentType.Equals(input.ContentType))
-                ) && 
-                (
-                    this.EventSubscriptions == input.EventSubscriptions ||
-                    this.EventSubscriptions != null &&
-                    input.EventSubscriptions != null &&
-                    this.EventSubscriptions.SequenceEqual(input.EventSubscriptions)
-                );
-        }
-
-        /// <summary>
-        /// Gets the hash code
-        /// </summary>
-        /// <returns>Hash code</returns>
-        public override int GetHashCode()
-        {
-            unchecked // Overflow is fine, just wrap
-            {
-                int hashCode = 41;
-                if (this.TenantId != null)
-                {
-                    hashCode = (hashCode * 59) + this.TenantId.GetHashCode();
-                }
-                if (this.Name != null)
-                {
-                    hashCode = (hashCode * 59) + this.Name.GetHashCode();
-                }
-                if (this.Url != null)
-                {
-                    hashCode = (hashCode * 59) + this.Url.GetHashCode();
-                }
-                if (this.SecretHeader != null)
-                {
-                    hashCode = (hashCode * 59) + this.SecretHeader.GetHashCode();
-                }
-                if (this.SecretValue != null)
-                {
-                    hashCode = (hashCode * 59) + this.SecretValue.GetHashCode();
-                }
-                if (this.ContentType != null)
-                {
-                    hashCode = (hashCode * 59) + this.ContentType.GetHashCode();
-                }
-                if (this.EventSubscriptions != null)
-                {
-                    hashCode = (hashCode * 59) + this.EventSubscriptions.GetHashCode();
-                }
-                return hashCode;
-            }
         }
 
         /// <summary>

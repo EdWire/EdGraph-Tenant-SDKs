@@ -29,7 +29,7 @@ namespace EdGraph.Tenant.Client.Model
     /// EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesUserTenantLicenseRole
     /// </summary>
     [DataContract(Name = "EdGraph.Platform.HttpAggregators.Tenant.Api.Controllers.v1.ViewModels.Responses.UserTenantLicenseRole")]
-    public partial class EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesUserTenantLicenseRole : IEquatable<EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesUserTenantLicenseRole>, IValidatableObject
+    public partial class EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesUserTenantLicenseRole : IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesUserTenantLicenseRole" /> class.
@@ -102,84 +102,6 @@ namespace EdGraph.Tenant.Client.Model
         public virtual string ToJson()
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
-        }
-
-        /// <summary>
-        /// Returns true if objects are equal
-        /// </summary>
-        /// <param name="input">Object to be compared</param>
-        /// <returns>Boolean</returns>
-        public override bool Equals(object input)
-        {
-            return this.Equals(input as EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesUserTenantLicenseRole);
-        }
-
-        /// <summary>
-        /// Returns true if EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesUserTenantLicenseRole instances are equal
-        /// </summary>
-        /// <param name="input">Instance of EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesUserTenantLicenseRole to be compared</param>
-        /// <returns>Boolean</returns>
-        public bool Equals(EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesUserTenantLicenseRole input)
-        {
-            if (input == null)
-            {
-                return false;
-            }
-            return 
-                (
-                    this.Role == input.Role ||
-                    (this.Role != null &&
-                    this.Role.Equals(input.Role))
-                ) && 
-                (
-                    this.IsImplicitlyAssigned == input.IsImplicitlyAssigned ||
-                    this.IsImplicitlyAssigned.Equals(input.IsImplicitlyAssigned)
-                ) && 
-                (
-                    this.Status == input.Status ||
-                    (this.Status != null &&
-                    this.Status.Equals(input.Status))
-                ) && 
-                (
-                    this.EducationOrganizationId == input.EducationOrganizationId ||
-                    (this.EducationOrganizationId != null &&
-                    this.EducationOrganizationId.Equals(input.EducationOrganizationId))
-                ) && 
-                (
-                    this.StaffClassification == input.StaffClassification ||
-                    (this.StaffClassification != null &&
-                    this.StaffClassification.Equals(input.StaffClassification))
-                );
-        }
-
-        /// <summary>
-        /// Gets the hash code
-        /// </summary>
-        /// <returns>Hash code</returns>
-        public override int GetHashCode()
-        {
-            unchecked // Overflow is fine, just wrap
-            {
-                int hashCode = 41;
-                if (this.Role != null)
-                {
-                    hashCode = (hashCode * 59) + this.Role.GetHashCode();
-                }
-                hashCode = (hashCode * 59) + this.IsImplicitlyAssigned.GetHashCode();
-                if (this.Status != null)
-                {
-                    hashCode = (hashCode * 59) + this.Status.GetHashCode();
-                }
-                if (this.EducationOrganizationId != null)
-                {
-                    hashCode = (hashCode * 59) + this.EducationOrganizationId.GetHashCode();
-                }
-                if (this.StaffClassification != null)
-                {
-                    hashCode = (hashCode * 59) + this.StaffClassification.GetHashCode();
-                }
-                return hashCode;
-            }
         }
 
         /// <summary>

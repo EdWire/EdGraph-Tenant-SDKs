@@ -29,7 +29,7 @@ namespace EdGraph.Tenant.Client.Model
     /// TenantApiWebhookV1WebhookEventsResponse
     /// </summary>
     [DataContract(Name = "TenantApi.Webhook.V1.WebhookEventsResponse")]
-    public partial class TenantApiWebhookV1WebhookEventsResponse : IEquatable<TenantApiWebhookV1WebhookEventsResponse>, IValidatableObject
+    public partial class TenantApiWebhookV1WebhookEventsResponse : IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="TenantApiWebhookV1WebhookEventsResponse" /> class.
@@ -73,53 +73,6 @@ namespace EdGraph.Tenant.Client.Model
         public virtual string ToJson()
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
-        }
-
-        /// <summary>
-        /// Returns true if objects are equal
-        /// </summary>
-        /// <param name="input">Object to be compared</param>
-        /// <returns>Boolean</returns>
-        public override bool Equals(object input)
-        {
-            return this.Equals(input as TenantApiWebhookV1WebhookEventsResponse);
-        }
-
-        /// <summary>
-        /// Returns true if TenantApiWebhookV1WebhookEventsResponse instances are equal
-        /// </summary>
-        /// <param name="input">Instance of TenantApiWebhookV1WebhookEventsResponse to be compared</param>
-        /// <returns>Boolean</returns>
-        public bool Equals(TenantApiWebhookV1WebhookEventsResponse input)
-        {
-            if (input == null)
-            {
-                return false;
-            }
-            return 
-                (
-                    this.EventSubscriptions == input.EventSubscriptions ||
-                    this.EventSubscriptions != null &&
-                    input.EventSubscriptions != null &&
-                    this.EventSubscriptions.SequenceEqual(input.EventSubscriptions)
-                );
-        }
-
-        /// <summary>
-        /// Gets the hash code
-        /// </summary>
-        /// <returns>Hash code</returns>
-        public override int GetHashCode()
-        {
-            unchecked // Overflow is fine, just wrap
-            {
-                int hashCode = 41;
-                if (this.EventSubscriptions != null)
-                {
-                    hashCode = (hashCode * 59) + this.EventSubscriptions.GetHashCode();
-                }
-                return hashCode;
-            }
         }
 
         /// <summary>

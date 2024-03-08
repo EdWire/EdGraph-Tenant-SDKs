@@ -29,7 +29,7 @@ namespace EdGraph.Tenant.Client.Model
     /// TenantApiTenantV1GetAppSettingsResponse
     /// </summary>
     [DataContract(Name = "TenantApi.Tenant.V1.GetAppSettingsResponse")]
-    public partial class TenantApiTenantV1GetAppSettingsResponse : IEquatable<TenantApiTenantV1GetAppSettingsResponse>, IValidatableObject
+    public partial class TenantApiTenantV1GetAppSettingsResponse : IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="TenantApiTenantV1GetAppSettingsResponse" /> class.
@@ -73,53 +73,6 @@ namespace EdGraph.Tenant.Client.Model
         public virtual string ToJson()
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
-        }
-
-        /// <summary>
-        /// Returns true if objects are equal
-        /// </summary>
-        /// <param name="input">Object to be compared</param>
-        /// <returns>Boolean</returns>
-        public override bool Equals(object input)
-        {
-            return this.Equals(input as TenantApiTenantV1GetAppSettingsResponse);
-        }
-
-        /// <summary>
-        /// Returns true if TenantApiTenantV1GetAppSettingsResponse instances are equal
-        /// </summary>
-        /// <param name="input">Instance of TenantApiTenantV1GetAppSettingsResponse to be compared</param>
-        /// <returns>Boolean</returns>
-        public bool Equals(TenantApiTenantV1GetAppSettingsResponse input)
-        {
-            if (input == null)
-            {
-                return false;
-            }
-            return 
-                (
-                    this.Data == input.Data ||
-                    this.Data != null &&
-                    input.Data != null &&
-                    this.Data.SequenceEqual(input.Data)
-                );
-        }
-
-        /// <summary>
-        /// Gets the hash code
-        /// </summary>
-        /// <returns>Hash code</returns>
-        public override int GetHashCode()
-        {
-            unchecked // Overflow is fine, just wrap
-            {
-                int hashCode = 41;
-                if (this.Data != null)
-                {
-                    hashCode = (hashCode * 59) + this.Data.GetHashCode();
-                }
-                return hashCode;
-            }
         }
 
         /// <summary>

@@ -29,7 +29,7 @@ namespace EdGraph.Tenant.Client.Model
     /// TenantApiTenantV1TenantUpdatedResponse
     /// </summary>
     [DataContract(Name = "TenantApi.Tenant.V1.TenantUpdatedResponse")]
-    public partial class TenantApiTenantV1TenantUpdatedResponse : IEquatable<TenantApiTenantV1TenantUpdatedResponse>, IValidatableObject
+    public partial class TenantApiTenantV1TenantUpdatedResponse : IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="TenantApiTenantV1TenantUpdatedResponse" /> class.
@@ -66,52 +66,6 @@ namespace EdGraph.Tenant.Client.Model
         public virtual string ToJson()
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
-        }
-
-        /// <summary>
-        /// Returns true if objects are equal
-        /// </summary>
-        /// <param name="input">Object to be compared</param>
-        /// <returns>Boolean</returns>
-        public override bool Equals(object input)
-        {
-            return this.Equals(input as TenantApiTenantV1TenantUpdatedResponse);
-        }
-
-        /// <summary>
-        /// Returns true if TenantApiTenantV1TenantUpdatedResponse instances are equal
-        /// </summary>
-        /// <param name="input">Instance of TenantApiTenantV1TenantUpdatedResponse to be compared</param>
-        /// <returns>Boolean</returns>
-        public bool Equals(TenantApiTenantV1TenantUpdatedResponse input)
-        {
-            if (input == null)
-            {
-                return false;
-            }
-            return 
-                (
-                    this.TenantId == input.TenantId ||
-                    (this.TenantId != null &&
-                    this.TenantId.Equals(input.TenantId))
-                );
-        }
-
-        /// <summary>
-        /// Gets the hash code
-        /// </summary>
-        /// <returns>Hash code</returns>
-        public override int GetHashCode()
-        {
-            unchecked // Overflow is fine, just wrap
-            {
-                int hashCode = 41;
-                if (this.TenantId != null)
-                {
-                    hashCode = (hashCode * 59) + this.TenantId.GetHashCode();
-                }
-                return hashCode;
-            }
         }
 
         /// <summary>

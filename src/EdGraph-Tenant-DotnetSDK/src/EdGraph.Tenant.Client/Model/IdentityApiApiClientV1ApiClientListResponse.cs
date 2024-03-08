@@ -29,7 +29,7 @@ namespace EdGraph.Tenant.Client.Model
     /// IdentityApiApiClientV1ApiClientListResponse
     /// </summary>
     [DataContract(Name = "IdentityApi.ApiClient.V1.ApiClientListResponse")]
-    public partial class IdentityApiApiClientV1ApiClientListResponse : IEquatable<IdentityApiApiClientV1ApiClientListResponse>, IValidatableObject
+    public partial class IdentityApiApiClientV1ApiClientListResponse : IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="IdentityApiApiClientV1ApiClientListResponse" /> class.
@@ -138,120 +138,6 @@ namespace EdGraph.Tenant.Client.Model
         public virtual string ToJson()
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
-        }
-
-        /// <summary>
-        /// Returns true if objects are equal
-        /// </summary>
-        /// <param name="input">Object to be compared</param>
-        /// <returns>Boolean</returns>
-        public override bool Equals(object input)
-        {
-            return this.Equals(input as IdentityApiApiClientV1ApiClientListResponse);
-        }
-
-        /// <summary>
-        /// Returns true if IdentityApiApiClientV1ApiClientListResponse instances are equal
-        /// </summary>
-        /// <param name="input">Instance of IdentityApiApiClientV1ApiClientListResponse to be compared</param>
-        /// <returns>Boolean</returns>
-        public bool Equals(IdentityApiApiClientV1ApiClientListResponse input)
-        {
-            if (input == null)
-            {
-                return false;
-            }
-            return 
-                (
-                    this.TenantId == input.TenantId ||
-                    (this.TenantId != null &&
-                    this.TenantId.Equals(input.TenantId))
-                ) && 
-                (
-                    this.ClientId == input.ClientId ||
-                    (this.ClientId != null &&
-                    this.ClientId.Equals(input.ClientId))
-                ) && 
-                (
-                    this.ClientName == input.ClientName ||
-                    (this.ClientName != null &&
-                    this.ClientName.Equals(input.ClientName))
-                ) && 
-                (
-                    this.ClientUri == input.ClientUri ||
-                    (this.ClientUri != null &&
-                    this.ClientUri.Equals(input.ClientUri))
-                ) && 
-                (
-                    this.Enabled == input.Enabled ||
-                    this.Enabled.Equals(input.Enabled)
-                ) && 
-                (
-                    this.CreatedBy == input.CreatedBy ||
-                    (this.CreatedBy != null &&
-                    this.CreatedBy.Equals(input.CreatedBy))
-                ) && 
-                (
-                    this.CreatedDateTime == input.CreatedDateTime ||
-                    (this.CreatedDateTime != null &&
-                    this.CreatedDateTime.Equals(input.CreatedDateTime))
-                ) && 
-                (
-                    this.LastModifiedBy == input.LastModifiedBy ||
-                    (this.LastModifiedBy != null &&
-                    this.LastModifiedBy.Equals(input.LastModifiedBy))
-                ) && 
-                (
-                    this.LastModifiedDateTime == input.LastModifiedDateTime ||
-                    (this.LastModifiedDateTime != null &&
-                    this.LastModifiedDateTime.Equals(input.LastModifiedDateTime))
-                );
-        }
-
-        /// <summary>
-        /// Gets the hash code
-        /// </summary>
-        /// <returns>Hash code</returns>
-        public override int GetHashCode()
-        {
-            unchecked // Overflow is fine, just wrap
-            {
-                int hashCode = 41;
-                if (this.TenantId != null)
-                {
-                    hashCode = (hashCode * 59) + this.TenantId.GetHashCode();
-                }
-                if (this.ClientId != null)
-                {
-                    hashCode = (hashCode * 59) + this.ClientId.GetHashCode();
-                }
-                if (this.ClientName != null)
-                {
-                    hashCode = (hashCode * 59) + this.ClientName.GetHashCode();
-                }
-                if (this.ClientUri != null)
-                {
-                    hashCode = (hashCode * 59) + this.ClientUri.GetHashCode();
-                }
-                hashCode = (hashCode * 59) + this.Enabled.GetHashCode();
-                if (this.CreatedBy != null)
-                {
-                    hashCode = (hashCode * 59) + this.CreatedBy.GetHashCode();
-                }
-                if (this.CreatedDateTime != null)
-                {
-                    hashCode = (hashCode * 59) + this.CreatedDateTime.GetHashCode();
-                }
-                if (this.LastModifiedBy != null)
-                {
-                    hashCode = (hashCode * 59) + this.LastModifiedBy.GetHashCode();
-                }
-                if (this.LastModifiedDateTime != null)
-                {
-                    hashCode = (hashCode * 59) + this.LastModifiedDateTime.GetHashCode();
-                }
-                return hashCode;
-            }
         }
 
         /// <summary>

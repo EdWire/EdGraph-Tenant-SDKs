@@ -29,7 +29,7 @@ namespace EdGraph.Tenant.Client.Model
     /// EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesUserListResponseWithApplicationLicense
     /// </summary>
     [DataContract(Name = "EdGraph.Platform.HttpAggregators.Tenant.Api.Controllers.v1.ViewModels.Responses.UserListResponseWithApplicationLicense")]
-    public partial class EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesUserListResponseWithApplicationLicense : IEquatable<EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesUserListResponseWithApplicationLicense>, IValidatableObject
+    public partial class EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesUserListResponseWithApplicationLicense : IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesUserListResponseWithApplicationLicense" /> class.
@@ -47,7 +47,8 @@ namespace EdGraph.Tenant.Client.Model
         /// <param name="lastModifiedBy">lastModifiedBy.</param>
         /// <param name="lastModifiedDateTime">lastModifiedDateTime.</param>
         /// <param name="logins">logins.</param>
-        public EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesUserListResponseWithApplicationLicense(string userId = default(string), string userName = default(string), string email = default(string), string firstName = default(string), string lastName = default(string), int tenantCount = default(int), List<EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesUserTenant> tenants = default(List<EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesUserTenant>), List<EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesUserLicense> licenses = default(List<EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesUserLicense>), string createdBy = default(string), string createdDateTime = default(string), string lastModifiedBy = default(string), string lastModifiedDateTime = default(string), List<EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesUserLogin> logins = default(List<EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesUserLogin>))
+        /// <param name="source">source.</param>
+        public EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesUserListResponseWithApplicationLicense(string userId = default(string), string userName = default(string), string email = default(string), string firstName = default(string), string lastName = default(string), int tenantCount = default(int), List<EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesUserTenant> tenants = default(List<EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesUserTenant>), List<EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesUserLicense> licenses = default(List<EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesUserLicense>), string createdBy = default(string), string createdDateTime = default(string), string lastModifiedBy = default(string), string lastModifiedDateTime = default(string), List<EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesUserLogin> logins = default(List<EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesUserLogin>), string source = default(string))
         {
             this.UserId = userId;
             this.UserName = userName;
@@ -62,6 +63,7 @@ namespace EdGraph.Tenant.Client.Model
             this.LastModifiedBy = lastModifiedBy;
             this.LastModifiedDateTime = lastModifiedDateTime;
             this.Logins = logins;
+            this.Source = source;
         }
 
         /// <summary>
@@ -143,6 +145,12 @@ namespace EdGraph.Tenant.Client.Model
         public List<EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesUserLogin> Logins { get; set; }
 
         /// <summary>
+        /// Gets or Sets Source
+        /// </summary>
+        [DataMember(Name = "source", EmitDefaultValue = true)]
+        public string Source { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -163,6 +171,7 @@ namespace EdGraph.Tenant.Client.Model
             sb.Append("  LastModifiedBy: ").Append(LastModifiedBy).Append("\n");
             sb.Append("  LastModifiedDateTime: ").Append(LastModifiedDateTime).Append("\n");
             sb.Append("  Logins: ").Append(Logins).Append("\n");
+            sb.Append("  Source: ").Append(Source).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -174,159 +183,6 @@ namespace EdGraph.Tenant.Client.Model
         public virtual string ToJson()
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
-        }
-
-        /// <summary>
-        /// Returns true if objects are equal
-        /// </summary>
-        /// <param name="input">Object to be compared</param>
-        /// <returns>Boolean</returns>
-        public override bool Equals(object input)
-        {
-            return this.Equals(input as EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesUserListResponseWithApplicationLicense);
-        }
-
-        /// <summary>
-        /// Returns true if EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesUserListResponseWithApplicationLicense instances are equal
-        /// </summary>
-        /// <param name="input">Instance of EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesUserListResponseWithApplicationLicense to be compared</param>
-        /// <returns>Boolean</returns>
-        public bool Equals(EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesUserListResponseWithApplicationLicense input)
-        {
-            if (input == null)
-            {
-                return false;
-            }
-            return 
-                (
-                    this.UserId == input.UserId ||
-                    (this.UserId != null &&
-                    this.UserId.Equals(input.UserId))
-                ) && 
-                (
-                    this.UserName == input.UserName ||
-                    (this.UserName != null &&
-                    this.UserName.Equals(input.UserName))
-                ) && 
-                (
-                    this.Email == input.Email ||
-                    (this.Email != null &&
-                    this.Email.Equals(input.Email))
-                ) && 
-                (
-                    this.FirstName == input.FirstName ||
-                    (this.FirstName != null &&
-                    this.FirstName.Equals(input.FirstName))
-                ) && 
-                (
-                    this.LastName == input.LastName ||
-                    (this.LastName != null &&
-                    this.LastName.Equals(input.LastName))
-                ) && 
-                (
-                    this.TenantCount == input.TenantCount ||
-                    this.TenantCount.Equals(input.TenantCount)
-                ) && 
-                (
-                    this.Tenants == input.Tenants ||
-                    this.Tenants != null &&
-                    input.Tenants != null &&
-                    this.Tenants.SequenceEqual(input.Tenants)
-                ) && 
-                (
-                    this.Licenses == input.Licenses ||
-                    this.Licenses != null &&
-                    input.Licenses != null &&
-                    this.Licenses.SequenceEqual(input.Licenses)
-                ) && 
-                (
-                    this.CreatedBy == input.CreatedBy ||
-                    (this.CreatedBy != null &&
-                    this.CreatedBy.Equals(input.CreatedBy))
-                ) && 
-                (
-                    this.CreatedDateTime == input.CreatedDateTime ||
-                    (this.CreatedDateTime != null &&
-                    this.CreatedDateTime.Equals(input.CreatedDateTime))
-                ) && 
-                (
-                    this.LastModifiedBy == input.LastModifiedBy ||
-                    (this.LastModifiedBy != null &&
-                    this.LastModifiedBy.Equals(input.LastModifiedBy))
-                ) && 
-                (
-                    this.LastModifiedDateTime == input.LastModifiedDateTime ||
-                    (this.LastModifiedDateTime != null &&
-                    this.LastModifiedDateTime.Equals(input.LastModifiedDateTime))
-                ) && 
-                (
-                    this.Logins == input.Logins ||
-                    this.Logins != null &&
-                    input.Logins != null &&
-                    this.Logins.SequenceEqual(input.Logins)
-                );
-        }
-
-        /// <summary>
-        /// Gets the hash code
-        /// </summary>
-        /// <returns>Hash code</returns>
-        public override int GetHashCode()
-        {
-            unchecked // Overflow is fine, just wrap
-            {
-                int hashCode = 41;
-                if (this.UserId != null)
-                {
-                    hashCode = (hashCode * 59) + this.UserId.GetHashCode();
-                }
-                if (this.UserName != null)
-                {
-                    hashCode = (hashCode * 59) + this.UserName.GetHashCode();
-                }
-                if (this.Email != null)
-                {
-                    hashCode = (hashCode * 59) + this.Email.GetHashCode();
-                }
-                if (this.FirstName != null)
-                {
-                    hashCode = (hashCode * 59) + this.FirstName.GetHashCode();
-                }
-                if (this.LastName != null)
-                {
-                    hashCode = (hashCode * 59) + this.LastName.GetHashCode();
-                }
-                hashCode = (hashCode * 59) + this.TenantCount.GetHashCode();
-                if (this.Tenants != null)
-                {
-                    hashCode = (hashCode * 59) + this.Tenants.GetHashCode();
-                }
-                if (this.Licenses != null)
-                {
-                    hashCode = (hashCode * 59) + this.Licenses.GetHashCode();
-                }
-                if (this.CreatedBy != null)
-                {
-                    hashCode = (hashCode * 59) + this.CreatedBy.GetHashCode();
-                }
-                if (this.CreatedDateTime != null)
-                {
-                    hashCode = (hashCode * 59) + this.CreatedDateTime.GetHashCode();
-                }
-                if (this.LastModifiedBy != null)
-                {
-                    hashCode = (hashCode * 59) + this.LastModifiedBy.GetHashCode();
-                }
-                if (this.LastModifiedDateTime != null)
-                {
-                    hashCode = (hashCode * 59) + this.LastModifiedDateTime.GetHashCode();
-                }
-                if (this.Logins != null)
-                {
-                    hashCode = (hashCode * 59) + this.Logins.GetHashCode();
-                }
-                return hashCode;
-            }
         }
 
         /// <summary>

@@ -29,7 +29,7 @@ namespace EdGraph.Tenant.Client.Model
     /// TenantApiTenantV1SyncOrganizationsRequest
     /// </summary>
     [DataContract(Name = "TenantApi.Tenant.V1.SyncOrganizationsRequest")]
-    public partial class TenantApiTenantV1SyncOrganizationsRequest : IEquatable<TenantApiTenantV1SyncOrganizationsRequest>, IValidatableObject
+    public partial class TenantApiTenantV1SyncOrganizationsRequest : IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="TenantApiTenantV1SyncOrganizationsRequest" /> class.
@@ -84,66 +84,6 @@ namespace EdGraph.Tenant.Client.Model
         public virtual string ToJson()
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
-        }
-
-        /// <summary>
-        /// Returns true if objects are equal
-        /// </summary>
-        /// <param name="input">Object to be compared</param>
-        /// <returns>Boolean</returns>
-        public override bool Equals(object input)
-        {
-            return this.Equals(input as TenantApiTenantV1SyncOrganizationsRequest);
-        }
-
-        /// <summary>
-        /// Returns true if TenantApiTenantV1SyncOrganizationsRequest instances are equal
-        /// </summary>
-        /// <param name="input">Instance of TenantApiTenantV1SyncOrganizationsRequest to be compared</param>
-        /// <returns>Boolean</returns>
-        public bool Equals(TenantApiTenantV1SyncOrganizationsRequest input)
-        {
-            if (input == null)
-            {
-                return false;
-            }
-            return 
-                (
-                    this.TenantId == input.TenantId ||
-                    (this.TenantId != null &&
-                    this.TenantId.Equals(input.TenantId))
-                ) && 
-                (
-                    this.InstanceId == input.InstanceId ||
-                    (this.InstanceId != null &&
-                    this.InstanceId.Equals(input.InstanceId))
-                ) && 
-                (
-                    this.Year == input.Year ||
-                    this.Year.Equals(input.Year)
-                );
-        }
-
-        /// <summary>
-        /// Gets the hash code
-        /// </summary>
-        /// <returns>Hash code</returns>
-        public override int GetHashCode()
-        {
-            unchecked // Overflow is fine, just wrap
-            {
-                int hashCode = 41;
-                if (this.TenantId != null)
-                {
-                    hashCode = (hashCode * 59) + this.TenantId.GetHashCode();
-                }
-                if (this.InstanceId != null)
-                {
-                    hashCode = (hashCode * 59) + this.InstanceId.GetHashCode();
-                }
-                hashCode = (hashCode * 59) + this.Year.GetHashCode();
-                return hashCode;
-            }
         }
 
         /// <summary>

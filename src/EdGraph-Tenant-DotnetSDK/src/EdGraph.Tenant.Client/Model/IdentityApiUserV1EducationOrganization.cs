@@ -29,7 +29,7 @@ namespace EdGraph.Tenant.Client.Model
     /// IdentityApiUserV1EducationOrganization
     /// </summary>
     [DataContract(Name = "IdentityApi.User.V1.EducationOrganization")]
-    public partial class IdentityApiUserV1EducationOrganization : IEquatable<IdentityApiUserV1EducationOrganization>, IValidatableObject
+    public partial class IdentityApiUserV1EducationOrganization : IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="IdentityApiUserV1EducationOrganization" /> class.
@@ -108,85 +108,6 @@ namespace EdGraph.Tenant.Client.Model
         public virtual string ToJson()
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
-        }
-
-        /// <summary>
-        /// Returns true if objects are equal
-        /// </summary>
-        /// <param name="input">Object to be compared</param>
-        /// <returns>Boolean</returns>
-        public override bool Equals(object input)
-        {
-            return this.Equals(input as IdentityApiUserV1EducationOrganization);
-        }
-
-        /// <summary>
-        /// Returns true if IdentityApiUserV1EducationOrganization instances are equal
-        /// </summary>
-        /// <param name="input">Instance of IdentityApiUserV1EducationOrganization to be compared</param>
-        /// <returns>Boolean</returns>
-        public bool Equals(IdentityApiUserV1EducationOrganization input)
-        {
-            if (input == null)
-            {
-                return false;
-            }
-            return 
-                (
-                    this.EducationOrganizationId == input.EducationOrganizationId ||
-                    this.EducationOrganizationId.Equals(input.EducationOrganizationId)
-                ) && 
-                (
-                    this.ShortNameOfInstitution == input.ShortNameOfInstitution ||
-                    (this.ShortNameOfInstitution != null &&
-                    this.ShortNameOfInstitution.Equals(input.ShortNameOfInstitution))
-                ) && 
-                (
-                    this.NameOfInstitution == input.NameOfInstitution ||
-                    (this.NameOfInstitution != null &&
-                    this.NameOfInstitution.Equals(input.NameOfInstitution))
-                ) && 
-                (
-                    this.StaffClassifications == input.StaffClassifications ||
-                    this.StaffClassifications != null &&
-                    input.StaffClassifications != null &&
-                    this.StaffClassifications.SequenceEqual(input.StaffClassifications)
-                ) && 
-                (
-                    this.Source == input.Source ||
-                    (this.Source != null &&
-                    this.Source.Equals(input.Source))
-                );
-        }
-
-        /// <summary>
-        /// Gets the hash code
-        /// </summary>
-        /// <returns>Hash code</returns>
-        public override int GetHashCode()
-        {
-            unchecked // Overflow is fine, just wrap
-            {
-                int hashCode = 41;
-                hashCode = (hashCode * 59) + this.EducationOrganizationId.GetHashCode();
-                if (this.ShortNameOfInstitution != null)
-                {
-                    hashCode = (hashCode * 59) + this.ShortNameOfInstitution.GetHashCode();
-                }
-                if (this.NameOfInstitution != null)
-                {
-                    hashCode = (hashCode * 59) + this.NameOfInstitution.GetHashCode();
-                }
-                if (this.StaffClassifications != null)
-                {
-                    hashCode = (hashCode * 59) + this.StaffClassifications.GetHashCode();
-                }
-                if (this.Source != null)
-                {
-                    hashCode = (hashCode * 59) + this.Source.GetHashCode();
-                }
-                return hashCode;
-            }
         }
 
         /// <summary>

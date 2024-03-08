@@ -29,7 +29,7 @@ namespace EdGraph.Tenant.Client.Model
     /// TenantApiTenantV1UpdateSubscriptionRequest
     /// </summary>
     [DataContract(Name = "TenantApi.Tenant.V1.UpdateSubscriptionRequest")]
-    public partial class TenantApiTenantV1UpdateSubscriptionRequest : IEquatable<TenantApiTenantV1UpdateSubscriptionRequest>, IValidatableObject
+    public partial class TenantApiTenantV1UpdateSubscriptionRequest : IValidatableObject
     {
 
         /// <summary>
@@ -139,104 +139,6 @@ namespace EdGraph.Tenant.Client.Model
         public virtual string ToJson()
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
-        }
-
-        /// <summary>
-        /// Returns true if objects are equal
-        /// </summary>
-        /// <param name="input">Object to be compared</param>
-        /// <returns>Boolean</returns>
-        public override bool Equals(object input)
-        {
-            return this.Equals(input as TenantApiTenantV1UpdateSubscriptionRequest);
-        }
-
-        /// <summary>
-        /// Returns true if TenantApiTenantV1UpdateSubscriptionRequest instances are equal
-        /// </summary>
-        /// <param name="input">Instance of TenantApiTenantV1UpdateSubscriptionRequest to be compared</param>
-        /// <returns>Boolean</returns>
-        public bool Equals(TenantApiTenantV1UpdateSubscriptionRequest input)
-        {
-            if (input == null)
-            {
-                return false;
-            }
-            return 
-                (
-                    this.TenantId == input.TenantId ||
-                    (this.TenantId != null &&
-                    this.TenantId.Equals(input.TenantId))
-                ) && 
-                (
-                    this.SubscriptionId == input.SubscriptionId ||
-                    (this.SubscriptionId != null &&
-                    this.SubscriptionId.Equals(input.SubscriptionId))
-                ) && 
-                (
-                    this.StartDateTime == input.StartDateTime ||
-                    (this.StartDateTime != null &&
-                    this.StartDateTime.Equals(input.StartDateTime))
-                ) && 
-                (
-                    this.EndDateTime == input.EndDateTime ||
-                    (this.EndDateTime != null &&
-                    this.EndDateTime.Equals(input.EndDateTime))
-                ) && 
-                (
-                    this.GracePeriod == input.GracePeriod ||
-                    this.GracePeriod.Equals(input.GracePeriod)
-                ) && 
-                (
-                    this.NumberOfLicenses == input.NumberOfLicenses ||
-                    this.NumberOfLicenses.Equals(input.NumberOfLicenses)
-                ) && 
-                (
-                    this.AssignedLicenses == input.AssignedLicenses ||
-                    this.AssignedLicenses.Equals(input.AssignedLicenses)
-                ) && 
-                (
-                    this.LicenseType == input.LicenseType ||
-                    this.LicenseType.Equals(input.LicenseType)
-                ) && 
-                (
-                    this.AutoAssign == input.AutoAssign ||
-                    this.AutoAssign.Equals(input.AutoAssign)
-                );
-        }
-
-        /// <summary>
-        /// Gets the hash code
-        /// </summary>
-        /// <returns>Hash code</returns>
-        public override int GetHashCode()
-        {
-            unchecked // Overflow is fine, just wrap
-            {
-                int hashCode = 41;
-                if (this.TenantId != null)
-                {
-                    hashCode = (hashCode * 59) + this.TenantId.GetHashCode();
-                }
-                if (this.SubscriptionId != null)
-                {
-                    hashCode = (hashCode * 59) + this.SubscriptionId.GetHashCode();
-                }
-                if (this.StartDateTime != null)
-                {
-                    hashCode = (hashCode * 59) + this.StartDateTime.GetHashCode();
-                }
-                if (this.EndDateTime != null)
-                {
-                    hashCode = (hashCode * 59) + this.EndDateTime.GetHashCode();
-                }
-                hashCode = (hashCode * 59) + this.GracePeriod.GetHashCode();
-                hashCode = (hashCode * 59) + this.NumberOfLicenses.GetHashCode();
-                hashCode = (hashCode * 59) + this.AssignedLicenses.GetHashCode();
-                hashCode = (hashCode * 59) + this.LicenseType.GetHashCode();
-                hashCode = (hashCode * 59) + this.AutoAssign.GetHashCode();
-                return hashCode;
-            }
         }
 
         /// <summary>

@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **State** | **string** |  | [optional] 
 **IsDemo** | **bool** |  | [optional] 
 **EnforceMfa** | **bool** |  | [optional] 
+**ShowLocalLoginOptionToTenantAdmins** | **bool?** |  | [optional] 
 **TenantStatus** | **EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsTenantStatus** |  | [optional] 
 **IdentityProviders** | [**List&lt;EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsTenantIdentityProvider&gt;**](EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsTenantIdentityProvider.md) |  | [optional] 
 

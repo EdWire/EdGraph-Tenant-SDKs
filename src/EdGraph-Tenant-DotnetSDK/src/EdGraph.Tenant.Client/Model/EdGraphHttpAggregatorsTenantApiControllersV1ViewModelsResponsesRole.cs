@@ -29,7 +29,7 @@ namespace EdGraph.Tenant.Client.Model
     /// EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesRole
     /// </summary>
     [DataContract(Name = "EdGraph.HttpAggregators.Tenant.Api.Controllers.v1.ViewModels.Responses.Role")]
-    public partial class EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesRole : IEquatable<EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesRole>, IValidatableObject
+    public partial class EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesRole : IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesRole" /> class.
@@ -37,11 +37,17 @@ namespace EdGraph.Tenant.Client.Model
         /// <param name="roleName">roleName.</param>
         /// <param name="isDefault">isDefault.</param>
         /// <param name="isAvailableForTenants">isAvailableForTenants.</param>
-        public EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesRole(string roleName = default(string), bool isDefault = default(bool), bool isAvailableForTenants = default(bool))
+        /// <param name="displayName">displayName.</param>
+        /// <param name="description">description.</param>
+        /// <param name="sortOrder">sortOrder.</param>
+        public EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesRole(string roleName = default(string), bool isDefault = default(bool), bool isAvailableForTenants = default(bool), string displayName = default(string), string description = default(string), int sortOrder = default(int))
         {
             this.RoleName = roleName;
             this.IsDefault = isDefault;
             this.IsAvailableForTenants = isAvailableForTenants;
+            this.DisplayName = displayName;
+            this.Description = description;
+            this.SortOrder = sortOrder;
         }
 
         /// <summary>
@@ -63,6 +69,24 @@ namespace EdGraph.Tenant.Client.Model
         public bool IsAvailableForTenants { get; set; }
 
         /// <summary>
+        /// Gets or Sets DisplayName
+        /// </summary>
+        [DataMember(Name = "displayName", EmitDefaultValue = true)]
+        public string DisplayName { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Description
+        /// </summary>
+        [DataMember(Name = "description", EmitDefaultValue = true)]
+        public string Description { get; set; }
+
+        /// <summary>
+        /// Gets or Sets SortOrder
+        /// </summary>
+        [DataMember(Name = "sortOrder", EmitDefaultValue = false)]
+        public int SortOrder { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -73,6 +97,9 @@ namespace EdGraph.Tenant.Client.Model
             sb.Append("  RoleName: ").Append(RoleName).Append("\n");
             sb.Append("  IsDefault: ").Append(IsDefault).Append("\n");
             sb.Append("  IsAvailableForTenants: ").Append(IsAvailableForTenants).Append("\n");
+            sb.Append("  DisplayName: ").Append(DisplayName).Append("\n");
+            sb.Append("  Description: ").Append(Description).Append("\n");
+            sb.Append("  SortOrder: ").Append(SortOrder).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -84,62 +111,6 @@ namespace EdGraph.Tenant.Client.Model
         public virtual string ToJson()
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
-        }
-
-        /// <summary>
-        /// Returns true if objects are equal
-        /// </summary>
-        /// <param name="input">Object to be compared</param>
-        /// <returns>Boolean</returns>
-        public override bool Equals(object input)
-        {
-            return this.Equals(input as EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesRole);
-        }
-
-        /// <summary>
-        /// Returns true if EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesRole instances are equal
-        /// </summary>
-        /// <param name="input">Instance of EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesRole to be compared</param>
-        /// <returns>Boolean</returns>
-        public bool Equals(EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesRole input)
-        {
-            if (input == null)
-            {
-                return false;
-            }
-            return 
-                (
-                    this.RoleName == input.RoleName ||
-                    (this.RoleName != null &&
-                    this.RoleName.Equals(input.RoleName))
-                ) && 
-                (
-                    this.IsDefault == input.IsDefault ||
-                    this.IsDefault.Equals(input.IsDefault)
-                ) && 
-                (
-                    this.IsAvailableForTenants == input.IsAvailableForTenants ||
-                    this.IsAvailableForTenants.Equals(input.IsAvailableForTenants)
-                );
-        }
-
-        /// <summary>
-        /// Gets the hash code
-        /// </summary>
-        /// <returns>Hash code</returns>
-        public override int GetHashCode()
-        {
-            unchecked // Overflow is fine, just wrap
-            {
-                int hashCode = 41;
-                if (this.RoleName != null)
-                {
-                    hashCode = (hashCode * 59) + this.RoleName.GetHashCode();
-                }
-                hashCode = (hashCode * 59) + this.IsDefault.GetHashCode();
-                hashCode = (hashCode * 59) + this.IsAvailableForTenants.GetHashCode();
-                return hashCode;
-            }
         }
 
         /// <summary>

@@ -29,7 +29,7 @@ namespace EdGraph.Tenant.Client.Model
     /// EdGraphCommonErrorsCoreProblemDetails
     /// </summary>
     [DataContract(Name = "EdGraph.Common.Errors.Core.ProblemDetails")]
-    public partial class EdGraphCommonErrorsCoreProblemDetails : IEquatable<EdGraphCommonErrorsCoreProblemDetails>, IValidatableObject
+    public partial class EdGraphCommonErrorsCoreProblemDetails : IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="EdGraphCommonErrorsCoreProblemDetails" /> class.
@@ -117,94 +117,6 @@ namespace EdGraph.Tenant.Client.Model
         public virtual string ToJson()
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
-        }
-
-        /// <summary>
-        /// Returns true if objects are equal
-        /// </summary>
-        /// <param name="input">Object to be compared</param>
-        /// <returns>Boolean</returns>
-        public override bool Equals(object input)
-        {
-            return this.Equals(input as EdGraphCommonErrorsCoreProblemDetails);
-        }
-
-        /// <summary>
-        /// Returns true if EdGraphCommonErrorsCoreProblemDetails instances are equal
-        /// </summary>
-        /// <param name="input">Instance of EdGraphCommonErrorsCoreProblemDetails to be compared</param>
-        /// <returns>Boolean</returns>
-        public bool Equals(EdGraphCommonErrorsCoreProblemDetails input)
-        {
-            if (input == null)
-            {
-                return false;
-            }
-            return 
-                (
-                    this.Type == input.Type ||
-                    (this.Type != null &&
-                    this.Type.Equals(input.Type))
-                ) && 
-                (
-                    this.Status == input.Status ||
-                    this.Status.Equals(input.Status)
-                ) && 
-                (
-                    this.Title == input.Title ||
-                    (this.Title != null &&
-                    this.Title.Equals(input.Title))
-                ) && 
-                (
-                    this.Details == input.Details ||
-                    (this.Details != null &&
-                    this.Details.Equals(input.Details))
-                ) && 
-                (
-                    this.Instance == input.Instance ||
-                    (this.Instance != null &&
-                    this.Instance.Equals(input.Instance))
-                ) && 
-                (
-                    this.Extensions == input.Extensions ||
-                    this.Extensions != null &&
-                    input.Extensions != null &&
-                    this.Extensions.SequenceEqual(input.Extensions)
-                );
-        }
-
-        /// <summary>
-        /// Gets the hash code
-        /// </summary>
-        /// <returns>Hash code</returns>
-        public override int GetHashCode()
-        {
-            unchecked // Overflow is fine, just wrap
-            {
-                int hashCode = 41;
-                if (this.Type != null)
-                {
-                    hashCode = (hashCode * 59) + this.Type.GetHashCode();
-                }
-                hashCode = (hashCode * 59) + this.Status.GetHashCode();
-                if (this.Title != null)
-                {
-                    hashCode = (hashCode * 59) + this.Title.GetHashCode();
-                }
-                if (this.Details != null)
-                {
-                    hashCode = (hashCode * 59) + this.Details.GetHashCode();
-                }
-                if (this.Instance != null)
-                {
-                    hashCode = (hashCode * 59) + this.Instance.GetHashCode();
-                }
-                if (this.Extensions != null)
-                {
-                    hashCode = (hashCode * 59) + this.Extensions.GetHashCode();
-                }
-                return hashCode;
-            }
         }
 
         /// <summary>

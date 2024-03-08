@@ -80,5 +80,32 @@ namespace EdGraph.Tenant.Client.Test.Model
         {
             // TODO unit test for the property 'IsAvailableForTenants'
         }
+
+        /// <summary>
+        /// Test the property 'DisplayName'
+        /// </summary>
+        [Fact]
+        public void DisplayNameTest()
+        {
+            // TODO unit test for the property 'DisplayName'
+        }
+
+        /// <summary>
+        /// Test the property 'Description'
+        /// </summary>
+        [Fact]
+        public void DescriptionTest()
+        {
+            // TODO unit test for the property 'Description'
+        }
+
+        /// <summary>
+        /// Test the property 'SortOrder'
+        /// </summary>
+        [Fact]
+        public void SortOrderTest()
+        {
+            // TODO unit test for the property 'SortOrder'
+        }
     }
 }

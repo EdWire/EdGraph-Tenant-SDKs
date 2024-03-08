@@ -80,5 +80,14 @@ namespace EdGraph.Tenant.Client.Test.Model
         {
             // TODO unit test for the property 'DomainStatus'
         }
+
+        /// <summary>
+        /// Test the property 'AutoAssignUsers'
+        /// </summary>
+        [Fact]
+        public void AutoAssignUsersTest()
+        {
+            // TODO unit test for the property 'AutoAssignUsers'
+        }
     }
 }

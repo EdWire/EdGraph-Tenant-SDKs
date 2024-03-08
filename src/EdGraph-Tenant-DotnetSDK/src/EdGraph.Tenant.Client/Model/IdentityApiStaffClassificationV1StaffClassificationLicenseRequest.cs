@@ -29,7 +29,7 @@ namespace EdGraph.Tenant.Client.Model
     /// IdentityApiStaffClassificationV1StaffClassificationLicenseRequest
     /// </summary>
     [DataContract(Name = "IdentityApi.StaffClassification.V1.StaffClassificationLicenseRequest")]
-    public partial class IdentityApiStaffClassificationV1StaffClassificationLicenseRequest : IEquatable<IdentityApiStaffClassificationV1StaffClassificationLicenseRequest>, IValidatableObject
+    public partial class IdentityApiStaffClassificationV1StaffClassificationLicenseRequest : IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="IdentityApiStaffClassificationV1StaffClassificationLicenseRequest" /> class.
@@ -90,71 +90,6 @@ namespace EdGraph.Tenant.Client.Model
         public virtual string ToJson()
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
-        }
-
-        /// <summary>
-        /// Returns true if objects are equal
-        /// </summary>
-        /// <param name="input">Object to be compared</param>
-        /// <returns>Boolean</returns>
-        public override bool Equals(object input)
-        {
-            return this.Equals(input as IdentityApiStaffClassificationV1StaffClassificationLicenseRequest);
-        }
-
-        /// <summary>
-        /// Returns true if IdentityApiStaffClassificationV1StaffClassificationLicenseRequest instances are equal
-        /// </summary>
-        /// <param name="input">Instance of IdentityApiStaffClassificationV1StaffClassificationLicenseRequest to be compared</param>
-        /// <returns>Boolean</returns>
-        public bool Equals(IdentityApiStaffClassificationV1StaffClassificationLicenseRequest input)
-        {
-            if (input == null)
-            {
-                return false;
-            }
-            return 
-                (
-                    this.ApplicationId == input.ApplicationId ||
-                    (this.ApplicationId != null &&
-                    this.ApplicationId.Equals(input.ApplicationId))
-                ) && 
-                (
-                    this.LicenseStatus == input.LicenseStatus ||
-                    (this.LicenseStatus != null &&
-                    this.LicenseStatus.Equals(input.LicenseStatus))
-                ) && 
-                (
-                    this.Roles == input.Roles ||
-                    this.Roles != null &&
-                    input.Roles != null &&
-                    this.Roles.SequenceEqual(input.Roles)
-                );
-        }
-
-        /// <summary>
-        /// Gets the hash code
-        /// </summary>
-        /// <returns>Hash code</returns>
-        public override int GetHashCode()
-        {
-            unchecked // Overflow is fine, just wrap
-            {
-                int hashCode = 41;
-                if (this.ApplicationId != null)
-                {
-                    hashCode = (hashCode * 59) + this.ApplicationId.GetHashCode();
-                }
-                if (this.LicenseStatus != null)
-                {
-                    hashCode = (hashCode * 59) + this.LicenseStatus.GetHashCode();
-                }
-                if (this.Roles != null)
-                {
-                    hashCode = (hashCode * 59) + this.Roles.GetHashCode();
-                }
-                return hashCode;
-            }
         }
 
         /// <summary>

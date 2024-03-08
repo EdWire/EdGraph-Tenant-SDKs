@@ -29,7 +29,7 @@ namespace EdGraph.Tenant.Client.Model
     /// TenantApiTenantV1InstanceDatabase
     /// </summary>
     [DataContract(Name = "TenantApi.Tenant.V1.InstanceDatabase")]
-    public partial class TenantApiTenantV1InstanceDatabase : IEquatable<TenantApiTenantV1InstanceDatabase>, IValidatableObject
+    public partial class TenantApiTenantV1InstanceDatabase : IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="TenantApiTenantV1InstanceDatabase" /> class.
@@ -93,79 +93,6 @@ namespace EdGraph.Tenant.Client.Model
         public virtual string ToJson()
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
-        }
-
-        /// <summary>
-        /// Returns true if objects are equal
-        /// </summary>
-        /// <param name="input">Object to be compared</param>
-        /// <returns>Boolean</returns>
-        public override bool Equals(object input)
-        {
-            return this.Equals(input as TenantApiTenantV1InstanceDatabase);
-        }
-
-        /// <summary>
-        /// Returns true if TenantApiTenantV1InstanceDatabase instances are equal
-        /// </summary>
-        /// <param name="input">Instance of TenantApiTenantV1InstanceDatabase to be compared</param>
-        /// <returns>Boolean</returns>
-        public bool Equals(TenantApiTenantV1InstanceDatabase input)
-        {
-            if (input == null)
-            {
-                return false;
-            }
-            return 
-                (
-                    this.SelectedTierId == input.SelectedTierId ||
-                    (this.SelectedTierId != null &&
-                    this.SelectedTierId.Equals(input.SelectedTierId))
-                ) && 
-                (
-                    this.SelectedTierName == input.SelectedTierName ||
-                    (this.SelectedTierName != null &&
-                    this.SelectedTierName.Equals(input.SelectedTierName))
-                ) && 
-                (
-                    this.Status == input.Status ||
-                    (this.Status != null &&
-                    this.Status.Equals(input.Status))
-                ) && 
-                (
-                    this.Jobs == input.Jobs ||
-                    (this.Jobs != null &&
-                    this.Jobs.Equals(input.Jobs))
-                );
-        }
-
-        /// <summary>
-        /// Gets the hash code
-        /// </summary>
-        /// <returns>Hash code</returns>
-        public override int GetHashCode()
-        {
-            unchecked // Overflow is fine, just wrap
-            {
-                int hashCode = 41;
-                if (this.SelectedTierId != null)
-                {
-                    hashCode = (hashCode * 59) + this.SelectedTierId.GetHashCode();
-                }
-                if (this.SelectedTierName != null)
-                {
-                    hashCode = (hashCode * 59) + this.SelectedTierName.GetHashCode();
-                }
-                if (this.Status != null)
-                {
-                    hashCode = (hashCode * 59) + this.Status.GetHashCode();
-                }
-                if (this.Jobs != null)
-                {
-                    hashCode = (hashCode * 59) + this.Jobs.GetHashCode();
-                }
-                return hashCode;
-            }
         }
 
         /// <summary>

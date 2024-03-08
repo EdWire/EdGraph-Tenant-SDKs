@@ -29,7 +29,7 @@ namespace EdGraph.Tenant.Client.Model
     /// IdentityApiInvitationV1InvitationListResponse
     /// </summary>
     [DataContract(Name = "IdentityApi.Invitation.V1.InvitationListResponse")]
-    public partial class IdentityApiInvitationV1InvitationListResponse : IEquatable<IdentityApiInvitationV1InvitationListResponse>, IValidatableObject
+    public partial class IdentityApiInvitationV1InvitationListResponse : IValidatableObject
     {
 
         /// <summary>
@@ -153,130 +153,6 @@ namespace EdGraph.Tenant.Client.Model
         public virtual string ToJson()
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
-        }
-
-        /// <summary>
-        /// Returns true if objects are equal
-        /// </summary>
-        /// <param name="input">Object to be compared</param>
-        /// <returns>Boolean</returns>
-        public override bool Equals(object input)
-        {
-            return this.Equals(input as IdentityApiInvitationV1InvitationListResponse);
-        }
-
-        /// <summary>
-        /// Returns true if IdentityApiInvitationV1InvitationListResponse instances are equal
-        /// </summary>
-        /// <param name="input">Instance of IdentityApiInvitationV1InvitationListResponse to be compared</param>
-        /// <returns>Boolean</returns>
-        public bool Equals(IdentityApiInvitationV1InvitationListResponse input)
-        {
-            if (input == null)
-            {
-                return false;
-            }
-            return 
-                (
-                    this.TenantId == input.TenantId ||
-                    (this.TenantId != null &&
-                    this.TenantId.Equals(input.TenantId))
-                ) && 
-                (
-                    this.InvitationId == input.InvitationId ||
-                    (this.InvitationId != null &&
-                    this.InvitationId.Equals(input.InvitationId))
-                ) && 
-                (
-                    this.FirstName == input.FirstName ||
-                    (this.FirstName != null &&
-                    this.FirstName.Equals(input.FirstName))
-                ) && 
-                (
-                    this.LastName == input.LastName ||
-                    (this.LastName != null &&
-                    this.LastName.Equals(input.LastName))
-                ) && 
-                (
-                    this.Email == input.Email ||
-                    (this.Email != null &&
-                    this.Email.Equals(input.Email))
-                ) && 
-                (
-                    this.Role == input.Role ||
-                    (this.Role != null &&
-                    this.Role.Equals(input.Role))
-                ) && 
-                (
-                    this.InvitationToken == input.InvitationToken ||
-                    (this.InvitationToken != null &&
-                    this.InvitationToken.Equals(input.InvitationToken))
-                ) && 
-                (
-                    this.InvitationStatus == input.InvitationStatus ||
-                    this.InvitationStatus.Equals(input.InvitationStatus)
-                ) && 
-                (
-                    this.InvitationSentDateTime == input.InvitationSentDateTime ||
-                    (this.InvitationSentDateTime != null &&
-                    this.InvitationSentDateTime.Equals(input.InvitationSentDateTime))
-                ) && 
-                (
-                    this.AssignLicenseRequests == input.AssignLicenseRequests ||
-                    this.AssignLicenseRequests != null &&
-                    input.AssignLicenseRequests != null &&
-                    this.AssignLicenseRequests.SequenceEqual(input.AssignLicenseRequests)
-                );
-        }
-
-        /// <summary>
-        /// Gets the hash code
-        /// </summary>
-        /// <returns>Hash code</returns>
-        public override int GetHashCode()
-        {
-            unchecked // Overflow is fine, just wrap
-            {
-                int hashCode = 41;
-                if (this.TenantId != null)
-                {
-                    hashCode = (hashCode * 59) + this.TenantId.GetHashCode();
-                }
-                if (this.InvitationId != null)
-                {
-                    hashCode = (hashCode * 59) + this.InvitationId.GetHashCode();
-                }
-                if (this.FirstName != null)
-                {
-                    hashCode = (hashCode * 59) + this.FirstName.GetHashCode();
-                }
-                if (this.LastName != null)
-                {
-                    hashCode = (hashCode * 59) + this.LastName.GetHashCode();
-                }
-                if (this.Email != null)
-                {
-                    hashCode = (hashCode * 59) + this.Email.GetHashCode();
-                }
-                if (this.Role != null)
-                {
-                    hashCode = (hashCode * 59) + this.Role.GetHashCode();
-                }
-                if (this.InvitationToken != null)
-                {
-                    hashCode = (hashCode * 59) + this.InvitationToken.GetHashCode();
-                }
-                hashCode = (hashCode * 59) + this.InvitationStatus.GetHashCode();
-                if (this.InvitationSentDateTime != null)
-                {
-                    hashCode = (hashCode * 59) + this.InvitationSentDateTime.GetHashCode();
-                }
-                if (this.AssignLicenseRequests != null)
-                {
-                    hashCode = (hashCode * 59) + this.AssignLicenseRequests.GetHashCode();
-                }
-                return hashCode;
-            }
         }
 
         /// <summary>

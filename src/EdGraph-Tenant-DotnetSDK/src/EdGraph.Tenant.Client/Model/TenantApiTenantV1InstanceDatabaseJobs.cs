@@ -29,7 +29,7 @@ namespace EdGraph.Tenant.Client.Model
     /// TenantApiTenantV1InstanceDatabaseJobs
     /// </summary>
     [DataContract(Name = "TenantApi.Tenant.V1.InstanceDatabaseJobs")]
-    public partial class TenantApiTenantV1InstanceDatabaseJobs : IEquatable<TenantApiTenantV1InstanceDatabaseJobs>, IValidatableObject
+    public partial class TenantApiTenantV1InstanceDatabaseJobs : IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="TenantApiTenantV1InstanceDatabaseJobs" /> class.
@@ -102,88 +102,6 @@ namespace EdGraph.Tenant.Client.Model
         public virtual string ToJson()
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
-        }
-
-        /// <summary>
-        /// Returns true if objects are equal
-        /// </summary>
-        /// <param name="input">Object to be compared</param>
-        /// <returns>Boolean</returns>
-        public override bool Equals(object input)
-        {
-            return this.Equals(input as TenantApiTenantV1InstanceDatabaseJobs);
-        }
-
-        /// <summary>
-        /// Returns true if TenantApiTenantV1InstanceDatabaseJobs instances are equal
-        /// </summary>
-        /// <param name="input">Instance of TenantApiTenantV1InstanceDatabaseJobs to be compared</param>
-        /// <returns>Boolean</returns>
-        public bool Equals(TenantApiTenantV1InstanceDatabaseJobs input)
-        {
-            if (input == null)
-            {
-                return false;
-            }
-            return 
-                (
-                    this.CreateJobId == input.CreateJobId ||
-                    (this.CreateJobId != null &&
-                    this.CreateJobId.Equals(input.CreateJobId))
-                ) && 
-                (
-                    this.DeleteJobId == input.DeleteJobId ||
-                    (this.DeleteJobId != null &&
-                    this.DeleteJobId.Equals(input.DeleteJobId))
-                ) && 
-                (
-                    this.ResetDeleteJobId == input.ResetDeleteJobId ||
-                    (this.ResetDeleteJobId != null &&
-                    this.ResetDeleteJobId.Equals(input.ResetDeleteJobId))
-                ) && 
-                (
-                    this.ResetCreateJobId == input.ResetCreateJobId ||
-                    (this.ResetCreateJobId != null &&
-                    this.ResetCreateJobId.Equals(input.ResetCreateJobId))
-                ) && 
-                (
-                    this.GenerateReportsJobId == input.GenerateReportsJobId ||
-                    (this.GenerateReportsJobId != null &&
-                    this.GenerateReportsJobId.Equals(input.GenerateReportsJobId))
-                );
-        }
-
-        /// <summary>
-        /// Gets the hash code
-        /// </summary>
-        /// <returns>Hash code</returns>
-        public override int GetHashCode()
-        {
-            unchecked // Overflow is fine, just wrap
-            {
-                int hashCode = 41;
-                if (this.CreateJobId != null)
-                {
-                    hashCode = (hashCode * 59) + this.CreateJobId.GetHashCode();
-                }
-                if (this.DeleteJobId != null)
-                {
-                    hashCode = (hashCode * 59) + this.DeleteJobId.GetHashCode();
-                }
-                if (this.ResetDeleteJobId != null)
-                {
-                    hashCode = (hashCode * 59) + this.ResetDeleteJobId.GetHashCode();
-                }
-                if (this.ResetCreateJobId != null)
-                {
-                    hashCode = (hashCode * 59) + this.ResetCreateJobId.GetHashCode();
-                }
-                if (this.GenerateReportsJobId != null)
-                {
-                    hashCode = (hashCode * 59) + this.GenerateReportsJobId.GetHashCode();
-                }
-                return hashCode;
-            }
         }
 
         /// <summary>

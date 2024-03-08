@@ -29,7 +29,7 @@ namespace EdGraph.Tenant.Client.Model
     /// Webhook Subscribers
     /// </summary>
     [DataContract(Name = "TenantApi.Webhook.V1.WebhookSubscriberResponse")]
-    public partial class TenantApiWebhookV1WebhookSubscriberResponse : IEquatable<TenantApiWebhookV1WebhookSubscriberResponse>, IValidatableObject
+    public partial class TenantApiWebhookV1WebhookSubscriberResponse : IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="TenantApiWebhookV1WebhookSubscriberResponse" /> class.
@@ -108,89 +108,6 @@ namespace EdGraph.Tenant.Client.Model
         public virtual string ToJson()
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
-        }
-
-        /// <summary>
-        /// Returns true if objects are equal
-        /// </summary>
-        /// <param name="input">Object to be compared</param>
-        /// <returns>Boolean</returns>
-        public override bool Equals(object input)
-        {
-            return this.Equals(input as TenantApiWebhookV1WebhookSubscriberResponse);
-        }
-
-        /// <summary>
-        /// Returns true if TenantApiWebhookV1WebhookSubscriberResponse instances are equal
-        /// </summary>
-        /// <param name="input">Instance of TenantApiWebhookV1WebhookSubscriberResponse to be compared</param>
-        /// <returns>Boolean</returns>
-        public bool Equals(TenantApiWebhookV1WebhookSubscriberResponse input)
-        {
-            if (input == null)
-            {
-                return false;
-            }
-            return 
-                (
-                    this.EventName == input.EventName ||
-                    (this.EventName != null &&
-                    this.EventName.Equals(input.EventName))
-                ) && 
-                (
-                    this.EventVersion == input.EventVersion ||
-                    (this.EventVersion != null &&
-                    this.EventVersion.Equals(input.EventVersion))
-                ) && 
-                (
-                    this.EventSchema == input.EventSchema ||
-                    (this.EventSchema != null &&
-                    this.EventSchema.Equals(input.EventSchema))
-                ) && 
-                (
-                    this.GroupName == input.GroupName ||
-                    (this.GroupName != null &&
-                    this.GroupName.Equals(input.GroupName))
-                ) && 
-                (
-                    this.Scope == input.Scope ||
-                    this.Scope != null &&
-                    input.Scope != null &&
-                    this.Scope.SequenceEqual(input.Scope)
-                );
-        }
-
-        /// <summary>
-        /// Gets the hash code
-        /// </summary>
-        /// <returns>Hash code</returns>
-        public override int GetHashCode()
-        {
-            unchecked // Overflow is fine, just wrap
-            {
-                int hashCode = 41;
-                if (this.EventName != null)
-                {
-                    hashCode = (hashCode * 59) + this.EventName.GetHashCode();
-                }
-                if (this.EventVersion != null)
-                {
-                    hashCode = (hashCode * 59) + this.EventVersion.GetHashCode();
-                }
-                if (this.EventSchema != null)
-                {
-                    hashCode = (hashCode * 59) + this.EventSchema.GetHashCode();
-                }
-                if (this.GroupName != null)
-                {
-                    hashCode = (hashCode * 59) + this.GroupName.GetHashCode();
-                }
-                if (this.Scope != null)
-                {
-                    hashCode = (hashCode * 59) + this.Scope.GetHashCode();
-                }
-                return hashCode;
-            }
         }
 
         /// <summary>

@@ -29,7 +29,7 @@ namespace EdGraph.Tenant.Client.Model
     /// EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesApplicationUrl
     /// </summary>
     [DataContract(Name = "EdGraph.Platform.HttpAggregators.Tenant.Api.Controllers.v1.ViewModels.Responses.ApplicationUrl")]
-    public partial class EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesApplicationUrl : IEquatable<EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesApplicationUrl>, IValidatableObject
+    public partial class EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesApplicationUrl : IValidatableObject
     {
 
         /// <summary>
@@ -111,85 +111,6 @@ namespace EdGraph.Tenant.Client.Model
         public virtual string ToJson()
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
-        }
-
-        /// <summary>
-        /// Returns true if objects are equal
-        /// </summary>
-        /// <param name="input">Object to be compared</param>
-        /// <returns>Boolean</returns>
-        public override bool Equals(object input)
-        {
-            return this.Equals(input as EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesApplicationUrl);
-        }
-
-        /// <summary>
-        /// Returns true if EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesApplicationUrl instances are equal
-        /// </summary>
-        /// <param name="input">Instance of EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesApplicationUrl to be compared</param>
-        /// <returns>Boolean</returns>
-        public bool Equals(EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesApplicationUrl input)
-        {
-            if (input == null)
-            {
-                return false;
-            }
-            return 
-                (
-                    this.Code == input.Code ||
-                    (this.Code != null &&
-                    this.Code.Equals(input.Code))
-                ) && 
-                (
-                    this.Label == input.Label ||
-                    (this.Label != null &&
-                    this.Label.Equals(input.Label))
-                ) && 
-                (
-                    this.Value == input.Value ||
-                    (this.Value != null &&
-                    this.Value.Equals(input.Value))
-                ) && 
-                (
-                    this.OpenInNewTab == input.OpenInNewTab ||
-                    this.OpenInNewTab.Equals(input.OpenInNewTab)
-                ) && 
-                (
-                    this.VarReadonly == input.VarReadonly ||
-                    this.VarReadonly.Equals(input.VarReadonly)
-                ) && 
-                (
-                    this.Type == input.Type ||
-                    this.Type.Equals(input.Type)
-                );
-        }
-
-        /// <summary>
-        /// Gets the hash code
-        /// </summary>
-        /// <returns>Hash code</returns>
-        public override int GetHashCode()
-        {
-            unchecked // Overflow is fine, just wrap
-            {
-                int hashCode = 41;
-                if (this.Code != null)
-                {
-                    hashCode = (hashCode * 59) + this.Code.GetHashCode();
-                }
-                if (this.Label != null)
-                {
-                    hashCode = (hashCode * 59) + this.Label.GetHashCode();
-                }
-                if (this.Value != null)
-                {
-                    hashCode = (hashCode * 59) + this.Value.GetHashCode();
-                }
-                hashCode = (hashCode * 59) + this.OpenInNewTab.GetHashCode();
-                hashCode = (hashCode * 59) + this.VarReadonly.GetHashCode();
-                hashCode = (hashCode * 59) + this.Type.GetHashCode();
-                return hashCode;
-            }
         }
 
         /// <summary>

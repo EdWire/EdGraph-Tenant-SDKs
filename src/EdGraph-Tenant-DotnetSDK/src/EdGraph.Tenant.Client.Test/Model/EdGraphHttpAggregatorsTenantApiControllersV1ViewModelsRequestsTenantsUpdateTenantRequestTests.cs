@@ -118,6 +118,15 @@ namespace EdGraph.Tenant.Client.Test.Model
         }
 
         /// <summary>
+        /// Test the property 'ShowLocalLoginOptionToTenantAdmins'
+        /// </summary>
+        [Fact]
+        public void ShowLocalLoginOptionToTenantAdminsTest()
+        {
+            // TODO unit test for the property 'ShowLocalLoginOptionToTenantAdmins'
+        }
+
+        /// <summary>
         /// Test the property 'TenantStatus'
         /// </summary>
         [Fact]

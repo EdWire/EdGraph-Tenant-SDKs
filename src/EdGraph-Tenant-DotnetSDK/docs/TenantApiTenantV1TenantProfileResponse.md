@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **IsDemo** | **bool** |  | [optional] 
 **EnforceMfa** | **bool** |  | [optional] 
 **SubscriptionsMigrated** | **bool** |  | [optional] 
+**ShowLocalLoginOptionToTenantAdmins** | **bool** |  | [optional] 
 **Subscriptions** | [**List&lt;TenantApiTenantV1SubscriptionProfileResponse&gt;**](TenantApiTenantV1SubscriptionProfileResponse.md) |  | [optional] [readonly] 
 **Domains** | [**List&lt;TenantApiTenantV1DomainProfileResponse&gt;**](TenantApiTenantV1DomainProfileResponse.md) |  | [optional] [readonly] 
 **CreatedBy** | **string** |  | [optional] 

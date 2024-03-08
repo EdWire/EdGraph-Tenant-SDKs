@@ -29,7 +29,7 @@ namespace EdGraph.Tenant.Client.Model
     /// IdentityApiApiClientV1ApiClaim
     /// </summary>
     [DataContract(Name = "IdentityApi.ApiClient.V1.ApiClaim")]
-    public partial class IdentityApiApiClientV1ApiClaim : IEquatable<IdentityApiApiClientV1ApiClaim>, IValidatableObject
+    public partial class IdentityApiApiClientV1ApiClaim : IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="IdentityApiApiClientV1ApiClaim" /> class.
@@ -90,71 +90,6 @@ namespace EdGraph.Tenant.Client.Model
         public virtual string ToJson()
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
-        }
-
-        /// <summary>
-        /// Returns true if objects are equal
-        /// </summary>
-        /// <param name="input">Object to be compared</param>
-        /// <returns>Boolean</returns>
-        public override bool Equals(object input)
-        {
-            return this.Equals(input as IdentityApiApiClientV1ApiClaim);
-        }
-
-        /// <summary>
-        /// Returns true if IdentityApiApiClientV1ApiClaim instances are equal
-        /// </summary>
-        /// <param name="input">Instance of IdentityApiApiClientV1ApiClaim to be compared</param>
-        /// <returns>Boolean</returns>
-        public bool Equals(IdentityApiApiClientV1ApiClaim input)
-        {
-            if (input == null)
-            {
-                return false;
-            }
-            return 
-                (
-                    this.ApplicationId == input.ApplicationId ||
-                    (this.ApplicationId != null &&
-                    this.ApplicationId.Equals(input.ApplicationId))
-                ) && 
-                (
-                    this.SubscriptionId == input.SubscriptionId ||
-                    (this.SubscriptionId != null &&
-                    this.SubscriptionId.Equals(input.SubscriptionId))
-                ) && 
-                (
-                    this.Value == input.Value ||
-                    this.Value != null &&
-                    input.Value != null &&
-                    this.Value.SequenceEqual(input.Value)
-                );
-        }
-
-        /// <summary>
-        /// Gets the hash code
-        /// </summary>
-        /// <returns>Hash code</returns>
-        public override int GetHashCode()
-        {
-            unchecked // Overflow is fine, just wrap
-            {
-                int hashCode = 41;
-                if (this.ApplicationId != null)
-                {
-                    hashCode = (hashCode * 59) + this.ApplicationId.GetHashCode();
-                }
-                if (this.SubscriptionId != null)
-                {
-                    hashCode = (hashCode * 59) + this.SubscriptionId.GetHashCode();
-                }
-                if (this.Value != null)
-                {
-                    hashCode = (hashCode * 59) + this.Value.GetHashCode();
-                }
-                return hashCode;
-            }
         }
 
         /// <summary>

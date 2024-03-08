@@ -29,7 +29,7 @@ namespace EdGraph.Tenant.Client.Model
     /// TenantApiTenantV1OnboardingStep
     /// </summary>
     [DataContract(Name = "TenantApi.Tenant.V1.OnboardingStep")]
-    public partial class TenantApiTenantV1OnboardingStep : IEquatable<TenantApiTenantV1OnboardingStep>, IValidatableObject
+    public partial class TenantApiTenantV1OnboardingStep : IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="TenantApiTenantV1OnboardingStep" /> class.
@@ -102,84 +102,6 @@ namespace EdGraph.Tenant.Client.Model
         public virtual string ToJson()
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
-        }
-
-        /// <summary>
-        /// Returns true if objects are equal
-        /// </summary>
-        /// <param name="input">Object to be compared</param>
-        /// <returns>Boolean</returns>
-        public override bool Equals(object input)
-        {
-            return this.Equals(input as TenantApiTenantV1OnboardingStep);
-        }
-
-        /// <summary>
-        /// Returns true if TenantApiTenantV1OnboardingStep instances are equal
-        /// </summary>
-        /// <param name="input">Instance of TenantApiTenantV1OnboardingStep to be compared</param>
-        /// <returns>Boolean</returns>
-        public bool Equals(TenantApiTenantV1OnboardingStep input)
-        {
-            if (input == null)
-            {
-                return false;
-            }
-            return 
-                (
-                    this.Number == input.Number ||
-                    this.Number.Equals(input.Number)
-                ) && 
-                (
-                    this.Description == input.Description ||
-                    (this.Description != null &&
-                    this.Description.Equals(input.Description))
-                ) && 
-                (
-                    this.Status == input.Status ||
-                    (this.Status != null &&
-                    this.Status.Equals(input.Status))
-                ) && 
-                (
-                    this.StartedAt == input.StartedAt ||
-                    (this.StartedAt != null &&
-                    this.StartedAt.Equals(input.StartedAt))
-                ) && 
-                (
-                    this.CompletedAt == input.CompletedAt ||
-                    (this.CompletedAt != null &&
-                    this.CompletedAt.Equals(input.CompletedAt))
-                );
-        }
-
-        /// <summary>
-        /// Gets the hash code
-        /// </summary>
-        /// <returns>Hash code</returns>
-        public override int GetHashCode()
-        {
-            unchecked // Overflow is fine, just wrap
-            {
-                int hashCode = 41;
-                hashCode = (hashCode * 59) + this.Number.GetHashCode();
-                if (this.Description != null)
-                {
-                    hashCode = (hashCode * 59) + this.Description.GetHashCode();
-                }
-                if (this.Status != null)
-                {
-                    hashCode = (hashCode * 59) + this.Status.GetHashCode();
-                }
-                if (this.StartedAt != null)
-                {
-                    hashCode = (hashCode * 59) + this.StartedAt.GetHashCode();
-                }
-                if (this.CompletedAt != null)
-                {
-                    hashCode = (hashCode * 59) + this.CompletedAt.GetHashCode();
-                }
-                return hashCode;
-            }
         }
 
         /// <summary>

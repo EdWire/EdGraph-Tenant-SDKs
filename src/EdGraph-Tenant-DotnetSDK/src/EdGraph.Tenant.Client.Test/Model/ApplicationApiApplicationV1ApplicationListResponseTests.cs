@@ -163,6 +163,15 @@ namespace EdGraph.Tenant.Client.Test.Model
         }
 
         /// <summary>
+        /// Test the property 'DeletedAt'
+        /// </summary>
+        [Fact]
+        public void DeletedAtTest()
+        {
+            // TODO unit test for the property 'DeletedAt'
+        }
+
+        /// <summary>
         /// Test the property 'SubscriptionType'
         /// </summary>
         [Fact]

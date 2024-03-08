@@ -29,7 +29,7 @@ namespace EdGraph.Tenant.Client.Model
     /// IdentityApiInvitationV1InvitationSentResponse
     /// </summary>
     [DataContract(Name = "IdentityApi.Invitation.V1.InvitationSentResponse")]
-    public partial class IdentityApiInvitationV1InvitationSentResponse : IEquatable<IdentityApiInvitationV1InvitationSentResponse>, IValidatableObject
+    public partial class IdentityApiInvitationV1InvitationSentResponse : IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="IdentityApiInvitationV1InvitationSentResponse" /> class.
@@ -75,61 +75,6 @@ namespace EdGraph.Tenant.Client.Model
         public virtual string ToJson()
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
-        }
-
-        /// <summary>
-        /// Returns true if objects are equal
-        /// </summary>
-        /// <param name="input">Object to be compared</param>
-        /// <returns>Boolean</returns>
-        public override bool Equals(object input)
-        {
-            return this.Equals(input as IdentityApiInvitationV1InvitationSentResponse);
-        }
-
-        /// <summary>
-        /// Returns true if IdentityApiInvitationV1InvitationSentResponse instances are equal
-        /// </summary>
-        /// <param name="input">Instance of IdentityApiInvitationV1InvitationSentResponse to be compared</param>
-        /// <returns>Boolean</returns>
-        public bool Equals(IdentityApiInvitationV1InvitationSentResponse input)
-        {
-            if (input == null)
-            {
-                return false;
-            }
-            return 
-                (
-                    this.TenantId == input.TenantId ||
-                    (this.TenantId != null &&
-                    this.TenantId.Equals(input.TenantId))
-                ) && 
-                (
-                    this.InvitationId == input.InvitationId ||
-                    (this.InvitationId != null &&
-                    this.InvitationId.Equals(input.InvitationId))
-                );
-        }
-
-        /// <summary>
-        /// Gets the hash code
-        /// </summary>
-        /// <returns>Hash code</returns>
-        public override int GetHashCode()
-        {
-            unchecked // Overflow is fine, just wrap
-            {
-                int hashCode = 41;
-                if (this.TenantId != null)
-                {
-                    hashCode = (hashCode * 59) + this.TenantId.GetHashCode();
-                }
-                if (this.InvitationId != null)
-                {
-                    hashCode = (hashCode * 59) + this.InvitationId.GetHashCode();
-                }
-                return hashCode;
-            }
         }
 
         /// <summary>

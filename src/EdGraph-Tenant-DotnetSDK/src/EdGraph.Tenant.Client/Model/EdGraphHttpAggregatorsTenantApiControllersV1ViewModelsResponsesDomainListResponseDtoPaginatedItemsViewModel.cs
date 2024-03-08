@@ -29,7 +29,7 @@ namespace EdGraph.Tenant.Client.Model
     /// EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesDomainListResponseDtoPaginatedItemsViewModel
     /// </summary>
     [DataContract(Name = "EdGraph.HttpAggregators.Tenant.Api.Controllers.v1.ViewModels.Responses.DomainListResponseDtoPaginatedItemsViewModel")]
-    public partial class EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesDomainListResponseDtoPaginatedItemsViewModel : IEquatable<EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesDomainListResponseDtoPaginatedItemsViewModel>, IValidatableObject
+    public partial class EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesDomainListResponseDtoPaginatedItemsViewModel : IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesDomainListResponseDtoPaginatedItemsViewModel" /> class.
@@ -93,68 +93,6 @@ namespace EdGraph.Tenant.Client.Model
         public virtual string ToJson()
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
-        }
-
-        /// <summary>
-        /// Returns true if objects are equal
-        /// </summary>
-        /// <param name="input">Object to be compared</param>
-        /// <returns>Boolean</returns>
-        public override bool Equals(object input)
-        {
-            return this.Equals(input as EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesDomainListResponseDtoPaginatedItemsViewModel);
-        }
-
-        /// <summary>
-        /// Returns true if EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesDomainListResponseDtoPaginatedItemsViewModel instances are equal
-        /// </summary>
-        /// <param name="input">Instance of EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesDomainListResponseDtoPaginatedItemsViewModel to be compared</param>
-        /// <returns>Boolean</returns>
-        public bool Equals(EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesDomainListResponseDtoPaginatedItemsViewModel input)
-        {
-            if (input == null)
-            {
-                return false;
-            }
-            return 
-                (
-                    this.PageIndex == input.PageIndex ||
-                    this.PageIndex.Equals(input.PageIndex)
-                ) && 
-                (
-                    this.PageSize == input.PageSize ||
-                    this.PageSize.Equals(input.PageSize)
-                ) && 
-                (
-                    this.Count == input.Count ||
-                    this.Count.Equals(input.Count)
-                ) && 
-                (
-                    this.Data == input.Data ||
-                    this.Data != null &&
-                    input.Data != null &&
-                    this.Data.SequenceEqual(input.Data)
-                );
-        }
-
-        /// <summary>
-        /// Gets the hash code
-        /// </summary>
-        /// <returns>Hash code</returns>
-        public override int GetHashCode()
-        {
-            unchecked // Overflow is fine, just wrap
-            {
-                int hashCode = 41;
-                hashCode = (hashCode * 59) + this.PageIndex.GetHashCode();
-                hashCode = (hashCode * 59) + this.PageSize.GetHashCode();
-                hashCode = (hashCode * 59) + this.Count.GetHashCode();
-                if (this.Data != null)
-                {
-                    hashCode = (hashCode * 59) + this.Data.GetHashCode();
-                }
-                return hashCode;
-            }
         }
 
         /// <summary>

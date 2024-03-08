@@ -12,7 +12,7 @@
 		<Description>Tenant SDK</Description>
 		<Copyright>No Copyright</Copyright>
 		<RootNamespace>EdGraph.Tenant.Client</RootNamespace>
-		<Version>3.6.0</Version>
+		<Version>3.7.0</Version>
 		<DocumentationFile>bin\$(Configuration)\$(TargetFramework)\EdGraph.Tenant.Client.xml</DocumentationFile>
 		<RepositoryUrl>https://github.com/EdWire/EdGraph-Tenant-SDKs</RepositoryUrl>
 		<RepositoryType>git</RepositoryType>

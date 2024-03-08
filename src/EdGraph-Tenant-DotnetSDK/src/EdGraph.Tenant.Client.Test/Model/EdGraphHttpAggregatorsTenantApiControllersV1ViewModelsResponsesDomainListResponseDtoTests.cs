@@ -82,6 +82,15 @@ namespace EdGraph.Tenant.Client.Test.Model
         }
 
         /// <summary>
+        /// Test the property 'AutoAssignUsers'
+        /// </summary>
+        [Fact]
+        public void AutoAssignUsersTest()
+        {
+            // TODO unit test for the property 'AutoAssignUsers'
+        }
+
+        /// <summary>
         /// Test the property 'CreatedBy'
         /// </summary>
         [Fact]

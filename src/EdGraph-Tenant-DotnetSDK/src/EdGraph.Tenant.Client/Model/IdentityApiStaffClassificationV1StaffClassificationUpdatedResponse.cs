@@ -29,7 +29,7 @@ namespace EdGraph.Tenant.Client.Model
     /// IdentityApiStaffClassificationV1StaffClassificationUpdatedResponse
     /// </summary>
     [DataContract(Name = "IdentityApi.StaffClassification.V1.StaffClassificationUpdatedResponse")]
-    public partial class IdentityApiStaffClassificationV1StaffClassificationUpdatedResponse : IEquatable<IdentityApiStaffClassificationV1StaffClassificationUpdatedResponse>, IValidatableObject
+    public partial class IdentityApiStaffClassificationV1StaffClassificationUpdatedResponse : IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="IdentityApiStaffClassificationV1StaffClassificationUpdatedResponse" /> class.
@@ -66,52 +66,6 @@ namespace EdGraph.Tenant.Client.Model
         public virtual string ToJson()
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
-        }
-
-        /// <summary>
-        /// Returns true if objects are equal
-        /// </summary>
-        /// <param name="input">Object to be compared</param>
-        /// <returns>Boolean</returns>
-        public override bool Equals(object input)
-        {
-            return this.Equals(input as IdentityApiStaffClassificationV1StaffClassificationUpdatedResponse);
-        }
-
-        /// <summary>
-        /// Returns true if IdentityApiStaffClassificationV1StaffClassificationUpdatedResponse instances are equal
-        /// </summary>
-        /// <param name="input">Instance of IdentityApiStaffClassificationV1StaffClassificationUpdatedResponse to be compared</param>
-        /// <returns>Boolean</returns>
-        public bool Equals(IdentityApiStaffClassificationV1StaffClassificationUpdatedResponse input)
-        {
-            if (input == null)
-            {
-                return false;
-            }
-            return 
-                (
-                    this.Id == input.Id ||
-                    (this.Id != null &&
-                    this.Id.Equals(input.Id))
-                );
-        }
-
-        /// <summary>
-        /// Gets the hash code
-        /// </summary>
-        /// <returns>Hash code</returns>
-        public override int GetHashCode()
-        {
-            unchecked // Overflow is fine, just wrap
-            {
-                int hashCode = 41;
-                if (this.Id != null)
-                {
-                    hashCode = (hashCode * 59) + this.Id.GetHashCode();
-                }
-                return hashCode;
-            }
         }
 
         /// <summary>

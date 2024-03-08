@@ -29,7 +29,7 @@ namespace EdGraph.Tenant.Client.Model
     /// TenantApiTenantV1TenantProfileResponse
     /// </summary>
     [DataContract(Name = "TenantApi.Tenant.V1.TenantProfileResponse")]
-    public partial class TenantApiTenantV1TenantProfileResponse : IEquatable<TenantApiTenantV1TenantProfileResponse>, IValidatableObject
+    public partial class TenantApiTenantV1TenantProfileResponse : IValidatableObject
     {
 
         /// <summary>
@@ -55,13 +55,14 @@ namespace EdGraph.Tenant.Client.Model
         /// <param name="isDemo">isDemo.</param>
         /// <param name="enforceMfa">enforceMfa.</param>
         /// <param name="subscriptionsMigrated">subscriptionsMigrated.</param>
+        /// <param name="showLocalLoginOptionToTenantAdmins">showLocalLoginOptionToTenantAdmins.</param>
         /// <param name="createdBy">createdBy.</param>
         /// <param name="createdDateTime">createdDateTime.</param>
         /// <param name="lastModifiedBy">lastModifiedBy.</param>
         /// <param name="lastModifiedDateTime">lastModifiedDateTime.</param>
         /// <param name="onboarding">onboarding.</param>
         /// <param name="organizationIdentifierHash">organizationIdentifierHash.</param>
-        public TenantApiTenantV1TenantProfileResponse(string tenantId = default(string), TenantApiTenantV1TenantType? tenantType = default(TenantApiTenantV1TenantType?), string organizationIdentifier = default(string), string organizationName = default(string), string state = default(string), TenantApiTenantV1TenantStatus? tenantStatus = default(TenantApiTenantV1TenantStatus?), bool isDemo = default(bool), bool enforceMfa = default(bool), bool subscriptionsMigrated = default(bool), string createdBy = default(string), string createdDateTime = default(string), string lastModifiedBy = default(string), string lastModifiedDateTime = default(string), TenantApiTenantV1Onboarding onboarding = default(TenantApiTenantV1Onboarding), string organizationIdentifierHash = default(string))
+        public TenantApiTenantV1TenantProfileResponse(string tenantId = default(string), TenantApiTenantV1TenantType? tenantType = default(TenantApiTenantV1TenantType?), string organizationIdentifier = default(string), string organizationName = default(string), string state = default(string), TenantApiTenantV1TenantStatus? tenantStatus = default(TenantApiTenantV1TenantStatus?), bool isDemo = default(bool), bool enforceMfa = default(bool), bool subscriptionsMigrated = default(bool), bool showLocalLoginOptionToTenantAdmins = default(bool), string createdBy = default(string), string createdDateTime = default(string), string lastModifiedBy = default(string), string lastModifiedDateTime = default(string), TenantApiTenantV1Onboarding onboarding = default(TenantApiTenantV1Onboarding), string organizationIdentifierHash = default(string))
         {
             this.TenantId = tenantId;
             this.TenantType = tenantType;
@@ -72,6 +73,7 @@ namespace EdGraph.Tenant.Client.Model
             this.IsDemo = isDemo;
             this.EnforceMfa = enforceMfa;
             this.SubscriptionsMigrated = subscriptionsMigrated;
+            this.ShowLocalLoginOptionToTenantAdmins = showLocalLoginOptionToTenantAdmins;
             this.CreatedBy = createdBy;
             this.CreatedDateTime = createdDateTime;
             this.LastModifiedBy = lastModifiedBy;
@@ -121,6 +123,12 @@ namespace EdGraph.Tenant.Client.Model
         /// </summary>
         [DataMember(Name = "subscriptionsMigrated", EmitDefaultValue = true)]
         public bool SubscriptionsMigrated { get; set; }
+
+        /// <summary>
+        /// Gets or Sets ShowLocalLoginOptionToTenantAdmins
+        /// </summary>
+        [DataMember(Name = "showLocalLoginOptionToTenantAdmins", EmitDefaultValue = true)]
+        public bool ShowLocalLoginOptionToTenantAdmins { get; set; }
 
         /// <summary>
         /// Gets or Sets Subscriptions
@@ -231,6 +239,7 @@ namespace EdGraph.Tenant.Client.Model
             sb.Append("  IsDemo: ").Append(IsDemo).Append("\n");
             sb.Append("  EnforceMfa: ").Append(EnforceMfa).Append("\n");
             sb.Append("  SubscriptionsMigrated: ").Append(SubscriptionsMigrated).Append("\n");
+            sb.Append("  ShowLocalLoginOptionToTenantAdmins: ").Append(ShowLocalLoginOptionToTenantAdmins).Append("\n");
             sb.Append("  Subscriptions: ").Append(Subscriptions).Append("\n");
             sb.Append("  Domains: ").Append(Domains).Append("\n");
             sb.Append("  CreatedBy: ").Append(CreatedBy).Append("\n");
@@ -252,198 +261,6 @@ namespace EdGraph.Tenant.Client.Model
         public virtual string ToJson()
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
-        }
-
-        /// <summary>
-        /// Returns true if objects are equal
-        /// </summary>
-        /// <param name="input">Object to be compared</param>
-        /// <returns>Boolean</returns>
-        public override bool Equals(object input)
-        {
-            return this.Equals(input as TenantApiTenantV1TenantProfileResponse);
-        }
-
-        /// <summary>
-        /// Returns true if TenantApiTenantV1TenantProfileResponse instances are equal
-        /// </summary>
-        /// <param name="input">Instance of TenantApiTenantV1TenantProfileResponse to be compared</param>
-        /// <returns>Boolean</returns>
-        public bool Equals(TenantApiTenantV1TenantProfileResponse input)
-        {
-            if (input == null)
-            {
-                return false;
-            }
-            return 
-                (
-                    this.TenantId == input.TenantId ||
-                    (this.TenantId != null &&
-                    this.TenantId.Equals(input.TenantId))
-                ) && 
-                (
-                    this.TenantType == input.TenantType ||
-                    this.TenantType.Equals(input.TenantType)
-                ) && 
-                (
-                    this.OrganizationIdentifier == input.OrganizationIdentifier ||
-                    (this.OrganizationIdentifier != null &&
-                    this.OrganizationIdentifier.Equals(input.OrganizationIdentifier))
-                ) && 
-                (
-                    this.OrganizationName == input.OrganizationName ||
-                    (this.OrganizationName != null &&
-                    this.OrganizationName.Equals(input.OrganizationName))
-                ) && 
-                (
-                    this.State == input.State ||
-                    (this.State != null &&
-                    this.State.Equals(input.State))
-                ) && 
-                (
-                    this.TenantStatus == input.TenantStatus ||
-                    this.TenantStatus.Equals(input.TenantStatus)
-                ) && 
-                (
-                    this.IsDemo == input.IsDemo ||
-                    this.IsDemo.Equals(input.IsDemo)
-                ) && 
-                (
-                    this.EnforceMfa == input.EnforceMfa ||
-                    this.EnforceMfa.Equals(input.EnforceMfa)
-                ) && 
-                (
-                    this.SubscriptionsMigrated == input.SubscriptionsMigrated ||
-                    this.SubscriptionsMigrated.Equals(input.SubscriptionsMigrated)
-                ) && 
-                (
-                    this.Subscriptions == input.Subscriptions ||
-                    this.Subscriptions != null &&
-                    input.Subscriptions != null &&
-                    this.Subscriptions.SequenceEqual(input.Subscriptions)
-                ) && 
-                (
-                    this.Domains == input.Domains ||
-                    this.Domains != null &&
-                    input.Domains != null &&
-                    this.Domains.SequenceEqual(input.Domains)
-                ) && 
-                (
-                    this.CreatedBy == input.CreatedBy ||
-                    (this.CreatedBy != null &&
-                    this.CreatedBy.Equals(input.CreatedBy))
-                ) && 
-                (
-                    this.CreatedDateTime == input.CreatedDateTime ||
-                    (this.CreatedDateTime != null &&
-                    this.CreatedDateTime.Equals(input.CreatedDateTime))
-                ) && 
-                (
-                    this.LastModifiedBy == input.LastModifiedBy ||
-                    (this.LastModifiedBy != null &&
-                    this.LastModifiedBy.Equals(input.LastModifiedBy))
-                ) && 
-                (
-                    this.LastModifiedDateTime == input.LastModifiedDateTime ||
-                    (this.LastModifiedDateTime != null &&
-                    this.LastModifiedDateTime.Equals(input.LastModifiedDateTime))
-                ) && 
-                (
-                    this.IdentityProviders == input.IdentityProviders ||
-                    this.IdentityProviders != null &&
-                    input.IdentityProviders != null &&
-                    this.IdentityProviders.SequenceEqual(input.IdentityProviders)
-                ) && 
-                (
-                    this.Onboarding == input.Onboarding ||
-                    (this.Onboarding != null &&
-                    this.Onboarding.Equals(input.Onboarding))
-                ) && 
-                (
-                    this.Organizations == input.Organizations ||
-                    this.Organizations != null &&
-                    input.Organizations != null &&
-                    this.Organizations.SequenceEqual(input.Organizations)
-                ) && 
-                (
-                    this.OrganizationIdentifierHash == input.OrganizationIdentifierHash ||
-                    (this.OrganizationIdentifierHash != null &&
-                    this.OrganizationIdentifierHash.Equals(input.OrganizationIdentifierHash))
-                );
-        }
-
-        /// <summary>
-        /// Gets the hash code
-        /// </summary>
-        /// <returns>Hash code</returns>
-        public override int GetHashCode()
-        {
-            unchecked // Overflow is fine, just wrap
-            {
-                int hashCode = 41;
-                if (this.TenantId != null)
-                {
-                    hashCode = (hashCode * 59) + this.TenantId.GetHashCode();
-                }
-                hashCode = (hashCode * 59) + this.TenantType.GetHashCode();
-                if (this.OrganizationIdentifier != null)
-                {
-                    hashCode = (hashCode * 59) + this.OrganizationIdentifier.GetHashCode();
-                }
-                if (this.OrganizationName != null)
-                {
-                    hashCode = (hashCode * 59) + this.OrganizationName.GetHashCode();
-                }
-                if (this.State != null)
-                {
-                    hashCode = (hashCode * 59) + this.State.GetHashCode();
-                }
-                hashCode = (hashCode * 59) + this.TenantStatus.GetHashCode();
-                hashCode = (hashCode * 59) + this.IsDemo.GetHashCode();
-                hashCode = (hashCode * 59) + this.EnforceMfa.GetHashCode();
-                hashCode = (hashCode * 59) + this.SubscriptionsMigrated.GetHashCode();
-                if (this.Subscriptions != null)
-                {
-                    hashCode = (hashCode * 59) + this.Subscriptions.GetHashCode();
-                }
-                if (this.Domains != null)
-                {
-                    hashCode = (hashCode * 59) + this.Domains.GetHashCode();
-                }
-                if (this.CreatedBy != null)
-                {
-                    hashCode = (hashCode * 59) + this.CreatedBy.GetHashCode();
-                }
-                if (this.CreatedDateTime != null)
-                {
-                    hashCode = (hashCode * 59) + this.CreatedDateTime.GetHashCode();
-                }
-                if (this.LastModifiedBy != null)
-                {
-                    hashCode = (hashCode * 59) + this.LastModifiedBy.GetHashCode();
-                }
-                if (this.LastModifiedDateTime != null)
-                {
-                    hashCode = (hashCode * 59) + this.LastModifiedDateTime.GetHashCode();
-                }
-                if (this.IdentityProviders != null)
-                {
-                    hashCode = (hashCode * 59) + this.IdentityProviders.GetHashCode();
-                }
-                if (this.Onboarding != null)
-                {
-                    hashCode = (hashCode * 59) + this.Onboarding.GetHashCode();
-                }
-                if (this.Organizations != null)
-                {
-                    hashCode = (hashCode * 59) + this.Organizations.GetHashCode();
-                }
-                if (this.OrganizationIdentifierHash != null)
-                {
-                    hashCode = (hashCode * 59) + this.OrganizationIdentifierHash.GetHashCode();
-                }
-                return hashCode;
-            }
         }
 
         /// <summary>

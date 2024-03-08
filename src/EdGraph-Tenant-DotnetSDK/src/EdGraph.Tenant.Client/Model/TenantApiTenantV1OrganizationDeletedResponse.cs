@@ -29,7 +29,7 @@ namespace EdGraph.Tenant.Client.Model
     /// TenantApiTenantV1OrganizationDeletedResponse
     /// </summary>
     [DataContract(Name = "TenantApi.Tenant.V1.OrganizationDeletedResponse")]
-    public partial class TenantApiTenantV1OrganizationDeletedResponse : IEquatable<TenantApiTenantV1OrganizationDeletedResponse>, IValidatableObject
+    public partial class TenantApiTenantV1OrganizationDeletedResponse : IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="TenantApiTenantV1OrganizationDeletedResponse" /> class.
@@ -75,61 +75,6 @@ namespace EdGraph.Tenant.Client.Model
         public virtual string ToJson()
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
-        }
-
-        /// <summary>
-        /// Returns true if objects are equal
-        /// </summary>
-        /// <param name="input">Object to be compared</param>
-        /// <returns>Boolean</returns>
-        public override bool Equals(object input)
-        {
-            return this.Equals(input as TenantApiTenantV1OrganizationDeletedResponse);
-        }
-
-        /// <summary>
-        /// Returns true if TenantApiTenantV1OrganizationDeletedResponse instances are equal
-        /// </summary>
-        /// <param name="input">Instance of TenantApiTenantV1OrganizationDeletedResponse to be compared</param>
-        /// <returns>Boolean</returns>
-        public bool Equals(TenantApiTenantV1OrganizationDeletedResponse input)
-        {
-            if (input == null)
-            {
-                return false;
-            }
-            return 
-                (
-                    this.TenantId == input.TenantId ||
-                    (this.TenantId != null &&
-                    this.TenantId.Equals(input.TenantId))
-                ) && 
-                (
-                    this.IdentifierValue == input.IdentifierValue ||
-                    (this.IdentifierValue != null &&
-                    this.IdentifierValue.Equals(input.IdentifierValue))
-                );
-        }
-
-        /// <summary>
-        /// Gets the hash code
-        /// </summary>
-        /// <returns>Hash code</returns>
-        public override int GetHashCode()
-        {
-            unchecked // Overflow is fine, just wrap
-            {
-                int hashCode = 41;
-                if (this.TenantId != null)
-                {
-                    hashCode = (hashCode * 59) + this.TenantId.GetHashCode();
-                }
-                if (this.IdentifierValue != null)
-                {
-                    hashCode = (hashCode * 59) + this.IdentifierValue.GetHashCode();
-                }
-                return hashCode;
-            }
         }
 
         /// <summary>

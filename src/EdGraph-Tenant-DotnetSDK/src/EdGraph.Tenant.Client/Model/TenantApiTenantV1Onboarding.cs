@@ -29,7 +29,7 @@ namespace EdGraph.Tenant.Client.Model
     /// TenantApiTenantV1Onboarding
     /// </summary>
     [DataContract(Name = "TenantApi.Tenant.V1.Onboarding")]
-    public partial class TenantApiTenantV1Onboarding : IEquatable<TenantApiTenantV1Onboarding>, IValidatableObject
+    public partial class TenantApiTenantV1Onboarding : IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="TenantApiTenantV1Onboarding" /> class.
@@ -126,99 +126,6 @@ namespace EdGraph.Tenant.Client.Model
         public virtual string ToJson()
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
-        }
-
-        /// <summary>
-        /// Returns true if objects are equal
-        /// </summary>
-        /// <param name="input">Object to be compared</param>
-        /// <returns>Boolean</returns>
-        public override bool Equals(object input)
-        {
-            return this.Equals(input as TenantApiTenantV1Onboarding);
-        }
-
-        /// <summary>
-        /// Returns true if TenantApiTenantV1Onboarding instances are equal
-        /// </summary>
-        /// <param name="input">Instance of TenantApiTenantV1Onboarding to be compared</param>
-        /// <returns>Boolean</returns>
-        public bool Equals(TenantApiTenantV1Onboarding input)
-        {
-            if (input == null)
-            {
-                return false;
-            }
-            return 
-                (
-                    this.Status == input.Status ||
-                    (this.Status != null &&
-                    this.Status.Equals(input.Status))
-                ) && 
-                (
-                    this.ProgressPercentage == input.ProgressPercentage ||
-                    this.ProgressPercentage.Equals(input.ProgressPercentage)
-                ) && 
-                (
-                    this.TotalSteps == input.TotalSteps ||
-                    this.TotalSteps.Equals(input.TotalSteps)
-                ) && 
-                (
-                    this.LastCompletedStep == input.LastCompletedStep ||
-                    (this.LastCompletedStep != null &&
-                    this.LastCompletedStep.Equals(input.LastCompletedStep))
-                ) && 
-                (
-                    this.StartedAt == input.StartedAt ||
-                    (this.StartedAt != null &&
-                    this.StartedAt.Equals(input.StartedAt))
-                ) && 
-                (
-                    this.CompletedAt == input.CompletedAt ||
-                    (this.CompletedAt != null &&
-                    this.CompletedAt.Equals(input.CompletedAt))
-                ) && 
-                (
-                    this.Steps == input.Steps ||
-                    this.Steps != null &&
-                    input.Steps != null &&
-                    this.Steps.SequenceEqual(input.Steps)
-                );
-        }
-
-        /// <summary>
-        /// Gets the hash code
-        /// </summary>
-        /// <returns>Hash code</returns>
-        public override int GetHashCode()
-        {
-            unchecked // Overflow is fine, just wrap
-            {
-                int hashCode = 41;
-                if (this.Status != null)
-                {
-                    hashCode = (hashCode * 59) + this.Status.GetHashCode();
-                }
-                hashCode = (hashCode * 59) + this.ProgressPercentage.GetHashCode();
-                hashCode = (hashCode * 59) + this.TotalSteps.GetHashCode();
-                if (this.LastCompletedStep != null)
-                {
-                    hashCode = (hashCode * 59) + this.LastCompletedStep.GetHashCode();
-                }
-                if (this.StartedAt != null)
-                {
-                    hashCode = (hashCode * 59) + this.StartedAt.GetHashCode();
-                }
-                if (this.CompletedAt != null)
-                {
-                    hashCode = (hashCode * 59) + this.CompletedAt.GetHashCode();
-                }
-                if (this.Steps != null)
-                {
-                    hashCode = (hashCode * 59) + this.Steps.GetHashCode();
-                }
-                return hashCode;
-            }
         }
 
         /// <summary>

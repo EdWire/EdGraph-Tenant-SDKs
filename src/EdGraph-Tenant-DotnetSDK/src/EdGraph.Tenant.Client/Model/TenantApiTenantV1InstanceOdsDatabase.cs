@@ -29,7 +29,7 @@ namespace EdGraph.Tenant.Client.Model
     /// TenantApiTenantV1InstanceOdsDatabase
     /// </summary>
     [DataContract(Name = "TenantApi.Tenant.V1.InstanceOdsDatabase")]
-    public partial class TenantApiTenantV1InstanceOdsDatabase : IEquatable<TenantApiTenantV1InstanceOdsDatabase>, IValidatableObject
+    public partial class TenantApiTenantV1InstanceOdsDatabase : IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="TenantApiTenantV1InstanceOdsDatabase" /> class.
@@ -120,102 +120,6 @@ namespace EdGraph.Tenant.Client.Model
         public virtual string ToJson()
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
-        }
-
-        /// <summary>
-        /// Returns true if objects are equal
-        /// </summary>
-        /// <param name="input">Object to be compared</param>
-        /// <returns>Boolean</returns>
-        public override bool Equals(object input)
-        {
-            return this.Equals(input as TenantApiTenantV1InstanceOdsDatabase);
-        }
-
-        /// <summary>
-        /// Returns true if TenantApiTenantV1InstanceOdsDatabase instances are equal
-        /// </summary>
-        /// <param name="input">Instance of TenantApiTenantV1InstanceOdsDatabase to be compared</param>
-        /// <returns>Boolean</returns>
-        public bool Equals(TenantApiTenantV1InstanceOdsDatabase input)
-        {
-            if (input == null)
-            {
-                return false;
-            }
-            return 
-                (
-                    this.SelectedTierId == input.SelectedTierId ||
-                    (this.SelectedTierId != null &&
-                    this.SelectedTierId.Equals(input.SelectedTierId))
-                ) && 
-                (
-                    this.SelectedTierName == input.SelectedTierName ||
-                    (this.SelectedTierName != null &&
-                    this.SelectedTierName.Equals(input.SelectedTierName))
-                ) && 
-                (
-                    this.Status == input.Status ||
-                    (this.Status != null &&
-                    this.Status.Equals(input.Status))
-                ) && 
-                (
-                    this.Jobs == input.Jobs ||
-                    (this.Jobs != null &&
-                    this.Jobs.Equals(input.Jobs))
-                ) && 
-                (
-                    this.Year == input.Year ||
-                    this.Year.Equals(input.Year)
-                ) && 
-                (
-                    this.OdsBackupCode == input.OdsBackupCode ||
-                    (this.OdsBackupCode != null &&
-                    this.OdsBackupCode.Equals(input.OdsBackupCode))
-                ) && 
-                (
-                    this.OdsBackupDescription == input.OdsBackupDescription ||
-                    (this.OdsBackupDescription != null &&
-                    this.OdsBackupDescription.Equals(input.OdsBackupDescription))
-                );
-        }
-
-        /// <summary>
-        /// Gets the hash code
-        /// </summary>
-        /// <returns>Hash code</returns>
-        public override int GetHashCode()
-        {
-            unchecked // Overflow is fine, just wrap
-            {
-                int hashCode = 41;
-                if (this.SelectedTierId != null)
-                {
-                    hashCode = (hashCode * 59) + this.SelectedTierId.GetHashCode();
-                }
-                if (this.SelectedTierName != null)
-                {
-                    hashCode = (hashCode * 59) + this.SelectedTierName.GetHashCode();
-                }
-                if (this.Status != null)
-                {
-                    hashCode = (hashCode * 59) + this.Status.GetHashCode();
-                }
-                if (this.Jobs != null)
-                {
-                    hashCode = (hashCode * 59) + this.Jobs.GetHashCode();
-                }
-                hashCode = (hashCode * 59) + this.Year.GetHashCode();
-                if (this.OdsBackupCode != null)
-                {
-                    hashCode = (hashCode * 59) + this.OdsBackupCode.GetHashCode();
-                }
-                if (this.OdsBackupDescription != null)
-                {
-                    hashCode = (hashCode * 59) + this.OdsBackupDescription.GetHashCode();
-                }
-                return hashCode;
-            }
         }
 
         /// <summary>

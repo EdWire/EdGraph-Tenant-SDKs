@@ -29,7 +29,7 @@ namespace EdGraph.Tenant.Client.Model
     /// TenantApiTenantV1Organization
     /// </summary>
     [DataContract(Name = "TenantApi.Tenant.V1.Organization")]
-    public partial class TenantApiTenantV1Organization : IEquatable<TenantApiTenantV1Organization>, IValidatableObject
+    public partial class TenantApiTenantV1Organization : IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="TenantApiTenantV1Organization" /> class.
@@ -120,102 +120,6 @@ namespace EdGraph.Tenant.Client.Model
         public virtual string ToJson()
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
-        }
-
-        /// <summary>
-        /// Returns true if objects are equal
-        /// </summary>
-        /// <param name="input">Object to be compared</param>
-        /// <returns>Boolean</returns>
-        public override bool Equals(object input)
-        {
-            return this.Equals(input as TenantApiTenantV1Organization);
-        }
-
-        /// <summary>
-        /// Returns true if TenantApiTenantV1Organization instances are equal
-        /// </summary>
-        /// <param name="input">Instance of TenantApiTenantV1Organization to be compared</param>
-        /// <returns>Boolean</returns>
-        public bool Equals(TenantApiTenantV1Organization input)
-        {
-            if (input == null)
-            {
-                return false;
-            }
-            return 
-                (
-                    this.IdentifierType == input.IdentifierType ||
-                    (this.IdentifierType != null &&
-                    this.IdentifierType.Equals(input.IdentifierType))
-                ) && 
-                (
-                    this.IdentifierValue == input.IdentifierValue ||
-                    (this.IdentifierValue != null &&
-                    this.IdentifierValue.Equals(input.IdentifierValue))
-                ) && 
-                (
-                    this.Discriminator == input.Discriminator ||
-                    (this.Discriminator != null &&
-                    this.Discriminator.Equals(input.Discriminator))
-                ) && 
-                (
-                    this.Source == input.Source ||
-                    (this.Source != null &&
-                    this.Source.Equals(input.Source))
-                ) && 
-                (
-                    this.ShortNameOfInstitution == input.ShortNameOfInstitution ||
-                    (this.ShortNameOfInstitution != null &&
-                    this.ShortNameOfInstitution.Equals(input.ShortNameOfInstitution))
-                ) && 
-                (
-                    this.NameOfInstitution == input.NameOfInstitution ||
-                    (this.NameOfInstitution != null &&
-                    this.NameOfInstitution.Equals(input.NameOfInstitution))
-                ) && 
-                (
-                    this.IncludeInJwt == input.IncludeInJwt ||
-                    this.IncludeInJwt.Equals(input.IncludeInJwt)
-                );
-        }
-
-        /// <summary>
-        /// Gets the hash code
-        /// </summary>
-        /// <returns>Hash code</returns>
-        public override int GetHashCode()
-        {
-            unchecked // Overflow is fine, just wrap
-            {
-                int hashCode = 41;
-                if (this.IdentifierType != null)
-                {
-                    hashCode = (hashCode * 59) + this.IdentifierType.GetHashCode();
-                }
-                if (this.IdentifierValue != null)
-                {
-                    hashCode = (hashCode * 59) + this.IdentifierValue.GetHashCode();
-                }
-                if (this.Discriminator != null)
-                {
-                    hashCode = (hashCode * 59) + this.Discriminator.GetHashCode();
-                }
-                if (this.Source != null)
-                {
-                    hashCode = (hashCode * 59) + this.Source.GetHashCode();
-                }
-                if (this.ShortNameOfInstitution != null)
-                {
-                    hashCode = (hashCode * 59) + this.ShortNameOfInstitution.GetHashCode();
-                }
-                if (this.NameOfInstitution != null)
-                {
-                    hashCode = (hashCode * 59) + this.NameOfInstitution.GetHashCode();
-                }
-                hashCode = (hashCode * 59) + this.IncludeInJwt.GetHashCode();
-                return hashCode;
-            }
         }
 
         /// <summary>
