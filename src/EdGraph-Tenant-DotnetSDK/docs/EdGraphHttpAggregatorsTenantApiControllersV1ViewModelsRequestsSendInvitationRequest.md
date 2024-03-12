@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **LastName** | **string** |  | [optional] 
 **Role** | **string** |  | [optional] 
 **AssignLicenseRequests** | [**List&lt;EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsLicensesAssignLicenseRequest&gt;**](EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsLicensesAssignLicenseRequest.md) |  | [optional] 
+**DontSendEmail** | **bool?** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -107,5 +107,14 @@ namespace EdGraph.Tenant.Client.Test.Model
         {
             // TODO unit test for the property 'AssignLicenseRequests'
         }
+
+        /// <summary>
+        /// Test the property 'DontSendEmail'
+        /// </summary>
+        [Fact]
+        public void DontSendEmailTest()
+        {
+            // TODO unit test for the property 'DontSendEmail'
+        }
     }
 }

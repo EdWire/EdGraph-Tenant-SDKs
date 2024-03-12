@@ -6416,6 +6416,9 @@ components:
             $ref: '#/components/schemas/EdGraph.HttpAggregators.Tenant.Api.Controllers.v1.ViewModels.Requests.Licenses.AssignLicenseRequest'
           nullable: true
           type: array
+        dontSendEmail:
+          nullable: true
+          type: boolean
       type: object
     EdGraph.HttpAggregators.Tenant.Api.Controllers.v1.ViewModels.Requests.Tenants.TenantIdentityProvider:
       enum:

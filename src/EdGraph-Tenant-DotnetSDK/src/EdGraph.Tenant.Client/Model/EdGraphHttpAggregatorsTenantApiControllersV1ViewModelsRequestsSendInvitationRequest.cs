@@ -40,7 +40,8 @@ namespace EdGraph.Tenant.Client.Model
         /// <param name="lastName">lastName.</param>
         /// <param name="role">role.</param>
         /// <param name="assignLicenseRequests">assignLicenseRequests.</param>
-        public EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsSendInvitationRequest(string tenantId = default(string), string email = default(string), string firstName = default(string), string lastName = default(string), string role = default(string), List<EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsLicensesAssignLicenseRequest> assignLicenseRequests = default(List<EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsLicensesAssignLicenseRequest>))
+        /// <param name="dontSendEmail">dontSendEmail.</param>
+        public EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsSendInvitationRequest(string tenantId = default(string), string email = default(string), string firstName = default(string), string lastName = default(string), string role = default(string), List<EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsLicensesAssignLicenseRequest> assignLicenseRequests = default(List<EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsLicensesAssignLicenseRequest>), bool? dontSendEmail = default(bool?))
         {
             this.TenantId = tenantId;
             this.Email = email;
@@ -48,6 +49,7 @@ namespace EdGraph.Tenant.Client.Model
             this.LastName = lastName;
             this.Role = role;
             this.AssignLicenseRequests = assignLicenseRequests;
+            this.DontSendEmail = dontSendEmail;
         }
 
         /// <summary>
@@ -87,6 +89,12 @@ namespace EdGraph.Tenant.Client.Model
         public List<EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsLicensesAssignLicenseRequest> AssignLicenseRequests { get; set; }
 
         /// <summary>
+        /// Gets or Sets DontSendEmail
+        /// </summary>
+        [DataMember(Name = "dontSendEmail", EmitDefaultValue = true)]
+        public bool? DontSendEmail { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -100,6 +108,7 @@ namespace EdGraph.Tenant.Client.Model
             sb.Append("  LastName: ").Append(LastName).Append("\n");
             sb.Append("  Role: ").Append(Role).Append("\n");
             sb.Append("  AssignLicenseRequests: ").Append(AssignLicenseRequests).Append("\n");
+            sb.Append("  DontSendEmail: ").Append(DontSendEmail).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
