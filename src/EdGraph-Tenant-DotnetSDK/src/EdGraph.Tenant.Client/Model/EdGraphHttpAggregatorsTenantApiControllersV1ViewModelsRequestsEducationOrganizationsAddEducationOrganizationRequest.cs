@@ -38,12 +38,14 @@ namespace EdGraph.Tenant.Client.Model
         /// <param name="tenantId">tenantId.</param>
         /// <param name="educationOrganizationId">educationOrganizationId.</param>
         /// <param name="staffClassifications">staffClassifications.</param>
-        public EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsEducationOrganizationsAddEducationOrganizationRequest(string userId = default(string), string tenantId = default(string), int educationOrganizationId = default(int), List<string> staffClassifications = default(List<string>))
+        /// <param name="source">source.</param>
+        public EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsEducationOrganizationsAddEducationOrganizationRequest(string userId = default(string), string tenantId = default(string), int educationOrganizationId = default(int), List<string> staffClassifications = default(List<string>), string source = default(string))
         {
             this.UserId = userId;
             this.TenantId = tenantId;
             this.EducationOrganizationId = educationOrganizationId;
             this.StaffClassifications = staffClassifications;
+            this.Source = source;
         }
 
         /// <summary>
@@ -71,6 +73,12 @@ namespace EdGraph.Tenant.Client.Model
         public List<string> StaffClassifications { get; set; }
 
         /// <summary>
+        /// Gets or Sets Source
+        /// </summary>
+        [DataMember(Name = "source", EmitDefaultValue = true)]
+        public string Source { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -82,6 +90,7 @@ namespace EdGraph.Tenant.Client.Model
             sb.Append("  TenantId: ").Append(TenantId).Append("\n");
             sb.Append("  EducationOrganizationId: ").Append(EducationOrganizationId).Append("\n");
             sb.Append("  StaffClassifications: ").Append(StaffClassifications).Append("\n");
+            sb.Append("  Source: ").Append(Source).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

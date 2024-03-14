@@ -6307,6 +6307,9 @@ components:
             type: string
           nullable: true
           type: array
+        source:
+          nullable: true
+          type: string
       type: object
     EdGraph.HttpAggregators.Tenant.Api.Controllers.v1.ViewModels.Requests.EducationOrganizations.UpdateEducationOrganizationRequest:
       additionalProperties: false
@@ -6416,6 +6419,9 @@ components:
             $ref: '#/components/schemas/EdGraph.HttpAggregators.Tenant.Api.Controllers.v1.ViewModels.Requests.Licenses.AssignLicenseRequest'
           nullable: true
           type: array
+        invitingUserDisplayName:
+          nullable: true
+          type: string
         dontSendEmail:
           nullable: true
           type: boolean

@@ -109,6 +109,15 @@ namespace EdGraph.Tenant.Client.Test.Model
         }
 
         /// <summary>
+        /// Test the property 'InvitingUserDisplayName'
+        /// </summary>
+        [Fact]
+        public void InvitingUserDisplayNameTest()
+        {
+            // TODO unit test for the property 'InvitingUserDisplayName'
+        }
+
+        /// <summary>
         /// Test the property 'DontSendEmail'
         /// </summary>
         [Fact]
