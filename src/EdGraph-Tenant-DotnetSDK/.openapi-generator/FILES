@@ -27,6 +27,7 @@ docs/EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsLicensesRevok
 docs/EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsLicensesRevokeLicenseRequest.md
 docs/EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsSendInvitationRequest.md
 docs/EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsTenantIdentityProvider.md
+docs/EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsTenantSetting.md
 docs/EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsTenantStatus.md
 docs/EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsTenantType.md
 docs/EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsUpdateTenantRequest.md
@@ -144,6 +145,10 @@ docs/TenantApiTenantV1SyncOrganizationsRequest.md
 docs/TenantApiTenantV1TenantAppSettings.md
 docs/TenantApiTenantV1TenantIdentityProviders.md
 docs/TenantApiTenantV1TenantProfileResponse.md
+docs/TenantApiTenantV1TenantSetting.md
+docs/TenantApiTenantV1TenantSettingTypesListResponse.md
+docs/TenantApiTenantV1TenantSettingTypesListResponsePaginatedItemsViewModel.md
+docs/TenantApiTenantV1TenantSettingsTypeAttribute.md
 docs/TenantApiTenantV1TenantStatus.md
 docs/TenantApiTenantV1TenantType.md
 docs/TenantApiTenantV1TenantUpdatedResponse.md
@@ -159,6 +164,7 @@ docs/TenantApiWebhookV1WebhookEventsResponse.md
 docs/TenantApiWebhookV1WebhookIdResponse.md
 docs/TenantApiWebhookV1WebhookResponse.md
 docs/TenantApiWebhookV1WebhookSubscriberResponse.md
+docs/TenantSettingTypesApi.md
 docs/TenantsApi.md
 docs/UsersApi.md
 docs/UsersEducationOrganizationsApi.md
@@ -175,6 +181,7 @@ src/EdGraph.Tenant.Client.Test/Api/OnboardingStepsApiTests.cs
 src/EdGraph.Tenant.Client.Test/Api/OrganizationsApiTests.cs
 src/EdGraph.Tenant.Client.Test/Api/StaffClassificationsApiTests.cs
 src/EdGraph.Tenant.Client.Test/Api/SubscriptionsApiTests.cs
+src/EdGraph.Tenant.Client.Test/Api/TenantSettingTypesApiTests.cs
 src/EdGraph.Tenant.Client.Test/Api/TenantsApiTests.cs
 src/EdGraph.Tenant.Client.Test/Api/UsersApiTests.cs
 src/EdGraph.Tenant.Client.Test/Api/UsersEducationOrganizationsApiTests.cs
@@ -199,6 +206,7 @@ src/EdGraph.Tenant.Client.Test/Model/EdGraphHttpAggregatorsTenantApiControllersV
 src/EdGraph.Tenant.Client.Test/Model/EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsLicensesRevokeLicenseRequestTests.cs
 src/EdGraph.Tenant.Client.Test/Model/EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsSendInvitationRequestTests.cs
 src/EdGraph.Tenant.Client.Test/Model/EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsTenantIdentityProviderTests.cs
+src/EdGraph.Tenant.Client.Test/Model/EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsTenantSettingTests.cs
 src/EdGraph.Tenant.Client.Test/Model/EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsTenantStatusTests.cs
 src/EdGraph.Tenant.Client.Test/Model/EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsTenantTypeTests.cs
 src/EdGraph.Tenant.Client.Test/Model/EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsUpdateTenantRequestTests.cs
@@ -311,6 +319,10 @@ src/EdGraph.Tenant.Client.Test/Model/TenantApiTenantV1SyncOrganizationsRequestTe
 src/EdGraph.Tenant.Client.Test/Model/TenantApiTenantV1TenantAppSettingsTests.cs
 src/EdGraph.Tenant.Client.Test/Model/TenantApiTenantV1TenantIdentityProvidersTests.cs
 src/EdGraph.Tenant.Client.Test/Model/TenantApiTenantV1TenantProfileResponseTests.cs
+src/EdGraph.Tenant.Client.Test/Model/TenantApiTenantV1TenantSettingTests.cs
+src/EdGraph.Tenant.Client.Test/Model/TenantApiTenantV1TenantSettingTypesListResponsePaginatedItemsViewModelTests.cs
+src/EdGraph.Tenant.Client.Test/Model/TenantApiTenantV1TenantSettingTypesListResponseTests.cs
+src/EdGraph.Tenant.Client.Test/Model/TenantApiTenantV1TenantSettingsTypeAttributeTests.cs
 src/EdGraph.Tenant.Client.Test/Model/TenantApiTenantV1TenantStatusTests.cs
 src/EdGraph.Tenant.Client.Test/Model/TenantApiTenantV1TenantTypeTests.cs
 src/EdGraph.Tenant.Client.Test/Model/TenantApiTenantV1TenantUpdatedResponseTests.cs
@@ -336,6 +348,7 @@ src/EdGraph.Tenant.Client/Api/OnboardingStepsApi.cs
 src/EdGraph.Tenant.Client/Api/OrganizationsApi.cs
 src/EdGraph.Tenant.Client/Api/StaffClassificationsApi.cs
 src/EdGraph.Tenant.Client/Api/SubscriptionsApi.cs
+src/EdGraph.Tenant.Client/Api/TenantSettingTypesApi.cs
 src/EdGraph.Tenant.Client/Api/TenantsApi.cs
 src/EdGraph.Tenant.Client/Api/UsersApi.cs
 src/EdGraph.Tenant.Client/Api/UsersEducationOrganizationsApi.cs
@@ -380,6 +393,7 @@ src/EdGraph.Tenant.Client/Model/EdGraphHttpAggregatorsTenantApiControllersV1View
 src/EdGraph.Tenant.Client/Model/EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsLicensesRevokeLicenseRequest.cs
 src/EdGraph.Tenant.Client/Model/EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsSendInvitationRequest.cs
 src/EdGraph.Tenant.Client/Model/EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsTenantIdentityProvider.cs
+src/EdGraph.Tenant.Client/Model/EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsTenantSetting.cs
 src/EdGraph.Tenant.Client/Model/EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsTenantStatus.cs
 src/EdGraph.Tenant.Client/Model/EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsTenantType.cs
 src/EdGraph.Tenant.Client/Model/EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsUpdateTenantRequest.cs
@@ -492,6 +506,10 @@ src/EdGraph.Tenant.Client/Model/TenantApiTenantV1SyncOrganizationsRequest.cs
 src/EdGraph.Tenant.Client/Model/TenantApiTenantV1TenantAppSettings.cs
 src/EdGraph.Tenant.Client/Model/TenantApiTenantV1TenantIdentityProviders.cs
 src/EdGraph.Tenant.Client/Model/TenantApiTenantV1TenantProfileResponse.cs
+src/EdGraph.Tenant.Client/Model/TenantApiTenantV1TenantSetting.cs
+src/EdGraph.Tenant.Client/Model/TenantApiTenantV1TenantSettingTypesListResponse.cs
+src/EdGraph.Tenant.Client/Model/TenantApiTenantV1TenantSettingTypesListResponsePaginatedItemsViewModel.cs
+src/EdGraph.Tenant.Client/Model/TenantApiTenantV1TenantSettingsTypeAttribute.cs
 src/EdGraph.Tenant.Client/Model/TenantApiTenantV1TenantStatus.cs
 src/EdGraph.Tenant.Client/Model/TenantApiTenantV1TenantType.cs
 src/EdGraph.Tenant.Client/Model/TenantApiTenantV1TenantUpdatedResponse.cs

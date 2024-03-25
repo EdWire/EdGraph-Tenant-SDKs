@@ -233,5 +233,14 @@ namespace EdGraph.Tenant.Client.Test.Model
         {
             // TODO unit test for the property 'OrganizationIdentifierHash'
         }
+
+        /// <summary>
+        /// Test the property 'Settings'
+        /// </summary>
+        [Fact]
+        public void SettingsTest()
+        {
+            // TODO unit test for the property 'Settings'
+        }
     }
 }

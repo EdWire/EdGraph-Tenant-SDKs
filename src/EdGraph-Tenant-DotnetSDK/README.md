@@ -160,6 +160,7 @@ Class | Method | HTTP request | Description
 *SubscriptionsApi* | [**GetAllTenantSubscriptionsAsync**](docs/SubscriptionsApi.md#getalltenantsubscriptionsasync) | **GET** /tenants/{tenantId}/subscriptions | Retrieves a list of subscriptions associated to this tenant
 *SubscriptionsApi* | [**GetTenantSubscriptionProfileByIdAsync**](docs/SubscriptionsApi.md#gettenantsubscriptionprofilebyidasync) | **GET** /tenants/{tenantId}/subscriptions/{subscriptionId} | Retrieves a subscription
 *SubscriptionsApi* | [**UpdateTenantSubscriptionAsync**](docs/SubscriptionsApi.md#updatetenantsubscriptionasync) | **PUT** /tenants/{tenantId}/subscriptions/{subscriptionId} | Updates a subscription
+*TenantSettingTypesApi* | [**GetAllSettingTypes**](docs/TenantSettingTypesApi.md#getallsettingtypes) | **GET** /tenants/settings | Retrieves all setting types
 *TenantsApi* | [**GetTenantByIdAsync**](docs/TenantsApi.md#gettenantbyidasync) | **GET** /tenants/{tenantId} | Retrieves the profile of a specific tenant
 *TenantsApi* | [**UpdateTenantAsync**](docs/TenantsApi.md#updatetenantasync) | **PUT** /tenants/{tenantId} | Updates a tenant's profile
 *UsersApi* | [**ActivateTenantUserAsync**](docs/UsersApi.md#activatetenantuserasync) | **PUT** /tenants/{tenantId}/users/{userId}/activate | Activates a user
@@ -209,6 +210,7 @@ Class | Method | HTTP request | Description
  - [Model.EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsLicensesRevokeLicenseRequest](docs/EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsLicensesRevokeLicenseRequest.md)
  - [Model.EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsSendInvitationRequest](docs/EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsSendInvitationRequest.md)
  - [Model.EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsTenantIdentityProvider](docs/EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsTenantIdentityProvider.md)
+ - [Model.EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsTenantSetting](docs/EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsTenantSetting.md)
  - [Model.EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsTenantStatus](docs/EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsTenantStatus.md)
  - [Model.EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsTenantType](docs/EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsTenantType.md)
  - [Model.EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsUpdateTenantRequest](docs/EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsUpdateTenantRequest.md)
@@ -321,6 +323,10 @@ Class | Method | HTTP request | Description
  - [Model.TenantApiTenantV1TenantAppSettings](docs/TenantApiTenantV1TenantAppSettings.md)
  - [Model.TenantApiTenantV1TenantIdentityProviders](docs/TenantApiTenantV1TenantIdentityProviders.md)
  - [Model.TenantApiTenantV1TenantProfileResponse](docs/TenantApiTenantV1TenantProfileResponse.md)
+ - [Model.TenantApiTenantV1TenantSetting](docs/TenantApiTenantV1TenantSetting.md)
+ - [Model.TenantApiTenantV1TenantSettingTypesListResponse](docs/TenantApiTenantV1TenantSettingTypesListResponse.md)
+ - [Model.TenantApiTenantV1TenantSettingTypesListResponsePaginatedItemsViewModel](docs/TenantApiTenantV1TenantSettingTypesListResponsePaginatedItemsViewModel.md)
+ - [Model.TenantApiTenantV1TenantSettingsTypeAttribute](docs/TenantApiTenantV1TenantSettingsTypeAttribute.md)
  - [Model.TenantApiTenantV1TenantStatus](docs/TenantApiTenantV1TenantStatus.md)
  - [Model.TenantApiTenantV1TenantType](docs/TenantApiTenantV1TenantType.md)
  - [Model.TenantApiTenantV1TenantUpdatedResponse](docs/TenantApiTenantV1TenantUpdatedResponse.md)

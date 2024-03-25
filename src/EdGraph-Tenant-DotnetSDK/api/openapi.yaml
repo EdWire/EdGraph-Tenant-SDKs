@@ -3648,6 +3648,111 @@ paths:
       summary: Creates a new subscription
       tags:
       - Subscriptions
+  /tenants/settings:
+    get:
+      operationId: GetAllSettingTypes
+      parameters:
+      - description: ""
+        explode: false
+        in: path
+        name: tenantId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: ""
+        explode: true
+        in: query
+        name: pageSize
+        required: false
+        schema:
+          default: 10
+          format: int32
+          type: integer
+        style: form
+      - description: ""
+        explode: true
+        in: query
+        name: pageIndex
+        required: false
+        schema:
+          default: 0
+          format: int32
+          type: integer
+        style: form
+      - description: ""
+        explode: true
+        in: query
+        name: orderBy
+        required: false
+        schema:
+          default: ""
+          type: string
+        style: form
+      - description: ""
+        explode: true
+        in: query
+        name: filter
+        required: false
+        schema:
+          default: ""
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: X-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EdGraph.Common.Errors.Core.ProblemDetails'
+          description: Unauthorized. The request requires authentication. The OAuth
+            bearer token was either not provided or is invalid. The operation may
+            succeed once authentication has been successfully completed.
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EdGraph.Common.Errors.Core.ProblemDetails'
+          description: Forbidden. The request cannot be completed in the current authorization
+            context. Contact your administrator if you believe this operation should
+            be allowed.
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EdGraph.Common.Errors.Core.ProblemDetails'
+          description: An unhandled error occurred on the server.See the response
+            body for details.
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TenantApi.Tenant.V1.TenantSettingTypesListResponsePaginatedItemsViewModel'
+          description: The requested resource was successfully retrieved.
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ValidationProblemDetails'
+          description: Bad Request. The request was invalid and cannot be completed.
+            See the response body for specific validation errors. This will typically
+            be an issue with the query parameters or the request body values.
+      summary: Retrieves all setting types
+      tags:
+      - Tenant / SettingTypes
   /tenants/{tenantId}:
     get:
       operationId: GetTenantByIdAsync
@@ -6433,6 +6538,19 @@ components:
       - Google
       - Adfs
       type: string
+    EdGraph.HttpAggregators.Tenant.Api.Controllers.v1.ViewModels.Requests.Tenants.TenantSetting:
+      additionalProperties: false
+      properties:
+        code:
+          nullable: true
+          type: string
+        value:
+          nullable: true
+          type: string
+        dataType:
+          nullable: true
+          type: string
+      type: object
     EdGraph.HttpAggregators.Tenant.Api.Controllers.v1.ViewModels.Requests.Tenants.TenantStatus:
       enum:
       - Unknown
@@ -6479,6 +6597,11 @@ components:
         identityProviders:
           items:
             $ref: '#/components/schemas/EdGraph.HttpAggregators.Tenant.Api.Controllers.v1.ViewModels.Requests.Tenants.TenantIdentityProvider'
+          nullable: true
+          type: array
+        settings:
+          items:
+            $ref: '#/components/schemas/EdGraph.HttpAggregators.Tenant.Api.Controllers.v1.ViewModels.Requests.Tenants.TenantSetting'
           nullable: true
           type: array
       type: object
@@ -7307,6 +7430,7 @@ components:
           - roles
           tenantId: tenantId
           status: null
+        lastLoginDateTime: lastLoginDateTime
         lastModifiedDateTime: lastModifiedDateTime
         lastModifiedBy: lastModifiedBy
         createdDateTime: createdDateTime
@@ -7406,6 +7530,9 @@ components:
         source:
           nullable: true
           type: string
+        lastLoginDateTime:
+          nullable: true
+          type: string
       type: object
     ? EdGraph.Platform.HttpAggregators.Tenant.Api.Controllers.v1.ViewModels.Responses.UserListResponseWithApplicationLicensePaginatedItemsViewModel
     : additionalProperties: false
@@ -7477,6 +7604,7 @@ components:
             - roles
             tenantId: tenantId
             status: null
+          lastLoginDateTime: lastLoginDateTime
           lastModifiedDateTime: lastModifiedDateTime
           lastModifiedBy: lastModifiedBy
           createdDateTime: createdDateTime
@@ -7593,6 +7721,7 @@ components:
             - roles
             tenantId: tenantId
             status: null
+          lastLoginDateTime: lastLoginDateTime
           lastModifiedDateTime: lastModifiedDateTime
           lastModifiedBy: lastModifiedBy
           createdDateTime: createdDateTime
@@ -7762,6 +7891,7 @@ components:
           value: value
         - code: code
           value: value
+        lastLoginDateTime: lastLoginDateTime
         lastModifiedDateTime: lastModifiedDateTime
         lockoutEnabled: lockoutEnabled
         lastModifiedBy: lastModifiedBy
@@ -7871,6 +8001,9 @@ components:
           nullable: true
           type: array
         source:
+          nullable: true
+          type: string
+        lastLoginDateTime:
           nullable: true
           type: string
       type: object
@@ -10525,6 +10658,13 @@ components:
       example:
         tenantType: null
         tenantStatus: null
+        settings:
+        - code: code
+          dataType: dataType
+          value: value
+        - code: code
+          dataType: dataType
+          value: value
         subscriptionsMigrated: true
         subscriptions:
         - gracePeriod: 0
@@ -10694,6 +10834,172 @@ components:
           readOnly: true
           type: array
         organizationIdentifierHash:
+          nullable: true
+          type: string
+        settings:
+          items:
+            $ref: '#/components/schemas/TenantApi.Tenant.V1.TenantSetting'
+          nullable: true
+          readOnly: true
+          type: array
+      type: object
+    TenantApi.Tenant.V1.TenantSetting:
+      additionalProperties: false
+      example:
+        code: code
+        dataType: dataType
+        value: value
+      properties:
+        code:
+          nullable: true
+          type: string
+        value:
+          nullable: true
+          type: string
+        dataType:
+          nullable: true
+          type: string
+      type: object
+    TenantApi.Tenant.V1.TenantSettingTypesListResponse:
+      additionalProperties: false
+      example:
+        code: code
+        hidden: true
+        defaultValue: defaultValue
+        maxValue: 2
+        dataType: dataType
+        label: label
+        minValue: 5
+        tenantId: tenantId
+        inputType: inputType
+        attributes:
+        - value: value
+          key: key
+        - value: value
+          key: key
+        id: id
+        htmlElement: htmlElement
+        maxLength: 7
+        order: 5
+      properties:
+        id:
+          nullable: true
+          type: string
+        tenantId:
+          nullable: true
+          type: string
+        code:
+          nullable: true
+          type: string
+        dataType:
+          nullable: true
+          type: string
+        order:
+          format: int32
+          nullable: true
+          type: integer
+        hidden:
+          type: boolean
+        htmlElement:
+          nullable: true
+          type: string
+        label:
+          nullable: true
+          type: string
+        inputType:
+          nullable: true
+          type: string
+        defaultValue:
+          nullable: true
+          type: string
+        minValue:
+          format: int32
+          nullable: true
+          type: integer
+        maxValue:
+          format: int32
+          nullable: true
+          type: integer
+        maxLength:
+          format: int32
+          nullable: true
+          type: integer
+        attributes:
+          items:
+            $ref: '#/components/schemas/TenantApi.Tenant.V1.TenantSettingsTypeAttribute'
+          nullable: true
+          readOnly: true
+          type: array
+      type: object
+    TenantApi.Tenant.V1.TenantSettingTypesListResponsePaginatedItemsViewModel:
+      additionalProperties: false
+      example:
+        data:
+        - code: code
+          hidden: true
+          defaultValue: defaultValue
+          maxValue: 2
+          dataType: dataType
+          label: label
+          minValue: 5
+          tenantId: tenantId
+          inputType: inputType
+          attributes:
+          - value: value
+            key: key
+          - value: value
+            key: key
+          id: id
+          htmlElement: htmlElement
+          maxLength: 7
+          order: 5
+        - code: code
+          hidden: true
+          defaultValue: defaultValue
+          maxValue: 2
+          dataType: dataType
+          label: label
+          minValue: 5
+          tenantId: tenantId
+          inputType: inputType
+          attributes:
+          - value: value
+            key: key
+          - value: value
+            key: key
+          id: id
+          htmlElement: htmlElement
+          maxLength: 7
+          order: 5
+        pageIndex: 0
+        count: 1
+        pageSize: 6
+      properties:
+        pageIndex:
+          format: int32
+          type: integer
+        pageSize:
+          format: int32
+          type: integer
+        count:
+          format: int64
+          type: integer
+        data:
+          items:
+            $ref: '#/components/schemas/TenantApi.Tenant.V1.TenantSettingTypesListResponse'
+          nullable: true
+          type: array
+      type: object
+    TenantApi.Tenant.V1.TenantSettingsTypeAttribute:
+      additionalProperties: false
+      example:
+        value: value
+        key: key
+      properties:
+        key:
+          nullable: true
+          type: string
+        value:
           nullable: true
           type: string
       type: object

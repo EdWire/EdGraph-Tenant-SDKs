@@ -223,6 +223,20 @@ namespace EdGraph.Tenant.Client.Model
         public string OrganizationIdentifierHash { get; set; }
 
         /// <summary>
+        /// Gets or Sets Settings
+        /// </summary>
+        [DataMember(Name = "settings", EmitDefaultValue = true)]
+        public List<TenantApiTenantV1TenantSetting> Settings { get; private set; }
+
+        /// <summary>
+        /// Returns false as Settings should not be serialized given that it's read-only.
+        /// </summary>
+        /// <returns>false (boolean)</returns>
+        public bool ShouldSerializeSettings()
+        {
+            return false;
+        }
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -250,6 +264,7 @@ namespace EdGraph.Tenant.Client.Model
             sb.Append("  Onboarding: ").Append(Onboarding).Append("\n");
             sb.Append("  Organizations: ").Append(Organizations).Append("\n");
             sb.Append("  OrganizationIdentifierHash: ").Append(OrganizationIdentifierHash).Append("\n");
+            sb.Append("  Settings: ").Append(Settings).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

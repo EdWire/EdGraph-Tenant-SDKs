@@ -56,7 +56,8 @@ namespace EdGraph.Tenant.Client.Model
         /// <param name="showLocalLoginOptionToTenantAdmins">showLocalLoginOptionToTenantAdmins.</param>
         /// <param name="tenantStatus">tenantStatus.</param>
         /// <param name="identityProviders">identityProviders.</param>
-        public EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsUpdateTenantRequest(string tenantId = default(string), EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsTenantType? tenantType = default(EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsTenantType?), string organizationIdentifier = default(string), string organizationName = default(string), string state = default(string), bool isDemo = default(bool), bool enforceMfa = default(bool), bool? showLocalLoginOptionToTenantAdmins = default(bool?), EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsTenantStatus? tenantStatus = default(EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsTenantStatus?), List<EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsTenantIdentityProvider> identityProviders = default(List<EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsTenantIdentityProvider>))
+        /// <param name="settings">settings.</param>
+        public EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsUpdateTenantRequest(string tenantId = default(string), EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsTenantType? tenantType = default(EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsTenantType?), string organizationIdentifier = default(string), string organizationName = default(string), string state = default(string), bool isDemo = default(bool), bool enforceMfa = default(bool), bool? showLocalLoginOptionToTenantAdmins = default(bool?), EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsTenantStatus? tenantStatus = default(EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsTenantStatus?), List<EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsTenantIdentityProvider> identityProviders = default(List<EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsTenantIdentityProvider>), List<EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsTenantSetting> settings = default(List<EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsTenantSetting>))
         {
             this.TenantId = tenantId;
             this.TenantType = tenantType;
@@ -68,6 +69,7 @@ namespace EdGraph.Tenant.Client.Model
             this.ShowLocalLoginOptionToTenantAdmins = showLocalLoginOptionToTenantAdmins;
             this.TenantStatus = tenantStatus;
             this.IdentityProviders = identityProviders;
+            this.Settings = settings;
         }
 
         /// <summary>
@@ -119,6 +121,12 @@ namespace EdGraph.Tenant.Client.Model
         public List<EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsTenantIdentityProvider> IdentityProviders { get; set; }
 
         /// <summary>
+        /// Gets or Sets Settings
+        /// </summary>
+        [DataMember(Name = "settings", EmitDefaultValue = true)]
+        public List<EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsTenantSetting> Settings { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -136,6 +144,7 @@ namespace EdGraph.Tenant.Client.Model
             sb.Append("  ShowLocalLoginOptionToTenantAdmins: ").Append(ShowLocalLoginOptionToTenantAdmins).Append("\n");
             sb.Append("  TenantStatus: ").Append(TenantStatus).Append("\n");
             sb.Append("  IdentityProviders: ").Append(IdentityProviders).Append("\n");
+            sb.Append("  Settings: ").Append(Settings).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
