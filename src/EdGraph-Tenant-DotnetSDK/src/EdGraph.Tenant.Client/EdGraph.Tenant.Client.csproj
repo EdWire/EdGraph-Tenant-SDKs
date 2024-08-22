@@ -1,4 +1,5 @@
 <Project Sdk="Microsoft.NET.Sdk">
+
 	<PropertyGroup>
 		<GenerateAssemblyInfo>false</GenerateAssemblyInfo>
 		<!-- setting GenerateAssemblyInfo to false causes this bug https://github.com/dotnet/project-system/issues/3934 -->
@@ -12,7 +13,7 @@
 		<Description>Tenant SDK</Description>
 		<Copyright>No Copyright</Copyright>
 		<RootNamespace>EdGraph.Tenant.Client</RootNamespace>
-		<Version>3.11.0</Version>
+		<Version>3.12.0</Version>
 		<DocumentationFile>bin\$(Configuration)\$(TargetFramework)\EdGraph.Tenant.Client.xml</DocumentationFile>
 		<RepositoryUrl>https://github.com/EdWire/EdGraph-Tenant-SDKs</RepositoryUrl>
 		<RepositoryType>git</RepositoryType>

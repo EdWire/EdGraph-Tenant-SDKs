@@ -134,5 +134,14 @@ namespace EdGraph.Tenant.Client.Test.Model
         {
             // TODO unit test for the property 'LastModifiedDateTime'
         }
+
+        /// <summary>
+        /// Test the property 'ExpirationDate'
+        /// </summary>
+        [Fact]
+        public void ExpirationDateTest()
+        {
+            // TODO unit test for the property 'ExpirationDate'
+        }
     }
 }

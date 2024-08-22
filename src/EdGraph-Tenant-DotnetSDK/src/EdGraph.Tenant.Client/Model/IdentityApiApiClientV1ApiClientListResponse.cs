@@ -43,7 +43,8 @@ namespace EdGraph.Tenant.Client.Model
         /// <param name="createdDateTime">createdDateTime.</param>
         /// <param name="lastModifiedBy">lastModifiedBy.</param>
         /// <param name="lastModifiedDateTime">lastModifiedDateTime.</param>
-        public IdentityApiApiClientV1ApiClientListResponse(string tenantId = default(string), string clientId = default(string), string clientName = default(string), string clientUri = default(string), bool enabled = default(bool), string createdBy = default(string), string createdDateTime = default(string), string lastModifiedBy = default(string), string lastModifiedDateTime = default(string))
+        /// <param name="expirationDate">expirationDate.</param>
+        public IdentityApiApiClientV1ApiClientListResponse(string tenantId = default(string), string clientId = default(string), string clientName = default(string), string clientUri = default(string), bool enabled = default(bool), string createdBy = default(string), string createdDateTime = default(string), string lastModifiedBy = default(string), string lastModifiedDateTime = default(string), string expirationDate = default(string))
         {
             this.TenantId = tenantId;
             this.ClientId = clientId;
@@ -54,6 +55,7 @@ namespace EdGraph.Tenant.Client.Model
             this.CreatedDateTime = createdDateTime;
             this.LastModifiedBy = lastModifiedBy;
             this.LastModifiedDateTime = lastModifiedDateTime;
+            this.ExpirationDate = expirationDate;
         }
 
         /// <summary>
@@ -111,6 +113,12 @@ namespace EdGraph.Tenant.Client.Model
         public string LastModifiedDateTime { get; set; }
 
         /// <summary>
+        /// Gets or Sets ExpirationDate
+        /// </summary>
+        [DataMember(Name = "expirationDate", EmitDefaultValue = true)]
+        public string ExpirationDate { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -127,6 +135,7 @@ namespace EdGraph.Tenant.Client.Model
             sb.Append("  CreatedDateTime: ").Append(CreatedDateTime).Append("\n");
             sb.Append("  LastModifiedBy: ").Append(LastModifiedBy).Append("\n");
             sb.Append("  LastModifiedDateTime: ").Append(LastModifiedDateTime).Append("\n");
+            sb.Append("  ExpirationDate: ").Append(ExpirationDate).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

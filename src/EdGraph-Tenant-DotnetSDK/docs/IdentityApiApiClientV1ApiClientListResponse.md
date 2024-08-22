@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **CreatedDateTime** | **string** |  | [optional] 
 **LastModifiedBy** | **string** |  | [optional] 
 **LastModifiedDateTime** | **string** |  | [optional] 
+**ExpirationDate** | **string** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

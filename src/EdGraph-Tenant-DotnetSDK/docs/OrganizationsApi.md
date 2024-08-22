@@ -1,6 +1,6 @@
 # EdGraph.Tenant.Client.Api.OrganizationsApi
 
-All URIs are relative to *https://api.edgraph.dev/tenant*
+All URIs are relative to *https://api.dev.edgraph.com/tenant*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
@@ -33,7 +33,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://api.edgraph.dev/tenant";
+            config.BasePath = "https://api.dev.edgraph.com/tenant";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
@@ -135,7 +135,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://api.edgraph.dev/tenant";
+            config.BasePath = "https://api.dev.edgraph.com/tenant";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
@@ -238,7 +238,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://api.edgraph.dev/tenant";
+            config.BasePath = "https://api.dev.edgraph.com/tenant";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
@@ -346,7 +346,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://api.edgraph.dev/tenant";
+            config.BasePath = "https://api.dev.edgraph.com/tenant";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
@@ -448,7 +448,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://api.edgraph.dev/tenant";
+            config.BasePath = "https://api.dev.edgraph.com/tenant";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
@@ -556,7 +556,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://api.edgraph.dev/tenant";
+            config.BasePath = "https://api.dev.edgraph.com/tenant";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
@@ -655,7 +655,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://api.edgraph.dev/tenant";
+            config.BasePath = "https://api.dev.edgraph.com/tenant";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 

@@ -118,6 +118,23 @@ namespace EdGraph.Tenant.Client.Test.Api
         }
 
         /// <summary>
+        /// Test GetStaffClassificationsNamespaces
+        /// </summary>
+        [Fact]
+        public void GetStaffClassificationsNamespacesTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //Guid tenantId = null;
+            //int? pageIndex = null;
+            //int? pageSize = null;
+            //string? filter = null;
+            //string? apiVersion = null;
+            //string? xVersion = null;
+            //var response = instance.GetStaffClassificationsNamespaces(tenantId, pageIndex, pageSize, filter, apiVersion, xVersion);
+            //Assert.IsType<IdentityApiStaffClassificationV1GetStaffClassificationsNamespacesResponse>(response);
+        }
+
+        /// <summary>
         /// Test UpdateStaffClassification
         /// </summary>
         [Fact]

@@ -53,7 +53,13 @@ namespace EdGraph.Tenant.Client.Model
         /// Enum Adfs for value: Adfs
         /// </summary>
         [EnumMember(Value = "Adfs")]
-        Adfs = 4
+        Adfs = 4,
+
+        /// <summary>
+        /// Enum Txedexchange for value: Txedexchange
+        /// </summary>
+        [EnumMember(Value = "Txedexchange")]
+        Txedexchange = 5
     }
 
 }

@@ -4,10 +4,10 @@ info:
   title: Tenant Api
   version: v1.0
 servers:
-- url: https://api.edgraph.dev/tenant
+- url: https://api.dev.edgraph.com/tenant
 security:
 - oauth2:
-  - https://api.edgraph.com/tenant
+  - https://api.edgraph.com/auth/tenant
 paths:
   /tenants/{tenantId}/apiclients/{clientId}/regeneratesecret:
     put:
@@ -3005,6 +3005,103 @@ paths:
             See the response body for specific validation errors. This will typically
             be an issue with the query parameters or the request body values.
       summary: Updates a StaffClassification.
+      tags:
+      - StaffClassifications
+  /tenants/{tenantId}/staffclassifications/namespaces:
+    get:
+      operationId: GetStaffClassificationsNamespaces
+      parameters:
+      - description: ""
+        explode: false
+        in: path
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - description: ""
+        explode: true
+        in: query
+        name: pageIndex
+        required: false
+        schema:
+          default: 0
+          format: int32
+          type: integer
+        style: form
+      - description: ""
+        explode: true
+        in: query
+        name: pageSize
+        required: false
+        schema:
+          default: 10
+          format: int32
+          type: integer
+        style: form
+      - description: ""
+        explode: true
+        in: query
+        name: filter
+        required: false
+        schema:
+          default: ""
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: X-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EdGraph.Common.Errors.Core.ProblemDetails'
+          description: Unauthorized. The request requires authentication. The OAuth
+            bearer token was either not provided or is invalid. The operation may
+            succeed once authentication has been successfully completed.
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EdGraph.Common.Errors.Core.ProblemDetails'
+          description: Forbidden. The request cannot be completed in the current authorization
+            context. Contact your administrator if you believe this operation should
+            be allowed.
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EdGraph.Common.Errors.Core.ProblemDetails'
+          description: An unhandled error occurred on the server.See the response
+            body for details.
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IdentityApi.StaffClassification.V1.GetStaffClassificationsNamespacesResponse'
+          description: The requested resource was successfully retrieved.
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ValidationProblemDetails'
+          description: Bad Request. The request was invalid and cannot be completed.
+            See the response body for specific validation errors. This will typically
+            be an issue with the query parameters or the request body values.
+      summary: Retrieves a list of unique Staff Classification Namespaces.
       tags:
       - StaffClassifications
   /tenants/{tenantId}/staffclassifications:
@@ -6537,6 +6634,7 @@ components:
       - Aad
       - Google
       - Adfs
+      - Txedexchange
       type: string
     EdGraph.HttpAggregators.Tenant.Api.Controllers.v1.ViewModels.Requests.Tenants.TenantSetting:
       additionalProperties: false
@@ -8163,6 +8261,7 @@ components:
         tenantId: tenantId
         createdDateTime: createdDateTime
         enabled: true
+        expirationDate: expirationDate
       properties:
         tenantId:
           nullable: true
@@ -8190,6 +8289,9 @@ components:
         lastModifiedDateTime:
           nullable: true
           type: string
+        expirationDate:
+          nullable: true
+          type: string
       type: object
     IdentityApi.ApiClient.V1.ApiClientPaginatedItemsResponse:
       additionalProperties: false
@@ -8204,6 +8306,7 @@ components:
           tenantId: tenantId
           createdDateTime: createdDateTime
           enabled: true
+          expirationDate: expirationDate
         - clientUri: clientUri
           clientId: clientId
           lastModifiedDateTime: lastModifiedDateTime
@@ -8213,6 +8316,7 @@ components:
           tenantId: tenantId
           createdDateTime: createdDateTime
           enabled: true
+          expirationDate: expirationDate
         pageIndex: 5
         count: 2
         pageSize: 5
@@ -8247,6 +8351,7 @@ components:
             tenantId: tenantId
             createdDateTime: createdDateTime
             enabled: true
+            expirationDate: expirationDate
           - clientUri: clientUri
             clientId: clientId
             lastModifiedDateTime: lastModifiedDateTime
@@ -8256,6 +8361,7 @@ components:
             tenantId: tenantId
             createdDateTime: createdDateTime
             enabled: true
+            expirationDate: expirationDate
           pageIndex: 5
           count: 2
           pageSize: 5
@@ -8269,6 +8375,7 @@ components:
             tenantId: tenantId
             createdDateTime: createdDateTime
             enabled: true
+            expirationDate: expirationDate
           - clientUri: clientUri
             clientId: clientId
             lastModifiedDateTime: lastModifiedDateTime
@@ -8278,6 +8385,7 @@ components:
             tenantId: tenantId
             createdDateTime: createdDateTime
             enabled: true
+            expirationDate: expirationDate
           pageIndex: 5
           count: 2
           pageSize: 5
@@ -8986,6 +9094,32 @@ components:
         licenses:
           items:
             $ref: '#/components/schemas/IdentityApi.StaffClassification.V1.StaffClassificationLicenseRequest'
+          nullable: true
+          readOnly: true
+          type: array
+      type: object
+    IdentityApi.StaffClassification.V1.GetStaffClassificationsNamespacesResponse:
+      additionalProperties: false
+      example:
+        data:
+        - data
+        - data
+        pageIndex: 0
+        count: 1
+        pageSize: 6
+      properties:
+        pageIndex:
+          format: int32
+          type: integer
+        pageSize:
+          format: int32
+          type: integer
+        count:
+          format: int64
+          type: integer
+        data:
+          items:
+            type: string
           nullable: true
           readOnly: true
           type: array
@@ -10652,6 +10786,7 @@ components:
       - Aad
       - Google
       - Adfs
+      - Txedexchange
       type: string
     TenantApi.Tenant.V1.TenantProfileResponse:
       additionalProperties: false
@@ -11414,7 +11549,7 @@ components:
       flows:
         clientCredentials:
           scopes:
-            https://api.edgraph.com/tenant: EdGraph Platform - Tenant Api
-          tokenUrl: https://login.edgraph.dev/connect/token
+            https://api.edgraph.com/auth/tenant: EdGraph Platform - Tenant Api
+          tokenUrl: https://login.dev.edgraph.com/connect/token
       type: oauth2
 

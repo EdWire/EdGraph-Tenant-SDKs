@@ -138,6 +138,36 @@ namespace EdGraph.Tenant.Client.Api
         /// <returns>ApiResponse of IdentityApiStaffClassificationV1GetStaffClassificationsResponse</returns>
         ApiResponse<IdentityApiStaffClassificationV1GetStaffClassificationsResponse> GetStaffClassificationsWithHttpInfo(Guid tenantId, int? pageIndex = default(int?), int? pageSize = default(int?), string? orderBy = default(string?), string? filter = default(string?), string? apiVersion = default(string?), string? xVersion = default(string?), int operationIndex = 0);
         /// <summary>
+        /// Retrieves a list of unique Staff Classification Namespaces.
+        /// </summary>
+        /// <exception cref="EdGraph.Tenant.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="tenantId"></param>
+        /// <param name="pageIndex"> (optional, default to 0)</param>
+        /// <param name="pageSize"> (optional, default to 10)</param>
+        /// <param name="filter"> (optional, default to &quot;&quot;)</param>
+        /// <param name="apiVersion"> (optional)</param>
+        /// <param name="xVersion"> (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>IdentityApiStaffClassificationV1GetStaffClassificationsNamespacesResponse</returns>
+        IdentityApiStaffClassificationV1GetStaffClassificationsNamespacesResponse GetStaffClassificationsNamespaces(Guid tenantId, int? pageIndex = default(int?), int? pageSize = default(int?), string? filter = default(string?), string? apiVersion = default(string?), string? xVersion = default(string?), int operationIndex = 0);
+
+        /// <summary>
+        /// Retrieves a list of unique Staff Classification Namespaces.
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="EdGraph.Tenant.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="tenantId"></param>
+        /// <param name="pageIndex"> (optional, default to 0)</param>
+        /// <param name="pageSize"> (optional, default to 10)</param>
+        /// <param name="filter"> (optional, default to &quot;&quot;)</param>
+        /// <param name="apiVersion"> (optional)</param>
+        /// <param name="xVersion"> (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of IdentityApiStaffClassificationV1GetStaffClassificationsNamespacesResponse</returns>
+        ApiResponse<IdentityApiStaffClassificationV1GetStaffClassificationsNamespacesResponse> GetStaffClassificationsNamespacesWithHttpInfo(Guid tenantId, int? pageIndex = default(int?), int? pageSize = default(int?), string? filter = default(string?), string? apiVersion = default(string?), string? xVersion = default(string?), int operationIndex = 0);
+        /// <summary>
         /// Updates a StaffClassification.
         /// </summary>
         /// <exception cref="EdGraph.Tenant.Client.Client.ApiException">Thrown when fails to make API call</exception>
@@ -304,6 +334,41 @@ namespace EdGraph.Tenant.Client.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (IdentityApiStaffClassificationV1GetStaffClassificationsResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<IdentityApiStaffClassificationV1GetStaffClassificationsResponse>> GetStaffClassificationsWithHttpInfoAsync(Guid tenantId, int? pageIndex = default(int?), int? pageSize = default(int?), string? orderBy = default(string?), string? filter = default(string?), string? apiVersion = default(string?), string? xVersion = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
+        /// Retrieves a list of unique Staff Classification Namespaces.
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="EdGraph.Tenant.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="tenantId"></param>
+        /// <param name="pageIndex"> (optional, default to 0)</param>
+        /// <param name="pageSize"> (optional, default to 10)</param>
+        /// <param name="filter"> (optional, default to &quot;&quot;)</param>
+        /// <param name="apiVersion"> (optional)</param>
+        /// <param name="xVersion"> (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of IdentityApiStaffClassificationV1GetStaffClassificationsNamespacesResponse</returns>
+        System.Threading.Tasks.Task<IdentityApiStaffClassificationV1GetStaffClassificationsNamespacesResponse> GetStaffClassificationsNamespacesAsync(Guid tenantId, int? pageIndex = default(int?), int? pageSize = default(int?), string? filter = default(string?), string? apiVersion = default(string?), string? xVersion = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+        /// <summary>
+        /// Retrieves a list of unique Staff Classification Namespaces.
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="EdGraph.Tenant.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="tenantId"></param>
+        /// <param name="pageIndex"> (optional, default to 0)</param>
+        /// <param name="pageSize"> (optional, default to 10)</param>
+        /// <param name="filter"> (optional, default to &quot;&quot;)</param>
+        /// <param name="apiVersion"> (optional)</param>
+        /// <param name="xVersion"> (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (IdentityApiStaffClassificationV1GetStaffClassificationsNamespacesResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<IdentityApiStaffClassificationV1GetStaffClassificationsNamespacesResponse>> GetStaffClassificationsNamespacesWithHttpInfoAsync(Guid tenantId, int? pageIndex = default(int?), int? pageSize = default(int?), string? filter = default(string?), string? apiVersion = default(string?), string? xVersion = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Updates a StaffClassification.
         /// </summary>
@@ -1274,6 +1339,230 @@ namespace EdGraph.Tenant.Client.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetStaffClassifications", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Retrieves a list of unique Staff Classification Namespaces. 
+        /// </summary>
+        /// <exception cref="EdGraph.Tenant.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="tenantId"></param>
+        /// <param name="pageIndex"> (optional, default to 0)</param>
+        /// <param name="pageSize"> (optional, default to 10)</param>
+        /// <param name="filter"> (optional, default to &quot;&quot;)</param>
+        /// <param name="apiVersion"> (optional)</param>
+        /// <param name="xVersion"> (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>IdentityApiStaffClassificationV1GetStaffClassificationsNamespacesResponse</returns>
+        public IdentityApiStaffClassificationV1GetStaffClassificationsNamespacesResponse GetStaffClassificationsNamespaces(Guid tenantId, int? pageIndex = default(int?), int? pageSize = default(int?), string? filter = default(string?), string? apiVersion = default(string?), string? xVersion = default(string?), int operationIndex = 0)
+        {
+            EdGraph.Tenant.Client.Client.ApiResponse<IdentityApiStaffClassificationV1GetStaffClassificationsNamespacesResponse> localVarResponse = GetStaffClassificationsNamespacesWithHttpInfo(tenantId, pageIndex, pageSize, filter, apiVersion, xVersion);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Retrieves a list of unique Staff Classification Namespaces. 
+        /// </summary>
+        /// <exception cref="EdGraph.Tenant.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="tenantId"></param>
+        /// <param name="pageIndex"> (optional, default to 0)</param>
+        /// <param name="pageSize"> (optional, default to 10)</param>
+        /// <param name="filter"> (optional, default to &quot;&quot;)</param>
+        /// <param name="apiVersion"> (optional)</param>
+        /// <param name="xVersion"> (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of IdentityApiStaffClassificationV1GetStaffClassificationsNamespacesResponse</returns>
+        public EdGraph.Tenant.Client.Client.ApiResponse<IdentityApiStaffClassificationV1GetStaffClassificationsNamespacesResponse> GetStaffClassificationsNamespacesWithHttpInfo(Guid tenantId, int? pageIndex = default(int?), int? pageSize = default(int?), string? filter = default(string?), string? apiVersion = default(string?), string? xVersion = default(string?), int operationIndex = 0)
+        {
+            EdGraph.Tenant.Client.Client.RequestOptions localVarRequestOptions = new EdGraph.Tenant.Client.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = EdGraph.Tenant.Client.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = EdGraph.Tenant.Client.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("tenantId", EdGraph.Tenant.Client.Client.ClientUtils.ParameterToString(tenantId)); // path parameter
+            if (pageIndex != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(EdGraph.Tenant.Client.Client.ClientUtils.ParameterToMultiMap("", "pageIndex", pageIndex));
+            }
+            if (pageSize != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(EdGraph.Tenant.Client.Client.ClientUtils.ParameterToMultiMap("", "pageSize", pageSize));
+            }
+            if (filter != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(EdGraph.Tenant.Client.Client.ClientUtils.ParameterToMultiMap("", "filter", filter));
+            }
+            if (apiVersion != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(EdGraph.Tenant.Client.Client.ClientUtils.ParameterToMultiMap("", "api-version", apiVersion));
+            }
+            if (xVersion != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("X-version", EdGraph.Tenant.Client.Client.ClientUtils.ParameterToString(xVersion)); // header parameter
+            }
+
+            localVarRequestOptions.Operation = "StaffClassificationsApi.GetStaffClassificationsNamespaces";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<IdentityApiStaffClassificationV1GetStaffClassificationsNamespacesResponse>("/tenants/{tenantId}/staffclassifications/namespaces", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetStaffClassificationsNamespaces", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Retrieves a list of unique Staff Classification Namespaces. 
+        /// </summary>
+        /// <exception cref="EdGraph.Tenant.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="tenantId"></param>
+        /// <param name="pageIndex"> (optional, default to 0)</param>
+        /// <param name="pageSize"> (optional, default to 10)</param>
+        /// <param name="filter"> (optional, default to &quot;&quot;)</param>
+        /// <param name="apiVersion"> (optional)</param>
+        /// <param name="xVersion"> (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of IdentityApiStaffClassificationV1GetStaffClassificationsNamespacesResponse</returns>
+        public async System.Threading.Tasks.Task<IdentityApiStaffClassificationV1GetStaffClassificationsNamespacesResponse> GetStaffClassificationsNamespacesAsync(Guid tenantId, int? pageIndex = default(int?), int? pageSize = default(int?), string? filter = default(string?), string? apiVersion = default(string?), string? xVersion = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            EdGraph.Tenant.Client.Client.ApiResponse<IdentityApiStaffClassificationV1GetStaffClassificationsNamespacesResponse> localVarResponse = await GetStaffClassificationsNamespacesWithHttpInfoAsync(tenantId, pageIndex, pageSize, filter, apiVersion, xVersion, operationIndex, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Retrieves a list of unique Staff Classification Namespaces. 
+        /// </summary>
+        /// <exception cref="EdGraph.Tenant.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="tenantId"></param>
+        /// <param name="pageIndex"> (optional, default to 0)</param>
+        /// <param name="pageSize"> (optional, default to 10)</param>
+        /// <param name="filter"> (optional, default to &quot;&quot;)</param>
+        /// <param name="apiVersion"> (optional)</param>
+        /// <param name="xVersion"> (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (IdentityApiStaffClassificationV1GetStaffClassificationsNamespacesResponse)</returns>
+        public async System.Threading.Tasks.Task<EdGraph.Tenant.Client.Client.ApiResponse<IdentityApiStaffClassificationV1GetStaffClassificationsNamespacesResponse>> GetStaffClassificationsNamespacesWithHttpInfoAsync(Guid tenantId, int? pageIndex = default(int?), int? pageSize = default(int?), string? filter = default(string?), string? apiVersion = default(string?), string? xVersion = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+
+            EdGraph.Tenant.Client.Client.RequestOptions localVarRequestOptions = new EdGraph.Tenant.Client.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = EdGraph.Tenant.Client.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = EdGraph.Tenant.Client.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("tenantId", EdGraph.Tenant.Client.Client.ClientUtils.ParameterToString(tenantId)); // path parameter
+            if (pageIndex != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(EdGraph.Tenant.Client.Client.ClientUtils.ParameterToMultiMap("", "pageIndex", pageIndex));
+            }
+            if (pageSize != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(EdGraph.Tenant.Client.Client.ClientUtils.ParameterToMultiMap("", "pageSize", pageSize));
+            }
+            if (filter != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(EdGraph.Tenant.Client.Client.ClientUtils.ParameterToMultiMap("", "filter", filter));
+            }
+            if (apiVersion != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(EdGraph.Tenant.Client.Client.ClientUtils.ParameterToMultiMap("", "api-version", apiVersion));
+            }
+            if (xVersion != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("X-version", EdGraph.Tenant.Client.Client.ClientUtils.ParameterToString(xVersion)); // header parameter
+            }
+
+            localVarRequestOptions.Operation = "StaffClassificationsApi.GetStaffClassificationsNamespaces";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.GetAsync<IdentityApiStaffClassificationV1GetStaffClassificationsNamespacesResponse>("/tenants/{tenantId}/staffclassifications/namespaces", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetStaffClassificationsNamespaces", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;

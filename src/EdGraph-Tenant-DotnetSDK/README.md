@@ -84,7 +84,7 @@ namespace Example
         {
 
             Configuration config = new Configuration();
-            config.BasePath = "https://api.edgraph.dev/tenant";
+            config.BasePath = "https://api.dev.edgraph.com/tenant";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
@@ -115,7 +115,7 @@ namespace Example
 <a id="documentation-for-api-endpoints"></a>
 ## Documentation for API Endpoints
 
-All URIs are relative to *https://api.edgraph.dev/tenant*
+All URIs are relative to *https://api.dev.edgraph.com/tenant*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
@@ -154,6 +154,7 @@ Class | Method | HTTP request | Description
 *StaffClassificationsApi* | [**DeleteStaffClassification**](docs/StaffClassificationsApi.md#deletestaffclassification) | **DELETE** /tenants/{tenantId}/staffclassifications/{staffClassificationId} | Deletes a StaffClassification.
 *StaffClassificationsApi* | [**GetStaffClassificationById**](docs/StaffClassificationsApi.md#getstaffclassificationbyid) | **GET** /tenants/{tenantId}/staffclassifications/{staffClassificationId} | Retrieves a StaffClassification by ID.
 *StaffClassificationsApi* | [**GetStaffClassifications**](docs/StaffClassificationsApi.md#getstaffclassifications) | **GET** /tenants/{tenantId}/staffclassifications | Retrieves a list of StaffClassifications.
+*StaffClassificationsApi* | [**GetStaffClassificationsNamespaces**](docs/StaffClassificationsApi.md#getstaffclassificationsnamespaces) | **GET** /tenants/{tenantId}/staffclassifications/namespaces | Retrieves a list of unique Staff Classification Namespaces.
 *StaffClassificationsApi* | [**UpdateStaffClassification**](docs/StaffClassificationsApi.md#updatestaffclassification) | **PUT** /tenants/{tenantId}/staffclassifications/{staffClassificationId} | Updates a StaffClassification.
 *SubscriptionsApi* | [**CreateTenantSubscriptionAsync**](docs/SubscriptionsApi.md#createtenantsubscriptionasync) | **POST** /tenants/{tenantId}/subscriptions | Creates a new subscription
 *SubscriptionsApi* | [**GetAllTenantSubscriptionApplications**](docs/SubscriptionsApi.md#getalltenantsubscriptionapplications) | **GET** /tenants/{tenantId}/subscriptions/applications | Retrieves a list of applications available for subscription.
@@ -259,6 +260,7 @@ Class | Method | HTTP request | Description
  - [Model.IdentityApiInvitationV1InvitationSentResponse](docs/IdentityApiInvitationV1InvitationSentResponse.md)
  - [Model.IdentityApiInvitationV1InvitationStatus](docs/IdentityApiInvitationV1InvitationStatus.md)
  - [Model.IdentityApiStaffClassificationV1CreateStaffClassificationRequest](docs/IdentityApiStaffClassificationV1CreateStaffClassificationRequest.md)
+ - [Model.IdentityApiStaffClassificationV1GetStaffClassificationsNamespacesResponse](docs/IdentityApiStaffClassificationV1GetStaffClassificationsNamespacesResponse.md)
  - [Model.IdentityApiStaffClassificationV1GetStaffClassificationsResponse](docs/IdentityApiStaffClassificationV1GetStaffClassificationsResponse.md)
  - [Model.IdentityApiStaffClassificationV1StaffClassificationCreatedResponse](docs/IdentityApiStaffClassificationV1StaffClassificationCreatedResponse.md)
  - [Model.IdentityApiStaffClassificationV1StaffClassificationDeletedResponse](docs/IdentityApiStaffClassificationV1StaffClassificationDeletedResponse.md)
@@ -356,5 +358,5 @@ Authentication schemes defined for the API:
 - **Flow**: application
 - **Authorization URL**: 
 - **Scopes**: 
-  - https://api.edgraph.com/tenant: EdGraph Platform - Tenant Api
+  - https://api.edgraph.com/auth/tenant: EdGraph Platform - Tenant Api
 
