@@ -84,7 +84,7 @@ namespace Example
         {
 
             Configuration config = new Configuration();
-            config.BasePath = "https://api.dev.edgraph.com/tenant";
+            config.BasePath = "https://api.int.txedexchange.net/tenant";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
@@ -115,7 +115,7 @@ namespace Example
 <a id="documentation-for-api-endpoints"></a>
 ## Documentation for API Endpoints
 
-All URIs are relative to *https://api.dev.edgraph.com/tenant*
+All URIs are relative to *https://api.int.txedexchange.net/tenant*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------

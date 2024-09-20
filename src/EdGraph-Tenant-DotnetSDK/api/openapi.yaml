@@ -4,7 +4,7 @@ info:
   title: Tenant Api
   version: v1.0
 servers:
-- url: https://api.dev.edgraph.com/tenant
+- url: https://api.int.txedexchange.net/tenant
 security:
 - oauth2:
   - https://api.edgraph.com/auth/tenant
@@ -11550,6 +11550,6 @@ components:
         clientCredentials:
           scopes:
             https://api.edgraph.com/auth/tenant: EdGraph Platform - Tenant Api
-          tokenUrl: https://login.dev.edgraph.com/connect/token
+          tokenUrl: https://login.int.txedexchange.net/connect/token
       type: oauth2
 
