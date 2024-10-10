@@ -119,7 +119,7 @@ namespace EdGraph.Tenant.Client.Client
         {
             Proxy = null;
             UserAgent = WebUtility.UrlEncode("OpenAPI-Generator/1.0.0/csharp");
-            BasePath = "https://api.int.txedexchange.net/tenant";
+            BasePath = "https://api.dev.edgraph.com/tenant";
             DefaultHeaders = new ConcurrentDictionary<string, string>();
             ApiKey = new ConcurrentDictionary<string, string>();
             ApiKeyPrefix = new ConcurrentDictionary<string, string>();
@@ -127,7 +127,7 @@ namespace EdGraph.Tenant.Client.Client
             {
                 {
                     new Dictionary<string, object> {
-                        {"url", "https://api.int.txedexchange.net/tenant"},
+                        {"url", "https://api.dev.edgraph.com/tenant"},
                         {"description", "No description provided"},
                     }
                 }
@@ -148,7 +148,7 @@ namespace EdGraph.Tenant.Client.Client
             IDictionary<string, string> defaultHeaders,
             IDictionary<string, string> apiKey,
             IDictionary<string, string> apiKeyPrefix,
-            string basePath = "https://api.int.txedexchange.net/tenant") : this()
+            string basePath = "https://api.dev.edgraph.com/tenant") : this()
         {
             if (string.IsNullOrWhiteSpace(basePath))
                 throw new ArgumentException("The provided basePath is invalid.", "basePath");

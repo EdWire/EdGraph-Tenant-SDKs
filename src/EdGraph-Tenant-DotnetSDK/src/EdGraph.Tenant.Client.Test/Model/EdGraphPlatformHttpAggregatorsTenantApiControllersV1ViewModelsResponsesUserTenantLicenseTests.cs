@@ -73,6 +73,24 @@ namespace EdGraph.Tenant.Client.Test.Model
         }
 
         /// <summary>
+        /// Test the property 'StartDateTime'
+        /// </summary>
+        [Fact]
+        public void StartDateTimeTest()
+        {
+            // TODO unit test for the property 'StartDateTime'
+        }
+
+        /// <summary>
+        /// Test the property 'EndDateTime'
+        /// </summary>
+        [Fact]
+        public void EndDateTimeTest()
+        {
+            // TODO unit test for the property 'EndDateTime'
+        }
+
+        /// <summary>
         /// Test the property 'Roles'
         /// </summary>
         [Fact]

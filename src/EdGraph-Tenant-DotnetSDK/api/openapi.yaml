@@ -4,7 +4,7 @@ info:
   title: Tenant Api
   version: v1.0
 servers:
-- url: https://api.int.txedexchange.net/tenant
+- url: https://api.dev.edgraph.com/tenant
 security:
 - oauth2:
   - https://api.edgraph.com/auth/tenant
@@ -6628,14 +6628,45 @@ components:
           nullable: true
           type: boolean
       type: object
-    EdGraph.HttpAggregators.Tenant.Api.Controllers.v1.ViewModels.Requests.Tenants.TenantIdentityProvider:
+    EdGraph.HttpAggregators.Tenant.Api.Controllers.v1.ViewModels.Requests.Tenants.TenantAdditionalSetting:
+      additionalProperties: false
+      properties:
+        showLocalLoginOptionToTenantAdmins:
+          nullable: true
+          type: boolean
+        gracePeriodMfaExpiryDate:
+          format: date-time
+          type: string
+      type: object
+    EdGraph.HttpAggregators.Tenant.Api.Controllers.v1.ViewModels.Requests.Tenants.TenantIdentityProviderId:
+      description: Contains the list of the supported login identity providers
       enum:
       - Local
       - Aad
       - Google
       - Adfs
       - Txedexchange
+      - Mspersonalv2
       type: string
+    EdGraph.HttpAggregators.Tenant.Api.Controllers.v1.ViewModels.Requests.Tenants.TenantIdentityProviderStatus:
+      enum:
+      - Unknown
+      - Active
+      - Inactive
+      type: string
+    EdGraph.HttpAggregators.Tenant.Api.Controllers.v1.ViewModels.Requests.Tenants.TenantIdentityProviders:
+      additionalProperties: false
+      properties:
+        identityProviderId:
+          $ref: '#/components/schemas/EdGraph.HttpAggregators.Tenant.Api.Controllers.v1.ViewModels.Requests.Tenants.TenantIdentityProviderId'
+        identityProviderStatus:
+          $ref: '#/components/schemas/EdGraph.HttpAggregators.Tenant.Api.Controllers.v1.ViewModels.Requests.Tenants.TenantIdentityProviderStatus'
+        enableMfa:
+          type: boolean
+        enforceMfa:
+          nullable: true
+          type: string
+      type: object
     EdGraph.HttpAggregators.Tenant.Api.Controllers.v1.ViewModels.Requests.Tenants.TenantSetting:
       additionalProperties: false
       properties:
@@ -6685,18 +6716,15 @@ components:
           type: string
         isDemo:
           type: boolean
-        enforceMfa:
-          type: boolean
-        showLocalLoginOptionToTenantAdmins:
-          nullable: true
-          type: boolean
-        tenantStatus:
-          $ref: '#/components/schemas/EdGraph.HttpAggregators.Tenant.Api.Controllers.v1.ViewModels.Requests.Tenants.TenantStatus'
+        additionalSettings:
+          $ref: '#/components/schemas/EdGraph.HttpAggregators.Tenant.Api.Controllers.v1.ViewModels.Requests.Tenants.TenantAdditionalSetting'
         identityProviders:
           items:
-            $ref: '#/components/schemas/EdGraph.HttpAggregators.Tenant.Api.Controllers.v1.ViewModels.Requests.Tenants.TenantIdentityProvider'
+            $ref: '#/components/schemas/EdGraph.HttpAggregators.Tenant.Api.Controllers.v1.ViewModels.Requests.Tenants.TenantIdentityProviders'
           nullable: true
           type: array
+        tenantStatus:
+          $ref: '#/components/schemas/EdGraph.HttpAggregators.Tenant.Api.Controllers.v1.ViewModels.Requests.Tenants.TenantStatus'
         settings:
           items:
             $ref: '#/components/schemas/EdGraph.HttpAggregators.Tenant.Api.Controllers.v1.ViewModels.Requests.Tenants.TenantSetting'
@@ -7465,31 +7493,39 @@ components:
         lastName: lastName
         tenants:
         - licenses:
-          - roles:
+          - startDateTime: startDateTime
+            roles:
             - role: role
               isImplicitlyAssigned: true
               educationOrganizationId: 0
               staffClassification: staffClassification
+              source: source
               status: status
             - role: role
               isImplicitlyAssigned: true
               educationOrganizationId: 0
               staffClassification: staffClassification
+              source: source
               status: status
             applicationId: applicationId
+            endDateTime: endDateTime
             applicationName: applicationName
-          - roles:
+          - startDateTime: startDateTime
+            roles:
             - role: role
               isImplicitlyAssigned: true
               educationOrganizationId: 0
               staffClassification: staffClassification
+              source: source
               status: status
             - role: role
               isImplicitlyAssigned: true
               educationOrganizationId: 0
               staffClassification: staffClassification
+              source: source
               status: status
             applicationId: applicationId
+            endDateTime: endDateTime
             applicationName: applicationName
           roles:
           - roles
@@ -7497,31 +7533,39 @@ components:
           tenantId: tenantId
           status: null
         - licenses:
-          - roles:
+          - startDateTime: startDateTime
+            roles:
             - role: role
               isImplicitlyAssigned: true
               educationOrganizationId: 0
               staffClassification: staffClassification
+              source: source
               status: status
             - role: role
               isImplicitlyAssigned: true
               educationOrganizationId: 0
               staffClassification: staffClassification
+              source: source
               status: status
             applicationId: applicationId
+            endDateTime: endDateTime
             applicationName: applicationName
-          - roles:
+          - startDateTime: startDateTime
+            roles:
             - role: role
               isImplicitlyAssigned: true
               educationOrganizationId: 0
               staffClassification: staffClassification
+              source: source
               status: status
             - role: role
               isImplicitlyAssigned: true
               educationOrganizationId: 0
               staffClassification: staffClassification
+              source: source
               status: status
             applicationId: applicationId
+            endDateTime: endDateTime
             applicationName: applicationName
           roles:
           - roles
@@ -7639,31 +7683,39 @@ components:
         - lastName: lastName
           tenants:
           - licenses:
-            - roles:
+            - startDateTime: startDateTime
+              roles:
               - role: role
                 isImplicitlyAssigned: true
                 educationOrganizationId: 0
                 staffClassification: staffClassification
+                source: source
                 status: status
               - role: role
                 isImplicitlyAssigned: true
                 educationOrganizationId: 0
                 staffClassification: staffClassification
+                source: source
                 status: status
               applicationId: applicationId
+              endDateTime: endDateTime
               applicationName: applicationName
-            - roles:
+            - startDateTime: startDateTime
+              roles:
               - role: role
                 isImplicitlyAssigned: true
                 educationOrganizationId: 0
                 staffClassification: staffClassification
+                source: source
                 status: status
               - role: role
                 isImplicitlyAssigned: true
                 educationOrganizationId: 0
                 staffClassification: staffClassification
+                source: source
                 status: status
               applicationId: applicationId
+              endDateTime: endDateTime
               applicationName: applicationName
             roles:
             - roles
@@ -7671,31 +7723,39 @@ components:
             tenantId: tenantId
             status: null
           - licenses:
-            - roles:
+            - startDateTime: startDateTime
+              roles:
               - role: role
                 isImplicitlyAssigned: true
                 educationOrganizationId: 0
                 staffClassification: staffClassification
+                source: source
                 status: status
               - role: role
                 isImplicitlyAssigned: true
                 educationOrganizationId: 0
                 staffClassification: staffClassification
+                source: source
                 status: status
               applicationId: applicationId
+              endDateTime: endDateTime
               applicationName: applicationName
-            - roles:
+            - startDateTime: startDateTime
+              roles:
               - role: role
                 isImplicitlyAssigned: true
                 educationOrganizationId: 0
                 staffClassification: staffClassification
+                source: source
                 status: status
               - role: role
                 isImplicitlyAssigned: true
                 educationOrganizationId: 0
                 staffClassification: staffClassification
+                source: source
                 status: status
               applicationId: applicationId
+              endDateTime: endDateTime
               applicationName: applicationName
             roles:
             - roles
@@ -7756,31 +7816,39 @@ components:
         - lastName: lastName
           tenants:
           - licenses:
-            - roles:
+            - startDateTime: startDateTime
+              roles:
               - role: role
                 isImplicitlyAssigned: true
                 educationOrganizationId: 0
                 staffClassification: staffClassification
+                source: source
                 status: status
               - role: role
                 isImplicitlyAssigned: true
                 educationOrganizationId: 0
                 staffClassification: staffClassification
+                source: source
                 status: status
               applicationId: applicationId
+              endDateTime: endDateTime
               applicationName: applicationName
-            - roles:
+            - startDateTime: startDateTime
+              roles:
               - role: role
                 isImplicitlyAssigned: true
                 educationOrganizationId: 0
                 staffClassification: staffClassification
+                source: source
                 status: status
               - role: role
                 isImplicitlyAssigned: true
                 educationOrganizationId: 0
                 staffClassification: staffClassification
+                source: source
                 status: status
               applicationId: applicationId
+              endDateTime: endDateTime
               applicationName: applicationName
             roles:
             - roles
@@ -7788,31 +7856,39 @@ components:
             tenantId: tenantId
             status: null
           - licenses:
-            - roles:
+            - startDateTime: startDateTime
+              roles:
               - role: role
                 isImplicitlyAssigned: true
                 educationOrganizationId: 0
                 staffClassification: staffClassification
+                source: source
                 status: status
               - role: role
                 isImplicitlyAssigned: true
                 educationOrganizationId: 0
                 staffClassification: staffClassification
+                source: source
                 status: status
               applicationId: applicationId
+              endDateTime: endDateTime
               applicationName: applicationName
-            - roles:
+            - startDateTime: startDateTime
+              roles:
               - role: role
                 isImplicitlyAssigned: true
                 educationOrganizationId: 0
                 staffClassification: staffClassification
+                source: source
                 status: status
               - role: role
                 isImplicitlyAssigned: true
                 educationOrganizationId: 0
                 staffClassification: staffClassification
+                source: source
                 status: status
               applicationId: applicationId
+              endDateTime: endDateTime
               applicationName: applicationName
             roles:
             - roles
@@ -7921,31 +7997,39 @@ components:
         lastName: lastName
         tenants:
         - licenses:
-          - roles:
+          - startDateTime: startDateTime
+            roles:
             - role: role
               isImplicitlyAssigned: true
               educationOrganizationId: 0
               staffClassification: staffClassification
+              source: source
               status: status
             - role: role
               isImplicitlyAssigned: true
               educationOrganizationId: 0
               staffClassification: staffClassification
+              source: source
               status: status
             applicationId: applicationId
+            endDateTime: endDateTime
             applicationName: applicationName
-          - roles:
+          - startDateTime: startDateTime
+            roles:
             - role: role
               isImplicitlyAssigned: true
               educationOrganizationId: 0
               staffClassification: staffClassification
+              source: source
               status: status
             - role: role
               isImplicitlyAssigned: true
               educationOrganizationId: 0
               staffClassification: staffClassification
+              source: source
               status: status
             applicationId: applicationId
+            endDateTime: endDateTime
             applicationName: applicationName
           roles:
           - roles
@@ -7953,31 +8037,39 @@ components:
           tenantId: tenantId
           status: null
         - licenses:
-          - roles:
+          - startDateTime: startDateTime
+            roles:
             - role: role
               isImplicitlyAssigned: true
               educationOrganizationId: 0
               staffClassification: staffClassification
+              source: source
               status: status
             - role: role
               isImplicitlyAssigned: true
               educationOrganizationId: 0
               staffClassification: staffClassification
+              source: source
               status: status
             applicationId: applicationId
+            endDateTime: endDateTime
             applicationName: applicationName
-          - roles:
+          - startDateTime: startDateTime
+            roles:
             - role: role
               isImplicitlyAssigned: true
               educationOrganizationId: 0
               staffClassification: staffClassification
+              source: source
               status: status
             - role: role
               isImplicitlyAssigned: true
               educationOrganizationId: 0
               staffClassification: staffClassification
+              source: source
               status: status
             applicationId: applicationId
+            endDateTime: endDateTime
             applicationName: applicationName
           roles:
           - roles
@@ -8109,31 +8201,39 @@ components:
       additionalProperties: false
       example:
         licenses:
-        - roles:
+        - startDateTime: startDateTime
+          roles:
           - role: role
             isImplicitlyAssigned: true
             educationOrganizationId: 0
             staffClassification: staffClassification
+            source: source
             status: status
           - role: role
             isImplicitlyAssigned: true
             educationOrganizationId: 0
             staffClassification: staffClassification
+            source: source
             status: status
           applicationId: applicationId
+          endDateTime: endDateTime
           applicationName: applicationName
-        - roles:
+        - startDateTime: startDateTime
+          roles:
           - role: role
             isImplicitlyAssigned: true
             educationOrganizationId: 0
             staffClassification: staffClassification
+            source: source
             status: status
           - role: role
             isImplicitlyAssigned: true
             educationOrganizationId: 0
             staffClassification: staffClassification
+            source: source
             status: status
           applicationId: applicationId
+          endDateTime: endDateTime
           applicationName: applicationName
         roles:
         - roles
@@ -8160,24 +8260,34 @@ components:
     EdGraph.Platform.HttpAggregators.Tenant.Api.Controllers.v1.ViewModels.Responses.UserTenantLicense:
       additionalProperties: false
       example:
+        startDateTime: startDateTime
         roles:
         - role: role
           isImplicitlyAssigned: true
           educationOrganizationId: 0
           staffClassification: staffClassification
+          source: source
           status: status
         - role: role
           isImplicitlyAssigned: true
           educationOrganizationId: 0
           staffClassification: staffClassification
+          source: source
           status: status
         applicationId: applicationId
+        endDateTime: endDateTime
         applicationName: applicationName
       properties:
         applicationId:
           nullable: true
           type: string
         applicationName:
+          nullable: true
+          type: string
+        startDateTime:
+          nullable: true
+          type: string
+        endDateTime:
           nullable: true
           type: string
         roles:
@@ -8193,6 +8303,7 @@ components:
         isImplicitlyAssigned: true
         educationOrganizationId: 0
         staffClassification: staffClassification
+        source: source
         status: status
       properties:
         role:
@@ -8201,6 +8312,12 @@ components:
         isImplicitlyAssigned:
           type: boolean
         status:
+          deprecated: true
+          description: "Maps to EdGraph.Platform.HttpAggregators.Tenant.Api.Controllers.v1.ViewModels.Responses.UserTenantLicenseRoleStatus.<br></br>\r\
+            \n\r\nFor more info on deprecation see: Task 9962: Modify implicit license\
+            \ response to prioritize explicit licenses over implicit (part 2) (https://dev.azure.com/edwire/EW.Educate/_workitems/edit/9962)<br></br>\r\
+            \n\r\nUse EdGraph.Platform.HttpAggregators.Tenant.Api.Controllers.v1.ViewModels.Responses.LicenseSource\
+            \ instead.<br></br>"
           nullable: true
           type: string
         educationOrganizationId:
@@ -8208,6 +8325,12 @@ components:
           nullable: true
           type: integer
         staffClassification:
+          nullable: true
+          type: string
+        source:
+          description: "Maps to EdGraph.Platform.HttpAggregators.Tenant.Api.Controllers.v1.ViewModels.Responses.LicenseSource.<br></br>\r\
+            \n\r\nFor more info see: Task 9962: Modify implicit license response to\
+            \ prioritize explicit licenses over implicit (part 2) (https://dev.azure.com/edwire/EW.Educate/_workitems/edit/9962)"
           nullable: true
           type: string
       type: object
@@ -10289,6 +10412,21 @@ components:
           readOnly: true
           type: array
       type: object
+    TenantApi.Tenant.V1.IdentityProviderId:
+      enum:
+      - Local
+      - Aad
+      - Google
+      - Adfs
+      - Txedexchange
+      - Mspersonalv2
+      type: string
+    TenantApi.Tenant.V1.IdentityProviderStatus:
+      enum:
+      - Unknown
+      - Active
+      - Inactive
+      type: string
     TenantApi.Tenant.V1.InstanceDatabase:
       additionalProperties: false
       example:
@@ -10759,6 +10897,18 @@ components:
           format: int32
           type: integer
       type: object
+    TenantApi.Tenant.V1.TenantAdditionalSetting:
+      additionalProperties: false
+      example:
+        showLocalLoginOptionToTenantAdmins: true
+        gracePeriodMfaExpiryDate: gracePeriodMfaExpiryDate
+      properties:
+        showLocalLoginOptionToTenantAdmins:
+          type: boolean
+        gracePeriodMfaExpiryDate:
+          nullable: true
+          type: string
+      type: object
     TenantApi.Tenant.V1.TenantAppSettings:
       additionalProperties: false
       example:
@@ -10781,13 +10931,23 @@ components:
           type: string
       type: object
     TenantApi.Tenant.V1.TenantIdentityProviders:
-      enum:
-      - Local
-      - Aad
-      - Google
-      - Adfs
-      - Txedexchange
-      type: string
+      additionalProperties: false
+      example:
+        identityProviderStatus: null
+        enforceMfa: enforceMfa
+        enableMfa: true
+        identityProviderId: null
+      properties:
+        identityProviderId:
+          $ref: '#/components/schemas/TenantApi.Tenant.V1.IdentityProviderId'
+        identityProviderStatus:
+          $ref: '#/components/schemas/TenantApi.Tenant.V1.IdentityProviderStatus'
+        enforceMfa:
+          nullable: true
+          type: string
+        enableMfa:
+          type: boolean
+      type: object
     TenantApi.Tenant.V1.TenantProfileResponse:
       additionalProperties: false
       example:
@@ -10841,8 +11001,14 @@ components:
           lastMaxAssignedLicensesDateTime: lastMaxAssignedLicensesDateTime
           maxAssignedLicenses: 5
         identityProviders:
-        - null
-        - null
+        - identityProviderStatus: null
+          enforceMfa: enforceMfa
+          enableMfa: true
+          identityProviderId: null
+        - identityProviderStatus: null
+          enforceMfa: enforceMfa
+          enableMfa: true
+          identityProviderId: null
         lastModifiedDateTime: lastModifiedDateTime
         organizationName: organizationName
         lastModifiedBy: lastModifiedBy
@@ -10866,8 +11032,6 @@ components:
         createdDateTime: createdDateTime
         organizationIdentifierHash: organizationIdentifierHash
         isDemo: true
-        enforceMfa: true
-        showLocalLoginOptionToTenantAdmins: true
         createdBy: createdBy
         organizationIdentifier: organizationIdentifier
         tenantId: tenantId
@@ -10904,6 +11068,9 @@ components:
             startedAt: startedAt
             status: status
           status: status
+        additionalSettings:
+          showLocalLoginOptionToTenantAdmins: true
+          gracePeriodMfaExpiryDate: gracePeriodMfaExpiryDate
         state: state
       properties:
         tenantId:
@@ -10924,11 +11091,7 @@ components:
           $ref: '#/components/schemas/TenantApi.Tenant.V1.TenantStatus'
         isDemo:
           type: boolean
-        enforceMfa:
-          type: boolean
         subscriptionsMigrated:
-          type: boolean
-        showLocalLoginOptionToTenantAdmins:
           type: boolean
         subscriptions:
           items:
@@ -10977,6 +11140,8 @@ components:
           nullable: true
           readOnly: true
           type: array
+        additionalSettings:
+          $ref: '#/components/schemas/TenantApi.Tenant.V1.TenantAdditionalSetting'
       type: object
     TenantApi.Tenant.V1.TenantSetting:
       additionalProperties: false
@@ -11550,6 +11715,6 @@ components:
         clientCredentials:
           scopes:
             https://api.edgraph.com/auth/tenant: EdGraph Platform - Tenant Api
-          tokenUrl: https://login.int.txedexchange.net/connect/token
+          tokenUrl: https://login.dev.edgraph.com/connect/token
       type: oauth2
 

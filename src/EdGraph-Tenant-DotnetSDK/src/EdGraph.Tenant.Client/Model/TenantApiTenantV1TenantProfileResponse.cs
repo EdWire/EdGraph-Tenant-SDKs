@@ -53,16 +53,15 @@ namespace EdGraph.Tenant.Client.Model
         /// <param name="state">state.</param>
         /// <param name="tenantStatus">tenantStatus.</param>
         /// <param name="isDemo">isDemo.</param>
-        /// <param name="enforceMfa">enforceMfa.</param>
         /// <param name="subscriptionsMigrated">subscriptionsMigrated.</param>
-        /// <param name="showLocalLoginOptionToTenantAdmins">showLocalLoginOptionToTenantAdmins.</param>
         /// <param name="createdBy">createdBy.</param>
         /// <param name="createdDateTime">createdDateTime.</param>
         /// <param name="lastModifiedBy">lastModifiedBy.</param>
         /// <param name="lastModifiedDateTime">lastModifiedDateTime.</param>
         /// <param name="onboarding">onboarding.</param>
         /// <param name="organizationIdentifierHash">organizationIdentifierHash.</param>
-        public TenantApiTenantV1TenantProfileResponse(string tenantId = default(string), TenantApiTenantV1TenantType? tenantType = default(TenantApiTenantV1TenantType?), string organizationIdentifier = default(string), string organizationName = default(string), string state = default(string), TenantApiTenantV1TenantStatus? tenantStatus = default(TenantApiTenantV1TenantStatus?), bool isDemo = default(bool), bool enforceMfa = default(bool), bool subscriptionsMigrated = default(bool), bool showLocalLoginOptionToTenantAdmins = default(bool), string createdBy = default(string), string createdDateTime = default(string), string lastModifiedBy = default(string), string lastModifiedDateTime = default(string), TenantApiTenantV1Onboarding onboarding = default(TenantApiTenantV1Onboarding), string organizationIdentifierHash = default(string))
+        /// <param name="additionalSettings">additionalSettings.</param>
+        public TenantApiTenantV1TenantProfileResponse(string tenantId = default(string), TenantApiTenantV1TenantType? tenantType = default(TenantApiTenantV1TenantType?), string organizationIdentifier = default(string), string organizationName = default(string), string state = default(string), TenantApiTenantV1TenantStatus? tenantStatus = default(TenantApiTenantV1TenantStatus?), bool isDemo = default(bool), bool subscriptionsMigrated = default(bool), string createdBy = default(string), string createdDateTime = default(string), string lastModifiedBy = default(string), string lastModifiedDateTime = default(string), TenantApiTenantV1Onboarding onboarding = default(TenantApiTenantV1Onboarding), string organizationIdentifierHash = default(string), TenantApiTenantV1TenantAdditionalSetting additionalSettings = default(TenantApiTenantV1TenantAdditionalSetting))
         {
             this.TenantId = tenantId;
             this.TenantType = tenantType;
@@ -71,15 +70,14 @@ namespace EdGraph.Tenant.Client.Model
             this.State = state;
             this.TenantStatus = tenantStatus;
             this.IsDemo = isDemo;
-            this.EnforceMfa = enforceMfa;
             this.SubscriptionsMigrated = subscriptionsMigrated;
-            this.ShowLocalLoginOptionToTenantAdmins = showLocalLoginOptionToTenantAdmins;
             this.CreatedBy = createdBy;
             this.CreatedDateTime = createdDateTime;
             this.LastModifiedBy = lastModifiedBy;
             this.LastModifiedDateTime = lastModifiedDateTime;
             this.Onboarding = onboarding;
             this.OrganizationIdentifierHash = organizationIdentifierHash;
+            this.AdditionalSettings = additionalSettings;
         }
 
         /// <summary>
@@ -113,22 +111,10 @@ namespace EdGraph.Tenant.Client.Model
         public bool IsDemo { get; set; }
 
         /// <summary>
-        /// Gets or Sets EnforceMfa
-        /// </summary>
-        [DataMember(Name = "enforceMfa", EmitDefaultValue = true)]
-        public bool EnforceMfa { get; set; }
-
-        /// <summary>
         /// Gets or Sets SubscriptionsMigrated
         /// </summary>
         [DataMember(Name = "subscriptionsMigrated", EmitDefaultValue = true)]
         public bool SubscriptionsMigrated { get; set; }
-
-        /// <summary>
-        /// Gets or Sets ShowLocalLoginOptionToTenantAdmins
-        /// </summary>
-        [DataMember(Name = "showLocalLoginOptionToTenantAdmins", EmitDefaultValue = true)]
-        public bool ShowLocalLoginOptionToTenantAdmins { get; set; }
 
         /// <summary>
         /// Gets or Sets Subscriptions
@@ -237,6 +223,12 @@ namespace EdGraph.Tenant.Client.Model
             return false;
         }
         /// <summary>
+        /// Gets or Sets AdditionalSettings
+        /// </summary>
+        [DataMember(Name = "additionalSettings", EmitDefaultValue = false)]
+        public TenantApiTenantV1TenantAdditionalSetting AdditionalSettings { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -251,9 +243,7 @@ namespace EdGraph.Tenant.Client.Model
             sb.Append("  State: ").Append(State).Append("\n");
             sb.Append("  TenantStatus: ").Append(TenantStatus).Append("\n");
             sb.Append("  IsDemo: ").Append(IsDemo).Append("\n");
-            sb.Append("  EnforceMfa: ").Append(EnforceMfa).Append("\n");
             sb.Append("  SubscriptionsMigrated: ").Append(SubscriptionsMigrated).Append("\n");
-            sb.Append("  ShowLocalLoginOptionToTenantAdmins: ").Append(ShowLocalLoginOptionToTenantAdmins).Append("\n");
             sb.Append("  Subscriptions: ").Append(Subscriptions).Append("\n");
             sb.Append("  Domains: ").Append(Domains).Append("\n");
             sb.Append("  CreatedBy: ").Append(CreatedBy).Append("\n");
@@ -265,6 +255,7 @@ namespace EdGraph.Tenant.Client.Model
             sb.Append("  Organizations: ").Append(Organizations).Append("\n");
             sb.Append("  OrganizationIdentifierHash: ").Append(OrganizationIdentifierHash).Append("\n");
             sb.Append("  Settings: ").Append(Settings).Append("\n");
+            sb.Append("  AdditionalSettings: ").Append(AdditionalSettings).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

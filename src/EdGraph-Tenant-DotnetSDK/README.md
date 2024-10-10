@@ -84,7 +84,7 @@ namespace Example
         {
 
             Configuration config = new Configuration();
-            config.BasePath = "https://api.int.txedexchange.net/tenant";
+            config.BasePath = "https://api.dev.edgraph.com/tenant";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
@@ -115,7 +115,7 @@ namespace Example
 <a id="documentation-for-api-endpoints"></a>
 ## Documentation for API Endpoints
 
-All URIs are relative to *https://api.int.txedexchange.net/tenant*
+All URIs are relative to *https://api.dev.edgraph.com/tenant*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
@@ -210,7 +210,10 @@ Class | Method | HTTP request | Description
  - [Model.EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsLicensesRevokeLicenseBulkRequest](docs/EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsLicensesRevokeLicenseBulkRequest.md)
  - [Model.EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsLicensesRevokeLicenseRequest](docs/EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsLicensesRevokeLicenseRequest.md)
  - [Model.EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsSendInvitationRequest](docs/EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsSendInvitationRequest.md)
- - [Model.EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsTenantIdentityProvider](docs/EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsTenantIdentityProvider.md)
+ - [Model.EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsTenantAdditionalSetting](docs/EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsTenantAdditionalSetting.md)
+ - [Model.EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsTenantIdentityProviderId](docs/EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsTenantIdentityProviderId.md)
+ - [Model.EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsTenantIdentityProviderStatus](docs/EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsTenantIdentityProviderStatus.md)
+ - [Model.EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsTenantIdentityProviders](docs/EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsTenantIdentityProviders.md)
  - [Model.EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsTenantSetting](docs/EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsTenantSetting.md)
  - [Model.EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsTenantStatus](docs/EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsTenantStatus.md)
  - [Model.EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsTenantType](docs/EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsTenantType.md)
@@ -303,6 +306,8 @@ Class | Method | HTTP request | Description
  - [Model.TenantApiTenantV1GetAppSettingsResponse](docs/TenantApiTenantV1GetAppSettingsResponse.md)
  - [Model.TenantApiTenantV1GetEdFiAdminInstancesResponse](docs/TenantApiTenantV1GetEdFiAdminInstancesResponse.md)
  - [Model.TenantApiTenantV1GetOrganizationsPaginatedResponse](docs/TenantApiTenantV1GetOrganizationsPaginatedResponse.md)
+ - [Model.TenantApiTenantV1IdentityProviderId](docs/TenantApiTenantV1IdentityProviderId.md)
+ - [Model.TenantApiTenantV1IdentityProviderStatus](docs/TenantApiTenantV1IdentityProviderStatus.md)
  - [Model.TenantApiTenantV1InstanceDatabase](docs/TenantApiTenantV1InstanceDatabase.md)
  - [Model.TenantApiTenantV1InstanceDatabaseJobs](docs/TenantApiTenantV1InstanceDatabaseJobs.md)
  - [Model.TenantApiTenantV1InstanceDatabases](docs/TenantApiTenantV1InstanceDatabases.md)
@@ -322,6 +327,7 @@ Class | Method | HTTP request | Description
  - [Model.TenantApiTenantV1SubscriptionStatus](docs/TenantApiTenantV1SubscriptionStatus.md)
  - [Model.TenantApiTenantV1SubscriptionUpdatedResponse](docs/TenantApiTenantV1SubscriptionUpdatedResponse.md)
  - [Model.TenantApiTenantV1SyncOrganizationsRequest](docs/TenantApiTenantV1SyncOrganizationsRequest.md)
+ - [Model.TenantApiTenantV1TenantAdditionalSetting](docs/TenantApiTenantV1TenantAdditionalSetting.md)
  - [Model.TenantApiTenantV1TenantAppSettings](docs/TenantApiTenantV1TenantAppSettings.md)
  - [Model.TenantApiTenantV1TenantIdentityProviders](docs/TenantApiTenantV1TenantIdentityProviders.md)
  - [Model.TenantApiTenantV1TenantProfileResponse](docs/TenantApiTenantV1TenantProfileResponse.md)

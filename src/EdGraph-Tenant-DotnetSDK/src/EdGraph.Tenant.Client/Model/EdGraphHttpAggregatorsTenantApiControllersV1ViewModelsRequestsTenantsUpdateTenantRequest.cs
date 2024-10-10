@@ -52,12 +52,11 @@ namespace EdGraph.Tenant.Client.Model
         /// <param name="organizationName">organizationName.</param>
         /// <param name="state">state.</param>
         /// <param name="isDemo">isDemo.</param>
-        /// <param name="enforceMfa">enforceMfa.</param>
-        /// <param name="showLocalLoginOptionToTenantAdmins">showLocalLoginOptionToTenantAdmins.</param>
-        /// <param name="tenantStatus">tenantStatus.</param>
+        /// <param name="additionalSettings">additionalSettings.</param>
         /// <param name="identityProviders">identityProviders.</param>
+        /// <param name="tenantStatus">tenantStatus.</param>
         /// <param name="settings">settings.</param>
-        public EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsUpdateTenantRequest(string tenantId = default(string), EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsTenantType? tenantType = default(EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsTenantType?), string organizationIdentifier = default(string), string organizationName = default(string), string state = default(string), bool isDemo = default(bool), bool enforceMfa = default(bool), bool? showLocalLoginOptionToTenantAdmins = default(bool?), EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsTenantStatus? tenantStatus = default(EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsTenantStatus?), List<EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsTenantIdentityProvider> identityProviders = default(List<EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsTenantIdentityProvider>), List<EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsTenantSetting> settings = default(List<EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsTenantSetting>))
+        public EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsUpdateTenantRequest(string tenantId = default(string), EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsTenantType? tenantType = default(EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsTenantType?), string organizationIdentifier = default(string), string organizationName = default(string), string state = default(string), bool isDemo = default(bool), EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsTenantAdditionalSetting additionalSettings = default(EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsTenantAdditionalSetting), List<EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsTenantIdentityProviders> identityProviders = default(List<EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsTenantIdentityProviders>), EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsTenantStatus? tenantStatus = default(EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsTenantStatus?), List<EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsTenantSetting> settings = default(List<EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsTenantSetting>))
         {
             this.TenantId = tenantId;
             this.TenantType = tenantType;
@@ -65,10 +64,9 @@ namespace EdGraph.Tenant.Client.Model
             this.OrganizationName = organizationName;
             this.State = state;
             this.IsDemo = isDemo;
-            this.EnforceMfa = enforceMfa;
-            this.ShowLocalLoginOptionToTenantAdmins = showLocalLoginOptionToTenantAdmins;
-            this.TenantStatus = tenantStatus;
+            this.AdditionalSettings = additionalSettings;
             this.IdentityProviders = identityProviders;
+            this.TenantStatus = tenantStatus;
             this.Settings = settings;
         }
 
@@ -103,22 +101,16 @@ namespace EdGraph.Tenant.Client.Model
         public bool IsDemo { get; set; }
 
         /// <summary>
-        /// Gets or Sets EnforceMfa
+        /// Gets or Sets AdditionalSettings
         /// </summary>
-        [DataMember(Name = "enforceMfa", EmitDefaultValue = true)]
-        public bool EnforceMfa { get; set; }
-
-        /// <summary>
-        /// Gets or Sets ShowLocalLoginOptionToTenantAdmins
-        /// </summary>
-        [DataMember(Name = "showLocalLoginOptionToTenantAdmins", EmitDefaultValue = true)]
-        public bool? ShowLocalLoginOptionToTenantAdmins { get; set; }
+        [DataMember(Name = "additionalSettings", EmitDefaultValue = false)]
+        public EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsTenantAdditionalSetting AdditionalSettings { get; set; }
 
         /// <summary>
         /// Gets or Sets IdentityProviders
         /// </summary>
         [DataMember(Name = "identityProviders", EmitDefaultValue = true)]
-        public List<EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsTenantIdentityProvider> IdentityProviders { get; set; }
+        public List<EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsTenantIdentityProviders> IdentityProviders { get; set; }
 
         /// <summary>
         /// Gets or Sets Settings
@@ -140,10 +132,9 @@ namespace EdGraph.Tenant.Client.Model
             sb.Append("  OrganizationName: ").Append(OrganizationName).Append("\n");
             sb.Append("  State: ").Append(State).Append("\n");
             sb.Append("  IsDemo: ").Append(IsDemo).Append("\n");
-            sb.Append("  EnforceMfa: ").Append(EnforceMfa).Append("\n");
-            sb.Append("  ShowLocalLoginOptionToTenantAdmins: ").Append(ShowLocalLoginOptionToTenantAdmins).Append("\n");
-            sb.Append("  TenantStatus: ").Append(TenantStatus).Append("\n");
+            sb.Append("  AdditionalSettings: ").Append(AdditionalSettings).Append("\n");
             sb.Append("  IdentityProviders: ").Append(IdentityProviders).Append("\n");
+            sb.Append("  TenantStatus: ").Append(TenantStatus).Append("\n");
             sb.Append("  Settings: ").Append(Settings).Append("\n");
             sb.Append("}\n");
             return sb.ToString();

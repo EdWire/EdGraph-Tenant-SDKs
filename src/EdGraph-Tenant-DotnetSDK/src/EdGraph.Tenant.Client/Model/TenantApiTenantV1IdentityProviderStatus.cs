@@ -26,40 +26,28 @@ using OpenAPIDateConverter = EdGraph.Tenant.Client.Client.OpenAPIDateConverter;
 namespace EdGraph.Tenant.Client.Model
 {
     /// <summary>
-    /// Defines EdGraph.HttpAggregators.Tenant.Api.Controllers.v1.ViewModels.Requests.Tenants.TenantIdentityProvider
+    /// Defines TenantApi.Tenant.V1.IdentityProviderStatus
     /// </summary>
     [JsonConverter(typeof(StringEnumConverter))]
-    public enum EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsTenantIdentityProvider
+    public enum TenantApiTenantV1IdentityProviderStatus
     {
         /// <summary>
-        /// Enum Local for value: Local
+        /// Enum Unknown for value: Unknown
         /// </summary>
-        [EnumMember(Value = "Local")]
-        Local = 1,
+        [EnumMember(Value = "Unknown")]
+        Unknown,
 
         /// <summary>
-        /// Enum Aad for value: Aad
+        /// Enum Active for value: Active
         /// </summary>
-        [EnumMember(Value = "Aad")]
-        Aad = 2,
+        [EnumMember(Value = "Active")]
+        Active,
 
         /// <summary>
-        /// Enum Google for value: Google
+        /// Enum Inactive for value: Inactive
         /// </summary>
-        [EnumMember(Value = "Google")]
-        Google = 3,
-
-        /// <summary>
-        /// Enum Adfs for value: Adfs
-        /// </summary>
-        [EnumMember(Value = "Adfs")]
-        Adfs = 4,
-
-        /// <summary>
-        /// Enum Txedexchange for value: Txedexchange
-        /// </summary>
-        [EnumMember(Value = "Txedexchange")]
-        Txedexchange = 5
+        [EnumMember(Value = "Inactive")]
+        Inactive
     }
 
 }

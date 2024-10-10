@@ -36,11 +36,15 @@ namespace EdGraph.Tenant.Client.Model
         /// </summary>
         /// <param name="applicationId">applicationId.</param>
         /// <param name="applicationName">applicationName.</param>
+        /// <param name="startDateTime">startDateTime.</param>
+        /// <param name="endDateTime">endDateTime.</param>
         /// <param name="roles">roles.</param>
-        public EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesUserTenantLicense(string applicationId = default(string), string applicationName = default(string), List<EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesUserTenantLicenseRole> roles = default(List<EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesUserTenantLicenseRole>))
+        public EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesUserTenantLicense(string applicationId = default(string), string applicationName = default(string), string startDateTime = default(string), string endDateTime = default(string), List<EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesUserTenantLicenseRole> roles = default(List<EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesUserTenantLicenseRole>))
         {
             this.ApplicationId = applicationId;
             this.ApplicationName = applicationName;
+            this.StartDateTime = startDateTime;
+            this.EndDateTime = endDateTime;
             this.Roles = roles;
         }
 
@@ -55,6 +59,18 @@ namespace EdGraph.Tenant.Client.Model
         /// </summary>
         [DataMember(Name = "applicationName", EmitDefaultValue = true)]
         public string ApplicationName { get; set; }
+
+        /// <summary>
+        /// Gets or Sets StartDateTime
+        /// </summary>
+        [DataMember(Name = "startDateTime", EmitDefaultValue = true)]
+        public string StartDateTime { get; set; }
+
+        /// <summary>
+        /// Gets or Sets EndDateTime
+        /// </summary>
+        [DataMember(Name = "endDateTime", EmitDefaultValue = true)]
+        public string EndDateTime { get; set; }
 
         /// <summary>
         /// Gets or Sets Roles
@@ -72,6 +88,8 @@ namespace EdGraph.Tenant.Client.Model
             sb.Append("class EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesUserTenantLicense {\n");
             sb.Append("  ApplicationId: ").Append(ApplicationId).Append("\n");
             sb.Append("  ApplicationName: ").Append(ApplicationName).Append("\n");
+            sb.Append("  StartDateTime: ").Append(StartDateTime).Append("\n");
+            sb.Append("  EndDateTime: ").Append(EndDateTime).Append("\n");
             sb.Append("  Roles: ").Append(Roles).Append("\n");
             sb.Append("}\n");
             return sb.ToString();

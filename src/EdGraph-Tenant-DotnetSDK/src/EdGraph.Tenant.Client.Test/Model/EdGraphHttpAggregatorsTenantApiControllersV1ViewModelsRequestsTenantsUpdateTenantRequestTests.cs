@@ -109,30 +109,12 @@ namespace EdGraph.Tenant.Client.Test.Model
         }
 
         /// <summary>
-        /// Test the property 'EnforceMfa'
+        /// Test the property 'AdditionalSettings'
         /// </summary>
         [Fact]
-        public void EnforceMfaTest()
+        public void AdditionalSettingsTest()
         {
-            // TODO unit test for the property 'EnforceMfa'
-        }
-
-        /// <summary>
-        /// Test the property 'ShowLocalLoginOptionToTenantAdmins'
-        /// </summary>
-        [Fact]
-        public void ShowLocalLoginOptionToTenantAdminsTest()
-        {
-            // TODO unit test for the property 'ShowLocalLoginOptionToTenantAdmins'
-        }
-
-        /// <summary>
-        /// Test the property 'TenantStatus'
-        /// </summary>
-        [Fact]
-        public void TenantStatusTest()
-        {
-            // TODO unit test for the property 'TenantStatus'
+            // TODO unit test for the property 'AdditionalSettings'
         }
 
         /// <summary>
@@ -142,6 +124,15 @@ namespace EdGraph.Tenant.Client.Test.Model
         public void IdentityProvidersTest()
         {
             // TODO unit test for the property 'IdentityProviders'
+        }
+
+        /// <summary>
+        /// Test the property 'TenantStatus'
+        /// </summary>
+        [Fact]
+        public void TenantStatusTest()
+        {
+            // TODO unit test for the property 'TenantStatus'
         }
 
         /// <summary>

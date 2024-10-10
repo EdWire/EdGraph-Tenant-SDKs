@@ -36,16 +36,18 @@ namespace EdGraph.Tenant.Client.Model
         /// </summary>
         /// <param name="role">role.</param>
         /// <param name="isImplicitlyAssigned">isImplicitlyAssigned.</param>
-        /// <param name="status">status.</param>
+        /// <param name="status">Maps to EdGraph.Platform.HttpAggregators.Tenant.Api.Controllers.v1.ViewModels.Responses.UserTenantLicenseRoleStatus.&lt;br&gt;&lt;/br&gt;    For more info on deprecation see: Task 9962: Modify implicit license response to prioritize explicit licenses over implicit (part 2) (https://dev.azure.com/edwire/EW.Educate/_workitems/edit/9962)&lt;br&gt;&lt;/br&gt;    Use EdGraph.Platform.HttpAggregators.Tenant.Api.Controllers.v1.ViewModels.Responses.LicenseSource instead.&lt;br&gt;&lt;/br&gt;.</param>
         /// <param name="educationOrganizationId">educationOrganizationId.</param>
         /// <param name="staffClassification">staffClassification.</param>
-        public EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesUserTenantLicenseRole(string role = default(string), bool isImplicitlyAssigned = default(bool), string status = default(string), int? educationOrganizationId = default(int?), string staffClassification = default(string))
+        /// <param name="source">Maps to EdGraph.Platform.HttpAggregators.Tenant.Api.Controllers.v1.ViewModels.Responses.LicenseSource.&lt;br&gt;&lt;/br&gt;    For more info see: Task 9962: Modify implicit license response to prioritize explicit licenses over implicit (part 2) (https://dev.azure.com/edwire/EW.Educate/_workitems/edit/9962).</param>
+        public EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesUserTenantLicenseRole(string role = default(string), bool isImplicitlyAssigned = default(bool), string status = default(string), int? educationOrganizationId = default(int?), string staffClassification = default(string), string source = default(string))
         {
             this.Role = role;
             this.IsImplicitlyAssigned = isImplicitlyAssigned;
             this.Status = status;
             this.EducationOrganizationId = educationOrganizationId;
             this.StaffClassification = staffClassification;
+            this.Source = source;
         }
 
         /// <summary>
@@ -61,9 +63,11 @@ namespace EdGraph.Tenant.Client.Model
         public bool IsImplicitlyAssigned { get; set; }
 
         /// <summary>
-        /// Gets or Sets Status
+        /// Maps to EdGraph.Platform.HttpAggregators.Tenant.Api.Controllers.v1.ViewModels.Responses.UserTenantLicenseRoleStatus.&lt;br&gt;&lt;/br&gt;    For more info on deprecation see: Task 9962: Modify implicit license response to prioritize explicit licenses over implicit (part 2) (https://dev.azure.com/edwire/EW.Educate/_workitems/edit/9962)&lt;br&gt;&lt;/br&gt;    Use EdGraph.Platform.HttpAggregators.Tenant.Api.Controllers.v1.ViewModels.Responses.LicenseSource instead.&lt;br&gt;&lt;/br&gt;
         /// </summary>
+        /// <value>Maps to EdGraph.Platform.HttpAggregators.Tenant.Api.Controllers.v1.ViewModels.Responses.UserTenantLicenseRoleStatus.&lt;br&gt;&lt;/br&gt;    For more info on deprecation see: Task 9962: Modify implicit license response to prioritize explicit licenses over implicit (part 2) (https://dev.azure.com/edwire/EW.Educate/_workitems/edit/9962)&lt;br&gt;&lt;/br&gt;    Use EdGraph.Platform.HttpAggregators.Tenant.Api.Controllers.v1.ViewModels.Responses.LicenseSource instead.&lt;br&gt;&lt;/br&gt;</value>
         [DataMember(Name = "status", EmitDefaultValue = true)]
+        [Obsolete]
         public string Status { get; set; }
 
         /// <summary>
@@ -79,6 +83,13 @@ namespace EdGraph.Tenant.Client.Model
         public string StaffClassification { get; set; }
 
         /// <summary>
+        /// Maps to EdGraph.Platform.HttpAggregators.Tenant.Api.Controllers.v1.ViewModels.Responses.LicenseSource.&lt;br&gt;&lt;/br&gt;    For more info see: Task 9962: Modify implicit license response to prioritize explicit licenses over implicit (part 2) (https://dev.azure.com/edwire/EW.Educate/_workitems/edit/9962)
+        /// </summary>
+        /// <value>Maps to EdGraph.Platform.HttpAggregators.Tenant.Api.Controllers.v1.ViewModels.Responses.LicenseSource.&lt;br&gt;&lt;/br&gt;    For more info see: Task 9962: Modify implicit license response to prioritize explicit licenses over implicit (part 2) (https://dev.azure.com/edwire/EW.Educate/_workitems/edit/9962)</value>
+        [DataMember(Name = "source", EmitDefaultValue = true)]
+        public string Source { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -91,6 +102,7 @@ namespace EdGraph.Tenant.Client.Model
             sb.Append("  Status: ").Append(Status).Append("\n");
             sb.Append("  EducationOrganizationId: ").Append(EducationOrganizationId).Append("\n");
             sb.Append("  StaffClassification: ").Append(StaffClassification).Append("\n");
+            sb.Append("  Source: ").Append(Source).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

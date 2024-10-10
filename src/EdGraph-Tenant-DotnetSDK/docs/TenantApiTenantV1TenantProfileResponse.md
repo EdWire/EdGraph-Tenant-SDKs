@@ -11,9 +11,7 @@ Name | Type | Description | Notes
 **State** | **string** |  | [optional] 
 **TenantStatus** | **TenantApiTenantV1TenantStatus** |  | [optional] 
 **IsDemo** | **bool** |  | [optional] 
-**EnforceMfa** | **bool** |  | [optional] 
 **SubscriptionsMigrated** | **bool** |  | [optional] 
-**ShowLocalLoginOptionToTenantAdmins** | **bool** |  | [optional] 
 **Subscriptions** | [**List&lt;TenantApiTenantV1SubscriptionProfileResponse&gt;**](TenantApiTenantV1SubscriptionProfileResponse.md) |  | [optional] [readonly] 
 **Domains** | [**List&lt;TenantApiTenantV1DomainProfileResponse&gt;**](TenantApiTenantV1DomainProfileResponse.md) |  | [optional] [readonly] 
 **CreatedBy** | **string** |  | [optional] 
@@ -25,6 +23,7 @@ Name | Type | Description | Notes
 **Organizations** | [**List&lt;TenantApiTenantV1Organization&gt;**](TenantApiTenantV1Organization.md) |  | [optional] [readonly] 
 **OrganizationIdentifierHash** | **string** |  | [optional] 
 **Settings** | [**List&lt;TenantApiTenantV1TenantSetting&gt;**](TenantApiTenantV1TenantSetting.md) |  | [optional] [readonly] 
+**AdditionalSettings** | [**TenantApiTenantV1TenantAdditionalSetting**](TenantApiTenantV1TenantAdditionalSetting.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

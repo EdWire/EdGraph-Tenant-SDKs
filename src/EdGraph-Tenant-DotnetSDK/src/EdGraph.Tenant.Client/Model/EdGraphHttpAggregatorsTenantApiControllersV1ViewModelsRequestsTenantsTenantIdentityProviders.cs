@@ -26,43 +26,37 @@ using OpenAPIDateConverter = EdGraph.Tenant.Client.Client.OpenAPIDateConverter;
 namespace EdGraph.Tenant.Client.Model
 {
     /// <summary>
-    /// TenantApiTenantV1TenantIdentityProviders
+    /// EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsTenantIdentityProviders
     /// </summary>
-    [DataContract(Name = "TenantApi.Tenant.V1.TenantIdentityProviders")]
-    public partial class TenantApiTenantV1TenantIdentityProviders : IValidatableObject
+    [DataContract(Name = "EdGraph.HttpAggregators.Tenant.Api.Controllers.v1.ViewModels.Requests.Tenants.TenantIdentityProviders")]
+    public partial class EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsTenantIdentityProviders : IValidatableObject
     {
 
         /// <summary>
         /// Gets or Sets IdentityProviderId
         /// </summary>
         [DataMember(Name = "identityProviderId", EmitDefaultValue = false)]
-        public TenantApiTenantV1IdentityProviderId? IdentityProviderId { get; set; }
+        public EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsTenantIdentityProviderId? IdentityProviderId { get; set; }
 
         /// <summary>
         /// Gets or Sets IdentityProviderStatus
         /// </summary>
         [DataMember(Name = "identityProviderStatus", EmitDefaultValue = false)]
-        public TenantApiTenantV1IdentityProviderStatus? IdentityProviderStatus { get; set; }
+        public EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsTenantIdentityProviderStatus? IdentityProviderStatus { get; set; }
         /// <summary>
-        /// Initializes a new instance of the <see cref="TenantApiTenantV1TenantIdentityProviders" /> class.
+        /// Initializes a new instance of the <see cref="EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsTenantIdentityProviders" /> class.
         /// </summary>
         /// <param name="identityProviderId">identityProviderId.</param>
         /// <param name="identityProviderStatus">identityProviderStatus.</param>
-        /// <param name="enforceMfa">enforceMfa.</param>
         /// <param name="enableMfa">enableMfa.</param>
-        public TenantApiTenantV1TenantIdentityProviders(TenantApiTenantV1IdentityProviderId? identityProviderId = default(TenantApiTenantV1IdentityProviderId?), TenantApiTenantV1IdentityProviderStatus? identityProviderStatus = default(TenantApiTenantV1IdentityProviderStatus?), string enforceMfa = default(string), bool enableMfa = default(bool))
+        /// <param name="enforceMfa">enforceMfa.</param>
+        public EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsTenantIdentityProviders(EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsTenantIdentityProviderId? identityProviderId = default(EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsTenantIdentityProviderId?), EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsTenantIdentityProviderStatus? identityProviderStatus = default(EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsTenantIdentityProviderStatus?), bool enableMfa = default(bool), string enforceMfa = default(string))
         {
             this.IdentityProviderId = identityProviderId;
             this.IdentityProviderStatus = identityProviderStatus;
-            this.EnforceMfa = enforceMfa;
             this.EnableMfa = enableMfa;
+            this.EnforceMfa = enforceMfa;
         }
-
-        /// <summary>
-        /// Gets or Sets EnforceMfa
-        /// </summary>
-        [DataMember(Name = "enforceMfa", EmitDefaultValue = true)]
-        public string EnforceMfa { get; set; }
 
         /// <summary>
         /// Gets or Sets EnableMfa
@@ -71,17 +65,23 @@ namespace EdGraph.Tenant.Client.Model
         public bool EnableMfa { get; set; }
 
         /// <summary>
+        /// Gets or Sets EnforceMfa
+        /// </summary>
+        [DataMember(Name = "enforceMfa", EmitDefaultValue = true)]
+        public string EnforceMfa { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class TenantApiTenantV1TenantIdentityProviders {\n");
+            sb.Append("class EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsTenantIdentityProviders {\n");
             sb.Append("  IdentityProviderId: ").Append(IdentityProviderId).Append("\n");
             sb.Append("  IdentityProviderStatus: ").Append(IdentityProviderStatus).Append("\n");
-            sb.Append("  EnforceMfa: ").Append(EnforceMfa).Append("\n");
             sb.Append("  EnableMfa: ").Append(EnableMfa).Append("\n");
+            sb.Append("  EnforceMfa: ").Append(EnforceMfa).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

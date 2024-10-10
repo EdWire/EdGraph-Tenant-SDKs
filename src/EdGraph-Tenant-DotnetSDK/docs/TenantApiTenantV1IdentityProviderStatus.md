@@ -1,4 +1,4 @@
-# EdGraph.Tenant.Client.Model.EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsTenantIdentityProvider
+# EdGraph.Tenant.Client.Model.TenantApiTenantV1IdentityProviderStatus
 
 ## Properties
 

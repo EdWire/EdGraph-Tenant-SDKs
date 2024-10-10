@@ -53,5 +53,41 @@ namespace EdGraph.Tenant.Client.Test.Model
             // TODO uncomment below to test "IsType" TenantApiTenantV1TenantIdentityProviders
             //Assert.IsType<TenantApiTenantV1TenantIdentityProviders>(instance);
         }
+
+        /// <summary>
+        /// Test the property 'IdentityProviderId'
+        /// </summary>
+        [Fact]
+        public void IdentityProviderIdTest()
+        {
+            // TODO unit test for the property 'IdentityProviderId'
+        }
+
+        /// <summary>
+        /// Test the property 'IdentityProviderStatus'
+        /// </summary>
+        [Fact]
+        public void IdentityProviderStatusTest()
+        {
+            // TODO unit test for the property 'IdentityProviderStatus'
+        }
+
+        /// <summary>
+        /// Test the property 'EnforceMfa'
+        /// </summary>
+        [Fact]
+        public void EnforceMfaTest()
+        {
+            // TODO unit test for the property 'EnforceMfa'
+        }
+
+        /// <summary>
+        /// Test the property 'EnableMfa'
+        /// </summary>
+        [Fact]
+        public void EnableMfaTest()
+        {
+            // TODO unit test for the property 'EnableMfa'
+        }
     }
 }
