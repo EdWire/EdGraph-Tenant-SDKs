@@ -164,6 +164,20 @@ namespace EdGraph.Tenant.Client.Test.Api
         }
 
         /// <summary>
+        /// Test ResetMfaStatusAsync
+        /// </summary>
+        [Fact]
+        public void ResetMfaStatusAsyncTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //string tenantId = null;
+            //string userId = null;
+            //string? apiVersion = null;
+            //string? xVersion = null;
+            //instance.ResetMfaStatusAsync(tenantId, userId, apiVersion, xVersion);
+        }
+
+        /// <summary>
         /// Test ResetPasswordTenantUserAsync
         /// </summary>
         [Fact]

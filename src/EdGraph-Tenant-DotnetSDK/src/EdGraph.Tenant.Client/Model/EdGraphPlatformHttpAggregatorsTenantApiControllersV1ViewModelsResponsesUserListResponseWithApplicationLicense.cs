@@ -49,7 +49,8 @@ namespace EdGraph.Tenant.Client.Model
         /// <param name="logins">logins.</param>
         /// <param name="source">source.</param>
         /// <param name="lastLoginDateTime">lastLoginDateTime.</param>
-        public EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesUserListResponseWithApplicationLicense(string userId = default(string), string userName = default(string), string email = default(string), string firstName = default(string), string lastName = default(string), int tenantCount = default(int), List<EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesUserTenant> tenants = default(List<EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesUserTenant>), List<EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesUserLicense> licenses = default(List<EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesUserLicense>), string createdBy = default(string), string createdDateTime = default(string), string lastModifiedBy = default(string), string lastModifiedDateTime = default(string), List<EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesUserLogin> logins = default(List<EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesUserLogin>), string source = default(string), string lastLoginDateTime = default(string))
+        /// <param name="mfaCompleted">mfaCompleted.</param>
+        public EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesUserListResponseWithApplicationLicense(string userId = default(string), string userName = default(string), string email = default(string), string firstName = default(string), string lastName = default(string), int tenantCount = default(int), List<EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesUserTenant> tenants = default(List<EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesUserTenant>), List<EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesUserLicense> licenses = default(List<EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesUserLicense>), string createdBy = default(string), string createdDateTime = default(string), string lastModifiedBy = default(string), string lastModifiedDateTime = default(string), List<EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesUserLogin> logins = default(List<EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesUserLogin>), string source = default(string), string lastLoginDateTime = default(string), bool mfaCompleted = default(bool))
         {
             this.UserId = userId;
             this.UserName = userName;
@@ -66,6 +67,7 @@ namespace EdGraph.Tenant.Client.Model
             this.Logins = logins;
             this.Source = source;
             this.LastLoginDateTime = lastLoginDateTime;
+            this.MfaCompleted = mfaCompleted;
         }
 
         /// <summary>
@@ -159,6 +161,12 @@ namespace EdGraph.Tenant.Client.Model
         public string LastLoginDateTime { get; set; }
 
         /// <summary>
+        /// Gets or Sets MfaCompleted
+        /// </summary>
+        [DataMember(Name = "mfaCompleted", EmitDefaultValue = true)]
+        public bool MfaCompleted { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -181,6 +189,7 @@ namespace EdGraph.Tenant.Client.Model
             sb.Append("  Logins: ").Append(Logins).Append("\n");
             sb.Append("  Source: ").Append(Source).Append("\n");
             sb.Append("  LastLoginDateTime: ").Append(LastLoginDateTime).Append("\n");
+            sb.Append("  MfaCompleted: ").Append(MfaCompleted).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

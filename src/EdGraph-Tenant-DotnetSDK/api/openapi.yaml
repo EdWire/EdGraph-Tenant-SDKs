@@ -5108,6 +5108,79 @@ paths:
       summary: Deactivates a user
       tags:
       - Users
+  /tenants/{tenantId}/users/{userId}/resetmfa:
+    put:
+      operationId: ResetMfaStatusAsync
+      parameters:
+      - explode: false
+        in: path
+        name: tenantId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: userId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: X-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EdGraph.Common.Errors.Core.ProblemDetails'
+          description: Unauthorized. The request requires authentication. The OAuth
+            bearer token was either not provided or is invalid. The operation may
+            succeed once authentication has been successfully completed.
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EdGraph.Common.Errors.Core.ProblemDetails'
+          description: Forbidden. The request cannot be completed in the current authorization
+            context. Contact your administrator if you believe this operation should
+            be allowed.
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EdGraph.Common.Errors.Core.ProblemDetails'
+          description: An unhandled error occurred on the server.See the response
+            body for details.
+        "202":
+          description: Accepted
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ValidationProblemDetails'
+          description: Bad Request
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EdGraph.Common.Errors.Core.ProblemDetails'
+          description: Not Found
+      summary: Reset the MFA Status for the User
+      tags:
+      - Users
   /tenants/{tenantId}/users/{userId}/resetpassword:
     put:
       description: "Note: This is only applicable to user created in the local identity\
@@ -7576,6 +7649,7 @@ components:
         lastModifiedDateTime: lastModifiedDateTime
         lastModifiedBy: lastModifiedBy
         createdDateTime: createdDateTime
+        mfaCompleted: true
         source: source
         userName: userName
         userId: userId
@@ -7675,6 +7749,8 @@ components:
         lastLoginDateTime:
           nullable: true
           type: string
+        mfaCompleted:
+          type: boolean
       type: object
     ? EdGraph.Platform.HttpAggregators.Tenant.Api.Controllers.v1.ViewModels.Responses.UserListResponseWithApplicationLicensePaginatedItemsViewModel
     : additionalProperties: false
@@ -7766,6 +7842,7 @@ components:
           lastModifiedDateTime: lastModifiedDateTime
           lastModifiedBy: lastModifiedBy
           createdDateTime: createdDateTime
+          mfaCompleted: true
           source: source
           userName: userName
           userId: userId
@@ -7899,6 +7976,7 @@ components:
           lastModifiedDateTime: lastModifiedDateTime
           lastModifiedBy: lastModifiedBy
           createdDateTime: createdDateTime
+          mfaCompleted: true
           source: source
           userName: userName
           userId: userId
@@ -8087,6 +8165,7 @@ components:
         lastModifiedBy: lastModifiedBy
         browserDebugEnabled: true
         createdDateTime: createdDateTime
+        mfaCompleted: true
         source: source
         userName: userName
         userId: userId
@@ -8196,6 +8275,8 @@ components:
         lastLoginDateTime:
           nullable: true
           type: string
+        mfaCompleted:
+          type: boolean
       type: object
     EdGraph.Platform.HttpAggregators.Tenant.Api.Controllers.v1.ViewModels.Responses.UserTenant:
       additionalProperties: false

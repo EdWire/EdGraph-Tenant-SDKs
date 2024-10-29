@@ -22,6 +22,7 @@ Name | Type | Description | Notes
 **Logins** | [**List&lt;EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesUserLogin&gt;**](EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesUserLogin.md) |  | [optional] 
 **Source** | **string** |  | [optional] 
 **LastLoginDateTime** | **string** |  | [optional] 
+**MfaCompleted** | **bool** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

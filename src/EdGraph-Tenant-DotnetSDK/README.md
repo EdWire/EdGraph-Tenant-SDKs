@@ -171,6 +171,7 @@ Class | Method | HTTP request | Description
 *UsersApi* | [**GetAllTenantUsersAsync**](docs/UsersApi.md#getalltenantusersasync) | **GET** /tenants/{tenantId}/users | Retrieves a list of users associated to this tenant
 *UsersApi* | [**GetTenantUserProfileByIdAsync**](docs/UsersApi.md#gettenantuserprofilebyidasync) | **GET** /tenants/{tenantId}/users/{userId} | Retrieves a user
 *UsersApi* | [**GetUserTenantStatusProfile**](docs/UsersApi.md#getusertenantstatusprofile) | **GET** /tenants/{tenantId}/users/{email}/status | Searches a user by email and retrieves it's minimal information and status.
+*UsersApi* | [**ResetMfaStatusAsync**](docs/UsersApi.md#resetmfastatusasync) | **PUT** /tenants/{tenantId}/users/{userId}/resetmfa | Reset the MFA Status for the User
 *UsersApi* | [**ResetPasswordTenantUserAsync**](docs/UsersApi.md#resetpasswordtenantuserasync) | **PUT** /tenants/{tenantId}/users/{userId}/resetpassword | Resets a user's password
 *UsersApi* | [**UpdateTenantUserAsync**](docs/UsersApi.md#updatetenantuserasync) | **PUT** /tenants/{tenantId}/users/{userId} | Creates or updates a user
 *UsersEducationOrganizationsApi* | [**AddUserEducationOrganization**](docs/UsersEducationOrganizationsApi.md#addusereducationorganization) | **POST** /tenants/{tenantId}/users/{userId}/educationorganizations | Adds an Education Organization to a user.

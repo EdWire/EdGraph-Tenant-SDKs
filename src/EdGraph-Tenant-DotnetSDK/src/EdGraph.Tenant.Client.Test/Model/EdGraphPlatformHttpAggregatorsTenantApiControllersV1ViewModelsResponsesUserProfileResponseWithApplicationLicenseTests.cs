@@ -215,5 +215,14 @@ namespace EdGraph.Tenant.Client.Test.Model
         {
             // TODO unit test for the property 'LastLoginDateTime'
         }
+
+        /// <summary>
+        /// Test the property 'MfaCompleted'
+        /// </summary>
+        [Fact]
+        public void MfaCompletedTest()
+        {
+            // TODO unit test for the property 'MfaCompleted'
+        }
     }
 }
