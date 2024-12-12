@@ -33,12 +33,6 @@ namespace EdGraph.Tenant.Client.Model
     {
 
         /// <summary>
-        /// Gets or Sets TenantType
-        /// </summary>
-        [DataMember(Name = "tenantType", EmitDefaultValue = false)]
-        public EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsTenantType? TenantType { get; set; }
-
-        /// <summary>
         /// Gets or Sets TenantStatus
         /// </summary>
         [DataMember(Name = "tenantStatus", EmitDefaultValue = false)]
@@ -47,7 +41,7 @@ namespace EdGraph.Tenant.Client.Model
         /// Initializes a new instance of the <see cref="EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsUpdateTenantRequest" /> class.
         /// </summary>
         /// <param name="tenantId">tenantId.</param>
-        /// <param name="tenantType">tenantType.</param>
+        /// <param name="tenantTypes">tenantTypes.</param>
         /// <param name="organizationIdentifier">organizationIdentifier.</param>
         /// <param name="organizationName">organizationName.</param>
         /// <param name="state">state.</param>
@@ -56,10 +50,10 @@ namespace EdGraph.Tenant.Client.Model
         /// <param name="identityProviders">identityProviders.</param>
         /// <param name="tenantStatus">tenantStatus.</param>
         /// <param name="settings">settings.</param>
-        public EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsUpdateTenantRequest(string tenantId = default(string), EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsTenantType? tenantType = default(EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsTenantType?), string organizationIdentifier = default(string), string organizationName = default(string), string state = default(string), bool isDemo = default(bool), EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsTenantAdditionalSetting additionalSettings = default(EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsTenantAdditionalSetting), List<EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsTenantIdentityProviders> identityProviders = default(List<EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsTenantIdentityProviders>), EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsTenantStatus? tenantStatus = default(EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsTenantStatus?), List<EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsTenantSetting> settings = default(List<EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsTenantSetting>))
+        public EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsUpdateTenantRequest(string tenantId = default(string), List<EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsTenantType> tenantTypes = default(List<EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsTenantType>), string organizationIdentifier = default(string), string organizationName = default(string), string state = default(string), bool isDemo = default(bool), EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsTenantAdditionalSetting additionalSettings = default(EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsTenantAdditionalSetting), List<EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsTenantIdentityProviders> identityProviders = default(List<EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsTenantIdentityProviders>), EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsTenantStatus? tenantStatus = default(EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsTenantStatus?), List<EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsTenantSetting> settings = default(List<EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsTenantSetting>))
         {
             this.TenantId = tenantId;
-            this.TenantType = tenantType;
+            this.TenantTypes = tenantTypes;
             this.OrganizationIdentifier = organizationIdentifier;
             this.OrganizationName = organizationName;
             this.State = state;
@@ -75,6 +69,12 @@ namespace EdGraph.Tenant.Client.Model
         /// </summary>
         [DataMember(Name = "tenantId", EmitDefaultValue = true)]
         public string TenantId { get; set; }
+
+        /// <summary>
+        /// Gets or Sets TenantTypes
+        /// </summary>
+        [DataMember(Name = "tenantTypes", EmitDefaultValue = true)]
+        public List<EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsTenantType> TenantTypes { get; set; }
 
         /// <summary>
         /// Gets or Sets OrganizationIdentifier
@@ -127,7 +127,7 @@ namespace EdGraph.Tenant.Client.Model
             StringBuilder sb = new StringBuilder();
             sb.Append("class EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsUpdateTenantRequest {\n");
             sb.Append("  TenantId: ").Append(TenantId).Append("\n");
-            sb.Append("  TenantType: ").Append(TenantType).Append("\n");
+            sb.Append("  TenantTypes: ").Append(TenantTypes).Append("\n");
             sb.Append("  OrganizationIdentifier: ").Append(OrganizationIdentifier).Append("\n");
             sb.Append("  OrganizationName: ").Append(OrganizationName).Append("\n");
             sb.Append("  State: ").Append(State).Append("\n");

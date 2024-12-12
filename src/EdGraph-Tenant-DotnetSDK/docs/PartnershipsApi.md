@@ -1,17 +1,17 @@
-# EdGraph.Tenant.Client.Api.OnboardingStepsApi
+# EdGraph.Tenant.Client.Api.PartnershipsApi
 
 All URIs are relative to *https://api.dev.edgraph.com/tenant*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
-| [**CreateOnboardingStepAsync**](OnboardingStepsApi.md#createonboardingstepasync) | **POST** /tenants/{tenantId}/onboardingsteps | Creates an Onboarding Step. |
-| [**UpdateOnboardingStepAsync**](OnboardingStepsApi.md#updateonboardingstepasync) | **PUT** /tenants/{tenantId}/onboardingsteps/{stepNumber} | Updates the status of an Onboarding Step. |
+| [**GetAllPartnerships**](PartnershipsApi.md#getallpartnerships) | **GET** /tenants/{tenantId}/partnerships | Retrieves a list of Partnerships. |
+| [**GetPartnershipById**](PartnershipsApi.md#getpartnershipbyid) | **GET** /tenants/{tenantId}/partnerships/{partnershipId} | Retrieves a Partnership by ID. |
 
-<a id="createonboardingstepasync"></a>
-# **CreateOnboardingStepAsync**
-> TenantApiTenantV1TenantUpdatedResponse CreateOnboardingStepAsync (string tenantId, string? apiVersion = null, string? xVersion = null, EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsCreateOnboardingStepRequestDto? edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsCreateOnboardingStepRequestDto = null)
+<a id="getallpartnerships"></a>
+# **GetAllPartnerships**
+> TenantApiPartnershipV1PaginatedItemsResponse GetAllPartnerships (Guid tenantId, int? pageIndex = null, int? pageSize = null, string? orderBy = null, string? filter = null, string? apiVersion = null, string? xVersion = null)
 
-Creates an Onboarding Step.
+Retrieves a list of Partnerships.
 
 ### Example
 ```csharp
@@ -23,7 +23,7 @@ using EdGraph.Tenant.Client.Model;
 
 namespace Example
 {
-    public class CreateOnboardingStepAsyncExample
+    public class GetAllPartnershipsExample
     {
         public static void Main()
         {
@@ -32,21 +32,24 @@ namespace Example
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
-            var apiInstance = new OnboardingStepsApi(config);
-            var tenantId = "tenantId_example";  // string | 
+            var apiInstance = new PartnershipsApi(config);
+            var tenantId = "tenantId_example";  // Guid | 
+            var pageIndex = 0;  // int? |  (optional)  (default to 0)
+            var pageSize = 10;  // int? |  (optional)  (default to 10)
+            var orderBy = "\"\"";  // string? |  (optional)  (default to "")
+            var filter = "\"\"";  // string? |  (optional)  (default to "")
             var apiVersion = "apiVersion_example";  // string? |  (optional) 
             var xVersion = "xVersion_example";  // string? |  (optional) 
-            var edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsCreateOnboardingStepRequestDto = new EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsCreateOnboardingStepRequestDto?(); // EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsCreateOnboardingStepRequestDto? |  (optional) 
 
             try
             {
-                // Creates an Onboarding Step.
-                TenantApiTenantV1TenantUpdatedResponse result = apiInstance.CreateOnboardingStepAsync(tenantId, apiVersion, xVersion, edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsCreateOnboardingStepRequestDto);
+                // Retrieves a list of Partnerships.
+                TenantApiPartnershipV1PaginatedItemsResponse result = apiInstance.GetAllPartnerships(tenantId, pageIndex, pageSize, orderBy, filter, apiVersion, xVersion);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling OnboardingStepsApi.CreateOnboardingStepAsync: " + e.Message);
+                Debug.Print("Exception when calling PartnershipsApi.GetAllPartnerships: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -55,21 +58,21 @@ namespace Example
 }
 ```
 
-#### Using the CreateOnboardingStepAsyncWithHttpInfo variant
+#### Using the GetAllPartnershipsWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
 ```csharp
 try
 {
-    // Creates an Onboarding Step.
-    ApiResponse<TenantApiTenantV1TenantUpdatedResponse> response = apiInstance.CreateOnboardingStepAsyncWithHttpInfo(tenantId, apiVersion, xVersion, edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsCreateOnboardingStepRequestDto);
+    // Retrieves a list of Partnerships.
+    ApiResponse<TenantApiPartnershipV1PaginatedItemsResponse> response = apiInstance.GetAllPartnershipsWithHttpInfo(tenantId, pageIndex, pageSize, orderBy, filter, apiVersion, xVersion);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling OnboardingStepsApi.CreateOnboardingStepAsyncWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling PartnershipsApi.GetAllPartnershipsWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -79,14 +82,17 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **tenantId** | **string** |  |  |
+| **tenantId** | **Guid** |  |  |
+| **pageIndex** | **int?** |  | [optional] [default to 0] |
+| **pageSize** | **int?** |  | [optional] [default to 10] |
+| **orderBy** | **string?** |  | [optional] [default to &quot;&quot;] |
+| **filter** | **string?** |  | [optional] [default to &quot;&quot;] |
 | **apiVersion** | **string?** |  | [optional]  |
 | **xVersion** | **string?** |  | [optional]  |
-| **edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsCreateOnboardingStepRequestDto** | [**EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsCreateOnboardingStepRequestDto?**](EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsCreateOnboardingStepRequestDto?.md) |  | [optional]  |
 
 ### Return type
 
-[**TenantApiTenantV1TenantUpdatedResponse**](TenantApiTenantV1TenantUpdatedResponse.md)
+[**TenantApiPartnershipV1PaginatedItemsResponse**](TenantApiPartnershipV1PaginatedItemsResponse.md)
 
 ### Authorization
 
@@ -94,7 +100,7 @@ catch (ApiException e)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json-patch+json, application/json, text/json, application/*+json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 
@@ -109,11 +115,11 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a id="updateonboardingstepasync"></a>
-# **UpdateOnboardingStepAsync**
-> TenantApiTenantV1TenantUpdatedResponse UpdateOnboardingStepAsync (string tenantId, int stepNumber, string? apiVersion = null, string? xVersion = null, EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsUpdateOnboardingStepRequestDto? edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsUpdateOnboardingStepRequestDto = null)
+<a id="getpartnershipbyid"></a>
+# **GetPartnershipById**
+> TenantApiPartnershipV1PartnershipByIdResponse GetPartnershipById (Guid tenantId, Guid partnershipId, string? apiVersion = null, string? xVersion = null)
 
-Updates the status of an Onboarding Step.
+Retrieves a Partnership by ID.
 
 ### Example
 ```csharp
@@ -125,7 +131,7 @@ using EdGraph.Tenant.Client.Model;
 
 namespace Example
 {
-    public class UpdateOnboardingStepAsyncExample
+    public class GetPartnershipByIdExample
     {
         public static void Main()
         {
@@ -134,22 +140,21 @@ namespace Example
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
-            var apiInstance = new OnboardingStepsApi(config);
-            var tenantId = "tenantId_example";  // string | 
-            var stepNumber = 56;  // int | 
+            var apiInstance = new PartnershipsApi(config);
+            var tenantId = "tenantId_example";  // Guid | 
+            var partnershipId = "partnershipId_example";  // Guid | 
             var apiVersion = "apiVersion_example";  // string? |  (optional) 
             var xVersion = "xVersion_example";  // string? |  (optional) 
-            var edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsUpdateOnboardingStepRequestDto = new EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsUpdateOnboardingStepRequestDto?(); // EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsUpdateOnboardingStepRequestDto? |  (optional) 
 
             try
             {
-                // Updates the status of an Onboarding Step.
-                TenantApiTenantV1TenantUpdatedResponse result = apiInstance.UpdateOnboardingStepAsync(tenantId, stepNumber, apiVersion, xVersion, edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsUpdateOnboardingStepRequestDto);
+                // Retrieves a Partnership by ID.
+                TenantApiPartnershipV1PartnershipByIdResponse result = apiInstance.GetPartnershipById(tenantId, partnershipId, apiVersion, xVersion);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling OnboardingStepsApi.UpdateOnboardingStepAsync: " + e.Message);
+                Debug.Print("Exception when calling PartnershipsApi.GetPartnershipById: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -158,21 +163,21 @@ namespace Example
 }
 ```
 
-#### Using the UpdateOnboardingStepAsyncWithHttpInfo variant
+#### Using the GetPartnershipByIdWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
 ```csharp
 try
 {
-    // Updates the status of an Onboarding Step.
-    ApiResponse<TenantApiTenantV1TenantUpdatedResponse> response = apiInstance.UpdateOnboardingStepAsyncWithHttpInfo(tenantId, stepNumber, apiVersion, xVersion, edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsUpdateOnboardingStepRequestDto);
+    // Retrieves a Partnership by ID.
+    ApiResponse<TenantApiPartnershipV1PartnershipByIdResponse> response = apiInstance.GetPartnershipByIdWithHttpInfo(tenantId, partnershipId, apiVersion, xVersion);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling OnboardingStepsApi.UpdateOnboardingStepAsyncWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling PartnershipsApi.GetPartnershipByIdWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -182,15 +187,14 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **tenantId** | **string** |  |  |
-| **stepNumber** | **int** |  |  |
+| **tenantId** | **Guid** |  |  |
+| **partnershipId** | **Guid** |  |  |
 | **apiVersion** | **string?** |  | [optional]  |
 | **xVersion** | **string?** |  | [optional]  |
-| **edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsUpdateOnboardingStepRequestDto** | [**EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsUpdateOnboardingStepRequestDto?**](EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsUpdateOnboardingStepRequestDto?.md) |  | [optional]  |
 
 ### Return type
 
-[**TenantApiTenantV1TenantUpdatedResponse**](TenantApiTenantV1TenantUpdatedResponse.md)
+[**TenantApiPartnershipV1PartnershipByIdResponse**](TenantApiPartnershipV1PartnershipByIdResponse.md)
 
 ### Authorization
 
@@ -198,7 +202,7 @@ catch (ApiException e)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json-patch+json, application/json, text/json, application/*+json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 

@@ -26,22 +26,24 @@ using OpenAPIDateConverter = EdGraph.Tenant.Client.Client.OpenAPIDateConverter;
 namespace EdGraph.Tenant.Client.Model
 {
     /// <summary>
-    /// TenantApiTenantV1UpdateOnboardingStepRequest
+    /// EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsUpdateOnboardingStepRequestDto
     /// </summary>
-    [DataContract(Name = "TenantApi.Tenant.V1.UpdateOnboardingStepRequest")]
-    public partial class TenantApiTenantV1UpdateOnboardingStepRequest : IValidatableObject
+    [DataContract(Name = "EdGraph.HttpAggregators.Tenant.Api.Controllers.v1.ViewModels.Requests.UpdateOnboardingStepRequestDto")]
+    public partial class EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsUpdateOnboardingStepRequestDto : IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="TenantApiTenantV1UpdateOnboardingStepRequest" /> class.
+        /// Initializes a new instance of the <see cref="EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsUpdateOnboardingStepRequestDto" /> class.
         /// </summary>
         /// <param name="tenantId">tenantId.</param>
         /// <param name="number">number.</param>
         /// <param name="status">status.</param>
-        public TenantApiTenantV1UpdateOnboardingStepRequest(string tenantId = default(string), int number = default(int), string status = default(string))
+        /// <param name="details">details.</param>
+        public EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsUpdateOnboardingStepRequestDto(string tenantId = default(string), int number = default(int), string status = default(string), Object details = default(Object))
         {
             this.TenantId = tenantId;
             this.Number = number;
             this.Status = status;
+            this.Details = details;
         }
 
         /// <summary>
@@ -63,16 +65,23 @@ namespace EdGraph.Tenant.Client.Model
         public string Status { get; set; }
 
         /// <summary>
+        /// Gets or Sets Details
+        /// </summary>
+        [DataMember(Name = "details", EmitDefaultValue = true)]
+        public Object Details { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class TenantApiTenantV1UpdateOnboardingStepRequest {\n");
+            sb.Append("class EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsUpdateOnboardingStepRequestDto {\n");
             sb.Append("  TenantId: ").Append(TenantId).Append("\n");
             sb.Append("  Number: ").Append(Number).Append("\n");
             sb.Append("  Status: ").Append(Status).Append("\n");
+            sb.Append("  Details: ").Append(Details).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

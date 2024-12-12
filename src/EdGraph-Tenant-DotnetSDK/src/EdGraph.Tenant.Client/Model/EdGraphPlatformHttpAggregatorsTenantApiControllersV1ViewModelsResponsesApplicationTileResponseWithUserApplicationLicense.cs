@@ -59,9 +59,11 @@ namespace EdGraph.Tenant.Client.Model
         /// <param name="tenantSubscriptionStartDateTime">The Tenant subscription start date.</param>
         /// <param name="tenantSubscriptionEndDateTime">The Tenant subscription end date.</param>
         /// <param name="tenantSubscriptionActualEndDateTime">The Tenant subscription end date.</param>
+        /// <param name="tenantSubscriptionDeletedAt">The Tenant subscription deleted date.</param>
+        /// <param name="tenantSubscriptionGracePeriod">The Tenant subscription grace period value.</param>
         /// <param name="isUserLicensed">isUserLicensed.</param>
         /// <param name="urls">urls.</param>
-        public EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesApplicationTileResponseWithUserApplicationLicense(string applicationTenantId = default(string), string applicationId = default(string), string applicationName = default(string), string applicationDescription = default(string), string documentationUrl = default(string), string applicationUri = default(string), string varVersion = default(string), string tooltipText = default(string), string tags = default(string), string groups = default(string), string lightIconUrl = default(string), string darkIconUrl = default(string), string lightBackgroundTileUrl = default(string), string darkBackgroundTileUrl = default(string), string lightOverlayTileUrl = default(string), string darkOverlayTileUrl = default(string), bool showInAppLauncher = default(bool), bool showInQuickLauncher = default(bool), bool openInNewWindow = default(bool), bool isTenantSubscribed = default(bool), string subscriptionTenantId = default(string), string tenantSubscriptionId = default(string), string tenantSubscriptionStartDateTime = default(string), string tenantSubscriptionEndDateTime = default(string), string tenantSubscriptionActualEndDateTime = default(string), bool isUserLicensed = default(bool), List<EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesApplicationUrl> urls = default(List<EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesApplicationUrl>))
+        public EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesApplicationTileResponseWithUserApplicationLicense(string applicationTenantId = default(string), string applicationId = default(string), string applicationName = default(string), string applicationDescription = default(string), string documentationUrl = default(string), string applicationUri = default(string), string varVersion = default(string), string tooltipText = default(string), string tags = default(string), string groups = default(string), string lightIconUrl = default(string), string darkIconUrl = default(string), string lightBackgroundTileUrl = default(string), string darkBackgroundTileUrl = default(string), string lightOverlayTileUrl = default(string), string darkOverlayTileUrl = default(string), bool showInAppLauncher = default(bool), bool showInQuickLauncher = default(bool), bool openInNewWindow = default(bool), bool isTenantSubscribed = default(bool), string subscriptionTenantId = default(string), string tenantSubscriptionId = default(string), string tenantSubscriptionStartDateTime = default(string), string tenantSubscriptionEndDateTime = default(string), string tenantSubscriptionActualEndDateTime = default(string), string tenantSubscriptionDeletedAt = default(string), int tenantSubscriptionGracePeriod = default(int), bool isUserLicensed = default(bool), List<EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesApplicationUrl> urls = default(List<EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesApplicationUrl>))
         {
             this.ApplicationTenantId = applicationTenantId;
             this.ApplicationId = applicationId;
@@ -88,6 +90,8 @@ namespace EdGraph.Tenant.Client.Model
             this.TenantSubscriptionStartDateTime = tenantSubscriptionStartDateTime;
             this.TenantSubscriptionEndDateTime = tenantSubscriptionEndDateTime;
             this.TenantSubscriptionActualEndDateTime = tenantSubscriptionActualEndDateTime;
+            this.TenantSubscriptionDeletedAt = tenantSubscriptionDeletedAt;
+            this.TenantSubscriptionGracePeriod = tenantSubscriptionGracePeriod;
             this.IsUserLicensed = isUserLicensed;
             this.Urls = urls;
         }
@@ -249,6 +253,20 @@ namespace EdGraph.Tenant.Client.Model
         public string TenantSubscriptionActualEndDateTime { get; set; }
 
         /// <summary>
+        /// The Tenant subscription deleted date
+        /// </summary>
+        /// <value>The Tenant subscription deleted date</value>
+        [DataMember(Name = "tenantSubscriptionDeletedAt", EmitDefaultValue = true)]
+        public string TenantSubscriptionDeletedAt { get; set; }
+
+        /// <summary>
+        /// The Tenant subscription grace period value
+        /// </summary>
+        /// <value>The Tenant subscription grace period value</value>
+        [DataMember(Name = "tenantSubscriptionGracePeriod", EmitDefaultValue = false)]
+        public int TenantSubscriptionGracePeriod { get; set; }
+
+        /// <summary>
         /// Gets or Sets IsUserLicensed
         /// </summary>
         [DataMember(Name = "isUserLicensed", EmitDefaultValue = true)]
@@ -293,6 +311,8 @@ namespace EdGraph.Tenant.Client.Model
             sb.Append("  TenantSubscriptionStartDateTime: ").Append(TenantSubscriptionStartDateTime).Append("\n");
             sb.Append("  TenantSubscriptionEndDateTime: ").Append(TenantSubscriptionEndDateTime).Append("\n");
             sb.Append("  TenantSubscriptionActualEndDateTime: ").Append(TenantSubscriptionActualEndDateTime).Append("\n");
+            sb.Append("  TenantSubscriptionDeletedAt: ").Append(TenantSubscriptionDeletedAt).Append("\n");
+            sb.Append("  TenantSubscriptionGracePeriod: ").Append(TenantSubscriptionGracePeriod).Append("\n");
             sb.Append("  IsUserLicensed: ").Append(IsUserLicensed).Append("\n");
             sb.Append("  Urls: ").Append(Urls).Append("\n");
             sb.Append("}\n");

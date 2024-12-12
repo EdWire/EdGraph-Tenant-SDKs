@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **TenantId** | **string** |  | [optional] 
-**TenantType** | **EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsTenantType** |  | [optional] 
+**TenantTypes** | [**List&lt;EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsTenantType&gt;**](EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsTenantType.md) |  | [optional] 
 **OrganizationIdentifier** | **string** |  | [optional] 
 **OrganizationName** | **string** |  | [optional] 
 **State** | **string** |  | [optional] 

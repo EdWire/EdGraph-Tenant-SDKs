@@ -26,10 +26,10 @@ using OpenAPIDateConverter = EdGraph.Tenant.Client.Client.OpenAPIDateConverter;
 namespace EdGraph.Tenant.Client.Model
 {
     /// <summary>
-    /// Defines TenantApi.Tenant.V1.TenantType
+    /// Defines TenantApi.Partnership.V1.TenantType
     /// </summary>
     [JsonConverter(typeof(StringEnumConverter))]
-    public enum TenantApiTenantV1TenantType
+    public enum TenantApiPartnershipV1TenantType
     {
         /// <summary>
         /// Enum Unknown for value: Unknown

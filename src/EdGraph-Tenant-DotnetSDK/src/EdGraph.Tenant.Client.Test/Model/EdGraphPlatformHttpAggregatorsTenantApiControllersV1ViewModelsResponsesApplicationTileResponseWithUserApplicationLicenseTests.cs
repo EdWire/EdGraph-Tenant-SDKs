@@ -280,6 +280,24 @@ namespace EdGraph.Tenant.Client.Test.Model
         }
 
         /// <summary>
+        /// Test the property 'TenantSubscriptionDeletedAt'
+        /// </summary>
+        [Fact]
+        public void TenantSubscriptionDeletedAtTest()
+        {
+            // TODO unit test for the property 'TenantSubscriptionDeletedAt'
+        }
+
+        /// <summary>
+        /// Test the property 'TenantSubscriptionGracePeriod'
+        /// </summary>
+        [Fact]
+        public void TenantSubscriptionGracePeriodTest()
+        {
+            // TODO unit test for the property 'TenantSubscriptionGracePeriod'
+        }
+
+        /// <summary>
         /// Test the property 'IsUserLicensed'
         /// </summary>
         [Fact]

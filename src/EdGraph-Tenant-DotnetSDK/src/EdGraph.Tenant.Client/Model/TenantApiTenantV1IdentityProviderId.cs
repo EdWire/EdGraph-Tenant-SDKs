@@ -65,7 +65,13 @@ namespace EdGraph.Tenant.Client.Model
         /// Enum Mspersonalv2 for value: Mspersonalv2
         /// </summary>
         [EnumMember(Value = "Mspersonalv2")]
-        Mspersonalv2 = 6
+        Mspersonalv2 = 6,
+
+        /// <summary>
+        /// Enum Classlink for value: Classlink
+        /// </summary>
+        [EnumMember(Value = "Classlink")]
+        Classlink = 7
     }
 
 }

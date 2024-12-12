@@ -64,12 +64,12 @@ namespace EdGraph.Tenant.Client.Test.Model
         }
 
         /// <summary>
-        /// Test the property 'TenantType'
+        /// Test the property 'TenantTypes'
         /// </summary>
         [Fact]
-        public void TenantTypeTest()
+        public void TenantTypesTest()
         {
-            // TODO unit test for the property 'TenantType'
+            // TODO unit test for the property 'TenantTypes'
         }
 
         /// <summary>

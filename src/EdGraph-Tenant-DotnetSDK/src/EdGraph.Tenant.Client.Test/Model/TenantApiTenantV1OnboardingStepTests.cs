@@ -98,5 +98,14 @@ namespace EdGraph.Tenant.Client.Test.Model
         {
             // TODO unit test for the property 'CompletedAt'
         }
+
+        /// <summary>
+        /// Test the property 'Details'
+        /// </summary>
+        [Fact]
+        public void DetailsTest()
+        {
+            // TODO unit test for the property 'Details'
+        }
     }
 }

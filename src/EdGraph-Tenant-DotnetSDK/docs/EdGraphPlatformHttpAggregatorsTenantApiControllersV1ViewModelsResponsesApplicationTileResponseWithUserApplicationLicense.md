@@ -29,6 +29,8 @@ Name | Type | Description | Notes
 **TenantSubscriptionStartDateTime** | **string** | The Tenant subscription start date | [optional] 
 **TenantSubscriptionEndDateTime** | **string** | The Tenant subscription end date | [optional] 
 **TenantSubscriptionActualEndDateTime** | **string** | The Tenant subscription end date | [optional] 
+**TenantSubscriptionDeletedAt** | **string** | The Tenant subscription deleted date | [optional] 
+**TenantSubscriptionGracePeriod** | **int** | The Tenant subscription grace period value | [optional] 
 **IsUserLicensed** | **bool** |  | [optional] 
 **Urls** | [**List&lt;EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesApplicationUrl&gt;**](EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesApplicationUrl.md) |  | [optional] 
 

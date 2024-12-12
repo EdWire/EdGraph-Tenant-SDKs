@@ -89,5 +89,14 @@ namespace EdGraph.Tenant.Client.Test.Model
         {
             // TODO unit test for the property 'UserId'
         }
+
+        /// <summary>
+        /// Test the property 'Strategy'
+        /// </summary>
+        [Fact]
+        public void StrategyTest()
+        {
+            // TODO unit test for the property 'Strategy'
+        }
     }
 }

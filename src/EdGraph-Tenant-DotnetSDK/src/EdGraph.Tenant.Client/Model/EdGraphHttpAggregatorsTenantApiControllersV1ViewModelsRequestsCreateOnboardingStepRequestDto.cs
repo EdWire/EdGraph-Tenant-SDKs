@@ -26,29 +26,33 @@ using OpenAPIDateConverter = EdGraph.Tenant.Client.Client.OpenAPIDateConverter;
 namespace EdGraph.Tenant.Client.Model
 {
     /// <summary>
-    /// TenantApiTenantV1OnboardingStep
+    /// EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsCreateOnboardingStepRequestDto
     /// </summary>
-    [DataContract(Name = "TenantApi.Tenant.V1.OnboardingStep")]
-    public partial class TenantApiTenantV1OnboardingStep : IValidatableObject
+    [DataContract(Name = "EdGraph.HttpAggregators.Tenant.Api.Controllers.v1.ViewModels.Requests.CreateOnboardingStepRequestDto")]
+    public partial class EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsCreateOnboardingStepRequestDto : IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="TenantApiTenantV1OnboardingStep" /> class.
+        /// Initializes a new instance of the <see cref="EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsCreateOnboardingStepRequestDto" /> class.
         /// </summary>
+        /// <param name="tenantId">tenantId.</param>
         /// <param name="number">number.</param>
         /// <param name="description">description.</param>
         /// <param name="status">status.</param>
-        /// <param name="startedAt">startedAt.</param>
-        /// <param name="completedAt">completedAt.</param>
         /// <param name="details">details.</param>
-        public TenantApiTenantV1OnboardingStep(int number = default(int), string description = default(string), string status = default(string), string startedAt = default(string), string completedAt = default(string), string details = default(string))
+        public EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsCreateOnboardingStepRequestDto(string tenantId = default(string), int number = default(int), string description = default(string), string status = default(string), Object details = default(Object))
         {
+            this.TenantId = tenantId;
             this.Number = number;
             this.Description = description;
             this.Status = status;
-            this.StartedAt = startedAt;
-            this.CompletedAt = completedAt;
             this.Details = details;
         }
+
+        /// <summary>
+        /// Gets or Sets TenantId
+        /// </summary>
+        [DataMember(Name = "tenantId", EmitDefaultValue = true)]
+        public string TenantId { get; set; }
 
         /// <summary>
         /// Gets or Sets Number
@@ -69,22 +73,10 @@ namespace EdGraph.Tenant.Client.Model
         public string Status { get; set; }
 
         /// <summary>
-        /// Gets or Sets StartedAt
-        /// </summary>
-        [DataMember(Name = "startedAt", EmitDefaultValue = true)]
-        public string StartedAt { get; set; }
-
-        /// <summary>
-        /// Gets or Sets CompletedAt
-        /// </summary>
-        [DataMember(Name = "completedAt", EmitDefaultValue = true)]
-        public string CompletedAt { get; set; }
-
-        /// <summary>
         /// Gets or Sets Details
         /// </summary>
         [DataMember(Name = "details", EmitDefaultValue = true)]
-        public string Details { get; set; }
+        public Object Details { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -93,12 +85,11 @@ namespace EdGraph.Tenant.Client.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class TenantApiTenantV1OnboardingStep {\n");
+            sb.Append("class EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsCreateOnboardingStepRequestDto {\n");
+            sb.Append("  TenantId: ").Append(TenantId).Append("\n");
             sb.Append("  Number: ").Append(Number).Append("\n");
             sb.Append("  Description: ").Append(Description).Append("\n");
             sb.Append("  Status: ").Append(Status).Append("\n");
-            sb.Append("  StartedAt: ").Append(StartedAt).Append("\n");
-            sb.Append("  CompletedAt: ").Append(CompletedAt).Append("\n");
             sb.Append("  Details: ").Append(Details).Append("\n");
             sb.Append("}\n");
             return sb.ToString();

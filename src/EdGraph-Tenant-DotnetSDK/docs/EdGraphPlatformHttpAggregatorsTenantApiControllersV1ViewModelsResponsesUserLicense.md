@@ -10,6 +10,8 @@ Name | Type | Description | Notes
 **TenantSubscriptionStartDateTime** | **string** | The Tenant subscription start date | [optional] 
 **TenantSubscriptionEndDateTime** | **string** | The Tenant subscription end date | [optional] 
 **TenantSubscriptionActualEndDateTime** | **string** | The Tenant subscription end date | [optional] 
+**TenantSubscriptionDeletedAt** | **string** | The Tenant subscription deleted date | [optional] 
+**TenantSubscriptionGracePeriod** | **int** | The Tenant subscription grace period value | [optional] 
 **NumberOfLicenses** | **int** | The Tenant&#39;s number of licenses | [optional] 
 **AssignedLicenses** | **int** | The Tenant&#39;s assigned of licenses | [optional] 
 **IsUserLicensed** | **bool** | The user is assigned license for this application | [optional] 

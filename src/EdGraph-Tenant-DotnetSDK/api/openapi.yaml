@@ -1996,16 +1996,16 @@ paths:
         content:
           application/json-patch+json:
             schema:
-              $ref: '#/components/schemas/TenantApi.Tenant.V1.UpdateOnboardingStepRequest'
+              $ref: '#/components/schemas/EdGraph.HttpAggregators.Tenant.Api.Controllers.v1.ViewModels.Requests.UpdateOnboardingStepRequestDto'
           application/json:
             schema:
-              $ref: '#/components/schemas/TenantApi.Tenant.V1.UpdateOnboardingStepRequest'
+              $ref: '#/components/schemas/EdGraph.HttpAggregators.Tenant.Api.Controllers.v1.ViewModels.Requests.UpdateOnboardingStepRequestDto'
           text/json:
             schema:
-              $ref: '#/components/schemas/TenantApi.Tenant.V1.UpdateOnboardingStepRequest'
+              $ref: '#/components/schemas/EdGraph.HttpAggregators.Tenant.Api.Controllers.v1.ViewModels.Requests.UpdateOnboardingStepRequestDto'
           application/*+json:
             schema:
-              $ref: '#/components/schemas/TenantApi.Tenant.V1.UpdateOnboardingStepRequest'
+              $ref: '#/components/schemas/EdGraph.HttpAggregators.Tenant.Api.Controllers.v1.ViewModels.Requests.UpdateOnboardingStepRequestDto'
         description: ""
       responses:
         "401":
@@ -2084,16 +2084,16 @@ paths:
         content:
           application/json-patch+json:
             schema:
-              $ref: '#/components/schemas/TenantApi.Tenant.V1.CreateOnboardingStepRequest'
+              $ref: '#/components/schemas/EdGraph.HttpAggregators.Tenant.Api.Controllers.v1.ViewModels.Requests.CreateOnboardingStepRequestDto'
           application/json:
             schema:
-              $ref: '#/components/schemas/TenantApi.Tenant.V1.CreateOnboardingStepRequest'
+              $ref: '#/components/schemas/EdGraph.HttpAggregators.Tenant.Api.Controllers.v1.ViewModels.Requests.CreateOnboardingStepRequestDto'
           text/json:
             schema:
-              $ref: '#/components/schemas/TenantApi.Tenant.V1.CreateOnboardingStepRequest'
+              $ref: '#/components/schemas/EdGraph.HttpAggregators.Tenant.Api.Controllers.v1.ViewModels.Requests.CreateOnboardingStepRequestDto'
           application/*+json:
             schema:
-              $ref: '#/components/schemas/TenantApi.Tenant.V1.CreateOnboardingStepRequest'
+              $ref: '#/components/schemas/EdGraph.HttpAggregators.Tenant.Api.Controllers.v1.ViewModels.Requests.CreateOnboardingStepRequestDto'
         description: ""
       responses:
         "401":
@@ -2757,6 +2757,195 @@ paths:
       summary: Creates an Organization.
       tags:
       - Organizations
+  /tenants/{tenantId}/partnerships/{partnershipId}:
+    get:
+      operationId: GetPartnershipById
+      parameters:
+      - description: ""
+        explode: false
+        in: path
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - description: ""
+        explode: false
+        in: path
+        name: partnershipId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: X-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EdGraph.Common.Errors.Core.ProblemDetails'
+          description: Unauthorized. The request requires authentication. The OAuth
+            bearer token was either not provided or is invalid. The operation may
+            succeed once authentication has been successfully completed.
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EdGraph.Common.Errors.Core.ProblemDetails'
+          description: Forbidden. The request cannot be completed in the current authorization
+            context. Contact your administrator if you believe this operation should
+            be allowed.
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EdGraph.Common.Errors.Core.ProblemDetails'
+          description: An unhandled error occurred on the server.See the response
+            body for details.
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TenantApi.Partnership.V1.PartnershipByIdResponse'
+          description: The requested resource was successfully retrieved.
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ValidationProblemDetails'
+          description: Bad Request. The request was invalid and cannot be completed.
+            See the response body for specific validation errors. This will typically
+            be an issue with the query parameters or the request body values.
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EdGraph.Common.Errors.Core.ProblemDetails'
+          description: The resource could not be found.
+      summary: Retrieves a Partnership by ID.
+      tags:
+      - Partnerships
+  /tenants/{tenantId}/partnerships:
+    get:
+      operationId: GetAllPartnerships
+      parameters:
+      - description: ""
+        explode: false
+        in: path
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - description: ""
+        explode: true
+        in: query
+        name: pageIndex
+        required: false
+        schema:
+          default: 0
+          format: int32
+          type: integer
+        style: form
+      - description: ""
+        explode: true
+        in: query
+        name: pageSize
+        required: false
+        schema:
+          default: 10
+          format: int32
+          type: integer
+        style: form
+      - description: ""
+        explode: true
+        in: query
+        name: orderBy
+        required: false
+        schema:
+          default: ""
+          type: string
+        style: form
+      - description: ""
+        explode: true
+        in: query
+        name: filter
+        required: false
+        schema:
+          default: ""
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: X-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EdGraph.Common.Errors.Core.ProblemDetails'
+          description: Unauthorized. The request requires authentication. The OAuth
+            bearer token was either not provided or is invalid. The operation may
+            succeed once authentication has been successfully completed.
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EdGraph.Common.Errors.Core.ProblemDetails'
+          description: Forbidden. The request cannot be completed in the current authorization
+            context. Contact your administrator if you believe this operation should
+            be allowed.
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EdGraph.Common.Errors.Core.ProblemDetails'
+          description: An unhandled error occurred on the server.See the response
+            body for details.
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TenantApi.Partnership.V1.PaginatedItemsResponse'
+          description: The requested resource was successfully retrieved.
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ValidationProblemDetails'
+          description: Bad Request. The request was invalid and cannot be completed.
+            See the response body for specific validation errors. This will typically
+            be an issue with the query parameters or the request body values.
+      summary: Retrieves a list of Partnerships.
+      tags:
+      - Partnerships
   /tenants/{tenantId}/staffclassifications/{staffClassificationId}:
     delete:
       operationId: DeleteStaffClassification
@@ -6565,6 +6754,24 @@ components:
           nullable: true
           type: array
       type: object
+    EdGraph.HttpAggregators.Tenant.Api.Controllers.v1.ViewModels.Requests.CreateOnboardingStepRequestDto:
+      additionalProperties: false
+      properties:
+        tenantId:
+          nullable: true
+          type: string
+        number:
+          format: int32
+          type: integer
+        description:
+          nullable: true
+          type: string
+        status:
+          nullable: true
+          type: string
+        details:
+          nullable: true
+      type: object
     EdGraph.HttpAggregators.Tenant.Api.Controllers.v1.ViewModels.Requests.EducationOrganizations.AddEducationOrganizationRequest:
       additionalProperties: false
       properties:
@@ -6670,6 +6877,9 @@ components:
         userId:
           nullable: true
           type: string
+        strategy:
+          nullable: true
+          type: string
       type: object
     EdGraph.HttpAggregators.Tenant.Api.Controllers.v1.ViewModels.Requests.SendInvitationRequest:
       additionalProperties: false
@@ -6720,6 +6930,7 @@ components:
       - Adfs
       - Txedexchange
       - Mspersonalv2
+      - Classlink
       type: string
     EdGraph.HttpAggregators.Tenant.Api.Controllers.v1.ViewModels.Requests.Tenants.TenantIdentityProviderStatus:
       enum:
@@ -6762,13 +6973,14 @@ components:
     EdGraph.HttpAggregators.Tenant.Api.Controllers.v1.ViewModels.Requests.Tenants.TenantType:
       enum:
       - Unknown
+      - DataStandardGoverningBody
+      - EducationalServiceAgency
+      - ImplementationPartner
+      - IndependentSoftwareVendor
       - Internal
-      - State
-      - Collaborative
-      - District
-      - Partner
-      - Teacher
-      - Student
+      - LocalEducationAgency
+      - ManagedServiceProvider
+      - StateEducationAgency
       type: string
     EdGraph.HttpAggregators.Tenant.Api.Controllers.v1.ViewModels.Requests.Tenants.UpdateTenantRequest:
       additionalProperties: false
@@ -6776,8 +6988,11 @@ components:
         tenantId:
           nullable: true
           type: string
-        tenantType:
-          $ref: '#/components/schemas/EdGraph.HttpAggregators.Tenant.Api.Controllers.v1.ViewModels.Requests.Tenants.TenantType'
+        tenantTypes:
+          items:
+            $ref: '#/components/schemas/EdGraph.HttpAggregators.Tenant.Api.Controllers.v1.ViewModels.Requests.Tenants.TenantType'
+          nullable: true
+          type: array
         organizationIdentifier:
           nullable: true
           type: string
@@ -6803,6 +7018,21 @@ components:
             $ref: '#/components/schemas/EdGraph.HttpAggregators.Tenant.Api.Controllers.v1.ViewModels.Requests.Tenants.TenantSetting'
           nullable: true
           type: array
+      type: object
+    EdGraph.HttpAggregators.Tenant.Api.Controllers.v1.ViewModels.Requests.UpdateOnboardingStepRequestDto:
+      additionalProperties: false
+      properties:
+        tenantId:
+          nullable: true
+          type: string
+        number:
+          format: int32
+          type: integer
+        status:
+          nullable: true
+          type: string
+        details:
+          nullable: true
       type: object
     EdGraph.HttpAggregators.Tenant.Api.Controllers.v1.ViewModels.Responses.DomainListResponseDto:
       additionalProperties: false
@@ -7203,6 +7433,7 @@ components:
           value: value
           openInNewTab: true
         lightOverlayTileUrl: lightOverlayTileUrl
+        tenantSubscriptionGracePeriod: 0
         tenantSubscriptionActualEndDateTime: tenantSubscriptionActualEndDateTime
         applicationName: applicationName
         tenantSubscriptionStartDateTime: tenantSubscriptionStartDateTime
@@ -7221,6 +7452,7 @@ components:
         applicationId: applicationId
         tenantSubscriptionId: tenantSubscriptionId
         darkOverlayTileUrl: darkOverlayTileUrl
+        tenantSubscriptionDeletedAt: tenantSubscriptionDeletedAt
         openInNewWindow: true
       properties:
         applicationTenantId:
@@ -7300,6 +7532,14 @@ components:
           description: The Tenant subscription end date
           nullable: true
           type: string
+        tenantSubscriptionDeletedAt:
+          description: The Tenant subscription deleted date
+          nullable: true
+          type: string
+        tenantSubscriptionGracePeriod:
+          description: The Tenant subscription grace period value
+          format: int32
+          type: integer
         isUserLicensed:
           type: boolean
         urls:
@@ -7332,6 +7572,7 @@ components:
             value: value
             openInNewTab: true
           lightOverlayTileUrl: lightOverlayTileUrl
+          tenantSubscriptionGracePeriod: 0
           tenantSubscriptionActualEndDateTime: tenantSubscriptionActualEndDateTime
           applicationName: applicationName
           tenantSubscriptionStartDateTime: tenantSubscriptionStartDateTime
@@ -7350,6 +7591,7 @@ components:
           applicationId: applicationId
           tenantSubscriptionId: tenantSubscriptionId
           darkOverlayTileUrl: darkOverlayTileUrl
+          tenantSubscriptionDeletedAt: tenantSubscriptionDeletedAt
           openInNewWindow: true
         - documentationUrl: documentationUrl
           isUserLicensed: true
@@ -7371,6 +7613,7 @@ components:
             value: value
             openInNewTab: true
           lightOverlayTileUrl: lightOverlayTileUrl
+          tenantSubscriptionGracePeriod: 0
           tenantSubscriptionActualEndDateTime: tenantSubscriptionActualEndDateTime
           applicationName: applicationName
           tenantSubscriptionStartDateTime: tenantSubscriptionStartDateTime
@@ -7389,6 +7632,7 @@ components:
           applicationId: applicationId
           tenantSubscriptionId: tenantSubscriptionId
           darkOverlayTileUrl: darkOverlayTileUrl
+          tenantSubscriptionDeletedAt: tenantSubscriptionDeletedAt
           openInNewWindow: true
       properties:
         data:
@@ -7439,15 +7683,17 @@ components:
           isAssigned: true
         - role: role
           isAssigned: true
-        assignedLicenses: 5
+        assignedLicenses: 2
         subscriptionTenantId: subscriptionTenantId
         tenantSubscriptionEndDateTime: tenantSubscriptionEndDateTime
         numberOfLicenses: 5
         isTenantSubscribed: true
+        tenantSubscriptionGracePeriod: 5
         tenantSubscriptionId: tenantSubscriptionId
         tenantSubscriptionActualEndDateTime: tenantSubscriptionActualEndDateTime
         applicationTenantId: applicationTenantId
         applicationId: applicationId
+        tenantSubscriptionDeletedAt: tenantSubscriptionDeletedAt
         applicationName: applicationName
       properties:
         subscriptionTenantId:
@@ -7473,6 +7719,14 @@ components:
           description: The Tenant subscription end date
           nullable: true
           type: string
+        tenantSubscriptionDeletedAt:
+          description: The Tenant subscription deleted date
+          nullable: true
+          type: string
+        tenantSubscriptionGracePeriod:
+          description: The Tenant subscription grace period value
+          format: int32
+          type: integer
         numberOfLicenses:
           description: The Tenant's number of licenses
           format: int32
@@ -7514,15 +7768,17 @@ components:
             isAssigned: true
           - role: role
             isAssigned: true
-          assignedLicenses: 5
+          assignedLicenses: 2
           subscriptionTenantId: subscriptionTenantId
           tenantSubscriptionEndDateTime: tenantSubscriptionEndDateTime
           numberOfLicenses: 5
           isTenantSubscribed: true
+          tenantSubscriptionGracePeriod: 5
           tenantSubscriptionId: tenantSubscriptionId
           tenantSubscriptionActualEndDateTime: tenantSubscriptionActualEndDateTime
           applicationTenantId: applicationTenantId
           applicationId: applicationId
+          tenantSubscriptionDeletedAt: tenantSubscriptionDeletedAt
           applicationName: applicationName
         - tenantSubscriptionStartDateTime: tenantSubscriptionStartDateTime
           isUserLicensed: true
@@ -7531,15 +7787,17 @@ components:
             isAssigned: true
           - role: role
             isAssigned: true
-          assignedLicenses: 5
+          assignedLicenses: 2
           subscriptionTenantId: subscriptionTenantId
           tenantSubscriptionEndDateTime: tenantSubscriptionEndDateTime
           numberOfLicenses: 5
           isTenantSubscribed: true
+          tenantSubscriptionGracePeriod: 5
           tenantSubscriptionId: tenantSubscriptionId
           tenantSubscriptionActualEndDateTime: tenantSubscriptionActualEndDateTime
           applicationTenantId: applicationTenantId
           applicationId: applicationId
+          tenantSubscriptionDeletedAt: tenantSubscriptionDeletedAt
           applicationName: applicationName
         pageIndex: 0
         count: 1
@@ -7662,15 +7920,17 @@ components:
             isAssigned: true
           - role: role
             isAssigned: true
-          assignedLicenses: 5
+          assignedLicenses: 2
           subscriptionTenantId: subscriptionTenantId
           tenantSubscriptionEndDateTime: tenantSubscriptionEndDateTime
           numberOfLicenses: 5
           isTenantSubscribed: true
+          tenantSubscriptionGracePeriod: 5
           tenantSubscriptionId: tenantSubscriptionId
           tenantSubscriptionActualEndDateTime: tenantSubscriptionActualEndDateTime
           applicationTenantId: applicationTenantId
           applicationId: applicationId
+          tenantSubscriptionDeletedAt: tenantSubscriptionDeletedAt
           applicationName: applicationName
         - tenantSubscriptionStartDateTime: tenantSubscriptionStartDateTime
           isUserLicensed: true
@@ -7679,15 +7939,17 @@ components:
             isAssigned: true
           - role: role
             isAssigned: true
-          assignedLicenses: 5
+          assignedLicenses: 2
           subscriptionTenantId: subscriptionTenantId
           tenantSubscriptionEndDateTime: tenantSubscriptionEndDateTime
           numberOfLicenses: 5
           isTenantSubscribed: true
+          tenantSubscriptionGracePeriod: 5
           tenantSubscriptionId: tenantSubscriptionId
           tenantSubscriptionActualEndDateTime: tenantSubscriptionActualEndDateTime
           applicationTenantId: applicationTenantId
           applicationId: applicationId
+          tenantSubscriptionDeletedAt: tenantSubscriptionDeletedAt
           applicationName: applicationName
         createdBy: createdBy
         tenantCount: 5
@@ -7855,15 +8117,17 @@ components:
               isAssigned: true
             - role: role
               isAssigned: true
-            assignedLicenses: 5
+            assignedLicenses: 2
             subscriptionTenantId: subscriptionTenantId
             tenantSubscriptionEndDateTime: tenantSubscriptionEndDateTime
             numberOfLicenses: 5
             isTenantSubscribed: true
+            tenantSubscriptionGracePeriod: 5
             tenantSubscriptionId: tenantSubscriptionId
             tenantSubscriptionActualEndDateTime: tenantSubscriptionActualEndDateTime
             applicationTenantId: applicationTenantId
             applicationId: applicationId
+            tenantSubscriptionDeletedAt: tenantSubscriptionDeletedAt
             applicationName: applicationName
           - tenantSubscriptionStartDateTime: tenantSubscriptionStartDateTime
             isUserLicensed: true
@@ -7872,15 +8136,17 @@ components:
               isAssigned: true
             - role: role
               isAssigned: true
-            assignedLicenses: 5
+            assignedLicenses: 2
             subscriptionTenantId: subscriptionTenantId
             tenantSubscriptionEndDateTime: tenantSubscriptionEndDateTime
             numberOfLicenses: 5
             isTenantSubscribed: true
+            tenantSubscriptionGracePeriod: 5
             tenantSubscriptionId: tenantSubscriptionId
             tenantSubscriptionActualEndDateTime: tenantSubscriptionActualEndDateTime
             applicationTenantId: applicationTenantId
             applicationId: applicationId
+            tenantSubscriptionDeletedAt: tenantSubscriptionDeletedAt
             applicationName: applicationName
           createdBy: createdBy
           tenantCount: 5
@@ -7989,15 +8255,17 @@ components:
               isAssigned: true
             - role: role
               isAssigned: true
-            assignedLicenses: 5
+            assignedLicenses: 2
             subscriptionTenantId: subscriptionTenantId
             tenantSubscriptionEndDateTime: tenantSubscriptionEndDateTime
             numberOfLicenses: 5
             isTenantSubscribed: true
+            tenantSubscriptionGracePeriod: 5
             tenantSubscriptionId: tenantSubscriptionId
             tenantSubscriptionActualEndDateTime: tenantSubscriptionActualEndDateTime
             applicationTenantId: applicationTenantId
             applicationId: applicationId
+            tenantSubscriptionDeletedAt: tenantSubscriptionDeletedAt
             applicationName: applicationName
           - tenantSubscriptionStartDateTime: tenantSubscriptionStartDateTime
             isUserLicensed: true
@@ -8006,15 +8274,17 @@ components:
               isAssigned: true
             - role: role
               isAssigned: true
-            assignedLicenses: 5
+            assignedLicenses: 2
             subscriptionTenantId: subscriptionTenantId
             tenantSubscriptionEndDateTime: tenantSubscriptionEndDateTime
             numberOfLicenses: 5
             isTenantSubscribed: true
+            tenantSubscriptionGracePeriod: 5
             tenantSubscriptionId: tenantSubscriptionId
             tenantSubscriptionActualEndDateTime: tenantSubscriptionActualEndDateTime
             applicationTenantId: applicationTenantId
             applicationId: applicationId
+            tenantSubscriptionDeletedAt: tenantSubscriptionDeletedAt
             applicationName: applicationName
           createdBy: createdBy
           tenantCount: 5
@@ -8178,15 +8448,17 @@ components:
             isAssigned: true
           - role: role
             isAssigned: true
-          assignedLicenses: 5
+          assignedLicenses: 2
           subscriptionTenantId: subscriptionTenantId
           tenantSubscriptionEndDateTime: tenantSubscriptionEndDateTime
           numberOfLicenses: 5
           isTenantSubscribed: true
+          tenantSubscriptionGracePeriod: 5
           tenantSubscriptionId: tenantSubscriptionId
           tenantSubscriptionActualEndDateTime: tenantSubscriptionActualEndDateTime
           applicationTenantId: applicationTenantId
           applicationId: applicationId
+          tenantSubscriptionDeletedAt: tenantSubscriptionDeletedAt
           applicationName: applicationName
         - tenantSubscriptionStartDateTime: tenantSubscriptionStartDateTime
           isUserLicensed: true
@@ -8195,15 +8467,17 @@ components:
             isAssigned: true
           - role: role
             isAssigned: true
-          assignedLicenses: 5
+          assignedLicenses: 2
           subscriptionTenantId: subscriptionTenantId
           tenantSubscriptionEndDateTime: tenantSubscriptionEndDateTime
           numberOfLicenses: 5
           isTenantSubscribed: true
+          tenantSubscriptionGracePeriod: 5
           tenantSubscriptionId: tenantSubscriptionId
           tenantSubscriptionActualEndDateTime: tenantSubscriptionActualEndDateTime
           applicationTenantId: applicationTenantId
           applicationId: applicationId
+          tenantSubscriptionDeletedAt: tenantSubscriptionDeletedAt
           applicationName: applicationName
         phoneNumber: phoneNumber
         createdBy: createdBy
@@ -9825,7 +10099,16 @@ components:
         userId:
           nullable: true
           type: string
+        strategy:
+          $ref: '#/components/schemas/IdentityApi.User.V1.RevokeStrategy'
       type: object
+    IdentityApi.User.V1.RevokeStrategy:
+      enum:
+      - Unknown
+      - RevokeImplicit
+      - RevokeExplicit
+      - UndoExplicitRevoke
+      type: string
     IdentityApi.User.V1.UpdateUserRequest:
       additionalProperties: false
       properties:
@@ -9943,6 +10226,252 @@ components:
           nullable: true
           type: string
       type: object
+    TenantApi.Partnership.V1.PaginatedItemsResponse:
+      additionalProperties: false
+      example:
+        data:
+        - relatedTenants:
+          - tenantTypes:
+            - null
+            - null
+            organizationName: organizationName
+            organizationIdentifier: organizationIdentifier
+            tenantId: tenantId
+          - tenantTypes:
+            - null
+            - null
+            organizationName: organizationName
+            organizationIdentifier: organizationIdentifier
+            tenantId: tenantId
+          lastModifiedDateTime: lastModifiedDateTime
+          createdBy: createdBy
+          lastModifiedBy: lastModifiedBy
+          createdDateTime: createdDateTime
+          partnershipSync:
+            type: null
+            enabled: true
+          id: id
+          partnershipType: partnershipType
+          partnerTenant:
+            tenantTypes:
+            - null
+            - null
+            organizationName: organizationName
+            organizationIdentifier: organizationIdentifier
+            tenantId: tenantId
+        - relatedTenants:
+          - tenantTypes:
+            - null
+            - null
+            organizationName: organizationName
+            organizationIdentifier: organizationIdentifier
+            tenantId: tenantId
+          - tenantTypes:
+            - null
+            - null
+            organizationName: organizationName
+            organizationIdentifier: organizationIdentifier
+            tenantId: tenantId
+          lastModifiedDateTime: lastModifiedDateTime
+          createdBy: createdBy
+          lastModifiedBy: lastModifiedBy
+          createdDateTime: createdDateTime
+          partnershipSync:
+            type: null
+            enabled: true
+          id: id
+          partnershipType: partnershipType
+          partnerTenant:
+            tenantTypes:
+            - null
+            - null
+            organizationName: organizationName
+            organizationIdentifier: organizationIdentifier
+            tenantId: tenantId
+        pageIndex: 0
+        count: 1
+        pageSize: 6
+      properties:
+        pageIndex:
+          format: int32
+          type: integer
+        pageSize:
+          format: int32
+          type: integer
+        count:
+          format: int64
+          type: integer
+        data:
+          items:
+            $ref: '#/components/schemas/TenantApi.Partnership.V1.PartnershipResponse'
+          nullable: true
+          readOnly: true
+          type: array
+      type: object
+    TenantApi.Partnership.V1.ParternshipTenantResponse:
+      additionalProperties: false
+      example:
+        tenantTypes:
+        - null
+        - null
+        organizationName: organizationName
+        organizationIdentifier: organizationIdentifier
+        tenantId: tenantId
+      properties:
+        tenantId:
+          nullable: true
+          type: string
+        tenantTypes:
+          items:
+            $ref: '#/components/schemas/TenantApi.Partnership.V1.TenantType'
+          nullable: true
+          readOnly: true
+          type: array
+        organizationIdentifier:
+          nullable: true
+          type: string
+        organizationName:
+          nullable: true
+          type: string
+      type: object
+    TenantApi.Partnership.V1.PartnershipByIdResponse:
+      additionalProperties: false
+      example:
+        relatedTenantsIds:
+        - relatedTenantsIds
+        - relatedTenantsIds
+        partnerTenantId: partnerTenantId
+        lastModifiedDateTime: lastModifiedDateTime
+        createdBy: createdBy
+        lastModifiedBy: lastModifiedBy
+        createdDateTime: createdDateTime
+        partnershipSync:
+          type: null
+          enabled: true
+        id: id
+        partnershipType: partnershipType
+      properties:
+        id:
+          nullable: true
+          type: string
+        partnerTenantId:
+          nullable: true
+          type: string
+        partnershipType:
+          nullable: true
+          type: string
+        relatedTenantsIds:
+          items:
+            type: string
+          nullable: true
+          readOnly: true
+          type: array
+        partnershipSync:
+          $ref: '#/components/schemas/TenantApi.Partnership.V1.PartnershipSyncDTO'
+        createdDateTime:
+          nullable: true
+          type: string
+        createdBy:
+          nullable: true
+          type: string
+        lastModifiedDateTime:
+          nullable: true
+          type: string
+        lastModifiedBy:
+          nullable: true
+          type: string
+      type: object
+    TenantApi.Partnership.V1.PartnershipResponse:
+      additionalProperties: false
+      example:
+        relatedTenants:
+        - tenantTypes:
+          - null
+          - null
+          organizationName: organizationName
+          organizationIdentifier: organizationIdentifier
+          tenantId: tenantId
+        - tenantTypes:
+          - null
+          - null
+          organizationName: organizationName
+          organizationIdentifier: organizationIdentifier
+          tenantId: tenantId
+        lastModifiedDateTime: lastModifiedDateTime
+        createdBy: createdBy
+        lastModifiedBy: lastModifiedBy
+        createdDateTime: createdDateTime
+        partnershipSync:
+          type: null
+          enabled: true
+        id: id
+        partnershipType: partnershipType
+        partnerTenant:
+          tenantTypes:
+          - null
+          - null
+          organizationName: organizationName
+          organizationIdentifier: organizationIdentifier
+          tenantId: tenantId
+      properties:
+        id:
+          nullable: true
+          type: string
+        partnerTenant:
+          $ref: '#/components/schemas/TenantApi.Partnership.V1.ParternshipTenantResponse'
+        partnershipType:
+          nullable: true
+          type: string
+        relatedTenants:
+          items:
+            $ref: '#/components/schemas/TenantApi.Partnership.V1.ParternshipTenantResponse'
+          nullable: true
+          readOnly: true
+          type: array
+        partnershipSync:
+          $ref: '#/components/schemas/TenantApi.Partnership.V1.PartnershipSyncDTO'
+        createdDateTime:
+          nullable: true
+          type: string
+        createdBy:
+          nullable: true
+          type: string
+        lastModifiedDateTime:
+          nullable: true
+          type: string
+        lastModifiedBy:
+          nullable: true
+          type: string
+      type: object
+    TenantApi.Partnership.V1.PartnershipSyncDTO:
+      additionalProperties: false
+      example:
+        type: null
+        enabled: true
+      properties:
+        enabled:
+          type: boolean
+        type:
+          $ref: '#/components/schemas/TenantApi.Partnership.V1.PartnershipSyncType'
+      type: object
+    TenantApi.Partnership.V1.PartnershipSyncType:
+      enum:
+      - Unknown
+      - Inbound
+      - Outbound
+      type: string
+    TenantApi.Partnership.V1.TenantType:
+      enum:
+      - Unknown
+      - DataStandardGoverningBody
+      - EducationalServiceAgency
+      - ImplementationPartner
+      - IndependentSoftwareVendor
+      - Internal
+      - LocalEducationAgency
+      - ManagedServiceProvider
+      - StateEducationAgency
+      type: string
     TenantApi.Tenant.V1.CreateDomainRequest:
       additionalProperties: false
       properties:
@@ -9956,22 +10485,6 @@ components:
           $ref: '#/components/schemas/TenantApi.Tenant.V1.DomainStatus'
         autoAssignUsers:
           type: boolean
-      type: object
-    TenantApi.Tenant.V1.CreateOnboardingStepRequest:
-      additionalProperties: false
-      properties:
-        tenantId:
-          nullable: true
-          type: string
-        number:
-          format: int32
-          type: integer
-        description:
-          nullable: true
-          type: string
-        status:
-          nullable: true
-          type: string
       type: object
     TenantApi.Tenant.V1.CreateOrganizationRequest:
       additionalProperties: false
@@ -10501,6 +11014,7 @@ components:
       - Adfs
       - Txedexchange
       - Mspersonalv2
+      - Classlink
       type: string
     TenantApi.Tenant.V1.IdentityProviderStatus:
       enum:
@@ -10674,11 +11188,13 @@ components:
           completedAt: completedAt
           description: description
           startedAt: startedAt
+          details: details
           status: status
         - number: 9
           completedAt: completedAt
           description: description
           startedAt: startedAt
+          details: details
           status: status
         status: status
       properties:
@@ -10715,6 +11231,7 @@ components:
         completedAt: completedAt
         description: description
         startedAt: startedAt
+        details: details
         status: status
       properties:
         number:
@@ -10730,6 +11247,9 @@ components:
           nullable: true
           type: string
         completedAt:
+          nullable: true
+          type: string
+        details:
           nullable: true
           type: string
       type: object
@@ -11032,7 +11552,6 @@ components:
     TenantApi.Tenant.V1.TenantProfileResponse:
       additionalProperties: false
       example:
-        tenantType: null
         tenantStatus: null
         settings:
         - code: code
@@ -11090,6 +11609,9 @@ components:
           enforceMfa: enforceMfa
           enableMfa: true
           identityProviderId: null
+        tenantTypes:
+        - null
+        - null
         lastModifiedDateTime: lastModifiedDateTime
         organizationName: organizationName
         lastModifiedBy: lastModifiedBy
@@ -11142,11 +11664,13 @@ components:
             completedAt: completedAt
             description: description
             startedAt: startedAt
+            details: details
             status: status
           - number: 9
             completedAt: completedAt
             description: description
             startedAt: startedAt
+            details: details
             status: status
           status: status
         additionalSettings:
@@ -11157,8 +11681,12 @@ components:
         tenantId:
           nullable: true
           type: string
-        tenantType:
-          $ref: '#/components/schemas/TenantApi.Tenant.V1.TenantType'
+        tenantTypes:
+          items:
+            $ref: '#/components/schemas/TenantApi.Tenant.V1.TenantType'
+          nullable: true
+          readOnly: true
+          type: array
         organizationIdentifier:
           nullable: true
           type: string
@@ -11393,13 +11921,14 @@ components:
     TenantApi.Tenant.V1.TenantType:
       enum:
       - Unknown
+      - DataStandardGoverningBody
+      - EducationalServiceAgency
+      - ImplementationPartner
+      - IndependentSoftwareVendor
       - Internal
-      - State
-      - Collaborative
-      - District
-      - Partner
-      - Teacher
-      - Student
+      - LocalEducationAgency
+      - ManagedServiceProvider
+      - StateEducationAgency
       type: string
     TenantApi.Tenant.V1.TenantUpdatedResponse:
       additionalProperties: false
@@ -11426,19 +11955,6 @@ components:
           $ref: '#/components/schemas/TenantApi.Tenant.V1.DomainStatus'
         autoAssignUsers:
           type: boolean
-      type: object
-    TenantApi.Tenant.V1.UpdateOnboardingStepRequest:
-      additionalProperties: false
-      properties:
-        tenantId:
-          nullable: true
-          type: string
-        number:
-          format: int32
-          type: integer
-        status:
-          nullable: true
-          type: string
       type: object
     TenantApi.Tenant.V1.UpdateOrganizationRequest:
       additionalProperties: false

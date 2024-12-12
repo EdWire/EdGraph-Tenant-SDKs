@@ -33,12 +33,6 @@ namespace EdGraph.Tenant.Client.Model
     {
 
         /// <summary>
-        /// Gets or Sets TenantType
-        /// </summary>
-        [DataMember(Name = "tenantType", EmitDefaultValue = false)]
-        public TenantApiTenantV1TenantType? TenantType { get; set; }
-
-        /// <summary>
         /// Gets or Sets TenantStatus
         /// </summary>
         [DataMember(Name = "tenantStatus", EmitDefaultValue = false)]
@@ -47,7 +41,6 @@ namespace EdGraph.Tenant.Client.Model
         /// Initializes a new instance of the <see cref="TenantApiTenantV1TenantProfileResponse" /> class.
         /// </summary>
         /// <param name="tenantId">tenantId.</param>
-        /// <param name="tenantType">tenantType.</param>
         /// <param name="organizationIdentifier">organizationIdentifier.</param>
         /// <param name="organizationName">organizationName.</param>
         /// <param name="state">state.</param>
@@ -61,10 +54,9 @@ namespace EdGraph.Tenant.Client.Model
         /// <param name="onboarding">onboarding.</param>
         /// <param name="organizationIdentifierHash">organizationIdentifierHash.</param>
         /// <param name="additionalSettings">additionalSettings.</param>
-        public TenantApiTenantV1TenantProfileResponse(string tenantId = default(string), TenantApiTenantV1TenantType? tenantType = default(TenantApiTenantV1TenantType?), string organizationIdentifier = default(string), string organizationName = default(string), string state = default(string), TenantApiTenantV1TenantStatus? tenantStatus = default(TenantApiTenantV1TenantStatus?), bool isDemo = default(bool), bool subscriptionsMigrated = default(bool), string createdBy = default(string), string createdDateTime = default(string), string lastModifiedBy = default(string), string lastModifiedDateTime = default(string), TenantApiTenantV1Onboarding onboarding = default(TenantApiTenantV1Onboarding), string organizationIdentifierHash = default(string), TenantApiTenantV1TenantAdditionalSetting additionalSettings = default(TenantApiTenantV1TenantAdditionalSetting))
+        public TenantApiTenantV1TenantProfileResponse(string tenantId = default(string), string organizationIdentifier = default(string), string organizationName = default(string), string state = default(string), TenantApiTenantV1TenantStatus? tenantStatus = default(TenantApiTenantV1TenantStatus?), bool isDemo = default(bool), bool subscriptionsMigrated = default(bool), string createdBy = default(string), string createdDateTime = default(string), string lastModifiedBy = default(string), string lastModifiedDateTime = default(string), TenantApiTenantV1Onboarding onboarding = default(TenantApiTenantV1Onboarding), string organizationIdentifierHash = default(string), TenantApiTenantV1TenantAdditionalSetting additionalSettings = default(TenantApiTenantV1TenantAdditionalSetting))
         {
             this.TenantId = tenantId;
-            this.TenantType = tenantType;
             this.OrganizationIdentifier = organizationIdentifier;
             this.OrganizationName = organizationName;
             this.State = state;
@@ -86,6 +78,20 @@ namespace EdGraph.Tenant.Client.Model
         [DataMember(Name = "tenantId", EmitDefaultValue = true)]
         public string TenantId { get; set; }
 
+        /// <summary>
+        /// Gets or Sets TenantTypes
+        /// </summary>
+        [DataMember(Name = "tenantTypes", EmitDefaultValue = true)]
+        public List<TenantApiTenantV1TenantType> TenantTypes { get; private set; }
+
+        /// <summary>
+        /// Returns false as TenantTypes should not be serialized given that it's read-only.
+        /// </summary>
+        /// <returns>false (boolean)</returns>
+        public bool ShouldSerializeTenantTypes()
+        {
+            return false;
+        }
         /// <summary>
         /// Gets or Sets OrganizationIdentifier
         /// </summary>
@@ -237,7 +243,7 @@ namespace EdGraph.Tenant.Client.Model
             StringBuilder sb = new StringBuilder();
             sb.Append("class TenantApiTenantV1TenantProfileResponse {\n");
             sb.Append("  TenantId: ").Append(TenantId).Append("\n");
-            sb.Append("  TenantType: ").Append(TenantType).Append("\n");
+            sb.Append("  TenantTypes: ").Append(TenantTypes).Append("\n");
             sb.Append("  OrganizationIdentifier: ").Append(OrganizationIdentifier).Append("\n");
             sb.Append("  OrganizationName: ").Append(OrganizationName).Append("\n");
             sb.Append("  State: ").Append(State).Append("\n");

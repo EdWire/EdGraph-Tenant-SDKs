@@ -150,6 +150,8 @@ Class | Method | HTTP request | Description
 *OrganizationsApi* | [**GetOrganizationsAsync**](docs/OrganizationsApi.md#getorganizationsasync) | **GET** /tenants/{tenantId}/organizations | Retrieves a list of Organizations.
 *OrganizationsApi* | [**SyncOrganizationsAsync**](docs/OrganizationsApi.md#syncorganizationsasync) | **POST** /tenants/{tenantId}/organizations/sync | Syncs an Ed-Fi Admin instance's organizations into the Tenant's organizations.
 *OrganizationsApi* | [**UpdateOrganizationAsync**](docs/OrganizationsApi.md#updateorganizationasync) | **PUT** /tenants/{tenantId}/organizations/{organizationIdentifier} | Updates an Organization.
+*PartnershipsApi* | [**GetAllPartnerships**](docs/PartnershipsApi.md#getallpartnerships) | **GET** /tenants/{tenantId}/partnerships | Retrieves a list of Partnerships.
+*PartnershipsApi* | [**GetPartnershipById**](docs/PartnershipsApi.md#getpartnershipbyid) | **GET** /tenants/{tenantId}/partnerships/{partnershipId} | Retrieves a Partnership by ID.
 *StaffClassificationsApi* | [**CreateStaffClassification**](docs/StaffClassificationsApi.md#createstaffclassification) | **POST** /tenants/{tenantId}/staffclassifications | Creates a StaffClassification.
 *StaffClassificationsApi* | [**DeleteStaffClassification**](docs/StaffClassificationsApi.md#deletestaffclassification) | **DELETE** /tenants/{tenantId}/staffclassifications/{staffClassificationId} | Deletes a StaffClassification.
 *StaffClassificationsApi* | [**GetStaffClassificationById**](docs/StaffClassificationsApi.md#getstaffclassificationbyid) | **GET** /tenants/{tenantId}/staffclassifications/{staffClassificationId} | Retrieves a StaffClassification by ID.
@@ -204,6 +206,7 @@ Class | Method | HTTP request | Description
  - [Model.ApplicationApiApplicationV1UrlType](docs/ApplicationApiApplicationV1UrlType.md)
  - [Model.EdGraphCommonErrorsCoreProblemDetails](docs/EdGraphCommonErrorsCoreProblemDetails.md)
  - [Model.EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsCreateLocalUserRequest](docs/EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsCreateLocalUserRequest.md)
+ - [Model.EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsCreateOnboardingStepRequestDto](docs/EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsCreateOnboardingStepRequestDto.md)
  - [Model.EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsEducationOrganizationsAddEducationOrganizationRequest](docs/EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsEducationOrganizationsAddEducationOrganizationRequest.md)
  - [Model.EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsEducationOrganizationsUpdateEducationOrganizationRequest](docs/EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsEducationOrganizationsUpdateEducationOrganizationRequest.md)
  - [Model.EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsLicensesAssignLicenseBulkRequest](docs/EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsLicensesAssignLicenseBulkRequest.md)
@@ -219,6 +222,7 @@ Class | Method | HTTP request | Description
  - [Model.EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsTenantStatus](docs/EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsTenantStatus.md)
  - [Model.EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsTenantType](docs/EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsTenantType.md)
  - [Model.EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsUpdateTenantRequest](docs/EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsUpdateTenantRequest.md)
+ - [Model.EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsUpdateOnboardingStepRequestDto](docs/EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsUpdateOnboardingStepRequestDto.md)
  - [Model.EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesDomainListResponseDto](docs/EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesDomainListResponseDto.md)
  - [Model.EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesDomainListResponseDtoPaginatedItemsViewModel](docs/EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesDomainListResponseDtoPaginatedItemsViewModel.md)
  - [Model.EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesRole](docs/EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesRole.md)
@@ -288,14 +292,21 @@ Class | Method | HTTP request | Description
  - [Model.IdentityApiUserV1PasswordResettedResponse](docs/IdentityApiUserV1PasswordResettedResponse.md)
  - [Model.IdentityApiUserV1ResetPasswordRequest](docs/IdentityApiUserV1ResetPasswordRequest.md)
  - [Model.IdentityApiUserV1RevokeLicenseRequest](docs/IdentityApiUserV1RevokeLicenseRequest.md)
+ - [Model.IdentityApiUserV1RevokeStrategy](docs/IdentityApiUserV1RevokeStrategy.md)
  - [Model.IdentityApiUserV1UpdateUserRequest](docs/IdentityApiUserV1UpdateUserRequest.md)
  - [Model.IdentityApiUserV1UserActivatedResponse](docs/IdentityApiUserV1UserActivatedResponse.md)
  - [Model.IdentityApiUserV1UserDeactivatedResponse](docs/IdentityApiUserV1UserDeactivatedResponse.md)
  - [Model.IdentityApiUserV1UserTenantStatusProfile](docs/IdentityApiUserV1UserTenantStatusProfile.md)
  - [Model.IdentityApiUserV1UserUpdatedResponse](docs/IdentityApiUserV1UserUpdatedResponse.md)
  - [Model.MicrosoftAspNetCoreMvcValidationProblemDetails](docs/MicrosoftAspNetCoreMvcValidationProblemDetails.md)
+ - [Model.TenantApiPartnershipV1PaginatedItemsResponse](docs/TenantApiPartnershipV1PaginatedItemsResponse.md)
+ - [Model.TenantApiPartnershipV1ParternshipTenantResponse](docs/TenantApiPartnershipV1ParternshipTenantResponse.md)
+ - [Model.TenantApiPartnershipV1PartnershipByIdResponse](docs/TenantApiPartnershipV1PartnershipByIdResponse.md)
+ - [Model.TenantApiPartnershipV1PartnershipResponse](docs/TenantApiPartnershipV1PartnershipResponse.md)
+ - [Model.TenantApiPartnershipV1PartnershipSyncDTO](docs/TenantApiPartnershipV1PartnershipSyncDTO.md)
+ - [Model.TenantApiPartnershipV1PartnershipSyncType](docs/TenantApiPartnershipV1PartnershipSyncType.md)
+ - [Model.TenantApiPartnershipV1TenantType](docs/TenantApiPartnershipV1TenantType.md)
  - [Model.TenantApiTenantV1CreateDomainRequest](docs/TenantApiTenantV1CreateDomainRequest.md)
- - [Model.TenantApiTenantV1CreateOnboardingStepRequest](docs/TenantApiTenantV1CreateOnboardingStepRequest.md)
  - [Model.TenantApiTenantV1CreateOrganizationRequest](docs/TenantApiTenantV1CreateOrganizationRequest.md)
  - [Model.TenantApiTenantV1CreateSubscriptionRequest](docs/TenantApiTenantV1CreateSubscriptionRequest.md)
  - [Model.TenantApiTenantV1DomainCreatedResponse](docs/TenantApiTenantV1DomainCreatedResponse.md)
@@ -340,7 +351,6 @@ Class | Method | HTTP request | Description
  - [Model.TenantApiTenantV1TenantType](docs/TenantApiTenantV1TenantType.md)
  - [Model.TenantApiTenantV1TenantUpdatedResponse](docs/TenantApiTenantV1TenantUpdatedResponse.md)
  - [Model.TenantApiTenantV1UpdateDomainRequest](docs/TenantApiTenantV1UpdateDomainRequest.md)
- - [Model.TenantApiTenantV1UpdateOnboardingStepRequest](docs/TenantApiTenantV1UpdateOnboardingStepRequest.md)
  - [Model.TenantApiTenantV1UpdateOrganizationRequest](docs/TenantApiTenantV1UpdateOrganizationRequest.md)
  - [Model.TenantApiTenantV1UpdateSubscriptionRequest](docs/TenantApiTenantV1UpdateSubscriptionRequest.md)
  - [Model.TenantApiTenantV1VerifyDomainRequest](docs/TenantApiTenantV1VerifyDomainRequest.md)

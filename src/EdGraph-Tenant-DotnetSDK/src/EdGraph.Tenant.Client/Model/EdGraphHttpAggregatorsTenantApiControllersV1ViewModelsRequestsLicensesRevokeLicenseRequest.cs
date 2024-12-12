@@ -38,12 +38,14 @@ namespace EdGraph.Tenant.Client.Model
         /// <param name="subscriptionId">subscriptionId.</param>
         /// <param name="applicationId">applicationId.</param>
         /// <param name="userId">userId.</param>
-        public EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsLicensesRevokeLicenseRequest(string tenantId = default(string), string subscriptionId = default(string), string applicationId = default(string), string userId = default(string))
+        /// <param name="strategy">strategy.</param>
+        public EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsLicensesRevokeLicenseRequest(string tenantId = default(string), string subscriptionId = default(string), string applicationId = default(string), string userId = default(string), string strategy = default(string))
         {
             this.TenantId = tenantId;
             this.SubscriptionId = subscriptionId;
             this.ApplicationId = applicationId;
             this.UserId = userId;
+            this.Strategy = strategy;
         }
 
         /// <summary>
@@ -71,6 +73,12 @@ namespace EdGraph.Tenant.Client.Model
         public string UserId { get; set; }
 
         /// <summary>
+        /// Gets or Sets Strategy
+        /// </summary>
+        [DataMember(Name = "strategy", EmitDefaultValue = true)]
+        public string Strategy { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -82,6 +90,7 @@ namespace EdGraph.Tenant.Client.Model
             sb.Append("  SubscriptionId: ").Append(SubscriptionId).Append("\n");
             sb.Append("  ApplicationId: ").Append(ApplicationId).Append("\n");
             sb.Append("  UserId: ").Append(UserId).Append("\n");
+            sb.Append("  Strategy: ").Append(Strategy).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

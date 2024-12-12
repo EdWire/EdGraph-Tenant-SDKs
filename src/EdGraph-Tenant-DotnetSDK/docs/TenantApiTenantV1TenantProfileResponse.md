@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **TenantId** | **string** |  | [optional] 
-**TenantType** | **TenantApiTenantV1TenantType** |  | [optional] 
+**TenantTypes** | [**List&lt;TenantApiTenantV1TenantType&gt;**](TenantApiTenantV1TenantType.md) |  | [optional] [readonly] 
 **OrganizationIdentifier** | **string** |  | [optional] 
 **OrganizationName** | **string** |  | [optional] 
 **State** | **string** |  | [optional] 

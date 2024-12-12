@@ -26,24 +26,22 @@ using OpenAPIDateConverter = EdGraph.Tenant.Client.Client.OpenAPIDateConverter;
 namespace EdGraph.Tenant.Client.Model
 {
     /// <summary>
-    /// TenantApiTenantV1CreateOnboardingStepRequest
+    /// TenantApiPartnershipV1ParternshipTenantResponse
     /// </summary>
-    [DataContract(Name = "TenantApi.Tenant.V1.CreateOnboardingStepRequest")]
-    public partial class TenantApiTenantV1CreateOnboardingStepRequest : IValidatableObject
+    [DataContract(Name = "TenantApi.Partnership.V1.ParternshipTenantResponse")]
+    public partial class TenantApiPartnershipV1ParternshipTenantResponse : IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="TenantApiTenantV1CreateOnboardingStepRequest" /> class.
+        /// Initializes a new instance of the <see cref="TenantApiPartnershipV1ParternshipTenantResponse" /> class.
         /// </summary>
         /// <param name="tenantId">tenantId.</param>
-        /// <param name="number">number.</param>
-        /// <param name="description">description.</param>
-        /// <param name="status">status.</param>
-        public TenantApiTenantV1CreateOnboardingStepRequest(string tenantId = default(string), int number = default(int), string description = default(string), string status = default(string))
+        /// <param name="organizationIdentifier">organizationIdentifier.</param>
+        /// <param name="organizationName">organizationName.</param>
+        public TenantApiPartnershipV1ParternshipTenantResponse(string tenantId = default(string), string organizationIdentifier = default(string), string organizationName = default(string))
         {
             this.TenantId = tenantId;
-            this.Number = number;
-            this.Description = description;
-            this.Status = status;
+            this.OrganizationIdentifier = organizationIdentifier;
+            this.OrganizationName = organizationName;
         }
 
         /// <summary>
@@ -53,22 +51,30 @@ namespace EdGraph.Tenant.Client.Model
         public string TenantId { get; set; }
 
         /// <summary>
-        /// Gets or Sets Number
+        /// Gets or Sets TenantTypes
         /// </summary>
-        [DataMember(Name = "number", EmitDefaultValue = false)]
-        public int Number { get; set; }
+        [DataMember(Name = "tenantTypes", EmitDefaultValue = true)]
+        public List<TenantApiPartnershipV1TenantType> TenantTypes { get; private set; }
 
         /// <summary>
-        /// Gets or Sets Description
+        /// Returns false as TenantTypes should not be serialized given that it's read-only.
         /// </summary>
-        [DataMember(Name = "description", EmitDefaultValue = true)]
-        public string Description { get; set; }
+        /// <returns>false (boolean)</returns>
+        public bool ShouldSerializeTenantTypes()
+        {
+            return false;
+        }
+        /// <summary>
+        /// Gets or Sets OrganizationIdentifier
+        /// </summary>
+        [DataMember(Name = "organizationIdentifier", EmitDefaultValue = true)]
+        public string OrganizationIdentifier { get; set; }
 
         /// <summary>
-        /// Gets or Sets Status
+        /// Gets or Sets OrganizationName
         /// </summary>
-        [DataMember(Name = "status", EmitDefaultValue = true)]
-        public string Status { get; set; }
+        [DataMember(Name = "organizationName", EmitDefaultValue = true)]
+        public string OrganizationName { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -77,11 +83,11 @@ namespace EdGraph.Tenant.Client.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class TenantApiTenantV1CreateOnboardingStepRequest {\n");
+            sb.Append("class TenantApiPartnershipV1ParternshipTenantResponse {\n");
             sb.Append("  TenantId: ").Append(TenantId).Append("\n");
-            sb.Append("  Number: ").Append(Number).Append("\n");
-            sb.Append("  Description: ").Append(Description).Append("\n");
-            sb.Append("  Status: ").Append(Status).Append("\n");
+            sb.Append("  TenantTypes: ").Append(TenantTypes).Append("\n");
+            sb.Append("  OrganizationIdentifier: ").Append(OrganizationIdentifier).Append("\n");
+            sb.Append("  OrganizationName: ").Append(OrganizationName).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

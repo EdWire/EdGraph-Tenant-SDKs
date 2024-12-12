@@ -64,8 +64,8 @@ namespace EdGraph.Tenant.Client.Test.Api
             //string tenantId = null;
             //string? apiVersion = null;
             //string? xVersion = null;
-            //TenantApiTenantV1CreateOnboardingStepRequest? tenantApiTenantV1CreateOnboardingStepRequest = null;
-            //var response = instance.CreateOnboardingStepAsync(tenantId, apiVersion, xVersion, tenantApiTenantV1CreateOnboardingStepRequest);
+            //EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsCreateOnboardingStepRequestDto? edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsCreateOnboardingStepRequestDto = null;
+            //var response = instance.CreateOnboardingStepAsync(tenantId, apiVersion, xVersion, edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsCreateOnboardingStepRequestDto);
             //Assert.IsType<TenantApiTenantV1TenantUpdatedResponse>(response);
         }
 
@@ -80,8 +80,8 @@ namespace EdGraph.Tenant.Client.Test.Api
             //int stepNumber = null;
             //string? apiVersion = null;
             //string? xVersion = null;
-            //TenantApiTenantV1UpdateOnboardingStepRequest? tenantApiTenantV1UpdateOnboardingStepRequest = null;
-            //var response = instance.UpdateOnboardingStepAsync(tenantId, stepNumber, apiVersion, xVersion, tenantApiTenantV1UpdateOnboardingStepRequest);
+            //EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsUpdateOnboardingStepRequestDto? edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsUpdateOnboardingStepRequestDto = null;
+            //var response = instance.UpdateOnboardingStepAsync(tenantId, stepNumber, apiVersion, xVersion, edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsUpdateOnboardingStepRequestDto);
             //Assert.IsType<TenantApiTenantV1TenantUpdatedResponse>(response);
         }
     }

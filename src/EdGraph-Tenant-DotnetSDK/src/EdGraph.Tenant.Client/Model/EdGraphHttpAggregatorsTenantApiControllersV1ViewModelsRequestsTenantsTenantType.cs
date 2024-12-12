@@ -38,46 +38,52 @@ namespace EdGraph.Tenant.Client.Model
         Unknown,
 
         /// <summary>
+        /// Enum DataStandardGoverningBody for value: DataStandardGoverningBody
+        /// </summary>
+        [EnumMember(Value = "DataStandardGoverningBody")]
+        DataStandardGoverningBody,
+
+        /// <summary>
+        /// Enum EducationalServiceAgency for value: EducationalServiceAgency
+        /// </summary>
+        [EnumMember(Value = "EducationalServiceAgency")]
+        EducationalServiceAgency,
+
+        /// <summary>
+        /// Enum ImplementationPartner for value: ImplementationPartner
+        /// </summary>
+        [EnumMember(Value = "ImplementationPartner")]
+        ImplementationPartner,
+
+        /// <summary>
+        /// Enum IndependentSoftwareVendor for value: IndependentSoftwareVendor
+        /// </summary>
+        [EnumMember(Value = "IndependentSoftwareVendor")]
+        IndependentSoftwareVendor,
+
+        /// <summary>
         /// Enum Internal for value: Internal
         /// </summary>
         [EnumMember(Value = "Internal")]
         Internal,
 
         /// <summary>
-        /// Enum State for value: State
+        /// Enum LocalEducationAgency for value: LocalEducationAgency
         /// </summary>
-        [EnumMember(Value = "State")]
-        State,
+        [EnumMember(Value = "LocalEducationAgency")]
+        LocalEducationAgency,
 
         /// <summary>
-        /// Enum Collaborative for value: Collaborative
+        /// Enum ManagedServiceProvider for value: ManagedServiceProvider
         /// </summary>
-        [EnumMember(Value = "Collaborative")]
-        Collaborative,
+        [EnumMember(Value = "ManagedServiceProvider")]
+        ManagedServiceProvider,
 
         /// <summary>
-        /// Enum District for value: District
+        /// Enum StateEducationAgency for value: StateEducationAgency
         /// </summary>
-        [EnumMember(Value = "District")]
-        District,
-
-        /// <summary>
-        /// Enum Partner for value: Partner
-        /// </summary>
-        [EnumMember(Value = "Partner")]
-        Partner,
-
-        /// <summary>
-        /// Enum Teacher for value: Teacher
-        /// </summary>
-        [EnumMember(Value = "Teacher")]
-        Teacher,
-
-        /// <summary>
-        /// Enum Student for value: Student
-        /// </summary>
-        [EnumMember(Value = "Student")]
-        Student
+        [EnumMember(Value = "StateEducationAgency")]
+        StateEducationAgency
     }
 
 }

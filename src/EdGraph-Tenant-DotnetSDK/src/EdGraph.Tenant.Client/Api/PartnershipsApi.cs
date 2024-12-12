@@ -24,143 +24,151 @@ namespace EdGraph.Tenant.Client.Api
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
-    public interface IOnboardingStepsApiSync : IApiAccessor
+    public interface IPartnershipsApiSync : IApiAccessor
     {
         #region Synchronous Operations
         /// <summary>
-        /// Creates an Onboarding Step.
+        /// Retrieves a list of Partnerships.
         /// </summary>
         /// <exception cref="EdGraph.Tenant.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tenantId"></param>
+        /// <param name="pageIndex"> (optional, default to 0)</param>
+        /// <param name="pageSize"> (optional, default to 10)</param>
+        /// <param name="orderBy"> (optional, default to &quot;&quot;)</param>
+        /// <param name="filter"> (optional, default to &quot;&quot;)</param>
         /// <param name="apiVersion"> (optional)</param>
         /// <param name="xVersion"> (optional)</param>
-        /// <param name="edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsCreateOnboardingStepRequestDto"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>TenantApiTenantV1TenantUpdatedResponse</returns>
-        TenantApiTenantV1TenantUpdatedResponse CreateOnboardingStepAsync(string tenantId, string? apiVersion = default(string?), string? xVersion = default(string?), EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsCreateOnboardingStepRequestDto? edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsCreateOnboardingStepRequestDto = default(EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsCreateOnboardingStepRequestDto?), int operationIndex = 0);
+        /// <returns>TenantApiPartnershipV1PaginatedItemsResponse</returns>
+        TenantApiPartnershipV1PaginatedItemsResponse GetAllPartnerships(Guid tenantId, int? pageIndex = default(int?), int? pageSize = default(int?), string? orderBy = default(string?), string? filter = default(string?), string? apiVersion = default(string?), string? xVersion = default(string?), int operationIndex = 0);
 
         /// <summary>
-        /// Creates an Onboarding Step.
+        /// Retrieves a list of Partnerships.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="EdGraph.Tenant.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tenantId"></param>
+        /// <param name="pageIndex"> (optional, default to 0)</param>
+        /// <param name="pageSize"> (optional, default to 10)</param>
+        /// <param name="orderBy"> (optional, default to &quot;&quot;)</param>
+        /// <param name="filter"> (optional, default to &quot;&quot;)</param>
         /// <param name="apiVersion"> (optional)</param>
         /// <param name="xVersion"> (optional)</param>
-        /// <param name="edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsCreateOnboardingStepRequestDto"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of TenantApiTenantV1TenantUpdatedResponse</returns>
-        ApiResponse<TenantApiTenantV1TenantUpdatedResponse> CreateOnboardingStepAsyncWithHttpInfo(string tenantId, string? apiVersion = default(string?), string? xVersion = default(string?), EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsCreateOnboardingStepRequestDto? edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsCreateOnboardingStepRequestDto = default(EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsCreateOnboardingStepRequestDto?), int operationIndex = 0);
+        /// <returns>ApiResponse of TenantApiPartnershipV1PaginatedItemsResponse</returns>
+        ApiResponse<TenantApiPartnershipV1PaginatedItemsResponse> GetAllPartnershipsWithHttpInfo(Guid tenantId, int? pageIndex = default(int?), int? pageSize = default(int?), string? orderBy = default(string?), string? filter = default(string?), string? apiVersion = default(string?), string? xVersion = default(string?), int operationIndex = 0);
         /// <summary>
-        /// Updates the status of an Onboarding Step.
+        /// Retrieves a Partnership by ID.
         /// </summary>
         /// <exception cref="EdGraph.Tenant.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tenantId"></param>
-        /// <param name="stepNumber"></param>
+        /// <param name="partnershipId"></param>
         /// <param name="apiVersion"> (optional)</param>
         /// <param name="xVersion"> (optional)</param>
-        /// <param name="edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsUpdateOnboardingStepRequestDto"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>TenantApiTenantV1TenantUpdatedResponse</returns>
-        TenantApiTenantV1TenantUpdatedResponse UpdateOnboardingStepAsync(string tenantId, int stepNumber, string? apiVersion = default(string?), string? xVersion = default(string?), EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsUpdateOnboardingStepRequestDto? edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsUpdateOnboardingStepRequestDto = default(EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsUpdateOnboardingStepRequestDto?), int operationIndex = 0);
+        /// <returns>TenantApiPartnershipV1PartnershipByIdResponse</returns>
+        TenantApiPartnershipV1PartnershipByIdResponse GetPartnershipById(Guid tenantId, Guid partnershipId, string? apiVersion = default(string?), string? xVersion = default(string?), int operationIndex = 0);
 
         /// <summary>
-        /// Updates the status of an Onboarding Step.
+        /// Retrieves a Partnership by ID.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="EdGraph.Tenant.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tenantId"></param>
-        /// <param name="stepNumber"></param>
+        /// <param name="partnershipId"></param>
         /// <param name="apiVersion"> (optional)</param>
         /// <param name="xVersion"> (optional)</param>
-        /// <param name="edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsUpdateOnboardingStepRequestDto"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of TenantApiTenantV1TenantUpdatedResponse</returns>
-        ApiResponse<TenantApiTenantV1TenantUpdatedResponse> UpdateOnboardingStepAsyncWithHttpInfo(string tenantId, int stepNumber, string? apiVersion = default(string?), string? xVersion = default(string?), EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsUpdateOnboardingStepRequestDto? edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsUpdateOnboardingStepRequestDto = default(EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsUpdateOnboardingStepRequestDto?), int operationIndex = 0);
+        /// <returns>ApiResponse of TenantApiPartnershipV1PartnershipByIdResponse</returns>
+        ApiResponse<TenantApiPartnershipV1PartnershipByIdResponse> GetPartnershipByIdWithHttpInfo(Guid tenantId, Guid partnershipId, string? apiVersion = default(string?), string? xVersion = default(string?), int operationIndex = 0);
         #endregion Synchronous Operations
     }
 
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
-    public interface IOnboardingStepsApiAsync : IApiAccessor
+    public interface IPartnershipsApiAsync : IApiAccessor
     {
         #region Asynchronous Operations
         /// <summary>
-        /// Creates an Onboarding Step.
+        /// Retrieves a list of Partnerships.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="EdGraph.Tenant.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tenantId"></param>
+        /// <param name="pageIndex"> (optional, default to 0)</param>
+        /// <param name="pageSize"> (optional, default to 10)</param>
+        /// <param name="orderBy"> (optional, default to &quot;&quot;)</param>
+        /// <param name="filter"> (optional, default to &quot;&quot;)</param>
         /// <param name="apiVersion"> (optional)</param>
         /// <param name="xVersion"> (optional)</param>
-        /// <param name="edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsCreateOnboardingStepRequestDto"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of TenantApiTenantV1TenantUpdatedResponse</returns>
-        System.Threading.Tasks.Task<TenantApiTenantV1TenantUpdatedResponse> CreateOnboardingStepAsyncAsync(string tenantId, string? apiVersion = default(string?), string? xVersion = default(string?), EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsCreateOnboardingStepRequestDto? edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsCreateOnboardingStepRequestDto = default(EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsCreateOnboardingStepRequestDto?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of TenantApiPartnershipV1PaginatedItemsResponse</returns>
+        System.Threading.Tasks.Task<TenantApiPartnershipV1PaginatedItemsResponse> GetAllPartnershipsAsync(Guid tenantId, int? pageIndex = default(int?), int? pageSize = default(int?), string? orderBy = default(string?), string? filter = default(string?), string? apiVersion = default(string?), string? xVersion = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Creates an Onboarding Step.
+        /// Retrieves a list of Partnerships.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="EdGraph.Tenant.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tenantId"></param>
+        /// <param name="pageIndex"> (optional, default to 0)</param>
+        /// <param name="pageSize"> (optional, default to 10)</param>
+        /// <param name="orderBy"> (optional, default to &quot;&quot;)</param>
+        /// <param name="filter"> (optional, default to &quot;&quot;)</param>
         /// <param name="apiVersion"> (optional)</param>
         /// <param name="xVersion"> (optional)</param>
-        /// <param name="edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsCreateOnboardingStepRequestDto"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (TenantApiTenantV1TenantUpdatedResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<TenantApiTenantV1TenantUpdatedResponse>> CreateOnboardingStepAsyncWithHttpInfoAsync(string tenantId, string? apiVersion = default(string?), string? xVersion = default(string?), EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsCreateOnboardingStepRequestDto? edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsCreateOnboardingStepRequestDto = default(EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsCreateOnboardingStepRequestDto?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of ApiResponse (TenantApiPartnershipV1PaginatedItemsResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<TenantApiPartnershipV1PaginatedItemsResponse>> GetAllPartnershipsWithHttpInfoAsync(Guid tenantId, int? pageIndex = default(int?), int? pageSize = default(int?), string? orderBy = default(string?), string? filter = default(string?), string? apiVersion = default(string?), string? xVersion = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Updates the status of an Onboarding Step.
+        /// Retrieves a Partnership by ID.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="EdGraph.Tenant.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tenantId"></param>
-        /// <param name="stepNumber"></param>
+        /// <param name="partnershipId"></param>
         /// <param name="apiVersion"> (optional)</param>
         /// <param name="xVersion"> (optional)</param>
-        /// <param name="edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsUpdateOnboardingStepRequestDto"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of TenantApiTenantV1TenantUpdatedResponse</returns>
-        System.Threading.Tasks.Task<TenantApiTenantV1TenantUpdatedResponse> UpdateOnboardingStepAsyncAsync(string tenantId, int stepNumber, string? apiVersion = default(string?), string? xVersion = default(string?), EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsUpdateOnboardingStepRequestDto? edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsUpdateOnboardingStepRequestDto = default(EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsUpdateOnboardingStepRequestDto?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of TenantApiPartnershipV1PartnershipByIdResponse</returns>
+        System.Threading.Tasks.Task<TenantApiPartnershipV1PartnershipByIdResponse> GetPartnershipByIdAsync(Guid tenantId, Guid partnershipId, string? apiVersion = default(string?), string? xVersion = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Updates the status of an Onboarding Step.
+        /// Retrieves a Partnership by ID.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="EdGraph.Tenant.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tenantId"></param>
-        /// <param name="stepNumber"></param>
+        /// <param name="partnershipId"></param>
         /// <param name="apiVersion"> (optional)</param>
         /// <param name="xVersion"> (optional)</param>
-        /// <param name="edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsUpdateOnboardingStepRequestDto"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (TenantApiTenantV1TenantUpdatedResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<TenantApiTenantV1TenantUpdatedResponse>> UpdateOnboardingStepAsyncWithHttpInfoAsync(string tenantId, int stepNumber, string? apiVersion = default(string?), string? xVersion = default(string?), EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsUpdateOnboardingStepRequestDto? edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsUpdateOnboardingStepRequestDto = default(EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsUpdateOnboardingStepRequestDto?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of ApiResponse (TenantApiPartnershipV1PartnershipByIdResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<TenantApiPartnershipV1PartnershipByIdResponse>> GetPartnershipByIdWithHttpInfoAsync(Guid tenantId, Guid partnershipId, string? apiVersion = default(string?), string? xVersion = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
-    public interface IOnboardingStepsApi : IOnboardingStepsApiSync, IOnboardingStepsApiAsync
+    public interface IPartnershipsApi : IPartnershipsApiSync, IPartnershipsApiAsync
     {
 
     }
@@ -168,23 +176,23 @@ namespace EdGraph.Tenant.Client.Api
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
-    public partial class OnboardingStepsApi : IOnboardingStepsApi
+    public partial class PartnershipsApi : IPartnershipsApi
     {
         private EdGraph.Tenant.Client.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="OnboardingStepsApi"/> class.
+        /// Initializes a new instance of the <see cref="PartnershipsApi"/> class.
         /// </summary>
         /// <returns></returns>
-        public OnboardingStepsApi() : this((string)null)
+        public PartnershipsApi() : this((string)null)
         {
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="OnboardingStepsApi"/> class.
+        /// Initializes a new instance of the <see cref="PartnershipsApi"/> class.
         /// </summary>
         /// <returns></returns>
-        public OnboardingStepsApi(string basePath)
+        public PartnershipsApi(string basePath)
         {
             this.Configuration = EdGraph.Tenant.Client.Client.Configuration.MergeConfigurations(
                 EdGraph.Tenant.Client.Client.GlobalConfiguration.Instance,
@@ -196,12 +204,12 @@ namespace EdGraph.Tenant.Client.Api
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="OnboardingStepsApi"/> class
+        /// Initializes a new instance of the <see cref="PartnershipsApi"/> class
         /// using Configuration object
         /// </summary>
         /// <param name="configuration">An instance of Configuration</param>
         /// <returns></returns>
-        public OnboardingStepsApi(EdGraph.Tenant.Client.Client.Configuration configuration)
+        public PartnershipsApi(EdGraph.Tenant.Client.Client.Configuration configuration)
         {
             if (configuration == null) throw new ArgumentNullException("configuration");
 
@@ -215,13 +223,13 @@ namespace EdGraph.Tenant.Client.Api
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="OnboardingStepsApi"/> class
+        /// Initializes a new instance of the <see cref="PartnershipsApi"/> class
         /// using a Configuration object and client instance.
         /// </summary>
         /// <param name="client">The client interface for synchronous API access.</param>
         /// <param name="asyncClient">The client interface for asynchronous API access.</param>
         /// <param name="configuration">The configuration object.</param>
-        public OnboardingStepsApi(EdGraph.Tenant.Client.Client.ISynchronousClient client, EdGraph.Tenant.Client.Client.IAsynchronousClient asyncClient, EdGraph.Tenant.Client.Client.IReadableConfiguration configuration)
+        public PartnershipsApi(EdGraph.Tenant.Client.Client.ISynchronousClient client, EdGraph.Tenant.Client.Client.IAsynchronousClient asyncClient, EdGraph.Tenant.Client.Client.IReadableConfiguration configuration)
         {
             if (client == null) throw new ArgumentNullException("client");
             if (asyncClient == null) throw new ArgumentNullException("asyncClient");
@@ -275,46 +283,42 @@ namespace EdGraph.Tenant.Client.Api
         }
 
         /// <summary>
-        /// Creates an Onboarding Step. 
+        /// Retrieves a list of Partnerships. 
         /// </summary>
         /// <exception cref="EdGraph.Tenant.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tenantId"></param>
+        /// <param name="pageIndex"> (optional, default to 0)</param>
+        /// <param name="pageSize"> (optional, default to 10)</param>
+        /// <param name="orderBy"> (optional, default to &quot;&quot;)</param>
+        /// <param name="filter"> (optional, default to &quot;&quot;)</param>
         /// <param name="apiVersion"> (optional)</param>
         /// <param name="xVersion"> (optional)</param>
-        /// <param name="edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsCreateOnboardingStepRequestDto"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>TenantApiTenantV1TenantUpdatedResponse</returns>
-        public TenantApiTenantV1TenantUpdatedResponse CreateOnboardingStepAsync(string tenantId, string? apiVersion = default(string?), string? xVersion = default(string?), EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsCreateOnboardingStepRequestDto? edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsCreateOnboardingStepRequestDto = default(EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsCreateOnboardingStepRequestDto?), int operationIndex = 0)
+        /// <returns>TenantApiPartnershipV1PaginatedItemsResponse</returns>
+        public TenantApiPartnershipV1PaginatedItemsResponse GetAllPartnerships(Guid tenantId, int? pageIndex = default(int?), int? pageSize = default(int?), string? orderBy = default(string?), string? filter = default(string?), string? apiVersion = default(string?), string? xVersion = default(string?), int operationIndex = 0)
         {
-            EdGraph.Tenant.Client.Client.ApiResponse<TenantApiTenantV1TenantUpdatedResponse> localVarResponse = CreateOnboardingStepAsyncWithHttpInfo(tenantId, apiVersion, xVersion, edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsCreateOnboardingStepRequestDto);
+            EdGraph.Tenant.Client.Client.ApiResponse<TenantApiPartnershipV1PaginatedItemsResponse> localVarResponse = GetAllPartnershipsWithHttpInfo(tenantId, pageIndex, pageSize, orderBy, filter, apiVersion, xVersion);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Creates an Onboarding Step. 
+        /// Retrieves a list of Partnerships. 
         /// </summary>
         /// <exception cref="EdGraph.Tenant.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tenantId"></param>
+        /// <param name="pageIndex"> (optional, default to 0)</param>
+        /// <param name="pageSize"> (optional, default to 10)</param>
+        /// <param name="orderBy"> (optional, default to &quot;&quot;)</param>
+        /// <param name="filter"> (optional, default to &quot;&quot;)</param>
         /// <param name="apiVersion"> (optional)</param>
         /// <param name="xVersion"> (optional)</param>
-        /// <param name="edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsCreateOnboardingStepRequestDto"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of TenantApiTenantV1TenantUpdatedResponse</returns>
-        public EdGraph.Tenant.Client.Client.ApiResponse<TenantApiTenantV1TenantUpdatedResponse> CreateOnboardingStepAsyncWithHttpInfo(string tenantId, string? apiVersion = default(string?), string? xVersion = default(string?), EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsCreateOnboardingStepRequestDto? edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsCreateOnboardingStepRequestDto = default(EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsCreateOnboardingStepRequestDto?), int operationIndex = 0)
+        /// <returns>ApiResponse of TenantApiPartnershipV1PaginatedItemsResponse</returns>
+        public EdGraph.Tenant.Client.Client.ApiResponse<TenantApiPartnershipV1PaginatedItemsResponse> GetAllPartnershipsWithHttpInfo(Guid tenantId, int? pageIndex = default(int?), int? pageSize = default(int?), string? orderBy = default(string?), string? filter = default(string?), string? apiVersion = default(string?), string? xVersion = default(string?), int operationIndex = 0)
         {
-            // verify the required parameter 'tenantId' is set
-            if (tenantId == null)
-            {
-                throw new EdGraph.Tenant.Client.Client.ApiException(400, "Missing required parameter 'tenantId' when calling OnboardingStepsApi->CreateOnboardingStepAsync");
-            }
-
             EdGraph.Tenant.Client.Client.RequestOptions localVarRequestOptions = new EdGraph.Tenant.Client.Client.RequestOptions();
 
             string[] _contentTypes = new string[] {
-                "application/json-patch+json",
-                "application/json",
-                "text/json",
-                "application/*+json"
             };
 
             // to determine the Accept header
@@ -335,6 +339,22 @@ namespace EdGraph.Tenant.Client.Api
             }
 
             localVarRequestOptions.PathParameters.Add("tenantId", EdGraph.Tenant.Client.Client.ClientUtils.ParameterToString(tenantId)); // path parameter
+            if (pageIndex != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(EdGraph.Tenant.Client.Client.ClientUtils.ParameterToMultiMap("", "pageIndex", pageIndex));
+            }
+            if (pageSize != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(EdGraph.Tenant.Client.Client.ClientUtils.ParameterToMultiMap("", "pageSize", pageSize));
+            }
+            if (orderBy != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(EdGraph.Tenant.Client.Client.ClientUtils.ParameterToMultiMap("", "orderBy", orderBy));
+            }
+            if (filter != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(EdGraph.Tenant.Client.Client.ClientUtils.ParameterToMultiMap("", "filter", filter));
+            }
             if (apiVersion != null)
             {
                 localVarRequestOptions.QueryParameters.Add(EdGraph.Tenant.Client.Client.ClientUtils.ParameterToMultiMap("", "api-version", apiVersion));
@@ -343,9 +363,8 @@ namespace EdGraph.Tenant.Client.Api
             {
                 localVarRequestOptions.HeaderParameters.Add("X-version", EdGraph.Tenant.Client.Client.ClientUtils.ParameterToString(xVersion)); // header parameter
             }
-            localVarRequestOptions.Data = edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsCreateOnboardingStepRequestDto;
 
-            localVarRequestOptions.Operation = "OnboardingStepsApi.CreateOnboardingStepAsync";
+            localVarRequestOptions.Operation = "PartnershipsApi.GetAllPartnerships";
             localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (oauth2) required
@@ -366,10 +385,10 @@ namespace EdGraph.Tenant.Client.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Post<TenantApiTenantV1TenantUpdatedResponse>("/tenants/{tenantId}/onboardingsteps", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get<TenantApiPartnershipV1PaginatedItemsResponse>("/tenants/{tenantId}/partnerships", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("CreateOnboardingStepAsync", localVarResponse);
+                Exception _exception = this.ExceptionFactory("GetAllPartnerships", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
@@ -380,49 +399,45 @@ namespace EdGraph.Tenant.Client.Api
         }
 
         /// <summary>
-        /// Creates an Onboarding Step. 
+        /// Retrieves a list of Partnerships. 
         /// </summary>
         /// <exception cref="EdGraph.Tenant.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tenantId"></param>
+        /// <param name="pageIndex"> (optional, default to 0)</param>
+        /// <param name="pageSize"> (optional, default to 10)</param>
+        /// <param name="orderBy"> (optional, default to &quot;&quot;)</param>
+        /// <param name="filter"> (optional, default to &quot;&quot;)</param>
         /// <param name="apiVersion"> (optional)</param>
         /// <param name="xVersion"> (optional)</param>
-        /// <param name="edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsCreateOnboardingStepRequestDto"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of TenantApiTenantV1TenantUpdatedResponse</returns>
-        public async System.Threading.Tasks.Task<TenantApiTenantV1TenantUpdatedResponse> CreateOnboardingStepAsyncAsync(string tenantId, string? apiVersion = default(string?), string? xVersion = default(string?), EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsCreateOnboardingStepRequestDto? edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsCreateOnboardingStepRequestDto = default(EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsCreateOnboardingStepRequestDto?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of TenantApiPartnershipV1PaginatedItemsResponse</returns>
+        public async System.Threading.Tasks.Task<TenantApiPartnershipV1PaginatedItemsResponse> GetAllPartnershipsAsync(Guid tenantId, int? pageIndex = default(int?), int? pageSize = default(int?), string? orderBy = default(string?), string? filter = default(string?), string? apiVersion = default(string?), string? xVersion = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            EdGraph.Tenant.Client.Client.ApiResponse<TenantApiTenantV1TenantUpdatedResponse> localVarResponse = await CreateOnboardingStepAsyncWithHttpInfoAsync(tenantId, apiVersion, xVersion, edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsCreateOnboardingStepRequestDto, operationIndex, cancellationToken).ConfigureAwait(false);
+            EdGraph.Tenant.Client.Client.ApiResponse<TenantApiPartnershipV1PaginatedItemsResponse> localVarResponse = await GetAllPartnershipsWithHttpInfoAsync(tenantId, pageIndex, pageSize, orderBy, filter, apiVersion, xVersion, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Creates an Onboarding Step. 
+        /// Retrieves a list of Partnerships. 
         /// </summary>
         /// <exception cref="EdGraph.Tenant.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tenantId"></param>
+        /// <param name="pageIndex"> (optional, default to 0)</param>
+        /// <param name="pageSize"> (optional, default to 10)</param>
+        /// <param name="orderBy"> (optional, default to &quot;&quot;)</param>
+        /// <param name="filter"> (optional, default to &quot;&quot;)</param>
         /// <param name="apiVersion"> (optional)</param>
         /// <param name="xVersion"> (optional)</param>
-        /// <param name="edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsCreateOnboardingStepRequestDto"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (TenantApiTenantV1TenantUpdatedResponse)</returns>
-        public async System.Threading.Tasks.Task<EdGraph.Tenant.Client.Client.ApiResponse<TenantApiTenantV1TenantUpdatedResponse>> CreateOnboardingStepAsyncWithHttpInfoAsync(string tenantId, string? apiVersion = default(string?), string? xVersion = default(string?), EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsCreateOnboardingStepRequestDto? edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsCreateOnboardingStepRequestDto = default(EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsCreateOnboardingStepRequestDto?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of ApiResponse (TenantApiPartnershipV1PaginatedItemsResponse)</returns>
+        public async System.Threading.Tasks.Task<EdGraph.Tenant.Client.Client.ApiResponse<TenantApiPartnershipV1PaginatedItemsResponse>> GetAllPartnershipsWithHttpInfoAsync(Guid tenantId, int? pageIndex = default(int?), int? pageSize = default(int?), string? orderBy = default(string?), string? filter = default(string?), string? apiVersion = default(string?), string? xVersion = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            // verify the required parameter 'tenantId' is set
-            if (tenantId == null)
-            {
-                throw new EdGraph.Tenant.Client.Client.ApiException(400, "Missing required parameter 'tenantId' when calling OnboardingStepsApi->CreateOnboardingStepAsync");
-            }
-
 
             EdGraph.Tenant.Client.Client.RequestOptions localVarRequestOptions = new EdGraph.Tenant.Client.Client.RequestOptions();
 
             string[] _contentTypes = new string[] {
-                "application/json-patch+json", 
-                "application/json", 
-                "text/json", 
-                "application/*+json"
             };
 
             // to determine the Accept header
@@ -443,6 +458,22 @@ namespace EdGraph.Tenant.Client.Api
             }
 
             localVarRequestOptions.PathParameters.Add("tenantId", EdGraph.Tenant.Client.Client.ClientUtils.ParameterToString(tenantId)); // path parameter
+            if (pageIndex != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(EdGraph.Tenant.Client.Client.ClientUtils.ParameterToMultiMap("", "pageIndex", pageIndex));
+            }
+            if (pageSize != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(EdGraph.Tenant.Client.Client.ClientUtils.ParameterToMultiMap("", "pageSize", pageSize));
+            }
+            if (orderBy != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(EdGraph.Tenant.Client.Client.ClientUtils.ParameterToMultiMap("", "orderBy", orderBy));
+            }
+            if (filter != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(EdGraph.Tenant.Client.Client.ClientUtils.ParameterToMultiMap("", "filter", filter));
+            }
             if (apiVersion != null)
             {
                 localVarRequestOptions.QueryParameters.Add(EdGraph.Tenant.Client.Client.ClientUtils.ParameterToMultiMap("", "api-version", apiVersion));
@@ -451,9 +482,8 @@ namespace EdGraph.Tenant.Client.Api
             {
                 localVarRequestOptions.HeaderParameters.Add("X-version", EdGraph.Tenant.Client.Client.ClientUtils.ParameterToString(xVersion)); // header parameter
             }
-            localVarRequestOptions.Data = edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsCreateOnboardingStepRequestDto;
 
-            localVarRequestOptions.Operation = "OnboardingStepsApi.CreateOnboardingStepAsync";
+            localVarRequestOptions.Operation = "PartnershipsApi.GetAllPartnerships";
             localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (oauth2) required
@@ -474,11 +504,11 @@ namespace EdGraph.Tenant.Client.Api
             }
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.PostAsync<TenantApiTenantV1TenantUpdatedResponse>("/tenants/{tenantId}/onboardingsteps", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<TenantApiPartnershipV1PaginatedItemsResponse>("/tenants/{tenantId}/partnerships", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("CreateOnboardingStepAsync", localVarResponse);
+                Exception _exception = this.ExceptionFactory("GetAllPartnerships", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
@@ -489,48 +519,36 @@ namespace EdGraph.Tenant.Client.Api
         }
 
         /// <summary>
-        /// Updates the status of an Onboarding Step. 
+        /// Retrieves a Partnership by ID. 
         /// </summary>
         /// <exception cref="EdGraph.Tenant.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tenantId"></param>
-        /// <param name="stepNumber"></param>
+        /// <param name="partnershipId"></param>
         /// <param name="apiVersion"> (optional)</param>
         /// <param name="xVersion"> (optional)</param>
-        /// <param name="edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsUpdateOnboardingStepRequestDto"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>TenantApiTenantV1TenantUpdatedResponse</returns>
-        public TenantApiTenantV1TenantUpdatedResponse UpdateOnboardingStepAsync(string tenantId, int stepNumber, string? apiVersion = default(string?), string? xVersion = default(string?), EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsUpdateOnboardingStepRequestDto? edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsUpdateOnboardingStepRequestDto = default(EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsUpdateOnboardingStepRequestDto?), int operationIndex = 0)
+        /// <returns>TenantApiPartnershipV1PartnershipByIdResponse</returns>
+        public TenantApiPartnershipV1PartnershipByIdResponse GetPartnershipById(Guid tenantId, Guid partnershipId, string? apiVersion = default(string?), string? xVersion = default(string?), int operationIndex = 0)
         {
-            EdGraph.Tenant.Client.Client.ApiResponse<TenantApiTenantV1TenantUpdatedResponse> localVarResponse = UpdateOnboardingStepAsyncWithHttpInfo(tenantId, stepNumber, apiVersion, xVersion, edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsUpdateOnboardingStepRequestDto);
+            EdGraph.Tenant.Client.Client.ApiResponse<TenantApiPartnershipV1PartnershipByIdResponse> localVarResponse = GetPartnershipByIdWithHttpInfo(tenantId, partnershipId, apiVersion, xVersion);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Updates the status of an Onboarding Step. 
+        /// Retrieves a Partnership by ID. 
         /// </summary>
         /// <exception cref="EdGraph.Tenant.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tenantId"></param>
-        /// <param name="stepNumber"></param>
+        /// <param name="partnershipId"></param>
         /// <param name="apiVersion"> (optional)</param>
         /// <param name="xVersion"> (optional)</param>
-        /// <param name="edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsUpdateOnboardingStepRequestDto"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of TenantApiTenantV1TenantUpdatedResponse</returns>
-        public EdGraph.Tenant.Client.Client.ApiResponse<TenantApiTenantV1TenantUpdatedResponse> UpdateOnboardingStepAsyncWithHttpInfo(string tenantId, int stepNumber, string? apiVersion = default(string?), string? xVersion = default(string?), EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsUpdateOnboardingStepRequestDto? edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsUpdateOnboardingStepRequestDto = default(EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsUpdateOnboardingStepRequestDto?), int operationIndex = 0)
+        /// <returns>ApiResponse of TenantApiPartnershipV1PartnershipByIdResponse</returns>
+        public EdGraph.Tenant.Client.Client.ApiResponse<TenantApiPartnershipV1PartnershipByIdResponse> GetPartnershipByIdWithHttpInfo(Guid tenantId, Guid partnershipId, string? apiVersion = default(string?), string? xVersion = default(string?), int operationIndex = 0)
         {
-            // verify the required parameter 'tenantId' is set
-            if (tenantId == null)
-            {
-                throw new EdGraph.Tenant.Client.Client.ApiException(400, "Missing required parameter 'tenantId' when calling OnboardingStepsApi->UpdateOnboardingStepAsync");
-            }
-
             EdGraph.Tenant.Client.Client.RequestOptions localVarRequestOptions = new EdGraph.Tenant.Client.Client.RequestOptions();
 
             string[] _contentTypes = new string[] {
-                "application/json-patch+json",
-                "application/json",
-                "text/json",
-                "application/*+json"
             };
 
             // to determine the Accept header
@@ -551,7 +569,7 @@ namespace EdGraph.Tenant.Client.Api
             }
 
             localVarRequestOptions.PathParameters.Add("tenantId", EdGraph.Tenant.Client.Client.ClientUtils.ParameterToString(tenantId)); // path parameter
-            localVarRequestOptions.PathParameters.Add("stepNumber", EdGraph.Tenant.Client.Client.ClientUtils.ParameterToString(stepNumber)); // path parameter
+            localVarRequestOptions.PathParameters.Add("partnershipId", EdGraph.Tenant.Client.Client.ClientUtils.ParameterToString(partnershipId)); // path parameter
             if (apiVersion != null)
             {
                 localVarRequestOptions.QueryParameters.Add(EdGraph.Tenant.Client.Client.ClientUtils.ParameterToMultiMap("", "api-version", apiVersion));
@@ -560,9 +578,8 @@ namespace EdGraph.Tenant.Client.Api
             {
                 localVarRequestOptions.HeaderParameters.Add("X-version", EdGraph.Tenant.Client.Client.ClientUtils.ParameterToString(xVersion)); // header parameter
             }
-            localVarRequestOptions.Data = edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsUpdateOnboardingStepRequestDto;
 
-            localVarRequestOptions.Operation = "OnboardingStepsApi.UpdateOnboardingStepAsync";
+            localVarRequestOptions.Operation = "PartnershipsApi.GetPartnershipById";
             localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (oauth2) required
@@ -583,10 +600,10 @@ namespace EdGraph.Tenant.Client.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Put<TenantApiTenantV1TenantUpdatedResponse>("/tenants/{tenantId}/onboardingsteps/{stepNumber}", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get<TenantApiPartnershipV1PartnershipByIdResponse>("/tenants/{tenantId}/partnerships/{partnershipId}", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("UpdateOnboardingStepAsync", localVarResponse);
+                Exception _exception = this.ExceptionFactory("GetPartnershipById", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
@@ -597,51 +614,39 @@ namespace EdGraph.Tenant.Client.Api
         }
 
         /// <summary>
-        /// Updates the status of an Onboarding Step. 
+        /// Retrieves a Partnership by ID. 
         /// </summary>
         /// <exception cref="EdGraph.Tenant.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tenantId"></param>
-        /// <param name="stepNumber"></param>
+        /// <param name="partnershipId"></param>
         /// <param name="apiVersion"> (optional)</param>
         /// <param name="xVersion"> (optional)</param>
-        /// <param name="edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsUpdateOnboardingStepRequestDto"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of TenantApiTenantV1TenantUpdatedResponse</returns>
-        public async System.Threading.Tasks.Task<TenantApiTenantV1TenantUpdatedResponse> UpdateOnboardingStepAsyncAsync(string tenantId, int stepNumber, string? apiVersion = default(string?), string? xVersion = default(string?), EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsUpdateOnboardingStepRequestDto? edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsUpdateOnboardingStepRequestDto = default(EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsUpdateOnboardingStepRequestDto?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of TenantApiPartnershipV1PartnershipByIdResponse</returns>
+        public async System.Threading.Tasks.Task<TenantApiPartnershipV1PartnershipByIdResponse> GetPartnershipByIdAsync(Guid tenantId, Guid partnershipId, string? apiVersion = default(string?), string? xVersion = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            EdGraph.Tenant.Client.Client.ApiResponse<TenantApiTenantV1TenantUpdatedResponse> localVarResponse = await UpdateOnboardingStepAsyncWithHttpInfoAsync(tenantId, stepNumber, apiVersion, xVersion, edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsUpdateOnboardingStepRequestDto, operationIndex, cancellationToken).ConfigureAwait(false);
+            EdGraph.Tenant.Client.Client.ApiResponse<TenantApiPartnershipV1PartnershipByIdResponse> localVarResponse = await GetPartnershipByIdWithHttpInfoAsync(tenantId, partnershipId, apiVersion, xVersion, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Updates the status of an Onboarding Step. 
+        /// Retrieves a Partnership by ID. 
         /// </summary>
         /// <exception cref="EdGraph.Tenant.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tenantId"></param>
-        /// <param name="stepNumber"></param>
+        /// <param name="partnershipId"></param>
         /// <param name="apiVersion"> (optional)</param>
         /// <param name="xVersion"> (optional)</param>
-        /// <param name="edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsUpdateOnboardingStepRequestDto"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (TenantApiTenantV1TenantUpdatedResponse)</returns>
-        public async System.Threading.Tasks.Task<EdGraph.Tenant.Client.Client.ApiResponse<TenantApiTenantV1TenantUpdatedResponse>> UpdateOnboardingStepAsyncWithHttpInfoAsync(string tenantId, int stepNumber, string? apiVersion = default(string?), string? xVersion = default(string?), EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsUpdateOnboardingStepRequestDto? edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsUpdateOnboardingStepRequestDto = default(EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsUpdateOnboardingStepRequestDto?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of ApiResponse (TenantApiPartnershipV1PartnershipByIdResponse)</returns>
+        public async System.Threading.Tasks.Task<EdGraph.Tenant.Client.Client.ApiResponse<TenantApiPartnershipV1PartnershipByIdResponse>> GetPartnershipByIdWithHttpInfoAsync(Guid tenantId, Guid partnershipId, string? apiVersion = default(string?), string? xVersion = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            // verify the required parameter 'tenantId' is set
-            if (tenantId == null)
-            {
-                throw new EdGraph.Tenant.Client.Client.ApiException(400, "Missing required parameter 'tenantId' when calling OnboardingStepsApi->UpdateOnboardingStepAsync");
-            }
-
 
             EdGraph.Tenant.Client.Client.RequestOptions localVarRequestOptions = new EdGraph.Tenant.Client.Client.RequestOptions();
 
             string[] _contentTypes = new string[] {
-                "application/json-patch+json", 
-                "application/json", 
-                "text/json", 
-                "application/*+json"
             };
 
             // to determine the Accept header
@@ -662,7 +667,7 @@ namespace EdGraph.Tenant.Client.Api
             }
 
             localVarRequestOptions.PathParameters.Add("tenantId", EdGraph.Tenant.Client.Client.ClientUtils.ParameterToString(tenantId)); // path parameter
-            localVarRequestOptions.PathParameters.Add("stepNumber", EdGraph.Tenant.Client.Client.ClientUtils.ParameterToString(stepNumber)); // path parameter
+            localVarRequestOptions.PathParameters.Add("partnershipId", EdGraph.Tenant.Client.Client.ClientUtils.ParameterToString(partnershipId)); // path parameter
             if (apiVersion != null)
             {
                 localVarRequestOptions.QueryParameters.Add(EdGraph.Tenant.Client.Client.ClientUtils.ParameterToMultiMap("", "api-version", apiVersion));
@@ -671,9 +676,8 @@ namespace EdGraph.Tenant.Client.Api
             {
                 localVarRequestOptions.HeaderParameters.Add("X-version", EdGraph.Tenant.Client.Client.ClientUtils.ParameterToString(xVersion)); // header parameter
             }
-            localVarRequestOptions.Data = edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsUpdateOnboardingStepRequestDto;
 
-            localVarRequestOptions.Operation = "OnboardingStepsApi.UpdateOnboardingStepAsync";
+            localVarRequestOptions.Operation = "PartnershipsApi.GetPartnershipById";
             localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (oauth2) required
@@ -694,11 +698,11 @@ namespace EdGraph.Tenant.Client.Api
             }
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.PutAsync<TenantApiTenantV1TenantUpdatedResponse>("/tenants/{tenantId}/onboardingsteps/{stepNumber}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<TenantApiPartnershipV1PartnershipByIdResponse>("/tenants/{tenantId}/partnerships/{partnershipId}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("UpdateOnboardingStepAsync", localVarResponse);
+                Exception _exception = this.ExceptionFactory("GetPartnershipById", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;

@@ -40,6 +40,8 @@ namespace EdGraph.Tenant.Client.Model
         /// <param name="tenantSubscriptionStartDateTime">The Tenant subscription start date.</param>
         /// <param name="tenantSubscriptionEndDateTime">The Tenant subscription end date.</param>
         /// <param name="tenantSubscriptionActualEndDateTime">The Tenant subscription end date.</param>
+        /// <param name="tenantSubscriptionDeletedAt">The Tenant subscription deleted date.</param>
+        /// <param name="tenantSubscriptionGracePeriod">The Tenant subscription grace period value.</param>
         /// <param name="numberOfLicenses">The Tenant&#39;s number of licenses.</param>
         /// <param name="assignedLicenses">The Tenant&#39;s assigned of licenses.</param>
         /// <param name="isUserLicensed">The user is assigned license for this application.</param>
@@ -47,7 +49,7 @@ namespace EdGraph.Tenant.Client.Model
         /// <param name="applicationId">The application Id of the application for license.</param>
         /// <param name="applicationName">The application Name of the application for license.</param>
         /// <param name="applicationRole">Application role for this user..</param>
-        public EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesUserLicense(string subscriptionTenantId = default(string), bool isTenantSubscribed = default(bool), string tenantSubscriptionId = default(string), string tenantSubscriptionStartDateTime = default(string), string tenantSubscriptionEndDateTime = default(string), string tenantSubscriptionActualEndDateTime = default(string), int numberOfLicenses = default(int), int assignedLicenses = default(int), bool isUserLicensed = default(bool), string applicationTenantId = default(string), string applicationId = default(string), string applicationName = default(string), List<EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesApplicationRole> applicationRole = default(List<EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesApplicationRole>))
+        public EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesUserLicense(string subscriptionTenantId = default(string), bool isTenantSubscribed = default(bool), string tenantSubscriptionId = default(string), string tenantSubscriptionStartDateTime = default(string), string tenantSubscriptionEndDateTime = default(string), string tenantSubscriptionActualEndDateTime = default(string), string tenantSubscriptionDeletedAt = default(string), int tenantSubscriptionGracePeriod = default(int), int numberOfLicenses = default(int), int assignedLicenses = default(int), bool isUserLicensed = default(bool), string applicationTenantId = default(string), string applicationId = default(string), string applicationName = default(string), List<EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesApplicationRole> applicationRole = default(List<EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesApplicationRole>))
         {
             this.SubscriptionTenantId = subscriptionTenantId;
             this.IsTenantSubscribed = isTenantSubscribed;
@@ -55,6 +57,8 @@ namespace EdGraph.Tenant.Client.Model
             this.TenantSubscriptionStartDateTime = tenantSubscriptionStartDateTime;
             this.TenantSubscriptionEndDateTime = tenantSubscriptionEndDateTime;
             this.TenantSubscriptionActualEndDateTime = tenantSubscriptionActualEndDateTime;
+            this.TenantSubscriptionDeletedAt = tenantSubscriptionDeletedAt;
+            this.TenantSubscriptionGracePeriod = tenantSubscriptionGracePeriod;
             this.NumberOfLicenses = numberOfLicenses;
             this.AssignedLicenses = assignedLicenses;
             this.IsUserLicensed = isUserLicensed;
@@ -105,6 +109,20 @@ namespace EdGraph.Tenant.Client.Model
         /// <value>The Tenant subscription end date</value>
         [DataMember(Name = "tenantSubscriptionActualEndDateTime", EmitDefaultValue = true)]
         public string TenantSubscriptionActualEndDateTime { get; set; }
+
+        /// <summary>
+        /// The Tenant subscription deleted date
+        /// </summary>
+        /// <value>The Tenant subscription deleted date</value>
+        [DataMember(Name = "tenantSubscriptionDeletedAt", EmitDefaultValue = true)]
+        public string TenantSubscriptionDeletedAt { get; set; }
+
+        /// <summary>
+        /// The Tenant subscription grace period value
+        /// </summary>
+        /// <value>The Tenant subscription grace period value</value>
+        [DataMember(Name = "tenantSubscriptionGracePeriod", EmitDefaultValue = false)]
+        public int TenantSubscriptionGracePeriod { get; set; }
 
         /// <summary>
         /// The Tenant&#39;s number of licenses
@@ -169,6 +187,8 @@ namespace EdGraph.Tenant.Client.Model
             sb.Append("  TenantSubscriptionStartDateTime: ").Append(TenantSubscriptionStartDateTime).Append("\n");
             sb.Append("  TenantSubscriptionEndDateTime: ").Append(TenantSubscriptionEndDateTime).Append("\n");
             sb.Append("  TenantSubscriptionActualEndDateTime: ").Append(TenantSubscriptionActualEndDateTime).Append("\n");
+            sb.Append("  TenantSubscriptionDeletedAt: ").Append(TenantSubscriptionDeletedAt).Append("\n");
+            sb.Append("  TenantSubscriptionGracePeriod: ").Append(TenantSubscriptionGracePeriod).Append("\n");
             sb.Append("  NumberOfLicenses: ").Append(NumberOfLicenses).Append("\n");
             sb.Append("  AssignedLicenses: ").Append(AssignedLicenses).Append("\n");
             sb.Append("  IsUserLicensed: ").Append(IsUserLicensed).Append("\n");
